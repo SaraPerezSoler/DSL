@@ -62,5 +62,19 @@ public class Packages {
 		return result;
 	}
 	
-	//public Result<PackageDeclaration> noEmpty (ArrayList<PackageDeclaration> list)
+	public Result<PackageDeclaration> JavaDoc (ArrayList<PackageDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.packages;
+		}
+		Result<PackageDeclaration> result= new Result<PackageDeclaration>(jdp.generateStringPropertie());
+		
+		for (PackageDeclaration p:list){
+			if (jdp.javaDoc(p.getJavadoc())){
+				result.addRight(p);
+			}else{
+				result.addRight(p);
+			}
+		}
+		return result;
+	}
 }

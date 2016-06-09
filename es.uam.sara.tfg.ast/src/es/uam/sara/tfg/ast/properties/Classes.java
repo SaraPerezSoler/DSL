@@ -138,5 +138,21 @@ public class Classes {
 		}
 		return result;
 	}
-	 
+	
+	
+	public Result<TypeDeclaration> JavaDoc (ArrayList<TypeDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.classes;
+		}
+		Result<TypeDeclaration> result= new Result<TypeDeclaration>(jdp.generateStringPropertie());
+		
+		for (TypeDeclaration c:list){
+			if (jdp.javaDoc(c.getJavadoc())){
+				result.addRight(c);
+			}else{
+				result.addRight(c);
+			}
+		}
+		return result;
+	}
 }

@@ -79,4 +79,20 @@ public class Interfaces {
 		}
 		return result;
 	}
+	
+	public Result<TypeDeclaration> JavaDoc (ArrayList<TypeDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.interfaces;
+		}
+		Result<TypeDeclaration> result= new Result<TypeDeclaration>(jdp.generateStringPropertie());
+		
+		for (TypeDeclaration i:list){
+			if (jdp.javaDoc(i.getJavadoc())){
+				result.addRight(i);
+			}else{
+				result.addRight(i);
+			}
+		}
+		return result;
+	}
 }

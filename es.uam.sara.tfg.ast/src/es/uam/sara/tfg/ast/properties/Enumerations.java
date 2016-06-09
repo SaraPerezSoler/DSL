@@ -78,4 +78,20 @@ public class Enumerations {
 		}
 		return result;
 	}
+	
+	public Result<EnumDeclaration> JavaDoc (ArrayList<EnumDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.enumerations;
+		}
+		Result<EnumDeclaration> result= new Result<EnumDeclaration>(jdp.generateStringPropertie());
+		
+		for (EnumDeclaration e:list){
+			if (jdp.javaDoc(e.getJavadoc())){
+				result.addRight(e);
+			}else{
+				result.addRight(e);
+			}
+		}
+		return result;
+	}
 }

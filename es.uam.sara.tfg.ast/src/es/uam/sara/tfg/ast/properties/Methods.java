@@ -147,4 +147,21 @@ public class Methods {
 		
 		return result;
 	}
+	
+	
+	public Result<MethodDeclaration> JavaDoc (ArrayList<MethodDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.methods;
+		}
+		Result<MethodDeclaration> result= new Result<MethodDeclaration>(jdp.generateStringPropertie());
+		
+		for (MethodDeclaration m:list){
+			if (jdp.javaDoc(m.getJavadoc())){
+				result.addRight(m);
+			}else{
+				result.addRight(m);
+			}
+		}
+		return result;
+	}
 }

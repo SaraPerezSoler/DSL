@@ -107,4 +107,20 @@ public class Attributes{
 		}
 		return result;
 	}
+	
+	public Result<FieldDeclaration> JavaDoc (ArrayList<FieldDeclaration> list, JavaDocPropertie jdp){
+		if (list==null){
+			list=this.attribuites;
+		}
+		Result<FieldDeclaration> result= new Result<FieldDeclaration>(jdp.generateStringPropertie());
+		
+		for (FieldDeclaration a:list){
+			if (jdp.javaDoc(a.getJavadoc())){
+				result.addRight(a);
+			}else{
+				result.addRight(a);
+			}
+		}
+		return result;
+	}
 }
