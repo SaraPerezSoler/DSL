@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRuleParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Project Name:'", "';'", "'no'", "'satisfy'", "'where'", "'('", "')'", "'or'", "'and'", "'is inheritor'", "'max level='", "'implements interface'", "'max interface'", "'is extends'", "'use constant'", "'variables'", "'right position'", "'and '", "'initialized'", "'number of parameters ='", "'and types='", "','", "'is constructor'", "'return type='", "'attribute type='", "'is initialized'", "'no empty'", "'type name ='", "'and name '", "'name '", "'and type name ='", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers: '", "'and static'", "'and final'", "'and abstract'", "'and synchronized'", "'static'", "'final'", "'abstract'", "'synchronized'", "'-'", "'check'", "'correct'", "'one'", "'exists'", "'all'", "'package'", "'class'", "'interface'", "'enum'", "'method'", "'attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'Default'", "'Public'", "'Protected'", "'Private'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Project Name:'", "';'", "'no'", "'satisfy'", "'which'", "'('", "')'", "'or'", "'and'", "'is inheritor'", "'max level='", "'implements interface'", "'max interface='", "'is extends'", "'use constant'", "'variables'", "'right position'", "'and '", "'initialized'", "'number of parameters ='", "'and types='", "','", "'is constructor'", "'return type='", "'attribute type='", "'is initialized'", "'no empty'", "'type name ='", "'and name '", "'name '", "'and type name ='", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers: '", "'and static'", "'and final'", "'and abstract'", "'and synchronized'", "'static'", "'final'", "'abstract'", "'synchronized'", "'-'", "'check'", "'correct'", "'one'", "'exists'", "'all'", "'package'", "'class'", "'interface'", "'enum'", "'method'", "'attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'Public'", "'Protected'", "'Private'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -92,7 +92,6 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
     public static final int T__80=80;
     public static final int T__81=81;
     public static final int T__82=82;
-    public static final int T__83=83;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__48=48;
@@ -752,7 +751,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElement"
-    // InternalJRule.g:309:1: ruleElement returns [EObject current=null] : ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )? ) ;
+    // InternalJRule.g:309:1: ruleElement returns [EObject current=null] : ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )? ) ;
     public final EObject ruleElement() throws RecognitionException {
         EObject current = null;
 
@@ -766,11 +765,11 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRule.g:315:2: ( ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )? ) )
-            // InternalJRule.g:316:2: ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )? )
+            // InternalJRule.g:315:2: ( ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )? ) )
+            // InternalJRule.g:316:2: ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )? )
             {
-            // InternalJRule.g:316:2: ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )? )
-            // InternalJRule.g:317:3: ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )?
+            // InternalJRule.g:316:2: ( ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )? )
+            // InternalJRule.g:317:3: ( (lv_element_0_0= ruleElementJava ) ) (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )?
             {
             // InternalJRule.g:317:3: ( (lv_element_0_0= ruleElementJava ) )
             // InternalJRule.g:318:4: (lv_element_0_0= ruleElementJava )
@@ -803,7 +802,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJRule.g:336:3: (otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) ) )?
+            // InternalJRule.g:336:3: (otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -812,11 +811,11 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalJRule.g:337:4: otherlv_1= 'where' ( (lv_filter_2_0= ruleOr ) )
+                    // InternalJRule.g:337:4: otherlv_1= 'which' ( (lv_filter_2_0= ruleOr ) )
                     {
                     otherlv_1=(Token)match(input,15,FOLLOW_10); 
 
-                    				newLeafNode(otherlv_1, grammarAccess.getElementAccess().getWhereKeyword_1_0());
+                    				newLeafNode(otherlv_1, grammarAccess.getElementAccess().getWhichKeyword_1_0());
                     			
                     // InternalJRule.g:341:4: ( (lv_filter_2_0= ruleOr ) )
                     // InternalJRule.g:342:5: (lv_filter_2_0= ruleOr )
@@ -1945,7 +1944,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImplements"
-    // InternalJRule.g:744:1: ruleImplements returns [EObject current=null] : ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? ) ;
+    // InternalJRule.g:744:1: ruleImplements returns [EObject current=null] : ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? ) ;
     public final EObject ruleImplements() throws RecognitionException {
         EObject current = null;
 
@@ -1958,11 +1957,11 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRule.g:750:2: ( ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? ) )
-            // InternalJRule.g:751:2: ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? )
+            // InternalJRule.g:750:2: ( ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? ) )
+            // InternalJRule.g:751:2: ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? )
             {
-            // InternalJRule.g:751:2: ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? )
-            // InternalJRule.g:752:3: () otherlv_1= 'implements interface' (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )?
+            // InternalJRule.g:751:2: ( () otherlv_1= 'implements interface' (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )? )
+            // InternalJRule.g:752:3: () otherlv_1= 'implements interface' (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )?
             {
             // InternalJRule.g:752:3: ()
             // InternalJRule.g:753:4: 
@@ -1979,7 +1978,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getImplementsAccess().getImplementsInterfaceKeyword_1());
             		
-            // InternalJRule.g:763:3: (otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )?
+            // InternalJRule.g:763:3: (otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1988,7 +1987,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJRule.g:764:4: otherlv_2= 'max interface' ( (lv_maxInterface_3_0= ruleEBigInteger ) )
+                    // InternalJRule.g:764:4: otherlv_2= 'max interface=' ( (lv_maxInterface_3_0= ruleEBigInteger ) )
                     {
                     otherlv_2=(Token)match(input,23,FOLLOW_19); 
 
@@ -4272,7 +4271,6 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
             case 80:
             case 81:
             case 82:
-            case 83:
                 {
                 alt36=1;
                 }
@@ -5688,24 +5686,23 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAccessModifier"
-    // InternalJRule.g:2141:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) ) ;
+    // InternalJRule.g:2141:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'Public' ) | (enumLiteral_1= 'Protected' ) | (enumLiteral_2= 'Private' ) ) ;
     public final Enumerator ruleAccessModifier() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
-        Token enumLiteral_3=null;
 
 
         	enterRule();
 
         try {
-            // InternalJRule.g:2147:2: ( ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) ) )
-            // InternalJRule.g:2148:2: ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) )
+            // InternalJRule.g:2147:2: ( ( (enumLiteral_0= 'Public' ) | (enumLiteral_1= 'Protected' ) | (enumLiteral_2= 'Private' ) ) )
+            // InternalJRule.g:2148:2: ( (enumLiteral_0= 'Public' ) | (enumLiteral_1= 'Protected' ) | (enumLiteral_2= 'Private' ) )
             {
-            // InternalJRule.g:2148:2: ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) )
-            int alt44=4;
+            // InternalJRule.g:2148:2: ( (enumLiteral_0= 'Public' ) | (enumLiteral_1= 'Protected' ) | (enumLiteral_2= 'Private' ) )
+            int alt44=3;
             switch ( input.LA(1) ) {
             case 80:
                 {
@@ -5722,11 +5719,6 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
                 alt44=3;
                 }
                 break;
-            case 83:
-                {
-                alt44=4;
-                }
-                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 44, 0, input);
@@ -5736,15 +5728,15 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
 
             switch (alt44) {
                 case 1 :
-                    // InternalJRule.g:2149:3: (enumLiteral_0= 'Default' )
+                    // InternalJRule.g:2149:3: (enumLiteral_0= 'Public' )
                     {
-                    // InternalJRule.g:2149:3: (enumLiteral_0= 'Default' )
-                    // InternalJRule.g:2150:4: enumLiteral_0= 'Default'
+                    // InternalJRule.g:2149:3: (enumLiteral_0= 'Public' )
+                    // InternalJRule.g:2150:4: enumLiteral_0= 'Public'
                     {
                     enumLiteral_0=(Token)match(input,80,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -5753,15 +5745,15 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRule.g:2157:3: (enumLiteral_1= 'Public' )
+                    // InternalJRule.g:2157:3: (enumLiteral_1= 'Protected' )
                     {
-                    // InternalJRule.g:2157:3: (enumLiteral_1= 'Public' )
-                    // InternalJRule.g:2158:4: enumLiteral_1= 'Public'
+                    // InternalJRule.g:2157:3: (enumLiteral_1= 'Protected' )
+                    // InternalJRule.g:2158:4: enumLiteral_1= 'Protected'
                     {
                     enumLiteral_1=(Token)match(input,81,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -5770,32 +5762,15 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRule.g:2165:3: (enumLiteral_2= 'Protected' )
+                    // InternalJRule.g:2165:3: (enumLiteral_2= 'Private' )
                     {
-                    // InternalJRule.g:2165:3: (enumLiteral_2= 'Protected' )
-                    // InternalJRule.g:2166:4: enumLiteral_2= 'Protected'
+                    // InternalJRule.g:2165:3: (enumLiteral_2= 'Private' )
+                    // InternalJRule.g:2166:4: enumLiteral_2= 'Private'
                     {
                     enumLiteral_2=(Token)match(input,82,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalJRule.g:2173:3: (enumLiteral_3= 'Private' )
-                    {
-                    // InternalJRule.g:2173:3: (enumLiteral_3= 'Private' )
-                    // InternalJRule.g:2174:4: enumLiteral_3= 'Private'
-                    {
-                    enumLiteral_3=(Token)match(input,83,FOLLOW_2); 
-
-                    				current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -5867,7 +5842,7 @@ public class InternalJRuleParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0001000000000002L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0004000000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x1E00000000000000L,0x00000000000F0000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x1E00000000000000L,0x0000000000070000L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x01E0000000000002L});
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x01C0000000000002L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0180000000000002L});

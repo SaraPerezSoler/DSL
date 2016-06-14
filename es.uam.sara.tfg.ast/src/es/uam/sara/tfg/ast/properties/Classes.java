@@ -1,6 +1,8 @@
 package es.uam.sara.tfg.ast.properties;
 
 import java.util.ArrayList;
+
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.ast.properties.Name.Idioma;
 import es.uam.sara.tfg.ast.properties.Name.Type;
@@ -151,6 +153,28 @@ public class Classes {
 				result.addRight(c);
 			}else{
 				result.addRight(c);
+			}
+		}
+		return result;
+	}
+	
+	public Result<TypeDeclaration> Modifiers(ArrayList<TypeDeclaration> list, Modifiers m){
+		if (list==null){
+			list=this.classes;
+		}
+		Result<TypeDeclaration> result= new Result<TypeDeclaration>("");
+		
+		for (TypeDeclaration c:list){
+			ArrayList<Modifier> mList=new ArrayList<Modifier>();
+			for (Object o:c.modifiers()){
+				if (o instanceof Modifier){
+					mList.add((Modifier) o);
+				}
+			}
+			if (m.modifiers(mList)){
+				result.addRight(c);
+			}else{
+				result.addWrong(c);
 			}
 		}
 		return result;

@@ -1151,27 +1151,21 @@ rule__AccessModifier__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0()); }
-		('Default')
-		{ after(grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1()); }
+		{ before(grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0()); }
 		('Public')
-		{ after(grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1()); }
+		{ after(grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2()); }
+		{ before(grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1()); }
 		('Protected')
-		{ after(grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2()); }
+		{ after(grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2()); }
 		('Private')
-		{ after(grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3()); }
+		{ after(grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2()); }
 	)
 ;
 finally {
@@ -1601,9 +1595,9 @@ rule__Element__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getElementAccess().getWhereKeyword_1_0()); }
-	'where'
-	{ after(grammarAccess.getElementAccess().getWhereKeyword_1_0()); }
+	{ before(grammarAccess.getElementAccess().getWhichKeyword_1_0()); }
+	'which'
+	{ after(grammarAccess.getElementAccess().getWhichKeyword_1_0()); }
 )
 ;
 finally {
@@ -2203,7 +2197,7 @@ rule__Implements__Group_2__0__Impl
 :
 (
 	{ before(grammarAccess.getImplementsAccess().getMaxInterfaceKeyword_2_0()); }
-	'max interface'
+	'max interface='
 	{ after(grammarAccess.getImplementsAccess().getMaxInterfaceKeyword_2_0()); }
 )
 ;

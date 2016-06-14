@@ -121,7 +121,7 @@ BlendModifiers returns BlendModifiers:
 	(abstract?='abstract' (synchronized?='and synchronized')?)| synchronized?='synchronized';
 
 enum AccessModifier returns AccessModifier:
-	Default = 'Default' | Public = 'Public' | Protected = 'Protected' | Private = 'Private';
+	Public = 'Public' | Protected = 'Protected' | Private = 'Private';
 
 EBigInteger returns ecore::EBigInteger:
 	'-'? INT;

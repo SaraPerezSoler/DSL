@@ -1,32 +1,31 @@
-'('=37
-')'=38
-','=50
-'-'=65
-';'=34
-'@author'=70
-'@parameter'=71
-'@return'=72
-'@see'=75
-'@throws'=74
-'@version'=73
-'Default'=29
-'JavaDoc'=60
-'Private'=32
-'Project Name:'=33
-'Protected'=31
-'Public'=30
-'abstract'=82
+'('=36
+')'=37
+','=49
+'-'=64
+';'=33
+'@author'=69
+'@parameter'=70
+'@return'=71
+'@see'=74
+'@throws'=73
+'@version'=72
+'JavaDoc'=59
+'Private'=31
+'Project Name:'=32
+'Protected'=30
+'Public'=29
+'abstract'=81
 'all'=15
-'and '=47
-'and abstract'=78
-'and final'=77
-'and name '=57
-'and static'=76
-'and synchronized'=79
-'and type name ='=59
-'and types='=49
-'and'=40
-'attribute type='=53
+'and '=46
+'and abstract'=77
+'and final'=76
+'and name '=56
+'and static'=75
+'and synchronized'=78
+'and type name ='=58
+'and types='=48
+'and'=39
+'attribute type='=52
 'attribute'=21
 'check'=11
 'class'=17
@@ -34,43 +33,43 @@
 'enum'=19
 'equal'=28
 'exists'=14
-'final'=81
-'have'=61
-'implements interface'=43
-'initialized'=69
+'final'=80
+'have'=60
+'implements interface'=42
+'initialized'=68
 'interface'=18
-'is constructor'=51
-'is extends'=67
-'is inheritor'=41
-'is initialized'=54
+'is constructor'=50
+'is extends'=66
+'is inheritor'=40
+'is initialized'=53
 'like'=27
 'lowerCamelCase'=25
 'lowerCase'=23
-'max interface'=44
-'max level='=42
+'max interface='=43
+'max level='=41
 'method'=20
-'modifiers: '=64
-'name '=58
-'no empty'=55
-'no'=66
-'number of parameters ='=48
+'modifiers: '=63
+'name '=57
+'no empty'=54
+'no'=65
+'number of parameters ='=47
 'one'=13
-'or'=39
+'or'=38
 'package'=16
-'return type='=52
-'right position'=68
-'satisfy'=35
+'return type='=51
+'right position'=67
+'satisfy'=34
 'startUpperCase'=26
-'static'=80
-'synchronized'=83
-'type name ='=56
+'static'=79
+'synchronized'=82
+'type name ='=55
 'upperCamelCase'=24
 'upperCase'=22
-'use constant'=45
-'variables'=46
-'where'=36
-'{'=62
-'}'=63
+'use constant'=44
+'variables'=45
+'which'=35
+'{'=61
+'}'=62
 RULE_ANY_OTHER=10
 RULE_ID=5
 RULE_INT=6
@@ -150,4 +149,3 @@ T__79=79
 T__80=80
 T__81=81
 T__82=82
-T__83=83

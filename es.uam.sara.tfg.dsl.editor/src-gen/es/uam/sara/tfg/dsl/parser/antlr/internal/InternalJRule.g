@@ -334,9 +334,9 @@ ruleElement returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_1='where'
+			otherlv_1='which'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getElementAccess().getWhereKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getElementAccess().getWhichKeyword_1_0());
 			}
 			(
 				(
@@ -761,7 +761,7 @@ ruleImplements returns [EObject current=null]
 			newLeafNode(otherlv_1, grammarAccess.getImplementsAccess().getImplementsInterfaceKeyword_1());
 		}
 		(
-			otherlv_2='max interface'
+			otherlv_2='max interface='
 			{
 				newLeafNode(otherlv_2, grammarAccess.getImplementsAccess().getMaxInterfaceKeyword_2_0());
 			}
@@ -2147,34 +2147,26 @@ ruleAccessModifier returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='Default'
+			enumLiteral_0='Public'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0());
+				$current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='Public'
+			enumLiteral_1='Protected'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1());
+				$current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='Protected'
+			enumLiteral_2='Private'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='Private'
-			{
-				$current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3());
+				$current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2());
 			}
 		)
 	)

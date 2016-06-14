@@ -61,4 +61,67 @@ public class Visitors {
 		}
 		return result;
 	}
+	
+	public ArrayList<TypeDeclaration> classForPackage (String packageName){
+		ArrayList<TypeDeclaration> result=new ArrayList<TypeDeclaration>();
+		for (UnitVisitor u: visitors){
+			if (packageName.compareTo(u.getPackages().getName().toString())==0){
+				result.addAll(u.getClasses());
+			}
+		}
+		return result;
+	}
+	
+	public ArrayList<TypeDeclaration> interfacesForPackage (String packageName){
+		ArrayList<TypeDeclaration> result=new ArrayList<TypeDeclaration>();
+		for (UnitVisitor u: visitors){
+			if (packageName.compareTo(u.getPackages().getName().toString())==0){
+				result.addAll(u.getInterfaces());
+			}
+		}
+		return result;
+	}
+	
+	public ArrayList<EnumDeclaration> enumForPackage (String packageName){
+		ArrayList<EnumDeclaration> result=new ArrayList<EnumDeclaration>();
+		for (UnitVisitor u: visitors){
+			if (packageName.compareTo(u.getPackages().getName().toString())==0){
+				result.addAll(u.getEnumerations());
+			}
+		}
+		return result;
+	}
+	
+	public ArrayList<MethodDeclaration> methodForClass (TypeDeclaration clas){
+		ArrayList<MethodDeclaration> result=new ArrayList<MethodDeclaration>();
+		for (MethodDeclaration m: clas.getMethods()){
+			result.add(m);
+		}
+		return result;
+	}
+	
+	public ArrayList<FieldDeclaration> attributesForClass (TypeDeclaration clas){
+		ArrayList<FieldDeclaration> result=new ArrayList<FieldDeclaration>();
+		for (FieldDeclaration a: clas.getFields()){
+			result.add(a);
+		}
+		return result;
+	}
+	
+	public ArrayList<MethodDeclaration> methodForInterface (TypeDeclaration inter){
+		ArrayList<MethodDeclaration> result=new ArrayList<MethodDeclaration>();
+		for (MethodDeclaration m: inter.getMethods()){
+			result.add(m);
+		}
+		return result;
+	}
+	
+	public ArrayList<FieldDeclaration> attributesForInterface (TypeDeclaration inter){
+		ArrayList<FieldDeclaration> result=new ArrayList<FieldDeclaration>();
+		for (FieldDeclaration a: inter.getFields()){
+			result.add(a);
+		}
+		return result;
+	}
+
 }

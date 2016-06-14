@@ -13,6 +13,7 @@ import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.ast.properties.Attributes;
 import es.uam.sara.tfg.ast.properties.Classes;
 import es.uam.sara.tfg.ast.properties.Methods;
+import es.uam.sara.tfg.ast.properties.Modifiers;
 import es.uam.sara.tfg.ast.properties.Name;
 import es.uam.sara.tfg.ast.properties.Name.Type;
 import es.uam.sara.tfg.ast.properties.Result;
@@ -67,13 +68,13 @@ public class Main {
 				 visitors.addVisitor(u);
 				 ParserAst.parse(readFileToString(filePath), u);
 			 }
-		 }
-		 /*Attributes att= new Attributes(u.getAttributes());
-		 att.nameType(null, Type.upperCamelCase);*/
+		}
 		 
-		/* Methods ms=new Methods(u.getMethods());
-		 ms.*/
-		
+		 Modifiers aux=new Modifiers();
+		 aux.addBlend("", false, false, true, false);
+		Classes c=new Classes(visitors.getClasses());
+		System.out.println("r:"+c.Modifiers(null, aux).getRight());
+		System.out.println("w:"+c.Modifiers(null, aux).getWrong());
 		 
 		 
 		

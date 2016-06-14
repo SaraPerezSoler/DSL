@@ -9,12 +9,11 @@
 '@see'=48
 '@throws'=47
 '@version'=46
-'Default'=80
 'JavaDoc'=42
-'Private'=83
+'Private'=82
 'Project Name:'=11
-'Protected'=82
-'Public'=81
+'Protected'=81
+'Public'=80
 'abstract'=59
 'all'=66
 'and '=28
@@ -46,7 +45,7 @@
 'like'=78
 'lowerCamelCase'=76
 'lowerCase'=74
-'max interface'=23
+'max interface='=23
 'max level='=21
 'method'=71
 'modifiers: '=52
@@ -68,7 +67,7 @@
 'upperCase'=73
 'use constant'=25
 'variables'=26
-'where'=15
+'which'=15
 '{'=50
 '}'=51
 RULE_ANY_OTHER=10
@@ -150,4 +149,3 @@ T__79=79
 T__80=80
 T__81=81
 T__82=82
-T__83=83

@@ -1,7 +1,10 @@
 package es.uam.sara.tfg.ast.properties;
 
 import java.util.ArrayList;
+
+import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 
 import es.uam.sara.tfg.ast.properties.Name.Idioma;
@@ -160,6 +163,28 @@ public class Methods {
 				result.addRight(m);
 			}else{
 				result.addRight(m);
+			}
+		}
+		return result;
+	}
+	
+	public Result<MethodDeclaration> Modifiers(ArrayList<MethodDeclaration> list, Modifiers m){
+		if (list==null){
+			list=this.methods;
+		}
+		Result<MethodDeclaration> result= new Result<MethodDeclaration>("");
+		
+		for (MethodDeclaration e:list){
+			ArrayList<Modifier> mList=new ArrayList<Modifier>();
+			for (Object o:e.modifiers()){
+				if (o instanceof Modifier){
+					mList.add((Modifier) o);
+				}
+			}
+			if (m.modifiers(mList)){
+				result.addRight(e);
+			}else{
+				result.addWrong(e);
 			}
 		}
 		return result;

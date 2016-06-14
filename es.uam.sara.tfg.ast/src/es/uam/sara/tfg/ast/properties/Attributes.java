@@ -3,6 +3,8 @@ package es.uam.sara.tfg.ast.properties;
 import java.util.ArrayList;
 
 import org.eclipse.jdt.core.dom.FieldDeclaration;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 import es.uam.sara.tfg.ast.properties.Name.Idioma;
@@ -119,6 +121,28 @@ public class Attributes{
 				result.addRight(a);
 			}else{
 				result.addRight(a);
+			}
+		}
+		return result;
+	}
+	
+	public Result<FieldDeclaration> Modifiers(ArrayList<FieldDeclaration> list, Modifiers m){
+		if (list==null){
+			list=this.attribuites;
+		}
+		Result<FieldDeclaration> result= new Result<FieldDeclaration>("");
+		
+		for (FieldDeclaration a:list){
+			ArrayList<Modifier> mList=new ArrayList<Modifier>();
+			for (Object o:a.modifiers()){
+				if (o instanceof Modifier){
+					mList.add((Modifier) o);
+				}
+			}
+			if (m.modifiers(mList)){
+				result.addRight(a);
+			}else{
+				result.addWrong(a);
 			}
 		}
 		return result;

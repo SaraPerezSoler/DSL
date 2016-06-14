@@ -154,15 +154,15 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cElementElementJavaEnumRuleCall_0_0 = (RuleCall)cElementAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cWhereKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cWhichKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cFilterAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cFilterOrParserRuleCall_1_1_0 = (RuleCall)cFilterAssignment_1_1.eContents().get(0);
 		
 		//Element:
-		//	element=ElementJava ('where' filter=Or)?;
+		//	element=ElementJava ('which' filter=Or)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//element=ElementJava ('where' filter=Or)?
+		//element=ElementJava ('which' filter=Or)?
 		public Group getGroup() { return cGroup; }
 		
 		//element=ElementJava
@@ -171,11 +171,11 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//ElementJava
 		public RuleCall getElementElementJavaEnumRuleCall_0_0() { return cElementElementJavaEnumRuleCall_0_0; }
 		
-		//('where' filter=Or)?
+		//('which' filter=Or)?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'where'
-		public Keyword getWhereKeyword_1_0() { return cWhereKeyword_1_0; }
+		//'which'
+		public Keyword getWhichKeyword_1_0() { return cWhichKeyword_1_0; }
 		
 		//filter=Or
 		public Assignment getFilterAssignment_1_1() { return cFilterAssignment_1_1; }
@@ -402,10 +402,10 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Implements:
 		//	{Implements}
-		//	'implements interface' ('max interface' maxInterface=EBigInteger)?;
+		//	'implements interface' ('max interface=' maxInterface=EBigInteger)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Implements} 'implements interface' ('max interface' maxInterface=EBigInteger)?
+		//{Implements} 'implements interface' ('max interface=' maxInterface=EBigInteger)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Implements}
@@ -414,10 +414,10 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//'implements interface'
 		public Keyword getImplementsInterfaceKeyword_1() { return cImplementsInterfaceKeyword_1; }
 		
-		//('max interface' maxInterface=EBigInteger)?
+		//('max interface=' maxInterface=EBigInteger)?
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//'max interface'
+		//'max interface='
 		public Keyword getMaxInterfaceKeyword_2_0() { return cMaxInterfaceKeyword_2_0; }
 		
 		//maxInterface=EBigInteger
@@ -1377,45 +1377,37 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	public class AccessModifierElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRule.AccessModifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cDefaultEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cDefaultDefaultKeyword_0_0 = (Keyword)cDefaultEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cPublicPublicKeyword_1_0 = (Keyword)cPublicEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cProtectedProtectedKeyword_2_0 = (Keyword)cProtectedEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cPrivatePrivateKeyword_3_0 = (Keyword)cPrivateEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPublicPublicKeyword_0_0 = (Keyword)cPublicEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cProtectedProtectedKeyword_1_0 = (Keyword)cProtectedEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cPrivatePrivateKeyword_2_0 = (Keyword)cPrivateEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum AccessModifier:
-		//	Default | Public | Protected | Private;
+		//	Public | Protected | Private;
 		public EnumRule getRule() { return rule; }
 		
-		//Default | Public | Protected | Private
+		//Public | Protected | Private
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Default
-		public EnumLiteralDeclaration getDefaultEnumLiteralDeclaration_0() { return cDefaultEnumLiteralDeclaration_0; }
-		
-		//'Default'
-		public Keyword getDefaultDefaultKeyword_0_0() { return cDefaultDefaultKeyword_0_0; }
-		
 		//Public
-		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_1() { return cPublicEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_0() { return cPublicEnumLiteralDeclaration_0; }
 		
 		//'Public'
-		public Keyword getPublicPublicKeyword_1_0() { return cPublicPublicKeyword_1_0; }
+		public Keyword getPublicPublicKeyword_0_0() { return cPublicPublicKeyword_0_0; }
 		
 		//Protected
-		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_2() { return cProtectedEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_1() { return cProtectedEnumLiteralDeclaration_1; }
 		
 		//'Protected'
-		public Keyword getProtectedProtectedKeyword_2_0() { return cProtectedProtectedKeyword_2_0; }
+		public Keyword getProtectedProtectedKeyword_1_0() { return cProtectedProtectedKeyword_1_0; }
 		
 		//Private
-		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_3() { return cPrivateEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_2() { return cPrivateEnumLiteralDeclaration_2; }
 		
 		//'Private'
-		public Keyword getPrivatePrivateKeyword_3_0() { return cPrivatePrivateKeyword_3_0; }
+		public Keyword getPrivatePrivateKeyword_2_0() { return cPrivatePrivateKeyword_2_0; }
 	}
 	
 	private final RuleSetElements pRuleSet;
@@ -1573,7 +1565,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	element=ElementJava ('where' filter=Or)?;
+	//	element=ElementJava ('which' filter=Or)?;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -1636,7 +1628,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Implements:
 	//	{Implements}
-	//	'implements interface' ('max interface' maxInterface=EBigInteger)?;
+	//	'implements interface' ('max interface=' maxInterface=EBigInteger)?;
 	public ImplementsElements getImplementsAccess() {
 		return pImplements;
 	}
@@ -1827,7 +1819,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum AccessModifier:
-	//	Default | Public | Protected | Private;
+	//	Public | Protected | Private;
 	public AccessModifierElements getAccessModifierAccess() {
 		return eAccessModifier;
 	}
