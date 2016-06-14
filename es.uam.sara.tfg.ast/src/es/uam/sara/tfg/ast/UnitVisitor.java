@@ -11,7 +11,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class UnitVisitor extends ASTVisitor{
 	
-	private ArrayList<PackageDeclaration> packages;
+	private String nameFile;
+	private PackageDeclaration packageDeclaration;
 	private ArrayList<TypeDeclaration> interfaces;
 	private ArrayList<TypeDeclaration> classes;
 	private ArrayList<EnumDeclaration> enumerations;
@@ -19,8 +20,8 @@ public class UnitVisitor extends ASTVisitor{
 	private ArrayList<FieldDeclaration> attributes;
 	
 	
-	public UnitVisitor(){
-		packages=new ArrayList<PackageDeclaration>();
+	public UnitVisitor(String nameFile){
+		this.nameFile=nameFile;
 		interfaces=new ArrayList<TypeDeclaration>();
 		classes=new ArrayList<TypeDeclaration>();
 		enumerations=new ArrayList<EnumDeclaration>();
@@ -30,8 +31,8 @@ public class UnitVisitor extends ASTVisitor{
 	
 	@Override
 	public boolean visit(PackageDeclaration node) {
-		if (!(packages.contains(node)))
-			packages.add(node);
+		
+		packageDeclaration=node;
 		return super.visit(node);
 	}
 	
@@ -62,8 +63,11 @@ public class UnitVisitor extends ASTVisitor{
 		return super.visit(node);
 	}
 
-	public ArrayList<PackageDeclaration> getPackages() {
-		return packages;
+	public String getNameFile(){
+		return nameFile;
+	}
+	public PackageDeclaration getPackages() {
+		return packageDeclaration;
 	}
 
 	public ArrayList<TypeDeclaration> getInterfaces() {

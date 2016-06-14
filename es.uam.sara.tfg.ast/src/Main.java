@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.ast.ParserAst;
 import es.uam.sara.tfg.ast.UnitVisitor;
+import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.ast.properties.Attributes;
 import es.uam.sara.tfg.ast.properties.Classes;
 import es.uam.sara.tfg.ast.properties.Methods;
@@ -48,7 +49,7 @@ public class Main {
  
 	public static void main(String[] args) throws IOException {
 		
-		UnitVisitor u=new UnitVisitor();
+		
 		File dirs = new File(".");
 		String dirPath = dirs.getCanonicalPath() + File.separator+"src"+File.separator;
  
@@ -57,11 +58,13 @@ public class Main {
 		ArrayList<File> files= new ArrayList<File>();
 		getFiles (root, files);
 		String filePath = null;
+		Visitors visitors=new Visitors();
  
 		 for (File f : files ) {
 			 filePath = f.getAbsolutePath();
-			 
 			 if(f.isFile()){
+				 UnitVisitor u=new UnitVisitor(f.getName());
+				 visitors.addVisitor(u);
 				 ParserAst.parse(readFileToString(filePath), u);
 			 }
 		 }
