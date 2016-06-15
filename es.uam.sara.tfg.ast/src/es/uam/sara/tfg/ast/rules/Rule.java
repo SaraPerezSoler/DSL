@@ -1,4 +1,4 @@
-package es.uam.sara.tfg.ast;
+package es.uam.sara.tfg.ast.rules;
 
 public interface Rule {
 

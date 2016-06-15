@@ -7,6 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import javaRule.Rule
+import java.lang.annotation.ElementType
+import javaRule.ElementJava
+import javaRule.Action
 
 /**
  * Generates code from your model files on save.
@@ -21,5 +25,68 @@ class JRuleGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+		var i=1;
+		for (rule :resource.allContents.toIterable.filter(Rule)){
+			fsa.generateFile("Rule"+i+".java", rule.compile(i))
+			i = i+1
+		}
+	}
+	
+	def compile (Rule rule, int i){
+	'''
+	import es.uam.sara.tfg.ast.Rule;
+	
+	public class Rule«i» implements Rule{
+	
+		@Override
+		public void execute() {
+			«IF rule.action==Action.CHECK»
+				«IF rule.class == ElementJava.PACKAGE»
+				«rule.packageImplementacion»
+				«ELSEIF rule.class == ElementJava.INTERFACE»
+				«rule.interfaceImplementacion»
+				«ELSEIF rule.class == ElementJava.CLASS»
+				«rule.classImplementacion»
+				«ELSEIF rule.class == ElementJava.ENUM»
+				«rule.enumImplementacion»
+				«ELSEIF rule.class == ElementJava.METHOD»
+				«rule.methodImplementacion»
+				«ELSEIF rule.class == ElementJava.ATTRIBUTE»
+				«rule.attributeImplementacion»
+				«ENDIF»
+			«ENDIF»
+			}
+	
+	}
+	'''}
+	
+	def packageImplementacion(Rule rule){'''
+	
+	'''	
+	}
+	
+	def interfaceImplementacion(Rule rule){'''
+	
+	'''	
+	}
+	
+	def classImplementacion(Rule rule){'''
+	
+	'''	
+	}
+	
+	def enumImplementacion(Rule rule){'''
+	
+	'''	
+	}
+	
+	def methodImplementacion(Rule rule){'''
+	
+	'''	
+	}
+	
+	def attributeImplementacion(Rule rule){'''
+	
+	'''	
 	}
 }
