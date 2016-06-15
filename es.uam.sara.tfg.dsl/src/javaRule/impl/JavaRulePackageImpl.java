@@ -22,6 +22,7 @@ import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRuleFactory;
 import javaRule.JavaRulePackage;
+import javaRule.Language;
 import javaRule.Method;
 import javaRule.Modifiers;
 import javaRule.Name;
@@ -276,6 +277,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EEnum elementJavaEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum languageEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -805,6 +813,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getName_Language() {
+		return (EAttribute)nameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJavaDoc() {
 		return javaDocEClass;
 	}
@@ -985,6 +1002,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getLanguage() {
+		return languageEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getNameType() {
 		return nameTypeEEnum;
 	}
@@ -1108,6 +1134,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(nameEClass, NAME__TYPE);
 		createEAttribute(nameEClass, NAME__NAME);
 		createEAttribute(nameEClass, NAME__OPERATOR);
+		createEAttribute(nameEClass, NAME__LANGUAGE);
 
 		javaDocEClass = createEClass(JAVA_DOC);
 		createEAttribute(javaDocEClass, JAVA_DOC__AUTHOR);
@@ -1134,6 +1161,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		actionEEnum = createEEnum(ACTION);
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		elementJavaEEnum = createEEnum(ELEMENT_JAVA);
+		languageEEnum = createEEnum(LANGUAGE);
 		nameTypeEEnum = createEEnum(NAME_TYPE);
 		nameOperatorEEnum = createEEnum(NAME_OPERATOR);
 		accessModifierEEnum = createEEnum(ACCESS_MODIFIER);
@@ -1284,6 +1312,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getName_Type(), this.getNameType(), "type", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getName_Name(), ecorePackage.getEString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getName_Operator(), this.getNameOperator(), "operator", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getName_Language(), this.getLanguage(), "Language", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaDoc_Author(), ecorePackage.getEBoolean(), "author", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1323,6 +1352,10 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(elementJavaEEnum, ElementJava.ENUM);
 		addEEnumLiteral(elementJavaEEnum, ElementJava.METHOD);
 		addEEnumLiteral(elementJavaEEnum, ElementJava.ATTRIBUTE);
+
+		initEEnum(languageEEnum, Language.class, "Language");
+		addEEnumLiteral(languageEEnum, Language.ENGLISH);
+		addEEnumLiteral(languageEEnum, Language.ESPANIOL);
 
 		initEEnum(nameTypeEEnum, NameType.class, "NameType");
 		addEEnumLiteral(nameTypeEEnum, NameType.UPPER_CASE);

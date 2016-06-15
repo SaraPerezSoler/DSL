@@ -327,7 +327,10 @@ public class JRuleSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Name returns Name
 	 *
 	 * Constraint:
-	 *     ((type=NameType (operator=NameOperator name=EString)?) | (operator=NameOperator name=EString type=NameType?))
+	 *     (
+	 *         (type=NameType (operator=NameOperator name=EString Language=Language?)?) | 
+	 *         (operator=NameOperator name=EString Language=Language? type=NameType?)
+	 *     )
 	 */
 	protected void sequence_Name(ISerializationContext context, Name semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

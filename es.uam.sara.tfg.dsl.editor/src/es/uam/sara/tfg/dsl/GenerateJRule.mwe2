@@ -31,7 +31,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "es.uam.sara.tfg.dsl.JRule"
 			fileExtensions = "jrule"
-			referencedResource = "platform:/resource/es.uam.sara.tfg.dsl/dsl.genmodel"
+			referencedResource = "platform:/resource/es.uam.sara.tfg.dsl/model/dsl.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

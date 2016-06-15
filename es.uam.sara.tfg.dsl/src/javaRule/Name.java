@@ -15,6 +15,7 @@ package javaRule;
  *   <li>{@link javaRule.Name#getType <em>Type</em>}</li>
  *   <li>{@link javaRule.Name#getName <em>Name</em>}</li>
  *   <li>{@link javaRule.Name#getOperator <em>Operator</em>}</li>
+ *   <li>{@link javaRule.Name#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getName_()
@@ -105,5 +106,34 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 	 * @generated
 	 */
 	void setOperator(NameOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * The literals are from the enumeration {@link javaRule.Language}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Language</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Language</em>' attribute.
+	 * @see javaRule.Language
+	 * @see #setLanguage(Language)
+	 * @see javaRule.JavaRulePackage#getName_Language()
+	 * @model
+	 * @generated
+	 */
+	Language getLanguage();
+
+	/**
+	 * Sets the value of the '{@link javaRule.Name#getLanguage <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Language</em>' attribute.
+	 * @see javaRule.Language
+	 * @see #getLanguage()
+	 * @generated
+	 */
+	void setLanguage(Language value);
 
 } // Name

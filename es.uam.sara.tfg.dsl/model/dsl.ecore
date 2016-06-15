@@ -96,6 +96,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NameType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//NameOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Language" eType="#//Language"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Language">
+    <eLiterals name="ENGLISH" literal="ENGLISH"/>
+    <eLiterals name="ESPANIOL" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameType">
     <eLiterals name="upperCase" value="1"/>

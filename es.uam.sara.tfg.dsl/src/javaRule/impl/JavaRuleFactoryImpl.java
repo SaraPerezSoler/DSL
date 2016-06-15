@@ -19,6 +19,7 @@ import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRuleFactory;
 import javaRule.JavaRulePackage;
+import javaRule.Language;
 import javaRule.Modifiers;
 import javaRule.Name;
 import javaRule.NameOperator;
@@ -127,6 +128,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return createQuantifierFromString(eDataType, initialValue);
 			case JavaRulePackage.ELEMENT_JAVA:
 				return createElementJavaFromString(eDataType, initialValue);
+			case JavaRulePackage.LANGUAGE:
+				return createLanguageFromString(eDataType, initialValue);
 			case JavaRulePackage.NAME_TYPE:
 				return createNameTypeFromString(eDataType, initialValue);
 			case JavaRulePackage.NAME_OPERATOR:
@@ -152,6 +155,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return convertQuantifierToString(eDataType, instanceValue);
 			case JavaRulePackage.ELEMENT_JAVA:
 				return convertElementJavaToString(eDataType, instanceValue);
+			case JavaRulePackage.LANGUAGE:
+				return convertLanguageToString(eDataType, instanceValue);
 			case JavaRulePackage.NAME_TYPE:
 				return convertNameTypeToString(eDataType, instanceValue);
 			case JavaRulePackage.NAME_OPERATOR:
@@ -440,6 +445,26 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * @generated
 	 */
 	public String convertElementJavaToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Language createLanguageFromString(EDataType eDataType, String initialValue) {
+		Language result = Language.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLanguageToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -956,13 +956,22 @@ public interface JavaRulePackage extends EPackage {
 	int NAME__OPERATOR = ATTRIBUTE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Language</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME__LANGUAGE = ATTRIBUTE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Name</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAME_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 3;
+	int NAME_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Name</em>' class.
@@ -1233,6 +1242,16 @@ public interface JavaRulePackage extends EPackage {
 	int ELEMENT_JAVA = 31;
 
 	/**
+	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.Language
+	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
+	 * @generated
+	 */
+	int LANGUAGE = 32;
+
+	/**
 	 * The meta object id for the '{@link javaRule.NameType <em>Name Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1240,7 +1259,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
 	 * @generated
 	 */
-	int NAME_TYPE = 32;
+	int NAME_TYPE = 33;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -1250,7 +1269,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 33;
+	int NAME_OPERATOR = 34;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1260,7 +1279,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 34;
+	int ACCESS_MODIFIER = 35;
 
 
 	/**
@@ -1778,6 +1797,17 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getName_Operator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link javaRule.Name#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see javaRule.Name#getLanguage()
+	 * @see #getName_()
+	 * @generated
+	 */
+	EAttribute getName_Language();
+
+	/**
 	 * Returns the meta object for class '{@link javaRule.JavaDoc <em>Java Doc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1989,6 +2019,16 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getElementJava();
+
+	/**
+	 * Returns the meta object for enum '{@link javaRule.Language <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Language</em>'.
+	 * @see javaRule.Language
+	 * @generated
+	 */
+	EEnum getLanguage();
 
 	/**
 	 * Returns the meta object for enum '{@link javaRule.NameType <em>Name Type</em>}'.
@@ -2486,6 +2526,14 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute NAME__OPERATOR = eINSTANCE.getName_Operator();
 
 		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME__LANGUAGE = eINSTANCE.getName_Language();
+
+		/**
 		 * The meta object literal for the '{@link javaRule.impl.JavaDocImpl <em>Java Doc</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2658,6 +2706,16 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ELEMENT_JAVA = eINSTANCE.getElementJava();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.Language <em>Language</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.Language
+		 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
+		 * @generated
+		 */
+		EEnum LANGUAGE = eINSTANCE.getLanguage();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.NameType <em>Name Type</em>}' enum.

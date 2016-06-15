@@ -718,6 +718,10 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOperatorNameOperatorEnumRuleCall_0_2_1_0 = (RuleCall)cOperatorAssignment_0_2_1.eContents().get(0);
 		private final Assignment cNameAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_0_2_2_0 = (RuleCall)cNameAssignment_0_2_2.eContents().get(0);
+		private final Group cGroup_0_2_3 = (Group)cGroup_0_2.eContents().get(3);
+		private final Keyword cInKeyword_0_2_3_0 = (Keyword)cGroup_0_2_3.eContents().get(0);
+		private final Assignment cLanguageAssignment_0_2_3_1 = (Assignment)cGroup_0_2_3.eContents().get(1);
+		private final RuleCall cLanguageLanguageEnumRuleCall_0_2_3_1_0 = (RuleCall)cLanguageAssignment_0_2_3_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cNameKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -725,20 +729,24 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cNameEStringParserRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Keyword cAndTypeNameKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cTypeAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cTypeNameTypeEnumRuleCall_1_3_1_0 = (RuleCall)cTypeAssignment_1_3_1.eContents().get(0);
+		private final Keyword cInKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cLanguageAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cLanguageLanguageEnumRuleCall_1_3_1_0 = (RuleCall)cLanguageAssignment_1_3_1.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cAndTypeNameKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cTypeAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cTypeNameTypeEnumRuleCall_1_4_1_0 = (RuleCall)cTypeAssignment_1_4_1.eContents().get(0);
 		
 		//Name:
-		//	'type name =' type=NameType ('and name ' operator=NameOperator name=EString)? | 'name ' operator=NameOperator
-		//	name=EString ('and type name =' type=NameType)?;
+		//	'type name =' type=NameType ('and name ' operator=NameOperator name=EString ("in" Language=Language)?)? | 'name '
+		//	operator=NameOperator name=EString ("in" Language=Language)? ('and type name =' type=NameType)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'type name =' type=NameType ('and name ' operator=NameOperator name=EString)? | 'name ' operator=NameOperator
-		//name=EString ('and type name =' type=NameType)?
+		//'type name =' type=NameType ('and name ' operator=NameOperator name=EString ("in" Language=Language)?)? | 'name '
+		//operator=NameOperator name=EString ("in" Language=Language)? ('and type name =' type=NameType)?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'type name =' type=NameType ('and name ' operator=NameOperator name=EString)?
+		//'type name =' type=NameType ('and name ' operator=NameOperator name=EString ("in" Language=Language)?)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'type name ='
@@ -750,7 +758,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//NameType
 		public RuleCall getTypeNameTypeEnumRuleCall_0_1_0() { return cTypeNameTypeEnumRuleCall_0_1_0; }
 		
-		//('and name ' operator=NameOperator name=EString)?
+		//('and name ' operator=NameOperator name=EString ("in" Language=Language)?)?
 		public Group getGroup_0_2() { return cGroup_0_2; }
 		
 		//'and name '
@@ -768,7 +776,19 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_0_2_2_0() { return cNameEStringParserRuleCall_0_2_2_0; }
 		
-		//'name ' operator=NameOperator name=EString ('and type name =' type=NameType)?
+		//("in" Language=Language)?
+		public Group getGroup_0_2_3() { return cGroup_0_2_3; }
+		
+		//"in"
+		public Keyword getInKeyword_0_2_3_0() { return cInKeyword_0_2_3_0; }
+		
+		//Language=Language
+		public Assignment getLanguageAssignment_0_2_3_1() { return cLanguageAssignment_0_2_3_1; }
+		
+		//Language
+		public RuleCall getLanguageLanguageEnumRuleCall_0_2_3_1_0() { return cLanguageLanguageEnumRuleCall_0_2_3_1_0; }
+		
+		//'name ' operator=NameOperator name=EString ("in" Language=Language)? ('and type name =' type=NameType)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'name '
@@ -786,17 +806,29 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_2_0() { return cNameEStringParserRuleCall_1_2_0; }
 		
-		//('and type name =' type=NameType)?
+		//("in" Language=Language)?
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
+		//"in"
+		public Keyword getInKeyword_1_3_0() { return cInKeyword_1_3_0; }
+		
+		//Language=Language
+		public Assignment getLanguageAssignment_1_3_1() { return cLanguageAssignment_1_3_1; }
+		
+		//Language
+		public RuleCall getLanguageLanguageEnumRuleCall_1_3_1_0() { return cLanguageLanguageEnumRuleCall_1_3_1_0; }
+		
+		//('and type name =' type=NameType)?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
 		//'and type name ='
-		public Keyword getAndTypeNameKeyword_1_3_0() { return cAndTypeNameKeyword_1_3_0; }
+		public Keyword getAndTypeNameKeyword_1_4_0() { return cAndTypeNameKeyword_1_4_0; }
 		
 		//type=NameType
-		public Assignment getTypeAssignment_1_3_1() { return cTypeAssignment_1_3_1; }
+		public Assignment getTypeAssignment_1_4_1() { return cTypeAssignment_1_4_1; }
 		
 		//NameType
-		public RuleCall getTypeNameTypeEnumRuleCall_1_3_1_0() { return cTypeNameTypeEnumRuleCall_1_3_1_0; }
+		public RuleCall getTypeNameTypeEnumRuleCall_1_4_1_0() { return cTypeNameTypeEnumRuleCall_1_4_1_0; }
 	}
 	public class JavaDocElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRule.JavaDoc");
@@ -1374,6 +1406,33 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		//'equal'
 		public Keyword getEqualEqualKeyword_1_0() { return cEqualEqualKeyword_1_0; }
 	}
+	public class LanguageElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRule.Language");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cENGLISHEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cENGLISHEnglishKeyword_0_0 = (Keyword)cENGLISHEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cESPANIOLEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cESPANIOLSpanishKeyword_1_0 = (Keyword)cESPANIOLEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum Language:
+		//	ENGLISH='English' | ESPANIOL='Spanish';
+		public EnumRule getRule() { return rule; }
+		
+		//ENGLISH='English' | ESPANIOL='Spanish'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ENGLISH='English'
+		public EnumLiteralDeclaration getENGLISHEnumLiteralDeclaration_0() { return cENGLISHEnumLiteralDeclaration_0; }
+		
+		//'English'
+		public Keyword getENGLISHEnglishKeyword_0_0() { return cENGLISHEnglishKeyword_0_0; }
+		
+		//ESPANIOL='Spanish'
+		public EnumLiteralDeclaration getESPANIOLEnumLiteralDeclaration_1() { return cESPANIOLEnumLiteralDeclaration_1; }
+		
+		//'Spanish'
+		public Keyword getESPANIOLSpanishKeyword_1_0() { return cESPANIOLSpanishKeyword_1_0; }
+	}
 	public class AccessModifierElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRule.AccessModifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1434,6 +1493,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	private final NameElements pName;
 	private final NameTypeElements eNameType;
 	private final NameOperatorElements eNameOperator;
+	private final LanguageElements eLanguage;
 	private final JavaDocElements pJavaDoc;
 	private final ConteinsElements pConteins;
 	private final ModifiersElements pModifiers;
@@ -1476,6 +1536,7 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 		this.pName = new NameElements();
 		this.eNameType = new NameTypeElements();
 		this.eNameOperator = new NameOperatorElements();
+		this.eLanguage = new LanguageElements();
 		this.pJavaDoc = new JavaDocElements();
 		this.pConteins = new ConteinsElements();
 		this.pModifiers = new ModifiersElements();
@@ -1734,8 +1795,8 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Name:
-	//	'type name =' type=NameType ('and name ' operator=NameOperator name=EString)? | 'name ' operator=NameOperator
-	//	name=EString ('and type name =' type=NameType)?;
+	//	'type name =' type=NameType ('and name ' operator=NameOperator name=EString ("in" Language=Language)?)? | 'name '
+	//	operator=NameOperator name=EString ("in" Language=Language)? ('and type name =' type=NameType)?;
 	public NameElements getNameAccess() {
 		return pName;
 	}
@@ -1762,6 +1823,16 @@ public class JRuleGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getNameOperatorRule() {
 		return getNameOperatorAccess().getRule();
+	}
+	
+	//enum Language:
+	//	ENGLISH='English' | ESPANIOL='Spanish';
+	public LanguageElements getLanguageAccess() {
+		return eLanguage;
+	}
+	
+	public EnumRule getLanguageRule() {
+		return getLanguageAccess().getRule();
 	}
 	
 	//JavaDoc:

@@ -84,14 +84,17 @@ NoEmpty returns NoEmpty:
 	;
 
 Name returns Name:
-	('type name =' type=NameType('and name ' operator=NameOperator name=EString)?)|
-	('name ' operator=NameOperator  name=EString ('and type name =' type=NameType)?);
+	('type name =' type=NameType('and name ' operator=NameOperator name=EString ("in" Language=Language)?)?)|
+	('name ' operator=NameOperator  name=EString ("in" Language=Language)? ('and type name =' type=NameType)?);
 	
 enum NameType returns NameType:
 	upperCase = 'upperCase' | lowerCase = 'lowerCase' | upperCamelCase = 'upperCamelCase' | lowerCamelCase = 'lowerCamelCase' | startUpperCase = 'startUpperCase';
 
 enum NameOperator returns NameOperator:
 	like = 'like' | equal = 'equal';
+	
+enum Language returns Language:
+	ENGLISH = 'English' | ESPANIOL = 'Spanish';
 
 JavaDoc returns JavaDoc:
 	{JavaDoc}

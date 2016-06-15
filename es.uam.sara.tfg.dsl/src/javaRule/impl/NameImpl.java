@@ -3,6 +3,7 @@
 package javaRule.impl;
 
 import javaRule.JavaRulePackage;
+import javaRule.Language;
 import javaRule.Name;
 import javaRule.NameOperator;
 import javaRule.NameType;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link javaRule.impl.NameImpl#getType <em>Type</em>}</li>
  *   <li>{@link javaRule.impl.NameImpl#getName <em>Name</em>}</li>
  *   <li>{@link javaRule.impl.NameImpl#getOperator <em>Operator</em>}</li>
+ *   <li>{@link javaRule.impl.NameImpl#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +90,26 @@ public class NameImpl extends AttributeImpl implements Name {
 	 * @ordered
 	 */
 	protected NameOperator operator = OPERATOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Language LANGUAGE_EDEFAULT = Language.ENGLISH;
+
+	/**
+	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Language language = LANGUAGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +198,27 @@ public class NameImpl extends AttributeImpl implements Name {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Language getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLanguage(Language newLanguage) {
+		Language oldLanguage = language;
+		language = newLanguage == null ? LANGUAGE_EDEFAULT : newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.NAME__LANGUAGE, oldLanguage, language));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -185,6 +228,8 @@ public class NameImpl extends AttributeImpl implements Name {
 				return getName();
 			case JavaRulePackage.NAME__OPERATOR:
 				return getOperator();
+			case JavaRulePackage.NAME__LANGUAGE:
+				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,6 +250,9 @@ public class NameImpl extends AttributeImpl implements Name {
 				return;
 			case JavaRulePackage.NAME__OPERATOR:
 				setOperator((NameOperator)newValue);
+				return;
+			case JavaRulePackage.NAME__LANGUAGE:
+				setLanguage((Language)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,6 +275,9 @@ public class NameImpl extends AttributeImpl implements Name {
 			case JavaRulePackage.NAME__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
+			case JavaRulePackage.NAME__LANGUAGE:
+				setLanguage(LANGUAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,6 +296,8 @@ public class NameImpl extends AttributeImpl implements Name {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case JavaRulePackage.NAME__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
+			case JavaRulePackage.NAME__LANGUAGE:
+				return language != LANGUAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,6 +318,8 @@ public class NameImpl extends AttributeImpl implements Name {
 		result.append(name);
 		result.append(", operator: ");
 		result.append(operator);
+		result.append(", Language: ");
+		result.append(language);
 		result.append(')');
 		return result.toString();
 	}

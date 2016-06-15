@@ -48,28 +48,28 @@ public class JavaDocPropertie {
 				}
 			}
 			if (author){
-				if (bucar("@author", tags)==false) return false;
+				if (buscar("@author", tags)==false) return false;
 			}
 			if (parameter){
-				if (bucar("@parameter", tags)==false) return false;
+				if (buscar("@parameter", tags)==false) return false;
 			}
 			if (returns){
-				if (bucar("@returns", tags)==false) return false;
+				if (buscar("@returns", tags)==false) return false;
 			}
 			if (version){
-				if (bucar("@version", tags)==false) return false;
+				if (buscar("@version", tags)==false) return false;
 			}
 			if (throwss){
-				if (bucar("@throws", tags)==false) return false;
+				if (buscar("@throws", tags)==false) return false;
 			}
 			if (see){
-				if (bucar("@see", tags)==false) return false;
+				if (buscar("@see", tags)==false) return false;
 			} 
 		}
 		return true;
 	}
 	
-	private boolean bucar(String tag, ArrayList<TagElement> list){
+	private boolean buscar(String tag, ArrayList<TagElement> list){
 		for (TagElement t: list){
 			if (t.getTagName().compareTo(tag)==0){
 				return true;

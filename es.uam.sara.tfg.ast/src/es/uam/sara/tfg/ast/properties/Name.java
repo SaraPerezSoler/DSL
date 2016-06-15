@@ -15,7 +15,7 @@ public class Name {
 		upperCamelCase, lowerCamelCase, upperCase, lowerCase, startUpperCase
 	}
 	public enum Idioma{
-		ENGLISH, ESPAÑOL
+		ENGLISH, ESPANIOL
 	}
 	public static  boolean nameType (String name, Type type){
 		switch (type) {

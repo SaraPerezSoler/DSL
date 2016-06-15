@@ -1303,20 +1303,45 @@ ruleName returns [EObject current=null]
 						}
 					)
 				)
+				(
+					otherlv_5='in'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getNameAccess().getInKeyword_0_2_3_0());
+					}
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_0_2_3_1_0());
+							}
+							lv_Language_6_0=ruleLanguage
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getNameRule());
+								}
+								set(
+									$current,
+									"Language",
+									lv_Language_6_0,
+									"es.uam.sara.tfg.dsl.JRule.Language");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)?
 			)?
 		)
 		    |
 		(
-			otherlv_5='name '
+			otherlv_7='name '
 			{
-				newLeafNode(otherlv_5, grammarAccess.getNameAccess().getNameKeyword_1_0());
+				newLeafNode(otherlv_7, grammarAccess.getNameAccess().getNameKeyword_1_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getNameAccess().getOperatorNameOperatorEnumRuleCall_1_1_0());
 					}
-					lv_operator_6_0=ruleNameOperator
+					lv_operator_8_0=ruleNameOperator
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getNameRule());
@@ -1324,7 +1349,7 @@ ruleName returns [EObject current=null]
 						set(
 							$current,
 							"operator",
-							lv_operator_6_0,
+							lv_operator_8_0,
 							"es.uam.sara.tfg.dsl.JRule.NameOperator");
 						afterParserOrEnumRuleCall();
 					}
@@ -1335,7 +1360,7 @@ ruleName returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getNameAccess().getNameEStringParserRuleCall_1_2_0());
 					}
-					lv_name_7_0=ruleEString
+					lv_name_9_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getNameRule());
@@ -1343,23 +1368,48 @@ ruleName returns [EObject current=null]
 						set(
 							$current,
 							"name",
-							lv_name_7_0,
+							lv_name_9_0,
 							"es.uam.sara.tfg.dsl.JRule.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_8='and type name ='
+				otherlv_10='in'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getNameAccess().getAndTypeNameKeyword_1_3_0());
+					newLeafNode(otherlv_10, grammarAccess.getNameAccess().getInKeyword_1_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_1_3_1_0());
+							newCompositeNode(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_1_3_1_0());
 						}
-						lv_type_9_0=ruleNameType
+						lv_Language_11_0=ruleLanguage
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getNameRule());
+							}
+							set(
+								$current,
+								"Language",
+								lv_Language_11_0,
+								"es.uam.sara.tfg.dsl.JRule.Language");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)?
+			(
+				otherlv_12='and type name ='
+				{
+					newLeafNode(otherlv_12, grammarAccess.getNameAccess().getAndTypeNameKeyword_1_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_1_4_1_0());
+						}
+						lv_type_13_0=ruleNameType
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getNameRule());
@@ -1367,7 +1417,7 @@ ruleName returns [EObject current=null]
 							set(
 								$current,
 								"type",
-								lv_type_9_0,
+								lv_type_13_0,
 								"es.uam.sara.tfg.dsl.JRule.NameType");
 							afterParserOrEnumRuleCall();
 						}
@@ -2132,6 +2182,33 @@ ruleNameOperator returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule Language
+ruleLanguage returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='English'
+			{
+				$current = grammarAccess.getLanguageAccess().getENGLISHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getLanguageAccess().getENGLISHEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='Spanish'
+			{
+				$current = grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1());
 			}
 		)
 	)

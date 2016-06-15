@@ -4,7 +4,7 @@
     modelName="Dsl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>model/dsl.ecore</foreignModel>
+  <foreignModel>dsl.ecore</foreignModel>
   <genPackages prefix="JavaRule" disposableProviderFactory="true" ecorePackage="dsl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dsl.ecore#//Action">
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Action/check"/>
@@ -22,6 +22,10 @@
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//ElementJava/Enum"/>
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//ElementJava/Method"/>
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//ElementJava/Attribute"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dsl.ecore#//Language">
+      <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Language/ENGLISH"/>
+      <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Language/ESPANIOL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dsl.ecore#//NameType">
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//NameType/upperCase"/>
@@ -102,6 +106,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Name/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Name/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Name/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Name/Language"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//JavaDoc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//JavaDoc/author"/>

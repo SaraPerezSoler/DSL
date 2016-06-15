@@ -47,6 +47,7 @@ public class JRuleParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElementJavaAccess().getAlternatives(), "rule__ElementJava__Alternatives");
 					put(grammarAccess.getNameTypeAccess().getAlternatives(), "rule__NameType__Alternatives");
 					put(grammarAccess.getNameOperatorAccess().getAlternatives(), "rule__NameOperator__Alternatives");
+					put(grammarAccess.getLanguageAccess().getAlternatives(), "rule__Language__Alternatives");
 					put(grammarAccess.getAccessModifierAccess().getAlternatives(), "rule__AccessModifier__Alternatives");
 					put(grammarAccess.getRuleSetAccess().getGroup(), "rule__RuleSet__Group__0");
 					put(grammarAccess.getRuleSetAccess().getGroup_0(), "rule__RuleSet__Group_0__0");
@@ -78,8 +79,10 @@ public class JRuleParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNoEmptyAccess().getGroup(), "rule__NoEmpty__Group__0");
 					put(grammarAccess.getNameAccess().getGroup_0(), "rule__Name__Group_0__0");
 					put(grammarAccess.getNameAccess().getGroup_0_2(), "rule__Name__Group_0_2__0");
+					put(grammarAccess.getNameAccess().getGroup_0_2_3(), "rule__Name__Group_0_2_3__0");
 					put(grammarAccess.getNameAccess().getGroup_1(), "rule__Name__Group_1__0");
 					put(grammarAccess.getNameAccess().getGroup_1_3(), "rule__Name__Group_1_3__0");
+					put(grammarAccess.getNameAccess().getGroup_1_4(), "rule__Name__Group_1_4__0");
 					put(grammarAccess.getJavaDocAccess().getGroup(), "rule__JavaDoc__Group__0");
 					put(grammarAccess.getConteinsAccess().getGroup(), "rule__Conteins__Group__0");
 					put(grammarAccess.getModifiersAccess().getGroup(), "rule__Modifiers__Group__0");
@@ -120,9 +123,11 @@ public class JRuleParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNameAccess().getTypeAssignment_0_1(), "rule__Name__TypeAssignment_0_1");
 					put(grammarAccess.getNameAccess().getOperatorAssignment_0_2_1(), "rule__Name__OperatorAssignment_0_2_1");
 					put(grammarAccess.getNameAccess().getNameAssignment_0_2_2(), "rule__Name__NameAssignment_0_2_2");
+					put(grammarAccess.getNameAccess().getLanguageAssignment_0_2_3_1(), "rule__Name__LanguageAssignment_0_2_3_1");
 					put(grammarAccess.getNameAccess().getOperatorAssignment_1_1(), "rule__Name__OperatorAssignment_1_1");
 					put(grammarAccess.getNameAccess().getNameAssignment_1_2(), "rule__Name__NameAssignment_1_2");
-					put(grammarAccess.getNameAccess().getTypeAssignment_1_3_1(), "rule__Name__TypeAssignment_1_3_1");
+					put(grammarAccess.getNameAccess().getLanguageAssignment_1_3_1(), "rule__Name__LanguageAssignment_1_3_1");
+					put(grammarAccess.getNameAccess().getTypeAssignment_1_4_1(), "rule__Name__TypeAssignment_1_4_1");
 					put(grammarAccess.getJavaDocAccess().getAuthorAssignment_2(), "rule__JavaDoc__AuthorAssignment_2");
 					put(grammarAccess.getJavaDocAccess().getParametreAssignment_3(), "rule__JavaDoc__ParametreAssignment_3");
 					put(grammarAccess.getJavaDocAccess().getReturnAssignment_4(), "rule__JavaDoc__ReturnAssignment_4");

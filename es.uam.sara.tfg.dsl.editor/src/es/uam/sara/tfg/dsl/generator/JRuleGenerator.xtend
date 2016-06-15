@@ -11,6 +11,9 @@ import javaRule.Rule
 import java.lang.annotation.ElementType
 import javaRule.ElementJava
 import javaRule.Action
+import javaRule.Name
+import javaRule.JavaDoc
+import javaRule.NameOperator
 
 /**
  * Generates code from your model files on save.
@@ -34,12 +37,13 @@ class JRuleGenerator extends AbstractGenerator {
 	
 	def compile (Rule rule, int i){
 	'''
-	import es.uam.sara.tfg.ast.Rule;
+	import es.uam.sara.tfg.ast.Visitors;
+	import es.uam.sara.tfg.ast.properties.Packages;
 	
 	public class Rule«i» implements Rule{
 	
 		@Override
-		public void execute() {
+		public void execute(Visitors visitors) {
 			«IF rule.action==Action.CHECK»
 				«IF rule.class == ElementJava.PACKAGE»
 				«rule.packageImplementacion»
@@ -61,32 +65,58 @@ class JRuleGenerator extends AbstractGenerator {
 	'''}
 	
 	def packageImplementacion(Rule rule){'''
-	
+		Packages pack= new Packages (visitors.getPackages);
+		//Faltan filtros
+		«FOR or: rule.on.satisfy.op»
+		ArrayList<Result<PackageDeclaration>> or=new ArrayList<Result<PackageDeclaration>>();
+			«FOR and: or.op»
+			ArrayList<Result<PackageDeclaration>> and=new ArrayList<Result<PackageDeclaration>>();
+			«IF and instanceof JavaDoc»
+			JavaDocPropertie jdp =new JavaDocPropertie («and.author», «and.parametre», «and.^return», «and.version», «and.throws», «and.see»);
+			and.add(pack.JavaDoc (null, jdp));
+			«ELSEIF and instanceof Name»
+				«IF(and as Name).type!=null»
+				and.add(pack.nameType(null, Name.«(and as Name).type»));
+				«ENDIF»
+				«IF (and as Name).operator!=null»
+					«IF (and as Name).operator==NameOperator.EQUAL»
+					and.add(pack.nameEqual(null, «(and as Name).name»));
+					«ELSE»
+					and.add(nameLike(null,  «(and as Name).name», Idioma.«(and as Name).language»));
+					«ENDIF»
+				«ENDIF»
+			«ENDIF»
+			or.add(Result.combinaAnd(and));
+			«ENDFOR»
+			Result.combinaOr(or,«rule.on.quantifier»);
+		«ENDFOR»
 	'''	
 	}
-	
+	def namePropertie(Name n){
+		
+	}
 	def interfaceImplementacion(Rule rule){'''
-	
+		Interfaces inter=new Interfaces(visitors.getInterfaces);
 	'''	
 	}
 	
 	def classImplementacion(Rule rule){'''
-	
+		Classes classes=new Classes(visitors.getClasses);
 	'''	
 	}
 	
 	def enumImplementacion(Rule rule){'''
-	
+		Enumerations enums=new Enumerations (visitors.getEnumerations);
 	'''	
 	}
 	
 	def methodImplementacion(Rule rule){'''
-	
+		Methods methods= new Methods (visitors.getMethods);
 	'''	
 	}
 	
 	def attributeImplementacion(Rule rule){'''
-	
+		Attributes attri= new Attributes (visitors.getAttributes);
 	'''	
 	}
 }
