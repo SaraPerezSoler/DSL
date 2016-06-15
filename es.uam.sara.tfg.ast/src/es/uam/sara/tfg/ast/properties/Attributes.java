@@ -3,7 +3,6 @@ package es.uam.sara.tfg.ast.properties;
 import java.util.ArrayList;
 
 import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 

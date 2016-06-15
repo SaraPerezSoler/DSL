@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.ast.properties.Name.Idioma;
 import es.uam.sara.tfg.ast.properties.Name.Type;
 
