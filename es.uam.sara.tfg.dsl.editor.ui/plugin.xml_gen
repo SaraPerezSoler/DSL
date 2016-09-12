@@ -150,7 +150,7 @@
 					definitionId="es.uam.sara.tfg.dsl.JRule.Editor.opened">
 				</reference>
 			</visibleWhen>
-		</command>  
+		</command>
 		</menuContribution>
 		<!-- copy qualified name -->
 		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
@@ -159,7 +159,7 @@
 				<visibleWhen checkEnabled="false">
 					<reference definitionId="es.uam.sara.tfg.dsl.JRule.Editor.opened" />
 				</visibleWhen>
-			</command>  
+			</command>
 		</menuContribution>
 		<menuContribution locationURI="menu:edit?after=copy">
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
@@ -167,7 +167,7 @@
 				<visibleWhen checkEnabled="false">
 					<reference definitionId="es.uam.sara.tfg.dsl.JRule.Editor.opened" />
 				</visibleWhen>
-			</command>  
+			</command>
 		</menuContribution>
 		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
@@ -213,10 +213,10 @@
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-	    <resourceServiceProvider
-	        class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-	        uriExtension="jrule">
-	    </resourceServiceProvider>
+		<resourceServiceProvider
+			class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="jrule">
+		</resourceServiceProvider>
 	</extension>
 	<!-- marker definitions for es.uam.sara.tfg.dsl.JRule -->
 	<extension
@@ -323,31 +323,31 @@
 	</extension>
 	<!-- quickfix marker resolution generator for es.uam.sara.tfg.dsl.JRule -->
 	<extension
-	        point="org.eclipse.ui.ide.markerResolution">
-	    <markerResolutionGenerator
-	        class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.fast">
-	        <attribute
-	            name="FIXABLE_KEY"
-	            value="true">
-	        </attribute>
-	    </markerResolutionGenerator>
-	    <markerResolutionGenerator
-	        class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.normal">
-	        <attribute
-	            name="FIXABLE_KEY"
-	            value="true">
-	        </attribute>
-	    </markerResolutionGenerator>
-	    <markerResolutionGenerator
-	        class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.expensive">
-	        <attribute
-	            name="FIXABLE_KEY"
-	            value="true">
-	        </attribute>
-	    </markerResolutionGenerator>
+			point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.fast">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.normal">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="es.uam.sara.tfg.dsl.ui.JRuleExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="es.uam.sara.tfg.dsl.editor.ui.jrule.check.expensive">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
 	</extension>
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
