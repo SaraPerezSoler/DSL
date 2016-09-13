@@ -18,12 +18,6 @@ import es.uam.sara.tfg.ast.properties.Name;
 import es.uam.sara.tfg.ast.properties.Name.Type;
 import es.uam.sara.tfg.ast.properties.Result;
 
-
-/**
- * 
- * @author Sara
- *dsdfsdf
- */
 public class Main {
 
 	public static String readFileToString(String filePath) throws IOException {

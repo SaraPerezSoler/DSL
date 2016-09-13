@@ -45,17 +45,17 @@ class JRuleGenerator extends AbstractGenerator {
 		@Override
 		public void execute(Visitors visitors) {
 			«IF rule.action==Action.CHECK»
-				«IF rule.class == ElementJava.PACKAGE»
+				«IF rule.on.element.element == ElementJava.PACKAGE»
 				«rule.packageImplementacion»
-				«ELSEIF rule.class == ElementJava.INTERFACE»
+				«ELSEIF rule.on.element.element == ElementJava.INTERFACE»
 				«rule.interfaceImplementacion»
-				«ELSEIF rule.class == ElementJava.CLASS»
+				«ELSEIF rule.on.element.element == ElementJava.CLASS»
 				«rule.classImplementacion»
-				«ELSEIF rule.class == ElementJava.ENUM»
+				«ELSEIF rule.on.element.element == ElementJava.ENUM»
 				«rule.enumImplementacion»
-				«ELSEIF rule.class == ElementJava.METHOD»
+				«ELSEIF rule.on.element.element == ElementJava.METHOD»
 				«rule.methodImplementacion»
-				«ELSEIF rule.class == ElementJava.ATTRIBUTE»
+				«ELSEIF rule.on.element.element == ElementJava.ATTRIBUTE»
 				«rule.attributeImplementacion»
 				«ENDIF»
 			«ENDIF»
@@ -88,13 +88,11 @@ class JRuleGenerator extends AbstractGenerator {
 			«ENDIF»
 			or.add(Result.combinaAnd(and));
 			«ENDFOR»
-			Result.combinaOr(or,«rule.on.quantifier»);
+			Result.combinaOr(or,«rule.on.no»,«rule.on.quantifier»);
 		«ENDFOR»
 	'''	
 	}
-	def namePropertie(Name n){
-		
-	}
+	
 	def interfaceImplementacion(Rule rule){'''
 		Interfaces inter=new Interfaces(visitors.getInterfaces);
 	'''	
