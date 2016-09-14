@@ -113,7 +113,7 @@
     <eLiterals name="like"/>
     <eLiterals name="equal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JavaDoc" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
+  <eClassifiers xsi:type="ecore:EClass" name="JavaDoc" eSuperTypes="#//Attribute #//Class #//Method #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parametre" lowerBound="1"
