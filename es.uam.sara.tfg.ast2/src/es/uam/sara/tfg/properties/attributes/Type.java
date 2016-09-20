@@ -10,15 +10,15 @@ public class Type extends Attribute {
 
 	private String type;
 
-	public Type(List<FieldDeclaration> all, String type) {
-		super(all);
+	public Type(List<FieldDeclaration> analyze, String type) {
+		super(analyze);
 		this.type = type;
 	}
 
 	@Override
 	public void check() {
 		try {
-			for (FieldDeclaration a : super.all) {
+			for (FieldDeclaration a : super.analyze) {
 				if (a.getType().toString().compareToIgnoreCase(type)==0) {
 					super.addRight(a);
 				} else {

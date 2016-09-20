@@ -7,7 +7,7 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class Attribute extends Properties<FieldDeclaration> {
 
-	public Attribute(List<FieldDeclaration> all) {
-		super(all);
+	public Attribute(List<FieldDeclaration> analyze) {
+		super(analyze);
 	}
 }

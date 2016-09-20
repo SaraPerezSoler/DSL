@@ -15,13 +15,13 @@ import es.uam.sara.tfg.properties.PropertiesException;
 
 public class NoEmpty extends Package {
 
-	public NoEmpty(List<String> all) {
-		super(all);
+	public NoEmpty(List<String> analyze) {
+		super(analyze);
 	}
 
 	@Override
 	public void check() {
-		for (String s: super.all){
+		for (String s: super.analyze){
 			File file= new File(s);
 			try{
 			if (file.isDirectory()){
