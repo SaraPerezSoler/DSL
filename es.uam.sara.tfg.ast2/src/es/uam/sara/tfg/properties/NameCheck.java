@@ -10,32 +10,74 @@ import java.util.ArrayList;
 
 public class NameCheck {
 
-	public int numero;
+	public enum Operation {
+		EQUALS, LIKE, START, ENDS, CONTAINS, UNDEFINE
+	}
 	public enum Type {
-		upperCamelCase, lowerCamelCase, upperCase, lowerCase, startUpperCase
+		UPPER_CAMEL_CASE, LOWER_CAMEL_CASE, UPPER_CASE, LOWER_CASE, START_UPPER_CASE, UNDEFINE 
 	}
-	public enum Idioma{
-		ENGLISH, ESPANIOL
+	public static final int ENGLISH = 1;
+	public static final int SPANISH = 2;
+	
+	
+	private Operation op=Operation.UNDEFINE;
+	private String other;
+	private int idioma;
+	
+	private Type type=Type.UNDEFINE;
+	
+	public NameCheck(Type type) {
+		this.type=type;
 	}
-	public static  boolean nameType (String name, Type type){
-		switch (type) {
-		case upperCamelCase:
-			return  upperCamelCase (name);
-		case lowerCamelCase:
-			
-			return lowerCamelCase(name);
-		case upperCase:
-			
-			return upperCase(name);
-		case lowerCase:
-			
-			return lowerCase(name);
+	public NameCheck(Operation op, String cad, int idioma) {
+		try {
+			if (op == NameCheck.Operation.LIKE) {
+				if (idioma != NameCheck.ENGLISH && idioma != NameCheck.SPANISH) {
+					throw new PropertiesException("Cod 02: El operando Like debe tener el valor idioma definido");
+				}
+			}
+		} catch (PropertiesException e) {
+			e.printStackTrace();
+		}
+		this.op = op;
+		this.other = cad;
+		this.idioma = idioma;
+	}
+	public boolean checkNameOperation (String name){
+		switch (op) {
+		case EQUALS:
+			return nameEqual(name, other);
+		case LIKE:
+			return nameLike(name, other, idioma);
+		case START:
+			return nameStart(name, other);
+		case ENDS:
+			return nameEnd(name, other);
+		case CONTAINS:
+			return nameContein(name, other);
 		default:
-			return startUpperCase(name);
+			return true;
 		}
 	}
 	
-	private static boolean upperCamelCase (String name){
+	public  boolean checkNameType (String name){
+		switch (type) {
+		case UPPER_CAMEL_CASE:
+			return  upperCamelCase (name);
+		case LOWER_CAMEL_CASE:
+			return lowerCamelCase(name);
+		case UPPER_CASE:
+			return upperCase(name);
+		case LOWER_CASE:
+			return lowerCase(name);
+		case START_UPPER_CASE:
+			return startUpperCase(name);
+		default:
+			return true;
+		}
+	}
+	
+	private boolean upperCamelCase (String name){
 		char [] nameArray= name.toCharArray();
 		if (upperLetter(nameArray[0])){
 			for (int i=1; i<nameArray.length; i++){
@@ -49,7 +91,7 @@ public class NameCheck {
 		}
 	}
 	
-	private static boolean lowerCamelCase (String name){
+	private boolean lowerCamelCase (String name){
 		char [] nameArray= name.toCharArray();
 		if (lowerLetter(nameArray[0])){
 			for (int i=1; i<nameArray.length; i++){
@@ -63,7 +105,7 @@ public class NameCheck {
 		}
 	}
 	
-	private static boolean upperCase (String name){
+	private boolean upperCase (String name){
 		char [] nameArray= name.toCharArray();
 		for (int i=0; i<nameArray.length; i++){
 			if (nameArray[i]!='_' && nameArray[i]!='$' && !isNumber(nameArray[i])){
@@ -76,7 +118,7 @@ public class NameCheck {
 
 	}
 	
-	private static boolean lowerCase (String name){
+	private boolean lowerCase (String name){
 		char [] nameArray= name.toCharArray();
 		for (int i=0; i<nameArray.length; i++){
 			if (nameArray[i]!='_' && nameArray[i]!='$' && !isNumber(nameArray[i])){
@@ -87,7 +129,7 @@ public class NameCheck {
 		}
 		return true;
 	}
-	private static boolean startUpperCase(String name){
+	private boolean startUpperCase(String name){
 		char [] nameArray= name.toCharArray();
 		if (!upperLetter(nameArray[0])){
 			return false;
@@ -95,19 +137,19 @@ public class NameCheck {
 		return true;
 	}
 	
-	private static boolean isNumber (char a){
+	private boolean isNumber (char a){
 		if (a>=0 && a<=9){
 			return true;
 		}
 		return false;
 	}
-	private static boolean upperLetter (char a){
+	private boolean upperLetter (char a){
 		if (a>='A' && a<='Z'){
 			return true;
 		}
 		return false;
 	}
-	private static boolean lowerLetter (char a){
+	private boolean lowerLetter (char a){
 		if (a>='a' && a<='z'){
 			return true;
 		}
@@ -115,7 +157,7 @@ public class NameCheck {
 	}
 	
 	
-	public static boolean nameLike (String name, String name2, Idioma idioma){
+	private boolean nameLike (String name, String name2, int idioma){
 		ArrayList<String> sinonimos=null;
 		if (name.compareToIgnoreCase(name2)==0){
 			return true;
@@ -142,7 +184,7 @@ public class NameCheck {
 	}
 	
 	
-	private static ArrayList<String> synonyms (String name){
+	private ArrayList<String> synonyms (String name){
 		try {
 			String word="book";
 			URL url = new URL("http://www.wordreference.com/synonyms/"+word);
@@ -178,7 +220,7 @@ public class NameCheck {
 		}
 		return null;
 	}
-	private static ArrayList<String> sinonimos (String name){
+	private ArrayList<String> sinonimos (String name){
 		try {
 			URL url = new URL("http://www.wordreference.com/sinonimos/"+name);
 			URLConnection con = url.openConnection();
@@ -227,28 +269,28 @@ public class NameCheck {
 		}
 		return null;
 	}
-	public static boolean nameEqual(String name, String name2){
+	private boolean nameEqual(String name, String name2){
 		if (name.compareToIgnoreCase(name2)==0){
 			return true;
 		}
 		return false;
 	}
 	
-	public static boolean nameStart (String name, String prefix){
+	private boolean nameStart (String name, String prefix){
 		if (name.startsWith(prefix)){
 			return true;
 		}
 		return false;
 	}
 	
-	public static boolean nameEnd (String name, String suffix){
+	private boolean nameEnd (String name, String suffix){
 		if (name.endsWith(suffix)){
 			return true;
 		}
 		return false;
 	}
 	
-	public static boolean nameContein (String name, String text){
+	private boolean nameContein (String name, String text){
 		if (name.contentEquals(text)){
 			return true;
 		}

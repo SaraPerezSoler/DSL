@@ -7,12 +7,13 @@ import org.eclipse.jdt.core.dom.Modifier;
 
 public class ModifiersCheck {
 
+
 	private ArrayList<BlendModifiers> blends=new ArrayList<BlendModifiers>();
 	public void addBlend(String acceso, boolean static_, boolean final_, boolean abstract_, boolean synchronized_){
 		blends.add(new BlendModifiers(acceso, static_, final_, abstract_, synchronized_));
 	}
 	
-	boolean modifiers(List<Modifier> list){
+	public boolean modifiers(List<Modifier> list){
 		BlendModifiers nuevo= createBlend(list);
 		for (BlendModifiers b: this.blends){
 			if (b.compara(nuevo)==true){
