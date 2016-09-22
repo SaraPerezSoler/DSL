@@ -5,10 +5,10 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 
 import es.uam.sara.tfg.properties.NameCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
 import es.uam.sara.tfg.properties.NameCheck.Type;
+import es.uam.sara.tfg.properties.PropertiesException;
 
-public class EnumNameType extends Enumeration {
+public class EnumNameType extends Enumeration{
 
 	private NameCheck nCheck;
 

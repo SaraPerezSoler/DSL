@@ -13,7 +13,7 @@ import es.uam.sara.tfg.properties.PropertiesException;
  * @author Sara
  *
  */
-public class Constructor extends Method {
+public class Constructor extends Method{
 
 	/**
 	 * @param analyze

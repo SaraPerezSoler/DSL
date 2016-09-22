@@ -15,7 +15,7 @@ import es.uam.sara.tfg.properties.PropertiesException;
  * @author Sara
  *
  */
-public class Parametres extends Method {
+public class Parametres extends Method{
 
 	private int numParametres;
 	private List<String> paramList;
@@ -46,7 +46,7 @@ public class Parametres extends Method {
 			for (MethodDeclaration m : super.analyze) {
 				if (m.parameters().size() != numParametres) {
 					super.addWrong(m);
-				} else if (comparaParam(m.parameters())) {
+				} else if (comparaParam(getList(m.parameters()))) {
 					super.addRight(m);
 				} else {
 					super.addWrong(m);
@@ -56,7 +56,15 @@ public class Parametres extends Method {
 			e.printStackTrace();
 		}
 	}
-
+	private List<SingleVariableDeclaration> getList(List<?> lista){
+		List<SingleVariableDeclaration> list= new ArrayList<SingleVariableDeclaration>();
+		for (Object a:lista){
+			if (a instanceof SingleVariableDeclaration){
+				list.add((SingleVariableDeclaration) a);
+			}
+		}
+		return list;
+	}
 	private boolean comparaParam(List<SingleVariableDeclaration> parameters) {
 		if (paramList==null){
 			return true;

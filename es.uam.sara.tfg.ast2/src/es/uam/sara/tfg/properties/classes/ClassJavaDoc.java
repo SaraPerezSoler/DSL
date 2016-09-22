@@ -3,11 +3,10 @@ package es.uam.sara.tfg.properties.classes;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.properties.JavaDocCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
 
-public class ClassJavaDoc extends Class {
+
+public class ClassJavaDoc extends Class{
 
 	private JavaDocCheck jdc;
 	public ClassJavaDoc(List<TypeDeclaration> analyze,boolean author, boolean parameter,
@@ -19,14 +18,10 @@ public class ClassJavaDoc extends Class {
 	@Override
 	public void check() {
 		for (TypeDeclaration t: super.analyze){
-			try{
-				if (jdc.javaDoc(t.getJavadoc())){
-					super.addRight(t);
-				}else{
-					super.addWrong(t);
-				}
-			}catch (PropertiesException e){
-				e.printStackTrace();
+			if (jdc.javaDoc(t.getJavadoc())){
+				super.addRight(t);
+			}else{
+				super.addWrong(t);
 			}
 		}
 

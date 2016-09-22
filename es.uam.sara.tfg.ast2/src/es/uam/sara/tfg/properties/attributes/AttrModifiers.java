@@ -2,12 +2,14 @@ package es.uam.sara.tfg.properties.attributes;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
+
 import es.uam.sara.tfg.properties.ModifiersCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class AttrModifiers extends Attribute {
+public class AttrModifiers extends Attribute{
 
 	private ModifiersCheck mc;
 

@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class MethNameOperation extends Method {
+public class MethNameOperation extends Method{
 
 	private NameCheck nCheck; 
 	public MethNameOperation(List<MethodDeclaration> analyze,NameCheck.Operation op, String cad, int idioma) {

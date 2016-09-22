@@ -1,9 +1,8 @@
 package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class Implements extends Class{
 
@@ -18,18 +17,25 @@ public class Implements extends Class{
 
 	@Override
 	public void check() {
-		try{
-			for (TypeDeclaration t: super.analyze){
-				if (t.superInterfaceTypes().size()<intMin || t.superInterfaceTypes().size()>intMax){
-					super.addWrong(t);
-				}else{
-					super.addRight(t);
-				}
+		for (TypeDeclaration t: super.analyze){
+			if (comprobar(t)){
+				super.addRight(t);
+			}else{
+				super.addWrong(t);
+				
 			}
-		}catch(PropertiesException e){
-			e.printStackTrace();
 		}
-		
 	}
+	private boolean comprobar(TypeDeclaration t){
+		if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
+			return true;
+		}
+		if (t.superInterfaceTypes().size()>=intMin && t.superInterfaceTypes().size()<=intMax){
+			return true;
+		}
+		return false;
+	}
+	
+	
 
 }

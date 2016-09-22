@@ -2,14 +2,14 @@ package es.uam.sara.tfg.properties.enumerations;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
-
 
 import es.uam.sara.tfg.properties.ModifiersCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class EnumModifiers extends Enumeration {
+public class EnumModifiers extends Enumeration{
 
 	private ModifiersCheck mc;
 	public EnumModifiers(List<EnumDeclaration> analyce, ModifiersCheck mc) {

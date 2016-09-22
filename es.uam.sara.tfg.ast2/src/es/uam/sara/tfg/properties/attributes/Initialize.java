@@ -8,13 +8,14 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+
 import es.uam.sara.tfg.properties.PropertiesException;
 
 /**
  * @author Sara
  *
  */
-public class Initialize extends Attribute {
+public class Initialize extends Attribute{
 
 	/**
 	 * @param analyze
