@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class MethJavaDoc extends Method {
+public class MethJavaDoc extends Method{
 
 	private JavaDocCheck jdc;
 	public MethJavaDoc(List<MethodDeclaration> analyze,boolean author, boolean parameter,

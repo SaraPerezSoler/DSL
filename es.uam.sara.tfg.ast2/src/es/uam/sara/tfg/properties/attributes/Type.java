@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class Type extends Attribute {
+public class Type extends Attribute{
 
 	private String type;
 

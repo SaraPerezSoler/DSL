@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class Return extends Method {
+public class Return extends Method{
 
 	private String type;
 	public Return(List<MethodDeclaration> analyze, String type) {

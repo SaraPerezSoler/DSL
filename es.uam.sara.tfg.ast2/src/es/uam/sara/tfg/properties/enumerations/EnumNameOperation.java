@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.EnumDeclaration;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class EnumNameOperation extends Enumeration {
+public class EnumNameOperation extends Enumeration{
 
 	private NameCheck nCheck;
 	public EnumNameOperation(List<EnumDeclaration> analyce,NameCheck.Operation op, String cad, int idioma) {

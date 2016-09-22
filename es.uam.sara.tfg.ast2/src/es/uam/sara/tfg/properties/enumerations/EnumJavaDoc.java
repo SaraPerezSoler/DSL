@@ -3,11 +3,10 @@ package es.uam.sara.tfg.properties.enumerations;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.EnumDeclaration;
-
 import es.uam.sara.tfg.properties.JavaDocCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class EnumJavaDoc extends Enumeration {
+public class EnumJavaDoc extends Enumeration{
 
 	private JavaDocCheck jdc;
 	public EnumJavaDoc(List<EnumDeclaration> analyce,boolean author, boolean parameter,

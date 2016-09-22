@@ -5,11 +5,10 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.properties.ModifiersCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
 
-public class ClassModifiers extends Class {
+
+public class ClassModifiers extends Class{
 
 	private ModifiersCheck mc;
 	public ClassModifiers(List<TypeDeclaration> analyze, ModifiersCheck mc) {
@@ -20,14 +19,10 @@ public class ClassModifiers extends Class {
 	@Override
 	public void check() {
 		for (TypeDeclaration t : super.analyze) {
-			try {
-				if (mc.modifiers(getList(t))) {
-					super.addRight(t);
-				} else {
-					super.addWrong(t);
-				}
-			} catch (PropertiesException e) {
-				e.printStackTrace();
+			if (mc.modifiers(getList(t))) {
+				super.addRight(t);
+			} else {
+				super.addWrong(t);
 			}
 		}
 	}

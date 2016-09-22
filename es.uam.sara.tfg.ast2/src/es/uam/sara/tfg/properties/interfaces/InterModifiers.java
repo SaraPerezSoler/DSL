@@ -9,7 +9,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class InterModifiers extends Interface {
+public class InterModifiers extends Interface{
 
 	private ModifiersCheck mc;
 

@@ -5,10 +5,10 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import es.uam.sara.tfg.properties.NameCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
 import es.uam.sara.tfg.properties.NameCheck.Type;
+import es.uam.sara.tfg.properties.PropertiesException;
 
-public class MathNameType extends Method {
+public class MathNameType extends Method{
 
 	private NameCheck nCheck;
 	public MathNameType(List<MethodDeclaration> analyze, Type type) {

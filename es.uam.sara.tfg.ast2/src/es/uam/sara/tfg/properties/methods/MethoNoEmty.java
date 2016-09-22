@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class MethoNoEmty extends Method {
+public class MethoNoEmty extends Method{
 
 	public MethoNoEmty(List<MethodDeclaration> analyze) {
 		super(analyze);

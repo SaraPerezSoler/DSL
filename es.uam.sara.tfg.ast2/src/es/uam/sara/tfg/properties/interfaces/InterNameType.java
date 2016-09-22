@@ -5,10 +5,10 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.properties.NameCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
 import es.uam.sara.tfg.properties.NameCheck.Type;
+import es.uam.sara.tfg.properties.PropertiesException;
 
-public class InterNameType extends Interface {
+public class InterNameType extends Interface{
 
 	private NameCheck nCheck;
 	public InterNameType(List<TypeDeclaration> analyce, Type type) {

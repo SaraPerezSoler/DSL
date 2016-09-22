@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class AttrNameType extends Attribute {
+public class AttrNameType extends Attribute{
 
 	private NameCheck nCheck;
 	

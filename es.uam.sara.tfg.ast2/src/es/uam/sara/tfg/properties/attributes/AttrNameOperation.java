@@ -15,7 +15,7 @@ import es.uam.sara.tfg.properties.PropertiesException;
  * @author Sara
  *
  */
-public class AttrNameOperation extends Attribute {
+public class AttrNameOperation extends Attribute{
 
 	private NameCheck ncheck;
 

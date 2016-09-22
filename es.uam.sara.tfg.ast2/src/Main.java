@@ -4,17 +4,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.eclipse.jdt.core.dom.PackageDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.ast.ParserAst;
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.ast.Visitors;
-import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Operation;
 import es.uam.sara.tfg.properties.attributes.AttrNameOperation;
-import es.uam.sara.tfg.properties.classes.IsInheritor;
-import es.uam.sara.tfg.properties.interfaces.IsImplemented;
 
 
 public class Main {
@@ -68,8 +62,8 @@ public class Main {
 				 ParserAst.parse(readFileToString(filePath), u);
 			 }
 		}
-		IsImplemented i= new IsImplemented(visitors.getClasses(), visitors.getClasses());
-		TypeDeclaration t=visitors.getClasses().get(3);
+		//IsImplemented i= new IsImplemented(visitors.getClasses(), visitors.getClasses());
+		//TypeDeclaration t=visitors.getClasses().get(3);
 		
 		AttrNameOperation no=new AttrNameOperation(visitors.getAttributes(), Operation.ENDS, "bo", 0);
 		no.check();

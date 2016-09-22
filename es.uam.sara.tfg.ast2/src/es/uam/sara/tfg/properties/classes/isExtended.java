@@ -4,16 +4,14 @@
 package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import es.uam.sara.tfg.properties.PropertiesException;
 
 /**
  * @author Sara
  *
  */
-public class isExtended extends Class {
+public class isExtended extends Class{
 
 	private  List<TypeDeclaration> allClasses;
 	/**
@@ -30,16 +28,12 @@ public class isExtended extends Class {
 	 */
 	@Override
 	public void check() {
-		try{
-			for (TypeDeclaration t: super.analyze){
-				if (check(t)){
-					super.addRight(t);
-				}else{
-					super.addWrong(t);
-				}
+		for (TypeDeclaration t: super.analyze){
+			if (check(t)){
+				super.addRight(t);
+			}else{
+				super.addWrong(t);
 			}
-		}catch(PropertiesException e){
-			e.printStackTrace();
 		}
 
 	}

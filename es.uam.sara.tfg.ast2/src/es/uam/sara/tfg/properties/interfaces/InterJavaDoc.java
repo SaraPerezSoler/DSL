@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 import es.uam.sara.tfg.properties.PropertiesException;
 
-public class InterJavaDoc extends Interface {
+public class InterJavaDoc extends Interface{
 
 	private JavaDocCheck jdc;
 	public InterJavaDoc(List<TypeDeclaration> analyce,boolean author, boolean parameter,
