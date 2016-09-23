@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/es.uam.sara.tfg.metaModel/src" modelPluginID="es.uam.sara.tfg.metaModel"
+    modelName="JavaRules" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>metamodel.ecore</foreignModel>
+  <genPackages prefix="JavaRule" disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//Quantifier">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Quantifier/one"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Quantifier/exists"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Quantifier/all"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//ElementJava">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Package"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Class"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Interface"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Enum"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Method"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//ElementJava/Attribute"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//Language">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/ENGLISH"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/ESPANIOL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameType">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/upperCase"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/lowerCase"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/upperCamelCase"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/lowerCamelCase"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/startUpperCase"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameOperator">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/like"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/equal"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//AccessModifier">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Default"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Public"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Protected"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Private"/>
+    </genEnums>
+    <genClasses ecoreClass="metamodel.ecore#//RuleSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//RuleSet/ProjectName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//RuleSet/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Rule/no"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Rule/quantifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Rule/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Rule/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Rule/satisfy"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Or/op"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//And/op"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Filter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Filter/filter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Filter/no"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Satisfy"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Package"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Interface"/>
+    <genClasses ecoreClass="metamodel.ecore#//isImplented"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Enumeration"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Class"/>
+    <genClasses ecoreClass="metamodel.ecore#//IsInheritor"/>
+    <genClasses ecoreClass="metamodel.ecore#//Implements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Implements/maxInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Implements/minInterface"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//IsExtended"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Method"/>
+    <genClasses ecoreClass="metamodel.ecore#//Parametre">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parametre/numParam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parametre/typesParam"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Constructor"/>
+    <genClasses ecoreClass="metamodel.ecore#//Return">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Return/returnType"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//Attribute"/>
+    <genClasses ecoreClass="metamodel.ecore#//AttributeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//AttributeType/Type"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Initialize"/>
+    <genClasses ecoreClass="metamodel.ecore#//NoEmpty"/>
+    <genClasses ecoreClass="metamodel.ecore#//Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/Language"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//JavaDoc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/parametre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/return"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/throws"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/see"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Conteins">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Conteins/which"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//Modifiers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Modifiers/blend"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//BlendModifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/static"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/final"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/synchronized"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
