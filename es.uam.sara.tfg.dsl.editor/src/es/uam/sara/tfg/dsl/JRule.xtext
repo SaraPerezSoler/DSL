@@ -18,7 +18,7 @@ Testing returns Testing:
 	(no?='no')? quantifier=Quantifier element=Element 'satisfy' satisfy=Or;
 
 enum Quantifier returns Quantifier:
-		one = 'one' | exists = 'exists' | all = 'all';
+		one = 'ones' | exists = 'exists' | all = 'all';
 		
 Element returns Element:
 	 element=ElementJava
