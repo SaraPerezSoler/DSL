@@ -1,10 +1,8 @@
 package es.uam.sara.tfg.properties.attributes;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 
-import es.uam.sara.tfg.properties.PropertiesException;
 
 public class Type extends Attribute{
 
@@ -17,16 +15,12 @@ public class Type extends Attribute{
 
 	@Override
 	public void check() {
-		try {
-			for (FieldDeclaration a : super.analyze) {
-				if (a.getType().toString().compareToIgnoreCase(type)==0) {
-					super.addRight(a);
-				} else {
-					super.addWrong(a);
-				}
+		for (FieldDeclaration a : super.analyze) {
+			if (a.getType().toString().compareToIgnoreCase(type)==0) {
+				super.addRight(a);
+			} else {
+				super.addWrong(a);
 			}
-		} catch (PropertiesException e) {
-			e.printStackTrace();
 		}
 	}
 

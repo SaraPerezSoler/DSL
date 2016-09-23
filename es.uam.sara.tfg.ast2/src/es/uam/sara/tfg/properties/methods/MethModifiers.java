@@ -2,12 +2,10 @@ package es.uam.sara.tfg.properties.methods;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
-
 import es.uam.sara.tfg.properties.ModifiersCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class MethModifiers extends Method{
 
@@ -20,14 +18,10 @@ public class MethModifiers extends Method{
 	@Override
 	public void check() {
 		for (MethodDeclaration m : super.analyze) {
-			try {
-				if (mc.modifiers(getList(m))) {
-					super.addRight(m);
-				} else {
-					super.addWrong(m);
-				}
-			} catch (PropertiesException e) {
-				e.printStackTrace();
+			if (mc.modifiers(getList(m))) {
+				super.addRight(m);
+			} else {
+				super.addWrong(m);
 			}
 		}
 	}

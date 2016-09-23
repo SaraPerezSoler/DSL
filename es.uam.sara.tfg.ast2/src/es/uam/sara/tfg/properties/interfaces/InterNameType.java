@@ -3,10 +3,9 @@ package es.uam.sara.tfg.properties.interfaces;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class InterNameType extends Interface{
 
@@ -19,14 +18,10 @@ public class InterNameType extends Interface{
 	@Override
 	public void check() {
 		for (TypeDeclaration t : super.analyze) {
-			try {
-				if (nCheck.checkNameType(t.getName().toString())) {
-					super.addRight(t);
-				} else {
-					super.addWrong(t);
-				}
-			} catch (PropertiesException e) {
-				e.printStackTrace();
+			if (nCheck.checkNameType(t.getName().toString())) {
+				super.addRight(t);
+			} else {
+				super.addWrong(t);
 			}
 		}
 	}

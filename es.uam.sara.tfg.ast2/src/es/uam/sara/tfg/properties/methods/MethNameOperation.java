@@ -1,11 +1,9 @@
 package es.uam.sara.tfg.properties.methods;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-
 import es.uam.sara.tfg.properties.NameCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class MethNameOperation extends Method{
 
@@ -18,14 +16,10 @@ public class MethNameOperation extends Method{
 	@Override
 	public void check() {
 		for (MethodDeclaration m: super.analyze){
-			try{
-				if (nCheck.checkNameOperation(m.getName().toString())){
-					super.addRight(m);
-				}else{
-					super.addWrong(m);
-				}
-			}catch(PropertiesException e){
-				e.printStackTrace();
+			if (nCheck.checkNameOperation(m.getName().toString())){
+				super.addRight(m);
+			}else{
+				super.addWrong(m);
 			}
 		}
 	}

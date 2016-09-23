@@ -1,11 +1,9 @@
 package es.uam.sara.tfg.properties.methods;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-
 import es.uam.sara.tfg.properties.JavaDocCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class MethJavaDoc extends Method{
 
@@ -19,14 +17,10 @@ public class MethJavaDoc extends Method{
 	@Override
 	public void check() {
 		for (MethodDeclaration m: super.analyze){
-			try{
-				if (jdc.javaDoc(m.getJavadoc())){
-					super.addRight(m);
-				}else{
-					super.addWrong(m);
-				}
-			}catch(PropertiesException e){
-				e.printStackTrace();
+			if (jdc.javaDoc(m.getJavadoc())){
+				super.addRight(m);
+			}else{
+				super.addWrong(m);
 			}
 		}
 	}

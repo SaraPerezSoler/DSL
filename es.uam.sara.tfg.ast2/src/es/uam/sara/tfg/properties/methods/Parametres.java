@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 
-import es.uam.sara.tfg.properties.PropertiesException;
 
 /**
  * @author Sara
@@ -42,18 +41,14 @@ public class Parametres extends Method{
 	 */
 	@Override
 	public void check() {
-		try {
-			for (MethodDeclaration m : super.analyze) {
-				if (m.parameters().size() != numParametres) {
-					super.addWrong(m);
-				} else if (comparaParam(getList(m.parameters()))) {
-					super.addRight(m);
-				} else {
-					super.addWrong(m);
-				}
+		for (MethodDeclaration m : super.analyze) {
+			if (m.parameters().size() != numParametres) {
+				super.addWrong(m);
+			} else if (comparaParam(getList(m.parameters()))) {
+				super.addRight(m);
+			} else {
+				super.addWrong(m);
 			}
-		} catch (PropertiesException e) {
-			e.printStackTrace();
 		}
 	}
 	private List<SingleVariableDeclaration> getList(List<?> lista){

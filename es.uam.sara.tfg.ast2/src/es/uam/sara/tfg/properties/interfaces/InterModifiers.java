@@ -2,12 +2,10 @@ package es.uam.sara.tfg.properties.interfaces;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.properties.ModifiersCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class InterModifiers extends Interface{
 
@@ -21,14 +19,10 @@ public class InterModifiers extends Interface{
 	@Override
 	public void check() {
 		for (TypeDeclaration t : super.analyze) {
-			try {
-				if (mc.modifiers(getList(t))) {
-					super.addRight(t);
-				} else {
-					super.addWrong(t);
-				}
-			} catch (PropertiesException e) {
-				e.printStackTrace();
+			if (mc.modifiers(getList(t))) {
+				super.addRight(t);
+			} else {
+				super.addWrong(t);
 			}
 		}
 	}

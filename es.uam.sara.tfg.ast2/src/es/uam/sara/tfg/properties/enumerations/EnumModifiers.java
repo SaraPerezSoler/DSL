@@ -5,9 +5,8 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
-
 import es.uam.sara.tfg.properties.ModifiersCheck;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class EnumModifiers extends Enumeration{
 
@@ -20,14 +19,10 @@ public class EnumModifiers extends Enumeration{
 	@Override
 	public void check() {
 		for (EnumDeclaration en : super.analyze) {
-			try {
-				if (mc.modifiers(getList(en))) {
-					super.addRight(en);
-				} else {
-					super.addWrong(en);
-				}
-			} catch (PropertiesException e) {
-				e.printStackTrace();
+			if (mc.modifiers(getList(en))) {
+				super.addRight(en);
+			} else {
+				super.addWrong(en);
 			}
 		}
 	}

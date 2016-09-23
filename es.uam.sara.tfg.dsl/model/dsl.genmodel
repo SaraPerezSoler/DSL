@@ -6,10 +6,6 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>dsl.ecore</foreignModel>
   <genPackages prefix="JavaRule" disposableProviderFactory="true" ecorePackage="dsl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dsl.ecore#//Action">
-      <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Action/check"/>
-      <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Action/correct"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dsl.ecore#//Quantifier">
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Quantifier/one"/>
       <genEnumLiterals ecoreEnumLiteral="dsl.ecore#//Quantifier/exists"/>
@@ -49,45 +45,35 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//RuleSet/rules"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Rule">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Rule/action"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Rule/on"/>
-    </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//Testing">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Testing/no"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Testing/quantifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Testing/element"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Testing/satisfy"/>
-    </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//And">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//And/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Rule/no"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Rule/quantifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Rule/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Rule/filter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Rule/satisfy"/>
     </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Or">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Or/op"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Element/element"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Element/filter"/>
+    <genClasses ecoreClass="dsl.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//And/op"/>
+    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//Filter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dsl.ecore#//Filter/filter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Filter/no"/>
     </genClasses>
     <genClasses image="false" ecoreClass="dsl.ecore#//Satisfy"/>
     <genClasses image="false" ecoreClass="dsl.ecore#//Package"/>
     <genClasses image="false" ecoreClass="dsl.ecore#//Interface"/>
+    <genClasses ecoreClass="dsl.ecore#//isImplented"/>
     <genClasses image="false" ecoreClass="dsl.ecore#//Enumeration"/>
     <genClasses image="false" ecoreClass="dsl.ecore#//Class"/>
-    <genClasses ecoreClass="dsl.ecore#//IsInheritor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//IsInheritor/maxLevel"/>
-    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//IsInheritor"/>
     <genClasses ecoreClass="dsl.ecore#//Implements">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Implements/maxInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Implements/minInterface"/>
     </genClasses>
-    <genClasses ecoreClass="dsl.ecore#//IsExtended">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//IsExtended/isExtends"/>
-    </genClasses>
+    <genClasses ecoreClass="dsl.ecore#//IsExtended"/>
     <genClasses image="false" ecoreClass="dsl.ecore#//Method"/>
-    <genClasses ecoreClass="dsl.ecore#//HaveConstant"/>
-    <genClasses ecoreClass="dsl.ecore#//Variable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Variable/position"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Variable/initialize"/>
-    </genClasses>
     <genClasses ecoreClass="dsl.ecore#//Parametre">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Parametre/numParam"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dsl.ecore#//Parametre/typesParam"/>

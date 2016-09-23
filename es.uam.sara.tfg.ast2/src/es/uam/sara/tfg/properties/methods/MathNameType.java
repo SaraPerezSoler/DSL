@@ -3,10 +3,9 @@ package es.uam.sara.tfg.properties.methods;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
-import es.uam.sara.tfg.properties.PropertiesException;
+
 
 public class MathNameType extends Method{
 
@@ -19,15 +18,10 @@ public class MathNameType extends Method{
 	@Override
 	public void check() {
 		for (MethodDeclaration m: super.analyze){
-			try{
-				if (nCheck.checkNameType(m.getName().toString())){
-					super.addRight(m);
-				}else{
-					super.addWrong(m);
-				}
-				
-			}catch(PropertiesException e){
-				e.printStackTrace();
+			if (nCheck.checkNameType(m.getName().toString())){
+				super.addRight(m);
+			}else{
+				super.addWrong(m);
 			}
 		}
 	}

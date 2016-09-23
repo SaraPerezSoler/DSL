@@ -1,4 +1,4 @@
-package es.uam.sara.tfg.properties.classes;
+package es.uam.sara.tfg.properties.interfaces;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.rule.Rule;
 
-public class ConteinsMethod extends Class {
+public class InterConteinsMethod extends Interface {
 
 	private Rule<MethodDeclaration> rule;
-	public ConteinsMethod(List<TypeDeclaration> analyze, Rule<MethodDeclaration> r) {
+	public InterConteinsMethod(List<TypeDeclaration> analyze, Rule<MethodDeclaration> r) {
 		super(analyze);
 		rule=r;
 	}

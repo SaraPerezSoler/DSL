@@ -1,10 +1,8 @@
 package es.uam.sara.tfg.properties.interfaces;
 
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import es.uam.sara.tfg.properties.PropertiesException;
 
 public class IsImplemented extends Interface{
 	
@@ -17,16 +15,12 @@ public class IsImplemented extends Interface{
 
 	@Override
 	public void check() {
-		try{
-			for (TypeDeclaration t: super.analyze){
-				if (check(t)){
-					super.addRight(t);
-				}else{
-					super.addWrong(t);
-				}
+		for (TypeDeclaration t: super.analyze){
+			if (check(t)){
+				super.addRight(t);
+			}else{
+				super.addWrong(t);
 			}
-		}catch(PropertiesException e){
-			e.printStackTrace();
 		}
 	}
 	
