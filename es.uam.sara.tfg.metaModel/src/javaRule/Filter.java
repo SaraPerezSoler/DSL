@@ -33,7 +33,7 @@ public interface Filter extends EObject {
 	 * @return the value of the '<em>Filter</em>' containment reference.
 	 * @see #setFilter(Or)
 	 * @see javaRule.JavaRulePackage#getFilter_Filter()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Or getFilter();
@@ -50,6 +50,7 @@ public interface Filter extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>No</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>No</em>' attribute isn't clear,
@@ -59,7 +60,7 @@ public interface Filter extends EObject {
 	 * @return the value of the '<em>No</em>' attribute.
 	 * @see #setNo(boolean)
 	 * @see javaRule.JavaRulePackage#getFilter_No()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isNo();

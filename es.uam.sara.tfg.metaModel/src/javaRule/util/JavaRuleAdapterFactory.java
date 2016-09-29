@@ -7,7 +7,7 @@ import javaRule.Attribute;
 import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
-import javaRule.Conteins;
+import javaRule.Contains;
 import javaRule.Enumeration;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -22,13 +22,12 @@ import javaRule.Modifiers;
 import javaRule.Name;
 import javaRule.NoEmpty;
 import javaRule.Or;
-import javaRule.Parametre;
+import javaRule.Parameter;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
-import javaRule.isImplented;
-
+import javaRule.isImplemented;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -125,8 +124,8 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseisImplented(isImplented object) {
-				return createisImplentedAdapter();
+			public Adapter caseisImplemented(isImplemented object) {
+				return createisImplementedAdapter();
 			}
 			@Override
 			public Adapter caseEnumeration(Enumeration object) {
@@ -153,8 +152,8 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createMethodAdapter();
 			}
 			@Override
-			public Adapter caseParametre(Parametre object) {
-				return createParametreAdapter();
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseConstructor(Constructor object) {
@@ -189,8 +188,8 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createJavaDocAdapter();
 			}
 			@Override
-			public Adapter caseConteins(Conteins object) {
-				return createConteinsAdapter();
+			public Adapter caseContains(Contains object) {
+				return createContainsAdapter();
 			}
 			@Override
 			public Adapter caseModifiers(Modifiers object) {
@@ -333,16 +332,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.isImplented <em>is Implented</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.isImplemented <em>is Implemented</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.isImplented
+	 * @see javaRule.isImplemented
 	 * @generated
 	 */
-	public Adapter createisImplentedAdapter() {
+	public Adapter createisImplementedAdapter() {
 		return null;
 	}
 
@@ -431,16 +430,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Parametre <em>Parametre</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Parametre
+	 * @see javaRule.Parameter
 	 * @generated
 	 */
-	public Adapter createParametreAdapter() {
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 
@@ -557,16 +556,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Conteins <em>Conteins</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Contains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Conteins
+	 * @see javaRule.Contains
 	 * @generated
 	 */
-	public Adapter createConteinsAdapter() {
+	public Adapter createContainsAdapter() {
 		return null;
 	}
 

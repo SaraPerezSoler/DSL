@@ -381,32 +381,32 @@ public interface JavaRulePackage extends EPackage {
 	int INTERFACE_OPERATION_COUNT = SATISFY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link javaRule.impl.isImplentedImpl <em>is Implented</em>}' class.
+	 * The meta object id for the '{@link javaRule.impl.isImplementedImpl <em>is Implemented</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.isImplentedImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getisImplented()
+	 * @see javaRule.impl.isImplementedImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getisImplemented()
 	 * @generated
 	 */
-	int IS_IMPLENTED = 8;
+	int IS_IMPLEMENTED = 8;
 
 	/**
-	 * The number of structural features of the '<em>is Implented</em>' class.
+	 * The number of structural features of the '<em>is Implemented</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IS_IMPLENTED_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 0;
+	int IS_IMPLEMENTED_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>is Implented</em>' class.
+	 * The number of operations of the '<em>is Implemented</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IS_IMPLENTED_OPERATION_COUNT = INTERFACE_OPERATION_COUNT + 0;
+	int IS_IMPLEMENTED_OPERATION_COUNT = INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -503,22 +503,22 @@ public interface JavaRulePackage extends EPackage {
 	int IMPLEMENTS = 12;
 
 	/**
-	 * The feature id for the '<em><b>Max Interface</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS__MAX_INTERFACE = CLASS_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Min Interface</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTS__MIN_INTERFACE = CLASS_FEATURE_COUNT + 1;
+	int IMPLEMENTS__MIN_INTERFACE = CLASS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Interface</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS__MAX_INTERFACE = CLASS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Implements</em>' class.
@@ -595,14 +595,14 @@ public interface JavaRulePackage extends EPackage {
 	int METHOD_OPERATION_COUNT = SATISFY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link javaRule.impl.ParametreImpl <em>Parametre</em>}' class.
+	 * The meta object id for the '{@link javaRule.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.ParametreImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getParametre()
+	 * @see javaRule.impl.ParameterImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETRE = 15;
+	int PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Num Param</b></em>' attribute.
@@ -611,7 +611,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRE__NUM_PARAM = METHOD_FEATURE_COUNT + 0;
+	int PARAMETER__NUM_PARAM = METHOD_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Types Param</b></em>' attribute list.
@@ -620,25 +620,25 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRE__TYPES_PARAM = METHOD_FEATURE_COUNT + 1;
+	int PARAMETER__TYPES_PARAM = METHOD_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Parametre</em>' class.
+	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRE_FEATURE_COUNT = METHOD_FEATURE_COUNT + 2;
+	int PARAMETER_FEATURE_COUNT = METHOD_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Parametre</em>' class.
+	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETRE_OPERATION_COUNT = METHOD_OPERATION_COUNT + 0;
+	int PARAMETER_OPERATION_COUNT = METHOD_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -973,14 +973,14 @@ public interface JavaRulePackage extends EPackage {
 	int JAVA_DOC_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link javaRule.impl.ConteinsImpl <em>Conteins</em>}' class.
+	 * The meta object id for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.ConteinsImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getConteins()
+	 * @see javaRule.impl.ContainsImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
 	 * @generated
 	 */
-	int CONTEINS = 24;
+	int CONTAINS = 24;
 
 	/**
 	 * The feature id for the '<em><b>Which</b></em>' containment reference.
@@ -989,25 +989,25 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEINS__WHICH = PACKAGE_FEATURE_COUNT + 0;
+	int CONTAINS__WHICH = PACKAGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Conteins</em>' class.
+	 * The number of structural features of the '<em>Contains</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEINS_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 1;
+	int CONTAINS_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Conteins</em>' class.
+	 * The number of operations of the '<em>Contains</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTEINS_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
+	int CONTAINS_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.ModifiersImpl <em>Modifiers</em>}' class.
@@ -1382,14 +1382,14 @@ public interface JavaRulePackage extends EPackage {
 	EClass getInterface();
 
 	/**
-	 * Returns the meta object for class '{@link javaRule.isImplented <em>is Implented</em>}'.
+	 * Returns the meta object for class '{@link javaRule.isImplemented <em>is Implemented</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>is Implented</em>'.
-	 * @see javaRule.isImplented
+	 * @return the meta object for class '<em>is Implemented</em>'.
+	 * @see javaRule.isImplemented
 	 * @generated
 	 */
-	EClass getisImplented();
+	EClass getisImplemented();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Enumeration <em>Enumeration</em>}'.
@@ -1474,36 +1474,36 @@ public interface JavaRulePackage extends EPackage {
 	EClass getMethod();
 
 	/**
-	 * Returns the meta object for class '{@link javaRule.Parametre <em>Parametre</em>}'.
+	 * Returns the meta object for class '{@link javaRule.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parametre</em>'.
-	 * @see javaRule.Parametre
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see javaRule.Parameter
 	 * @generated
 	 */
-	EClass getParametre();
+	EClass getParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Parametre#getNumParam <em>Num Param</em>}'.
+	 * Returns the meta object for the attribute '{@link javaRule.Parameter#getNumParam <em>Num Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Num Param</em>'.
-	 * @see javaRule.Parametre#getNumParam()
-	 * @see #getParametre()
+	 * @see javaRule.Parameter#getNumParam()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParametre_NumParam();
+	EAttribute getParameter_NumParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link javaRule.Parametre#getTypesParam <em>Types Param</em>}'.
+	 * Returns the meta object for the attribute list '{@link javaRule.Parameter#getTypesParam <em>Types Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Types Param</em>'.
-	 * @see javaRule.Parametre#getTypesParam()
-	 * @see #getParametre()
+	 * @see javaRule.Parameter#getTypesParam()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParametre_TypesParam();
+	EAttribute getParameter_TypesParam();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Constructor <em>Constructor</em>}'.
@@ -1718,25 +1718,25 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getJavaDoc_See();
 
 	/**
-	 * Returns the meta object for class '{@link javaRule.Conteins <em>Conteins</em>}'.
+	 * Returns the meta object for class '{@link javaRule.Contains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conteins</em>'.
-	 * @see javaRule.Conteins
+	 * @return the meta object for class '<em>Contains</em>'.
+	 * @see javaRule.Contains
 	 * @generated
 	 */
-	EClass getConteins();
+	EClass getContains();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link javaRule.Conteins#getWhich <em>Which</em>}'.
+	 * Returns the meta object for the containment reference '{@link javaRule.Contains#getWhich <em>Which</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Which</em>'.
-	 * @see javaRule.Conteins#getWhich()
-	 * @see #getConteins()
+	 * @see javaRule.Contains#getWhich()
+	 * @see #getContains()
 	 * @generated
 	 */
-	EReference getConteins_Which();
+	EReference getContains_Which();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Modifiers <em>Modifiers</em>}'.
@@ -2076,14 +2076,14 @@ public interface JavaRulePackage extends EPackage {
 		EClass INTERFACE = eINSTANCE.getInterface();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.impl.isImplentedImpl <em>is Implented</em>}' class.
+		 * The meta object literal for the '{@link javaRule.impl.isImplementedImpl <em>is Implemented</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.isImplentedImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getisImplented()
+		 * @see javaRule.impl.isImplementedImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getisImplemented()
 		 * @generated
 		 */
-		EClass IS_IMPLENTED = eINSTANCE.getisImplented();
+		EClass IS_IMPLEMENTED = eINSTANCE.getisImplemented();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -2162,14 +2162,14 @@ public interface JavaRulePackage extends EPackage {
 		EClass METHOD = eINSTANCE.getMethod();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.impl.ParametreImpl <em>Parametre</em>}' class.
+		 * The meta object literal for the '{@link javaRule.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.ParametreImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getParametre()
+		 * @see javaRule.impl.ParameterImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getParameter()
 		 * @generated
 		 */
-		EClass PARAMETRE = eINSTANCE.getParametre();
+		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Num Param</b></em>' attribute feature.
@@ -2177,7 +2177,7 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETRE__NUM_PARAM = eINSTANCE.getParametre_NumParam();
+		EAttribute PARAMETER__NUM_PARAM = eINSTANCE.getParameter_NumParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Types Param</b></em>' attribute list feature.
@@ -2185,7 +2185,7 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETRE__TYPES_PARAM = eINSTANCE.getParametre_TypesParam();
+		EAttribute PARAMETER__TYPES_PARAM = eINSTANCE.getParameter_TypesParam();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -2364,14 +2364,14 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute JAVA_DOC__SEE = eINSTANCE.getJavaDoc_See();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.impl.ConteinsImpl <em>Conteins</em>}' class.
+		 * The meta object literal for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.ConteinsImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getConteins()
+		 * @see javaRule.impl.ContainsImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getContains()
 		 * @generated
 		 */
-		EClass CONTEINS = eINSTANCE.getConteins();
+		EClass CONTAINS = eINSTANCE.getContains();
 
 		/**
 		 * The meta object literal for the '<em><b>Which</b></em>' containment reference feature.
@@ -2379,7 +2379,7 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTEINS__WHICH = eINSTANCE.getConteins_Which();
+		EReference CONTAINS__WHICH = eINSTANCE.getContains_Which();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.ModifiersImpl <em>Modifiers</em>}' class.

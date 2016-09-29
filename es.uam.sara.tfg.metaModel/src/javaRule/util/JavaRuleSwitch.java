@@ -7,7 +7,7 @@ import javaRule.Attribute;
 import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
-import javaRule.Conteins;
+import javaRule.Contains;
 import javaRule.Enumeration;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -22,13 +22,12 @@ import javaRule.Modifiers;
 import javaRule.Name;
 import javaRule.NoEmpty;
 import javaRule.Or;
-import javaRule.Parametre;
+import javaRule.Parameter;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
-import javaRule.isImplented;
-
+import javaRule.isImplemented;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -141,11 +140,11 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.IS_IMPLENTED: {
-				isImplented isImplented = (isImplented)theEObject;
-				T result = caseisImplented(isImplented);
-				if (result == null) result = caseInterface(isImplented);
-				if (result == null) result = caseSatisfy(isImplented);
+			case JavaRulePackage.IS_IMPLEMENTED: {
+				isImplemented isImplemented = (isImplemented)theEObject;
+				T result = caseisImplemented(isImplemented);
+				if (result == null) result = caseInterface(isImplemented);
+				if (result == null) result = caseSatisfy(isImplemented);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,11 +193,11 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.PARAMETRE: {
-				Parametre parametre = (Parametre)theEObject;
-				T result = caseParametre(parametre);
-				if (result == null) result = caseMethod(parametre);
-				if (result == null) result = caseSatisfy(parametre);
+			case JavaRulePackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseMethod(parameter);
+				if (result == null) result = caseSatisfy(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -278,14 +277,14 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.CONTEINS: {
-				Conteins conteins = (Conteins)theEObject;
-				T result = caseConteins(conteins);
-				if (result == null) result = casePackage(conteins);
-				if (result == null) result = caseInterface(conteins);
-				if (result == null) result = caseEnumeration(conteins);
-				if (result == null) result = caseClass(conteins);
-				if (result == null) result = caseSatisfy(conteins);
+			case JavaRulePackage.CONTAINS: {
+				Contains contains = (Contains)theEObject;
+				T result = caseContains(contains);
+				if (result == null) result = casePackage(contains);
+				if (result == null) result = caseInterface(contains);
+				if (result == null) result = caseEnumeration(contains);
+				if (result == null) result = caseClass(contains);
+				if (result == null) result = caseSatisfy(contains);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -432,17 +431,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>is Implented</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>is Implemented</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>is Implented</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>is Implemented</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseisImplented(isImplented object) {
+	public T caseisImplemented(isImplemented object) {
 		return null;
 	}
 
@@ -537,17 +536,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parametre</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parametre</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParametre(Parametre object) {
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 
@@ -672,17 +671,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conteins</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Contains</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conteins</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Contains</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConteins(Conteins object) {
+	public T caseContains(Contains object) {
 		return null;
 	}
 

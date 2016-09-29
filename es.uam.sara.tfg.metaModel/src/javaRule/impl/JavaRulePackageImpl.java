@@ -8,7 +8,7 @@ import javaRule.Attribute;
 import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
-import javaRule.Conteins;
+import javaRule.Contains;
 import javaRule.ElementJava;
 import javaRule.Enumeration;
 import javaRule.Filter;
@@ -28,14 +28,13 @@ import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.NoEmpty;
 import javaRule.Or;
-import javaRule.Parametre;
+import javaRule.Parameter;
 import javaRule.Quantifier;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
-import javaRule.isImplented;
-
+import javaRule.isImplemented;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -112,7 +111,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass isImplentedEClass = null;
+	private EClass isImplementedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,7 +160,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parametreEClass = null;
+	private EClass parameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,7 +223,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conteinsEClass = null;
+	private EClass containsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -519,8 +518,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getisImplented() {
-		return isImplentedEClass;
+	public EClass getisImplemented() {
+		return isImplementedEClass;
 	}
 
 	/**
@@ -565,7 +564,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	public EAttribute getImplements_MaxInterface() {
-		return (EAttribute)implementsEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)implementsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -574,7 +573,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	public EAttribute getImplements_MinInterface() {
-		return (EAttribute)implementsEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)implementsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -600,8 +599,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParametre() {
-		return parametreEClass;
+	public EClass getParameter() {
+		return parameterEClass;
 	}
 
 	/**
@@ -609,8 +608,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParametre_NumParam() {
-		return (EAttribute)parametreEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameter_NumParam() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -618,8 +617,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParametre_TypesParam() {
-		return (EAttribute)parametreEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_TypesParam() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -807,8 +806,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConteins() {
-		return conteinsEClass;
+	public EClass getContains() {
+		return containsEClass;
 	}
 
 	/**
@@ -816,8 +815,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConteins_Which() {
-		return (EReference)conteinsEClass.getEStructuralFeatures().get(0);
+	public EReference getContains_Which() {
+		return (EReference)containsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1001,7 +1000,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		interfaceEClass = createEClass(INTERFACE);
 
-		isImplentedEClass = createEClass(IS_IMPLENTED);
+		isImplementedEClass = createEClass(IS_IMPLEMENTED);
 
 		enumerationEClass = createEClass(ENUMERATION);
 
@@ -1010,16 +1009,16 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		isInheritorEClass = createEClass(IS_INHERITOR);
 
 		implementsEClass = createEClass(IMPLEMENTS);
-		createEAttribute(implementsEClass, IMPLEMENTS__MAX_INTERFACE);
 		createEAttribute(implementsEClass, IMPLEMENTS__MIN_INTERFACE);
+		createEAttribute(implementsEClass, IMPLEMENTS__MAX_INTERFACE);
 
 		isExtendedEClass = createEClass(IS_EXTENDED);
 
 		methodEClass = createEClass(METHOD);
 
-		parametreEClass = createEClass(PARAMETRE);
-		createEAttribute(parametreEClass, PARAMETRE__NUM_PARAM);
-		createEAttribute(parametreEClass, PARAMETRE__TYPES_PARAM);
+		parameterEClass = createEClass(PARAMETER);
+		createEAttribute(parameterEClass, PARAMETER__NUM_PARAM);
+		createEAttribute(parameterEClass, PARAMETER__TYPES_PARAM);
 
 		constructorEClass = createEClass(CONSTRUCTOR);
 
@@ -1049,8 +1048,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(javaDocEClass, JAVA_DOC__THROWS);
 		createEAttribute(javaDocEClass, JAVA_DOC__SEE);
 
-		conteinsEClass = createEClass(CONTEINS);
-		createEReference(conteinsEClass, CONTEINS__WHICH);
+		containsEClass = createEClass(CONTAINS);
+		createEReference(containsEClass, CONTAINS__WHICH);
 
 		modifiersEClass = createEClass(MODIFIERS);
 		createEReference(modifiersEClass, MODIFIERS__BLEND);
@@ -1101,14 +1100,14 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		// Add supertypes to classes
 		packageEClass.getESuperTypes().add(this.getSatisfy());
 		interfaceEClass.getESuperTypes().add(this.getSatisfy());
-		isImplentedEClass.getESuperTypes().add(this.getInterface());
+		isImplementedEClass.getESuperTypes().add(this.getInterface());
 		enumerationEClass.getESuperTypes().add(this.getSatisfy());
 		classEClass.getESuperTypes().add(this.getSatisfy());
 		isInheritorEClass.getESuperTypes().add(this.getClass_());
 		implementsEClass.getESuperTypes().add(this.getClass_());
 		isExtendedEClass.getESuperTypes().add(this.getClass_());
 		methodEClass.getESuperTypes().add(this.getSatisfy());
-		parametreEClass.getESuperTypes().add(this.getMethod());
+		parameterEClass.getESuperTypes().add(this.getMethod());
 		constructorEClass.getESuperTypes().add(this.getMethod());
 		returnEClass.getESuperTypes().add(this.getMethod());
 		attributeEClass.getESuperTypes().add(this.getSatisfy());
@@ -1130,10 +1129,10 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		javaDocEClass.getESuperTypes().add(this.getMethod());
 		javaDocEClass.getESuperTypes().add(this.getInterface());
 		javaDocEClass.getESuperTypes().add(this.getEnumeration());
-		conteinsEClass.getESuperTypes().add(this.getPackage());
-		conteinsEClass.getESuperTypes().add(this.getInterface());
-		conteinsEClass.getESuperTypes().add(this.getEnumeration());
-		conteinsEClass.getESuperTypes().add(this.getClass_());
+		containsEClass.getESuperTypes().add(this.getPackage());
+		containsEClass.getESuperTypes().add(this.getInterface());
+		containsEClass.getESuperTypes().add(this.getEnumeration());
+		containsEClass.getESuperTypes().add(this.getClass_());
 		modifiersEClass.getESuperTypes().add(this.getAttribute());
 		modifiersEClass.getESuperTypes().add(this.getClass_());
 		modifiersEClass.getESuperTypes().add(this.getMethod());
@@ -1159,8 +1158,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEReference(getAnd_Op(), this.getSatisfy(), null, "op", null, 1, -1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFilter_Filter(), this.getOr(), null, "filter", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFilter_No(), ecorePackage.getEBoolean(), "no", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilter_Filter(), this.getOr(), null, "filter", null, 1, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_No(), ecorePackage.getEBoolean(), "no", "false", 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(satisfyEClass, Satisfy.class, "Satisfy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1168,7 +1167,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(isImplentedEClass, isImplented.class, "isImplented", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(isImplementedEClass, isImplemented.class, "isImplemented", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1177,16 +1176,16 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(isInheritorEClass, IsInheritor.class, "IsInheritor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(implementsEClass, Implements.class, "Implements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImplements_MinInterface(), ecorePackage.getEInt(), "minInterface", "1", 0, 1, Implements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImplements_MaxInterface(), ecorePackage.getEInt(), "maxInterface", null, 0, 1, Implements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImplements_MinInterface(), ecorePackage.getEInt(), "minInterface", null, 0, 1, Implements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(isExtendedEClass, IsExtended.class, "IsExtended", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(methodEClass, Method.class, "Method", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(parametreEClass, Parametre.class, "Parametre", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParametre_NumParam(), ecorePackage.getEBigInteger(), "numParam", null, 1, 1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParametre_TypesParam(), ecorePackage.getEString(), "typesParam", null, 0, -1, Parametre.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_NumParam(), ecorePackage.getEBigInteger(), "numParam", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_TypesParam(), ecorePackage.getEString(), "typesParam", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1216,8 +1215,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getJavaDoc_Throws(), ecorePackage.getEBoolean(), "throws", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaDoc_See(), ecorePackage.getEBoolean(), "see", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conteinsEClass, Conteins.class, "Conteins", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConteins_Which(), this.getRule(), null, "which", null, 1, 1, Conteins.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContains_Which(), this.getRule(), null, "which", null, 1, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modifiersEClass, Modifiers.class, "Modifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModifiers_Blend(), this.getBlendModifiers(), null, "blend", null, 1, -1, Modifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

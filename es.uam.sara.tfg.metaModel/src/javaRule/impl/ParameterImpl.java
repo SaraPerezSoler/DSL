@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.util.Collection;
 
 import javaRule.JavaRulePackage;
-import javaRule.Parametre;
+import javaRule.Parameter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,19 +21,19 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parametre</b></em>'.
+ * An implementation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.ParametreImpl#getNumParam <em>Num Param</em>}</li>
- *   <li>{@link javaRule.impl.ParametreImpl#getTypesParam <em>Types Param</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getNumParam <em>Num Param</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getTypesParam <em>Types Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParametreImpl extends MethodImpl implements Parametre {
+public class ParameterImpl extends MethodImpl implements Parameter {
 	/**
 	 * The default value of the '{@link #getNumParam() <em>Num Param</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParametreImpl() {
+	protected ParameterImpl() {
 		super();
 	}
 
@@ -80,7 +80,7 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.PARAMETRE;
+		return JavaRulePackage.Literals.PARAMETER;
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 		BigInteger oldNumParam = numParam;
 		numParam = newNumParam;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETRE__NUM_PARAM, oldNumParam, numParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__NUM_PARAM, oldNumParam, numParam));
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	 */
 	public EList<String> getTypesParam() {
 		if (typesParam == null) {
-			typesParam = new EDataTypeUniqueEList<String>(String.class, this, JavaRulePackage.PARAMETRE__TYPES_PARAM);
+			typesParam = new EDataTypeUniqueEList<String>(String.class, this, JavaRulePackage.PARAMETER__TYPES_PARAM);
 		}
 		return typesParam;
 	}
@@ -124,9 +124,9 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETRE__NUM_PARAM:
+			case JavaRulePackage.PARAMETER__NUM_PARAM:
 				return getNumParam();
-			case JavaRulePackage.PARAMETRE__TYPES_PARAM:
+			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				return getTypesParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -141,10 +141,10 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETRE__NUM_PARAM:
+			case JavaRulePackage.PARAMETER__NUM_PARAM:
 				setNumParam((BigInteger)newValue);
 				return;
-			case JavaRulePackage.PARAMETRE__TYPES_PARAM:
+			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				getTypesParam().clear();
 				getTypesParam().addAll((Collection<? extends String>)newValue);
 				return;
@@ -160,10 +160,10 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETRE__NUM_PARAM:
+			case JavaRulePackage.PARAMETER__NUM_PARAM:
 				setNumParam(NUM_PARAM_EDEFAULT);
 				return;
-			case JavaRulePackage.PARAMETRE__TYPES_PARAM:
+			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				getTypesParam().clear();
 				return;
 		}
@@ -178,9 +178,9 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETRE__NUM_PARAM:
+			case JavaRulePackage.PARAMETER__NUM_PARAM:
 				return NUM_PARAM_EDEFAULT == null ? numParam != null : !NUM_PARAM_EDEFAULT.equals(numParam);
-			case JavaRulePackage.PARAMETRE__TYPES_PARAM:
+			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				return typesParam != null && !typesParam.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -204,4 +204,4 @@ public class ParametreImpl extends MethodImpl implements Parametre {
 		return result.toString();
 	}
 
-} //ParametreImpl
+} //ParameterImpl

@@ -12,8 +12,8 @@ package javaRule;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link javaRule.Implements#getMaxInterface <em>Max Interface</em>}</li>
  *   <li>{@link javaRule.Implements#getMinInterface <em>Min Interface</em>}</li>
+ *   <li>{@link javaRule.Implements#getMaxInterface <em>Max Interface</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getImplements()
@@ -49,6 +49,7 @@ public interface Implements extends javaRule.Class {
 
 	/**
 	 * Returns the value of the '<em><b>Min Interface</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Min Interface</em>' attribute isn't clear,
@@ -58,7 +59,7 @@ public interface Implements extends javaRule.Class {
 	 * @return the value of the '<em>Min Interface</em>' attribute.
 	 * @see #setMinInterface(int)
 	 * @see javaRule.JavaRulePackage#getImplements_MinInterface()
-	 * @model
+	 * @model default="1"
 	 * @generated
 	 */
 	int getMinInterface();

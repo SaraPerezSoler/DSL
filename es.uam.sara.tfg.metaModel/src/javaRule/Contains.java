@@ -5,21 +5,21 @@ package javaRule;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Conteins</b></em>'.
+ * A representation of the model object '<em><b>Contains</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link javaRule.Conteins#getWhich <em>Which</em>}</li>
+ *   <li>{@link javaRule.Contains#getWhich <em>Which</em>}</li>
  * </ul>
  *
- * @see javaRule.JavaRulePackage#getConteins()
+ * @see javaRule.JavaRulePackage#getContains()
  * @model
  * @generated
  */
-public interface Conteins extends javaRule.Package, Interface, Enumeration, javaRule.Class {
+public interface Contains extends javaRule.Package, Interface, Enumeration, javaRule.Class {
 	/**
 	 * Returns the value of the '<em><b>Which</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -30,14 +30,14 @@ public interface Conteins extends javaRule.Package, Interface, Enumeration, java
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Which</em>' containment reference.
 	 * @see #setWhich(Rule)
-	 * @see javaRule.JavaRulePackage#getConteins_Which()
+	 * @see javaRule.JavaRulePackage#getContains_Which()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Rule getWhich();
 
 	/**
-	 * Sets the value of the '{@link javaRule.Conteins#getWhich <em>Which</em>}' containment reference.
+	 * Sets the value of the '{@link javaRule.Contains#getWhich <em>Which</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Which</em>' containment reference.
@@ -46,4 +46,4 @@ public interface Conteins extends javaRule.Package, Interface, Enumeration, java
 	 */
 	void setWhich(Rule value);
 
-} // Conteins
+} // Contains

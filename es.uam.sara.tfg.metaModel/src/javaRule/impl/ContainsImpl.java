@@ -2,7 +2,7 @@
  */
 package javaRule.impl;
 
-import javaRule.Conteins;
+import javaRule.Contains;
 import javaRule.JavaRulePackage;
 import javaRule.Rule;
 
@@ -16,18 +16,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Conteins</b></em>'.
+ * An implementation of the model object '<em><b>Contains</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.ConteinsImpl#getWhich <em>Which</em>}</li>
+ *   <li>{@link javaRule.impl.ContainsImpl#getWhich <em>Which</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConteinsImpl extends PackageImpl implements Conteins {
+public class ContainsImpl extends PackageImpl implements Contains {
 	/**
 	 * The cached value of the '{@link #getWhich() <em>Which</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConteinsImpl() {
+	protected ContainsImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.CONTEINS;
+		return JavaRulePackage.Literals.CONTAINS;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 		Rule oldWhich = which;
 		which = newWhich;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.CONTEINS__WHICH, oldWhich, newWhich);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.CONTAINS__WHICH, oldWhich, newWhich);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -90,14 +90,14 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 		if (newWhich != which) {
 			NotificationChain msgs = null;
 			if (which != null)
-				msgs = ((InternalEObject)which).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.CONTEINS__WHICH, null, msgs);
+				msgs = ((InternalEObject)which).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.CONTAINS__WHICH, null, msgs);
 			if (newWhich != null)
-				msgs = ((InternalEObject)newWhich).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.CONTEINS__WHICH, null, msgs);
+				msgs = ((InternalEObject)newWhich).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.CONTAINS__WHICH, null, msgs);
 			msgs = basicSetWhich(newWhich, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.CONTEINS__WHICH, newWhich, newWhich));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.CONTAINS__WHICH, newWhich, newWhich));
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaRulePackage.CONTEINS__WHICH:
+			case JavaRulePackage.CONTAINS__WHICH:
 				return basicSetWhich(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -122,7 +122,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.CONTEINS__WHICH:
+			case JavaRulePackage.CONTAINS__WHICH:
 				return getWhich();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -136,7 +136,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.CONTEINS__WHICH:
+			case JavaRulePackage.CONTAINS__WHICH:
 				setWhich((Rule)newValue);
 				return;
 		}
@@ -151,7 +151,7 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.CONTEINS__WHICH:
+			case JavaRulePackage.CONTAINS__WHICH:
 				setWhich((Rule)null);
 				return;
 		}
@@ -166,10 +166,10 @@ public class ConteinsImpl extends PackageImpl implements Conteins {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.CONTEINS__WHICH:
+			case JavaRulePackage.CONTAINS__WHICH:
 				return which != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ConteinsImpl
+} //ContainsImpl

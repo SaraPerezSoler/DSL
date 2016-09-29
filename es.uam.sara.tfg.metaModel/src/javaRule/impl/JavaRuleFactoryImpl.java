@@ -7,7 +7,7 @@ import javaRule.And;
 import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
-import javaRule.Conteins;
+import javaRule.Contains;
 import javaRule.ElementJava;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -24,13 +24,12 @@ import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.NoEmpty;
 import javaRule.Or;
-import javaRule.Parametre;
+import javaRule.Parameter;
 import javaRule.Quantifier;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
-import javaRule.isImplented;
-
+import javaRule.isImplemented;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -89,11 +88,11 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.OR: return createOr();
 			case JavaRulePackage.AND: return createAnd();
 			case JavaRulePackage.FILTER: return createFilter();
-			case JavaRulePackage.IS_IMPLENTED: return createisImplented();
+			case JavaRulePackage.IS_IMPLEMENTED: return createisImplemented();
 			case JavaRulePackage.IS_INHERITOR: return createIsInheritor();
 			case JavaRulePackage.IMPLEMENTS: return createImplements();
 			case JavaRulePackage.IS_EXTENDED: return createIsExtended();
-			case JavaRulePackage.PARAMETRE: return createParametre();
+			case JavaRulePackage.PARAMETER: return createParameter();
 			case JavaRulePackage.CONSTRUCTOR: return createConstructor();
 			case JavaRulePackage.RETURN: return createReturn();
 			case JavaRulePackage.ATTRIBUTE_TYPE: return createAttributeType();
@@ -101,7 +100,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.NO_EMPTY: return createNoEmpty();
 			case JavaRulePackage.NAME: return createName();
 			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
-			case JavaRulePackage.CONTEINS: return createConteins();
+			case JavaRulePackage.CONTAINS: return createContains();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
 			default:
@@ -214,9 +213,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public isImplented createisImplented() {
-		isImplentedImpl isImplented = new isImplentedImpl();
-		return isImplented;
+	public isImplemented createisImplemented() {
+		isImplementedImpl isImplemented = new isImplementedImpl();
+		return isImplemented;
 	}
 
 	/**
@@ -254,9 +253,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parametre createParametre() {
-		ParametreImpl parametre = new ParametreImpl();
-		return parametre;
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
 	}
 
 	/**
@@ -334,9 +333,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Conteins createConteins() {
-		ConteinsImpl conteins = new ConteinsImpl();
-		return conteins;
+	public Contains createContains() {
+		ContainsImpl contains = new ContainsImpl();
+		return contains;
 	}
 
 	/**

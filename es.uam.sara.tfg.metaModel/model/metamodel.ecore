@@ -40,23 +40,26 @@
         eType="#//Satisfy" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Filter">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Or" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" lowerBound="1"
+        eType="#//Or" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Satisfy" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true" eSuperTypes="#//Satisfy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="isImplented" eSuperTypes="#//Interface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="isImplemented" eSuperTypes="#//Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="IsInheritor" eSuperTypes="#//Class"/>
   <eClassifiers xsi:type="ecore:EClass" name="Implements" eSuperTypes="#//Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsExtended" eSuperTypes="#//Class"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true" eSuperTypes="#//Satisfy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Parametre" eSuperTypes="#//Method">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Method">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numParam" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typesParam" upperBound="-1"
@@ -108,7 +111,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="see" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conteins" eSuperTypes="#//Package #//Interface #//Enumeration #//Class">
+  <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//Package #//Interface #//Enumeration #//Class">
     <eStructuralFeatures xsi:type="ecore:EReference" name="which" lowerBound="1" eType="#//Rule"
         containment="true"/>
   </eClassifiers>

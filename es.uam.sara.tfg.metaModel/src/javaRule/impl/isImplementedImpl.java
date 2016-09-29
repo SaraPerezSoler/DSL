@@ -3,24 +3,24 @@
 package javaRule.impl;
 
 import javaRule.JavaRulePackage;
-import javaRule.isImplented;
+import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>is Implented</b></em>'.
+ * An implementation of the model object '<em><b>is Implemented</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class isImplentedImpl extends InterfaceImpl implements isImplented {
+public class isImplementedImpl extends InterfaceImpl implements isImplemented {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected isImplentedImpl() {
+	protected isImplementedImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public class isImplentedImpl extends InterfaceImpl implements isImplented {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.IS_IMPLENTED;
+		return JavaRulePackage.Literals.IS_IMPLEMENTED;
 	}
 
-} //isImplentedImpl
+} //isImplementedImpl

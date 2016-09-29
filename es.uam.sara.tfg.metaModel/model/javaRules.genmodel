@@ -64,19 +64,19 @@
     <genClasses image="false" ecoreClass="metamodel.ecore#//Satisfy"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Package"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Interface"/>
-    <genClasses ecoreClass="metamodel.ecore#//isImplented"/>
+    <genClasses ecoreClass="metamodel.ecore#//isImplemented"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Enumeration"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Class"/>
     <genClasses ecoreClass="metamodel.ecore#//IsInheritor"/>
     <genClasses ecoreClass="metamodel.ecore#//Implements">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Implements/maxInterface"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Implements/minInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Implements/maxInterface"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//IsExtended"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Method"/>
-    <genClasses ecoreClass="metamodel.ecore#//Parametre">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parametre/numParam"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parametre/typesParam"/>
+    <genClasses ecoreClass="metamodel.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parameter/numParam"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parameter/typesParam"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Constructor"/>
     <genClasses ecoreClass="metamodel.ecore#//Return">
@@ -102,8 +102,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/throws"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/see"/>
     </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Conteins">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Conteins/which"/>
+    <genClasses ecoreClass="metamodel.ecore#//Contains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Contains/which"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Modifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Modifiers/blend"/>

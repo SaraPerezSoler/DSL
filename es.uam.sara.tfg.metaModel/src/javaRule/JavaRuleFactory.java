@@ -67,13 +67,13 @@ public interface JavaRuleFactory extends EFactory {
 	Filter createFilter();
 
 	/**
-	 * Returns a new object of class '<em>is Implented</em>'.
+	 * Returns a new object of class '<em>is Implemented</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>is Implented</em>'.
+	 * @return a new object of class '<em>is Implemented</em>'.
 	 * @generated
 	 */
-	isImplented createisImplented();
+	isImplemented createisImplemented();
 
 	/**
 	 * Returns a new object of class '<em>Is Inheritor</em>'.
@@ -103,13 +103,13 @@ public interface JavaRuleFactory extends EFactory {
 	IsExtended createIsExtended();
 
 	/**
-	 * Returns a new object of class '<em>Parametre</em>'.
+	 * Returns a new object of class '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parametre</em>'.
+	 * @return a new object of class '<em>Parameter</em>'.
 	 * @generated
 	 */
-	Parametre createParametre();
+	Parameter createParameter();
 
 	/**
 	 * Returns a new object of class '<em>Constructor</em>'.
@@ -175,13 +175,13 @@ public interface JavaRuleFactory extends EFactory {
 	JavaDoc createJavaDoc();
 
 	/**
-	 * Returns a new object of class '<em>Conteins</em>'.
+	 * Returns a new object of class '<em>Contains</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conteins</em>'.
+	 * @return a new object of class '<em>Contains</em>'.
 	 * @generated
 	 */
-	Conteins createConteins();
+	Contains createContains();
 
 	/**
 	 * Returns a new object of class '<em>Modifiers</em>'.
