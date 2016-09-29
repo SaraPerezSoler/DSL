@@ -1,0 +1,125 @@
+grammar es.uam.sara.tfg.dsl.JavaRules with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/es.uam.sara.tfg.metaModel/model/metamodel.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+RuleSet returns RuleSet:
+	'ProjectName:' ProjectName=EString
+	rules+=Rule (rules+=Rule)*;
+
+Satisfy returns Satisfy:
+	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
+	| NoEmpty | Name | JavaDoc | Contains | Modifiers;
+
+EString returns ecore::EString:
+	STRING | ID;
+
+Rule returns Rule:
+	(no?='no')? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? 'satisfy' satisfy=Or;
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+enum Quantifier returns Quantifier:
+	one='one' | exists='exists' | all='all';
+
+enum ElementJava returns ElementJava:
+	Package='Package' | Class='Class' | Interface='Interface' | Enum='Enum' | Method='Method' | Attribute='Attribute';
+
+Filter returns Filter:
+	(no?='no')? filter=Or;
+
+Or returns Or:
+	op+=And ('or' op+=And)*;
+
+And returns And:
+	op+=Satisfy ('and' op+=Satisfy)*;
+
+isImplemented returns isImplemented:
+	{isImplemented}
+	'is' 'implemented';
+
+IsInheritor returns IsInheritor:
+	{IsInheritor}
+	'is' 'inheritor';
+
+Implements returns Implements:
+	{Implements}
+	'implements'
+	('min=' minInterface=EInt)?
+	('and' 'max=' maxInterface=EInt)?
+	'interfaces';
+
+IsExtended returns IsExtended:
+	{IsExtended}
+	'is' 'extended';
+
+Parameter returns Parameter:
+	'numParameters=' numParam=EBigInteger
+	('and' 'types=' '{' typesParam+=EString ("," typesParam+=EString)* '}')?;
+
+Constructor returns Constructor:
+	{Constructor}
+	'is' 'constructor';
+
+Return returns Return:
+	'return' 'type=' returnType=EString;
+
+AttributeType returns AttributeType:
+	'type=' Type=EString;
+
+Initialize returns Initialize:
+	{Initialize}
+	'is' 'initialize';
+
+NoEmpty returns NoEmpty:
+	{NoEmpty}
+	'is' 'not' 'empty';
+
+Name returns Name:
+	{Name}
+	'name'
+	(('type=' type=NameType (('and' operator=NameOperator name=EString) (',' 'in' Language=Language)?)?)
+	| (operator=NameOperator name=EString (',' 'in' Language=Language)? ('and' 'type=' type=NameType)?));
+
+JavaDoc returns JavaDoc:
+	{JavaDoc}
+	'JavaDoc'
+	(author?='@author')?
+	(parametre?='@parameter')?
+	(return?='@return')?
+	(version?='@version')?
+	(throws?='@throws')?
+	(see?='@see')?;
+
+Contains returns Contains:
+	'have' '(' which=Rule ')';
+
+Modifiers returns Modifiers:
+	'modifiers:'
+	 '(' blend+=BlendModifiers')'( "or"  '('blend+=BlendModifiers')')* ;
+
+EInt returns ecore::EInt:
+	'-'? INT;
+
+EBigInteger returns ecore::EBigInteger:
+	'-'? INT;
+
+enum NameType returns NameType:
+	upperCase='upperCase' | lowerCase='lowerCase' | upperCamelCase='upperCamelCase' | lowerCamelCase='lowerCamelCase' |
+	startUpperCase='startUpperCase';
+
+enum NameOperator returns NameOperator:
+	like='like' | equal='equal';
+
+enum Language returns Language:
+	ENGLISH='English' | ESPANIOL='Spanish';
+
+BlendModifiers returns BlendModifiers:
+	(access=AccessModifier ('and'static?='static')? ('and'final?='final')? ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?) | 
+	(static?='static' ('and'final?='final')? ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?)|
+	(final?='final' ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?)|
+	(abstract?='abstract' ('and' synchronized?='synchronized')?)| synchronized?='synchronized';
+
+enum AccessModifier returns AccessModifier:
+	Default='Default' | Public='Public' | Protected='Protected' | Private='Private';
