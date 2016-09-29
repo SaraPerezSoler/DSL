@@ -36,7 +36,31 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(0, "equal", "equal");
+	EQUAL(1, "equal", "equal"), /**
+	 * The '<em><b>Start</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #START_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	START(2, "start", "start"), /**
+	 * The '<em><b>Ends</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENDS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENDS(3, "ends", "ends"), /**
+	 * The '<em><b>Contains</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CONTAINS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CONTAINS(4, "contains", "contains");
 
 	/**
 	 * The '<em><b>Like</b></em>' literal value.
@@ -66,7 +90,52 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUAL_VALUE = 0;
+	public static final int EQUAL_VALUE = 1;
+
+	/**
+	 * The '<em><b>Start</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Start</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #START
+	 * @model name="start"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int START_VALUE = 2;
+
+	/**
+	 * The '<em><b>Ends</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Ends</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENDS
+	 * @model name="ends"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENDS_VALUE = 3;
+
+	/**
+	 * The '<em><b>Contains</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Contains</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CONTAINS
+	 * @model name="contains"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CONTAINS_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Name Operator</b></em>' enumerators.
@@ -78,6 +147,9 @@ public enum NameOperator implements Enumerator {
 		new NameOperator[] {
 			LIKE,
 			EQUAL,
+			START,
+			ENDS,
+			CONTAINS,
 		};
 
 	/**
@@ -135,6 +207,10 @@ public enum NameOperator implements Enumerator {
 	public static NameOperator get(int value) {
 		switch (value) {
 			case LIKE_VALUE: return LIKE;
+			case EQUAL_VALUE: return EQUAL;
+			case START_VALUE: return START;
+			case ENDS_VALUE: return ENDS;
+			case CONTAINS_VALUE: return CONTAINS;
 		}
 		return null;
 	}

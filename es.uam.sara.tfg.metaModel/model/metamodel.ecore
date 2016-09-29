@@ -13,8 +13,8 @@
         eType="#//Quantifier"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="element" lowerBound="1"
         eType="#//ElementJava"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" lowerBound="1"
-        eType="#//Filter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Filter"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="satisfy" lowerBound="1"
         eType="#//Or" containment="true"/>
   </eClassifiers>
@@ -95,7 +95,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameOperator">
     <eLiterals name="like"/>
-    <eLiterals name="equal"/>
+    <eLiterals name="equal" value="1"/>
+    <eLiterals name="start" value="2"/>
+    <eLiterals name="ends" value="3"/>
+    <eLiterals name="contains" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaDoc" eSuperTypes="#//Attribute #//Class #//Method #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"

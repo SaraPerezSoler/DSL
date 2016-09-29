@@ -120,7 +120,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     And returns And
 	 *
 	 * Constraint:
-	 *     (op+=Satisfy op+=Satisfy*)
+	 *     (op+=Satisfy | (op+=Satisfy op+=Satisfy op+=Satisfy*))
 	 */
 	protected void sequence_And(ISerializationContext context, And semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -214,7 +214,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Implements returns Implements
 	 *
 	 * Constraint:
-	 *     (minInterface=EInt? maxInterface=EInt?)
+	 *     ((minInterface=EInt maxInterface=EInt?) | (maxInterface=EInt minInterface=EInt?))?
 	 */
 	protected void sequence_Implements(ISerializationContext context, Implements semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

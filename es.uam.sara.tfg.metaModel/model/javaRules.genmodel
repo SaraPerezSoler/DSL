@@ -33,6 +33,9 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameOperator">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/like"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/start"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/ends"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/contains"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//AccessModifier">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Default"/>

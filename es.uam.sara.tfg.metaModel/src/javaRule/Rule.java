@@ -121,7 +121,7 @@ public interface Rule extends EObject {
 	 * @return the value of the '<em>Filter</em>' containment reference.
 	 * @see #setFilter(Filter)
 	 * @see javaRule.JavaRulePackage#getRule_Filter()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	Filter getFilter();
