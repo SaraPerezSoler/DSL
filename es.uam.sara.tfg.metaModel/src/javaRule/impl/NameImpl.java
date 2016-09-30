@@ -39,7 +39,7 @@ public class NameImpl extends AttributeImpl implements Name {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NameType TYPE_EDEFAULT = NameType.UPPER_CASE;
+	protected static final NameType TYPE_EDEFAULT = NameType.NOTHING;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -79,7 +79,7 @@ public class NameImpl extends AttributeImpl implements Name {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NameOperator OPERATOR_EDEFAULT = NameOperator.LIKE;
+	protected static final NameOperator OPERATOR_EDEFAULT = NameOperator.NOTHING;
 
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -99,7 +99,7 @@ public class NameImpl extends AttributeImpl implements Name {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Language LANGUAGE_EDEFAULT = Language.ENGLISH;
+	protected static final Language LANGUAGE_EDEFAULT = Language.EMPTY;
 
 	/**
 	 * The cached value of the '{@link #getLanguage() <em>Language</em>}' attribute.

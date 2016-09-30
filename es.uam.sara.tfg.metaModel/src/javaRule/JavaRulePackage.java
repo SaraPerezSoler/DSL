@@ -910,13 +910,13 @@ public interface JavaRulePackage extends EPackage {
 	int JAVA_DOC__AUTHOR = ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parametre</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_DOC__PARAMETRE = ATTRIBUTE_FEATURE_COUNT + 1;
+	int JAVA_DOC__PARAMETER = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Return</b></em>' attribute.
@@ -1663,15 +1663,15 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getJavaDoc_Author();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.JavaDoc#isParametre <em>Parametre</em>}'.
+	 * Returns the meta object for the attribute '{@link javaRule.JavaDoc#isParameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Parametre</em>'.
-	 * @see javaRule.JavaDoc#isParametre()
+	 * @return the meta object for the attribute '<em>Parameter</em>'.
+	 * @see javaRule.JavaDoc#isParameter()
 	 * @see #getJavaDoc()
 	 * @generated
 	 */
-	EAttribute getJavaDoc_Parametre();
+	EAttribute getJavaDoc_Parameter();
 
 	/**
 	 * Returns the meta object for the attribute '{@link javaRule.JavaDoc#isReturn <em>Return</em>}'.
@@ -2324,12 +2324,12 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute JAVA_DOC__AUTHOR = eINSTANCE.getJavaDoc_Author();
 
 		/**
-		 * The meta object literal for the '<em><b>Parametre</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Parameter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JAVA_DOC__PARAMETRE = eINSTANCE.getJavaDoc_Parametre();
+		EAttribute JAVA_DOC__PARAMETER = eINSTANCE.getJavaDoc_Parameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Return</b></em>' attribute feature.

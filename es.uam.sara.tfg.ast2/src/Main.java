@@ -43,8 +43,13 @@ public class Main {
  
 	public static void main(String[] args) throws IOException {
 		
+		Test t=new Test();
+		System.out.println();
 		
-		File dirs = new File(".");
+		Test t2= new Test();
+		System.out.println(t2.getNumCasa());
+		
+	/*	File dirs = new File(".");
 		String dirPath = dirs.getCanonicalPath() + File.separator+"src"+File.separator;
  
 		File root = new File(dirPath);
@@ -66,7 +71,7 @@ public class Main {
 		//TypeDeclaration t=visitors.getClasses().get(3);
 		
 		AttrNameOperation no=new AttrNameOperation(visitors.getAttributes(), Operation.ENDS, "bo", 0);
-		no.check();
+		no.check();*/
 		
 		/* Modifiers aux=new Modifiers();
 		 aux.addBlend("", false, false, true, false);

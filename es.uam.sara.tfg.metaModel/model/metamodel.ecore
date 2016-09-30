@@ -77,14 +77,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Initialize" eSuperTypes="#//Attribute"/>
   <eClassifiers xsi:type="ecore:EClass" name="NoEmpty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration"/>
   <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NameType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NameType"
+        defaultValueLiteral="nothing"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//NameOperator"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Language" eType="#//Language"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//NameOperator"
+        defaultValueLiteral="nothing"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Language" eType="#//Language"
+        defaultValueLiteral="EMPTY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Language">
-    <eLiterals name="ENGLISH" literal="ENGLISH"/>
+    <eLiterals name="ENGLISH" value="2" literal="ENGLISH"/>
     <eLiterals name="ESPANIOL" value="1"/>
+    <eLiterals name="EMPTY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameType">
     <eLiterals name="upperCase" value="1"/>
@@ -92,18 +96,20 @@
     <eLiterals name="upperCamelCase" value="3"/>
     <eLiterals name="lowerCamelCase" value="4"/>
     <eLiterals name="startUpperCase" value="5"/>
+    <eLiterals name="nothing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameOperator">
-    <eLiterals name="like"/>
+    <eLiterals name="like" value="5"/>
     <eLiterals name="equal" value="1"/>
     <eLiterals name="start" value="2"/>
     <eLiterals name="ends" value="3"/>
     <eLiterals name="contains" value="4"/>
+    <eLiterals name="nothing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaDoc" eSuperTypes="#//Attribute #//Class #//Method #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parametre" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameter" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="return" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
@@ -123,7 +129,8 @@
         eType="#//BlendModifiers" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlendModifiers">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessModifier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="access" eType="#//AccessModifier"
+        defaultValueLiteral="nothing"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -134,9 +141,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AccessModifier">
-    <eLiterals name="Default"/>
+    <eLiterals name="Default" value="4"/>
     <eLiterals name="Public" value="1"/>
     <eLiterals name="Protected" value="2"/>
     <eLiterals name="Private" value="3"/>
+    <eLiterals name="nothing"/>
   </eClassifiers>
 </ecore:EPackage>

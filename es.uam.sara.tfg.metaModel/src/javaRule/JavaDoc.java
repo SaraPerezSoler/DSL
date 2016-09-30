@@ -13,7 +13,7 @@ package javaRule;
  * </p>
  * <ul>
  *   <li>{@link javaRule.JavaDoc#isAuthor <em>Author</em>}</li>
- *   <li>{@link javaRule.JavaDoc#isParametre <em>Parametre</em>}</li>
+ *   <li>{@link javaRule.JavaDoc#isParameter <em>Parameter</em>}</li>
  *   <li>{@link javaRule.JavaDoc#isReturn <em>Return</em>}</li>
  *   <li>{@link javaRule.JavaDoc#isVersion <em>Version</em>}</li>
  *   <li>{@link javaRule.JavaDoc#isThrows <em>Throws</em>}</li>
@@ -53,31 +53,31 @@ public interface JavaDoc extends Attribute, javaRule.Class, Method, Interface, E
 	void setAuthor(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Parametre</b></em>' attribute.
+	 * Returns the value of the '<em><b>Parameter</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parametre</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Parameter</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parametre</em>' attribute.
-	 * @see #setParametre(boolean)
-	 * @see javaRule.JavaRulePackage#getJavaDoc_Parametre()
+	 * @return the value of the '<em>Parameter</em>' attribute.
+	 * @see #setParameter(boolean)
+	 * @see javaRule.JavaRulePackage#getJavaDoc_Parameter()
 	 * @model default="false" required="true"
 	 * @generated
 	 */
-	boolean isParametre();
+	boolean isParameter();
 
 	/**
-	 * Sets the value of the '{@link javaRule.JavaDoc#isParametre <em>Parametre</em>}' attribute.
+	 * Sets the value of the '{@link javaRule.JavaDoc#isParameter <em>Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parametre</em>' attribute.
-	 * @see #isParametre()
+	 * @param value the new value of the '<em>Parameter</em>' attribute.
+	 * @see #isParameter()
 	 * @generated
 	 */
-	void setParametre(boolean value);
+	void setParameter(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Return</b></em>' attribute.

@@ -268,7 +268,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         author?='@author'? 
-	 *         parametre?='@parameter'? 
+	 *         parameter?='@parameter'? 
 	 *         return?='@return'? 
 	 *         version?='@version'? 
 	 *         throws?='@throws'? 

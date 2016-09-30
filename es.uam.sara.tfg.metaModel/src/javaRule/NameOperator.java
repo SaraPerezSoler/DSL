@@ -26,7 +26,7 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIKE(0, "like", "like"),
+	LIKE(5, "like", "like"),
 
 	/**
 	 * The '<em><b>Equal</b></em>' literal object.
@@ -60,7 +60,15 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONTAINS(4, "contains", "contains");
+	CONTAINS(4, "contains", "contains"), /**
+	 * The '<em><b>Nothing</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOTHING(0, "nothing", "nothing");
 
 	/**
 	 * The '<em><b>Like</b></em>' literal value.
@@ -75,7 +83,7 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LIKE_VALUE = 0;
+	public static final int LIKE_VALUE = 5;
 
 	/**
 	 * The '<em><b>Equal</b></em>' literal value.
@@ -138,6 +146,21 @@ public enum NameOperator implements Enumerator {
 	public static final int CONTAINS_VALUE = 4;
 
 	/**
+	 * The '<em><b>Nothing</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Nothing</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING
+	 * @model name="nothing"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOTHING_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Name Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +173,7 @@ public enum NameOperator implements Enumerator {
 			START,
 			ENDS,
 			CONTAINS,
+			NOTHING,
 		};
 
 	/**
@@ -211,6 +235,7 @@ public enum NameOperator implements Enumerator {
 			case START_VALUE: return START;
 			case ENDS_VALUE: return ENDS;
 			case CONTAINS_VALUE: return CONTAINS;
+			case NOTHING_VALUE: return NOTHING;
 		}
 		return null;
 	}

@@ -1,12 +1,31 @@
 
 public enum Test{
+	hola;
+	enum nime{
+		
+	}
+	interface hola{
+		
+	}
 
-	CASA, TRABAJO, PARQUE;
+	public  class Casa implements hola{
+		private int num=0;
+		public Casa() {
+		}
+		public int get() {
+			num++;
+			return num;
+		}
+	}
 	private int numCasa;
 	
-	private Test() {
-		numCasa=0;
+	Test() {
+		//numCasa=new Casa().get();
 	}
 	
+	public  int getNumCasa() {
+		return numCasa;
+	}
+
 	
 }

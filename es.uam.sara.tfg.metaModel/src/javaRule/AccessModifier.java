@@ -26,7 +26,7 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEFAULT(0, "Default", "Default"),
+	DEFAULT(4, "Default", "Default"),
 
 	/**
 	 * The '<em><b>Public</b></em>' literal object.
@@ -56,7 +56,15 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIVATE(3, "Private", "Private");
+	PRIVATE(3, "Private", "Private"), /**
+	 * The '<em><b>Nothing</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOTHING(0, "nothing", "nothing");
 
 	/**
 	 * The '<em><b>Default</b></em>' literal value.
@@ -71,7 +79,7 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEFAULT_VALUE = 0;
+	public static final int DEFAULT_VALUE = 4;
 
 	/**
 	 * The '<em><b>Public</b></em>' literal value.
@@ -119,6 +127,21 @@ public enum AccessModifier implements Enumerator {
 	public static final int PRIVATE_VALUE = 3;
 
 	/**
+	 * The '<em><b>Nothing</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Nothing</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING
+	 * @model name="nothing"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOTHING_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Access Modifier</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +153,7 @@ public enum AccessModifier implements Enumerator {
 			PUBLIC,
 			PROTECTED,
 			PRIVATE,
+			NOTHING,
 		};
 
 	/**
@@ -190,6 +214,7 @@ public enum AccessModifier implements Enumerator {
 			case PUBLIC_VALUE: return PUBLIC;
 			case PROTECTED_VALUE: return PROTECTED;
 			case PRIVATE_VALUE: return PRIVATE;
+			case NOTHING_VALUE: return NOTHING;
 		}
 		return null;
 	}

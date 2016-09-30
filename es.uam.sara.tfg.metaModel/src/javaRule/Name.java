@@ -25,6 +25,7 @@ package javaRule;
 public interface Name extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"nothing"</code>.
 	 * The literals are from the enumeration {@link javaRule.NameType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,7 +37,7 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 	 * @see javaRule.NameType
 	 * @see #setType(NameType)
 	 * @see javaRule.JavaRulePackage#getName_Type()
-	 * @model
+	 * @model default="nothing"
 	 * @generated
 	 */
 	NameType getType();
@@ -80,6 +81,7 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
+	 * The default value is <code>"nothing"</code>.
 	 * The literals are from the enumeration {@link javaRule.NameOperator}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -91,7 +93,7 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 	 * @see javaRule.NameOperator
 	 * @see #setOperator(NameOperator)
 	 * @see javaRule.JavaRulePackage#getName_Operator()
-	 * @model
+	 * @model default="nothing"
 	 * @generated
 	 */
 	NameOperator getOperator();
@@ -109,6 +111,7 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 
 	/**
 	 * Returns the value of the '<em><b>Language</b></em>' attribute.
+	 * The default value is <code>"EMPTY"</code>.
 	 * The literals are from the enumeration {@link javaRule.Language}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -120,7 +123,7 @@ public interface Name extends Attribute, javaRule.Class, Method, javaRule.Packag
 	 * @see javaRule.Language
 	 * @see #setLanguage(Language)
 	 * @see javaRule.JavaRulePackage#getName_Language()
-	 * @model
+	 * @model default="EMPTY"
 	 * @generated
 	 */
 	Language getLanguage();

@@ -80,14 +80,14 @@ NoEmpty returns NoEmpty:
 Name returns Name:
 	{Name}
 	'name'
-	(('type=' type=NameType (('and' operator=NameOperator name=EString) (',' 'in' Language=Language)?)?)
-	| (operator=NameOperator name=EString (',' 'in' Language=Language)? ('and' 'type=' type=NameType)?));
+	(('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)?)
+	| (operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?));
 
 JavaDoc returns JavaDoc:
 	{JavaDoc}
 	'JavaDoc'
 	(author?='@author')?
-	(parametre?='@parameter')?
+	(parameter?='@parameter')?
 	(return?='@return')?
 	(version?='@version')?
 	(throws?='@throws')?

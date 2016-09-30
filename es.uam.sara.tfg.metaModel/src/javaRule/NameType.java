@@ -66,7 +66,15 @@ public enum NameType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	START_UPPER_CASE(5, "startUpperCase", "startUpperCase");
+	START_UPPER_CASE(5, "startUpperCase", "startUpperCase"), /**
+	 * The '<em><b>Nothing</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NOTHING(0, "nothing", "nothing");
 
 	/**
 	 * The '<em><b>Upper Case</b></em>' literal value.
@@ -144,6 +152,21 @@ public enum NameType implements Enumerator {
 	public static final int START_UPPER_CASE_VALUE = 5;
 
 	/**
+	 * The '<em><b>Nothing</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Nothing</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NOTHING
+	 * @model name="nothing"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NOTHING_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Name Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +179,7 @@ public enum NameType implements Enumerator {
 			UPPER_CAMEL_CASE,
 			LOWER_CAMEL_CASE,
 			START_UPPER_CASE,
+			NOTHING,
 		};
 
 	/**
@@ -217,6 +241,7 @@ public enum NameType implements Enumerator {
 			case UPPER_CAMEL_CASE_VALUE: return UPPER_CAMEL_CASE;
 			case LOWER_CAMEL_CASE_VALUE: return LOWER_CAMEL_CASE;
 			case START_UPPER_CASE_VALUE: return START_UPPER_CASE;
+			case NOTHING_VALUE: return NOTHING;
 		}
 		return null;
 	}

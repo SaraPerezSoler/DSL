@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface BlendModifiers extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Access</b></em>' attribute.
+	 * The default value is <code>"nothing"</code>.
 	 * The literals are from the enumeration {@link javaRule.AccessModifier}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -38,7 +39,7 @@ public interface BlendModifiers extends EObject {
 	 * @see javaRule.AccessModifier
 	 * @see #setAccess(AccessModifier)
 	 * @see javaRule.JavaRulePackage#getBlendModifiers_Access()
-	 * @model
+	 * @model default="nothing"
 	 * @generated
 	 */
 	AccessModifier getAccess();

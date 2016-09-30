@@ -129,13 +129,13 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNameAccess().getTypeAssignment_2_0_1(), "rule__Name__TypeAssignment_2_0_1");
 					put(grammarAccess.getNameAccess().getOperatorAssignment_2_0_2_0_1(), "rule__Name__OperatorAssignment_2_0_2_0_1");
 					put(grammarAccess.getNameAccess().getNameAssignment_2_0_2_0_2(), "rule__Name__NameAssignment_2_0_2_0_2");
-					put(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_2(), "rule__Name__LanguageAssignment_2_0_2_1_2");
+					put(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_1(), "rule__Name__LanguageAssignment_2_0_2_1_1");
 					put(grammarAccess.getNameAccess().getOperatorAssignment_2_1_0(), "rule__Name__OperatorAssignment_2_1_0");
 					put(grammarAccess.getNameAccess().getNameAssignment_2_1_1(), "rule__Name__NameAssignment_2_1_1");
-					put(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_2(), "rule__Name__LanguageAssignment_2_1_2_2");
+					put(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_1(), "rule__Name__LanguageAssignment_2_1_2_1");
 					put(grammarAccess.getNameAccess().getTypeAssignment_2_1_3_2(), "rule__Name__TypeAssignment_2_1_3_2");
 					put(grammarAccess.getJavaDocAccess().getAuthorAssignment_2(), "rule__JavaDoc__AuthorAssignment_2");
-					put(grammarAccess.getJavaDocAccess().getParametreAssignment_3(), "rule__JavaDoc__ParametreAssignment_3");
+					put(grammarAccess.getJavaDocAccess().getParameterAssignment_3(), "rule__JavaDoc__ParameterAssignment_3");
 					put(grammarAccess.getJavaDocAccess().getReturnAssignment_4(), "rule__JavaDoc__ReturnAssignment_4");
 					put(grammarAccess.getJavaDocAccess().getVersionAssignment_5(), "rule__JavaDoc__VersionAssignment_5");
 					put(grammarAccess.getJavaDocAccess().getThrowsAssignment_6(), "rule__JavaDoc__ThrowsAssignment_6");

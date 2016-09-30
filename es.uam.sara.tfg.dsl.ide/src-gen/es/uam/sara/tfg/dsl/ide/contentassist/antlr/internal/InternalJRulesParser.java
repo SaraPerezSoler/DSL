@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'Default'", "'Public'", "'Protected'", "'Private'", "'ProjectName:'", "';'", "'satisfy'", "'which'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'in'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'Default'", "'Public'", "'Protected'", "'Private'", "'ProjectName:'", "';'", "'satisfy'", "'which'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -90,7 +90,6 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final int T__32=32;
     public static final int T__76=76;
     public static final int T__80=80;
-    public static final int T__81=81;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__48=48;
@@ -2645,7 +2644,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==44||LA3_0==47||LA3_0==52||(LA3_0>=58 && LA3_0<=59)||LA3_0==63||(LA3_0>=65 && LA3_0<=66)||LA3_0==69) ) {
+            if ( (LA3_0==44||LA3_0==47||LA3_0==52||(LA3_0>=58 && LA3_0<=59)||(LA3_0>=63 && LA3_0<=65)||LA3_0==68) ) {
                 alt3=1;
             }
             else if ( (LA3_0==41) ) {
@@ -2925,22 +2924,22 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                 alt6=1;
                 }
                 break;
-            case 78:
+            case 77:
                 {
                 alt6=2;
                 }
                 break;
-            case 79:
+            case 78:
                 {
                 alt6=3;
                 }
                 break;
-            case 80:
+            case 79:
                 {
                 alt6=4;
                 }
                 break;
-            case 81:
+            case 80:
                 {
                 alt6=5;
                 }
@@ -4324,7 +4323,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
-                if ( ((LA13_0>=11 && LA13_0<=13)||LA13_0==71) ) {
+                if ( ((LA13_0>=11 && LA13_0<=13)||LA13_0==70) ) {
                     alt13=1;
                 }
 
@@ -4580,7 +4579,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==71) ) {
+            if ( (LA14_0==70) ) {
                 alt14=1;
             }
             switch (alt14) {
@@ -5252,7 +5251,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==71) ) {
+            if ( (LA16_0==70) ) {
                 alt16=1;
             }
             switch (alt16) {
@@ -11286,22 +11285,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_0_2_1__1"
-    // InternalJRules.g:3652:1: rule__Name__Group_2_0_2_1__1 : rule__Name__Group_2_0_2_1__1__Impl rule__Name__Group_2_0_2_1__2 ;
+    // InternalJRules.g:3652:1: rule__Name__Group_2_0_2_1__1 : rule__Name__Group_2_0_2_1__1__Impl ;
     public final void rule__Name__Group_2_0_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3656:1: ( rule__Name__Group_2_0_2_1__1__Impl rule__Name__Group_2_0_2_1__2 )
-            // InternalJRules.g:3657:2: rule__Name__Group_2_0_2_1__1__Impl rule__Name__Group_2_0_2_1__2
+            // InternalJRules.g:3656:1: ( rule__Name__Group_2_0_2_1__1__Impl )
+            // InternalJRules.g:3657:2: rule__Name__Group_2_0_2_1__1__Impl
             {
-            pushFollow(FOLLOW_40);
-            rule__Name__Group_2_0_2_1__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Name__Group_2_0_2_1__2();
+            rule__Name__Group_2_0_2_1__1__Impl();
 
             state._fsp--;
 
@@ -11324,21 +11318,31 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_0_2_1__1__Impl"
-    // InternalJRules.g:3664:1: rule__Name__Group_2_0_2_1__1__Impl : ( 'in' ) ;
+    // InternalJRules.g:3663:1: rule__Name__Group_2_0_2_1__1__Impl : ( ( rule__Name__LanguageAssignment_2_0_2_1_1 ) ) ;
     public final void rule__Name__Group_2_0_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3668:1: ( ( 'in' ) )
-            // InternalJRules.g:3669:1: ( 'in' )
+            // InternalJRules.g:3667:1: ( ( ( rule__Name__LanguageAssignment_2_0_2_1_1 ) ) )
+            // InternalJRules.g:3668:1: ( ( rule__Name__LanguageAssignment_2_0_2_1_1 ) )
             {
-            // InternalJRules.g:3669:1: ( 'in' )
-            // InternalJRules.g:3670:2: 'in'
+            // InternalJRules.g:3668:1: ( ( rule__Name__LanguageAssignment_2_0_2_1_1 ) )
+            // InternalJRules.g:3669:2: ( rule__Name__LanguageAssignment_2_0_2_1_1 )
             {
-             before(grammarAccess.getNameAccess().getInKeyword_2_0_2_1_1()); 
-            match(input,64,FOLLOW_2); 
-             after(grammarAccess.getNameAccess().getInKeyword_2_0_2_1_1()); 
+             before(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_1()); 
+            // InternalJRules.g:3670:2: ( rule__Name__LanguageAssignment_2_0_2_1_1 )
+            // InternalJRules.g:3670:3: rule__Name__LanguageAssignment_2_0_2_1_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Name__LanguageAssignment_2_0_2_1_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_1()); 
 
             }
 
@@ -11360,95 +11364,15 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Name__Group_2_0_2_1__1__Impl"
 
 
-    // $ANTLR start "rule__Name__Group_2_0_2_1__2"
-    // InternalJRules.g:3679:1: rule__Name__Group_2_0_2_1__2 : rule__Name__Group_2_0_2_1__2__Impl ;
-    public final void rule__Name__Group_2_0_2_1__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJRules.g:3683:1: ( rule__Name__Group_2_0_2_1__2__Impl )
-            // InternalJRules.g:3684:2: rule__Name__Group_2_0_2_1__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__Group_2_0_2_1__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group_2_0_2_1__2"
-
-
-    // $ANTLR start "rule__Name__Group_2_0_2_1__2__Impl"
-    // InternalJRules.g:3690:1: rule__Name__Group_2_0_2_1__2__Impl : ( ( rule__Name__LanguageAssignment_2_0_2_1_2 ) ) ;
-    public final void rule__Name__Group_2_0_2_1__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJRules.g:3694:1: ( ( ( rule__Name__LanguageAssignment_2_0_2_1_2 ) ) )
-            // InternalJRules.g:3695:1: ( ( rule__Name__LanguageAssignment_2_0_2_1_2 ) )
-            {
-            // InternalJRules.g:3695:1: ( ( rule__Name__LanguageAssignment_2_0_2_1_2 ) )
-            // InternalJRules.g:3696:2: ( rule__Name__LanguageAssignment_2_0_2_1_2 )
-            {
-             before(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_2()); 
-            // InternalJRules.g:3697:2: ( rule__Name__LanguageAssignment_2_0_2_1_2 )
-            // InternalJRules.g:3697:3: rule__Name__LanguageAssignment_2_0_2_1_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__LanguageAssignment_2_0_2_1_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getNameAccess().getLanguageAssignment_2_0_2_1_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group_2_0_2_1__2__Impl"
-
-
     // $ANTLR start "rule__Name__Group_2_1__0"
-    // InternalJRules.g:3706:1: rule__Name__Group_2_1__0 : rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1 ;
+    // InternalJRules.g:3679:1: rule__Name__Group_2_1__0 : rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1 ;
     public final void rule__Name__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3710:1: ( rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1 )
-            // InternalJRules.g:3711:2: rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1
+            // InternalJRules.g:3683:1: ( rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1 )
+            // InternalJRules.g:3684:2: rule__Name__Group_2_1__0__Impl rule__Name__Group_2_1__1
             {
             pushFollow(FOLLOW_3);
             rule__Name__Group_2_1__0__Impl();
@@ -11479,21 +11403,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__0__Impl"
-    // InternalJRules.g:3718:1: rule__Name__Group_2_1__0__Impl : ( ( rule__Name__OperatorAssignment_2_1_0 ) ) ;
+    // InternalJRules.g:3691:1: rule__Name__Group_2_1__0__Impl : ( ( rule__Name__OperatorAssignment_2_1_0 ) ) ;
     public final void rule__Name__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3722:1: ( ( ( rule__Name__OperatorAssignment_2_1_0 ) ) )
-            // InternalJRules.g:3723:1: ( ( rule__Name__OperatorAssignment_2_1_0 ) )
+            // InternalJRules.g:3695:1: ( ( ( rule__Name__OperatorAssignment_2_1_0 ) ) )
+            // InternalJRules.g:3696:1: ( ( rule__Name__OperatorAssignment_2_1_0 ) )
             {
-            // InternalJRules.g:3723:1: ( ( rule__Name__OperatorAssignment_2_1_0 ) )
-            // InternalJRules.g:3724:2: ( rule__Name__OperatorAssignment_2_1_0 )
+            // InternalJRules.g:3696:1: ( ( rule__Name__OperatorAssignment_2_1_0 ) )
+            // InternalJRules.g:3697:2: ( rule__Name__OperatorAssignment_2_1_0 )
             {
              before(grammarAccess.getNameAccess().getOperatorAssignment_2_1_0()); 
-            // InternalJRules.g:3725:2: ( rule__Name__OperatorAssignment_2_1_0 )
-            // InternalJRules.g:3725:3: rule__Name__OperatorAssignment_2_1_0
+            // InternalJRules.g:3698:2: ( rule__Name__OperatorAssignment_2_1_0 )
+            // InternalJRules.g:3698:3: rule__Name__OperatorAssignment_2_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Name__OperatorAssignment_2_1_0();
@@ -11526,16 +11450,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__1"
-    // InternalJRules.g:3733:1: rule__Name__Group_2_1__1 : rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2 ;
+    // InternalJRules.g:3706:1: rule__Name__Group_2_1__1 : rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2 ;
     public final void rule__Name__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3737:1: ( rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2 )
-            // InternalJRules.g:3738:2: rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2
+            // InternalJRules.g:3710:1: ( rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2 )
+            // InternalJRules.g:3711:2: rule__Name__Group_2_1__1__Impl rule__Name__Group_2_1__2
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__Name__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -11564,21 +11488,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__1__Impl"
-    // InternalJRules.g:3745:1: rule__Name__Group_2_1__1__Impl : ( ( rule__Name__NameAssignment_2_1_1 ) ) ;
+    // InternalJRules.g:3718:1: rule__Name__Group_2_1__1__Impl : ( ( rule__Name__NameAssignment_2_1_1 ) ) ;
     public final void rule__Name__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3749:1: ( ( ( rule__Name__NameAssignment_2_1_1 ) ) )
-            // InternalJRules.g:3750:1: ( ( rule__Name__NameAssignment_2_1_1 ) )
+            // InternalJRules.g:3722:1: ( ( ( rule__Name__NameAssignment_2_1_1 ) ) )
+            // InternalJRules.g:3723:1: ( ( rule__Name__NameAssignment_2_1_1 ) )
             {
-            // InternalJRules.g:3750:1: ( ( rule__Name__NameAssignment_2_1_1 ) )
-            // InternalJRules.g:3751:2: ( rule__Name__NameAssignment_2_1_1 )
+            // InternalJRules.g:3723:1: ( ( rule__Name__NameAssignment_2_1_1 ) )
+            // InternalJRules.g:3724:2: ( rule__Name__NameAssignment_2_1_1 )
             {
              before(grammarAccess.getNameAccess().getNameAssignment_2_1_1()); 
-            // InternalJRules.g:3752:2: ( rule__Name__NameAssignment_2_1_1 )
-            // InternalJRules.g:3752:3: rule__Name__NameAssignment_2_1_1
+            // InternalJRules.g:3725:2: ( rule__Name__NameAssignment_2_1_1 )
+            // InternalJRules.g:3725:3: rule__Name__NameAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Name__NameAssignment_2_1_1();
@@ -11611,16 +11535,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__2"
-    // InternalJRules.g:3760:1: rule__Name__Group_2_1__2 : rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3 ;
+    // InternalJRules.g:3733:1: rule__Name__Group_2_1__2 : rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3 ;
     public final void rule__Name__Group_2_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3764:1: ( rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3 )
-            // InternalJRules.g:3765:2: rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3
+            // InternalJRules.g:3737:1: ( rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3 )
+            // InternalJRules.g:3738:2: rule__Name__Group_2_1__2__Impl rule__Name__Group_2_1__3
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_40);
             rule__Name__Group_2_1__2__Impl();
 
             state._fsp--;
@@ -11649,20 +11573,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__2__Impl"
-    // InternalJRules.g:3772:1: rule__Name__Group_2_1__2__Impl : ( ( rule__Name__Group_2_1_2__0 )? ) ;
+    // InternalJRules.g:3745:1: rule__Name__Group_2_1__2__Impl : ( ( rule__Name__Group_2_1_2__0 )? ) ;
     public final void rule__Name__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3776:1: ( ( ( rule__Name__Group_2_1_2__0 )? ) )
-            // InternalJRules.g:3777:1: ( ( rule__Name__Group_2_1_2__0 )? )
+            // InternalJRules.g:3749:1: ( ( ( rule__Name__Group_2_1_2__0 )? ) )
+            // InternalJRules.g:3750:1: ( ( rule__Name__Group_2_1_2__0 )? )
             {
-            // InternalJRules.g:3777:1: ( ( rule__Name__Group_2_1_2__0 )? )
-            // InternalJRules.g:3778:2: ( rule__Name__Group_2_1_2__0 )?
+            // InternalJRules.g:3750:1: ( ( rule__Name__Group_2_1_2__0 )? )
+            // InternalJRules.g:3751:2: ( rule__Name__Group_2_1_2__0 )?
             {
              before(grammarAccess.getNameAccess().getGroup_2_1_2()); 
-            // InternalJRules.g:3779:2: ( rule__Name__Group_2_1_2__0 )?
+            // InternalJRules.g:3752:2: ( rule__Name__Group_2_1_2__0 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -11671,7 +11595,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt26) {
                 case 1 :
-                    // InternalJRules.g:3779:3: rule__Name__Group_2_1_2__0
+                    // InternalJRules.g:3752:3: rule__Name__Group_2_1_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Name__Group_2_1_2__0();
@@ -11707,14 +11631,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__3"
-    // InternalJRules.g:3787:1: rule__Name__Group_2_1__3 : rule__Name__Group_2_1__3__Impl ;
+    // InternalJRules.g:3760:1: rule__Name__Group_2_1__3 : rule__Name__Group_2_1__3__Impl ;
     public final void rule__Name__Group_2_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3791:1: ( rule__Name__Group_2_1__3__Impl )
-            // InternalJRules.g:3792:2: rule__Name__Group_2_1__3__Impl
+            // InternalJRules.g:3764:1: ( rule__Name__Group_2_1__3__Impl )
+            // InternalJRules.g:3765:2: rule__Name__Group_2_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Name__Group_2_1__3__Impl();
@@ -11740,20 +11664,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1__3__Impl"
-    // InternalJRules.g:3798:1: rule__Name__Group_2_1__3__Impl : ( ( rule__Name__Group_2_1_3__0 )? ) ;
+    // InternalJRules.g:3771:1: rule__Name__Group_2_1__3__Impl : ( ( rule__Name__Group_2_1_3__0 )? ) ;
     public final void rule__Name__Group_2_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3802:1: ( ( ( rule__Name__Group_2_1_3__0 )? ) )
-            // InternalJRules.g:3803:1: ( ( rule__Name__Group_2_1_3__0 )? )
+            // InternalJRules.g:3775:1: ( ( ( rule__Name__Group_2_1_3__0 )? ) )
+            // InternalJRules.g:3776:1: ( ( rule__Name__Group_2_1_3__0 )? )
             {
-            // InternalJRules.g:3803:1: ( ( rule__Name__Group_2_1_3__0 )? )
-            // InternalJRules.g:3804:2: ( rule__Name__Group_2_1_3__0 )?
+            // InternalJRules.g:3776:1: ( ( rule__Name__Group_2_1_3__0 )? )
+            // InternalJRules.g:3777:2: ( rule__Name__Group_2_1_3__0 )?
             {
              before(grammarAccess.getNameAccess().getGroup_2_1_3()); 
-            // InternalJRules.g:3805:2: ( rule__Name__Group_2_1_3__0 )?
+            // InternalJRules.g:3778:2: ( rule__Name__Group_2_1_3__0 )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -11770,7 +11694,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt27) {
                 case 1 :
-                    // InternalJRules.g:3805:3: rule__Name__Group_2_1_3__0
+                    // InternalJRules.g:3778:3: rule__Name__Group_2_1_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Name__Group_2_1_3__0();
@@ -11806,14 +11730,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_2__0"
-    // InternalJRules.g:3814:1: rule__Name__Group_2_1_2__0 : rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1 ;
+    // InternalJRules.g:3787:1: rule__Name__Group_2_1_2__0 : rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1 ;
     public final void rule__Name__Group_2_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3818:1: ( rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1 )
-            // InternalJRules.g:3819:2: rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1
+            // InternalJRules.g:3791:1: ( rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1 )
+            // InternalJRules.g:3792:2: rule__Name__Group_2_1_2__0__Impl rule__Name__Group_2_1_2__1
             {
             pushFollow(FOLLOW_39);
             rule__Name__Group_2_1_2__0__Impl();
@@ -11844,17 +11768,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_2__0__Impl"
-    // InternalJRules.g:3826:1: rule__Name__Group_2_1_2__0__Impl : ( ',' ) ;
+    // InternalJRules.g:3799:1: rule__Name__Group_2_1_2__0__Impl : ( ',' ) ;
     public final void rule__Name__Group_2_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3830:1: ( ( ',' ) )
-            // InternalJRules.g:3831:1: ( ',' )
+            // InternalJRules.g:3803:1: ( ( ',' ) )
+            // InternalJRules.g:3804:1: ( ',' )
             {
-            // InternalJRules.g:3831:1: ( ',' )
-            // InternalJRules.g:3832:2: ','
+            // InternalJRules.g:3804:1: ( ',' )
+            // InternalJRules.g:3805:2: ','
             {
              before(grammarAccess.getNameAccess().getCommaKeyword_2_1_2_0()); 
             match(input,56,FOLLOW_2); 
@@ -11881,22 +11805,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_2__1"
-    // InternalJRules.g:3841:1: rule__Name__Group_2_1_2__1 : rule__Name__Group_2_1_2__1__Impl rule__Name__Group_2_1_2__2 ;
+    // InternalJRules.g:3814:1: rule__Name__Group_2_1_2__1 : rule__Name__Group_2_1_2__1__Impl ;
     public final void rule__Name__Group_2_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3845:1: ( rule__Name__Group_2_1_2__1__Impl rule__Name__Group_2_1_2__2 )
-            // InternalJRules.g:3846:2: rule__Name__Group_2_1_2__1__Impl rule__Name__Group_2_1_2__2
+            // InternalJRules.g:3818:1: ( rule__Name__Group_2_1_2__1__Impl )
+            // InternalJRules.g:3819:2: rule__Name__Group_2_1_2__1__Impl
             {
-            pushFollow(FOLLOW_40);
-            rule__Name__Group_2_1_2__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Name__Group_2_1_2__2();
+            rule__Name__Group_2_1_2__1__Impl();
 
             state._fsp--;
 
@@ -11919,21 +11838,31 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_2__1__Impl"
-    // InternalJRules.g:3853:1: rule__Name__Group_2_1_2__1__Impl : ( 'in' ) ;
+    // InternalJRules.g:3825:1: rule__Name__Group_2_1_2__1__Impl : ( ( rule__Name__LanguageAssignment_2_1_2_1 ) ) ;
     public final void rule__Name__Group_2_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3857:1: ( ( 'in' ) )
-            // InternalJRules.g:3858:1: ( 'in' )
+            // InternalJRules.g:3829:1: ( ( ( rule__Name__LanguageAssignment_2_1_2_1 ) ) )
+            // InternalJRules.g:3830:1: ( ( rule__Name__LanguageAssignment_2_1_2_1 ) )
             {
-            // InternalJRules.g:3858:1: ( 'in' )
-            // InternalJRules.g:3859:2: 'in'
+            // InternalJRules.g:3830:1: ( ( rule__Name__LanguageAssignment_2_1_2_1 ) )
+            // InternalJRules.g:3831:2: ( rule__Name__LanguageAssignment_2_1_2_1 )
             {
-             before(grammarAccess.getNameAccess().getInKeyword_2_1_2_1()); 
-            match(input,64,FOLLOW_2); 
-             after(grammarAccess.getNameAccess().getInKeyword_2_1_2_1()); 
+             before(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_1()); 
+            // InternalJRules.g:3832:2: ( rule__Name__LanguageAssignment_2_1_2_1 )
+            // InternalJRules.g:3832:3: rule__Name__LanguageAssignment_2_1_2_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Name__LanguageAssignment_2_1_2_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_1()); 
 
             }
 
@@ -11955,95 +11884,15 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Name__Group_2_1_2__1__Impl"
 
 
-    // $ANTLR start "rule__Name__Group_2_1_2__2"
-    // InternalJRules.g:3868:1: rule__Name__Group_2_1_2__2 : rule__Name__Group_2_1_2__2__Impl ;
-    public final void rule__Name__Group_2_1_2__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJRules.g:3872:1: ( rule__Name__Group_2_1_2__2__Impl )
-            // InternalJRules.g:3873:2: rule__Name__Group_2_1_2__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__Group_2_1_2__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group_2_1_2__2"
-
-
-    // $ANTLR start "rule__Name__Group_2_1_2__2__Impl"
-    // InternalJRules.g:3879:1: rule__Name__Group_2_1_2__2__Impl : ( ( rule__Name__LanguageAssignment_2_1_2_2 ) ) ;
-    public final void rule__Name__Group_2_1_2__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalJRules.g:3883:1: ( ( ( rule__Name__LanguageAssignment_2_1_2_2 ) ) )
-            // InternalJRules.g:3884:1: ( ( rule__Name__LanguageAssignment_2_1_2_2 ) )
-            {
-            // InternalJRules.g:3884:1: ( ( rule__Name__LanguageAssignment_2_1_2_2 ) )
-            // InternalJRules.g:3885:2: ( rule__Name__LanguageAssignment_2_1_2_2 )
-            {
-             before(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_2()); 
-            // InternalJRules.g:3886:2: ( rule__Name__LanguageAssignment_2_1_2_2 )
-            // InternalJRules.g:3886:3: rule__Name__LanguageAssignment_2_1_2_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Name__LanguageAssignment_2_1_2_2();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getNameAccess().getLanguageAssignment_2_1_2_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Name__Group_2_1_2__2__Impl"
-
-
     // $ANTLR start "rule__Name__Group_2_1_3__0"
-    // InternalJRules.g:3895:1: rule__Name__Group_2_1_3__0 : rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1 ;
+    // InternalJRules.g:3841:1: rule__Name__Group_2_1_3__0 : rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1 ;
     public final void rule__Name__Group_2_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3899:1: ( rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1 )
-            // InternalJRules.g:3900:2: rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1
+            // InternalJRules.g:3845:1: ( rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1 )
+            // InternalJRules.g:3846:2: rule__Name__Group_2_1_3__0__Impl rule__Name__Group_2_1_3__1
             {
             pushFollow(FOLLOW_31);
             rule__Name__Group_2_1_3__0__Impl();
@@ -12074,17 +11923,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_3__0__Impl"
-    // InternalJRules.g:3907:1: rule__Name__Group_2_1_3__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:3853:1: rule__Name__Group_2_1_3__0__Impl : ( 'and' ) ;
     public final void rule__Name__Group_2_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3911:1: ( ( 'and' ) )
-            // InternalJRules.g:3912:1: ( 'and' )
+            // InternalJRules.g:3857:1: ( ( 'and' ) )
+            // InternalJRules.g:3858:1: ( 'and' )
             {
-            // InternalJRules.g:3912:1: ( 'and' )
-            // InternalJRules.g:3913:2: 'and'
+            // InternalJRules.g:3858:1: ( 'and' )
+            // InternalJRules.g:3859:2: 'and'
             {
              before(grammarAccess.getNameAccess().getAndKeyword_2_1_3_0()); 
             match(input,42,FOLLOW_2); 
@@ -12111,14 +11960,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_3__1"
-    // InternalJRules.g:3922:1: rule__Name__Group_2_1_3__1 : rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2 ;
+    // InternalJRules.g:3868:1: rule__Name__Group_2_1_3__1 : rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2 ;
     public final void rule__Name__Group_2_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3926:1: ( rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2 )
-            // InternalJRules.g:3927:2: rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2
+            // InternalJRules.g:3872:1: ( rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2 )
+            // InternalJRules.g:3873:2: rule__Name__Group_2_1_3__1__Impl rule__Name__Group_2_1_3__2
             {
             pushFollow(FOLLOW_37);
             rule__Name__Group_2_1_3__1__Impl();
@@ -12149,17 +11998,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_3__1__Impl"
-    // InternalJRules.g:3934:1: rule__Name__Group_2_1_3__1__Impl : ( 'type=' ) ;
+    // InternalJRules.g:3880:1: rule__Name__Group_2_1_3__1__Impl : ( 'type=' ) ;
     public final void rule__Name__Group_2_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3938:1: ( ( 'type=' ) )
-            // InternalJRules.g:3939:1: ( 'type=' )
+            // InternalJRules.g:3884:1: ( ( 'type=' ) )
+            // InternalJRules.g:3885:1: ( 'type=' )
             {
-            // InternalJRules.g:3939:1: ( 'type=' )
-            // InternalJRules.g:3940:2: 'type='
+            // InternalJRules.g:3885:1: ( 'type=' )
+            // InternalJRules.g:3886:2: 'type='
             {
              before(grammarAccess.getNameAccess().getTypeKeyword_2_1_3_1()); 
             match(input,59,FOLLOW_2); 
@@ -12186,14 +12035,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_3__2"
-    // InternalJRules.g:3949:1: rule__Name__Group_2_1_3__2 : rule__Name__Group_2_1_3__2__Impl ;
+    // InternalJRules.g:3895:1: rule__Name__Group_2_1_3__2 : rule__Name__Group_2_1_3__2__Impl ;
     public final void rule__Name__Group_2_1_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3953:1: ( rule__Name__Group_2_1_3__2__Impl )
-            // InternalJRules.g:3954:2: rule__Name__Group_2_1_3__2__Impl
+            // InternalJRules.g:3899:1: ( rule__Name__Group_2_1_3__2__Impl )
+            // InternalJRules.g:3900:2: rule__Name__Group_2_1_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Name__Group_2_1_3__2__Impl();
@@ -12219,21 +12068,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__Group_2_1_3__2__Impl"
-    // InternalJRules.g:3960:1: rule__Name__Group_2_1_3__2__Impl : ( ( rule__Name__TypeAssignment_2_1_3_2 ) ) ;
+    // InternalJRules.g:3906:1: rule__Name__Group_2_1_3__2__Impl : ( ( rule__Name__TypeAssignment_2_1_3_2 ) ) ;
     public final void rule__Name__Group_2_1_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3964:1: ( ( ( rule__Name__TypeAssignment_2_1_3_2 ) ) )
-            // InternalJRules.g:3965:1: ( ( rule__Name__TypeAssignment_2_1_3_2 ) )
+            // InternalJRules.g:3910:1: ( ( ( rule__Name__TypeAssignment_2_1_3_2 ) ) )
+            // InternalJRules.g:3911:1: ( ( rule__Name__TypeAssignment_2_1_3_2 ) )
             {
-            // InternalJRules.g:3965:1: ( ( rule__Name__TypeAssignment_2_1_3_2 ) )
-            // InternalJRules.g:3966:2: ( rule__Name__TypeAssignment_2_1_3_2 )
+            // InternalJRules.g:3911:1: ( ( rule__Name__TypeAssignment_2_1_3_2 ) )
+            // InternalJRules.g:3912:2: ( rule__Name__TypeAssignment_2_1_3_2 )
             {
              before(grammarAccess.getNameAccess().getTypeAssignment_2_1_3_2()); 
-            // InternalJRules.g:3967:2: ( rule__Name__TypeAssignment_2_1_3_2 )
-            // InternalJRules.g:3967:3: rule__Name__TypeAssignment_2_1_3_2
+            // InternalJRules.g:3913:2: ( rule__Name__TypeAssignment_2_1_3_2 )
+            // InternalJRules.g:3913:3: rule__Name__TypeAssignment_2_1_3_2
             {
             pushFollow(FOLLOW_2);
             rule__Name__TypeAssignment_2_1_3_2();
@@ -12266,16 +12115,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__0"
-    // InternalJRules.g:3976:1: rule__JavaDoc__Group__0 : rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1 ;
+    // InternalJRules.g:3922:1: rule__JavaDoc__Group__0 : rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1 ;
     public final void rule__JavaDoc__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3980:1: ( rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1 )
-            // InternalJRules.g:3981:2: rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1
+            // InternalJRules.g:3926:1: ( rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1 )
+            // InternalJRules.g:3927:2: rule__JavaDoc__Group__0__Impl rule__JavaDoc__Group__1
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_41);
             rule__JavaDoc__Group__0__Impl();
 
             state._fsp--;
@@ -12304,21 +12153,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__0__Impl"
-    // InternalJRules.g:3988:1: rule__JavaDoc__Group__0__Impl : ( () ) ;
+    // InternalJRules.g:3934:1: rule__JavaDoc__Group__0__Impl : ( () ) ;
     public final void rule__JavaDoc__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:3992:1: ( ( () ) )
-            // InternalJRules.g:3993:1: ( () )
+            // InternalJRules.g:3938:1: ( ( () ) )
+            // InternalJRules.g:3939:1: ( () )
             {
-            // InternalJRules.g:3993:1: ( () )
-            // InternalJRules.g:3994:2: ()
+            // InternalJRules.g:3939:1: ( () )
+            // InternalJRules.g:3940:2: ()
             {
              before(grammarAccess.getJavaDocAccess().getJavaDocAction_0()); 
-            // InternalJRules.g:3995:2: ()
-            // InternalJRules.g:3995:3: 
+            // InternalJRules.g:3941:2: ()
+            // InternalJRules.g:3941:3: 
             {
             }
 
@@ -12341,16 +12190,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__1"
-    // InternalJRules.g:4003:1: rule__JavaDoc__Group__1 : rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2 ;
+    // InternalJRules.g:3949:1: rule__JavaDoc__Group__1 : rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2 ;
     public final void rule__JavaDoc__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4007:1: ( rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2 )
-            // InternalJRules.g:4008:2: rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2
+            // InternalJRules.g:3953:1: ( rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2 )
+            // InternalJRules.g:3954:2: rule__JavaDoc__Group__1__Impl rule__JavaDoc__Group__2
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__1__Impl();
 
             state._fsp--;
@@ -12379,20 +12228,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__1__Impl"
-    // InternalJRules.g:4015:1: rule__JavaDoc__Group__1__Impl : ( 'JavaDoc' ) ;
+    // InternalJRules.g:3961:1: rule__JavaDoc__Group__1__Impl : ( 'JavaDoc' ) ;
     public final void rule__JavaDoc__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4019:1: ( ( 'JavaDoc' ) )
-            // InternalJRules.g:4020:1: ( 'JavaDoc' )
+            // InternalJRules.g:3965:1: ( ( 'JavaDoc' ) )
+            // InternalJRules.g:3966:1: ( 'JavaDoc' )
             {
-            // InternalJRules.g:4020:1: ( 'JavaDoc' )
-            // InternalJRules.g:4021:2: 'JavaDoc'
+            // InternalJRules.g:3966:1: ( 'JavaDoc' )
+            // InternalJRules.g:3967:2: 'JavaDoc'
             {
              before(grammarAccess.getJavaDocAccess().getJavaDocKeyword_1()); 
-            match(input,65,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getJavaDocKeyword_1()); 
 
             }
@@ -12416,16 +12265,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__2"
-    // InternalJRules.g:4030:1: rule__JavaDoc__Group__2 : rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3 ;
+    // InternalJRules.g:3976:1: rule__JavaDoc__Group__2 : rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3 ;
     public final void rule__JavaDoc__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4034:1: ( rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3 )
-            // InternalJRules.g:4035:2: rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3
+            // InternalJRules.g:3980:1: ( rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3 )
+            // InternalJRules.g:3981:2: rule__JavaDoc__Group__2__Impl rule__JavaDoc__Group__3
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__2__Impl();
 
             state._fsp--;
@@ -12454,29 +12303,29 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__2__Impl"
-    // InternalJRules.g:4042:1: rule__JavaDoc__Group__2__Impl : ( ( rule__JavaDoc__AuthorAssignment_2 )? ) ;
+    // InternalJRules.g:3988:1: rule__JavaDoc__Group__2__Impl : ( ( rule__JavaDoc__AuthorAssignment_2 )? ) ;
     public final void rule__JavaDoc__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4046:1: ( ( ( rule__JavaDoc__AuthorAssignment_2 )? ) )
-            // InternalJRules.g:4047:1: ( ( rule__JavaDoc__AuthorAssignment_2 )? )
+            // InternalJRules.g:3992:1: ( ( ( rule__JavaDoc__AuthorAssignment_2 )? ) )
+            // InternalJRules.g:3993:1: ( ( rule__JavaDoc__AuthorAssignment_2 )? )
             {
-            // InternalJRules.g:4047:1: ( ( rule__JavaDoc__AuthorAssignment_2 )? )
-            // InternalJRules.g:4048:2: ( rule__JavaDoc__AuthorAssignment_2 )?
+            // InternalJRules.g:3993:1: ( ( rule__JavaDoc__AuthorAssignment_2 )? )
+            // InternalJRules.g:3994:2: ( rule__JavaDoc__AuthorAssignment_2 )?
             {
              before(grammarAccess.getJavaDocAccess().getAuthorAssignment_2()); 
-            // InternalJRules.g:4049:2: ( rule__JavaDoc__AuthorAssignment_2 )?
+            // InternalJRules.g:3995:2: ( rule__JavaDoc__AuthorAssignment_2 )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( (LA28_0==72) ) {
+            if ( (LA28_0==71) ) {
                 alt28=1;
             }
             switch (alt28) {
                 case 1 :
-                    // InternalJRules.g:4049:3: rule__JavaDoc__AuthorAssignment_2
+                    // InternalJRules.g:3995:3: rule__JavaDoc__AuthorAssignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__JavaDoc__AuthorAssignment_2();
@@ -12512,16 +12361,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__3"
-    // InternalJRules.g:4057:1: rule__JavaDoc__Group__3 : rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4 ;
+    // InternalJRules.g:4003:1: rule__JavaDoc__Group__3 : rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4 ;
     public final void rule__JavaDoc__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4061:1: ( rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4 )
-            // InternalJRules.g:4062:2: rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4
+            // InternalJRules.g:4007:1: ( rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4 )
+            // InternalJRules.g:4008:2: rule__JavaDoc__Group__3__Impl rule__JavaDoc__Group__4
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__3__Impl();
 
             state._fsp--;
@@ -12550,32 +12399,32 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__3__Impl"
-    // InternalJRules.g:4069:1: rule__JavaDoc__Group__3__Impl : ( ( rule__JavaDoc__ParametreAssignment_3 )? ) ;
+    // InternalJRules.g:4015:1: rule__JavaDoc__Group__3__Impl : ( ( rule__JavaDoc__ParameterAssignment_3 )? ) ;
     public final void rule__JavaDoc__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4073:1: ( ( ( rule__JavaDoc__ParametreAssignment_3 )? ) )
-            // InternalJRules.g:4074:1: ( ( rule__JavaDoc__ParametreAssignment_3 )? )
+            // InternalJRules.g:4019:1: ( ( ( rule__JavaDoc__ParameterAssignment_3 )? ) )
+            // InternalJRules.g:4020:1: ( ( rule__JavaDoc__ParameterAssignment_3 )? )
             {
-            // InternalJRules.g:4074:1: ( ( rule__JavaDoc__ParametreAssignment_3 )? )
-            // InternalJRules.g:4075:2: ( rule__JavaDoc__ParametreAssignment_3 )?
+            // InternalJRules.g:4020:1: ( ( rule__JavaDoc__ParameterAssignment_3 )? )
+            // InternalJRules.g:4021:2: ( rule__JavaDoc__ParameterAssignment_3 )?
             {
-             before(grammarAccess.getJavaDocAccess().getParametreAssignment_3()); 
-            // InternalJRules.g:4076:2: ( rule__JavaDoc__ParametreAssignment_3 )?
+             before(grammarAccess.getJavaDocAccess().getParameterAssignment_3()); 
+            // InternalJRules.g:4022:2: ( rule__JavaDoc__ParameterAssignment_3 )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==73) ) {
+            if ( (LA29_0==72) ) {
                 alt29=1;
             }
             switch (alt29) {
                 case 1 :
-                    // InternalJRules.g:4076:3: rule__JavaDoc__ParametreAssignment_3
+                    // InternalJRules.g:4022:3: rule__JavaDoc__ParameterAssignment_3
                     {
                     pushFollow(FOLLOW_2);
-                    rule__JavaDoc__ParametreAssignment_3();
+                    rule__JavaDoc__ParameterAssignment_3();
 
                     state._fsp--;
 
@@ -12585,7 +12434,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
             }
 
-             after(grammarAccess.getJavaDocAccess().getParametreAssignment_3()); 
+             after(grammarAccess.getJavaDocAccess().getParameterAssignment_3()); 
 
             }
 
@@ -12608,16 +12457,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__4"
-    // InternalJRules.g:4084:1: rule__JavaDoc__Group__4 : rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5 ;
+    // InternalJRules.g:4030:1: rule__JavaDoc__Group__4 : rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5 ;
     public final void rule__JavaDoc__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4088:1: ( rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5 )
-            // InternalJRules.g:4089:2: rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5
+            // InternalJRules.g:4034:1: ( rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5 )
+            // InternalJRules.g:4035:2: rule__JavaDoc__Group__4__Impl rule__JavaDoc__Group__5
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__4__Impl();
 
             state._fsp--;
@@ -12646,29 +12495,29 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__4__Impl"
-    // InternalJRules.g:4096:1: rule__JavaDoc__Group__4__Impl : ( ( rule__JavaDoc__ReturnAssignment_4 )? ) ;
+    // InternalJRules.g:4042:1: rule__JavaDoc__Group__4__Impl : ( ( rule__JavaDoc__ReturnAssignment_4 )? ) ;
     public final void rule__JavaDoc__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4100:1: ( ( ( rule__JavaDoc__ReturnAssignment_4 )? ) )
-            // InternalJRules.g:4101:1: ( ( rule__JavaDoc__ReturnAssignment_4 )? )
+            // InternalJRules.g:4046:1: ( ( ( rule__JavaDoc__ReturnAssignment_4 )? ) )
+            // InternalJRules.g:4047:1: ( ( rule__JavaDoc__ReturnAssignment_4 )? )
             {
-            // InternalJRules.g:4101:1: ( ( rule__JavaDoc__ReturnAssignment_4 )? )
-            // InternalJRules.g:4102:2: ( rule__JavaDoc__ReturnAssignment_4 )?
+            // InternalJRules.g:4047:1: ( ( rule__JavaDoc__ReturnAssignment_4 )? )
+            // InternalJRules.g:4048:2: ( rule__JavaDoc__ReturnAssignment_4 )?
             {
              before(grammarAccess.getJavaDocAccess().getReturnAssignment_4()); 
-            // InternalJRules.g:4103:2: ( rule__JavaDoc__ReturnAssignment_4 )?
+            // InternalJRules.g:4049:2: ( rule__JavaDoc__ReturnAssignment_4 )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==74) ) {
+            if ( (LA30_0==73) ) {
                 alt30=1;
             }
             switch (alt30) {
                 case 1 :
-                    // InternalJRules.g:4103:3: rule__JavaDoc__ReturnAssignment_4
+                    // InternalJRules.g:4049:3: rule__JavaDoc__ReturnAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__JavaDoc__ReturnAssignment_4();
@@ -12704,16 +12553,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__5"
-    // InternalJRules.g:4111:1: rule__JavaDoc__Group__5 : rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6 ;
+    // InternalJRules.g:4057:1: rule__JavaDoc__Group__5 : rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6 ;
     public final void rule__JavaDoc__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4115:1: ( rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6 )
-            // InternalJRules.g:4116:2: rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6
+            // InternalJRules.g:4061:1: ( rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6 )
+            // InternalJRules.g:4062:2: rule__JavaDoc__Group__5__Impl rule__JavaDoc__Group__6
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__5__Impl();
 
             state._fsp--;
@@ -12742,29 +12591,29 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__5__Impl"
-    // InternalJRules.g:4123:1: rule__JavaDoc__Group__5__Impl : ( ( rule__JavaDoc__VersionAssignment_5 )? ) ;
+    // InternalJRules.g:4069:1: rule__JavaDoc__Group__5__Impl : ( ( rule__JavaDoc__VersionAssignment_5 )? ) ;
     public final void rule__JavaDoc__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4127:1: ( ( ( rule__JavaDoc__VersionAssignment_5 )? ) )
-            // InternalJRules.g:4128:1: ( ( rule__JavaDoc__VersionAssignment_5 )? )
+            // InternalJRules.g:4073:1: ( ( ( rule__JavaDoc__VersionAssignment_5 )? ) )
+            // InternalJRules.g:4074:1: ( ( rule__JavaDoc__VersionAssignment_5 )? )
             {
-            // InternalJRules.g:4128:1: ( ( rule__JavaDoc__VersionAssignment_5 )? )
-            // InternalJRules.g:4129:2: ( rule__JavaDoc__VersionAssignment_5 )?
+            // InternalJRules.g:4074:1: ( ( rule__JavaDoc__VersionAssignment_5 )? )
+            // InternalJRules.g:4075:2: ( rule__JavaDoc__VersionAssignment_5 )?
             {
              before(grammarAccess.getJavaDocAccess().getVersionAssignment_5()); 
-            // InternalJRules.g:4130:2: ( rule__JavaDoc__VersionAssignment_5 )?
+            // InternalJRules.g:4076:2: ( rule__JavaDoc__VersionAssignment_5 )?
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==75) ) {
+            if ( (LA31_0==74) ) {
                 alt31=1;
             }
             switch (alt31) {
                 case 1 :
-                    // InternalJRules.g:4130:3: rule__JavaDoc__VersionAssignment_5
+                    // InternalJRules.g:4076:3: rule__JavaDoc__VersionAssignment_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__JavaDoc__VersionAssignment_5();
@@ -12800,16 +12649,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__6"
-    // InternalJRules.g:4138:1: rule__JavaDoc__Group__6 : rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7 ;
+    // InternalJRules.g:4084:1: rule__JavaDoc__Group__6 : rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7 ;
     public final void rule__JavaDoc__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4142:1: ( rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7 )
-            // InternalJRules.g:4143:2: rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7
+            // InternalJRules.g:4088:1: ( rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7 )
+            // InternalJRules.g:4089:2: rule__JavaDoc__Group__6__Impl rule__JavaDoc__Group__7
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_42);
             rule__JavaDoc__Group__6__Impl();
 
             state._fsp--;
@@ -12838,29 +12687,29 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__6__Impl"
-    // InternalJRules.g:4150:1: rule__JavaDoc__Group__6__Impl : ( ( rule__JavaDoc__ThrowsAssignment_6 )? ) ;
+    // InternalJRules.g:4096:1: rule__JavaDoc__Group__6__Impl : ( ( rule__JavaDoc__ThrowsAssignment_6 )? ) ;
     public final void rule__JavaDoc__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4154:1: ( ( ( rule__JavaDoc__ThrowsAssignment_6 )? ) )
-            // InternalJRules.g:4155:1: ( ( rule__JavaDoc__ThrowsAssignment_6 )? )
+            // InternalJRules.g:4100:1: ( ( ( rule__JavaDoc__ThrowsAssignment_6 )? ) )
+            // InternalJRules.g:4101:1: ( ( rule__JavaDoc__ThrowsAssignment_6 )? )
             {
-            // InternalJRules.g:4155:1: ( ( rule__JavaDoc__ThrowsAssignment_6 )? )
-            // InternalJRules.g:4156:2: ( rule__JavaDoc__ThrowsAssignment_6 )?
+            // InternalJRules.g:4101:1: ( ( rule__JavaDoc__ThrowsAssignment_6 )? )
+            // InternalJRules.g:4102:2: ( rule__JavaDoc__ThrowsAssignment_6 )?
             {
              before(grammarAccess.getJavaDocAccess().getThrowsAssignment_6()); 
-            // InternalJRules.g:4157:2: ( rule__JavaDoc__ThrowsAssignment_6 )?
+            // InternalJRules.g:4103:2: ( rule__JavaDoc__ThrowsAssignment_6 )?
             int alt32=2;
             int LA32_0 = input.LA(1);
 
-            if ( (LA32_0==76) ) {
+            if ( (LA32_0==75) ) {
                 alt32=1;
             }
             switch (alt32) {
                 case 1 :
-                    // InternalJRules.g:4157:3: rule__JavaDoc__ThrowsAssignment_6
+                    // InternalJRules.g:4103:3: rule__JavaDoc__ThrowsAssignment_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__JavaDoc__ThrowsAssignment_6();
@@ -12896,14 +12745,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__7"
-    // InternalJRules.g:4165:1: rule__JavaDoc__Group__7 : rule__JavaDoc__Group__7__Impl ;
+    // InternalJRules.g:4111:1: rule__JavaDoc__Group__7 : rule__JavaDoc__Group__7__Impl ;
     public final void rule__JavaDoc__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4169:1: ( rule__JavaDoc__Group__7__Impl )
-            // InternalJRules.g:4170:2: rule__JavaDoc__Group__7__Impl
+            // InternalJRules.g:4115:1: ( rule__JavaDoc__Group__7__Impl )
+            // InternalJRules.g:4116:2: rule__JavaDoc__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__JavaDoc__Group__7__Impl();
@@ -12929,29 +12778,29 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__Group__7__Impl"
-    // InternalJRules.g:4176:1: rule__JavaDoc__Group__7__Impl : ( ( rule__JavaDoc__SeeAssignment_7 )? ) ;
+    // InternalJRules.g:4122:1: rule__JavaDoc__Group__7__Impl : ( ( rule__JavaDoc__SeeAssignment_7 )? ) ;
     public final void rule__JavaDoc__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4180:1: ( ( ( rule__JavaDoc__SeeAssignment_7 )? ) )
-            // InternalJRules.g:4181:1: ( ( rule__JavaDoc__SeeAssignment_7 )? )
+            // InternalJRules.g:4126:1: ( ( ( rule__JavaDoc__SeeAssignment_7 )? ) )
+            // InternalJRules.g:4127:1: ( ( rule__JavaDoc__SeeAssignment_7 )? )
             {
-            // InternalJRules.g:4181:1: ( ( rule__JavaDoc__SeeAssignment_7 )? )
-            // InternalJRules.g:4182:2: ( rule__JavaDoc__SeeAssignment_7 )?
+            // InternalJRules.g:4127:1: ( ( rule__JavaDoc__SeeAssignment_7 )? )
+            // InternalJRules.g:4128:2: ( rule__JavaDoc__SeeAssignment_7 )?
             {
              before(grammarAccess.getJavaDocAccess().getSeeAssignment_7()); 
-            // InternalJRules.g:4183:2: ( rule__JavaDoc__SeeAssignment_7 )?
+            // InternalJRules.g:4129:2: ( rule__JavaDoc__SeeAssignment_7 )?
             int alt33=2;
             int LA33_0 = input.LA(1);
 
-            if ( (LA33_0==77) ) {
+            if ( (LA33_0==76) ) {
                 alt33=1;
             }
             switch (alt33) {
                 case 1 :
-                    // InternalJRules.g:4183:3: rule__JavaDoc__SeeAssignment_7
+                    // InternalJRules.g:4129:3: rule__JavaDoc__SeeAssignment_7
                     {
                     pushFollow(FOLLOW_2);
                     rule__JavaDoc__SeeAssignment_7();
@@ -12987,16 +12836,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__0"
-    // InternalJRules.g:4192:1: rule__Contains__Group__0 : rule__Contains__Group__0__Impl rule__Contains__Group__1 ;
+    // InternalJRules.g:4138:1: rule__Contains__Group__0 : rule__Contains__Group__0__Impl rule__Contains__Group__1 ;
     public final void rule__Contains__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4196:1: ( rule__Contains__Group__0__Impl rule__Contains__Group__1 )
-            // InternalJRules.g:4197:2: rule__Contains__Group__0__Impl rule__Contains__Group__1
+            // InternalJRules.g:4142:1: ( rule__Contains__Group__0__Impl rule__Contains__Group__1 )
+            // InternalJRules.g:4143:2: rule__Contains__Group__0__Impl rule__Contains__Group__1
             {
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             rule__Contains__Group__0__Impl();
 
             state._fsp--;
@@ -13025,20 +12874,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__0__Impl"
-    // InternalJRules.g:4204:1: rule__Contains__Group__0__Impl : ( 'have' ) ;
+    // InternalJRules.g:4150:1: rule__Contains__Group__0__Impl : ( 'have' ) ;
     public final void rule__Contains__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4208:1: ( ( 'have' ) )
-            // InternalJRules.g:4209:1: ( 'have' )
+            // InternalJRules.g:4154:1: ( ( 'have' ) )
+            // InternalJRules.g:4155:1: ( 'have' )
             {
-            // InternalJRules.g:4209:1: ( 'have' )
-            // InternalJRules.g:4210:2: 'have'
+            // InternalJRules.g:4155:1: ( 'have' )
+            // InternalJRules.g:4156:2: 'have'
             {
              before(grammarAccess.getContainsAccess().getHaveKeyword_0()); 
-            match(input,66,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getContainsAccess().getHaveKeyword_0()); 
 
             }
@@ -13062,14 +12911,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__1"
-    // InternalJRules.g:4219:1: rule__Contains__Group__1 : rule__Contains__Group__1__Impl rule__Contains__Group__2 ;
+    // InternalJRules.g:4165:1: rule__Contains__Group__1 : rule__Contains__Group__1__Impl rule__Contains__Group__2 ;
     public final void rule__Contains__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4223:1: ( rule__Contains__Group__1__Impl rule__Contains__Group__2 )
-            // InternalJRules.g:4224:2: rule__Contains__Group__1__Impl rule__Contains__Group__2
+            // InternalJRules.g:4169:1: ( rule__Contains__Group__1__Impl rule__Contains__Group__2 )
+            // InternalJRules.g:4170:2: rule__Contains__Group__1__Impl rule__Contains__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Contains__Group__1__Impl();
@@ -13100,20 +12949,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__1__Impl"
-    // InternalJRules.g:4231:1: rule__Contains__Group__1__Impl : ( '{' ) ;
+    // InternalJRules.g:4177:1: rule__Contains__Group__1__Impl : ( '{' ) ;
     public final void rule__Contains__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4235:1: ( ( '{' ) )
-            // InternalJRules.g:4236:1: ( '{' )
+            // InternalJRules.g:4181:1: ( ( '{' ) )
+            // InternalJRules.g:4182:1: ( '{' )
             {
-            // InternalJRules.g:4236:1: ( '{' )
-            // InternalJRules.g:4237:2: '{'
+            // InternalJRules.g:4182:1: ( '{' )
+            // InternalJRules.g:4183:2: '{'
             {
              before(grammarAccess.getContainsAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,67,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getContainsAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -13137,16 +12986,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__2"
-    // InternalJRules.g:4246:1: rule__Contains__Group__2 : rule__Contains__Group__2__Impl rule__Contains__Group__3 ;
+    // InternalJRules.g:4192:1: rule__Contains__Group__2 : rule__Contains__Group__2__Impl rule__Contains__Group__3 ;
     public final void rule__Contains__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4250:1: ( rule__Contains__Group__2__Impl rule__Contains__Group__3 )
-            // InternalJRules.g:4251:2: rule__Contains__Group__2__Impl rule__Contains__Group__3
+            // InternalJRules.g:4196:1: ( rule__Contains__Group__2__Impl rule__Contains__Group__3 )
+            // InternalJRules.g:4197:2: rule__Contains__Group__2__Impl rule__Contains__Group__3
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             rule__Contains__Group__2__Impl();
 
             state._fsp--;
@@ -13175,21 +13024,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__2__Impl"
-    // InternalJRules.g:4258:1: rule__Contains__Group__2__Impl : ( ( rule__Contains__WhichAssignment_2 ) ) ;
+    // InternalJRules.g:4204:1: rule__Contains__Group__2__Impl : ( ( rule__Contains__WhichAssignment_2 ) ) ;
     public final void rule__Contains__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4262:1: ( ( ( rule__Contains__WhichAssignment_2 ) ) )
-            // InternalJRules.g:4263:1: ( ( rule__Contains__WhichAssignment_2 ) )
+            // InternalJRules.g:4208:1: ( ( ( rule__Contains__WhichAssignment_2 ) ) )
+            // InternalJRules.g:4209:1: ( ( rule__Contains__WhichAssignment_2 ) )
             {
-            // InternalJRules.g:4263:1: ( ( rule__Contains__WhichAssignment_2 ) )
-            // InternalJRules.g:4264:2: ( rule__Contains__WhichAssignment_2 )
+            // InternalJRules.g:4209:1: ( ( rule__Contains__WhichAssignment_2 ) )
+            // InternalJRules.g:4210:2: ( rule__Contains__WhichAssignment_2 )
             {
              before(grammarAccess.getContainsAccess().getWhichAssignment_2()); 
-            // InternalJRules.g:4265:2: ( rule__Contains__WhichAssignment_2 )
-            // InternalJRules.g:4265:3: rule__Contains__WhichAssignment_2
+            // InternalJRules.g:4211:2: ( rule__Contains__WhichAssignment_2 )
+            // InternalJRules.g:4211:3: rule__Contains__WhichAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Contains__WhichAssignment_2();
@@ -13222,14 +13071,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__3"
-    // InternalJRules.g:4273:1: rule__Contains__Group__3 : rule__Contains__Group__3__Impl ;
+    // InternalJRules.g:4219:1: rule__Contains__Group__3 : rule__Contains__Group__3__Impl ;
     public final void rule__Contains__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4277:1: ( rule__Contains__Group__3__Impl )
-            // InternalJRules.g:4278:2: rule__Contains__Group__3__Impl
+            // InternalJRules.g:4223:1: ( rule__Contains__Group__3__Impl )
+            // InternalJRules.g:4224:2: rule__Contains__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Contains__Group__3__Impl();
@@ -13255,20 +13104,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__Group__3__Impl"
-    // InternalJRules.g:4284:1: rule__Contains__Group__3__Impl : ( '}' ) ;
+    // InternalJRules.g:4230:1: rule__Contains__Group__3__Impl : ( '}' ) ;
     public final void rule__Contains__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4288:1: ( ( '}' ) )
-            // InternalJRules.g:4289:1: ( '}' )
+            // InternalJRules.g:4234:1: ( ( '}' ) )
+            // InternalJRules.g:4235:1: ( '}' )
             {
-            // InternalJRules.g:4289:1: ( '}' )
-            // InternalJRules.g:4290:2: '}'
+            // InternalJRules.g:4235:1: ( '}' )
+            // InternalJRules.g:4236:2: '}'
             {
              before(grammarAccess.getContainsAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,68,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getContainsAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -13292,14 +13141,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__0"
-    // InternalJRules.g:4300:1: rule__Modifiers__Group__0 : rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1 ;
+    // InternalJRules.g:4246:1: rule__Modifiers__Group__0 : rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1 ;
     public final void rule__Modifiers__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4304:1: ( rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1 )
-            // InternalJRules.g:4305:2: rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1
+            // InternalJRules.g:4250:1: ( rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1 )
+            // InternalJRules.g:4251:2: rule__Modifiers__Group__0__Impl rule__Modifiers__Group__1
             {
             pushFollow(FOLLOW_27);
             rule__Modifiers__Group__0__Impl();
@@ -13330,20 +13179,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__0__Impl"
-    // InternalJRules.g:4312:1: rule__Modifiers__Group__0__Impl : ( 'modifiers:' ) ;
+    // InternalJRules.g:4258:1: rule__Modifiers__Group__0__Impl : ( 'modifiers:' ) ;
     public final void rule__Modifiers__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4316:1: ( ( 'modifiers:' ) )
-            // InternalJRules.g:4317:1: ( 'modifiers:' )
+            // InternalJRules.g:4262:1: ( ( 'modifiers:' ) )
+            // InternalJRules.g:4263:1: ( 'modifiers:' )
             {
-            // InternalJRules.g:4317:1: ( 'modifiers:' )
-            // InternalJRules.g:4318:2: 'modifiers:'
+            // InternalJRules.g:4263:1: ( 'modifiers:' )
+            // InternalJRules.g:4264:2: 'modifiers:'
             {
              before(grammarAccess.getModifiersAccess().getModifiersKeyword_0()); 
-            match(input,69,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getModifiersAccess().getModifiersKeyword_0()); 
 
             }
@@ -13367,16 +13216,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__1"
-    // InternalJRules.g:4327:1: rule__Modifiers__Group__1 : rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2 ;
+    // InternalJRules.g:4273:1: rule__Modifiers__Group__1 : rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2 ;
     public final void rule__Modifiers__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4331:1: ( rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2 )
-            // InternalJRules.g:4332:2: rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2
+            // InternalJRules.g:4277:1: ( rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2 )
+            // InternalJRules.g:4278:2: rule__Modifiers__Group__1__Impl rule__Modifiers__Group__2
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__Modifiers__Group__1__Impl();
 
             state._fsp--;
@@ -13405,17 +13254,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__1__Impl"
-    // InternalJRules.g:4339:1: rule__Modifiers__Group__1__Impl : ( '[' ) ;
+    // InternalJRules.g:4285:1: rule__Modifiers__Group__1__Impl : ( '[' ) ;
     public final void rule__Modifiers__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4343:1: ( ( '[' ) )
-            // InternalJRules.g:4344:1: ( '[' )
+            // InternalJRules.g:4289:1: ( ( '[' ) )
+            // InternalJRules.g:4290:1: ( '[' )
             {
-            // InternalJRules.g:4344:1: ( '[' )
-            // InternalJRules.g:4345:2: '['
+            // InternalJRules.g:4290:1: ( '[' )
+            // InternalJRules.g:4291:2: '['
             {
              before(grammarAccess.getModifiersAccess().getLeftSquareBracketKeyword_1()); 
             match(input,54,FOLLOW_2); 
@@ -13442,16 +13291,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__2"
-    // InternalJRules.g:4354:1: rule__Modifiers__Group__2 : rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3 ;
+    // InternalJRules.g:4300:1: rule__Modifiers__Group__2 : rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3 ;
     public final void rule__Modifiers__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4358:1: ( rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3 )
-            // InternalJRules.g:4359:2: rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3
+            // InternalJRules.g:4304:1: ( rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3 )
+            // InternalJRules.g:4305:2: rule__Modifiers__Group__2__Impl rule__Modifiers__Group__3
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__Modifiers__Group__2__Impl();
 
             state._fsp--;
@@ -13480,17 +13329,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__2__Impl"
-    // InternalJRules.g:4366:1: rule__Modifiers__Group__2__Impl : ( '(' ) ;
+    // InternalJRules.g:4312:1: rule__Modifiers__Group__2__Impl : ( '(' ) ;
     public final void rule__Modifiers__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4370:1: ( ( '(' ) )
-            // InternalJRules.g:4371:1: ( '(' )
+            // InternalJRules.g:4316:1: ( ( '(' ) )
+            // InternalJRules.g:4317:1: ( '(' )
             {
-            // InternalJRules.g:4371:1: ( '(' )
-            // InternalJRules.g:4372:2: '('
+            // InternalJRules.g:4317:1: ( '(' )
+            // InternalJRules.g:4318:2: '('
             {
              before(grammarAccess.getModifiersAccess().getLeftParenthesisKeyword_2()); 
             match(input,41,FOLLOW_2); 
@@ -13517,16 +13366,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__3"
-    // InternalJRules.g:4381:1: rule__Modifiers__Group__3 : rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4 ;
+    // InternalJRules.g:4327:1: rule__Modifiers__Group__3 : rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4 ;
     public final void rule__Modifiers__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4385:1: ( rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4 )
-            // InternalJRules.g:4386:2: rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4
+            // InternalJRules.g:4331:1: ( rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4 )
+            // InternalJRules.g:4332:2: rule__Modifiers__Group__3__Impl rule__Modifiers__Group__4
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Modifiers__Group__3__Impl();
 
             state._fsp--;
@@ -13555,21 +13404,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__3__Impl"
-    // InternalJRules.g:4393:1: rule__Modifiers__Group__3__Impl : ( ( rule__Modifiers__BlendAssignment_3 ) ) ;
+    // InternalJRules.g:4339:1: rule__Modifiers__Group__3__Impl : ( ( rule__Modifiers__BlendAssignment_3 ) ) ;
     public final void rule__Modifiers__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4397:1: ( ( ( rule__Modifiers__BlendAssignment_3 ) ) )
-            // InternalJRules.g:4398:1: ( ( rule__Modifiers__BlendAssignment_3 ) )
+            // InternalJRules.g:4343:1: ( ( ( rule__Modifiers__BlendAssignment_3 ) ) )
+            // InternalJRules.g:4344:1: ( ( rule__Modifiers__BlendAssignment_3 ) )
             {
-            // InternalJRules.g:4398:1: ( ( rule__Modifiers__BlendAssignment_3 ) )
-            // InternalJRules.g:4399:2: ( rule__Modifiers__BlendAssignment_3 )
+            // InternalJRules.g:4344:1: ( ( rule__Modifiers__BlendAssignment_3 ) )
+            // InternalJRules.g:4345:2: ( rule__Modifiers__BlendAssignment_3 )
             {
              before(grammarAccess.getModifiersAccess().getBlendAssignment_3()); 
-            // InternalJRules.g:4400:2: ( rule__Modifiers__BlendAssignment_3 )
-            // InternalJRules.g:4400:3: rule__Modifiers__BlendAssignment_3
+            // InternalJRules.g:4346:2: ( rule__Modifiers__BlendAssignment_3 )
+            // InternalJRules.g:4346:3: rule__Modifiers__BlendAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Modifiers__BlendAssignment_3();
@@ -13602,16 +13451,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__4"
-    // InternalJRules.g:4408:1: rule__Modifiers__Group__4 : rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5 ;
+    // InternalJRules.g:4354:1: rule__Modifiers__Group__4 : rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5 ;
     public final void rule__Modifiers__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4412:1: ( rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5 )
-            // InternalJRules.g:4413:2: rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5
+            // InternalJRules.g:4358:1: ( rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5 )
+            // InternalJRules.g:4359:2: rule__Modifiers__Group__4__Impl rule__Modifiers__Group__5
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__Modifiers__Group__4__Impl();
 
             state._fsp--;
@@ -13640,17 +13489,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__4__Impl"
-    // InternalJRules.g:4420:1: rule__Modifiers__Group__4__Impl : ( ')' ) ;
+    // InternalJRules.g:4366:1: rule__Modifiers__Group__4__Impl : ( ')' ) ;
     public final void rule__Modifiers__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4424:1: ( ( ')' ) )
-            // InternalJRules.g:4425:1: ( ')' )
+            // InternalJRules.g:4370:1: ( ( ')' ) )
+            // InternalJRules.g:4371:1: ( ')' )
             {
-            // InternalJRules.g:4425:1: ( ')' )
-            // InternalJRules.g:4426:2: ')'
+            // InternalJRules.g:4371:1: ( ')' )
+            // InternalJRules.g:4372:2: ')'
             {
              before(grammarAccess.getModifiersAccess().getRightParenthesisKeyword_4()); 
             match(input,43,FOLLOW_2); 
@@ -13677,16 +13526,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__5"
-    // InternalJRules.g:4435:1: rule__Modifiers__Group__5 : rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6 ;
+    // InternalJRules.g:4381:1: rule__Modifiers__Group__5 : rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6 ;
     public final void rule__Modifiers__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4439:1: ( rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6 )
-            // InternalJRules.g:4440:2: rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6
+            // InternalJRules.g:4385:1: ( rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6 )
+            // InternalJRules.g:4386:2: rule__Modifiers__Group__5__Impl rule__Modifiers__Group__6
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_48);
             rule__Modifiers__Group__5__Impl();
 
             state._fsp--;
@@ -13715,20 +13564,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__5__Impl"
-    // InternalJRules.g:4447:1: rule__Modifiers__Group__5__Impl : ( ( rule__Modifiers__Group_5__0 )* ) ;
+    // InternalJRules.g:4393:1: rule__Modifiers__Group__5__Impl : ( ( rule__Modifiers__Group_5__0 )* ) ;
     public final void rule__Modifiers__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4451:1: ( ( ( rule__Modifiers__Group_5__0 )* ) )
-            // InternalJRules.g:4452:1: ( ( rule__Modifiers__Group_5__0 )* )
+            // InternalJRules.g:4397:1: ( ( ( rule__Modifiers__Group_5__0 )* ) )
+            // InternalJRules.g:4398:1: ( ( rule__Modifiers__Group_5__0 )* )
             {
-            // InternalJRules.g:4452:1: ( ( rule__Modifiers__Group_5__0 )* )
-            // InternalJRules.g:4453:2: ( rule__Modifiers__Group_5__0 )*
+            // InternalJRules.g:4398:1: ( ( rule__Modifiers__Group_5__0 )* )
+            // InternalJRules.g:4399:2: ( rule__Modifiers__Group_5__0 )*
             {
              before(grammarAccess.getModifiersAccess().getGroup_5()); 
-            // InternalJRules.g:4454:2: ( rule__Modifiers__Group_5__0 )*
+            // InternalJRules.g:4400:2: ( rule__Modifiers__Group_5__0 )*
             loop34:
             do {
                 int alt34=2;
@@ -13741,7 +13590,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                 switch (alt34) {
             	case 1 :
-            	    // InternalJRules.g:4454:3: rule__Modifiers__Group_5__0
+            	    // InternalJRules.g:4400:3: rule__Modifiers__Group_5__0
             	    {
             	    pushFollow(FOLLOW_12);
             	    rule__Modifiers__Group_5__0();
@@ -13780,14 +13629,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__6"
-    // InternalJRules.g:4462:1: rule__Modifiers__Group__6 : rule__Modifiers__Group__6__Impl ;
+    // InternalJRules.g:4408:1: rule__Modifiers__Group__6 : rule__Modifiers__Group__6__Impl ;
     public final void rule__Modifiers__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4466:1: ( rule__Modifiers__Group__6__Impl )
-            // InternalJRules.g:4467:2: rule__Modifiers__Group__6__Impl
+            // InternalJRules.g:4412:1: ( rule__Modifiers__Group__6__Impl )
+            // InternalJRules.g:4413:2: rule__Modifiers__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Modifiers__Group__6__Impl();
@@ -13813,17 +13662,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group__6__Impl"
-    // InternalJRules.g:4473:1: rule__Modifiers__Group__6__Impl : ( ']' ) ;
+    // InternalJRules.g:4419:1: rule__Modifiers__Group__6__Impl : ( ']' ) ;
     public final void rule__Modifiers__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4477:1: ( ( ']' ) )
-            // InternalJRules.g:4478:1: ( ']' )
+            // InternalJRules.g:4423:1: ( ( ']' ) )
+            // InternalJRules.g:4424:1: ( ']' )
             {
-            // InternalJRules.g:4478:1: ( ']' )
-            // InternalJRules.g:4479:2: ']'
+            // InternalJRules.g:4424:1: ( ']' )
+            // InternalJRules.g:4425:2: ']'
             {
              before(grammarAccess.getModifiersAccess().getRightSquareBracketKeyword_6()); 
             match(input,55,FOLLOW_2); 
@@ -13850,16 +13699,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__0"
-    // InternalJRules.g:4489:1: rule__Modifiers__Group_5__0 : rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1 ;
+    // InternalJRules.g:4435:1: rule__Modifiers__Group_5__0 : rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1 ;
     public final void rule__Modifiers__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4493:1: ( rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1 )
-            // InternalJRules.g:4494:2: rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1
+            // InternalJRules.g:4439:1: ( rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1 )
+            // InternalJRules.g:4440:2: rule__Modifiers__Group_5__0__Impl rule__Modifiers__Group_5__1
             {
-            pushFollow(FOLLOW_46);
+            pushFollow(FOLLOW_45);
             rule__Modifiers__Group_5__0__Impl();
 
             state._fsp--;
@@ -13888,17 +13737,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__0__Impl"
-    // InternalJRules.g:4501:1: rule__Modifiers__Group_5__0__Impl : ( 'or' ) ;
+    // InternalJRules.g:4447:1: rule__Modifiers__Group_5__0__Impl : ( 'or' ) ;
     public final void rule__Modifiers__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4505:1: ( ( 'or' ) )
-            // InternalJRules.g:4506:1: ( 'or' )
+            // InternalJRules.g:4451:1: ( ( 'or' ) )
+            // InternalJRules.g:4452:1: ( 'or' )
             {
-            // InternalJRules.g:4506:1: ( 'or' )
-            // InternalJRules.g:4507:2: 'or'
+            // InternalJRules.g:4452:1: ( 'or' )
+            // InternalJRules.g:4453:2: 'or'
             {
              before(grammarAccess.getModifiersAccess().getOrKeyword_5_0()); 
             match(input,40,FOLLOW_2); 
@@ -13925,16 +13774,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__1"
-    // InternalJRules.g:4516:1: rule__Modifiers__Group_5__1 : rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2 ;
+    // InternalJRules.g:4462:1: rule__Modifiers__Group_5__1 : rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2 ;
     public final void rule__Modifiers__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4520:1: ( rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2 )
-            // InternalJRules.g:4521:2: rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2
+            // InternalJRules.g:4466:1: ( rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2 )
+            // InternalJRules.g:4467:2: rule__Modifiers__Group_5__1__Impl rule__Modifiers__Group_5__2
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_46);
             rule__Modifiers__Group_5__1__Impl();
 
             state._fsp--;
@@ -13963,17 +13812,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__1__Impl"
-    // InternalJRules.g:4528:1: rule__Modifiers__Group_5__1__Impl : ( '(' ) ;
+    // InternalJRules.g:4474:1: rule__Modifiers__Group_5__1__Impl : ( '(' ) ;
     public final void rule__Modifiers__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4532:1: ( ( '(' ) )
-            // InternalJRules.g:4533:1: ( '(' )
+            // InternalJRules.g:4478:1: ( ( '(' ) )
+            // InternalJRules.g:4479:1: ( '(' )
             {
-            // InternalJRules.g:4533:1: ( '(' )
-            // InternalJRules.g:4534:2: '('
+            // InternalJRules.g:4479:1: ( '(' )
+            // InternalJRules.g:4480:2: '('
             {
              before(grammarAccess.getModifiersAccess().getLeftParenthesisKeyword_5_1()); 
             match(input,41,FOLLOW_2); 
@@ -14000,16 +13849,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__2"
-    // InternalJRules.g:4543:1: rule__Modifiers__Group_5__2 : rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3 ;
+    // InternalJRules.g:4489:1: rule__Modifiers__Group_5__2 : rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3 ;
     public final void rule__Modifiers__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4547:1: ( rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3 )
-            // InternalJRules.g:4548:2: rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3
+            // InternalJRules.g:4493:1: ( rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3 )
+            // InternalJRules.g:4494:2: rule__Modifiers__Group_5__2__Impl rule__Modifiers__Group_5__3
             {
-            pushFollow(FOLLOW_48);
+            pushFollow(FOLLOW_47);
             rule__Modifiers__Group_5__2__Impl();
 
             state._fsp--;
@@ -14038,21 +13887,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__2__Impl"
-    // InternalJRules.g:4555:1: rule__Modifiers__Group_5__2__Impl : ( ( rule__Modifiers__BlendAssignment_5_2 ) ) ;
+    // InternalJRules.g:4501:1: rule__Modifiers__Group_5__2__Impl : ( ( rule__Modifiers__BlendAssignment_5_2 ) ) ;
     public final void rule__Modifiers__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4559:1: ( ( ( rule__Modifiers__BlendAssignment_5_2 ) ) )
-            // InternalJRules.g:4560:1: ( ( rule__Modifiers__BlendAssignment_5_2 ) )
+            // InternalJRules.g:4505:1: ( ( ( rule__Modifiers__BlendAssignment_5_2 ) ) )
+            // InternalJRules.g:4506:1: ( ( rule__Modifiers__BlendAssignment_5_2 ) )
             {
-            // InternalJRules.g:4560:1: ( ( rule__Modifiers__BlendAssignment_5_2 ) )
-            // InternalJRules.g:4561:2: ( rule__Modifiers__BlendAssignment_5_2 )
+            // InternalJRules.g:4506:1: ( ( rule__Modifiers__BlendAssignment_5_2 ) )
+            // InternalJRules.g:4507:2: ( rule__Modifiers__BlendAssignment_5_2 )
             {
              before(grammarAccess.getModifiersAccess().getBlendAssignment_5_2()); 
-            // InternalJRules.g:4562:2: ( rule__Modifiers__BlendAssignment_5_2 )
-            // InternalJRules.g:4562:3: rule__Modifiers__BlendAssignment_5_2
+            // InternalJRules.g:4508:2: ( rule__Modifiers__BlendAssignment_5_2 )
+            // InternalJRules.g:4508:3: rule__Modifiers__BlendAssignment_5_2
             {
             pushFollow(FOLLOW_2);
             rule__Modifiers__BlendAssignment_5_2();
@@ -14085,14 +13934,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__3"
-    // InternalJRules.g:4570:1: rule__Modifiers__Group_5__3 : rule__Modifiers__Group_5__3__Impl ;
+    // InternalJRules.g:4516:1: rule__Modifiers__Group_5__3 : rule__Modifiers__Group_5__3__Impl ;
     public final void rule__Modifiers__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4574:1: ( rule__Modifiers__Group_5__3__Impl )
-            // InternalJRules.g:4575:2: rule__Modifiers__Group_5__3__Impl
+            // InternalJRules.g:4520:1: ( rule__Modifiers__Group_5__3__Impl )
+            // InternalJRules.g:4521:2: rule__Modifiers__Group_5__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Modifiers__Group_5__3__Impl();
@@ -14118,17 +13967,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__Group_5__3__Impl"
-    // InternalJRules.g:4581:1: rule__Modifiers__Group_5__3__Impl : ( ')' ) ;
+    // InternalJRules.g:4527:1: rule__Modifiers__Group_5__3__Impl : ( ')' ) ;
     public final void rule__Modifiers__Group_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4585:1: ( ( ')' ) )
-            // InternalJRules.g:4586:1: ( ')' )
+            // InternalJRules.g:4531:1: ( ( ')' ) )
+            // InternalJRules.g:4532:1: ( ')' )
             {
-            // InternalJRules.g:4586:1: ( ')' )
-            // InternalJRules.g:4587:2: ')'
+            // InternalJRules.g:4532:1: ( ')' )
+            // InternalJRules.g:4533:2: ')'
             {
              before(grammarAccess.getModifiersAccess().getRightParenthesisKeyword_5_3()); 
             match(input,43,FOLLOW_2); 
@@ -14155,14 +14004,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalJRules.g:4597:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalJRules.g:4543:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4601:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalJRules.g:4602:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalJRules.g:4547:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalJRules.g:4548:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
             pushFollow(FOLLOW_22);
             rule__EInt__Group__0__Impl();
@@ -14193,31 +14042,31 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalJRules.g:4609:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalJRules.g:4555:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4613:1: ( ( ( '-' )? ) )
-            // InternalJRules.g:4614:1: ( ( '-' )? )
+            // InternalJRules.g:4559:1: ( ( ( '-' )? ) )
+            // InternalJRules.g:4560:1: ( ( '-' )? )
             {
-            // InternalJRules.g:4614:1: ( ( '-' )? )
-            // InternalJRules.g:4615:2: ( '-' )?
+            // InternalJRules.g:4560:1: ( ( '-' )? )
+            // InternalJRules.g:4561:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalJRules.g:4616:2: ( '-' )?
+            // InternalJRules.g:4562:2: ( '-' )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( (LA35_0==70) ) {
+            if ( (LA35_0==69) ) {
                 alt35=1;
             }
             switch (alt35) {
                 case 1 :
-                    // InternalJRules.g:4616:3: '-'
+                    // InternalJRules.g:4562:3: '-'
                     {
-                    match(input,70,FOLLOW_2); 
+                    match(input,69,FOLLOW_2); 
 
                     }
                     break;
@@ -14247,14 +14096,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalJRules.g:4624:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalJRules.g:4570:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4628:1: ( rule__EInt__Group__1__Impl )
-            // InternalJRules.g:4629:2: rule__EInt__Group__1__Impl
+            // InternalJRules.g:4574:1: ( rule__EInt__Group__1__Impl )
+            // InternalJRules.g:4575:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -14280,17 +14129,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalJRules.g:4635:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalJRules.g:4581:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4639:1: ( ( RULE_INT ) )
-            // InternalJRules.g:4640:1: ( RULE_INT )
+            // InternalJRules.g:4585:1: ( ( RULE_INT ) )
+            // InternalJRules.g:4586:1: ( RULE_INT )
             {
-            // InternalJRules.g:4640:1: ( RULE_INT )
-            // InternalJRules.g:4641:2: RULE_INT
+            // InternalJRules.g:4586:1: ( RULE_INT )
+            // InternalJRules.g:4587:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -14317,14 +14166,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EBigInteger__Group__0"
-    // InternalJRules.g:4651:1: rule__EBigInteger__Group__0 : rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1 ;
+    // InternalJRules.g:4597:1: rule__EBigInteger__Group__0 : rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1 ;
     public final void rule__EBigInteger__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4655:1: ( rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1 )
-            // InternalJRules.g:4656:2: rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1
+            // InternalJRules.g:4601:1: ( rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1 )
+            // InternalJRules.g:4602:2: rule__EBigInteger__Group__0__Impl rule__EBigInteger__Group__1
             {
             pushFollow(FOLLOW_22);
             rule__EBigInteger__Group__0__Impl();
@@ -14355,31 +14204,31 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EBigInteger__Group__0__Impl"
-    // InternalJRules.g:4663:1: rule__EBigInteger__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalJRules.g:4609:1: rule__EBigInteger__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EBigInteger__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4667:1: ( ( ( '-' )? ) )
-            // InternalJRules.g:4668:1: ( ( '-' )? )
+            // InternalJRules.g:4613:1: ( ( ( '-' )? ) )
+            // InternalJRules.g:4614:1: ( ( '-' )? )
             {
-            // InternalJRules.g:4668:1: ( ( '-' )? )
-            // InternalJRules.g:4669:2: ( '-' )?
+            // InternalJRules.g:4614:1: ( ( '-' )? )
+            // InternalJRules.g:4615:2: ( '-' )?
             {
              before(grammarAccess.getEBigIntegerAccess().getHyphenMinusKeyword_0()); 
-            // InternalJRules.g:4670:2: ( '-' )?
+            // InternalJRules.g:4616:2: ( '-' )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==70) ) {
+            if ( (LA36_0==69) ) {
                 alt36=1;
             }
             switch (alt36) {
                 case 1 :
-                    // InternalJRules.g:4670:3: '-'
+                    // InternalJRules.g:4616:3: '-'
                     {
-                    match(input,70,FOLLOW_2); 
+                    match(input,69,FOLLOW_2); 
 
                     }
                     break;
@@ -14409,14 +14258,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EBigInteger__Group__1"
-    // InternalJRules.g:4678:1: rule__EBigInteger__Group__1 : rule__EBigInteger__Group__1__Impl ;
+    // InternalJRules.g:4624:1: rule__EBigInteger__Group__1 : rule__EBigInteger__Group__1__Impl ;
     public final void rule__EBigInteger__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4682:1: ( rule__EBigInteger__Group__1__Impl )
-            // InternalJRules.g:4683:2: rule__EBigInteger__Group__1__Impl
+            // InternalJRules.g:4628:1: ( rule__EBigInteger__Group__1__Impl )
+            // InternalJRules.g:4629:2: rule__EBigInteger__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EBigInteger__Group__1__Impl();
@@ -14442,17 +14291,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EBigInteger__Group__1__Impl"
-    // InternalJRules.g:4689:1: rule__EBigInteger__Group__1__Impl : ( RULE_INT ) ;
+    // InternalJRules.g:4635:1: rule__EBigInteger__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EBigInteger__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4693:1: ( ( RULE_INT ) )
-            // InternalJRules.g:4694:1: ( RULE_INT )
+            // InternalJRules.g:4639:1: ( ( RULE_INT ) )
+            // InternalJRules.g:4640:1: ( RULE_INT )
             {
-            // InternalJRules.g:4694:1: ( RULE_INT )
-            // InternalJRules.g:4695:2: RULE_INT
+            // InternalJRules.g:4640:1: ( RULE_INT )
+            // InternalJRules.g:4641:2: RULE_INT
             {
              before(grammarAccess.getEBigIntegerAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -14479,14 +14328,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__0"
-    // InternalJRules.g:4705:1: rule__BlendModifiers__Group_0__0 : rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1 ;
+    // InternalJRules.g:4651:1: rule__BlendModifiers__Group_0__0 : rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1 ;
     public final void rule__BlendModifiers__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4709:1: ( rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1 )
-            // InternalJRules.g:4710:2: rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1
+            // InternalJRules.g:4655:1: ( rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1 )
+            // InternalJRules.g:4656:2: rule__BlendModifiers__Group_0__0__Impl rule__BlendModifiers__Group_0__1
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_0__0__Impl();
@@ -14517,21 +14366,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__0__Impl"
-    // InternalJRules.g:4717:1: rule__BlendModifiers__Group_0__0__Impl : ( ( rule__BlendModifiers__AccessAssignment_0_0 ) ) ;
+    // InternalJRules.g:4663:1: rule__BlendModifiers__Group_0__0__Impl : ( ( rule__BlendModifiers__AccessAssignment_0_0 ) ) ;
     public final void rule__BlendModifiers__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4721:1: ( ( ( rule__BlendModifiers__AccessAssignment_0_0 ) ) )
-            // InternalJRules.g:4722:1: ( ( rule__BlendModifiers__AccessAssignment_0_0 ) )
+            // InternalJRules.g:4667:1: ( ( ( rule__BlendModifiers__AccessAssignment_0_0 ) ) )
+            // InternalJRules.g:4668:1: ( ( rule__BlendModifiers__AccessAssignment_0_0 ) )
             {
-            // InternalJRules.g:4722:1: ( ( rule__BlendModifiers__AccessAssignment_0_0 ) )
-            // InternalJRules.g:4723:2: ( rule__BlendModifiers__AccessAssignment_0_0 )
+            // InternalJRules.g:4668:1: ( ( rule__BlendModifiers__AccessAssignment_0_0 ) )
+            // InternalJRules.g:4669:2: ( rule__BlendModifiers__AccessAssignment_0_0 )
             {
              before(grammarAccess.getBlendModifiersAccess().getAccessAssignment_0_0()); 
-            // InternalJRules.g:4724:2: ( rule__BlendModifiers__AccessAssignment_0_0 )
-            // InternalJRules.g:4724:3: rule__BlendModifiers__AccessAssignment_0_0
+            // InternalJRules.g:4670:2: ( rule__BlendModifiers__AccessAssignment_0_0 )
+            // InternalJRules.g:4670:3: rule__BlendModifiers__AccessAssignment_0_0
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__AccessAssignment_0_0();
@@ -14564,14 +14413,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__1"
-    // InternalJRules.g:4732:1: rule__BlendModifiers__Group_0__1 : rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2 ;
+    // InternalJRules.g:4678:1: rule__BlendModifiers__Group_0__1 : rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2 ;
     public final void rule__BlendModifiers__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4736:1: ( rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2 )
-            // InternalJRules.g:4737:2: rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2
+            // InternalJRules.g:4682:1: ( rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2 )
+            // InternalJRules.g:4683:2: rule__BlendModifiers__Group_0__1__Impl rule__BlendModifiers__Group_0__2
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_0__1__Impl();
@@ -14602,33 +14451,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__1__Impl"
-    // InternalJRules.g:4744:1: rule__BlendModifiers__Group_0__1__Impl : ( ( rule__BlendModifiers__Group_0_1__0 )? ) ;
+    // InternalJRules.g:4690:1: rule__BlendModifiers__Group_0__1__Impl : ( ( rule__BlendModifiers__Group_0_1__0 )? ) ;
     public final void rule__BlendModifiers__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4748:1: ( ( ( rule__BlendModifiers__Group_0_1__0 )? ) )
-            // InternalJRules.g:4749:1: ( ( rule__BlendModifiers__Group_0_1__0 )? )
+            // InternalJRules.g:4694:1: ( ( ( rule__BlendModifiers__Group_0_1__0 )? ) )
+            // InternalJRules.g:4695:1: ( ( rule__BlendModifiers__Group_0_1__0 )? )
             {
-            // InternalJRules.g:4749:1: ( ( rule__BlendModifiers__Group_0_1__0 )? )
-            // InternalJRules.g:4750:2: ( rule__BlendModifiers__Group_0_1__0 )?
+            // InternalJRules.g:4695:1: ( ( rule__BlendModifiers__Group_0_1__0 )? )
+            // InternalJRules.g:4696:2: ( rule__BlendModifiers__Group_0_1__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_0_1()); 
-            // InternalJRules.g:4751:2: ( rule__BlendModifiers__Group_0_1__0 )?
+            // InternalJRules.g:4697:2: ( rule__BlendModifiers__Group_0_1__0 )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
             if ( (LA37_0==42) ) {
                 int LA37_1 = input.LA(2);
 
-                if ( (LA37_1==78) ) {
+                if ( (LA37_1==77) ) {
                     alt37=1;
                 }
             }
             switch (alt37) {
                 case 1 :
-                    // InternalJRules.g:4751:3: rule__BlendModifiers__Group_0_1__0
+                    // InternalJRules.g:4697:3: rule__BlendModifiers__Group_0_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_0_1__0();
@@ -14664,14 +14513,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__2"
-    // InternalJRules.g:4759:1: rule__BlendModifiers__Group_0__2 : rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3 ;
+    // InternalJRules.g:4705:1: rule__BlendModifiers__Group_0__2 : rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3 ;
     public final void rule__BlendModifiers__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4763:1: ( rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3 )
-            // InternalJRules.g:4764:2: rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3
+            // InternalJRules.g:4709:1: ( rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3 )
+            // InternalJRules.g:4710:2: rule__BlendModifiers__Group_0__2__Impl rule__BlendModifiers__Group_0__3
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_0__2__Impl();
@@ -14702,33 +14551,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__2__Impl"
-    // InternalJRules.g:4771:1: rule__BlendModifiers__Group_0__2__Impl : ( ( rule__BlendModifiers__Group_0_2__0 )? ) ;
+    // InternalJRules.g:4717:1: rule__BlendModifiers__Group_0__2__Impl : ( ( rule__BlendModifiers__Group_0_2__0 )? ) ;
     public final void rule__BlendModifiers__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4775:1: ( ( ( rule__BlendModifiers__Group_0_2__0 )? ) )
-            // InternalJRules.g:4776:1: ( ( rule__BlendModifiers__Group_0_2__0 )? )
+            // InternalJRules.g:4721:1: ( ( ( rule__BlendModifiers__Group_0_2__0 )? ) )
+            // InternalJRules.g:4722:1: ( ( rule__BlendModifiers__Group_0_2__0 )? )
             {
-            // InternalJRules.g:4776:1: ( ( rule__BlendModifiers__Group_0_2__0 )? )
-            // InternalJRules.g:4777:2: ( rule__BlendModifiers__Group_0_2__0 )?
+            // InternalJRules.g:4722:1: ( ( rule__BlendModifiers__Group_0_2__0 )? )
+            // InternalJRules.g:4723:2: ( rule__BlendModifiers__Group_0_2__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_0_2()); 
-            // InternalJRules.g:4778:2: ( rule__BlendModifiers__Group_0_2__0 )?
+            // InternalJRules.g:4724:2: ( rule__BlendModifiers__Group_0_2__0 )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
             if ( (LA38_0==42) ) {
                 int LA38_1 = input.LA(2);
 
-                if ( (LA38_1==79) ) {
+                if ( (LA38_1==78) ) {
                     alt38=1;
                 }
             }
             switch (alt38) {
                 case 1 :
-                    // InternalJRules.g:4778:3: rule__BlendModifiers__Group_0_2__0
+                    // InternalJRules.g:4724:3: rule__BlendModifiers__Group_0_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_0_2__0();
@@ -14764,14 +14613,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__3"
-    // InternalJRules.g:4786:1: rule__BlendModifiers__Group_0__3 : rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4 ;
+    // InternalJRules.g:4732:1: rule__BlendModifiers__Group_0__3 : rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4 ;
     public final void rule__BlendModifiers__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4790:1: ( rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4 )
-            // InternalJRules.g:4791:2: rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4
+            // InternalJRules.g:4736:1: ( rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4 )
+            // InternalJRules.g:4737:2: rule__BlendModifiers__Group_0__3__Impl rule__BlendModifiers__Group_0__4
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_0__3__Impl();
@@ -14802,33 +14651,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__3__Impl"
-    // InternalJRules.g:4798:1: rule__BlendModifiers__Group_0__3__Impl : ( ( rule__BlendModifiers__Group_0_3__0 )? ) ;
+    // InternalJRules.g:4744:1: rule__BlendModifiers__Group_0__3__Impl : ( ( rule__BlendModifiers__Group_0_3__0 )? ) ;
     public final void rule__BlendModifiers__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4802:1: ( ( ( rule__BlendModifiers__Group_0_3__0 )? ) )
-            // InternalJRules.g:4803:1: ( ( rule__BlendModifiers__Group_0_3__0 )? )
+            // InternalJRules.g:4748:1: ( ( ( rule__BlendModifiers__Group_0_3__0 )? ) )
+            // InternalJRules.g:4749:1: ( ( rule__BlendModifiers__Group_0_3__0 )? )
             {
-            // InternalJRules.g:4803:1: ( ( rule__BlendModifiers__Group_0_3__0 )? )
-            // InternalJRules.g:4804:2: ( rule__BlendModifiers__Group_0_3__0 )?
+            // InternalJRules.g:4749:1: ( ( rule__BlendModifiers__Group_0_3__0 )? )
+            // InternalJRules.g:4750:2: ( rule__BlendModifiers__Group_0_3__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_0_3()); 
-            // InternalJRules.g:4805:2: ( rule__BlendModifiers__Group_0_3__0 )?
+            // InternalJRules.g:4751:2: ( rule__BlendModifiers__Group_0_3__0 )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
             if ( (LA39_0==42) ) {
                 int LA39_1 = input.LA(2);
 
-                if ( (LA39_1==80) ) {
+                if ( (LA39_1==79) ) {
                     alt39=1;
                 }
             }
             switch (alt39) {
                 case 1 :
-                    // InternalJRules.g:4805:3: rule__BlendModifiers__Group_0_3__0
+                    // InternalJRules.g:4751:3: rule__BlendModifiers__Group_0_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_0_3__0();
@@ -14864,14 +14713,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__4"
-    // InternalJRules.g:4813:1: rule__BlendModifiers__Group_0__4 : rule__BlendModifiers__Group_0__4__Impl ;
+    // InternalJRules.g:4759:1: rule__BlendModifiers__Group_0__4 : rule__BlendModifiers__Group_0__4__Impl ;
     public final void rule__BlendModifiers__Group_0__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4817:1: ( rule__BlendModifiers__Group_0__4__Impl )
-            // InternalJRules.g:4818:2: rule__BlendModifiers__Group_0__4__Impl
+            // InternalJRules.g:4763:1: ( rule__BlendModifiers__Group_0__4__Impl )
+            // InternalJRules.g:4764:2: rule__BlendModifiers__Group_0__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_0__4__Impl();
@@ -14897,20 +14746,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0__4__Impl"
-    // InternalJRules.g:4824:1: rule__BlendModifiers__Group_0__4__Impl : ( ( rule__BlendModifiers__Group_0_4__0 )? ) ;
+    // InternalJRules.g:4770:1: rule__BlendModifiers__Group_0__4__Impl : ( ( rule__BlendModifiers__Group_0_4__0 )? ) ;
     public final void rule__BlendModifiers__Group_0__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4828:1: ( ( ( rule__BlendModifiers__Group_0_4__0 )? ) )
-            // InternalJRules.g:4829:1: ( ( rule__BlendModifiers__Group_0_4__0 )? )
+            // InternalJRules.g:4774:1: ( ( ( rule__BlendModifiers__Group_0_4__0 )? ) )
+            // InternalJRules.g:4775:1: ( ( rule__BlendModifiers__Group_0_4__0 )? )
             {
-            // InternalJRules.g:4829:1: ( ( rule__BlendModifiers__Group_0_4__0 )? )
-            // InternalJRules.g:4830:2: ( rule__BlendModifiers__Group_0_4__0 )?
+            // InternalJRules.g:4775:1: ( ( rule__BlendModifiers__Group_0_4__0 )? )
+            // InternalJRules.g:4776:2: ( rule__BlendModifiers__Group_0_4__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_0_4()); 
-            // InternalJRules.g:4831:2: ( rule__BlendModifiers__Group_0_4__0 )?
+            // InternalJRules.g:4777:2: ( rule__BlendModifiers__Group_0_4__0 )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -14919,7 +14768,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt40) {
                 case 1 :
-                    // InternalJRules.g:4831:3: rule__BlendModifiers__Group_0_4__0
+                    // InternalJRules.g:4777:3: rule__BlendModifiers__Group_0_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_0_4__0();
@@ -14955,16 +14804,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_1__0"
-    // InternalJRules.g:4840:1: rule__BlendModifiers__Group_0_1__0 : rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1 ;
+    // InternalJRules.g:4786:1: rule__BlendModifiers__Group_0_1__0 : rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1 ;
     public final void rule__BlendModifiers__Group_0_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4844:1: ( rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1 )
-            // InternalJRules.g:4845:2: rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1
+            // InternalJRules.g:4790:1: ( rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1 )
+            // InternalJRules.g:4791:2: rule__BlendModifiers__Group_0_1__0__Impl rule__BlendModifiers__Group_0_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_49);
             rule__BlendModifiers__Group_0_1__0__Impl();
 
             state._fsp--;
@@ -14993,17 +14842,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_1__0__Impl"
-    // InternalJRules.g:4852:1: rule__BlendModifiers__Group_0_1__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:4798:1: rule__BlendModifiers__Group_0_1__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_0_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4856:1: ( ( 'and' ) )
-            // InternalJRules.g:4857:1: ( 'and' )
+            // InternalJRules.g:4802:1: ( ( 'and' ) )
+            // InternalJRules.g:4803:1: ( 'and' )
             {
-            // InternalJRules.g:4857:1: ( 'and' )
-            // InternalJRules.g:4858:2: 'and'
+            // InternalJRules.g:4803:1: ( 'and' )
+            // InternalJRules.g:4804:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_0_1_0()); 
             match(input,42,FOLLOW_2); 
@@ -15030,14 +14879,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_1__1"
-    // InternalJRules.g:4867:1: rule__BlendModifiers__Group_0_1__1 : rule__BlendModifiers__Group_0_1__1__Impl ;
+    // InternalJRules.g:4813:1: rule__BlendModifiers__Group_0_1__1 : rule__BlendModifiers__Group_0_1__1__Impl ;
     public final void rule__BlendModifiers__Group_0_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4871:1: ( rule__BlendModifiers__Group_0_1__1__Impl )
-            // InternalJRules.g:4872:2: rule__BlendModifiers__Group_0_1__1__Impl
+            // InternalJRules.g:4817:1: ( rule__BlendModifiers__Group_0_1__1__Impl )
+            // InternalJRules.g:4818:2: rule__BlendModifiers__Group_0_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_0_1__1__Impl();
@@ -15063,21 +14912,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_1__1__Impl"
-    // InternalJRules.g:4878:1: rule__BlendModifiers__Group_0_1__1__Impl : ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) ) ;
+    // InternalJRules.g:4824:1: rule__BlendModifiers__Group_0_1__1__Impl : ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) ) ;
     public final void rule__BlendModifiers__Group_0_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4882:1: ( ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) ) )
-            // InternalJRules.g:4883:1: ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) )
+            // InternalJRules.g:4828:1: ( ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) ) )
+            // InternalJRules.g:4829:1: ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) )
             {
-            // InternalJRules.g:4883:1: ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) )
-            // InternalJRules.g:4884:2: ( rule__BlendModifiers__StaticAssignment_0_1_1 )
+            // InternalJRules.g:4829:1: ( ( rule__BlendModifiers__StaticAssignment_0_1_1 ) )
+            // InternalJRules.g:4830:2: ( rule__BlendModifiers__StaticAssignment_0_1_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getStaticAssignment_0_1_1()); 
-            // InternalJRules.g:4885:2: ( rule__BlendModifiers__StaticAssignment_0_1_1 )
-            // InternalJRules.g:4885:3: rule__BlendModifiers__StaticAssignment_0_1_1
+            // InternalJRules.g:4831:2: ( rule__BlendModifiers__StaticAssignment_0_1_1 )
+            // InternalJRules.g:4831:3: rule__BlendModifiers__StaticAssignment_0_1_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__StaticAssignment_0_1_1();
@@ -15110,16 +14959,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_2__0"
-    // InternalJRules.g:4894:1: rule__BlendModifiers__Group_0_2__0 : rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1 ;
+    // InternalJRules.g:4840:1: rule__BlendModifiers__Group_0_2__0 : rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1 ;
     public final void rule__BlendModifiers__Group_0_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4898:1: ( rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1 )
-            // InternalJRules.g:4899:2: rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1
+            // InternalJRules.g:4844:1: ( rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1 )
+            // InternalJRules.g:4845:2: rule__BlendModifiers__Group_0_2__0__Impl rule__BlendModifiers__Group_0_2__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__BlendModifiers__Group_0_2__0__Impl();
 
             state._fsp--;
@@ -15148,17 +14997,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_2__0__Impl"
-    // InternalJRules.g:4906:1: rule__BlendModifiers__Group_0_2__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:4852:1: rule__BlendModifiers__Group_0_2__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_0_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4910:1: ( ( 'and' ) )
-            // InternalJRules.g:4911:1: ( 'and' )
+            // InternalJRules.g:4856:1: ( ( 'and' ) )
+            // InternalJRules.g:4857:1: ( 'and' )
             {
-            // InternalJRules.g:4911:1: ( 'and' )
-            // InternalJRules.g:4912:2: 'and'
+            // InternalJRules.g:4857:1: ( 'and' )
+            // InternalJRules.g:4858:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_0_2_0()); 
             match(input,42,FOLLOW_2); 
@@ -15185,14 +15034,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_2__1"
-    // InternalJRules.g:4921:1: rule__BlendModifiers__Group_0_2__1 : rule__BlendModifiers__Group_0_2__1__Impl ;
+    // InternalJRules.g:4867:1: rule__BlendModifiers__Group_0_2__1 : rule__BlendModifiers__Group_0_2__1__Impl ;
     public final void rule__BlendModifiers__Group_0_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4925:1: ( rule__BlendModifiers__Group_0_2__1__Impl )
-            // InternalJRules.g:4926:2: rule__BlendModifiers__Group_0_2__1__Impl
+            // InternalJRules.g:4871:1: ( rule__BlendModifiers__Group_0_2__1__Impl )
+            // InternalJRules.g:4872:2: rule__BlendModifiers__Group_0_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_0_2__1__Impl();
@@ -15218,21 +15067,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_2__1__Impl"
-    // InternalJRules.g:4932:1: rule__BlendModifiers__Group_0_2__1__Impl : ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) ) ;
+    // InternalJRules.g:4878:1: rule__BlendModifiers__Group_0_2__1__Impl : ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) ) ;
     public final void rule__BlendModifiers__Group_0_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4936:1: ( ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) ) )
-            // InternalJRules.g:4937:1: ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) )
+            // InternalJRules.g:4882:1: ( ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) ) )
+            // InternalJRules.g:4883:1: ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) )
             {
-            // InternalJRules.g:4937:1: ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) )
-            // InternalJRules.g:4938:2: ( rule__BlendModifiers__FinalAssignment_0_2_1 )
+            // InternalJRules.g:4883:1: ( ( rule__BlendModifiers__FinalAssignment_0_2_1 ) )
+            // InternalJRules.g:4884:2: ( rule__BlendModifiers__FinalAssignment_0_2_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalAssignment_0_2_1()); 
-            // InternalJRules.g:4939:2: ( rule__BlendModifiers__FinalAssignment_0_2_1 )
-            // InternalJRules.g:4939:3: rule__BlendModifiers__FinalAssignment_0_2_1
+            // InternalJRules.g:4885:2: ( rule__BlendModifiers__FinalAssignment_0_2_1 )
+            // InternalJRules.g:4885:3: rule__BlendModifiers__FinalAssignment_0_2_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__FinalAssignment_0_2_1();
@@ -15265,16 +15114,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_3__0"
-    // InternalJRules.g:4948:1: rule__BlendModifiers__Group_0_3__0 : rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1 ;
+    // InternalJRules.g:4894:1: rule__BlendModifiers__Group_0_3__0 : rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1 ;
     public final void rule__BlendModifiers__Group_0_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4952:1: ( rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1 )
-            // InternalJRules.g:4953:2: rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1
+            // InternalJRules.g:4898:1: ( rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1 )
+            // InternalJRules.g:4899:2: rule__BlendModifiers__Group_0_3__0__Impl rule__BlendModifiers__Group_0_3__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__BlendModifiers__Group_0_3__0__Impl();
 
             state._fsp--;
@@ -15303,17 +15152,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_3__0__Impl"
-    // InternalJRules.g:4960:1: rule__BlendModifiers__Group_0_3__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:4906:1: rule__BlendModifiers__Group_0_3__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_0_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4964:1: ( ( 'and' ) )
-            // InternalJRules.g:4965:1: ( 'and' )
+            // InternalJRules.g:4910:1: ( ( 'and' ) )
+            // InternalJRules.g:4911:1: ( 'and' )
             {
-            // InternalJRules.g:4965:1: ( 'and' )
-            // InternalJRules.g:4966:2: 'and'
+            // InternalJRules.g:4911:1: ( 'and' )
+            // InternalJRules.g:4912:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_0_3_0()); 
             match(input,42,FOLLOW_2); 
@@ -15340,14 +15189,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_3__1"
-    // InternalJRules.g:4975:1: rule__BlendModifiers__Group_0_3__1 : rule__BlendModifiers__Group_0_3__1__Impl ;
+    // InternalJRules.g:4921:1: rule__BlendModifiers__Group_0_3__1 : rule__BlendModifiers__Group_0_3__1__Impl ;
     public final void rule__BlendModifiers__Group_0_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4979:1: ( rule__BlendModifiers__Group_0_3__1__Impl )
-            // InternalJRules.g:4980:2: rule__BlendModifiers__Group_0_3__1__Impl
+            // InternalJRules.g:4925:1: ( rule__BlendModifiers__Group_0_3__1__Impl )
+            // InternalJRules.g:4926:2: rule__BlendModifiers__Group_0_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_0_3__1__Impl();
@@ -15373,21 +15222,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_3__1__Impl"
-    // InternalJRules.g:4986:1: rule__BlendModifiers__Group_0_3__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) ) ;
+    // InternalJRules.g:4932:1: rule__BlendModifiers__Group_0_3__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) ) ;
     public final void rule__BlendModifiers__Group_0_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:4990:1: ( ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) ) )
-            // InternalJRules.g:4991:1: ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) )
+            // InternalJRules.g:4936:1: ( ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) ) )
+            // InternalJRules.g:4937:1: ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) )
             {
-            // InternalJRules.g:4991:1: ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) )
-            // InternalJRules.g:4992:2: ( rule__BlendModifiers__AbstractAssignment_0_3_1 )
+            // InternalJRules.g:4937:1: ( ( rule__BlendModifiers__AbstractAssignment_0_3_1 ) )
+            // InternalJRules.g:4938:2: ( rule__BlendModifiers__AbstractAssignment_0_3_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAssignment_0_3_1()); 
-            // InternalJRules.g:4993:2: ( rule__BlendModifiers__AbstractAssignment_0_3_1 )
-            // InternalJRules.g:4993:3: rule__BlendModifiers__AbstractAssignment_0_3_1
+            // InternalJRules.g:4939:2: ( rule__BlendModifiers__AbstractAssignment_0_3_1 )
+            // InternalJRules.g:4939:3: rule__BlendModifiers__AbstractAssignment_0_3_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__AbstractAssignment_0_3_1();
@@ -15420,16 +15269,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_4__0"
-    // InternalJRules.g:5002:1: rule__BlendModifiers__Group_0_4__0 : rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1 ;
+    // InternalJRules.g:4948:1: rule__BlendModifiers__Group_0_4__0 : rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1 ;
     public final void rule__BlendModifiers__Group_0_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5006:1: ( rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1 )
-            // InternalJRules.g:5007:2: rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1
+            // InternalJRules.g:4952:1: ( rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1 )
+            // InternalJRules.g:4953:2: rule__BlendModifiers__Group_0_4__0__Impl rule__BlendModifiers__Group_0_4__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__BlendModifiers__Group_0_4__0__Impl();
 
             state._fsp--;
@@ -15458,17 +15307,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_4__0__Impl"
-    // InternalJRules.g:5014:1: rule__BlendModifiers__Group_0_4__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:4960:1: rule__BlendModifiers__Group_0_4__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_0_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5018:1: ( ( 'and' ) )
-            // InternalJRules.g:5019:1: ( 'and' )
+            // InternalJRules.g:4964:1: ( ( 'and' ) )
+            // InternalJRules.g:4965:1: ( 'and' )
             {
-            // InternalJRules.g:5019:1: ( 'and' )
-            // InternalJRules.g:5020:2: 'and'
+            // InternalJRules.g:4965:1: ( 'and' )
+            // InternalJRules.g:4966:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_0_4_0()); 
             match(input,42,FOLLOW_2); 
@@ -15495,14 +15344,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_4__1"
-    // InternalJRules.g:5029:1: rule__BlendModifiers__Group_0_4__1 : rule__BlendModifiers__Group_0_4__1__Impl ;
+    // InternalJRules.g:4975:1: rule__BlendModifiers__Group_0_4__1 : rule__BlendModifiers__Group_0_4__1__Impl ;
     public final void rule__BlendModifiers__Group_0_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5033:1: ( rule__BlendModifiers__Group_0_4__1__Impl )
-            // InternalJRules.g:5034:2: rule__BlendModifiers__Group_0_4__1__Impl
+            // InternalJRules.g:4979:1: ( rule__BlendModifiers__Group_0_4__1__Impl )
+            // InternalJRules.g:4980:2: rule__BlendModifiers__Group_0_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_0_4__1__Impl();
@@ -15528,21 +15377,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_0_4__1__Impl"
-    // InternalJRules.g:5040:1: rule__BlendModifiers__Group_0_4__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) ) ;
+    // InternalJRules.g:4986:1: rule__BlendModifiers__Group_0_4__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) ) ;
     public final void rule__BlendModifiers__Group_0_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5044:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) ) )
-            // InternalJRules.g:5045:1: ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) )
+            // InternalJRules.g:4990:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) ) )
+            // InternalJRules.g:4991:1: ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) )
             {
-            // InternalJRules.g:5045:1: ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) )
-            // InternalJRules.g:5046:2: ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 )
+            // InternalJRules.g:4991:1: ( ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 ) )
+            // InternalJRules.g:4992:2: ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedAssignment_0_4_1()); 
-            // InternalJRules.g:5047:2: ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 )
-            // InternalJRules.g:5047:3: rule__BlendModifiers__SynchronizedAssignment_0_4_1
+            // InternalJRules.g:4993:2: ( rule__BlendModifiers__SynchronizedAssignment_0_4_1 )
+            // InternalJRules.g:4993:3: rule__BlendModifiers__SynchronizedAssignment_0_4_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__SynchronizedAssignment_0_4_1();
@@ -15575,14 +15424,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__0"
-    // InternalJRules.g:5056:1: rule__BlendModifiers__Group_1__0 : rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1 ;
+    // InternalJRules.g:5002:1: rule__BlendModifiers__Group_1__0 : rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1 ;
     public final void rule__BlendModifiers__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5060:1: ( rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1 )
-            // InternalJRules.g:5061:2: rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1
+            // InternalJRules.g:5006:1: ( rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1 )
+            // InternalJRules.g:5007:2: rule__BlendModifiers__Group_1__0__Impl rule__BlendModifiers__Group_1__1
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_1__0__Impl();
@@ -15613,21 +15462,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__0__Impl"
-    // InternalJRules.g:5068:1: rule__BlendModifiers__Group_1__0__Impl : ( ( rule__BlendModifiers__StaticAssignment_1_0 ) ) ;
+    // InternalJRules.g:5014:1: rule__BlendModifiers__Group_1__0__Impl : ( ( rule__BlendModifiers__StaticAssignment_1_0 ) ) ;
     public final void rule__BlendModifiers__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5072:1: ( ( ( rule__BlendModifiers__StaticAssignment_1_0 ) ) )
-            // InternalJRules.g:5073:1: ( ( rule__BlendModifiers__StaticAssignment_1_0 ) )
+            // InternalJRules.g:5018:1: ( ( ( rule__BlendModifiers__StaticAssignment_1_0 ) ) )
+            // InternalJRules.g:5019:1: ( ( rule__BlendModifiers__StaticAssignment_1_0 ) )
             {
-            // InternalJRules.g:5073:1: ( ( rule__BlendModifiers__StaticAssignment_1_0 ) )
-            // InternalJRules.g:5074:2: ( rule__BlendModifiers__StaticAssignment_1_0 )
+            // InternalJRules.g:5019:1: ( ( rule__BlendModifiers__StaticAssignment_1_0 ) )
+            // InternalJRules.g:5020:2: ( rule__BlendModifiers__StaticAssignment_1_0 )
             {
              before(grammarAccess.getBlendModifiersAccess().getStaticAssignment_1_0()); 
-            // InternalJRules.g:5075:2: ( rule__BlendModifiers__StaticAssignment_1_0 )
-            // InternalJRules.g:5075:3: rule__BlendModifiers__StaticAssignment_1_0
+            // InternalJRules.g:5021:2: ( rule__BlendModifiers__StaticAssignment_1_0 )
+            // InternalJRules.g:5021:3: rule__BlendModifiers__StaticAssignment_1_0
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__StaticAssignment_1_0();
@@ -15660,14 +15509,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__1"
-    // InternalJRules.g:5083:1: rule__BlendModifiers__Group_1__1 : rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2 ;
+    // InternalJRules.g:5029:1: rule__BlendModifiers__Group_1__1 : rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2 ;
     public final void rule__BlendModifiers__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5087:1: ( rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2 )
-            // InternalJRules.g:5088:2: rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2
+            // InternalJRules.g:5033:1: ( rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2 )
+            // InternalJRules.g:5034:2: rule__BlendModifiers__Group_1__1__Impl rule__BlendModifiers__Group_1__2
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_1__1__Impl();
@@ -15698,33 +15547,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__1__Impl"
-    // InternalJRules.g:5095:1: rule__BlendModifiers__Group_1__1__Impl : ( ( rule__BlendModifiers__Group_1_1__0 )? ) ;
+    // InternalJRules.g:5041:1: rule__BlendModifiers__Group_1__1__Impl : ( ( rule__BlendModifiers__Group_1_1__0 )? ) ;
     public final void rule__BlendModifiers__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5099:1: ( ( ( rule__BlendModifiers__Group_1_1__0 )? ) )
-            // InternalJRules.g:5100:1: ( ( rule__BlendModifiers__Group_1_1__0 )? )
+            // InternalJRules.g:5045:1: ( ( ( rule__BlendModifiers__Group_1_1__0 )? ) )
+            // InternalJRules.g:5046:1: ( ( rule__BlendModifiers__Group_1_1__0 )? )
             {
-            // InternalJRules.g:5100:1: ( ( rule__BlendModifiers__Group_1_1__0 )? )
-            // InternalJRules.g:5101:2: ( rule__BlendModifiers__Group_1_1__0 )?
+            // InternalJRules.g:5046:1: ( ( rule__BlendModifiers__Group_1_1__0 )? )
+            // InternalJRules.g:5047:2: ( rule__BlendModifiers__Group_1_1__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_1_1()); 
-            // InternalJRules.g:5102:2: ( rule__BlendModifiers__Group_1_1__0 )?
+            // InternalJRules.g:5048:2: ( rule__BlendModifiers__Group_1_1__0 )?
             int alt41=2;
             int LA41_0 = input.LA(1);
 
             if ( (LA41_0==42) ) {
                 int LA41_1 = input.LA(2);
 
-                if ( (LA41_1==79) ) {
+                if ( (LA41_1==78) ) {
                     alt41=1;
                 }
             }
             switch (alt41) {
                 case 1 :
-                    // InternalJRules.g:5102:3: rule__BlendModifiers__Group_1_1__0
+                    // InternalJRules.g:5048:3: rule__BlendModifiers__Group_1_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_1_1__0();
@@ -15760,14 +15609,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__2"
-    // InternalJRules.g:5110:1: rule__BlendModifiers__Group_1__2 : rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3 ;
+    // InternalJRules.g:5056:1: rule__BlendModifiers__Group_1__2 : rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3 ;
     public final void rule__BlendModifiers__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5114:1: ( rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3 )
-            // InternalJRules.g:5115:2: rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3
+            // InternalJRules.g:5060:1: ( rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3 )
+            // InternalJRules.g:5061:2: rule__BlendModifiers__Group_1__2__Impl rule__BlendModifiers__Group_1__3
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_1__2__Impl();
@@ -15798,33 +15647,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__2__Impl"
-    // InternalJRules.g:5122:1: rule__BlendModifiers__Group_1__2__Impl : ( ( rule__BlendModifiers__Group_1_2__0 )? ) ;
+    // InternalJRules.g:5068:1: rule__BlendModifiers__Group_1__2__Impl : ( ( rule__BlendModifiers__Group_1_2__0 )? ) ;
     public final void rule__BlendModifiers__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5126:1: ( ( ( rule__BlendModifiers__Group_1_2__0 )? ) )
-            // InternalJRules.g:5127:1: ( ( rule__BlendModifiers__Group_1_2__0 )? )
+            // InternalJRules.g:5072:1: ( ( ( rule__BlendModifiers__Group_1_2__0 )? ) )
+            // InternalJRules.g:5073:1: ( ( rule__BlendModifiers__Group_1_2__0 )? )
             {
-            // InternalJRules.g:5127:1: ( ( rule__BlendModifiers__Group_1_2__0 )? )
-            // InternalJRules.g:5128:2: ( rule__BlendModifiers__Group_1_2__0 )?
+            // InternalJRules.g:5073:1: ( ( rule__BlendModifiers__Group_1_2__0 )? )
+            // InternalJRules.g:5074:2: ( rule__BlendModifiers__Group_1_2__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_1_2()); 
-            // InternalJRules.g:5129:2: ( rule__BlendModifiers__Group_1_2__0 )?
+            // InternalJRules.g:5075:2: ( rule__BlendModifiers__Group_1_2__0 )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
             if ( (LA42_0==42) ) {
                 int LA42_1 = input.LA(2);
 
-                if ( (LA42_1==80) ) {
+                if ( (LA42_1==79) ) {
                     alt42=1;
                 }
             }
             switch (alt42) {
                 case 1 :
-                    // InternalJRules.g:5129:3: rule__BlendModifiers__Group_1_2__0
+                    // InternalJRules.g:5075:3: rule__BlendModifiers__Group_1_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_1_2__0();
@@ -15860,14 +15709,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__3"
-    // InternalJRules.g:5137:1: rule__BlendModifiers__Group_1__3 : rule__BlendModifiers__Group_1__3__Impl ;
+    // InternalJRules.g:5083:1: rule__BlendModifiers__Group_1__3 : rule__BlendModifiers__Group_1__3__Impl ;
     public final void rule__BlendModifiers__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5141:1: ( rule__BlendModifiers__Group_1__3__Impl )
-            // InternalJRules.g:5142:2: rule__BlendModifiers__Group_1__3__Impl
+            // InternalJRules.g:5087:1: ( rule__BlendModifiers__Group_1__3__Impl )
+            // InternalJRules.g:5088:2: rule__BlendModifiers__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_1__3__Impl();
@@ -15893,20 +15742,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1__3__Impl"
-    // InternalJRules.g:5148:1: rule__BlendModifiers__Group_1__3__Impl : ( ( rule__BlendModifiers__Group_1_3__0 )? ) ;
+    // InternalJRules.g:5094:1: rule__BlendModifiers__Group_1__3__Impl : ( ( rule__BlendModifiers__Group_1_3__0 )? ) ;
     public final void rule__BlendModifiers__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5152:1: ( ( ( rule__BlendModifiers__Group_1_3__0 )? ) )
-            // InternalJRules.g:5153:1: ( ( rule__BlendModifiers__Group_1_3__0 )? )
+            // InternalJRules.g:5098:1: ( ( ( rule__BlendModifiers__Group_1_3__0 )? ) )
+            // InternalJRules.g:5099:1: ( ( rule__BlendModifiers__Group_1_3__0 )? )
             {
-            // InternalJRules.g:5153:1: ( ( rule__BlendModifiers__Group_1_3__0 )? )
-            // InternalJRules.g:5154:2: ( rule__BlendModifiers__Group_1_3__0 )?
+            // InternalJRules.g:5099:1: ( ( rule__BlendModifiers__Group_1_3__0 )? )
+            // InternalJRules.g:5100:2: ( rule__BlendModifiers__Group_1_3__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_1_3()); 
-            // InternalJRules.g:5155:2: ( rule__BlendModifiers__Group_1_3__0 )?
+            // InternalJRules.g:5101:2: ( rule__BlendModifiers__Group_1_3__0 )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -15915,7 +15764,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt43) {
                 case 1 :
-                    // InternalJRules.g:5155:3: rule__BlendModifiers__Group_1_3__0
+                    // InternalJRules.g:5101:3: rule__BlendModifiers__Group_1_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_1_3__0();
@@ -15951,16 +15800,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_1__0"
-    // InternalJRules.g:5164:1: rule__BlendModifiers__Group_1_1__0 : rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1 ;
+    // InternalJRules.g:5110:1: rule__BlendModifiers__Group_1_1__0 : rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1 ;
     public final void rule__BlendModifiers__Group_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5168:1: ( rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1 )
-            // InternalJRules.g:5169:2: rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1
+            // InternalJRules.g:5114:1: ( rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1 )
+            // InternalJRules.g:5115:2: rule__BlendModifiers__Group_1_1__0__Impl rule__BlendModifiers__Group_1_1__1
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_50);
             rule__BlendModifiers__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -15989,17 +15838,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_1__0__Impl"
-    // InternalJRules.g:5176:1: rule__BlendModifiers__Group_1_1__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5122:1: rule__BlendModifiers__Group_1_1__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5180:1: ( ( 'and' ) )
-            // InternalJRules.g:5181:1: ( 'and' )
+            // InternalJRules.g:5126:1: ( ( 'and' ) )
+            // InternalJRules.g:5127:1: ( 'and' )
             {
-            // InternalJRules.g:5181:1: ( 'and' )
-            // InternalJRules.g:5182:2: 'and'
+            // InternalJRules.g:5127:1: ( 'and' )
+            // InternalJRules.g:5128:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_1_1_0()); 
             match(input,42,FOLLOW_2); 
@@ -16026,14 +15875,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_1__1"
-    // InternalJRules.g:5191:1: rule__BlendModifiers__Group_1_1__1 : rule__BlendModifiers__Group_1_1__1__Impl ;
+    // InternalJRules.g:5137:1: rule__BlendModifiers__Group_1_1__1 : rule__BlendModifiers__Group_1_1__1__Impl ;
     public final void rule__BlendModifiers__Group_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5195:1: ( rule__BlendModifiers__Group_1_1__1__Impl )
-            // InternalJRules.g:5196:2: rule__BlendModifiers__Group_1_1__1__Impl
+            // InternalJRules.g:5141:1: ( rule__BlendModifiers__Group_1_1__1__Impl )
+            // InternalJRules.g:5142:2: rule__BlendModifiers__Group_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_1_1__1__Impl();
@@ -16059,21 +15908,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_1__1__Impl"
-    // InternalJRules.g:5202:1: rule__BlendModifiers__Group_1_1__1__Impl : ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) ) ;
+    // InternalJRules.g:5148:1: rule__BlendModifiers__Group_1_1__1__Impl : ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) ) ;
     public final void rule__BlendModifiers__Group_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5206:1: ( ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) ) )
-            // InternalJRules.g:5207:1: ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) )
+            // InternalJRules.g:5152:1: ( ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) ) )
+            // InternalJRules.g:5153:1: ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) )
             {
-            // InternalJRules.g:5207:1: ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) )
-            // InternalJRules.g:5208:2: ( rule__BlendModifiers__FinalAssignment_1_1_1 )
+            // InternalJRules.g:5153:1: ( ( rule__BlendModifiers__FinalAssignment_1_1_1 ) )
+            // InternalJRules.g:5154:2: ( rule__BlendModifiers__FinalAssignment_1_1_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalAssignment_1_1_1()); 
-            // InternalJRules.g:5209:2: ( rule__BlendModifiers__FinalAssignment_1_1_1 )
-            // InternalJRules.g:5209:3: rule__BlendModifiers__FinalAssignment_1_1_1
+            // InternalJRules.g:5155:2: ( rule__BlendModifiers__FinalAssignment_1_1_1 )
+            // InternalJRules.g:5155:3: rule__BlendModifiers__FinalAssignment_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__FinalAssignment_1_1_1();
@@ -16106,16 +15955,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_2__0"
-    // InternalJRules.g:5218:1: rule__BlendModifiers__Group_1_2__0 : rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1 ;
+    // InternalJRules.g:5164:1: rule__BlendModifiers__Group_1_2__0 : rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1 ;
     public final void rule__BlendModifiers__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5222:1: ( rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1 )
-            // InternalJRules.g:5223:2: rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1
+            // InternalJRules.g:5168:1: ( rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1 )
+            // InternalJRules.g:5169:2: rule__BlendModifiers__Group_1_2__0__Impl rule__BlendModifiers__Group_1_2__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__BlendModifiers__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -16144,17 +15993,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_2__0__Impl"
-    // InternalJRules.g:5230:1: rule__BlendModifiers__Group_1_2__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5176:1: rule__BlendModifiers__Group_1_2__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5234:1: ( ( 'and' ) )
-            // InternalJRules.g:5235:1: ( 'and' )
+            // InternalJRules.g:5180:1: ( ( 'and' ) )
+            // InternalJRules.g:5181:1: ( 'and' )
             {
-            // InternalJRules.g:5235:1: ( 'and' )
-            // InternalJRules.g:5236:2: 'and'
+            // InternalJRules.g:5181:1: ( 'and' )
+            // InternalJRules.g:5182:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_1_2_0()); 
             match(input,42,FOLLOW_2); 
@@ -16181,14 +16030,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_2__1"
-    // InternalJRules.g:5245:1: rule__BlendModifiers__Group_1_2__1 : rule__BlendModifiers__Group_1_2__1__Impl ;
+    // InternalJRules.g:5191:1: rule__BlendModifiers__Group_1_2__1 : rule__BlendModifiers__Group_1_2__1__Impl ;
     public final void rule__BlendModifiers__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5249:1: ( rule__BlendModifiers__Group_1_2__1__Impl )
-            // InternalJRules.g:5250:2: rule__BlendModifiers__Group_1_2__1__Impl
+            // InternalJRules.g:5195:1: ( rule__BlendModifiers__Group_1_2__1__Impl )
+            // InternalJRules.g:5196:2: rule__BlendModifiers__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_1_2__1__Impl();
@@ -16214,21 +16063,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_2__1__Impl"
-    // InternalJRules.g:5256:1: rule__BlendModifiers__Group_1_2__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) ) ;
+    // InternalJRules.g:5202:1: rule__BlendModifiers__Group_1_2__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) ) ;
     public final void rule__BlendModifiers__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5260:1: ( ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) ) )
-            // InternalJRules.g:5261:1: ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) )
+            // InternalJRules.g:5206:1: ( ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) ) )
+            // InternalJRules.g:5207:1: ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) )
             {
-            // InternalJRules.g:5261:1: ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) )
-            // InternalJRules.g:5262:2: ( rule__BlendModifiers__AbstractAssignment_1_2_1 )
+            // InternalJRules.g:5207:1: ( ( rule__BlendModifiers__AbstractAssignment_1_2_1 ) )
+            // InternalJRules.g:5208:2: ( rule__BlendModifiers__AbstractAssignment_1_2_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAssignment_1_2_1()); 
-            // InternalJRules.g:5263:2: ( rule__BlendModifiers__AbstractAssignment_1_2_1 )
-            // InternalJRules.g:5263:3: rule__BlendModifiers__AbstractAssignment_1_2_1
+            // InternalJRules.g:5209:2: ( rule__BlendModifiers__AbstractAssignment_1_2_1 )
+            // InternalJRules.g:5209:3: rule__BlendModifiers__AbstractAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__AbstractAssignment_1_2_1();
@@ -16261,16 +16110,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_3__0"
-    // InternalJRules.g:5272:1: rule__BlendModifiers__Group_1_3__0 : rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1 ;
+    // InternalJRules.g:5218:1: rule__BlendModifiers__Group_1_3__0 : rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1 ;
     public final void rule__BlendModifiers__Group_1_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5276:1: ( rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1 )
-            // InternalJRules.g:5277:2: rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1
+            // InternalJRules.g:5222:1: ( rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1 )
+            // InternalJRules.g:5223:2: rule__BlendModifiers__Group_1_3__0__Impl rule__BlendModifiers__Group_1_3__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__BlendModifiers__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -16299,17 +16148,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_3__0__Impl"
-    // InternalJRules.g:5284:1: rule__BlendModifiers__Group_1_3__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5230:1: rule__BlendModifiers__Group_1_3__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5288:1: ( ( 'and' ) )
-            // InternalJRules.g:5289:1: ( 'and' )
+            // InternalJRules.g:5234:1: ( ( 'and' ) )
+            // InternalJRules.g:5235:1: ( 'and' )
             {
-            // InternalJRules.g:5289:1: ( 'and' )
-            // InternalJRules.g:5290:2: 'and'
+            // InternalJRules.g:5235:1: ( 'and' )
+            // InternalJRules.g:5236:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_1_3_0()); 
             match(input,42,FOLLOW_2); 
@@ -16336,14 +16185,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_3__1"
-    // InternalJRules.g:5299:1: rule__BlendModifiers__Group_1_3__1 : rule__BlendModifiers__Group_1_3__1__Impl ;
+    // InternalJRules.g:5245:1: rule__BlendModifiers__Group_1_3__1 : rule__BlendModifiers__Group_1_3__1__Impl ;
     public final void rule__BlendModifiers__Group_1_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5303:1: ( rule__BlendModifiers__Group_1_3__1__Impl )
-            // InternalJRules.g:5304:2: rule__BlendModifiers__Group_1_3__1__Impl
+            // InternalJRules.g:5249:1: ( rule__BlendModifiers__Group_1_3__1__Impl )
+            // InternalJRules.g:5250:2: rule__BlendModifiers__Group_1_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_1_3__1__Impl();
@@ -16369,21 +16218,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_1_3__1__Impl"
-    // InternalJRules.g:5310:1: rule__BlendModifiers__Group_1_3__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) ) ;
+    // InternalJRules.g:5256:1: rule__BlendModifiers__Group_1_3__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) ) ;
     public final void rule__BlendModifiers__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5314:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) ) )
-            // InternalJRules.g:5315:1: ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) )
+            // InternalJRules.g:5260:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) ) )
+            // InternalJRules.g:5261:1: ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) )
             {
-            // InternalJRules.g:5315:1: ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) )
-            // InternalJRules.g:5316:2: ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 )
+            // InternalJRules.g:5261:1: ( ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 ) )
+            // InternalJRules.g:5262:2: ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedAssignment_1_3_1()); 
-            // InternalJRules.g:5317:2: ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 )
-            // InternalJRules.g:5317:3: rule__BlendModifiers__SynchronizedAssignment_1_3_1
+            // InternalJRules.g:5263:2: ( rule__BlendModifiers__SynchronizedAssignment_1_3_1 )
+            // InternalJRules.g:5263:3: rule__BlendModifiers__SynchronizedAssignment_1_3_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__SynchronizedAssignment_1_3_1();
@@ -16416,14 +16265,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__0"
-    // InternalJRules.g:5326:1: rule__BlendModifiers__Group_2__0 : rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1 ;
+    // InternalJRules.g:5272:1: rule__BlendModifiers__Group_2__0 : rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1 ;
     public final void rule__BlendModifiers__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5330:1: ( rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1 )
-            // InternalJRules.g:5331:2: rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1
+            // InternalJRules.g:5276:1: ( rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1 )
+            // InternalJRules.g:5277:2: rule__BlendModifiers__Group_2__0__Impl rule__BlendModifiers__Group_2__1
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_2__0__Impl();
@@ -16454,21 +16303,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__0__Impl"
-    // InternalJRules.g:5338:1: rule__BlendModifiers__Group_2__0__Impl : ( ( rule__BlendModifiers__FinalAssignment_2_0 ) ) ;
+    // InternalJRules.g:5284:1: rule__BlendModifiers__Group_2__0__Impl : ( ( rule__BlendModifiers__FinalAssignment_2_0 ) ) ;
     public final void rule__BlendModifiers__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5342:1: ( ( ( rule__BlendModifiers__FinalAssignment_2_0 ) ) )
-            // InternalJRules.g:5343:1: ( ( rule__BlendModifiers__FinalAssignment_2_0 ) )
+            // InternalJRules.g:5288:1: ( ( ( rule__BlendModifiers__FinalAssignment_2_0 ) ) )
+            // InternalJRules.g:5289:1: ( ( rule__BlendModifiers__FinalAssignment_2_0 ) )
             {
-            // InternalJRules.g:5343:1: ( ( rule__BlendModifiers__FinalAssignment_2_0 ) )
-            // InternalJRules.g:5344:2: ( rule__BlendModifiers__FinalAssignment_2_0 )
+            // InternalJRules.g:5289:1: ( ( rule__BlendModifiers__FinalAssignment_2_0 ) )
+            // InternalJRules.g:5290:2: ( rule__BlendModifiers__FinalAssignment_2_0 )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalAssignment_2_0()); 
-            // InternalJRules.g:5345:2: ( rule__BlendModifiers__FinalAssignment_2_0 )
-            // InternalJRules.g:5345:3: rule__BlendModifiers__FinalAssignment_2_0
+            // InternalJRules.g:5291:2: ( rule__BlendModifiers__FinalAssignment_2_0 )
+            // InternalJRules.g:5291:3: rule__BlendModifiers__FinalAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__FinalAssignment_2_0();
@@ -16501,14 +16350,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__1"
-    // InternalJRules.g:5353:1: rule__BlendModifiers__Group_2__1 : rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2 ;
+    // InternalJRules.g:5299:1: rule__BlendModifiers__Group_2__1 : rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2 ;
     public final void rule__BlendModifiers__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5357:1: ( rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2 )
-            // InternalJRules.g:5358:2: rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2
+            // InternalJRules.g:5303:1: ( rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2 )
+            // InternalJRules.g:5304:2: rule__BlendModifiers__Group_2__1__Impl rule__BlendModifiers__Group_2__2
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_2__1__Impl();
@@ -16539,33 +16388,33 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__1__Impl"
-    // InternalJRules.g:5365:1: rule__BlendModifiers__Group_2__1__Impl : ( ( rule__BlendModifiers__Group_2_1__0 )? ) ;
+    // InternalJRules.g:5311:1: rule__BlendModifiers__Group_2__1__Impl : ( ( rule__BlendModifiers__Group_2_1__0 )? ) ;
     public final void rule__BlendModifiers__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5369:1: ( ( ( rule__BlendModifiers__Group_2_1__0 )? ) )
-            // InternalJRules.g:5370:1: ( ( rule__BlendModifiers__Group_2_1__0 )? )
+            // InternalJRules.g:5315:1: ( ( ( rule__BlendModifiers__Group_2_1__0 )? ) )
+            // InternalJRules.g:5316:1: ( ( rule__BlendModifiers__Group_2_1__0 )? )
             {
-            // InternalJRules.g:5370:1: ( ( rule__BlendModifiers__Group_2_1__0 )? )
-            // InternalJRules.g:5371:2: ( rule__BlendModifiers__Group_2_1__0 )?
+            // InternalJRules.g:5316:1: ( ( rule__BlendModifiers__Group_2_1__0 )? )
+            // InternalJRules.g:5317:2: ( rule__BlendModifiers__Group_2_1__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_2_1()); 
-            // InternalJRules.g:5372:2: ( rule__BlendModifiers__Group_2_1__0 )?
+            // InternalJRules.g:5318:2: ( rule__BlendModifiers__Group_2_1__0 )?
             int alt44=2;
             int LA44_0 = input.LA(1);
 
             if ( (LA44_0==42) ) {
                 int LA44_1 = input.LA(2);
 
-                if ( (LA44_1==80) ) {
+                if ( (LA44_1==79) ) {
                     alt44=1;
                 }
             }
             switch (alt44) {
                 case 1 :
-                    // InternalJRules.g:5372:3: rule__BlendModifiers__Group_2_1__0
+                    // InternalJRules.g:5318:3: rule__BlendModifiers__Group_2_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_2_1__0();
@@ -16601,14 +16450,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__2"
-    // InternalJRules.g:5380:1: rule__BlendModifiers__Group_2__2 : rule__BlendModifiers__Group_2__2__Impl ;
+    // InternalJRules.g:5326:1: rule__BlendModifiers__Group_2__2 : rule__BlendModifiers__Group_2__2__Impl ;
     public final void rule__BlendModifiers__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5384:1: ( rule__BlendModifiers__Group_2__2__Impl )
-            // InternalJRules.g:5385:2: rule__BlendModifiers__Group_2__2__Impl
+            // InternalJRules.g:5330:1: ( rule__BlendModifiers__Group_2__2__Impl )
+            // InternalJRules.g:5331:2: rule__BlendModifiers__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_2__2__Impl();
@@ -16634,20 +16483,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2__2__Impl"
-    // InternalJRules.g:5391:1: rule__BlendModifiers__Group_2__2__Impl : ( ( rule__BlendModifiers__Group_2_2__0 )? ) ;
+    // InternalJRules.g:5337:1: rule__BlendModifiers__Group_2__2__Impl : ( ( rule__BlendModifiers__Group_2_2__0 )? ) ;
     public final void rule__BlendModifiers__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5395:1: ( ( ( rule__BlendModifiers__Group_2_2__0 )? ) )
-            // InternalJRules.g:5396:1: ( ( rule__BlendModifiers__Group_2_2__0 )? )
+            // InternalJRules.g:5341:1: ( ( ( rule__BlendModifiers__Group_2_2__0 )? ) )
+            // InternalJRules.g:5342:1: ( ( rule__BlendModifiers__Group_2_2__0 )? )
             {
-            // InternalJRules.g:5396:1: ( ( rule__BlendModifiers__Group_2_2__0 )? )
-            // InternalJRules.g:5397:2: ( rule__BlendModifiers__Group_2_2__0 )?
+            // InternalJRules.g:5342:1: ( ( rule__BlendModifiers__Group_2_2__0 )? )
+            // InternalJRules.g:5343:2: ( rule__BlendModifiers__Group_2_2__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_2_2()); 
-            // InternalJRules.g:5398:2: ( rule__BlendModifiers__Group_2_2__0 )?
+            // InternalJRules.g:5344:2: ( rule__BlendModifiers__Group_2_2__0 )?
             int alt45=2;
             int LA45_0 = input.LA(1);
 
@@ -16656,7 +16505,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt45) {
                 case 1 :
-                    // InternalJRules.g:5398:3: rule__BlendModifiers__Group_2_2__0
+                    // InternalJRules.g:5344:3: rule__BlendModifiers__Group_2_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_2_2__0();
@@ -16692,16 +16541,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_1__0"
-    // InternalJRules.g:5407:1: rule__BlendModifiers__Group_2_1__0 : rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1 ;
+    // InternalJRules.g:5353:1: rule__BlendModifiers__Group_2_1__0 : rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1 ;
     public final void rule__BlendModifiers__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5411:1: ( rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1 )
-            // InternalJRules.g:5412:2: rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1
+            // InternalJRules.g:5357:1: ( rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1 )
+            // InternalJRules.g:5358:2: rule__BlendModifiers__Group_2_1__0__Impl rule__BlendModifiers__Group_2_1__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_51);
             rule__BlendModifiers__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -16730,17 +16579,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_1__0__Impl"
-    // InternalJRules.g:5419:1: rule__BlendModifiers__Group_2_1__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5365:1: rule__BlendModifiers__Group_2_1__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5423:1: ( ( 'and' ) )
-            // InternalJRules.g:5424:1: ( 'and' )
+            // InternalJRules.g:5369:1: ( ( 'and' ) )
+            // InternalJRules.g:5370:1: ( 'and' )
             {
-            // InternalJRules.g:5424:1: ( 'and' )
-            // InternalJRules.g:5425:2: 'and'
+            // InternalJRules.g:5370:1: ( 'and' )
+            // InternalJRules.g:5371:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_2_1_0()); 
             match(input,42,FOLLOW_2); 
@@ -16767,14 +16616,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_1__1"
-    // InternalJRules.g:5434:1: rule__BlendModifiers__Group_2_1__1 : rule__BlendModifiers__Group_2_1__1__Impl ;
+    // InternalJRules.g:5380:1: rule__BlendModifiers__Group_2_1__1 : rule__BlendModifiers__Group_2_1__1__Impl ;
     public final void rule__BlendModifiers__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5438:1: ( rule__BlendModifiers__Group_2_1__1__Impl )
-            // InternalJRules.g:5439:2: rule__BlendModifiers__Group_2_1__1__Impl
+            // InternalJRules.g:5384:1: ( rule__BlendModifiers__Group_2_1__1__Impl )
+            // InternalJRules.g:5385:2: rule__BlendModifiers__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_2_1__1__Impl();
@@ -16800,21 +16649,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_1__1__Impl"
-    // InternalJRules.g:5445:1: rule__BlendModifiers__Group_2_1__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) ) ;
+    // InternalJRules.g:5391:1: rule__BlendModifiers__Group_2_1__1__Impl : ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) ) ;
     public final void rule__BlendModifiers__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5449:1: ( ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) ) )
-            // InternalJRules.g:5450:1: ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) )
+            // InternalJRules.g:5395:1: ( ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) ) )
+            // InternalJRules.g:5396:1: ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) )
             {
-            // InternalJRules.g:5450:1: ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) )
-            // InternalJRules.g:5451:2: ( rule__BlendModifiers__AbstractAssignment_2_1_1 )
+            // InternalJRules.g:5396:1: ( ( rule__BlendModifiers__AbstractAssignment_2_1_1 ) )
+            // InternalJRules.g:5397:2: ( rule__BlendModifiers__AbstractAssignment_2_1_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAssignment_2_1_1()); 
-            // InternalJRules.g:5452:2: ( rule__BlendModifiers__AbstractAssignment_2_1_1 )
-            // InternalJRules.g:5452:3: rule__BlendModifiers__AbstractAssignment_2_1_1
+            // InternalJRules.g:5398:2: ( rule__BlendModifiers__AbstractAssignment_2_1_1 )
+            // InternalJRules.g:5398:3: rule__BlendModifiers__AbstractAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__AbstractAssignment_2_1_1();
@@ -16847,16 +16696,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_2__0"
-    // InternalJRules.g:5461:1: rule__BlendModifiers__Group_2_2__0 : rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1 ;
+    // InternalJRules.g:5407:1: rule__BlendModifiers__Group_2_2__0 : rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1 ;
     public final void rule__BlendModifiers__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5465:1: ( rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1 )
-            // InternalJRules.g:5466:2: rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1
+            // InternalJRules.g:5411:1: ( rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1 )
+            // InternalJRules.g:5412:2: rule__BlendModifiers__Group_2_2__0__Impl rule__BlendModifiers__Group_2_2__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__BlendModifiers__Group_2_2__0__Impl();
 
             state._fsp--;
@@ -16885,17 +16734,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_2__0__Impl"
-    // InternalJRules.g:5473:1: rule__BlendModifiers__Group_2_2__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5419:1: rule__BlendModifiers__Group_2_2__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5477:1: ( ( 'and' ) )
-            // InternalJRules.g:5478:1: ( 'and' )
+            // InternalJRules.g:5423:1: ( ( 'and' ) )
+            // InternalJRules.g:5424:1: ( 'and' )
             {
-            // InternalJRules.g:5478:1: ( 'and' )
-            // InternalJRules.g:5479:2: 'and'
+            // InternalJRules.g:5424:1: ( 'and' )
+            // InternalJRules.g:5425:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_2_2_0()); 
             match(input,42,FOLLOW_2); 
@@ -16922,14 +16771,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_2__1"
-    // InternalJRules.g:5488:1: rule__BlendModifiers__Group_2_2__1 : rule__BlendModifiers__Group_2_2__1__Impl ;
+    // InternalJRules.g:5434:1: rule__BlendModifiers__Group_2_2__1 : rule__BlendModifiers__Group_2_2__1__Impl ;
     public final void rule__BlendModifiers__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5492:1: ( rule__BlendModifiers__Group_2_2__1__Impl )
-            // InternalJRules.g:5493:2: rule__BlendModifiers__Group_2_2__1__Impl
+            // InternalJRules.g:5438:1: ( rule__BlendModifiers__Group_2_2__1__Impl )
+            // InternalJRules.g:5439:2: rule__BlendModifiers__Group_2_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_2_2__1__Impl();
@@ -16955,21 +16804,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_2_2__1__Impl"
-    // InternalJRules.g:5499:1: rule__BlendModifiers__Group_2_2__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) ) ;
+    // InternalJRules.g:5445:1: rule__BlendModifiers__Group_2_2__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) ) ;
     public final void rule__BlendModifiers__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5503:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) ) )
-            // InternalJRules.g:5504:1: ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) )
+            // InternalJRules.g:5449:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) ) )
+            // InternalJRules.g:5450:1: ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) )
             {
-            // InternalJRules.g:5504:1: ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) )
-            // InternalJRules.g:5505:2: ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 )
+            // InternalJRules.g:5450:1: ( ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 ) )
+            // InternalJRules.g:5451:2: ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedAssignment_2_2_1()); 
-            // InternalJRules.g:5506:2: ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 )
-            // InternalJRules.g:5506:3: rule__BlendModifiers__SynchronizedAssignment_2_2_1
+            // InternalJRules.g:5452:2: ( rule__BlendModifiers__SynchronizedAssignment_2_2_1 )
+            // InternalJRules.g:5452:3: rule__BlendModifiers__SynchronizedAssignment_2_2_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__SynchronizedAssignment_2_2_1();
@@ -17002,14 +16851,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3__0"
-    // InternalJRules.g:5515:1: rule__BlendModifiers__Group_3__0 : rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1 ;
+    // InternalJRules.g:5461:1: rule__BlendModifiers__Group_3__0 : rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1 ;
     public final void rule__BlendModifiers__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5519:1: ( rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1 )
-            // InternalJRules.g:5520:2: rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1
+            // InternalJRules.g:5465:1: ( rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1 )
+            // InternalJRules.g:5466:2: rule__BlendModifiers__Group_3__0__Impl rule__BlendModifiers__Group_3__1
             {
             pushFollow(FOLLOW_14);
             rule__BlendModifiers__Group_3__0__Impl();
@@ -17040,21 +16889,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3__0__Impl"
-    // InternalJRules.g:5527:1: rule__BlendModifiers__Group_3__0__Impl : ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) ) ;
+    // InternalJRules.g:5473:1: rule__BlendModifiers__Group_3__0__Impl : ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) ) ;
     public final void rule__BlendModifiers__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5531:1: ( ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) ) )
-            // InternalJRules.g:5532:1: ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) )
+            // InternalJRules.g:5477:1: ( ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) ) )
+            // InternalJRules.g:5478:1: ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) )
             {
-            // InternalJRules.g:5532:1: ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) )
-            // InternalJRules.g:5533:2: ( rule__BlendModifiers__AbstractAssignment_3_0 )
+            // InternalJRules.g:5478:1: ( ( rule__BlendModifiers__AbstractAssignment_3_0 ) )
+            // InternalJRules.g:5479:2: ( rule__BlendModifiers__AbstractAssignment_3_0 )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAssignment_3_0()); 
-            // InternalJRules.g:5534:2: ( rule__BlendModifiers__AbstractAssignment_3_0 )
-            // InternalJRules.g:5534:3: rule__BlendModifiers__AbstractAssignment_3_0
+            // InternalJRules.g:5480:2: ( rule__BlendModifiers__AbstractAssignment_3_0 )
+            // InternalJRules.g:5480:3: rule__BlendModifiers__AbstractAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__AbstractAssignment_3_0();
@@ -17087,14 +16936,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3__1"
-    // InternalJRules.g:5542:1: rule__BlendModifiers__Group_3__1 : rule__BlendModifiers__Group_3__1__Impl ;
+    // InternalJRules.g:5488:1: rule__BlendModifiers__Group_3__1 : rule__BlendModifiers__Group_3__1__Impl ;
     public final void rule__BlendModifiers__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5546:1: ( rule__BlendModifiers__Group_3__1__Impl )
-            // InternalJRules.g:5547:2: rule__BlendModifiers__Group_3__1__Impl
+            // InternalJRules.g:5492:1: ( rule__BlendModifiers__Group_3__1__Impl )
+            // InternalJRules.g:5493:2: rule__BlendModifiers__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_3__1__Impl();
@@ -17120,20 +16969,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3__1__Impl"
-    // InternalJRules.g:5553:1: rule__BlendModifiers__Group_3__1__Impl : ( ( rule__BlendModifiers__Group_3_1__0 )? ) ;
+    // InternalJRules.g:5499:1: rule__BlendModifiers__Group_3__1__Impl : ( ( rule__BlendModifiers__Group_3_1__0 )? ) ;
     public final void rule__BlendModifiers__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5557:1: ( ( ( rule__BlendModifiers__Group_3_1__0 )? ) )
-            // InternalJRules.g:5558:1: ( ( rule__BlendModifiers__Group_3_1__0 )? )
+            // InternalJRules.g:5503:1: ( ( ( rule__BlendModifiers__Group_3_1__0 )? ) )
+            // InternalJRules.g:5504:1: ( ( rule__BlendModifiers__Group_3_1__0 )? )
             {
-            // InternalJRules.g:5558:1: ( ( rule__BlendModifiers__Group_3_1__0 )? )
-            // InternalJRules.g:5559:2: ( rule__BlendModifiers__Group_3_1__0 )?
+            // InternalJRules.g:5504:1: ( ( rule__BlendModifiers__Group_3_1__0 )? )
+            // InternalJRules.g:5505:2: ( rule__BlendModifiers__Group_3_1__0 )?
             {
              before(grammarAccess.getBlendModifiersAccess().getGroup_3_1()); 
-            // InternalJRules.g:5560:2: ( rule__BlendModifiers__Group_3_1__0 )?
+            // InternalJRules.g:5506:2: ( rule__BlendModifiers__Group_3_1__0 )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -17142,7 +16991,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
             }
             switch (alt46) {
                 case 1 :
-                    // InternalJRules.g:5560:3: rule__BlendModifiers__Group_3_1__0
+                    // InternalJRules.g:5506:3: rule__BlendModifiers__Group_3_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BlendModifiers__Group_3_1__0();
@@ -17178,16 +17027,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3_1__0"
-    // InternalJRules.g:5569:1: rule__BlendModifiers__Group_3_1__0 : rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1 ;
+    // InternalJRules.g:5515:1: rule__BlendModifiers__Group_3_1__0 : rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1 ;
     public final void rule__BlendModifiers__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5573:1: ( rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1 )
-            // InternalJRules.g:5574:2: rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1
+            // InternalJRules.g:5519:1: ( rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1 )
+            // InternalJRules.g:5520:2: rule__BlendModifiers__Group_3_1__0__Impl rule__BlendModifiers__Group_3_1__1
             {
-            pushFollow(FOLLOW_53);
+            pushFollow(FOLLOW_52);
             rule__BlendModifiers__Group_3_1__0__Impl();
 
             state._fsp--;
@@ -17216,17 +17065,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3_1__0__Impl"
-    // InternalJRules.g:5581:1: rule__BlendModifiers__Group_3_1__0__Impl : ( 'and' ) ;
+    // InternalJRules.g:5527:1: rule__BlendModifiers__Group_3_1__0__Impl : ( 'and' ) ;
     public final void rule__BlendModifiers__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5585:1: ( ( 'and' ) )
-            // InternalJRules.g:5586:1: ( 'and' )
+            // InternalJRules.g:5531:1: ( ( 'and' ) )
+            // InternalJRules.g:5532:1: ( 'and' )
             {
-            // InternalJRules.g:5586:1: ( 'and' )
-            // InternalJRules.g:5587:2: 'and'
+            // InternalJRules.g:5532:1: ( 'and' )
+            // InternalJRules.g:5533:2: 'and'
             {
              before(grammarAccess.getBlendModifiersAccess().getAndKeyword_3_1_0()); 
             match(input,42,FOLLOW_2); 
@@ -17253,14 +17102,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3_1__1"
-    // InternalJRules.g:5596:1: rule__BlendModifiers__Group_3_1__1 : rule__BlendModifiers__Group_3_1__1__Impl ;
+    // InternalJRules.g:5542:1: rule__BlendModifiers__Group_3_1__1 : rule__BlendModifiers__Group_3_1__1__Impl ;
     public final void rule__BlendModifiers__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5600:1: ( rule__BlendModifiers__Group_3_1__1__Impl )
-            // InternalJRules.g:5601:2: rule__BlendModifiers__Group_3_1__1__Impl
+            // InternalJRules.g:5546:1: ( rule__BlendModifiers__Group_3_1__1__Impl )
+            // InternalJRules.g:5547:2: rule__BlendModifiers__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__Group_3_1__1__Impl();
@@ -17286,21 +17135,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__Group_3_1__1__Impl"
-    // InternalJRules.g:5607:1: rule__BlendModifiers__Group_3_1__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) ) ;
+    // InternalJRules.g:5553:1: rule__BlendModifiers__Group_3_1__1__Impl : ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) ) ;
     public final void rule__BlendModifiers__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5611:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) ) )
-            // InternalJRules.g:5612:1: ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) )
+            // InternalJRules.g:5557:1: ( ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) ) )
+            // InternalJRules.g:5558:1: ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) )
             {
-            // InternalJRules.g:5612:1: ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) )
-            // InternalJRules.g:5613:2: ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 )
+            // InternalJRules.g:5558:1: ( ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 ) )
+            // InternalJRules.g:5559:2: ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedAssignment_3_1_1()); 
-            // InternalJRules.g:5614:2: ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 )
-            // InternalJRules.g:5614:3: rule__BlendModifiers__SynchronizedAssignment_3_1_1
+            // InternalJRules.g:5560:2: ( rule__BlendModifiers__SynchronizedAssignment_3_1_1 )
+            // InternalJRules.g:5560:3: rule__BlendModifiers__SynchronizedAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__BlendModifiers__SynchronizedAssignment_3_1_1();
@@ -17333,17 +17182,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RuleSet__ProjectNameAssignment_1"
-    // InternalJRules.g:5623:1: rule__RuleSet__ProjectNameAssignment_1 : ( ruleEString ) ;
+    // InternalJRules.g:5569:1: rule__RuleSet__ProjectNameAssignment_1 : ( ruleEString ) ;
     public final void rule__RuleSet__ProjectNameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5627:1: ( ( ruleEString ) )
-            // InternalJRules.g:5628:2: ( ruleEString )
+            // InternalJRules.g:5573:1: ( ( ruleEString ) )
+            // InternalJRules.g:5574:2: ( ruleEString )
             {
-            // InternalJRules.g:5628:2: ( ruleEString )
-            // InternalJRules.g:5629:3: ruleEString
+            // InternalJRules.g:5574:2: ( ruleEString )
+            // InternalJRules.g:5575:3: ruleEString
             {
              before(grammarAccess.getRuleSetAccess().getProjectNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17374,17 +17223,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RuleSet__RulesAssignment_2"
-    // InternalJRules.g:5638:1: rule__RuleSet__RulesAssignment_2 : ( ruleRule ) ;
+    // InternalJRules.g:5584:1: rule__RuleSet__RulesAssignment_2 : ( ruleRule ) ;
     public final void rule__RuleSet__RulesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5642:1: ( ( ruleRule ) )
-            // InternalJRules.g:5643:2: ( ruleRule )
+            // InternalJRules.g:5588:1: ( ( ruleRule ) )
+            // InternalJRules.g:5589:2: ( ruleRule )
             {
-            // InternalJRules.g:5643:2: ( ruleRule )
-            // InternalJRules.g:5644:3: ruleRule
+            // InternalJRules.g:5589:2: ( ruleRule )
+            // InternalJRules.g:5590:3: ruleRule
             {
              before(grammarAccess.getRuleSetAccess().getRulesRuleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -17415,17 +17264,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RuleSet__RulesAssignment_4_0"
-    // InternalJRules.g:5653:1: rule__RuleSet__RulesAssignment_4_0 : ( ruleRule ) ;
+    // InternalJRules.g:5599:1: rule__RuleSet__RulesAssignment_4_0 : ( ruleRule ) ;
     public final void rule__RuleSet__RulesAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5657:1: ( ( ruleRule ) )
-            // InternalJRules.g:5658:2: ( ruleRule )
+            // InternalJRules.g:5603:1: ( ( ruleRule ) )
+            // InternalJRules.g:5604:2: ( ruleRule )
             {
-            // InternalJRules.g:5658:2: ( ruleRule )
-            // InternalJRules.g:5659:3: ruleRule
+            // InternalJRules.g:5604:2: ( ruleRule )
+            // InternalJRules.g:5605:3: ruleRule
             {
              before(grammarAccess.getRuleSetAccess().getRulesRuleParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -17456,24 +17305,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Rule__NoAssignment_0"
-    // InternalJRules.g:5668:1: rule__Rule__NoAssignment_0 : ( ( 'no' ) ) ;
+    // InternalJRules.g:5614:1: rule__Rule__NoAssignment_0 : ( ( 'no' ) ) ;
     public final void rule__Rule__NoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5672:1: ( ( ( 'no' ) ) )
-            // InternalJRules.g:5673:2: ( ( 'no' ) )
+            // InternalJRules.g:5618:1: ( ( ( 'no' ) ) )
+            // InternalJRules.g:5619:2: ( ( 'no' ) )
             {
-            // InternalJRules.g:5673:2: ( ( 'no' ) )
-            // InternalJRules.g:5674:3: ( 'no' )
-            {
-             before(grammarAccess.getRuleAccess().getNoNoKeyword_0_0()); 
-            // InternalJRules.g:5675:3: ( 'no' )
-            // InternalJRules.g:5676:4: 'no'
+            // InternalJRules.g:5619:2: ( ( 'no' ) )
+            // InternalJRules.g:5620:3: ( 'no' )
             {
              before(grammarAccess.getRuleAccess().getNoNoKeyword_0_0()); 
-            match(input,71,FOLLOW_2); 
+            // InternalJRules.g:5621:3: ( 'no' )
+            // InternalJRules.g:5622:4: 'no'
+            {
+             before(grammarAccess.getRuleAccess().getNoNoKeyword_0_0()); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getRuleAccess().getNoNoKeyword_0_0()); 
 
             }
@@ -17501,17 +17350,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Rule__QuantifierAssignment_1"
-    // InternalJRules.g:5687:1: rule__Rule__QuantifierAssignment_1 : ( ruleQuantifier ) ;
+    // InternalJRules.g:5633:1: rule__Rule__QuantifierAssignment_1 : ( ruleQuantifier ) ;
     public final void rule__Rule__QuantifierAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5691:1: ( ( ruleQuantifier ) )
-            // InternalJRules.g:5692:2: ( ruleQuantifier )
+            // InternalJRules.g:5637:1: ( ( ruleQuantifier ) )
+            // InternalJRules.g:5638:2: ( ruleQuantifier )
             {
-            // InternalJRules.g:5692:2: ( ruleQuantifier )
-            // InternalJRules.g:5693:3: ruleQuantifier
+            // InternalJRules.g:5638:2: ( ruleQuantifier )
+            // InternalJRules.g:5639:3: ruleQuantifier
             {
              before(grammarAccess.getRuleAccess().getQuantifierQuantifierEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17542,17 +17391,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Rule__ElementAssignment_2"
-    // InternalJRules.g:5702:1: rule__Rule__ElementAssignment_2 : ( ruleElementJava ) ;
+    // InternalJRules.g:5648:1: rule__Rule__ElementAssignment_2 : ( ruleElementJava ) ;
     public final void rule__Rule__ElementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5706:1: ( ( ruleElementJava ) )
-            // InternalJRules.g:5707:2: ( ruleElementJava )
+            // InternalJRules.g:5652:1: ( ( ruleElementJava ) )
+            // InternalJRules.g:5653:2: ( ruleElementJava )
             {
-            // InternalJRules.g:5707:2: ( ruleElementJava )
-            // InternalJRules.g:5708:3: ruleElementJava
+            // InternalJRules.g:5653:2: ( ruleElementJava )
+            // InternalJRules.g:5654:3: ruleElementJava
             {
              before(grammarAccess.getRuleAccess().getElementElementJavaEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -17583,17 +17432,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Rule__FilterAssignment_3_1"
-    // InternalJRules.g:5717:1: rule__Rule__FilterAssignment_3_1 : ( ruleFilter ) ;
+    // InternalJRules.g:5663:1: rule__Rule__FilterAssignment_3_1 : ( ruleFilter ) ;
     public final void rule__Rule__FilterAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5721:1: ( ( ruleFilter ) )
-            // InternalJRules.g:5722:2: ( ruleFilter )
+            // InternalJRules.g:5667:1: ( ( ruleFilter ) )
+            // InternalJRules.g:5668:2: ( ruleFilter )
             {
-            // InternalJRules.g:5722:2: ( ruleFilter )
-            // InternalJRules.g:5723:3: ruleFilter
+            // InternalJRules.g:5668:2: ( ruleFilter )
+            // InternalJRules.g:5669:3: ruleFilter
             {
              before(grammarAccess.getRuleAccess().getFilterFilterParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17624,17 +17473,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Rule__SatisfyAssignment_5"
-    // InternalJRules.g:5732:1: rule__Rule__SatisfyAssignment_5 : ( ruleOr ) ;
+    // InternalJRules.g:5678:1: rule__Rule__SatisfyAssignment_5 : ( ruleOr ) ;
     public final void rule__Rule__SatisfyAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5736:1: ( ( ruleOr ) )
-            // InternalJRules.g:5737:2: ( ruleOr )
+            // InternalJRules.g:5682:1: ( ( ruleOr ) )
+            // InternalJRules.g:5683:2: ( ruleOr )
             {
-            // InternalJRules.g:5737:2: ( ruleOr )
-            // InternalJRules.g:5738:3: ruleOr
+            // InternalJRules.g:5683:2: ( ruleOr )
+            // InternalJRules.g:5684:3: ruleOr
             {
              before(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -17665,24 +17514,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__NoAssignment_0"
-    // InternalJRules.g:5747:1: rule__Filter__NoAssignment_0 : ( ( 'no' ) ) ;
+    // InternalJRules.g:5693:1: rule__Filter__NoAssignment_0 : ( ( 'no' ) ) ;
     public final void rule__Filter__NoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5751:1: ( ( ( 'no' ) ) )
-            // InternalJRules.g:5752:2: ( ( 'no' ) )
+            // InternalJRules.g:5697:1: ( ( ( 'no' ) ) )
+            // InternalJRules.g:5698:2: ( ( 'no' ) )
             {
-            // InternalJRules.g:5752:2: ( ( 'no' ) )
-            // InternalJRules.g:5753:3: ( 'no' )
-            {
-             before(grammarAccess.getFilterAccess().getNoNoKeyword_0_0()); 
-            // InternalJRules.g:5754:3: ( 'no' )
-            // InternalJRules.g:5755:4: 'no'
+            // InternalJRules.g:5698:2: ( ( 'no' ) )
+            // InternalJRules.g:5699:3: ( 'no' )
             {
              before(grammarAccess.getFilterAccess().getNoNoKeyword_0_0()); 
-            match(input,71,FOLLOW_2); 
+            // InternalJRules.g:5700:3: ( 'no' )
+            // InternalJRules.g:5701:4: 'no'
+            {
+             before(grammarAccess.getFilterAccess().getNoNoKeyword_0_0()); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getFilterAccess().getNoNoKeyword_0_0()); 
 
             }
@@ -17710,17 +17559,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Filter__FilterAssignment_1"
-    // InternalJRules.g:5766:1: rule__Filter__FilterAssignment_1 : ( ruleOr ) ;
+    // InternalJRules.g:5712:1: rule__Filter__FilterAssignment_1 : ( ruleOr ) ;
     public final void rule__Filter__FilterAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5770:1: ( ( ruleOr ) )
-            // InternalJRules.g:5771:2: ( ruleOr )
+            // InternalJRules.g:5716:1: ( ( ruleOr ) )
+            // InternalJRules.g:5717:2: ( ruleOr )
             {
-            // InternalJRules.g:5771:2: ( ruleOr )
-            // InternalJRules.g:5772:3: ruleOr
+            // InternalJRules.g:5717:2: ( ruleOr )
+            // InternalJRules.g:5718:3: ruleOr
             {
              before(grammarAccess.getFilterAccess().getFilterOrParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17751,17 +17600,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__OpAssignment_0"
-    // InternalJRules.g:5781:1: rule__Or__OpAssignment_0 : ( ruleAnd ) ;
+    // InternalJRules.g:5727:1: rule__Or__OpAssignment_0 : ( ruleAnd ) ;
     public final void rule__Or__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5785:1: ( ( ruleAnd ) )
-            // InternalJRules.g:5786:2: ( ruleAnd )
+            // InternalJRules.g:5731:1: ( ( ruleAnd ) )
+            // InternalJRules.g:5732:2: ( ruleAnd )
             {
-            // InternalJRules.g:5786:2: ( ruleAnd )
-            // InternalJRules.g:5787:3: ruleAnd
+            // InternalJRules.g:5732:2: ( ruleAnd )
+            // InternalJRules.g:5733:3: ruleAnd
             {
              before(grammarAccess.getOrAccess().getOpAndParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -17792,17 +17641,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__OpAssignment_1_1"
-    // InternalJRules.g:5796:1: rule__Or__OpAssignment_1_1 : ( ruleAnd ) ;
+    // InternalJRules.g:5742:1: rule__Or__OpAssignment_1_1 : ( ruleAnd ) ;
     public final void rule__Or__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5800:1: ( ( ruleAnd ) )
-            // InternalJRules.g:5801:2: ( ruleAnd )
+            // InternalJRules.g:5746:1: ( ( ruleAnd ) )
+            // InternalJRules.g:5747:2: ( ruleAnd )
             {
-            // InternalJRules.g:5801:2: ( ruleAnd )
-            // InternalJRules.g:5802:3: ruleAnd
+            // InternalJRules.g:5747:2: ( ruleAnd )
+            // InternalJRules.g:5748:3: ruleAnd
             {
              before(grammarAccess.getOrAccess().getOpAndParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17833,17 +17682,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__OpAssignment_0"
-    // InternalJRules.g:5811:1: rule__And__OpAssignment_0 : ( ruleSatisfy ) ;
+    // InternalJRules.g:5757:1: rule__And__OpAssignment_0 : ( ruleSatisfy ) ;
     public final void rule__And__OpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5815:1: ( ( ruleSatisfy ) )
-            // InternalJRules.g:5816:2: ( ruleSatisfy )
+            // InternalJRules.g:5761:1: ( ( ruleSatisfy ) )
+            // InternalJRules.g:5762:2: ( ruleSatisfy )
             {
-            // InternalJRules.g:5816:2: ( ruleSatisfy )
-            // InternalJRules.g:5817:3: ruleSatisfy
+            // InternalJRules.g:5762:2: ( ruleSatisfy )
+            // InternalJRules.g:5763:3: ruleSatisfy
             {
              before(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -17874,17 +17723,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__OpAssignment_1_1"
-    // InternalJRules.g:5826:1: rule__And__OpAssignment_1_1 : ( ruleSatisfy ) ;
+    // InternalJRules.g:5772:1: rule__And__OpAssignment_1_1 : ( ruleSatisfy ) ;
     public final void rule__And__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5830:1: ( ( ruleSatisfy ) )
-            // InternalJRules.g:5831:2: ( ruleSatisfy )
+            // InternalJRules.g:5776:1: ( ( ruleSatisfy ) )
+            // InternalJRules.g:5777:2: ( ruleSatisfy )
             {
-            // InternalJRules.g:5831:2: ( ruleSatisfy )
-            // InternalJRules.g:5832:3: ruleSatisfy
+            // InternalJRules.g:5777:2: ( ruleSatisfy )
+            // InternalJRules.g:5778:3: ruleSatisfy
             {
              before(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17915,17 +17764,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__OpAssignment_1_3"
-    // InternalJRules.g:5841:1: rule__And__OpAssignment_1_3 : ( ruleSatisfy ) ;
+    // InternalJRules.g:5787:1: rule__And__OpAssignment_1_3 : ( ruleSatisfy ) ;
     public final void rule__And__OpAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5845:1: ( ( ruleSatisfy ) )
-            // InternalJRules.g:5846:2: ( ruleSatisfy )
+            // InternalJRules.g:5791:1: ( ( ruleSatisfy ) )
+            // InternalJRules.g:5792:2: ( ruleSatisfy )
             {
-            // InternalJRules.g:5846:2: ( ruleSatisfy )
-            // InternalJRules.g:5847:3: ruleSatisfy
+            // InternalJRules.g:5792:2: ( ruleSatisfy )
+            // InternalJRules.g:5793:3: ruleSatisfy
             {
              before(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -17956,17 +17805,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__OpAssignment_1_4_1"
-    // InternalJRules.g:5856:1: rule__And__OpAssignment_1_4_1 : ( ruleSatisfy ) ;
+    // InternalJRules.g:5802:1: rule__And__OpAssignment_1_4_1 : ( ruleSatisfy ) ;
     public final void rule__And__OpAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5860:1: ( ( ruleSatisfy ) )
-            // InternalJRules.g:5861:2: ( ruleSatisfy )
+            // InternalJRules.g:5806:1: ( ( ruleSatisfy ) )
+            // InternalJRules.g:5807:2: ( ruleSatisfy )
             {
-            // InternalJRules.g:5861:2: ( ruleSatisfy )
-            // InternalJRules.g:5862:3: ruleSatisfy
+            // InternalJRules.g:5807:2: ( ruleSatisfy )
+            // InternalJRules.g:5808:3: ruleSatisfy
             {
              before(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -17997,17 +17846,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Implements__MinInterfaceAssignment_2_0_1"
-    // InternalJRules.g:5871:1: rule__Implements__MinInterfaceAssignment_2_0_1 : ( ruleEInt ) ;
+    // InternalJRules.g:5817:1: rule__Implements__MinInterfaceAssignment_2_0_1 : ( ruleEInt ) ;
     public final void rule__Implements__MinInterfaceAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5875:1: ( ( ruleEInt ) )
-            // InternalJRules.g:5876:2: ( ruleEInt )
+            // InternalJRules.g:5821:1: ( ( ruleEInt ) )
+            // InternalJRules.g:5822:2: ( ruleEInt )
             {
-            // InternalJRules.g:5876:2: ( ruleEInt )
-            // InternalJRules.g:5877:3: ruleEInt
+            // InternalJRules.g:5822:2: ( ruleEInt )
+            // InternalJRules.g:5823:3: ruleEInt
             {
              before(grammarAccess.getImplementsAccess().getMinInterfaceEIntParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18038,17 +17887,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Implements__MaxInterfaceAssignment_2_0_2_2"
-    // InternalJRules.g:5886:1: rule__Implements__MaxInterfaceAssignment_2_0_2_2 : ( ruleEInt ) ;
+    // InternalJRules.g:5832:1: rule__Implements__MaxInterfaceAssignment_2_0_2_2 : ( ruleEInt ) ;
     public final void rule__Implements__MaxInterfaceAssignment_2_0_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5890:1: ( ( ruleEInt ) )
-            // InternalJRules.g:5891:2: ( ruleEInt )
+            // InternalJRules.g:5836:1: ( ( ruleEInt ) )
+            // InternalJRules.g:5837:2: ( ruleEInt )
             {
-            // InternalJRules.g:5891:2: ( ruleEInt )
-            // InternalJRules.g:5892:3: ruleEInt
+            // InternalJRules.g:5837:2: ( ruleEInt )
+            // InternalJRules.g:5838:3: ruleEInt
             {
              before(grammarAccess.getImplementsAccess().getMaxInterfaceEIntParserRuleCall_2_0_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18079,17 +17928,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Implements__MaxInterfaceAssignment_2_1_1"
-    // InternalJRules.g:5901:1: rule__Implements__MaxInterfaceAssignment_2_1_1 : ( ruleEInt ) ;
+    // InternalJRules.g:5847:1: rule__Implements__MaxInterfaceAssignment_2_1_1 : ( ruleEInt ) ;
     public final void rule__Implements__MaxInterfaceAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5905:1: ( ( ruleEInt ) )
-            // InternalJRules.g:5906:2: ( ruleEInt )
+            // InternalJRules.g:5851:1: ( ( ruleEInt ) )
+            // InternalJRules.g:5852:2: ( ruleEInt )
             {
-            // InternalJRules.g:5906:2: ( ruleEInt )
-            // InternalJRules.g:5907:3: ruleEInt
+            // InternalJRules.g:5852:2: ( ruleEInt )
+            // InternalJRules.g:5853:3: ruleEInt
             {
              before(grammarAccess.getImplementsAccess().getMaxInterfaceEIntParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18120,17 +17969,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Implements__MinInterfaceAssignment_2_1_2_2"
-    // InternalJRules.g:5916:1: rule__Implements__MinInterfaceAssignment_2_1_2_2 : ( ruleEInt ) ;
+    // InternalJRules.g:5862:1: rule__Implements__MinInterfaceAssignment_2_1_2_2 : ( ruleEInt ) ;
     public final void rule__Implements__MinInterfaceAssignment_2_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5920:1: ( ( ruleEInt ) )
-            // InternalJRules.g:5921:2: ( ruleEInt )
+            // InternalJRules.g:5866:1: ( ( ruleEInt ) )
+            // InternalJRules.g:5867:2: ( ruleEInt )
             {
-            // InternalJRules.g:5921:2: ( ruleEInt )
-            // InternalJRules.g:5922:3: ruleEInt
+            // InternalJRules.g:5867:2: ( ruleEInt )
+            // InternalJRules.g:5868:3: ruleEInt
             {
              before(grammarAccess.getImplementsAccess().getMinInterfaceEIntParserRuleCall_2_1_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18161,17 +18010,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__NumParamAssignment_1"
-    // InternalJRules.g:5931:1: rule__Parameter__NumParamAssignment_1 : ( ruleEBigInteger ) ;
+    // InternalJRules.g:5877:1: rule__Parameter__NumParamAssignment_1 : ( ruleEBigInteger ) ;
     public final void rule__Parameter__NumParamAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5935:1: ( ( ruleEBigInteger ) )
-            // InternalJRules.g:5936:2: ( ruleEBigInteger )
+            // InternalJRules.g:5881:1: ( ( ruleEBigInteger ) )
+            // InternalJRules.g:5882:2: ( ruleEBigInteger )
             {
-            // InternalJRules.g:5936:2: ( ruleEBigInteger )
-            // InternalJRules.g:5937:3: ruleEBigInteger
+            // InternalJRules.g:5882:2: ( ruleEBigInteger )
+            // InternalJRules.g:5883:3: ruleEBigInteger
             {
              before(grammarAccess.getParameterAccess().getNumParamEBigIntegerParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18202,17 +18051,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__TypesParamAssignment_2_3"
-    // InternalJRules.g:5946:1: rule__Parameter__TypesParamAssignment_2_3 : ( ruleEString ) ;
+    // InternalJRules.g:5892:1: rule__Parameter__TypesParamAssignment_2_3 : ( ruleEString ) ;
     public final void rule__Parameter__TypesParamAssignment_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5950:1: ( ( ruleEString ) )
-            // InternalJRules.g:5951:2: ( ruleEString )
+            // InternalJRules.g:5896:1: ( ( ruleEString ) )
+            // InternalJRules.g:5897:2: ( ruleEString )
             {
-            // InternalJRules.g:5951:2: ( ruleEString )
-            // InternalJRules.g:5952:3: ruleEString
+            // InternalJRules.g:5897:2: ( ruleEString )
+            // InternalJRules.g:5898:3: ruleEString
             {
              before(grammarAccess.getParameterAccess().getTypesParamEStringParserRuleCall_2_3_0()); 
             pushFollow(FOLLOW_2);
@@ -18243,17 +18092,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Parameter__TypesParamAssignment_2_4_1"
-    // InternalJRules.g:5961:1: rule__Parameter__TypesParamAssignment_2_4_1 : ( ruleEString ) ;
+    // InternalJRules.g:5907:1: rule__Parameter__TypesParamAssignment_2_4_1 : ( ruleEString ) ;
     public final void rule__Parameter__TypesParamAssignment_2_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5965:1: ( ( ruleEString ) )
-            // InternalJRules.g:5966:2: ( ruleEString )
+            // InternalJRules.g:5911:1: ( ( ruleEString ) )
+            // InternalJRules.g:5912:2: ( ruleEString )
             {
-            // InternalJRules.g:5966:2: ( ruleEString )
-            // InternalJRules.g:5967:3: ruleEString
+            // InternalJRules.g:5912:2: ( ruleEString )
+            // InternalJRules.g:5913:3: ruleEString
             {
              before(grammarAccess.getParameterAccess().getTypesParamEStringParserRuleCall_2_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18284,17 +18133,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Return__ReturnTypeAssignment_2"
-    // InternalJRules.g:5976:1: rule__Return__ReturnTypeAssignment_2 : ( ruleEString ) ;
+    // InternalJRules.g:5922:1: rule__Return__ReturnTypeAssignment_2 : ( ruleEString ) ;
     public final void rule__Return__ReturnTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5980:1: ( ( ruleEString ) )
-            // InternalJRules.g:5981:2: ( ruleEString )
+            // InternalJRules.g:5926:1: ( ( ruleEString ) )
+            // InternalJRules.g:5927:2: ( ruleEString )
             {
-            // InternalJRules.g:5981:2: ( ruleEString )
-            // InternalJRules.g:5982:3: ruleEString
+            // InternalJRules.g:5927:2: ( ruleEString )
+            // InternalJRules.g:5928:3: ruleEString
             {
              before(grammarAccess.getReturnAccess().getReturnTypeEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18325,17 +18174,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AttributeType__TypeAssignment_1"
-    // InternalJRules.g:5991:1: rule__AttributeType__TypeAssignment_1 : ( ruleEString ) ;
+    // InternalJRules.g:5937:1: rule__AttributeType__TypeAssignment_1 : ( ruleEString ) ;
     public final void rule__AttributeType__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:5995:1: ( ( ruleEString ) )
-            // InternalJRules.g:5996:2: ( ruleEString )
+            // InternalJRules.g:5941:1: ( ( ruleEString ) )
+            // InternalJRules.g:5942:2: ( ruleEString )
             {
-            // InternalJRules.g:5996:2: ( ruleEString )
-            // InternalJRules.g:5997:3: ruleEString
+            // InternalJRules.g:5942:2: ( ruleEString )
+            // InternalJRules.g:5943:3: ruleEString
             {
              before(grammarAccess.getAttributeTypeAccess().getTypeEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18366,17 +18215,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__TypeAssignment_2_0_1"
-    // InternalJRules.g:6006:1: rule__Name__TypeAssignment_2_0_1 : ( ruleNameType ) ;
+    // InternalJRules.g:5952:1: rule__Name__TypeAssignment_2_0_1 : ( ruleNameType ) ;
     public final void rule__Name__TypeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6010:1: ( ( ruleNameType ) )
-            // InternalJRules.g:6011:2: ( ruleNameType )
+            // InternalJRules.g:5956:1: ( ( ruleNameType ) )
+            // InternalJRules.g:5957:2: ( ruleNameType )
             {
-            // InternalJRules.g:6011:2: ( ruleNameType )
-            // InternalJRules.g:6012:3: ruleNameType
+            // InternalJRules.g:5957:2: ( ruleNameType )
+            // InternalJRules.g:5958:3: ruleNameType
             {
              before(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18407,17 +18256,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__OperatorAssignment_2_0_2_0_1"
-    // InternalJRules.g:6021:1: rule__Name__OperatorAssignment_2_0_2_0_1 : ( ruleNameOperator ) ;
+    // InternalJRules.g:5967:1: rule__Name__OperatorAssignment_2_0_2_0_1 : ( ruleNameOperator ) ;
     public final void rule__Name__OperatorAssignment_2_0_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6025:1: ( ( ruleNameOperator ) )
-            // InternalJRules.g:6026:2: ( ruleNameOperator )
+            // InternalJRules.g:5971:1: ( ( ruleNameOperator ) )
+            // InternalJRules.g:5972:2: ( ruleNameOperator )
             {
-            // InternalJRules.g:6026:2: ( ruleNameOperator )
-            // InternalJRules.g:6027:3: ruleNameOperator
+            // InternalJRules.g:5972:2: ( ruleNameOperator )
+            // InternalJRules.g:5973:3: ruleNameOperator
             {
              before(grammarAccess.getNameAccess().getOperatorNameOperatorEnumRuleCall_2_0_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18448,17 +18297,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__NameAssignment_2_0_2_0_2"
-    // InternalJRules.g:6036:1: rule__Name__NameAssignment_2_0_2_0_2 : ( ruleEString ) ;
+    // InternalJRules.g:5982:1: rule__Name__NameAssignment_2_0_2_0_2 : ( ruleEString ) ;
     public final void rule__Name__NameAssignment_2_0_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6040:1: ( ( ruleEString ) )
-            // InternalJRules.g:6041:2: ( ruleEString )
+            // InternalJRules.g:5986:1: ( ( ruleEString ) )
+            // InternalJRules.g:5987:2: ( ruleEString )
             {
-            // InternalJRules.g:6041:2: ( ruleEString )
-            // InternalJRules.g:6042:3: ruleEString
+            // InternalJRules.g:5987:2: ( ruleEString )
+            // InternalJRules.g:5988:3: ruleEString
             {
              before(grammarAccess.getNameAccess().getNameEStringParserRuleCall_2_0_2_0_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18488,26 +18337,26 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Name__NameAssignment_2_0_2_0_2"
 
 
-    // $ANTLR start "rule__Name__LanguageAssignment_2_0_2_1_2"
-    // InternalJRules.g:6051:1: rule__Name__LanguageAssignment_2_0_2_1_2 : ( ruleLanguage ) ;
-    public final void rule__Name__LanguageAssignment_2_0_2_1_2() throws RecognitionException {
+    // $ANTLR start "rule__Name__LanguageAssignment_2_0_2_1_1"
+    // InternalJRules.g:5997:1: rule__Name__LanguageAssignment_2_0_2_1_1 : ( ruleLanguage ) ;
+    public final void rule__Name__LanguageAssignment_2_0_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6055:1: ( ( ruleLanguage ) )
-            // InternalJRules.g:6056:2: ( ruleLanguage )
+            // InternalJRules.g:6001:1: ( ( ruleLanguage ) )
+            // InternalJRules.g:6002:2: ( ruleLanguage )
             {
-            // InternalJRules.g:6056:2: ( ruleLanguage )
-            // InternalJRules.g:6057:3: ruleLanguage
+            // InternalJRules.g:6002:2: ( ruleLanguage )
+            // InternalJRules.g:6003:3: ruleLanguage
             {
-             before(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_0_2_1_2_0()); 
+             before(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_0_2_1_1_0()); 
             pushFollow(FOLLOW_2);
             ruleLanguage();
 
             state._fsp--;
 
-             after(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_0_2_1_2_0()); 
+             after(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_0_2_1_1_0()); 
 
             }
 
@@ -18526,21 +18375,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Name__LanguageAssignment_2_0_2_1_2"
+    // $ANTLR end "rule__Name__LanguageAssignment_2_0_2_1_1"
 
 
     // $ANTLR start "rule__Name__OperatorAssignment_2_1_0"
-    // InternalJRules.g:6066:1: rule__Name__OperatorAssignment_2_1_0 : ( ruleNameOperator ) ;
+    // InternalJRules.g:6012:1: rule__Name__OperatorAssignment_2_1_0 : ( ruleNameOperator ) ;
     public final void rule__Name__OperatorAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6070:1: ( ( ruleNameOperator ) )
-            // InternalJRules.g:6071:2: ( ruleNameOperator )
+            // InternalJRules.g:6016:1: ( ( ruleNameOperator ) )
+            // InternalJRules.g:6017:2: ( ruleNameOperator )
             {
-            // InternalJRules.g:6071:2: ( ruleNameOperator )
-            // InternalJRules.g:6072:3: ruleNameOperator
+            // InternalJRules.g:6017:2: ( ruleNameOperator )
+            // InternalJRules.g:6018:3: ruleNameOperator
             {
              before(grammarAccess.getNameAccess().getOperatorNameOperatorEnumRuleCall_2_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -18571,17 +18420,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Name__NameAssignment_2_1_1"
-    // InternalJRules.g:6081:1: rule__Name__NameAssignment_2_1_1 : ( ruleEString ) ;
+    // InternalJRules.g:6027:1: rule__Name__NameAssignment_2_1_1 : ( ruleEString ) ;
     public final void rule__Name__NameAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6085:1: ( ( ruleEString ) )
-            // InternalJRules.g:6086:2: ( ruleEString )
+            // InternalJRules.g:6031:1: ( ( ruleEString ) )
+            // InternalJRules.g:6032:2: ( ruleEString )
             {
-            // InternalJRules.g:6086:2: ( ruleEString )
-            // InternalJRules.g:6087:3: ruleEString
+            // InternalJRules.g:6032:2: ( ruleEString )
+            // InternalJRules.g:6033:3: ruleEString
             {
              before(grammarAccess.getNameAccess().getNameEStringParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -18611,26 +18460,26 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Name__NameAssignment_2_1_1"
 
 
-    // $ANTLR start "rule__Name__LanguageAssignment_2_1_2_2"
-    // InternalJRules.g:6096:1: rule__Name__LanguageAssignment_2_1_2_2 : ( ruleLanguage ) ;
-    public final void rule__Name__LanguageAssignment_2_1_2_2() throws RecognitionException {
+    // $ANTLR start "rule__Name__LanguageAssignment_2_1_2_1"
+    // InternalJRules.g:6042:1: rule__Name__LanguageAssignment_2_1_2_1 : ( ruleLanguage ) ;
+    public final void rule__Name__LanguageAssignment_2_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6100:1: ( ( ruleLanguage ) )
-            // InternalJRules.g:6101:2: ( ruleLanguage )
+            // InternalJRules.g:6046:1: ( ( ruleLanguage ) )
+            // InternalJRules.g:6047:2: ( ruleLanguage )
             {
-            // InternalJRules.g:6101:2: ( ruleLanguage )
-            // InternalJRules.g:6102:3: ruleLanguage
+            // InternalJRules.g:6047:2: ( ruleLanguage )
+            // InternalJRules.g:6048:3: ruleLanguage
             {
-             before(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_1_2_2_0()); 
+             before(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_1_2_1_0()); 
             pushFollow(FOLLOW_2);
             ruleLanguage();
 
             state._fsp--;
 
-             after(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_1_2_2_0()); 
+             after(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_1_2_1_0()); 
 
             }
 
@@ -18649,21 +18498,21 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Name__LanguageAssignment_2_1_2_2"
+    // $ANTLR end "rule__Name__LanguageAssignment_2_1_2_1"
 
 
     // $ANTLR start "rule__Name__TypeAssignment_2_1_3_2"
-    // InternalJRules.g:6111:1: rule__Name__TypeAssignment_2_1_3_2 : ( ruleNameType ) ;
+    // InternalJRules.g:6057:1: rule__Name__TypeAssignment_2_1_3_2 : ( ruleNameType ) ;
     public final void rule__Name__TypeAssignment_2_1_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6115:1: ( ( ruleNameType ) )
-            // InternalJRules.g:6116:2: ( ruleNameType )
+            // InternalJRules.g:6061:1: ( ( ruleNameType ) )
+            // InternalJRules.g:6062:2: ( ruleNameType )
             {
-            // InternalJRules.g:6116:2: ( ruleNameType )
-            // InternalJRules.g:6117:3: ruleNameType
+            // InternalJRules.g:6062:2: ( ruleNameType )
+            // InternalJRules.g:6063:3: ruleNameType
             {
              before(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_2_1_3_2_0()); 
             pushFollow(FOLLOW_2);
@@ -18694,24 +18543,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__AuthorAssignment_2"
-    // InternalJRules.g:6126:1: rule__JavaDoc__AuthorAssignment_2 : ( ( '@author' ) ) ;
+    // InternalJRules.g:6072:1: rule__JavaDoc__AuthorAssignment_2 : ( ( '@author' ) ) ;
     public final void rule__JavaDoc__AuthorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6130:1: ( ( ( '@author' ) ) )
-            // InternalJRules.g:6131:2: ( ( '@author' ) )
+            // InternalJRules.g:6076:1: ( ( ( '@author' ) ) )
+            // InternalJRules.g:6077:2: ( ( '@author' ) )
             {
-            // InternalJRules.g:6131:2: ( ( '@author' ) )
-            // InternalJRules.g:6132:3: ( '@author' )
-            {
-             before(grammarAccess.getJavaDocAccess().getAuthorAuthorKeyword_2_0()); 
-            // InternalJRules.g:6133:3: ( '@author' )
-            // InternalJRules.g:6134:4: '@author'
+            // InternalJRules.g:6077:2: ( ( '@author' ) )
+            // InternalJRules.g:6078:3: ( '@author' )
             {
              before(grammarAccess.getJavaDocAccess().getAuthorAuthorKeyword_2_0()); 
-            match(input,72,FOLLOW_2); 
+            // InternalJRules.g:6079:3: ( '@author' )
+            // InternalJRules.g:6080:4: '@author'
+            {
+             before(grammarAccess.getJavaDocAccess().getAuthorAuthorKeyword_2_0()); 
+            match(input,71,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getAuthorAuthorKeyword_2_0()); 
 
             }
@@ -18738,30 +18587,30 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__JavaDoc__AuthorAssignment_2"
 
 
-    // $ANTLR start "rule__JavaDoc__ParametreAssignment_3"
-    // InternalJRules.g:6145:1: rule__JavaDoc__ParametreAssignment_3 : ( ( '@parameter' ) ) ;
-    public final void rule__JavaDoc__ParametreAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__JavaDoc__ParameterAssignment_3"
+    // InternalJRules.g:6091:1: rule__JavaDoc__ParameterAssignment_3 : ( ( '@parameter' ) ) ;
+    public final void rule__JavaDoc__ParameterAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6149:1: ( ( ( '@parameter' ) ) )
-            // InternalJRules.g:6150:2: ( ( '@parameter' ) )
+            // InternalJRules.g:6095:1: ( ( ( '@parameter' ) ) )
+            // InternalJRules.g:6096:2: ( ( '@parameter' ) )
             {
-            // InternalJRules.g:6150:2: ( ( '@parameter' ) )
-            // InternalJRules.g:6151:3: ( '@parameter' )
+            // InternalJRules.g:6096:2: ( ( '@parameter' ) )
+            // InternalJRules.g:6097:3: ( '@parameter' )
             {
-             before(grammarAccess.getJavaDocAccess().getParametreParameterKeyword_3_0()); 
-            // InternalJRules.g:6152:3: ( '@parameter' )
-            // InternalJRules.g:6153:4: '@parameter'
+             before(grammarAccess.getJavaDocAccess().getParameterParameterKeyword_3_0()); 
+            // InternalJRules.g:6098:3: ( '@parameter' )
+            // InternalJRules.g:6099:4: '@parameter'
             {
-             before(grammarAccess.getJavaDocAccess().getParametreParameterKeyword_3_0()); 
-            match(input,73,FOLLOW_2); 
-             after(grammarAccess.getJavaDocAccess().getParametreParameterKeyword_3_0()); 
+             before(grammarAccess.getJavaDocAccess().getParameterParameterKeyword_3_0()); 
+            match(input,72,FOLLOW_2); 
+             after(grammarAccess.getJavaDocAccess().getParameterParameterKeyword_3_0()); 
 
             }
 
-             after(grammarAccess.getJavaDocAccess().getParametreParameterKeyword_3_0()); 
+             after(grammarAccess.getJavaDocAccess().getParameterParameterKeyword_3_0()); 
 
             }
 
@@ -18780,28 +18629,28 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__JavaDoc__ParametreAssignment_3"
+    // $ANTLR end "rule__JavaDoc__ParameterAssignment_3"
 
 
     // $ANTLR start "rule__JavaDoc__ReturnAssignment_4"
-    // InternalJRules.g:6164:1: rule__JavaDoc__ReturnAssignment_4 : ( ( '@return' ) ) ;
+    // InternalJRules.g:6110:1: rule__JavaDoc__ReturnAssignment_4 : ( ( '@return' ) ) ;
     public final void rule__JavaDoc__ReturnAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6168:1: ( ( ( '@return' ) ) )
-            // InternalJRules.g:6169:2: ( ( '@return' ) )
+            // InternalJRules.g:6114:1: ( ( ( '@return' ) ) )
+            // InternalJRules.g:6115:2: ( ( '@return' ) )
             {
-            // InternalJRules.g:6169:2: ( ( '@return' ) )
-            // InternalJRules.g:6170:3: ( '@return' )
-            {
-             before(grammarAccess.getJavaDocAccess().getReturnReturnKeyword_4_0()); 
-            // InternalJRules.g:6171:3: ( '@return' )
-            // InternalJRules.g:6172:4: '@return'
+            // InternalJRules.g:6115:2: ( ( '@return' ) )
+            // InternalJRules.g:6116:3: ( '@return' )
             {
              before(grammarAccess.getJavaDocAccess().getReturnReturnKeyword_4_0()); 
-            match(input,74,FOLLOW_2); 
+            // InternalJRules.g:6117:3: ( '@return' )
+            // InternalJRules.g:6118:4: '@return'
+            {
+             before(grammarAccess.getJavaDocAccess().getReturnReturnKeyword_4_0()); 
+            match(input,73,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getReturnReturnKeyword_4_0()); 
 
             }
@@ -18829,24 +18678,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__VersionAssignment_5"
-    // InternalJRules.g:6183:1: rule__JavaDoc__VersionAssignment_5 : ( ( '@version' ) ) ;
+    // InternalJRules.g:6129:1: rule__JavaDoc__VersionAssignment_5 : ( ( '@version' ) ) ;
     public final void rule__JavaDoc__VersionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6187:1: ( ( ( '@version' ) ) )
-            // InternalJRules.g:6188:2: ( ( '@version' ) )
+            // InternalJRules.g:6133:1: ( ( ( '@version' ) ) )
+            // InternalJRules.g:6134:2: ( ( '@version' ) )
             {
-            // InternalJRules.g:6188:2: ( ( '@version' ) )
-            // InternalJRules.g:6189:3: ( '@version' )
-            {
-             before(grammarAccess.getJavaDocAccess().getVersionVersionKeyword_5_0()); 
-            // InternalJRules.g:6190:3: ( '@version' )
-            // InternalJRules.g:6191:4: '@version'
+            // InternalJRules.g:6134:2: ( ( '@version' ) )
+            // InternalJRules.g:6135:3: ( '@version' )
             {
              before(grammarAccess.getJavaDocAccess().getVersionVersionKeyword_5_0()); 
-            match(input,75,FOLLOW_2); 
+            // InternalJRules.g:6136:3: ( '@version' )
+            // InternalJRules.g:6137:4: '@version'
+            {
+             before(grammarAccess.getJavaDocAccess().getVersionVersionKeyword_5_0()); 
+            match(input,74,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getVersionVersionKeyword_5_0()); 
 
             }
@@ -18874,24 +18723,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__ThrowsAssignment_6"
-    // InternalJRules.g:6202:1: rule__JavaDoc__ThrowsAssignment_6 : ( ( '@throws' ) ) ;
+    // InternalJRules.g:6148:1: rule__JavaDoc__ThrowsAssignment_6 : ( ( '@throws' ) ) ;
     public final void rule__JavaDoc__ThrowsAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6206:1: ( ( ( '@throws' ) ) )
-            // InternalJRules.g:6207:2: ( ( '@throws' ) )
+            // InternalJRules.g:6152:1: ( ( ( '@throws' ) ) )
+            // InternalJRules.g:6153:2: ( ( '@throws' ) )
             {
-            // InternalJRules.g:6207:2: ( ( '@throws' ) )
-            // InternalJRules.g:6208:3: ( '@throws' )
-            {
-             before(grammarAccess.getJavaDocAccess().getThrowsThrowsKeyword_6_0()); 
-            // InternalJRules.g:6209:3: ( '@throws' )
-            // InternalJRules.g:6210:4: '@throws'
+            // InternalJRules.g:6153:2: ( ( '@throws' ) )
+            // InternalJRules.g:6154:3: ( '@throws' )
             {
              before(grammarAccess.getJavaDocAccess().getThrowsThrowsKeyword_6_0()); 
-            match(input,76,FOLLOW_2); 
+            // InternalJRules.g:6155:3: ( '@throws' )
+            // InternalJRules.g:6156:4: '@throws'
+            {
+             before(grammarAccess.getJavaDocAccess().getThrowsThrowsKeyword_6_0()); 
+            match(input,75,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getThrowsThrowsKeyword_6_0()); 
 
             }
@@ -18919,24 +18768,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JavaDoc__SeeAssignment_7"
-    // InternalJRules.g:6221:1: rule__JavaDoc__SeeAssignment_7 : ( ( '@see' ) ) ;
+    // InternalJRules.g:6167:1: rule__JavaDoc__SeeAssignment_7 : ( ( '@see' ) ) ;
     public final void rule__JavaDoc__SeeAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6225:1: ( ( ( '@see' ) ) )
-            // InternalJRules.g:6226:2: ( ( '@see' ) )
+            // InternalJRules.g:6171:1: ( ( ( '@see' ) ) )
+            // InternalJRules.g:6172:2: ( ( '@see' ) )
             {
-            // InternalJRules.g:6226:2: ( ( '@see' ) )
-            // InternalJRules.g:6227:3: ( '@see' )
-            {
-             before(grammarAccess.getJavaDocAccess().getSeeSeeKeyword_7_0()); 
-            // InternalJRules.g:6228:3: ( '@see' )
-            // InternalJRules.g:6229:4: '@see'
+            // InternalJRules.g:6172:2: ( ( '@see' ) )
+            // InternalJRules.g:6173:3: ( '@see' )
             {
              before(grammarAccess.getJavaDocAccess().getSeeSeeKeyword_7_0()); 
-            match(input,77,FOLLOW_2); 
+            // InternalJRules.g:6174:3: ( '@see' )
+            // InternalJRules.g:6175:4: '@see'
+            {
+             before(grammarAccess.getJavaDocAccess().getSeeSeeKeyword_7_0()); 
+            match(input,76,FOLLOW_2); 
              after(grammarAccess.getJavaDocAccess().getSeeSeeKeyword_7_0()); 
 
             }
@@ -18964,17 +18813,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Contains__WhichAssignment_2"
-    // InternalJRules.g:6240:1: rule__Contains__WhichAssignment_2 : ( ruleRule ) ;
+    // InternalJRules.g:6186:1: rule__Contains__WhichAssignment_2 : ( ruleRule ) ;
     public final void rule__Contains__WhichAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6244:1: ( ( ruleRule ) )
-            // InternalJRules.g:6245:2: ( ruleRule )
+            // InternalJRules.g:6190:1: ( ( ruleRule ) )
+            // InternalJRules.g:6191:2: ( ruleRule )
             {
-            // InternalJRules.g:6245:2: ( ruleRule )
-            // InternalJRules.g:6246:3: ruleRule
+            // InternalJRules.g:6191:2: ( ruleRule )
+            // InternalJRules.g:6192:3: ruleRule
             {
              before(grammarAccess.getContainsAccess().getWhichRuleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19005,17 +18854,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__BlendAssignment_3"
-    // InternalJRules.g:6255:1: rule__Modifiers__BlendAssignment_3 : ( ruleBlendModifiers ) ;
+    // InternalJRules.g:6201:1: rule__Modifiers__BlendAssignment_3 : ( ruleBlendModifiers ) ;
     public final void rule__Modifiers__BlendAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6259:1: ( ( ruleBlendModifiers ) )
-            // InternalJRules.g:6260:2: ( ruleBlendModifiers )
+            // InternalJRules.g:6205:1: ( ( ruleBlendModifiers ) )
+            // InternalJRules.g:6206:2: ( ruleBlendModifiers )
             {
-            // InternalJRules.g:6260:2: ( ruleBlendModifiers )
-            // InternalJRules.g:6261:3: ruleBlendModifiers
+            // InternalJRules.g:6206:2: ( ruleBlendModifiers )
+            // InternalJRules.g:6207:3: ruleBlendModifiers
             {
              before(grammarAccess.getModifiersAccess().getBlendBlendModifiersParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19046,17 +18895,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Modifiers__BlendAssignment_5_2"
-    // InternalJRules.g:6270:1: rule__Modifiers__BlendAssignment_5_2 : ( ruleBlendModifiers ) ;
+    // InternalJRules.g:6216:1: rule__Modifiers__BlendAssignment_5_2 : ( ruleBlendModifiers ) ;
     public final void rule__Modifiers__BlendAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6274:1: ( ( ruleBlendModifiers ) )
-            // InternalJRules.g:6275:2: ( ruleBlendModifiers )
+            // InternalJRules.g:6220:1: ( ( ruleBlendModifiers ) )
+            // InternalJRules.g:6221:2: ( ruleBlendModifiers )
             {
-            // InternalJRules.g:6275:2: ( ruleBlendModifiers )
-            // InternalJRules.g:6276:3: ruleBlendModifiers
+            // InternalJRules.g:6221:2: ( ruleBlendModifiers )
+            // InternalJRules.g:6222:3: ruleBlendModifiers
             {
              before(grammarAccess.getModifiersAccess().getBlendBlendModifiersParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19087,17 +18936,17 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__AccessAssignment_0_0"
-    // InternalJRules.g:6285:1: rule__BlendModifiers__AccessAssignment_0_0 : ( ruleAccessModifier ) ;
+    // InternalJRules.g:6231:1: rule__BlendModifiers__AccessAssignment_0_0 : ( ruleAccessModifier ) ;
     public final void rule__BlendModifiers__AccessAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6289:1: ( ( ruleAccessModifier ) )
-            // InternalJRules.g:6290:2: ( ruleAccessModifier )
+            // InternalJRules.g:6235:1: ( ( ruleAccessModifier ) )
+            // InternalJRules.g:6236:2: ( ruleAccessModifier )
             {
-            // InternalJRules.g:6290:2: ( ruleAccessModifier )
-            // InternalJRules.g:6291:3: ruleAccessModifier
+            // InternalJRules.g:6236:2: ( ruleAccessModifier )
+            // InternalJRules.g:6237:3: ruleAccessModifier
             {
              before(grammarAccess.getBlendModifiersAccess().getAccessAccessModifierEnumRuleCall_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -19128,24 +18977,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__StaticAssignment_0_1_1"
-    // InternalJRules.g:6300:1: rule__BlendModifiers__StaticAssignment_0_1_1 : ( ( 'static' ) ) ;
+    // InternalJRules.g:6246:1: rule__BlendModifiers__StaticAssignment_0_1_1 : ( ( 'static' ) ) ;
     public final void rule__BlendModifiers__StaticAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6304:1: ( ( ( 'static' ) ) )
-            // InternalJRules.g:6305:2: ( ( 'static' ) )
+            // InternalJRules.g:6250:1: ( ( ( 'static' ) ) )
+            // InternalJRules.g:6251:2: ( ( 'static' ) )
             {
-            // InternalJRules.g:6305:2: ( ( 'static' ) )
-            // InternalJRules.g:6306:3: ( 'static' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_0_1_1_0()); 
-            // InternalJRules.g:6307:3: ( 'static' )
-            // InternalJRules.g:6308:4: 'static'
+            // InternalJRules.g:6251:2: ( ( 'static' ) )
+            // InternalJRules.g:6252:3: ( 'static' )
             {
              before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_0_1_1_0()); 
-            match(input,78,FOLLOW_2); 
+            // InternalJRules.g:6253:3: ( 'static' )
+            // InternalJRules.g:6254:4: 'static'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_0_1_1_0()); 
+            match(input,77,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_0_1_1_0()); 
 
             }
@@ -19173,24 +19022,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__FinalAssignment_0_2_1"
-    // InternalJRules.g:6319:1: rule__BlendModifiers__FinalAssignment_0_2_1 : ( ( 'final' ) ) ;
+    // InternalJRules.g:6265:1: rule__BlendModifiers__FinalAssignment_0_2_1 : ( ( 'final' ) ) ;
     public final void rule__BlendModifiers__FinalAssignment_0_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6323:1: ( ( ( 'final' ) ) )
-            // InternalJRules.g:6324:2: ( ( 'final' ) )
+            // InternalJRules.g:6269:1: ( ( ( 'final' ) ) )
+            // InternalJRules.g:6270:2: ( ( 'final' ) )
             {
-            // InternalJRules.g:6324:2: ( ( 'final' ) )
-            // InternalJRules.g:6325:3: ( 'final' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_0_2_1_0()); 
-            // InternalJRules.g:6326:3: ( 'final' )
-            // InternalJRules.g:6327:4: 'final'
+            // InternalJRules.g:6270:2: ( ( 'final' ) )
+            // InternalJRules.g:6271:3: ( 'final' )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_0_2_1_0()); 
-            match(input,79,FOLLOW_2); 
+            // InternalJRules.g:6272:3: ( 'final' )
+            // InternalJRules.g:6273:4: 'final'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_0_2_1_0()); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_0_2_1_0()); 
 
             }
@@ -19218,24 +19067,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__AbstractAssignment_0_3_1"
-    // InternalJRules.g:6338:1: rule__BlendModifiers__AbstractAssignment_0_3_1 : ( ( 'abstract' ) ) ;
+    // InternalJRules.g:6284:1: rule__BlendModifiers__AbstractAssignment_0_3_1 : ( ( 'abstract' ) ) ;
     public final void rule__BlendModifiers__AbstractAssignment_0_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6342:1: ( ( ( 'abstract' ) ) )
-            // InternalJRules.g:6343:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6288:1: ( ( ( 'abstract' ) ) )
+            // InternalJRules.g:6289:2: ( ( 'abstract' ) )
             {
-            // InternalJRules.g:6343:2: ( ( 'abstract' ) )
-            // InternalJRules.g:6344:3: ( 'abstract' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_0_3_1_0()); 
-            // InternalJRules.g:6345:3: ( 'abstract' )
-            // InternalJRules.g:6346:4: 'abstract'
+            // InternalJRules.g:6289:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6290:3: ( 'abstract' )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_0_3_1_0()); 
-            match(input,80,FOLLOW_2); 
+            // InternalJRules.g:6291:3: ( 'abstract' )
+            // InternalJRules.g:6292:4: 'abstract'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_0_3_1_0()); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_0_3_1_0()); 
 
             }
@@ -19263,24 +19112,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__SynchronizedAssignment_0_4_1"
-    // InternalJRules.g:6357:1: rule__BlendModifiers__SynchronizedAssignment_0_4_1 : ( ( 'synchronized' ) ) ;
+    // InternalJRules.g:6303:1: rule__BlendModifiers__SynchronizedAssignment_0_4_1 : ( ( 'synchronized' ) ) ;
     public final void rule__BlendModifiers__SynchronizedAssignment_0_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6361:1: ( ( ( 'synchronized' ) ) )
-            // InternalJRules.g:6362:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6307:1: ( ( ( 'synchronized' ) ) )
+            // InternalJRules.g:6308:2: ( ( 'synchronized' ) )
             {
-            // InternalJRules.g:6362:2: ( ( 'synchronized' ) )
-            // InternalJRules.g:6363:3: ( 'synchronized' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0()); 
-            // InternalJRules.g:6364:3: ( 'synchronized' )
-            // InternalJRules.g:6365:4: 'synchronized'
+            // InternalJRules.g:6308:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6309:3: ( 'synchronized' )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0()); 
-            match(input,81,FOLLOW_2); 
+            // InternalJRules.g:6310:3: ( 'synchronized' )
+            // InternalJRules.g:6311:4: 'synchronized'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0()); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0()); 
 
             }
@@ -19308,24 +19157,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__StaticAssignment_1_0"
-    // InternalJRules.g:6376:1: rule__BlendModifiers__StaticAssignment_1_0 : ( ( 'static' ) ) ;
+    // InternalJRules.g:6322:1: rule__BlendModifiers__StaticAssignment_1_0 : ( ( 'static' ) ) ;
     public final void rule__BlendModifiers__StaticAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6380:1: ( ( ( 'static' ) ) )
-            // InternalJRules.g:6381:2: ( ( 'static' ) )
+            // InternalJRules.g:6326:1: ( ( ( 'static' ) ) )
+            // InternalJRules.g:6327:2: ( ( 'static' ) )
             {
-            // InternalJRules.g:6381:2: ( ( 'static' ) )
-            // InternalJRules.g:6382:3: ( 'static' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0()); 
-            // InternalJRules.g:6383:3: ( 'static' )
-            // InternalJRules.g:6384:4: 'static'
+            // InternalJRules.g:6327:2: ( ( 'static' ) )
+            // InternalJRules.g:6328:3: ( 'static' )
             {
              before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0()); 
-            match(input,78,FOLLOW_2); 
+            // InternalJRules.g:6329:3: ( 'static' )
+            // InternalJRules.g:6330:4: 'static'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0()); 
+            match(input,77,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0()); 
 
             }
@@ -19353,24 +19202,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__FinalAssignment_1_1_1"
-    // InternalJRules.g:6395:1: rule__BlendModifiers__FinalAssignment_1_1_1 : ( ( 'final' ) ) ;
+    // InternalJRules.g:6341:1: rule__BlendModifiers__FinalAssignment_1_1_1 : ( ( 'final' ) ) ;
     public final void rule__BlendModifiers__FinalAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6399:1: ( ( ( 'final' ) ) )
-            // InternalJRules.g:6400:2: ( ( 'final' ) )
+            // InternalJRules.g:6345:1: ( ( ( 'final' ) ) )
+            // InternalJRules.g:6346:2: ( ( 'final' ) )
             {
-            // InternalJRules.g:6400:2: ( ( 'final' ) )
-            // InternalJRules.g:6401:3: ( 'final' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0()); 
-            // InternalJRules.g:6402:3: ( 'final' )
-            // InternalJRules.g:6403:4: 'final'
+            // InternalJRules.g:6346:2: ( ( 'final' ) )
+            // InternalJRules.g:6347:3: ( 'final' )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0()); 
-            match(input,79,FOLLOW_2); 
+            // InternalJRules.g:6348:3: ( 'final' )
+            // InternalJRules.g:6349:4: 'final'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0()); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0()); 
 
             }
@@ -19398,24 +19247,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__AbstractAssignment_1_2_1"
-    // InternalJRules.g:6414:1: rule__BlendModifiers__AbstractAssignment_1_2_1 : ( ( 'abstract' ) ) ;
+    // InternalJRules.g:6360:1: rule__BlendModifiers__AbstractAssignment_1_2_1 : ( ( 'abstract' ) ) ;
     public final void rule__BlendModifiers__AbstractAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6418:1: ( ( ( 'abstract' ) ) )
-            // InternalJRules.g:6419:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6364:1: ( ( ( 'abstract' ) ) )
+            // InternalJRules.g:6365:2: ( ( 'abstract' ) )
             {
-            // InternalJRules.g:6419:2: ( ( 'abstract' ) )
-            // InternalJRules.g:6420:3: ( 'abstract' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0()); 
-            // InternalJRules.g:6421:3: ( 'abstract' )
-            // InternalJRules.g:6422:4: 'abstract'
+            // InternalJRules.g:6365:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6366:3: ( 'abstract' )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0()); 
-            match(input,80,FOLLOW_2); 
+            // InternalJRules.g:6367:3: ( 'abstract' )
+            // InternalJRules.g:6368:4: 'abstract'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0()); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0()); 
 
             }
@@ -19443,24 +19292,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__SynchronizedAssignment_1_3_1"
-    // InternalJRules.g:6433:1: rule__BlendModifiers__SynchronizedAssignment_1_3_1 : ( ( 'synchronized' ) ) ;
+    // InternalJRules.g:6379:1: rule__BlendModifiers__SynchronizedAssignment_1_3_1 : ( ( 'synchronized' ) ) ;
     public final void rule__BlendModifiers__SynchronizedAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6437:1: ( ( ( 'synchronized' ) ) )
-            // InternalJRules.g:6438:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6383:1: ( ( ( 'synchronized' ) ) )
+            // InternalJRules.g:6384:2: ( ( 'synchronized' ) )
             {
-            // InternalJRules.g:6438:2: ( ( 'synchronized' ) )
-            // InternalJRules.g:6439:3: ( 'synchronized' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0()); 
-            // InternalJRules.g:6440:3: ( 'synchronized' )
-            // InternalJRules.g:6441:4: 'synchronized'
+            // InternalJRules.g:6384:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6385:3: ( 'synchronized' )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0()); 
-            match(input,81,FOLLOW_2); 
+            // InternalJRules.g:6386:3: ( 'synchronized' )
+            // InternalJRules.g:6387:4: 'synchronized'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0()); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0()); 
 
             }
@@ -19488,24 +19337,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__FinalAssignment_2_0"
-    // InternalJRules.g:6452:1: rule__BlendModifiers__FinalAssignment_2_0 : ( ( 'final' ) ) ;
+    // InternalJRules.g:6398:1: rule__BlendModifiers__FinalAssignment_2_0 : ( ( 'final' ) ) ;
     public final void rule__BlendModifiers__FinalAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6456:1: ( ( ( 'final' ) ) )
-            // InternalJRules.g:6457:2: ( ( 'final' ) )
+            // InternalJRules.g:6402:1: ( ( ( 'final' ) ) )
+            // InternalJRules.g:6403:2: ( ( 'final' ) )
             {
-            // InternalJRules.g:6457:2: ( ( 'final' ) )
-            // InternalJRules.g:6458:3: ( 'final' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0()); 
-            // InternalJRules.g:6459:3: ( 'final' )
-            // InternalJRules.g:6460:4: 'final'
+            // InternalJRules.g:6403:2: ( ( 'final' ) )
+            // InternalJRules.g:6404:3: ( 'final' )
             {
              before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0()); 
-            match(input,79,FOLLOW_2); 
+            // InternalJRules.g:6405:3: ( 'final' )
+            // InternalJRules.g:6406:4: 'final'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0()); 
+            match(input,78,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0()); 
 
             }
@@ -19533,24 +19382,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__AbstractAssignment_2_1_1"
-    // InternalJRules.g:6471:1: rule__BlendModifiers__AbstractAssignment_2_1_1 : ( ( 'abstract' ) ) ;
+    // InternalJRules.g:6417:1: rule__BlendModifiers__AbstractAssignment_2_1_1 : ( ( 'abstract' ) ) ;
     public final void rule__BlendModifiers__AbstractAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6475:1: ( ( ( 'abstract' ) ) )
-            // InternalJRules.g:6476:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6421:1: ( ( ( 'abstract' ) ) )
+            // InternalJRules.g:6422:2: ( ( 'abstract' ) )
             {
-            // InternalJRules.g:6476:2: ( ( 'abstract' ) )
-            // InternalJRules.g:6477:3: ( 'abstract' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0()); 
-            // InternalJRules.g:6478:3: ( 'abstract' )
-            // InternalJRules.g:6479:4: 'abstract'
+            // InternalJRules.g:6422:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6423:3: ( 'abstract' )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0()); 
-            match(input,80,FOLLOW_2); 
+            // InternalJRules.g:6424:3: ( 'abstract' )
+            // InternalJRules.g:6425:4: 'abstract'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0()); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0()); 
 
             }
@@ -19578,24 +19427,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__SynchronizedAssignment_2_2_1"
-    // InternalJRules.g:6490:1: rule__BlendModifiers__SynchronizedAssignment_2_2_1 : ( ( 'synchronized' ) ) ;
+    // InternalJRules.g:6436:1: rule__BlendModifiers__SynchronizedAssignment_2_2_1 : ( ( 'synchronized' ) ) ;
     public final void rule__BlendModifiers__SynchronizedAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6494:1: ( ( ( 'synchronized' ) ) )
-            // InternalJRules.g:6495:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6440:1: ( ( ( 'synchronized' ) ) )
+            // InternalJRules.g:6441:2: ( ( 'synchronized' ) )
             {
-            // InternalJRules.g:6495:2: ( ( 'synchronized' ) )
-            // InternalJRules.g:6496:3: ( 'synchronized' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0()); 
-            // InternalJRules.g:6497:3: ( 'synchronized' )
-            // InternalJRules.g:6498:4: 'synchronized'
+            // InternalJRules.g:6441:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6442:3: ( 'synchronized' )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0()); 
-            match(input,81,FOLLOW_2); 
+            // InternalJRules.g:6443:3: ( 'synchronized' )
+            // InternalJRules.g:6444:4: 'synchronized'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0()); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0()); 
 
             }
@@ -19623,24 +19472,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__AbstractAssignment_3_0"
-    // InternalJRules.g:6509:1: rule__BlendModifiers__AbstractAssignment_3_0 : ( ( 'abstract' ) ) ;
+    // InternalJRules.g:6455:1: rule__BlendModifiers__AbstractAssignment_3_0 : ( ( 'abstract' ) ) ;
     public final void rule__BlendModifiers__AbstractAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6513:1: ( ( ( 'abstract' ) ) )
-            // InternalJRules.g:6514:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6459:1: ( ( ( 'abstract' ) ) )
+            // InternalJRules.g:6460:2: ( ( 'abstract' ) )
             {
-            // InternalJRules.g:6514:2: ( ( 'abstract' ) )
-            // InternalJRules.g:6515:3: ( 'abstract' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0()); 
-            // InternalJRules.g:6516:3: ( 'abstract' )
-            // InternalJRules.g:6517:4: 'abstract'
+            // InternalJRules.g:6460:2: ( ( 'abstract' ) )
+            // InternalJRules.g:6461:3: ( 'abstract' )
             {
              before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0()); 
-            match(input,80,FOLLOW_2); 
+            // InternalJRules.g:6462:3: ( 'abstract' )
+            // InternalJRules.g:6463:4: 'abstract'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0()); 
+            match(input,79,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0()); 
 
             }
@@ -19668,24 +19517,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__SynchronizedAssignment_3_1_1"
-    // InternalJRules.g:6528:1: rule__BlendModifiers__SynchronizedAssignment_3_1_1 : ( ( 'synchronized' ) ) ;
+    // InternalJRules.g:6474:1: rule__BlendModifiers__SynchronizedAssignment_3_1_1 : ( ( 'synchronized' ) ) ;
     public final void rule__BlendModifiers__SynchronizedAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6532:1: ( ( ( 'synchronized' ) ) )
-            // InternalJRules.g:6533:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6478:1: ( ( ( 'synchronized' ) ) )
+            // InternalJRules.g:6479:2: ( ( 'synchronized' ) )
             {
-            // InternalJRules.g:6533:2: ( ( 'synchronized' ) )
-            // InternalJRules.g:6534:3: ( 'synchronized' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0()); 
-            // InternalJRules.g:6535:3: ( 'synchronized' )
-            // InternalJRules.g:6536:4: 'synchronized'
+            // InternalJRules.g:6479:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6480:3: ( 'synchronized' )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0()); 
-            match(input,81,FOLLOW_2); 
+            // InternalJRules.g:6481:3: ( 'synchronized' )
+            // InternalJRules.g:6482:4: 'synchronized'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0()); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0()); 
 
             }
@@ -19713,24 +19562,24 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BlendModifiers__SynchronizedAssignment_4"
-    // InternalJRules.g:6547:1: rule__BlendModifiers__SynchronizedAssignment_4 : ( ( 'synchronized' ) ) ;
+    // InternalJRules.g:6493:1: rule__BlendModifiers__SynchronizedAssignment_4 : ( ( 'synchronized' ) ) ;
     public final void rule__BlendModifiers__SynchronizedAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:6551:1: ( ( ( 'synchronized' ) ) )
-            // InternalJRules.g:6552:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6497:1: ( ( ( 'synchronized' ) ) )
+            // InternalJRules.g:6498:2: ( ( 'synchronized' ) )
             {
-            // InternalJRules.g:6552:2: ( ( 'synchronized' ) )
-            // InternalJRules.g:6553:3: ( 'synchronized' )
-            {
-             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0()); 
-            // InternalJRules.g:6554:3: ( 'synchronized' )
-            // InternalJRules.g:6555:4: 'synchronized'
+            // InternalJRules.g:6498:2: ( ( 'synchronized' ) )
+            // InternalJRules.g:6499:3: ( 'synchronized' )
             {
              before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0()); 
-            match(input,81,FOLLOW_2); 
+            // InternalJRules.g:6500:3: ( 'synchronized' )
+            // InternalJRules.g:6501:4: 'synchronized'
+            {
+             before(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0()); 
+            match(input,80,FOLLOW_2); 
              after(grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0()); 
 
             }
@@ -19762,12 +19611,12 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     protected DFA1 dfa1 = new DFA1(this);
     static final String dfa_1s = "\20\uffff";
     static final String dfa_2s = "\1\54\1\55\16\uffff";
-    static final String dfa_3s = "\1\105\1\75\16\uffff";
-    static final String dfa_4s = "\2\uffff\1\3\1\5\1\7\1\10\1\13\1\14\1\15\1\16\1\6\1\11\1\2\1\12\1\1\1\4";
+    static final String dfa_3s = "\1\104\1\75\16\uffff";
+    static final String dfa_4s = "\2\uffff\1\3\1\5\1\7\1\10\1\13\1\14\1\15\1\16\1\2\1\12\1\1\1\4\1\6\1\11";
     static final String dfa_5s = "\20\uffff}>";
     static final String[] dfa_6s = {
-            "\1\1\2\uffff\1\2\4\uffff\1\3\5\uffff\1\4\1\5\3\uffff\1\6\1\uffff\1\7\1\10\2\uffff\1\11",
-            "\1\16\1\14\4\uffff\1\17\5\uffff\1\12\2\uffff\1\13\1\15",
+            "\1\1\2\uffff\1\2\4\uffff\1\3\5\uffff\1\4\1\5\3\uffff\1\6\1\7\1\10\2\uffff\1\11",
+            "\1\14\1\12\4\uffff\1\15\5\uffff\1\16\2\uffff\1\17\1\13",
             "",
             "",
             "",
@@ -19813,16 +19662,16 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000003800L,0x0000000000000080L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000003800L,0x0000000000000040L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000003802L,0x0000000000000080L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000003802L,0x0000000000000040L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000000FC000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000C000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x8C10920000000000L,0x0000000000000026L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x8C10920000000000L,0x00000000000000A6L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x8C10920000000000L,0x0000000000000013L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x8C10920000000000L,0x0000000000000053L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000010000000000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x8C10900000000000L,0x0000000000000026L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x8C10900000000000L,0x0000000000000013L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x00000C0000000000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000040000000002L});
@@ -19831,7 +19680,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000400000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000800000000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0007000000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000040L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000020L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0004000000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0008000000000000L});
@@ -19848,20 +19697,19 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x080000003E000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000001F00000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0100040000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000003F00L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x00000000C0000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0100040000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001F80L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000F00000000L,0x000000000003C000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0080010000000000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000F00000000L,0x000000000001E000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0080010000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
 
 }

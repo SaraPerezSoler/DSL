@@ -22,6 +22,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//Language">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/ENGLISH"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/ESPANIOL"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/EMPTY"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameType">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/upperCase"/>
@@ -29,6 +30,7 @@
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/upperCamelCase"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/lowerCamelCase"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/startUpperCase"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/nothing"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameOperator">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/like"/>
@@ -36,12 +38,14 @@
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/start"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/ends"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/contains"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/nothing"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//AccessModifier">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Default"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Public"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Protected"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/Private"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/nothing"/>
     </genEnums>
     <genClasses ecoreClass="metamodel.ecore#//RuleSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//RuleSet/ProjectName"/>
@@ -99,7 +103,7 @@
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//JavaDoc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/author"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/parametre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/parameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/return"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/throws"/>

@@ -26,7 +26,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENGLISH(0, "ENGLISH", "ENGLISH"),
+	ENGLISH(2, "ENGLISH", "ENGLISH"),
 
 	/**
 	 * The '<em><b>ESPANIOL</b></em>' literal object.
@@ -36,7 +36,15 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ESPANIOL(1, "ESPANIOL", "ESPANIOL");
+	ESPANIOL(1, "ESPANIOL", "ESPANIOL"), /**
+	 * The '<em><b>EMPTY</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EMPTY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	EMPTY(0, "EMPTY", "EMPTY");
 
 	/**
 	 * The '<em><b>ENGLISH</b></em>' literal value.
@@ -51,7 +59,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENGLISH_VALUE = 0;
+	public static final int ENGLISH_VALUE = 2;
 
 	/**
 	 * The '<em><b>ESPANIOL</b></em>' literal value.
@@ -69,6 +77,21 @@ public enum Language implements Enumerator {
 	public static final int ESPANIOL_VALUE = 1;
 
 	/**
+	 * The '<em><b>EMPTY</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>EMPTY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #EMPTY
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EMPTY_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Language</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +101,7 @@ public enum Language implements Enumerator {
 		new Language[] {
 			ENGLISH,
 			ESPANIOL,
+			EMPTY,
 		};
 
 	/**
@@ -136,6 +160,7 @@ public enum Language implements Enumerator {
 		switch (value) {
 			case ENGLISH_VALUE: return ENGLISH;
 			case ESPANIOL_VALUE: return ESPANIOL;
+			case EMPTY_VALUE: return EMPTY;
 		}
 		return null;
 	}

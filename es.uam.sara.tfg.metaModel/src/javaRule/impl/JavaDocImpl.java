@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link javaRule.impl.JavaDocImpl#isAuthor <em>Author</em>}</li>
- *   <li>{@link javaRule.impl.JavaDocImpl#isParametre <em>Parametre</em>}</li>
+ *   <li>{@link javaRule.impl.JavaDocImpl#isParameter <em>Parameter</em>}</li>
  *   <li>{@link javaRule.impl.JavaDocImpl#isReturn <em>Return</em>}</li>
  *   <li>{@link javaRule.impl.JavaDocImpl#isVersion <em>Version</em>}</li>
  *   <li>{@link javaRule.impl.JavaDocImpl#isThrows <em>Throws</em>}</li>
@@ -51,24 +51,24 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 	protected boolean author = AUTHOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isParametre() <em>Parametre</em>}' attribute.
+	 * The default value of the '{@link #isParameter() <em>Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isParametre()
+	 * @see #isParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PARAMETRE_EDEFAULT = false;
+	protected static final boolean PARAMETER_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isParametre() <em>Parametre</em>}' attribute.
+	 * The cached value of the '{@link #isParameter() <em>Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isParametre()
+	 * @see #isParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean parametre = PARAMETRE_EDEFAULT;
+	protected boolean parameter = PARAMETER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReturn() <em>Return</em>}' attribute.
@@ -195,8 +195,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isParametre() {
-		return parametre;
+	public boolean isParameter() {
+		return parameter;
 	}
 
 	/**
@@ -204,11 +204,11 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParametre(boolean newParametre) {
-		boolean oldParametre = parametre;
-		parametre = newParametre;
+	public void setParameter(boolean newParameter) {
+		boolean oldParameter = parameter;
+		parameter = newParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.JAVA_DOC__PARAMETRE, oldParametre, parametre));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.JAVA_DOC__PARAMETER, oldParameter, parameter));
 	}
 
 	/**
@@ -305,8 +305,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 		switch (featureID) {
 			case JavaRulePackage.JAVA_DOC__AUTHOR:
 				return isAuthor();
-			case JavaRulePackage.JAVA_DOC__PARAMETRE:
-				return isParametre();
+			case JavaRulePackage.JAVA_DOC__PARAMETER:
+				return isParameter();
 			case JavaRulePackage.JAVA_DOC__RETURN:
 				return isReturn();
 			case JavaRulePackage.JAVA_DOC__VERSION:
@@ -330,8 +330,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 			case JavaRulePackage.JAVA_DOC__AUTHOR:
 				setAuthor((Boolean)newValue);
 				return;
-			case JavaRulePackage.JAVA_DOC__PARAMETRE:
-				setParametre((Boolean)newValue);
+			case JavaRulePackage.JAVA_DOC__PARAMETER:
+				setParameter((Boolean)newValue);
 				return;
 			case JavaRulePackage.JAVA_DOC__RETURN:
 				setReturn((Boolean)newValue);
@@ -360,8 +360,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 			case JavaRulePackage.JAVA_DOC__AUTHOR:
 				setAuthor(AUTHOR_EDEFAULT);
 				return;
-			case JavaRulePackage.JAVA_DOC__PARAMETRE:
-				setParametre(PARAMETRE_EDEFAULT);
+			case JavaRulePackage.JAVA_DOC__PARAMETER:
+				setParameter(PARAMETER_EDEFAULT);
 				return;
 			case JavaRulePackage.JAVA_DOC__RETURN:
 				setReturn(RETURN_EDEFAULT);
@@ -389,8 +389,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 		switch (featureID) {
 			case JavaRulePackage.JAVA_DOC__AUTHOR:
 				return author != AUTHOR_EDEFAULT;
-			case JavaRulePackage.JAVA_DOC__PARAMETRE:
-				return parametre != PARAMETRE_EDEFAULT;
+			case JavaRulePackage.JAVA_DOC__PARAMETER:
+				return parameter != PARAMETER_EDEFAULT;
 			case JavaRulePackage.JAVA_DOC__RETURN:
 				return return_ != RETURN_EDEFAULT;
 			case JavaRulePackage.JAVA_DOC__VERSION:
@@ -415,8 +415,8 @@ public class JavaDocImpl extends AttributeImpl implements JavaDoc {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (author: ");
 		result.append(author);
-		result.append(", parametre: ");
-		result.append(parametre);
+		result.append(", parameter: ");
+		result.append(parameter);
 		result.append(", return: ");
 		result.append(return_);
 		result.append(", version: ");

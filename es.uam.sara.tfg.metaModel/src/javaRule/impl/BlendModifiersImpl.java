@@ -39,7 +39,7 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final AccessModifier ACCESS_EDEFAULT = AccessModifier.DEFAULT;
+	protected static final AccessModifier ACCESS_EDEFAULT = AccessModifier.NOTHING;
 
 	/**
 	 * The cached value of the '{@link #getAccess() <em>Access</em>}' attribute.
