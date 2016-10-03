@@ -340,7 +340,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (numParam=EBigInteger (typesParam+=EString typesParam+=EString*)?)
+	 *     (numParam=EInt (typesParam+=EString typesParam+=EString*)?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, javaRule.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -383,7 +383,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Rule returns Rule
 	 *
 	 * Constraint:
-	 *     (no?='no'? quantifier=Quantifier element=ElementJava filter=Filter? satisfy=Or)
+	 *     (no?='no'? quantifier=Quantifier element=ElementJava filter=Filter? satisfy=Or?)
 	 */
 	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

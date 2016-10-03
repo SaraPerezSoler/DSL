@@ -52,6 +52,7 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRuleSetAccess().getGroup_4(), "rule__RuleSet__Group_4__0");
 					put(grammarAccess.getRuleAccess().getGroup(), "rule__Rule__Group__0");
 					put(grammarAccess.getRuleAccess().getGroup_3(), "rule__Rule__Group_3__0");
+					put(grammarAccess.getRuleAccess().getGroup_4(), "rule__Rule__Group_4__0");
 					put(grammarAccess.getFilterAccess().getGroup(), "rule__Filter__Group__0");
 					put(grammarAccess.getOrAccess().getGroup(), "rule__Or__Group__0");
 					put(grammarAccess.getOrAccess().getGroup_1(), "rule__Or__Group_1__0");
@@ -108,7 +109,7 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRuleAccess().getQuantifierAssignment_1(), "rule__Rule__QuantifierAssignment_1");
 					put(grammarAccess.getRuleAccess().getElementAssignment_2(), "rule__Rule__ElementAssignment_2");
 					put(grammarAccess.getRuleAccess().getFilterAssignment_3_1(), "rule__Rule__FilterAssignment_3_1");
-					put(grammarAccess.getRuleAccess().getSatisfyAssignment_5(), "rule__Rule__SatisfyAssignment_5");
+					put(grammarAccess.getRuleAccess().getSatisfyAssignment_4_1(), "rule__Rule__SatisfyAssignment_4_1");
 					put(grammarAccess.getFilterAccess().getNoAssignment_0(), "rule__Filter__NoAssignment_0");
 					put(grammarAccess.getFilterAccess().getFilterAssignment_1(), "rule__Filter__FilterAssignment_1");
 					put(grammarAccess.getOrAccess().getOpAssignment_0(), "rule__Or__OpAssignment_0");

@@ -54,7 +54,7 @@ public class ImplementsImpl extends ClassImpl implements Implements {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_INTERFACE_EDEFAULT = 0;
+	protected static final int MAX_INTERFACE_EDEFAULT = 2147483647;
 
 	/**
 	 * The cached value of the '{@link #getMaxInterface() <em>Max Interface</em>}' attribute.

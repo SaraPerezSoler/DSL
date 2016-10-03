@@ -147,7 +147,7 @@ public interface Rule extends EObject {
 	 * @return the value of the '<em>Satisfy</em>' containment reference.
 	 * @see #setSatisfy(Or)
 	 * @see javaRule.JavaRulePackage#getRule_Satisfy()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	Or getSatisfy();

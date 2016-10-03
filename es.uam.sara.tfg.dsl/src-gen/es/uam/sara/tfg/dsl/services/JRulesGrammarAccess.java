@@ -179,15 +179,16 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cWhichKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cFilterAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cFilterFilterParserRuleCall_3_1_0 = (RuleCall)cFilterAssignment_3_1.eContents().get(0);
-		private final Keyword cSatisfyKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cSatisfyAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cSatisfyOrParserRuleCall_5_0 = (RuleCall)cSatisfyAssignment_5.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cSatisfyKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSatisfyAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cSatisfyOrParserRuleCall_4_1_0 = (RuleCall)cSatisfyAssignment_4_1.eContents().get(0);
 		
 		//Rule:
-		//	no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? 'satisfy' satisfy=Or;
+		//	no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? ('satisfy' satisfy=Or)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? 'satisfy' satisfy=Or
+		//no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? ('satisfy' satisfy=Or)?
 		public Group getGroup() { return cGroup; }
 		
 		//no?='no'?
@@ -220,14 +221,17 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//Filter
 		public RuleCall getFilterFilterParserRuleCall_3_1_0() { return cFilterFilterParserRuleCall_3_1_0; }
 		
+		//('satisfy' satisfy=Or)?
+		public Group getGroup_4() { return cGroup_4; }
+		
 		//'satisfy'
-		public Keyword getSatisfyKeyword_4() { return cSatisfyKeyword_4; }
+		public Keyword getSatisfyKeyword_4_0() { return cSatisfyKeyword_4_0; }
 		
 		//satisfy=Or
-		public Assignment getSatisfyAssignment_5() { return cSatisfyAssignment_5; }
+		public Assignment getSatisfyAssignment_4_1() { return cSatisfyAssignment_4_1; }
 		
 		//Or
-		public RuleCall getSatisfyOrParserRuleCall_5_0() { return cSatisfyOrParserRuleCall_5_0; }
+		public RuleCall getSatisfyOrParserRuleCall_4_1_0() { return cSatisfyOrParserRuleCall_4_1_0; }
 	}
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.EBoolean");
@@ -559,7 +563,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumParametersKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNumParamAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNumParamEBigIntegerParserRuleCall_1_0 = (RuleCall)cNumParamAssignment_1.eContents().get(0);
+		private final RuleCall cNumParamEIntParserRuleCall_1_0 = (RuleCall)cNumParamAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cAndKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Keyword cTypesKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
@@ -573,20 +577,20 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
 		
 		//Parameter:
-		//	'numParameters=' numParam=EBigInteger ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?;
+		//	'numParameters=' numParam=EInt ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'numParameters=' numParam=EBigInteger ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?
+		//'numParameters=' numParam=EInt ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?
 		public Group getGroup() { return cGroup; }
 		
 		//'numParameters='
 		public Keyword getNumParametersKeyword_0() { return cNumParametersKeyword_0; }
 		
-		//numParam=EBigInteger
+		//numParam=EInt
 		public Assignment getNumParamAssignment_1() { return cNumParamAssignment_1; }
 		
-		//EBigInteger
-		public RuleCall getNumParamEBigIntegerParserRuleCall_1_0() { return cNumParamEBigIntegerParserRuleCall_1_0; }
+		//EInt
+		public RuleCall getNumParamEIntParserRuleCall_1_0() { return cNumParamEIntParserRuleCall_1_0; }
 		
 		//('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1735,7 +1739,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rule:
-	//	no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? 'satisfy' satisfy=Or;
+	//	no?='no'? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? ('satisfy' satisfy=Or)?;
 	public RuleElements getRuleAccess() {
 		return pRule;
 	}
@@ -1852,7 +1856,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Parameter:
-	//	'numParameters=' numParam=EBigInteger ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?;
+	//	'numParameters=' numParam=EInt ('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?;
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}

@@ -2,8 +2,6 @@
  */
 package javaRule.impl;
 
-import java.math.BigInteger;
-
 import java.util.Collection;
 
 import javaRule.JavaRulePackage;
@@ -42,7 +40,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger NUM_PARAM_EDEFAULT = null;
+	protected static final int NUM_PARAM_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getNumParam() <em>Num Param</em>}' attribute.
@@ -52,7 +50,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger numParam = NUM_PARAM_EDEFAULT;
+	protected int numParam = NUM_PARAM_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTypesParam() <em>Types Param</em>}' attribute list.
@@ -88,7 +86,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getNumParam() {
+	public int getNumParam() {
 		return numParam;
 	}
 
@@ -97,8 +95,8 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumParam(BigInteger newNumParam) {
-		BigInteger oldNumParam = numParam;
+	public void setNumParam(int newNumParam) {
+		int oldNumParam = numParam;
 		numParam = newNumParam;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__NUM_PARAM, oldNumParam, numParam));
@@ -142,7 +140,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				setNumParam((BigInteger)newValue);
+				setNumParam((Integer)newValue);
 				return;
 			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				getTypesParam().clear();
@@ -179,7 +177,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				return NUM_PARAM_EDEFAULT == null ? numParam != null : !NUM_PARAM_EDEFAULT.equals(numParam);
+				return numParam != NUM_PARAM_EDEFAULT;
 			case JavaRulePackage.PARAMETER__TYPES_PARAM:
 				return typesParam != null && !typesParam.isEmpty();
 		}

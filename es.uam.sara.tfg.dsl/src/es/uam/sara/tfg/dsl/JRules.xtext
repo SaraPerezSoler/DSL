@@ -16,7 +16,7 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Rule returns Rule:
-	(no?='no')? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? 'satisfy' satisfy=Or ;
+	(no?='no')? quantifier=Quantifier element=ElementJava ('which' filter=Filter)? ('satisfy' satisfy=Or)?;
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
@@ -56,7 +56,7 @@ IsExtended returns IsExtended:
 	'is' 'extended';
 
 Parameter returns Parameter:
-	'numParameters=' numParam=EBigInteger
+	'numParameters=' numParam=EInt
 	('and' 'types=' '[' typesParam+=EString ("," typesParam+=EString)* ']')?;
 
 Constructor returns Constructor:

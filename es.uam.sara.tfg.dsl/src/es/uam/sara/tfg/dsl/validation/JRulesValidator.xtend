@@ -19,10 +19,11 @@ import javaRule.JavaDoc
 import javaRule.BlendModifiers
 import javaRule.AccessModifier
 import javaRule.Contains
-import javaRule.Implements
-import javaRule.Parameter
 import javaRule.Attribute
 import javaRule.Language
+import javaRule.RuleSet
+import javaRule.Implements
+import javaRule.Parameter
 
 /**
  * This class contains custom validation rules. 
@@ -43,6 +44,19 @@ class JRulesValidator extends AbstractJRulesValidator {
 //					INVALID_NAME)
 //		}
 //	}
+
+	@Check
+	def checkSatisfyExists (Rule r){
+	
+		if ((r.eContainer instanceof RuleSet) && (r.satisfy==null)){
+			error("\"Satisfy\" is required",
+				JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
+		}
+		if ((r.satisfy==null) && (r.filter!=null)){
+			error("\"Satisfy\" is required after clause \"which\"", 
+				JavaRulePackage.Literals.RULE__FILTER, "invalidRule")
+		}
+	}
 	@Check
 	def checkFilterValido(Rule r) {
 		if (comprobarPropiedades(r.filter.filter, r.element)==false) {
@@ -52,7 +66,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 	}
 
 	@Check
-	def checkSatisfy(Rule r){
+	def checkSatisfyType(Rule r){
 		if (comprobarPropiedades(r.satisfy, r.element)==false) {
 			error(
 				"The property is not valid for " + r.element.literal.toLowerCase,
@@ -224,8 +238,17 @@ class JRulesValidator extends AbstractJRulesValidator {
 		}
 	}
 
-/*	@Check
+	@Check
 	def checkImplements (Implements i){
+		if (i.minInterface<0){
+			error("The minimum of interfaces must be greater than 0",
+				JavaRulePackage.Literals.IMPLEMENTS__MIN_INTERFACE, 'invalidMin')
+		}
+		if (i.maxInterface<0){
+			error("The maximum of interfaces must be greater than 0",
+				JavaRulePackage.Literals.IMPLEMENTS__MAX_INTERFACE, 'invalidMin')
+		}
+	
 		if (i.minInterface>i.maxInterface){
 			error("The minimum of interfaces can't be greater than the maximum",
 				JavaRulePackage.Literals.IMPLEMENTS__MIN_INTERFACE, 'invalidMin')
@@ -234,13 +257,13 @@ class JRulesValidator extends AbstractJRulesValidator {
 	
 	@Check
 	def checkParameters(Parameter p){
-		if (p.typesParam != null){
+		if (p.typesParam.length!=0){
 			if (p.typesParam.length!= p.numParam){
 				error("The number of parameters should be equal to the number of types",
-				JavaRulePackage.Literals.IMPLEMENTS__MIN_INTERFACE, 'invalidMin')
+				JavaRulePackage.Literals.PARAMETER__NUM_PARAM, 'invalidMin')
 			}
 		}
-	}*/
+	}
 	
 	
 

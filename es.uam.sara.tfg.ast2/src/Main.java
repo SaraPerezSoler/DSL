@@ -43,7 +43,9 @@ public class Main {
  
 	public static void main(String[] args) throws IOException {
 		
-		Test t=new Test();
+		
+		System.out.println(Integer.MAX_VALUE);
+		/*Test t=new Test();
 		System.out.println();
 		
 		Test t2= new Test();

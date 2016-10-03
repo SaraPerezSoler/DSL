@@ -422,29 +422,31 @@ ruleRule returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_5='satisfy'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getRuleAccess().getSatisfyKeyword_4());
-		}
 		(
+			otherlv_5='satisfy'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getRuleAccess().getSatisfyKeyword_4_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_5_0());
-				}
-				lv_satisfy_6_0=ruleOr
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRuleRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_4_1_0());
 					}
-					set(
-						$current,
-						"satisfy",
-						lv_satisfy_6_0,
-						"es.uam.sara.tfg.dsl.JRules.Or");
-					afterParserOrEnumRuleCall();
-				}
+					lv_satisfy_6_0=ruleOr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRuleRule());
+						}
+						set(
+							$current,
+							"satisfy",
+							lv_satisfy_6_0,
+							"es.uam.sara.tfg.dsl.JRules.Or");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+		)?
 	)
 ;
 
@@ -949,9 +951,9 @@ ruleParameter returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getParameterAccess().getNumParamEBigIntegerParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getParameterAccess().getNumParamEIntParserRuleCall_1_0());
 				}
-				lv_numParam_1_0=ruleEBigInteger
+				lv_numParam_1_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getParameterRule());
@@ -960,7 +962,7 @@ ruleParameter returns [EObject current=null]
 						$current,
 						"numParam",
 						lv_numParam_1_0,
-						"es.uam.sara.tfg.dsl.JRules.EBigInteger");
+						"es.uam.sara.tfg.dsl.JRules.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1731,39 +1733,6 @@ ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		}
 		{
 			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
-		}
-	)
-;
-
-// Entry rule entryRuleEBigInteger
-entryRuleEBigInteger returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEBigIntegerRule()); }
-	iv_ruleEBigInteger=ruleEBigInteger
-	{ $current=$iv_ruleEBigInteger.current.getText(); }
-	EOF;
-
-// Rule EBigInteger
-ruleEBigInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			kw='-'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getEBigIntegerAccess().getHyphenMinusKeyword_0());
-			}
-		)?
-		this_INT_1=RULE_INT
-		{
-			$current.merge(this_INT_1);
-		}
-		{
-			newLeafNode(this_INT_1, grammarAccess.getEBigIntegerAccess().getINTTerminalRuleCall_1());
 		}
 	)
 ;

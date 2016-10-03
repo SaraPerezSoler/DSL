@@ -2,8 +2,6 @@
  */
 package javaRule;
 
-import java.math.BigInteger;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -33,12 +31,12 @@ public interface Parameter extends Method {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Num Param</em>' attribute.
-	 * @see #setNumParam(BigInteger)
+	 * @see #setNumParam(int)
 	 * @see javaRule.JavaRulePackage#getParameter_NumParam()
 	 * @model required="true"
 	 * @generated
 	 */
-	BigInteger getNumParam();
+	int getNumParam();
 
 	/**
 	 * Sets the value of the '{@link javaRule.Parameter#getNumParam <em>Num Param</em>}' attribute.
@@ -48,7 +46,7 @@ public interface Parameter extends Method {
 	 * @see #getNumParam()
 	 * @generated
 	 */
-	void setNumParam(BigInteger value);
+	void setNumParam(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Types Param</b></em>' attribute list.
