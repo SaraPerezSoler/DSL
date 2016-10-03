@@ -3,8 +3,8 @@ package es.uam.sara.tfg.rule;
 import java.util.ArrayList;
 import java.util.List;
 import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.classes.Class;
 import es.uam.sara.tfg.properties.interfaces.Interface;
-import es.uam.sara.tfg.properties.methods.Method;
 
 public class And<T> extends Properties<T>{
 
@@ -17,7 +17,7 @@ public class And<T> extends Properties<T>{
 	}
 
 	public boolean comprobar (Properties<T> a, Properties<T> b){
-		if ((a instanceof Method) && !(a instanceof Method)){
+		if ((a instanceof Class) && !(a instanceof Class)){
 			return false;
 		}
 		if ((a instanceof Interface) && !(a instanceof Interface)){

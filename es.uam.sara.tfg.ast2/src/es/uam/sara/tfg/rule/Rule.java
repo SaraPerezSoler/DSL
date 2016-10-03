@@ -2,7 +2,7 @@ package es.uam.sara.tfg.rule;
 
 import java.util.List;
 
-public abstract class Rule<T> {
+public class Rule<T> {
 
 	protected boolean no;
 	protected Quantifier quantifier;

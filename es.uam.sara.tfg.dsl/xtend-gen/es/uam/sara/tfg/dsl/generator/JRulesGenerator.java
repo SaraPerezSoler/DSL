@@ -3,10 +3,28 @@
  */
 package es.uam.sara.tfg.dsl.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import javaRule.And;
+import javaRule.ElementJava;
+import javaRule.Filter;
+import javaRule.Language;
+import javaRule.Name;
+import javaRule.NameOperator;
+import javaRule.NameType;
+import javaRule.Or;
+import javaRule.Quantifier;
+import javaRule.Rule;
+import javaRule.Satisfy;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +35,240 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class JRulesGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    int i = 1;
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Rule> _filter = Iterables.<Rule>filter(_iterable, Rule.class);
+    for (final Rule rule : _filter) {
+      {
+        CharSequence _generateClass = this.generateClass(rule, i);
+        fsa.generateFile((("Rule" + Integer.valueOf(i)) + "Factory.java"), _generateClass);
+        i++;
+      }
+    }
+  }
+  
+  public CharSequence generateClass(final Rule rule, final int i) {
+    CharSequence _xblockexpression = null;
+    {
+      ElementJava _element = rule.getElement();
+      CharSequence t = this.getType(_element);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.List;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.And;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.Or;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.Rule;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.Rule.Quantifier;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.RuleFactory;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("public class Rule");
+      _builder.append(i, "");
+      _builder.append("Factory implements RuleFactory<");
+      _builder.append(t, "");
+      _builder.append(">{");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Rule<");
+      _builder.append(t, "\t");
+      _builder.append("> getRule (List<");
+      _builder.append(t, "\t");
+      _builder.append("> elements){");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      {
+        Filter _filter = rule.getFilter();
+        boolean _notEquals = (!Objects.equal(_filter, null));
+        if (_notEquals) {
+          _builder.append("\t\t\t");
+          _builder.append("Or<");
+          _builder.append(t, "\t\t\t");
+          _builder.append("> filter= new Filter<");
+          _builder.append(t, "\t\t\t");
+          _builder.append(">(");
+          Filter _filter_1 = rule.getFilter();
+          boolean _isNo = _filter_1.isNo();
+          _builder.append(_isNo, "\t\t\t");
+          _builder.append(",elements);");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          CharSequence _createPropertie = this.createPropertie(rule, true);
+          _builder.append(_createPropertie, "\t\t\t");
+          _builder.newLineIfNotEmpty();
+        } else {
+          _builder.append("\t\t\t");
+          _builder.append("Or<");
+          _builder.append(t, "\t\t\t");
+          _builder.append("> filter=null;");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      {
+        Or _satisfy = rule.getSatisfy();
+        boolean _notEquals_1 = (!Objects.equal(_satisfy, null));
+        if (_notEquals_1) {
+          _builder.append("\t\t\t");
+          _builder.append("Or<");
+          _builder.append(t, "\t\t\t");
+          _builder.append("> satisfy= new Or<");
+          _builder.append(t, "\t\t\t");
+          _builder.append(">(elements);");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          CharSequence _createPropertie_1 = this.createPropertie(rule, false);
+          _builder.append(_createPropertie_1, "\t\t\t");
+          _builder.newLineIfNotEmpty();
+        } else {
+          _builder.append("\t\t\t");
+          _builder.append("Or<");
+          _builder.append(t, "\t\t\t");
+          _builder.append("> satisfy=null;");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("return new Rule<");
+      _builder.append(t, "\t\t\t");
+      _builder.append(">(");
+      boolean _isNo_1 = rule.isNo();
+      _builder.append(_isNo_1, "\t\t\t");
+      _builder.append(", Quantifier.");
+      Quantifier _quantifier = rule.getQuantifier();
+      String _literal = _quantifier.getLiteral();
+      String _upperCase = _literal.toUpperCase();
+      _builder.append(_upperCase, "\t\t\t");
+      _builder.append(",elements, filter, satisfy);");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("}");
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence createPropertie(final Rule r, final boolean filter) {
+    CharSequence _xblockexpression = null;
+    {
+      Or prop = ((Or) null);
+      if (filter) {
+        Filter _filter = r.getFilter();
+        Or _filter_1 = _filter.getFilter();
+        prop = _filter_1;
+      } else {
+        Or _satisfy = r.getSatisfy();
+        prop = _satisfy;
+      }
+      ElementJava _element = r.getElement();
+      CharSequence t = this.getType(_element);
+      StringConcatenation _builder = new StringConcatenation();
+      int i = 0;
+      _builder.newLineIfNotEmpty();
+      {
+        EList<And> _op = prop.getOp();
+        for(final And a : _op) {
+          _builder.append("And<");
+          _builder.append(t, "");
+          _builder.append("> and");
+          int _plusPlus = i++;
+          int _plus = (_plusPlus + 1);
+          _builder.append(_plus, "");
+          _builder.append("= new And<");
+          _builder.append(t, "");
+          _builder.append(">(elements);");
+          _builder.newLineIfNotEmpty();
+          {
+            EList<Satisfy> _op_1 = a.getOp();
+            for(final Satisfy s : _op_1) {
+              {
+                ElementJava _element_1 = r.getElement();
+                boolean _equals = Objects.equal(_element_1, ElementJava.ATTRIBUTE);
+                if (_equals) {
+                  CharSequence _namePropertieAttributes = this.getNamePropertieAttributes(s, i);
+                  _builder.append(_namePropertieAttributes, "");
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence getNamePropertieAttributes(final Satisfy s, final int i) {
+    String cadena = "";
+    if ((s instanceof Name)) {
+      Name n = ((Name) s);
+      NameType _type = n.getType();
+      boolean _notEquals = (!Objects.equal(_type, NameType.NOTHING));
+      if (_notEquals) {
+        String _cadena = cadena;
+        NameType _type_1 = n.getType();
+        String _plus = ((("and" + Integer.valueOf(i)) + ".add (new AttrNameType(elements, NameCheck.") + _type_1);
+        String _plus_1 = (_plus + "));");
+        cadena = (_cadena + _plus_1);
+      }
+      NameOperator _operator = n.getOperator();
+      boolean _notEquals_1 = (!Objects.equal(_operator, NameOperator.NOTHING));
+      if (_notEquals_1) {
+        String _cadena_1 = cadena;
+        NameOperator _operator_1 = n.getOperator();
+        String _plus_2 = ((("and" + Integer.valueOf(i)) + ".add (new AttrNameOperation(elements,NameCheck.") + _operator_1);
+        String _plus_3 = (_plus_2 + ",");
+        String _name = ((Name)s).getName();
+        String _plus_4 = (_plus_3 + _name);
+        String _plus_5 = (_plus_4 + ", NameCheck.");
+        Language _language = ((Name)s).getLanguage();
+        String _plus_6 = (_plus_5 + _language);
+        String _plus_7 = (_plus_6 + "));");
+        cadena = (_cadena_1 + _plus_7);
+      }
+    }
+    return cadena;
+  }
+  
+  public CharSequence getType(final ElementJava e) {
+    boolean _equals = Objects.equal(e, ElementJava.PACKAGE);
+    if (_equals) {
+      return "String";
+    } else {
+      boolean _equals_1 = Objects.equal(e, ElementJava.INTERFACE);
+      if (_equals_1) {
+        return "TypeDeclaration";
+      } else {
+        boolean _equals_2 = Objects.equal(e, ElementJava.CLASS);
+        if (_equals_2) {
+          return "TypeDeclaration";
+        } else {
+          boolean _equals_3 = Objects.equal(e, ElementJava.ENUM);
+          if (_equals_3) {
+            return "EnumDeclaration";
+          } else {
+            boolean _equals_4 = Objects.equal(e, ElementJava.METHOD);
+            if (_equals_4) {
+              return "MethodDeclaration";
+            } else {
+              return "FieldDeclaration";
+            }
+          }
+        }
+      }
+    }
   }
 }

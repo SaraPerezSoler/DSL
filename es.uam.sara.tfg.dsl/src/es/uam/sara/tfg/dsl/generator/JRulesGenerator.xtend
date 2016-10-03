@@ -7,6 +7,15 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import javaRule.Rule
+import javaRule.ElementJava
+import javaRule.Or
+import javaRule.And
+import javaRule.Satisfy
+import javaRule.Name
+import java.lang.annotation.Native
+import javaRule.NameType
+import javaRule.NameOperator
 
 /**
  * Generates code from your model files on save.
@@ -21,5 +30,95 @@ class JRulesGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+	
+		var i=1;
+		for (rule: resource.allContents.toIterable.filter(Rule)){
+			fsa.generateFile ('Rule'+i+"Factory.java", rule.generateClass(i))
+			i++;
+		}
 	}
+	
+	def CharSequence generateClass(Rule rule, int i){
+		var t=getType(rule.element)
+		'''
+		import java.util.List;
+		import es.uam.sara.tfg.rule.And;
+		import es.uam.sara.tfg.rule.Or;
+		import es.uam.sara.tfg.rule.Rule;
+		import es.uam.sara.tfg.rule.Rule.Quantifier;
+		import es.uam.sara.tfg.rule.RuleFactory;
+		
+		public class Rule«i»Factory implements RuleFactory<«t»>{
+			
+			public Rule<«t»> getRule (List<«t»> elements){
+					
+					«IF rule.filter!=null»
+					Or<«t»> filter= new Filter<«t»>(«rule.filter.no»,elements);
+					«createPropertie(rule, true)»
+					«ELSE»
+					Or<«t»> filter=null;
+					«ENDIF»
+					«IF rule.satisfy!=null»
+					Or<«t»> satisfy= new Or<«t»>(elements);
+					«createPropertie(rule, false)»
+					«ELSE»
+					Or<«t»> satisfy=null;
+					«ENDIF»
+					
+					return new Rule<«t»>(«rule.no», Quantifier.«rule.quantifier.literal.toUpperCase»,elements, filter, satisfy);
+			}
+			
+		}'''
+		
+	}
+	def CharSequence createPropertie(Rule r, boolean filter){
+		var prop = null as Or
+		if (filter){
+			 prop=r.filter.filter;
+		}else{
+			 prop=r.satisfy;
+		}
+		var t=getType(r.element)
+		'''
+			«var i=0»
+			«FOR a:prop.op»
+				And<«t»> and«(i++)+1»= new And<«t»>(elements);
+				«FOR s:a.op»
+				«IF r.element ==  ElementJava.ATTRIBUTE»
+				«getNamePropertieAttributes(s, i)»
+				«ENDIF»
+				«ENDFOR»
+			«ENDFOR»
+		'''
+	}
+	
+	def CharSequence getNamePropertieAttributes(Satisfy s, int i){
+		var cadena="";
+		if (s instanceof Name){
+			var n=s as Name
+			if (n.type != NameType.NOTHING){
+				 cadena+="and"+i+".add (new AttrNameType(elements, NameCheck."+n.type+"));"	
+			}
+			if (n.operator!=NameOperator.NOTHING){
+				cadena+="and"+i+".add (new AttrNameOperation(elements,NameCheck."+n.operator+","+s.name+", NameCheck."+s.language+"));"
+			}
+		}
+		return cadena
+	}
+	def CharSequence getType(ElementJava e){
+		if (e== ElementJava.PACKAGE){
+			return "String"
+		}else if (e== ElementJava.INTERFACE){
+			return "TypeDeclaration"
+		}else if (e== ElementJava.CLASS){
+			return "TypeDeclaration"
+		}else if (e== ElementJava.ENUM){
+			return "EnumDeclaration"
+		}else if (e== ElementJava.METHOD){
+			return "MethodDeclaration"
+		}else{
+			return "FieldDeclaration"
+		}
+	}
+	
 }
