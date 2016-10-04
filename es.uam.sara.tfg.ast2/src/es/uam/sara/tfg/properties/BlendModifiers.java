@@ -39,7 +39,7 @@ public class BlendModifiers {
 	 * Es decir tiene que estar public, pero si hay public y static sigue devolviendo true.
 	 * */
 	public boolean compara(BlendModifiers b2){
-		if ((this.acceso!="") && this.acceso.compareTo(b2.acceso)!=0){
+		if ((this.acceso!="nothing") && this.acceso.compareTo(b2.acceso)!=0){
 			return false;
 		}
 		if ((this.abstract_==true) && b2.abstract_!=true){

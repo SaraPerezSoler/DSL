@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectName:'", "';'", "'no'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'min='", "'max='", "'interfaces'", "'extended'", "'numParameters='", "'types='", "'['", "','", "']'", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'static'", "'final'", "'abstract'", "'synchronized'", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'Default'", "'Public'", "'Protected'", "'Private'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectName:'", "';'", "'no'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'min='", "'max='", "'interfaces'", "'extended'", "'numParameters='", "'types='", "'['", "','", "']'", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'static'", "'final'", "'abstract'", "'synchronized'", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'default'", "'public'", "'protected'", "'private'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -5445,8 +5445,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_0=(Token)match(input,65,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -5462,8 +5462,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_1=(Token)match(input,66,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -5479,8 +5479,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_2=(Token)match(input,67,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -5496,8 +5496,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_3=(Token)match(input,68,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3());
                     			
 
                     }
@@ -5513,8 +5513,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_4=(Token)match(input,69,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4());
+                    				current = grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4());
                     			
 
                     }
@@ -5606,8 +5606,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_0=(Token)match(input,70,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -5623,8 +5623,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_1=(Token)match(input,71,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -5640,8 +5640,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_2=(Token)match(input,72,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -5657,8 +5657,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_3=(Token)match(input,73,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3());
                     			
 
                     }
@@ -5674,8 +5674,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_4=(Token)match(input,74,FOLLOW_2); 
 
-                    				current = grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4());
+                    				current = grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4());
                     			
 
                     }
@@ -5762,8 +5762,8 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     {
                     enumLiteral_1=(Token)match(input,76,FOLLOW_2); 
 
-                    				current = grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -5794,7 +5794,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAccessModifier"
-    // InternalJRules.g:2270:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) ) ;
+    // InternalJRules.g:2270:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) ) ;
     public final Enumerator ruleAccessModifier() throws RecognitionException {
         Enumerator current = null;
 
@@ -5807,10 +5807,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2276:2: ( ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) ) )
-            // InternalJRules.g:2277:2: ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) )
+            // InternalJRules.g:2276:2: ( ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) ) )
+            // InternalJRules.g:2277:2: ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) )
             {
-            // InternalJRules.g:2277:2: ( (enumLiteral_0= 'Default' ) | (enumLiteral_1= 'Public' ) | (enumLiteral_2= 'Protected' ) | (enumLiteral_3= 'Private' ) )
+            // InternalJRules.g:2277:2: ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) )
             int alt45=4;
             switch ( input.LA(1) ) {
             case 77:
@@ -5842,10 +5842,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
             switch (alt45) {
                 case 1 :
-                    // InternalJRules.g:2278:3: (enumLiteral_0= 'Default' )
+                    // InternalJRules.g:2278:3: (enumLiteral_0= 'default' )
                     {
-                    // InternalJRules.g:2278:3: (enumLiteral_0= 'Default' )
-                    // InternalJRules.g:2279:4: enumLiteral_0= 'Default'
+                    // InternalJRules.g:2278:3: (enumLiteral_0= 'default' )
+                    // InternalJRules.g:2279:4: enumLiteral_0= 'default'
                     {
                     enumLiteral_0=(Token)match(input,77,FOLLOW_2); 
 
@@ -5859,10 +5859,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2286:3: (enumLiteral_1= 'Public' )
+                    // InternalJRules.g:2286:3: (enumLiteral_1= 'public' )
                     {
-                    // InternalJRules.g:2286:3: (enumLiteral_1= 'Public' )
-                    // InternalJRules.g:2287:4: enumLiteral_1= 'Public'
+                    // InternalJRules.g:2286:3: (enumLiteral_1= 'public' )
+                    // InternalJRules.g:2287:4: enumLiteral_1= 'public'
                     {
                     enumLiteral_1=(Token)match(input,78,FOLLOW_2); 
 
@@ -5876,10 +5876,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2294:3: (enumLiteral_2= 'Protected' )
+                    // InternalJRules.g:2294:3: (enumLiteral_2= 'protected' )
                     {
-                    // InternalJRules.g:2294:3: (enumLiteral_2= 'Protected' )
-                    // InternalJRules.g:2295:4: enumLiteral_2= 'Protected'
+                    // InternalJRules.g:2294:3: (enumLiteral_2= 'protected' )
+                    // InternalJRules.g:2295:4: enumLiteral_2= 'protected'
                     {
                     enumLiteral_2=(Token)match(input,79,FOLLOW_2); 
 
@@ -5893,10 +5893,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2302:3: (enumLiteral_3= 'Private' )
+                    // InternalJRules.g:2302:3: (enumLiteral_3= 'private' )
                     {
-                    // InternalJRules.g:2302:3: (enumLiteral_3= 'Private' )
-                    // InternalJRules.g:2303:4: enumLiteral_3= 'Private'
+                    // InternalJRules.g:2302:3: (enumLiteral_3= 'private' )
+                    // InternalJRules.g:2303:4: enumLiteral_3= 'private'
                     {
                     enumLiteral_3=(Token)match(input,80,FOLLOW_2); 
 

@@ -19,54 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum NameType implements Enumerator {
 	/**
-	 * The '<em><b>Upper Case</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UPPER_CASE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UPPER_CASE(1, "upperCase", "upperCase"),
-
-	/**
-	 * The '<em><b>Lower Case</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LOWER_CASE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LOWER_CASE(2, "lowerCase", "lowerCase"),
-
-	/**
-	 * The '<em><b>Upper Camel Case</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UPPER_CAMEL_CASE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	UPPER_CAMEL_CASE(3, "upperCamelCase", "upperCamelCase"),
-
-	/**
-	 * The '<em><b>Lower Camel Case</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LOWER_CAMEL_CASE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LOWER_CAMEL_CASE(4, "lowerCamelCase", "lowerCamelCase"),
-
-	/**
-	 * The '<em><b>Start Upper Case</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #START_UPPER_CASE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	START_UPPER_CASE(5, "startUpperCase", "startUpperCase"), /**
 	 * The '<em><b>Nothing</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,82 +26,47 @@ public enum NameType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHING(0, "nothing", "nothing");
-
-	/**
-	 * The '<em><b>Upper Case</b></em>' literal value.
+	NOTHING(0, "nothing", "nothing"), /**
+	 * The '<em><b>UPPER CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Upper Case</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UPPER_CASE
-	 * @model name="upperCase"
+	 * @see #UPPER_CASE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UPPER_CASE_VALUE = 1;
-
-	/**
-	 * The '<em><b>Lower Case</b></em>' literal value.
+	UPPER_CASE(1, "UPPER_CASE", "UPPER_CASE"), /**
+	 * The '<em><b>LOWER CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Lower Case</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #LOWER_CASE
-	 * @model name="lowerCase"
+	 * @see #LOWER_CASE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LOWER_CASE_VALUE = 2;
-
-	/**
-	 * The '<em><b>Upper Camel Case</b></em>' literal value.
+	LOWER_CASE(2, "LOWER_CASE", "LOWER_CASE"), /**
+	 * The '<em><b>UPPER CAMEL CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Upper Camel Case</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UPPER_CAMEL_CASE
-	 * @model name="upperCamelCase"
+	 * @see #UPPER_CAMEL_CASE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UPPER_CAMEL_CASE_VALUE = 3;
-
-	/**
-	 * The '<em><b>Lower Camel Case</b></em>' literal value.
+	UPPER_CAMEL_CASE(3, "UPPER_CAMEL_CASE", "UPPER_CAMEL_CASE"), /**
+	 * The '<em><b>LOWER CAMEL CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Lower Camel Case</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #LOWER_CAMEL_CASE
-	 * @model name="lowerCamelCase"
+	 * @see #LOWER_CAMEL_CASE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LOWER_CAMEL_CASE_VALUE = 4;
-
-	/**
-	 * The '<em><b>Start Upper Case</b></em>' literal value.
+	LOWER_CAMEL_CASE(4, "LOWER_CAMEL_CASE", "LOWER_CAMEL_CASE"), /**
+	 * The '<em><b>START UPPER CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Start Upper Case</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #START_UPPER_CASE
-	 * @model name="startUpperCase"
+	 * @see #START_UPPER_CASE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int START_UPPER_CASE_VALUE = 5;
+	START_UPPER_CASE(5, "START_UPPER_CASE", "START_UPPER_CASE");
 
 	/**
 	 * The '<em><b>Nothing</b></em>' literal value.
@@ -167,6 +84,81 @@ public enum NameType implements Enumerator {
 	public static final int NOTHING_VALUE = 0;
 
 	/**
+	 * The '<em><b>UPPER CASE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Upper Case</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UPPER_CASE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UPPER_CASE_VALUE = 1;
+
+	/**
+	 * The '<em><b>LOWER CASE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Lower Case</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LOWER_CASE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOWER_CASE_VALUE = 2;
+
+	/**
+	 * The '<em><b>UPPER CAMEL CASE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Upper Camel Case</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UPPER_CAMEL_CASE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UPPER_CAMEL_CASE_VALUE = 3;
+
+	/**
+	 * The '<em><b>LOWER CAMEL CASE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Lower Camel Case</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LOWER_CAMEL_CASE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOWER_CAMEL_CASE_VALUE = 4;
+
+	/**
+	 * The '<em><b>START UPPER CASE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Start Upper Case</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #START_UPPER_CASE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int START_UPPER_CASE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Name Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,12 +166,12 @@ public enum NameType implements Enumerator {
 	 */
 	private static final NameType[] VALUES_ARRAY =
 		new NameType[] {
+			NOTHING,
 			UPPER_CASE,
 			LOWER_CASE,
 			UPPER_CAMEL_CASE,
 			LOWER_CAMEL_CASE,
 			START_UPPER_CASE,
-			NOTHING,
 		};
 
 	/**
@@ -236,12 +228,12 @@ public enum NameType implements Enumerator {
 	 */
 	public static NameType get(int value) {
 		switch (value) {
+			case NOTHING_VALUE: return NOTHING;
 			case UPPER_CASE_VALUE: return UPPER_CASE;
 			case LOWER_CASE_VALUE: return LOWER_CASE;
 			case UPPER_CAMEL_CASE_VALUE: return UPPER_CAMEL_CASE;
 			case LOWER_CAMEL_CASE_VALUE: return LOWER_CAMEL_CASE;
 			case START_UPPER_CASE_VALUE: return START_UPPER_CASE;
-			case NOTHING_VALUE: return NOTHING;
 		}
 		return null;
 	}

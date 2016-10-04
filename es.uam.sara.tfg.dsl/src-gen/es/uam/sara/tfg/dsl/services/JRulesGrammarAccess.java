@@ -1434,119 +1434,121 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	public class NameTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cUpperCaseEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cUpperCaseUpperCaseKeyword_0_0 = (Keyword)cUpperCaseEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cLowerCaseEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cLowerCaseLowerCaseKeyword_1_0 = (Keyword)cLowerCaseEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cUpperCamelCaseEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cUpperCamelCaseUpperCamelCaseKeyword_2_0 = (Keyword)cUpperCamelCaseEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cLowerCamelCaseEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cLowerCamelCaseLowerCamelCaseKeyword_3_0 = (Keyword)cLowerCamelCaseEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cStartUpperCaseEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cStartUpperCaseStartUpperCaseKeyword_4_0 = (Keyword)cStartUpperCaseEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cUPPER_CASEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cUPPER_CASEUpperCaseKeyword_0_0 = (Keyword)cUPPER_CASEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLOWER_CASEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLOWER_CASELowerCaseKeyword_1_0 = (Keyword)cLOWER_CASEEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cUPPER_CAMEL_CASEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cUPPER_CAMEL_CASEUpperCamelCaseKeyword_2_0 = (Keyword)cUPPER_CAMEL_CASEEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cLOWER_CAMEL_CASEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cLOWER_CAMEL_CASELowerCamelCaseKeyword_3_0 = (Keyword)cLOWER_CAMEL_CASEEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cSTART_UPPER_CASEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cSTART_UPPER_CASEStartUpperCaseKeyword_4_0 = (Keyword)cSTART_UPPER_CASEEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum NameType:
-		//	upperCase | lowerCase | upperCamelCase | lowerCamelCase |
-		//	startUpperCase;
+		//	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' |
+		//	LOWER_CAMEL_CASE='lowerCamelCase' |
+		//	START_UPPER_CASE='startUpperCase';
 		public EnumRule getRule() { return rule; }
 		
-		//upperCase | lowerCase | upperCamelCase | lowerCamelCase | startUpperCase
+		//UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' | LOWER_CAMEL_CASE='lowerCamelCase'
+		//| START_UPPER_CASE='startUpperCase'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//upperCase
-		public EnumLiteralDeclaration getUpperCaseEnumLiteralDeclaration_0() { return cUpperCaseEnumLiteralDeclaration_0; }
+		//UPPER_CASE='upperCase'
+		public EnumLiteralDeclaration getUPPER_CASEEnumLiteralDeclaration_0() { return cUPPER_CASEEnumLiteralDeclaration_0; }
 		
 		//'upperCase'
-		public Keyword getUpperCaseUpperCaseKeyword_0_0() { return cUpperCaseUpperCaseKeyword_0_0; }
+		public Keyword getUPPER_CASEUpperCaseKeyword_0_0() { return cUPPER_CASEUpperCaseKeyword_0_0; }
 		
-		//lowerCase
-		public EnumLiteralDeclaration getLowerCaseEnumLiteralDeclaration_1() { return cLowerCaseEnumLiteralDeclaration_1; }
+		//LOWER_CASE='lowerCase'
+		public EnumLiteralDeclaration getLOWER_CASEEnumLiteralDeclaration_1() { return cLOWER_CASEEnumLiteralDeclaration_1; }
 		
 		//'lowerCase'
-		public Keyword getLowerCaseLowerCaseKeyword_1_0() { return cLowerCaseLowerCaseKeyword_1_0; }
+		public Keyword getLOWER_CASELowerCaseKeyword_1_0() { return cLOWER_CASELowerCaseKeyword_1_0; }
 		
-		//upperCamelCase
-		public EnumLiteralDeclaration getUpperCamelCaseEnumLiteralDeclaration_2() { return cUpperCamelCaseEnumLiteralDeclaration_2; }
+		//UPPER_CAMEL_CASE='upperCamelCase'
+		public EnumLiteralDeclaration getUPPER_CAMEL_CASEEnumLiteralDeclaration_2() { return cUPPER_CAMEL_CASEEnumLiteralDeclaration_2; }
 		
 		//'upperCamelCase'
-		public Keyword getUpperCamelCaseUpperCamelCaseKeyword_2_0() { return cUpperCamelCaseUpperCamelCaseKeyword_2_0; }
+		public Keyword getUPPER_CAMEL_CASEUpperCamelCaseKeyword_2_0() { return cUPPER_CAMEL_CASEUpperCamelCaseKeyword_2_0; }
 		
-		//lowerCamelCase
-		public EnumLiteralDeclaration getLowerCamelCaseEnumLiteralDeclaration_3() { return cLowerCamelCaseEnumLiteralDeclaration_3; }
+		//LOWER_CAMEL_CASE='lowerCamelCase'
+		public EnumLiteralDeclaration getLOWER_CAMEL_CASEEnumLiteralDeclaration_3() { return cLOWER_CAMEL_CASEEnumLiteralDeclaration_3; }
 		
 		//'lowerCamelCase'
-		public Keyword getLowerCamelCaseLowerCamelCaseKeyword_3_0() { return cLowerCamelCaseLowerCamelCaseKeyword_3_0; }
+		public Keyword getLOWER_CAMEL_CASELowerCamelCaseKeyword_3_0() { return cLOWER_CAMEL_CASELowerCamelCaseKeyword_3_0; }
 		
-		//startUpperCase
-		public EnumLiteralDeclaration getStartUpperCaseEnumLiteralDeclaration_4() { return cStartUpperCaseEnumLiteralDeclaration_4; }
+		//START_UPPER_CASE='startUpperCase'
+		public EnumLiteralDeclaration getSTART_UPPER_CASEEnumLiteralDeclaration_4() { return cSTART_UPPER_CASEEnumLiteralDeclaration_4; }
 		
 		//'startUpperCase'
-		public Keyword getStartUpperCaseStartUpperCaseKeyword_4_0() { return cStartUpperCaseStartUpperCaseKeyword_4_0; }
+		public Keyword getSTART_UPPER_CASEStartUpperCaseKeyword_4_0() { return cSTART_UPPER_CASEStartUpperCaseKeyword_4_0; }
 	}
 	public class NameOperatorElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameOperator");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cLikeEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cLikeLikeKeyword_0_0 = (Keyword)cLikeEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cEqualEqualKeyword_1_0 = (Keyword)cEqualEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cEndsEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cEndsEndsKeyword_2_0 = (Keyword)cEndsEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cStartEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cStartStartKeyword_3_0 = (Keyword)cStartEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cContainsEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cContainsContainsKeyword_4_0 = (Keyword)cContainsEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cLIKEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLIKELikeKeyword_0_0 = (Keyword)cLIKEEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cEQUALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cEQUALEqualKeyword_1_0 = (Keyword)cEQUALEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cENDEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cENDEndsKeyword_2_0 = (Keyword)cENDEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cSTARTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cSTARTStartKeyword_3_0 = (Keyword)cSTARTEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cCONTAINEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cCONTAINContainsKeyword_4_0 = (Keyword)cCONTAINEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum NameOperator:
-		//	like | equal | ends | start | contains;
+		//	LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains';
 		public EnumRule getRule() { return rule; }
 		
-		//like | equal | ends | start | contains
+		//LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//like
-		public EnumLiteralDeclaration getLikeEnumLiteralDeclaration_0() { return cLikeEnumLiteralDeclaration_0; }
+		//LIKE='like'
+		public EnumLiteralDeclaration getLIKEEnumLiteralDeclaration_0() { return cLIKEEnumLiteralDeclaration_0; }
 		
 		//'like'
-		public Keyword getLikeLikeKeyword_0_0() { return cLikeLikeKeyword_0_0; }
+		public Keyword getLIKELikeKeyword_0_0() { return cLIKELikeKeyword_0_0; }
 		
-		//equal
-		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_1() { return cEqualEnumLiteralDeclaration_1; }
+		//EQUAL='equal'
+		public EnumLiteralDeclaration getEQUALEnumLiteralDeclaration_1() { return cEQUALEnumLiteralDeclaration_1; }
 		
 		//'equal'
-		public Keyword getEqualEqualKeyword_1_0() { return cEqualEqualKeyword_1_0; }
+		public Keyword getEQUALEqualKeyword_1_0() { return cEQUALEqualKeyword_1_0; }
 		
-		//ends
-		public EnumLiteralDeclaration getEndsEnumLiteralDeclaration_2() { return cEndsEnumLiteralDeclaration_2; }
+		//END='ends'
+		public EnumLiteralDeclaration getENDEnumLiteralDeclaration_2() { return cENDEnumLiteralDeclaration_2; }
 		
 		//'ends'
-		public Keyword getEndsEndsKeyword_2_0() { return cEndsEndsKeyword_2_0; }
+		public Keyword getENDEndsKeyword_2_0() { return cENDEndsKeyword_2_0; }
 		
-		//start
-		public EnumLiteralDeclaration getStartEnumLiteralDeclaration_3() { return cStartEnumLiteralDeclaration_3; }
+		//START='start'
+		public EnumLiteralDeclaration getSTARTEnumLiteralDeclaration_3() { return cSTARTEnumLiteralDeclaration_3; }
 		
 		//'start'
-		public Keyword getStartStartKeyword_3_0() { return cStartStartKeyword_3_0; }
+		public Keyword getSTARTStartKeyword_3_0() { return cSTARTStartKeyword_3_0; }
 		
-		//contains
-		public EnumLiteralDeclaration getContainsEnumLiteralDeclaration_4() { return cContainsEnumLiteralDeclaration_4; }
+		//CONTAIN='contains'
+		public EnumLiteralDeclaration getCONTAINEnumLiteralDeclaration_4() { return cCONTAINEnumLiteralDeclaration_4; }
 		
 		//'contains'
-		public Keyword getContainsContainsKeyword_4_0() { return cContainsContainsKeyword_4_0; }
+		public Keyword getCONTAINContainsKeyword_4_0() { return cCONTAINContainsKeyword_4_0; }
 	}
 	public class LanguageElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Language");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cENGLISHEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cENGLISHEnglishKeyword_0_0 = (Keyword)cENGLISHEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cESPANIOLEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cESPANIOLSpanishKeyword_1_0 = (Keyword)cESPANIOLEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSPANISHEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSPANISHSpanishKeyword_1_0 = (Keyword)cSPANISHEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum Language:
-		//	ENGLISH='English' | ESPANIOL='Spanish';
+		//	ENGLISH='English' | SPANISH='Spanish';
 		public EnumRule getRule() { return rule; }
 		
-		//ENGLISH='English' | ESPANIOL='Spanish'
+		//ENGLISH='English' | SPANISH='Spanish'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ENGLISH='English'
@@ -1555,11 +1557,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'English'
 		public Keyword getENGLISHEnglishKeyword_0_0() { return cENGLISHEnglishKeyword_0_0; }
 		
-		//ESPANIOL='Spanish'
-		public EnumLiteralDeclaration getESPANIOLEnumLiteralDeclaration_1() { return cESPANIOLEnumLiteralDeclaration_1; }
+		//SPANISH='Spanish'
+		public EnumLiteralDeclaration getSPANISHEnumLiteralDeclaration_1() { return cSPANISHEnumLiteralDeclaration_1; }
 		
 		//'Spanish'
-		public Keyword getESPANIOLSpanishKeyword_1_0() { return cESPANIOLSpanishKeyword_1_0; }
+		public Keyword getSPANISHSpanishKeyword_1_0() { return cSPANISHSpanishKeyword_1_0; }
 	}
 	public class AccessModifierElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.AccessModifier");
@@ -1574,34 +1576,34 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPrivatePrivateKeyword_3_0 = (Keyword)cPrivateEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum AccessModifier:
-		//	Default | Public | Protected | Private;
+		//	default | public | protected | private;
 		public EnumRule getRule() { return rule; }
 		
-		//Default | Public | Protected | Private
+		//default | public | protected | private
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//Default
+		//default
 		public EnumLiteralDeclaration getDefaultEnumLiteralDeclaration_0() { return cDefaultEnumLiteralDeclaration_0; }
 		
-		//'Default'
+		//'default'
 		public Keyword getDefaultDefaultKeyword_0_0() { return cDefaultDefaultKeyword_0_0; }
 		
-		//Public
+		//public
 		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_1() { return cPublicEnumLiteralDeclaration_1; }
 		
-		//'Public'
+		//'public'
 		public Keyword getPublicPublicKeyword_1_0() { return cPublicPublicKeyword_1_0; }
 		
-		//Protected
+		//protected
 		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_2() { return cProtectedEnumLiteralDeclaration_2; }
 		
-		//'Protected'
+		//'protected'
 		public Keyword getProtectedProtectedKeyword_2_0() { return cProtectedProtectedKeyword_2_0; }
 		
-		//Private
+		//private
 		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_3() { return cPrivateEnumLiteralDeclaration_3; }
 		
-		//'Private'
+		//'private'
 		public Keyword getPrivatePrivateKeyword_3_0() { return cPrivatePrivateKeyword_3_0; }
 	}
 	
@@ -1989,8 +1991,9 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum NameType:
-	//	upperCase | lowerCase | upperCamelCase | lowerCamelCase |
-	//	startUpperCase;
+	//	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' |
+	//	LOWER_CAMEL_CASE='lowerCamelCase' |
+	//	START_UPPER_CASE='startUpperCase';
 	public NameTypeElements getNameTypeAccess() {
 		return eNameType;
 	}
@@ -2000,7 +2003,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum NameOperator:
-	//	like | equal | ends | start | contains;
+	//	LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains';
 	public NameOperatorElements getNameOperatorAccess() {
 		return eNameOperator;
 	}
@@ -2010,7 +2013,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum Language:
-	//	ENGLISH='English' | ESPANIOL='Spanish';
+	//	ENGLISH='English' | SPANISH='Spanish';
 	public LanguageElements getLanguageAccess() {
 		return eLanguage;
 	}
@@ -2033,7 +2036,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum AccessModifier:
-	//	Default | Public | Protected | Private;
+	//	default | public | protected | private;
 	public AccessModifierElements getAccessModifierAccess() {
 		return eAccessModifier;
 	}

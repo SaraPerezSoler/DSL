@@ -87,25 +87,25 @@
         defaultValueLiteral="EMPTY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Language">
-    <eLiterals name="ENGLISH" value="2" literal="ENGLISH"/>
-    <eLiterals name="ESPANIOL" value="1"/>
     <eLiterals name="EMPTY"/>
+    <eLiterals name="SPANISH" value="1"/>
+    <eLiterals name="ENGLISH" value="2" literal="ENGLISH"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameType">
-    <eLiterals name="upperCase" value="1"/>
-    <eLiterals name="lowerCase" value="2"/>
-    <eLiterals name="upperCamelCase" value="3"/>
-    <eLiterals name="lowerCamelCase" value="4"/>
-    <eLiterals name="startUpperCase" value="5"/>
     <eLiterals name="nothing"/>
+    <eLiterals name="UPPER_CASE" value="1"/>
+    <eLiterals name="LOWER_CASE" value="2"/>
+    <eLiterals name="UPPER_CAMEL_CASE" value="3"/>
+    <eLiterals name="LOWER_CAMEL_CASE" value="4"/>
+    <eLiterals name="START_UPPER_CASE" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NameOperator">
-    <eLiterals name="like" value="5"/>
-    <eLiterals name="equal" value="1"/>
-    <eLiterals name="start" value="2"/>
-    <eLiterals name="ends" value="3"/>
-    <eLiterals name="contains" value="4"/>
     <eLiterals name="nothing"/>
+    <eLiterals name="EQUAL" value="1"/>
+    <eLiterals name="START" value="2"/>
+    <eLiterals name="END" value="3"/>
+    <eLiterals name="CONTAIN" value="4"/>
+    <eLiterals name="LIKE" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JavaDoc" eSuperTypes="#//Attribute #//Class #//Method #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
@@ -142,10 +142,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AccessModifier">
-    <eLiterals name="Default" value="4"/>
-    <eLiterals name="Public" value="1"/>
-    <eLiterals name="Protected" value="2"/>
-    <eLiterals name="Private" value="3"/>
     <eLiterals name="nothing"/>
+    <eLiterals name="public" value="1"/>
+    <eLiterals name="protected" value="2"/>
+    <eLiterals name="private" value="3"/>
+    <eLiterals name="default" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

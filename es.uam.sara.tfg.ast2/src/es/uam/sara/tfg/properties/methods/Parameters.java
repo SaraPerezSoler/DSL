@@ -14,12 +14,12 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
  * @author Sara
  *
  */
-public class Parametres extends Method{
+public class Parameters extends Method{
 
 	private int numParametres;
 	private List<String> paramList;
 
-	public Parametres(List<MethodDeclaration> analyze, int num) {
+	public Parameters(List<MethodDeclaration> analyze, int num) {
 		super(analyze);
 		numParametres = num;
 		paramList = null;
@@ -28,7 +28,7 @@ public class Parametres extends Method{
 	/**
 	 * @param analyze
 	 */
-	public Parametres(List<MethodDeclaration> analyze, List<String> param) {
+	public Parameters(List<MethodDeclaration> analyze, List<String> param) {
 		super(analyze);
 		numParametres = param.size();
 		paramList = param;

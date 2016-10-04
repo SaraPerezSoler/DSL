@@ -7,10 +7,10 @@ import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
 
 
-public class MathNameType extends Method{
+public class MethNameType extends Method{
 
 	private NameCheck nCheck;
-	public MathNameType(List<MethodDeclaration> analyze, Type type) {
+	public MethNameType(List<MethodDeclaration> analyze, Type type) {
 		super(analyze);
 		nCheck= new NameCheck(type);
 	}

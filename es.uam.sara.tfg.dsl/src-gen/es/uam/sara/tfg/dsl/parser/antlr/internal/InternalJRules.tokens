@@ -11,17 +11,13 @@
 '@version'=44
 'Attribute'=64
 'Class'=60
-'Default'=77
 'English'=75
 'Enum'=62
 'Interface'=61
 'JavaDoc'=40
 'Method'=63
 'Package'=59
-'Private'=80
 'ProjectName:'=11
-'Protected'=79
-'Public'=78
 'Spanish'=76
 '['=30
 ']'=32
@@ -30,6 +26,7 @@
 'and'=18
 'constructor'=33
 'contains'=74
+'default'=77
 'empty'=38
 'ends'=72
 'equal'=71
@@ -55,6 +52,9 @@
 'numParameters='=28
 'one'=56
 'or'=16
+'private'=80
+'protected'=79
+'public'=78
 'return'=34
 'satisfy'=15
 'start'=73

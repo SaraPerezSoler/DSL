@@ -19,48 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum NameOperator implements Enumerator {
 	/**
-	 * The '<em><b>Like</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LIKE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LIKE(5, "like", "like"),
-
-	/**
-	 * The '<em><b>Equal</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #EQUAL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	EQUAL(1, "equal", "equal"), /**
-	 * The '<em><b>Start</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #START_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	START(2, "start", "start"), /**
-	 * The '<em><b>Ends</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENDS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ENDS(3, "ends", "ends"), /**
-	 * The '<em><b>Contains</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #CONTAINS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	CONTAINS(4, "contains", "contains"), /**
 	 * The '<em><b>Nothing</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,82 +26,47 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHING(0, "nothing", "nothing");
-
-	/**
-	 * The '<em><b>Like</b></em>' literal value.
+	NOTHING(0, "nothing", "nothing"), /**
+	 * The '<em><b>EQUAL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Like</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #LIKE
-	 * @model name="like"
+	 * @see #EQUAL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LIKE_VALUE = 5;
-
-	/**
-	 * The '<em><b>Equal</b></em>' literal value.
+	EQUAL(1, "EQUAL", "EQUAL"), /**
+	 * The '<em><b>START</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Equal</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #EQUAL
-	 * @model name="equal"
+	 * @see #START_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUAL_VALUE = 1;
-
-	/**
-	 * The '<em><b>Start</b></em>' literal value.
+	START(2, "START", "START"), /**
+	 * The '<em><b>END</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Start</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #START
-	 * @model name="start"
+	 * @see #END_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int START_VALUE = 2;
-
-	/**
-	 * The '<em><b>Ends</b></em>' literal value.
+	END(3, "END", "END"), /**
+	 * The '<em><b>CONTAIN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Ends</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENDS
-	 * @model name="ends"
+	 * @see #CONTAIN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENDS_VALUE = 3;
-
-	/**
-	 * The '<em><b>Contains</b></em>' literal value.
+	CONTAIN(4, "CONTAIN", "CONTAIN"), /**
+	 * The '<em><b>LIKE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Contains</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CONTAINS
-	 * @model name="contains"
+	 * @see #LIKE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTAINS_VALUE = 4;
+	LIKE(5, "LIKE", "LIKE");
 
 	/**
 	 * The '<em><b>Nothing</b></em>' literal value.
@@ -161,6 +84,81 @@ public enum NameOperator implements Enumerator {
 	public static final int NOTHING_VALUE = 0;
 
 	/**
+	 * The '<em><b>EQUAL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Equal</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #EQUAL
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EQUAL_VALUE = 1;
+
+	/**
+	 * The '<em><b>START</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Start</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #START
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int START_VALUE = 2;
+
+	/**
+	 * The '<em><b>END</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>END</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #END
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int END_VALUE = 3;
+
+	/**
+	 * The '<em><b>CONTAIN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>CONTAIN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CONTAIN
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CONTAIN_VALUE = 4;
+
+	/**
+	 * The '<em><b>LIKE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Like</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LIKE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LIKE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Name Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,12 +166,12 @@ public enum NameOperator implements Enumerator {
 	 */
 	private static final NameOperator[] VALUES_ARRAY =
 		new NameOperator[] {
-			LIKE,
+			NOTHING,
 			EQUAL,
 			START,
-			ENDS,
-			CONTAINS,
-			NOTHING,
+			END,
+			CONTAIN,
+			LIKE,
 		};
 
 	/**
@@ -230,12 +228,12 @@ public enum NameOperator implements Enumerator {
 	 */
 	public static NameOperator get(int value) {
 		switch (value) {
-			case LIKE_VALUE: return LIKE;
+			case NOTHING_VALUE: return NOTHING;
 			case EQUAL_VALUE: return EQUAL;
 			case START_VALUE: return START;
-			case ENDS_VALUE: return ENDS;
-			case CONTAINS_VALUE: return CONTAINS;
-			case NOTHING_VALUE: return NOTHING;
+			case END_VALUE: return END;
+			case CONTAIN_VALUE: return CONTAIN;
+			case LIKE_VALUE: return LIKE;
 		}
 		return null;
 	}

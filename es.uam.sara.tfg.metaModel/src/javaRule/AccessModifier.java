@@ -19,44 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum AccessModifier implements Enumerator {
 	/**
-	 * The '<em><b>Default</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DEFAULT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DEFAULT(4, "Default", "Default"),
-
-	/**
-	 * The '<em><b>Public</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PUBLIC_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PUBLIC(1, "Public", "Public"),
-
-	/**
-	 * The '<em><b>Protected</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PROTECTED_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PROTECTED(2, "Protected", "Protected"),
-
-	/**
-	 * The '<em><b>Private</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PRIVATE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PRIVATE(3, "Private", "Private"), /**
 	 * The '<em><b>Nothing</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,67 +26,39 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHING(0, "nothing", "nothing");
-
-	/**
-	 * The '<em><b>Default</b></em>' literal value.
+	NOTHING(0, "nothing", "nothing"), /**
+	 * The '<em><b>Public</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Default</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DEFAULT
-	 * @model name="Default"
+	 * @see #PUBLIC_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DEFAULT_VALUE = 4;
-
-	/**
-	 * The '<em><b>Public</b></em>' literal value.
+	PUBLIC(1, "public", "public"), /**
+	 * The '<em><b>Protected</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Public</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PUBLIC
-	 * @model name="Public"
+	 * @see #PROTECTED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PUBLIC_VALUE = 1;
-
-	/**
-	 * The '<em><b>Protected</b></em>' literal value.
+	PROTECTED(2, "protected", "protected"), /**
+	 * The '<em><b>Private</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Protected</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PROTECTED
-	 * @model name="Protected"
+	 * @see #PRIVATE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROTECTED_VALUE = 2;
-
-	/**
-	 * The '<em><b>Private</b></em>' literal value.
+	PRIVATE(3, "private", "private"), /**
+	 * The '<em><b>Default</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Private</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #PRIVATE
-	 * @model name="Private"
+	 * @see #DEFAULT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PRIVATE_VALUE = 3;
+	DEFAULT(4, "default", "default");
 
 	/**
 	 * The '<em><b>Nothing</b></em>' literal value.
@@ -142,6 +76,66 @@ public enum AccessModifier implements Enumerator {
 	public static final int NOTHING_VALUE = 0;
 
 	/**
+	 * The '<em><b>Public</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Public</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PUBLIC
+	 * @model name="public"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PUBLIC_VALUE = 1;
+
+	/**
+	 * The '<em><b>Protected</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Protected</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PROTECTED
+	 * @model name="protected"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PROTECTED_VALUE = 2;
+
+	/**
+	 * The '<em><b>Private</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Private</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PRIVATE
+	 * @model name="private"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRIVATE_VALUE = 3;
+
+	/**
+	 * The '<em><b>Default</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Default</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DEFAULT
+	 * @model name="default"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DEFAULT_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Access Modifier</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,11 +143,11 @@ public enum AccessModifier implements Enumerator {
 	 */
 	private static final AccessModifier[] VALUES_ARRAY =
 		new AccessModifier[] {
-			DEFAULT,
+			NOTHING,
 			PUBLIC,
 			PROTECTED,
 			PRIVATE,
-			NOTHING,
+			DEFAULT,
 		};
 
 	/**
@@ -210,11 +204,11 @@ public enum AccessModifier implements Enumerator {
 	 */
 	public static AccessModifier get(int value) {
 		switch (value) {
-			case DEFAULT_VALUE: return DEFAULT;
+			case NOTHING_VALUE: return NOTHING;
 			case PUBLIC_VALUE: return PUBLIC;
 			case PROTECTED_VALUE: return PROTECTED;
 			case PRIVATE_VALUE: return PRIVATE;
-			case NOTHING_VALUE: return NOTHING;
+			case DEFAULT_VALUE: return DEFAULT;
 		}
 		return null;
 	}

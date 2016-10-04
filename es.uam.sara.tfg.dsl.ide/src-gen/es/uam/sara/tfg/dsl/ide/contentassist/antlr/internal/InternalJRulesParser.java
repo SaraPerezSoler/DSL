@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'Default'", "'Public'", "'Protected'", "'Private'", "'ProjectName:'", "';'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'default'", "'public'", "'protected'", "'private'", "'ProjectName:'", "';'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -3370,7 +3370,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1016:2: ( ( 'upperCase' ) )
                     // InternalJRules.g:1017:3: ( 'upperCase' )
                     {
-                     before(grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0()); 
+                     before(grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0()); 
                     // InternalJRules.g:1018:3: ( 'upperCase' )
                     // InternalJRules.g:1018:4: 'upperCase'
                     {
@@ -3378,7 +3378,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0()); 
+                     after(grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0()); 
 
                     }
 
@@ -3391,7 +3391,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1022:2: ( ( 'lowerCase' ) )
                     // InternalJRules.g:1023:3: ( 'lowerCase' )
                     {
-                     before(grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1()); 
+                     before(grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1()); 
                     // InternalJRules.g:1024:3: ( 'lowerCase' )
                     // InternalJRules.g:1024:4: 'lowerCase'
                     {
@@ -3399,7 +3399,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1()); 
+                     after(grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1()); 
 
                     }
 
@@ -3412,7 +3412,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1028:2: ( ( 'upperCamelCase' ) )
                     // InternalJRules.g:1029:3: ( 'upperCamelCase' )
                     {
-                     before(grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2()); 
+                     before(grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2()); 
                     // InternalJRules.g:1030:3: ( 'upperCamelCase' )
                     // InternalJRules.g:1030:4: 'upperCamelCase'
                     {
@@ -3420,7 +3420,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2()); 
+                     after(grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -3433,7 +3433,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1034:2: ( ( 'lowerCamelCase' ) )
                     // InternalJRules.g:1035:3: ( 'lowerCamelCase' )
                     {
-                     before(grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3()); 
+                     before(grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3()); 
                     // InternalJRules.g:1036:3: ( 'lowerCamelCase' )
                     // InternalJRules.g:1036:4: 'lowerCamelCase'
                     {
@@ -3441,7 +3441,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3()); 
 
                     }
 
@@ -3454,7 +3454,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1040:2: ( ( 'startUpperCase' ) )
                     // InternalJRules.g:1041:3: ( 'startUpperCase' )
                     {
-                     before(grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4()); 
+                     before(grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4()); 
                     // InternalJRules.g:1042:3: ( 'startUpperCase' )
                     // InternalJRules.g:1042:4: 'startUpperCase'
                     {
@@ -3462,7 +3462,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4()); 
+                     after(grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4()); 
 
                     }
 
@@ -3535,7 +3535,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1055:2: ( ( 'like' ) )
                     // InternalJRules.g:1056:3: ( 'like' )
                     {
-                     before(grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0()); 
+                     before(grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0()); 
                     // InternalJRules.g:1057:3: ( 'like' )
                     // InternalJRules.g:1057:4: 'like'
                     {
@@ -3543,7 +3543,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0()); 
+                     after(grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0()); 
 
                     }
 
@@ -3556,7 +3556,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1061:2: ( ( 'equal' ) )
                     // InternalJRules.g:1062:3: ( 'equal' )
                     {
-                     before(grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1()); 
+                     before(grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1()); 
                     // InternalJRules.g:1063:3: ( 'equal' )
                     // InternalJRules.g:1063:4: 'equal'
                     {
@@ -3564,7 +3564,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1()); 
+                     after(grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1()); 
 
                     }
 
@@ -3577,7 +3577,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1067:2: ( ( 'ends' ) )
                     // InternalJRules.g:1068:3: ( 'ends' )
                     {
-                     before(grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2()); 
+                     before(grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2()); 
                     // InternalJRules.g:1069:3: ( 'ends' )
                     // InternalJRules.g:1069:4: 'ends'
                     {
@@ -3585,7 +3585,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2()); 
+                     after(grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2()); 
 
                     }
 
@@ -3598,7 +3598,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1073:2: ( ( 'start' ) )
                     // InternalJRules.g:1074:3: ( 'start' )
                     {
-                     before(grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3()); 
+                     before(grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3()); 
                     // InternalJRules.g:1075:3: ( 'start' )
                     // InternalJRules.g:1075:4: 'start'
                     {
@@ -3606,7 +3606,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3()); 
 
                     }
 
@@ -3619,7 +3619,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1079:2: ( ( 'contains' ) )
                     // InternalJRules.g:1080:3: ( 'contains' )
                     {
-                     before(grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4()); 
+                     before(grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4()); 
                     // InternalJRules.g:1081:3: ( 'contains' )
                     // InternalJRules.g:1081:4: 'contains'
                     {
@@ -3627,7 +3627,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4()); 
+                     after(grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4()); 
 
                     }
 
@@ -3702,7 +3702,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     // InternalJRules.g:1100:2: ( ( 'Spanish' ) )
                     // InternalJRules.g:1101:3: ( 'Spanish' )
                     {
-                     before(grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1()); 
+                     before(grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1()); 
                     // InternalJRules.g:1102:3: ( 'Spanish' )
                     // InternalJRules.g:1102:4: 'Spanish'
                     {
@@ -3710,7 +3710,7 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
                     }
 
-                     after(grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1()); 
+                     after(grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1()); 
 
                     }
 
@@ -3735,13 +3735,13 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AccessModifier__Alternatives"
-    // InternalJRules.g:1110:1: rule__AccessModifier__Alternatives : ( ( ( 'Default' ) ) | ( ( 'Public' ) ) | ( ( 'Protected' ) ) | ( ( 'Private' ) ) );
+    // InternalJRules.g:1110:1: rule__AccessModifier__Alternatives : ( ( ( 'default' ) ) | ( ( 'public' ) ) | ( ( 'protected' ) ) | ( ( 'private' ) ) );
     public final void rule__AccessModifier__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:1114:1: ( ( ( 'Default' ) ) | ( ( 'Public' ) ) | ( ( 'Protected' ) ) | ( ( 'Private' ) ) )
+            // InternalJRules.g:1114:1: ( ( ( 'default' ) ) | ( ( 'public' ) ) | ( ( 'protected' ) ) | ( ( 'private' ) ) )
             int alt12=4;
             switch ( input.LA(1) ) {
             case 32:
@@ -3773,14 +3773,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
             switch (alt12) {
                 case 1 :
-                    // InternalJRules.g:1115:2: ( ( 'Default' ) )
+                    // InternalJRules.g:1115:2: ( ( 'default' ) )
                     {
-                    // InternalJRules.g:1115:2: ( ( 'Default' ) )
-                    // InternalJRules.g:1116:3: ( 'Default' )
+                    // InternalJRules.g:1115:2: ( ( 'default' ) )
+                    // InternalJRules.g:1116:3: ( 'default' )
                     {
                      before(grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0()); 
-                    // InternalJRules.g:1117:3: ( 'Default' )
-                    // InternalJRules.g:1117:4: 'Default'
+                    // InternalJRules.g:1117:3: ( 'default' )
+                    // InternalJRules.g:1117:4: 'default'
                     {
                     match(input,32,FOLLOW_2); 
 
@@ -3794,14 +3794,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:1121:2: ( ( 'Public' ) )
+                    // InternalJRules.g:1121:2: ( ( 'public' ) )
                     {
-                    // InternalJRules.g:1121:2: ( ( 'Public' ) )
-                    // InternalJRules.g:1122:3: ( 'Public' )
+                    // InternalJRules.g:1121:2: ( ( 'public' ) )
+                    // InternalJRules.g:1122:3: ( 'public' )
                     {
                      before(grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1()); 
-                    // InternalJRules.g:1123:3: ( 'Public' )
-                    // InternalJRules.g:1123:4: 'Public'
+                    // InternalJRules.g:1123:3: ( 'public' )
+                    // InternalJRules.g:1123:4: 'public'
                     {
                     match(input,33,FOLLOW_2); 
 
@@ -3815,14 +3815,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:1127:2: ( ( 'Protected' ) )
+                    // InternalJRules.g:1127:2: ( ( 'protected' ) )
                     {
-                    // InternalJRules.g:1127:2: ( ( 'Protected' ) )
-                    // InternalJRules.g:1128:3: ( 'Protected' )
+                    // InternalJRules.g:1127:2: ( ( 'protected' ) )
+                    // InternalJRules.g:1128:3: ( 'protected' )
                     {
                      before(grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2()); 
-                    // InternalJRules.g:1129:3: ( 'Protected' )
-                    // InternalJRules.g:1129:4: 'Protected'
+                    // InternalJRules.g:1129:3: ( 'protected' )
+                    // InternalJRules.g:1129:4: 'protected'
                     {
                     match(input,34,FOLLOW_2); 
 
@@ -3836,14 +3836,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:1133:2: ( ( 'Private' ) )
+                    // InternalJRules.g:1133:2: ( ( 'private' ) )
                     {
-                    // InternalJRules.g:1133:2: ( ( 'Private' ) )
-                    // InternalJRules.g:1134:3: ( 'Private' )
+                    // InternalJRules.g:1133:2: ( ( 'private' ) )
+                    // InternalJRules.g:1134:3: ( 'private' )
                     {
                      before(grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3()); 
-                    // InternalJRules.g:1135:3: ( 'Private' )
-                    // InternalJRules.g:1135:4: 'Private'
+                    // InternalJRules.g:1135:3: ( 'private' )
+                    // InternalJRules.g:1135:4: 'private'
                     {
                     match(input,35,FOLLOW_2); 
 

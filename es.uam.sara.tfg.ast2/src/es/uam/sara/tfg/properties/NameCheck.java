@@ -11,13 +11,14 @@ import java.util.ArrayList;
 public class NameCheck {
 
 	public enum Operation {
-		EQUALS, LIKE, START, ENDS, CONTAINS, UNDEFINE
+		EQUAL, LIKE, START, ENDS, CONTAINS, UNDEFINE
 	}
 	public enum Type {
 		UPPER_CAMEL_CASE, LOWER_CAMEL_CASE, UPPER_CASE, LOWER_CASE, START_UPPER_CASE, UNDEFINE 
 	}
 	public static final int ENGLISH = 1;
 	public static final int SPANISH = 2;
+	public static final int EMPTY=0;
 	
 	
 	private Operation op=Operation.UNDEFINE;
@@ -45,7 +46,7 @@ public class NameCheck {
 	}
 	public boolean checkNameOperation (String name){
 		switch (op) {
-		case EQUALS:
+		case EQUAL:
 			return nameEqual(name, other);
 		case LIKE:
 			return nameLike(name, other, idioma);

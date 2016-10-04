@@ -107,14 +107,14 @@ EBigInteger returns ecore::EBigInteger:
 	'-'? INT;
 
 enum NameType returns NameType:
-	upperCase='upperCase' | lowerCase='lowerCase' | upperCamelCase='upperCamelCase' | lowerCamelCase='lowerCamelCase' |
-	startUpperCase='startUpperCase';
+	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' | LOWER_CAMEL_CASE='lowerCamelCase' |
+	START_UPPER_CASE='startUpperCase';
 
 enum NameOperator returns NameOperator:
-	like='like' | equal='equal' | ends='ends' | start='start'| contains='contains';
+	LIKE='like' | EQUAL='equal' | END='ends' | START='start'| CONTAIN='contains';
 
 enum Language returns Language:
-	ENGLISH='English' | ESPANIOL='Spanish';
+	ENGLISH='English' | SPANISH='Spanish';
 
 BlendModifiers returns BlendModifiers:
 	(access=AccessModifier ('and'static?='static')? ('and'final?='final')? ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?) | 
@@ -123,4 +123,4 @@ BlendModifiers returns BlendModifiers:
 	(abstract?='abstract' ('and' synchronized?='synchronized')?)| synchronized?='synchronized';
 
 enum AccessModifier returns AccessModifier:
-	Default='Default' | Public='Public' | Protected='Protected' | Private='Private';
+	default='default' | public='public' | protected='protected' | private='private';

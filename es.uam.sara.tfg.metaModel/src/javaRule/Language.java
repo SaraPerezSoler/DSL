@@ -19,24 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Language implements Enumerator {
 	/**
-	 * The '<em><b>ENGLISH</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ENGLISH_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ENGLISH(2, "ENGLISH", "ENGLISH"),
-
-	/**
-	 * The '<em><b>ESPANIOL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ESPANIOL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ESPANIOL(1, "ESPANIOL", "ESPANIOL"), /**
 	 * The '<em><b>EMPTY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,37 +26,23 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EMPTY(0, "EMPTY", "EMPTY");
-
-	/**
-	 * The '<em><b>ENGLISH</b></em>' literal value.
+	EMPTY(0, "EMPTY", "EMPTY"), /**
+	 * The '<em><b>SPANISH</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ENGLISH</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENGLISH
-	 * @model
+	 * @see #SPANISH_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENGLISH_VALUE = 2;
-
-	/**
-	 * The '<em><b>ESPANIOL</b></em>' literal value.
+	SPANISH(1, "SPANISH", "SPANISH"), /**
+	 * The '<em><b>ENGLISH</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ESPANIOL</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ESPANIOL
-	 * @model
+	 * @see #ENGLISH_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ESPANIOL_VALUE = 1;
+	ENGLISH(2, "ENGLISH", "ENGLISH");
 
 	/**
 	 * The '<em><b>EMPTY</b></em>' literal value.
@@ -92,6 +60,36 @@ public enum Language implements Enumerator {
 	public static final int EMPTY_VALUE = 0;
 
 	/**
+	 * The '<em><b>SPANISH</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>SPANISH</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SPANISH
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SPANISH_VALUE = 1;
+
+	/**
+	 * The '<em><b>ENGLISH</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ENGLISH</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENGLISH
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENGLISH_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Language</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,9 +97,9 @@ public enum Language implements Enumerator {
 	 */
 	private static final Language[] VALUES_ARRAY =
 		new Language[] {
-			ENGLISH,
-			ESPANIOL,
 			EMPTY,
+			SPANISH,
+			ENGLISH,
 		};
 
 	/**
@@ -158,9 +156,9 @@ public enum Language implements Enumerator {
 	 */
 	public static Language get(int value) {
 		switch (value) {
-			case ENGLISH_VALUE: return ENGLISH;
-			case ESPANIOL_VALUE: return ESPANIOL;
 			case EMPTY_VALUE: return EMPTY;
+			case SPANISH_VALUE: return SPANISH;
+			case ENGLISH_VALUE: return ENGLISH;
 		}
 		return null;
 	}

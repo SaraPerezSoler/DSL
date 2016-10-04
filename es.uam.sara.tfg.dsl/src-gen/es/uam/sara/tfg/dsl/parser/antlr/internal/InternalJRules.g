@@ -2149,40 +2149,40 @@ ruleNameType returns [Enumerator current=null]
 		(
 			enumLiteral_0='upperCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getNameTypeAccess().getUpperCaseEnumLiteralDeclaration_0());
+				$current = grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='lowerCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getNameTypeAccess().getLowerCaseEnumLiteralDeclaration_1());
+				$current = grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='upperCamelCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getNameTypeAccess().getUpperCamelCaseEnumLiteralDeclaration_2());
+				$current = grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='lowerCamelCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getNameTypeAccess().getLowerCamelCaseEnumLiteralDeclaration_3());
+				$current = grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
 			enumLiteral_4='startUpperCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getNameTypeAccess().getStartUpperCaseEnumLiteralDeclaration_4());
+				$current = grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4());
 			}
 		)
 	)
@@ -2200,40 +2200,40 @@ ruleNameOperator returns [Enumerator current=null]
 		(
 			enumLiteral_0='like'
 			{
-				$current = grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getNameOperatorAccess().getLikeEnumLiteralDeclaration_0());
+				$current = grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='equal'
 			{
-				$current = grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEqualEnumLiteralDeclaration_1());
+				$current = grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='ends'
 			{
-				$current = grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getEndsEnumLiteralDeclaration_2());
+				$current = grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='start'
 			{
-				$current = grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getNameOperatorAccess().getStartEnumLiteralDeclaration_3());
+				$current = grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
 			enumLiteral_4='contains'
 			{
-				$current = grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getContainsEnumLiteralDeclaration_4());
+				$current = grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4());
 			}
 		)
 	)
@@ -2259,8 +2259,8 @@ ruleLanguage returns [Enumerator current=null]
 		(
 			enumLiteral_1='Spanish'
 			{
-				$current = grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getESPANIOLEnumLiteralDeclaration_1());
+				$current = grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1());
 			}
 		)
 	)
@@ -2276,7 +2276,7 @@ ruleAccessModifier returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='Default'
+			enumLiteral_0='default'
 			{
 				$current = grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0());
@@ -2284,7 +2284,7 @@ ruleAccessModifier returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='Public'
+			enumLiteral_1='public'
 			{
 				$current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1());
@@ -2292,7 +2292,7 @@ ruleAccessModifier returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='Protected'
+			enumLiteral_2='protected'
 			{
 				$current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2());
@@ -2300,7 +2300,7 @@ ruleAccessModifier returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_3='Private'
+			enumLiteral_3='private'
 			{
 				$current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_3, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3());

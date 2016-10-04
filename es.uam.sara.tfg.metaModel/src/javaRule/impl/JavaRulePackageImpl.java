@@ -1243,32 +1243,32 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(elementJavaEEnum, ElementJava.ATTRIBUTE);
 
 		initEEnum(languageEEnum, Language.class, "Language");
-		addEEnumLiteral(languageEEnum, Language.ENGLISH);
-		addEEnumLiteral(languageEEnum, Language.ESPANIOL);
 		addEEnumLiteral(languageEEnum, Language.EMPTY);
+		addEEnumLiteral(languageEEnum, Language.SPANISH);
+		addEEnumLiteral(languageEEnum, Language.ENGLISH);
 
 		initEEnum(nameTypeEEnum, NameType.class, "NameType");
+		addEEnumLiteral(nameTypeEEnum, NameType.NOTHING);
 		addEEnumLiteral(nameTypeEEnum, NameType.UPPER_CASE);
 		addEEnumLiteral(nameTypeEEnum, NameType.LOWER_CASE);
 		addEEnumLiteral(nameTypeEEnum, NameType.UPPER_CAMEL_CASE);
 		addEEnumLiteral(nameTypeEEnum, NameType.LOWER_CAMEL_CASE);
 		addEEnumLiteral(nameTypeEEnum, NameType.START_UPPER_CASE);
-		addEEnumLiteral(nameTypeEEnum, NameType.NOTHING);
 
 		initEEnum(nameOperatorEEnum, NameOperator.class, "NameOperator");
-		addEEnumLiteral(nameOperatorEEnum, NameOperator.LIKE);
+		addEEnumLiteral(nameOperatorEEnum, NameOperator.NOTHING);
 		addEEnumLiteral(nameOperatorEEnum, NameOperator.EQUAL);
 		addEEnumLiteral(nameOperatorEEnum, NameOperator.START);
-		addEEnumLiteral(nameOperatorEEnum, NameOperator.ENDS);
-		addEEnumLiteral(nameOperatorEEnum, NameOperator.CONTAINS);
-		addEEnumLiteral(nameOperatorEEnum, NameOperator.NOTHING);
+		addEEnumLiteral(nameOperatorEEnum, NameOperator.END);
+		addEEnumLiteral(nameOperatorEEnum, NameOperator.CONTAIN);
+		addEEnumLiteral(nameOperatorEEnum, NameOperator.LIKE);
 
 		initEEnum(accessModifierEEnum, AccessModifier.class, "AccessModifier");
-		addEEnumLiteral(accessModifierEEnum, AccessModifier.DEFAULT);
+		addEEnumLiteral(accessModifierEEnum, AccessModifier.NOTHING);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PUBLIC);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PROTECTED);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PRIVATE);
-		addEEnumLiteral(accessModifierEEnum, AccessModifier.NOTHING);
+		addEEnumLiteral(accessModifierEEnum, AccessModifier.DEFAULT);
 
 		// Create resource
 		createResource(eNS_URI);
