@@ -9,9 +9,7 @@ import javaRule.And;
 import javaRule.ElementJava;
 import javaRule.Filter;
 import javaRule.Or;
-import javaRule.Quantifier;
 import javaRule.Rule;
-import javaRule.Satisfy;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -31,24 +29,17 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class JRulesGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    int i = 1;
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
     Iterable<Rule> _filter = Iterables.<Rule>filter(_iterable, Rule.class);
-    for (final Rule rule : _filter) {
-      {
-        CharSequence _generateClass = this.generateClass(rule, i);
-        fsa.generateFile((("Rule" + Integer.valueOf(i)) + "Factory.java"), _generateClass);
-        i++;
-      }
-    }
+    CharSequence _RuleFactory = this.RuleFactory(_filter);
+    fsa.generateFile("RuleFactory.java", _RuleFactory);
   }
   
-  public CharSequence generateClass(final Rule rule, final int i) {
+  public CharSequence RuleFactory(final Iterable<Rule> rules) {
     CharSequence _xblockexpression = null;
     {
-      ElementJava _element = rule.getElement();
-      CharSequence t = this.getType(_element);
+      int i = 1;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("import java.util.*;");
       _builder.newLine();
@@ -58,229 +49,245 @@ public class JRulesGenerator extends AbstractGenerator {
       _builder.newLine();
       _builder.append("import es.uam.sara.tfg.properties.*;");
       _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.interfaces.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.classes.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.enumerations.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.methods.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.attributes.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.packages.*;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.TypeDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.EnumDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.MethodDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.FieldDeclaration;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("public class RuleFactory {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private List <Rule<?>> rules=null;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public List<Rule<?>> getRules(){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("if (rules!=null){");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("return rules;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}else{");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("rules= new ArrayList<Rule<?>>();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
       {
-        ElementJava _element_1 = rule.getElement();
-        boolean _equals = Objects.equal(_element_1, ElementJava.INTERFACE);
-        if (_equals) {
-          _builder.append("import es.uam.sara.tfg.properties.interfaces.*;");
-          _builder.newLine();
-        } else {
-          ElementJava _element_2 = rule.getElement();
-          boolean _equals_1 = Objects.equal(_element_2, ElementJava.CLASS);
-          if (_equals_1) {
-            _builder.append("import es.uam.sara.tfg.properties.classes.*;");
-            _builder.newLine();
-          } else {
-            ElementJava _element_3 = rule.getElement();
-            boolean _equals_2 = Objects.equal(_element_3, ElementJava.ENUM);
-            if (_equals_2) {
-              _builder.append("import es.uam.sara.tfg.properties.enumerations.*;");
-              _builder.newLine();
-            } else {
-              ElementJava _element_4 = rule.getElement();
-              boolean _equals_3 = Objects.equal(_element_4, ElementJava.METHOD);
-              if (_equals_3) {
-                _builder.append("import es.uam.sara.tfg.properties.methods.*;");
-                _builder.newLine();
-              } else {
-                ElementJava _element_5 = rule.getElement();
-                boolean _equals_4 = Objects.equal(_element_5, ElementJava.ATTRIBUTE);
-                if (_equals_4) {
-                  _builder.append("import es.uam.sara.tfg.properties.attributes.*;");
+        for(final Rule r : rules) {
+          _builder.append("\t\t\t");
+          _builder.append("//r");
+          _builder.append(i, "\t\t\t");
+          _builder.append(" ");
+          String _string = r.toString();
+          _builder.append(_string, "\t\t\t");
+          _builder.newLineIfNotEmpty();
+          {
+            Filter _filter = r.getFilter();
+            boolean _notEquals = (!Objects.equal(_filter, null));
+            if (_notEquals) {
+              _builder.append("\t\t\t");
+              _builder.append("\t\t\t");
+              ElementJava _element = r.getElement();
+              CharSequence t = this.getType(_element);
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t\t");
+              _builder.append("\t\t\t");
+              _builder.append("Or<");
+              _builder.append(t, "\t\t\t\t\t\t");
+              _builder.append("> filter");
+              _builder.append(i, "\t\t\t\t\t\t");
+              _builder.append("= new Filter<");
+              _builder.append(t, "\t\t\t\t\t\t");
+              _builder.append(">(");
+              Filter _filter_1 = r.getFilter();
+              boolean _isNo = _filter_1.isNo();
+              _builder.append(_isNo, "\t\t\t\t\t\t");
+              _builder.append(",elements);");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t\t");
+              _builder.append("\t\t\t");
+              _builder.append("/*");
+              int j = 1;
+              _builder.newLineIfNotEmpty();
+              {
+                Filter _filter_2 = r.getFilter();
+                Or _filter_3 = _filter_2.getFilter();
+                EList<And> _op = _filter_3.getOp();
+                for(final And a : _op) {
+                  _builder.append("\t\t\t");
+                  _builder.append("\t\t\t");
+                  _builder.append("\t");
+                  _builder.append("And<");
+                  _builder.append(t, "\t\t\t\t\t\t\t");
+                  _builder.append("> andFilter");
+                  _builder.append(i, "\t\t\t\t\t\t\t");
+                  _builder.append(j, "\t\t\t\t\t\t\t");
+                  _builder.append(" = new And<");
+                  _builder.append(t, "\t\t\t\t\t\t\t");
+                  _builder.append(">(elements);");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("\t\t\t");
+                  _builder.append("\t\t\t");
+                  _builder.append("\t");
                   _builder.newLine();
-                } else {
-                  ElementJava _element_6 = rule.getElement();
-                  boolean _equals_5 = Objects.equal(_element_6, ElementJava.PACKAGE);
-                  if (_equals_5) {
-                    _builder.append("import es.uam.sara.tfg.properties.packages.*;");
-                    _builder.newLine();
-                  }
+                  _builder.append("\t\t\t");
+                  _builder.append("\t\t\t");
+                  _builder.append("\t");
                 }
               }
+              _builder.append("*/");
+              _builder.newLineIfNotEmpty();
             }
           }
+          _builder.append("\t\t\t");
+          _builder.append("\t");
+          _builder.newLine();
         }
       }
-      {
-        ElementJava _element_7 = rule.getElement();
-        boolean _notEquals = (!Objects.equal(_element_7, ElementJava.PACKAGE));
-        if (_notEquals) {
-          _builder.append("import org.eclipse.jdt.core.dom.");
-          _builder.append(t, "");
-          _builder.append(";");
-          _builder.newLineIfNotEmpty();
-        }
-      }
-      _builder.newLine();
-      _builder.append("//");
-      {
-        boolean _isNo = rule.isNo();
-        if (_isNo) {
-          _builder.append("no");
-        }
-      }
-      _builder.append(" ");
-      Quantifier _quantifier = rule.getQuantifier();
-      _builder.append(_quantifier, "");
-      _builder.append(" ");
-      ElementJava _element_8 = rule.getElement();
-      _builder.append(_element_8, "");
-      _builder.newLineIfNotEmpty();
-      {
-        Filter _filter = rule.getFilter();
-        boolean _notEquals_1 = (!Objects.equal(_filter, null));
-        if (_notEquals_1) {
-          _builder.append("// whitch ");
-          {
-            Filter _filter_1 = rule.getFilter();
-            boolean _isNo_1 = _filter_1.isNo();
-            if (_isNo_1) {
-              _builder.append("no");
-            }
-          }
-          _builder.append(" ");
-          Filter _filter_2 = rule.getFilter();
-          Or _filter_3 = _filter_2.getFilter();
-          CharSequence _textProperty = this.getTextProperty(_filter_3);
-          _builder.append(_textProperty, "");
-        }
-      }
-      _builder.newLineIfNotEmpty();
-      _builder.append("//");
-      {
-        Or _satisfy = rule.getSatisfy();
-        boolean _notEquals_2 = (!Objects.equal(_satisfy, null));
-        if (_notEquals_2) {
-          _builder.append(" satisfy ");
-          Or _satisfy_1 = rule.getSatisfy();
-          CharSequence _textProperty_1 = this.getTextProperty(_satisfy_1);
-          _builder.append(_textProperty_1, "");
-        }
-      }
-      _builder.newLineIfNotEmpty();
-      _builder.append("public class Rule");
-      _builder.append(i, "");
-      _builder.append("Factory implements RuleFactory<");
-      _builder.append(t, "");
-      _builder.append(">{");
-      _builder.newLineIfNotEmpty();
       _builder.append("\t");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("public Rule<");
-      _builder.append(t, "\t");
-      _builder.append("> getRule (List<");
-      _builder.append(t, "\t");
-      _builder.append("> elements){");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t\t\t");
+      _builder.append("return rules;");
       _builder.newLine();
-      {
-        Filter _filter_4 = rule.getFilter();
-        boolean _notEquals_3 = (!Objects.equal(_filter_4, null));
-        if (_notEquals_3) {
-          _builder.append("\t\t\t");
-          _builder.append("Or<");
-          _builder.append(t, "\t\t\t");
-          _builder.append("> filter= new Filter<");
-          _builder.append(t, "\t\t\t");
-          _builder.append(">(");
-          Filter _filter_5 = rule.getFilter();
-          boolean _isNo_2 = _filter_5.isNo();
-          _builder.append(_isNo_2, "\t\t\t");
-          _builder.append(",elements);");
-          _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
-          CharSequence _createProperty = this.createProperty(rule, true);
-          _builder.append(_createProperty, "\t\t\t");
-          _builder.newLineIfNotEmpty();
-        } else {
-          _builder.append("\t\t\t");
-          _builder.append("Or<");
-          _builder.append(t, "\t\t\t");
-          _builder.append("> filter=null;");
-          _builder.newLineIfNotEmpty();
-        }
-      }
-      {
-        Or _satisfy_2 = rule.getSatisfy();
-        boolean _notEquals_4 = (!Objects.equal(_satisfy_2, null));
-        if (_notEquals_4) {
-          _builder.append("\t\t\t");
-          _builder.append("Or<");
-          _builder.append(t, "\t\t\t");
-          _builder.append("> satisfy= new Or<");
-          _builder.append(t, "\t\t\t");
-          _builder.append(">(elements);");
-          _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
-          CharSequence _createProperty_1 = this.createProperty(rule, false);
-          _builder.append(_createProperty_1, "\t\t\t");
-          _builder.newLineIfNotEmpty();
-        } else {
-          _builder.append("\t\t\t");
-          _builder.append("Or<");
-          _builder.append(t, "\t\t\t");
-          _builder.append("> satisfy=null;");
-          _builder.newLineIfNotEmpty();
-        }
-      }
-      _builder.append("\t\t\t");
-      _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("return new Rule<");
-      _builder.append(t, "\t\t\t");
-      _builder.append(">(");
-      boolean _isNo_3 = rule.isNo();
-      _builder.append(_isNo_3, "\t\t\t");
-      _builder.append(", Quantifier.");
-      Quantifier _quantifier_1 = rule.getQuantifier();
-      String _literal = _quantifier_1.getLiteral();
-      String _upperCase = _literal.toUpperCase();
-      _builder.append(_upperCase, "\t\t\t");
-      _builder.append(",elements, filter, satisfy);");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
+      _builder.append("\t\t");
       _builder.append("}");
       _builder.newLine();
       _builder.append("\t");
+      _builder.append("}");
       _builder.newLine();
       _builder.append("}");
+      _builder.newLine();
+      _builder.newLine();
       _xblockexpression = _builder;
     }
     return _xblockexpression;
   }
   
-  public CharSequence getTextProperty(final Or or) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("or(");
-    {
-      EList<And> _op = or.getOp();
-      for(final And a : _op) {
-        _builder.append(" and:(");
-        {
-          EList<Satisfy> _op_1 = a.getOp();
-          for(final Satisfy s : _op_1) {
-            Class<? extends Satisfy> _class = s.getClass();
-            String _simpleName = _class.getSimpleName();
-            String _replace = _simpleName.replace("Impl", "");
-            _builder.append(_replace, "");
-            _builder.append(", ");
-          }
-        }
-        _builder.append(")");
-      }
-    }
-    _builder.append(")");
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence generateClass(final Rule rule, final int i) {
+    return null;
   }
   
-  public CharSequence createProperty(final Rule r, final boolean filter) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method getNamePropertieMethod(Satisfy, String, int) is undefined");
-  }
-  
+  /**
+   * def CharSequence generateClass(Rule rule, int i) {
+   * 	var t = getType(rule.element)
+   * 	'''
+   * 	import java.util.*;
+   * 	import es.uam.sara.tfg.rule.*;
+   * 	import es.uam.sara.tfg.rule.Rule.*;
+   * 	import es.uam.sara.tfg.properties.*;
+   * 	«IF rule.element==ElementJava.INTERFACE»
+   * 		import es.uam.sara.tfg.properties.interfaces.*;
+   * 	«ELSEIF rule.element==ElementJava.CLASS»
+   * 		import es.uam.sara.tfg.properties.classes.*;
+   * 	«ELSEIF rule.element==ElementJava.ENUM»
+   * 		import es.uam.sara.tfg.properties.enumerations.*;
+   * 	«ELSEIF rule.element==ElementJava.METHOD»
+   * 		import es.uam.sara.tfg.properties.methods.*;
+   * 	«ELSEIF rule.element==ElementJava.ATTRIBUTE»
+   * 		import es.uam.sara.tfg.properties.attributes.*;
+   * 	«ELSEIF rule.element==ElementJava.PACKAGE»
+   * 		import es.uam.sara.tfg.properties.packages.*;
+   * 	«ENDIF»
+   * 	«IF rule.element!=ElementJava.PACKAGE»
+   * 		import org.eclipse.jdt.core.dom.«t»;
+   * 	«ENDIF»
+   * 
+   * 	//«IF rule.no»no«ENDIF» «rule.quantifier» «rule.element»
+   * 	«IF rule.filter!=null»// whitch «IF rule.filter.no»no«ENDIF» «getTextProperty(rule.filter.filter)»«ENDIF»
+   * 	//«IF rule.satisfy!=null» satisfy «getTextProperty(rule.satisfy)»«ENDIF»
+   * 	public class Rule«i»Factory implements RuleFactory<«t»>{
+   * 
+   * 		public Rule<«t»> getRule (List<«t»> elements){
+   * 
+   * 				«IF rule.filter!=null»
+   * 					Or<«t»> filter= new Filter<«t»>(«rule.filter.no»,elements);
+   * 					«createAnds(rule, true)»
+   * 				«ELSE»
+   * 					Or<«t»> filter=null;
+   * 				«ENDIF»
+   * 				«IF rule.satisfy!=null»
+   * 					Or<«t»> satisfy= new Or<«t»>(elements);
+   * 					«createAnds(rule, false)»
+   * 				«ELSE»
+   * 					Or<«t»> satisfy=null;
+   * 				«ENDIF»
+   * 
+   * 				return new Rule<«t»>(«rule.no», Quantifier.«rule.quantifier.literal.toUpperCase»,elements, filter, satisfy);
+   * 		}
+   * 
+   * 	}'''
+   * 
+   * }
+   * 
+   * def CharSequence getTextProperty(Or or) {
+   * 	'''
+   * 		or(«FOR a : or.op» and:(«FOR s:a.op»«s.class.simpleName.replace("Impl", "")», «ENDFOR»)«ENDFOR»)
+   * 	'''
+   * }
+   * 
+   * def CharSequence createAnds(Rule r, boolean filter) {
+   * 	var prop = null as Or
+   * 	var cad = ""
+   * 	if (filter) {
+   * 		prop = r.filter.filter;
+   * 		cad = "Filter"
+   * 	} else {
+   * 		prop = r.satisfy;
+   * 	}
+   * 	var t = getType(r.element)
+   * 
+   * 	'''
+   * 		«var i=1»
+   * 		«FOR a : prop.op»
+   * 			And<«t»> and«cad»«(i)»= new And<«t»>(elements);
+   * 			«FOR s:a.op»
+   * 				«IF r.element ==  ElementJava.ATTRIBUTE»
+   * 					«AttributesSatisfy.getPropertie(s as Attribute, cad+i)»
+   * 				«ELSEIF r.element ==  ElementJava.METHOD»
+   * 					«MethodsSatisfy.getPropertie(s as Method,cad+i)»
+   * 				«ELSEIF r.element ==  ElementJava.CLASS»
+   * 					«ClassesSatisfy.getPropertie(s as Class,cad+i)»
+   * 				«ELSEIF r.element ==  ElementJava.INTERFACE»
+   * 					«InterfaceSatisfy.getPropertie(s as Interface,cad+i)»
+   * 				«ELSEIF r.element ==  ElementJava.ENUM»
+   * 					«EnumSatisfy.getPropertie(s as Enumeration,cad+i)»
+   * 				«ELSEIF r.element ==  ElementJava.PACKAGE»
+   * 					«PackageSatisfy.getPropertie(s as Package,cad+i)»
+   * 				«ENDIF»
+   * 			«ENDFOR»
+   * 			«IF filter»
+   * 				filter.addAnd(and«cad»«(i++)»);
+   * 			«ELSE»
+   * 				satisfy.addAnd(and«cad»«(i++)»);
+   * 			«ENDIF»
+   * 		«ENDFOR»
+   * 	'''
+   * }
+   */
   public CharSequence getType(final ElementJava e) {
     boolean _equals = Objects.equal(e, ElementJava.PACKAGE);
     if (_equals) {

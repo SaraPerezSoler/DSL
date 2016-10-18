@@ -1,12 +1,12 @@
 package es.uam.sara.tfg.dsl.generator;
 
-import es.uam.sara.tfg.dsl.generator.ComunProperties;
+import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
+import javaRule.Attribute;
 import javaRule.AttributeType;
 import javaRule.Initialize;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.Name;
-import javaRule.Satisfy;
 
 @SuppressWarnings("all")
 public class AttributesSatisfy {
@@ -14,22 +14,18 @@ public class AttributesSatisfy {
   
   private final static String PREFIX = "Attr";
   
-  public CharSequence getPropertieAttributes(final Satisfy s, final String sufix) {
+  public static CharSequence getPropertie(final Attribute s, final String sufix) {
     String start = (("and" + sufix) + ".addPropertie (new ");
     if ((s instanceof Name)) {
-      CharSequence _name = ComunProperties.name(((Name) s), AttributesSatisfy.PREFIX);
-      String _plus = (start + _name);
-      return (_plus + AttributesSatisfy.END);
+      return ComunSatisfy.name(((Name) s), AttributesSatisfy.PREFIX, start, AttributesSatisfy.END);
     } else {
       if ((s instanceof JavaDoc)) {
-        CharSequence _javaDoc = ComunProperties.javaDoc(((JavaDoc) s), AttributesSatisfy.PREFIX);
-        String _plus_1 = (start + _javaDoc);
-        return (_plus_1 + AttributesSatisfy.END);
+        CharSequence _javaDoc = ComunSatisfy.javaDoc(((JavaDoc) s), AttributesSatisfy.PREFIX);
+        String _plus = (start + _javaDoc);
+        return (_plus + AttributesSatisfy.END);
       } else {
         if ((s instanceof Modifiers)) {
-          CharSequence _modifiers = ComunProperties.modifiers(((Modifiers) s), AttributesSatisfy.PREFIX);
-          String _plus_2 = (start + _modifiers);
-          return (_plus_2 + AttributesSatisfy.END);
+          return ComunSatisfy.modifiers(((Modifiers) s), AttributesSatisfy.PREFIX, start, AttributesSatisfy.END);
         } else {
           if ((s instanceof Initialize)) {
             return ((start + "Initialize(elements)") + AttributesSatisfy.END);
@@ -37,9 +33,9 @@ public class AttributesSatisfy {
             if ((s instanceof AttributeType)) {
               AttributeType at = ((AttributeType) s);
               String _type = at.getType();
-              String _plus_3 = ((start + "Type(elements, \"") + _type);
-              String _plus_4 = (_plus_3 + "\")");
-              return (_plus_4 + AttributesSatisfy.END);
+              String _plus_1 = ((start + "Type(elements, \"") + _type);
+              String _plus_2 = (_plus_1 + "\")");
+              return (_plus_2 + AttributesSatisfy.END);
             }
           }
         }

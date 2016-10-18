@@ -4,9 +4,9 @@ import java.io.File;
 import java.util.List;
 
 
-public class NoEmpty extends Package {
+public class PackNoEmpty extends Package {
 
-	public NoEmpty(List<String> analyze) {
+	public PackNoEmpty(List<String> analyze) {
 		super(analyze);
 	}
 

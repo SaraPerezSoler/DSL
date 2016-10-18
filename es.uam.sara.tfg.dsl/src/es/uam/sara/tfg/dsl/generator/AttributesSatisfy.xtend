@@ -5,28 +5,28 @@ import javaRule.Initialize
 import javaRule.JavaDoc
 import javaRule.Modifiers
 import javaRule.Name
-import javaRule.Satisfy
+import javaRule.Attribute
 
 class AttributesSatisfy {
 
 	private static final String END = ");\n"
 	private static final String PREFIX = "Attr"
 
-	def CharSequence getPropertieAttributes(Satisfy s, String sufix) {
+	def static CharSequence getPropertie(Attribute s, String sufix) {
 		
 		var start = "and" + sufix + ".addPropertie (new "
 
 		if (s instanceof Name) {
 
-			return start + ComunProperties.name(s as Name, PREFIX) + END
+			return  ComunSatisfy.name(s as Name, PREFIX,start,END)  
 
 		} else if (s instanceof JavaDoc) {
 
-			return start + ComunProperties.javaDoc(s as JavaDoc, PREFIX) + END
+			return start + ComunSatisfy.javaDoc(s as JavaDoc, PREFIX) + END
 
 		} else if (s instanceof Modifiers) {
 
-			return start + ComunProperties.modifiers(s as Modifiers, PREFIX) + END
+			return  ComunSatisfy.modifiers(s as Modifiers, PREFIX,start,END) 
 
 		} else if (s instanceof Initialize) {
 			

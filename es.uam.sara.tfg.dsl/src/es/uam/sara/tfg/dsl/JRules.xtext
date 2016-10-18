@@ -111,7 +111,7 @@ enum NameType returns NameType:
 	START_UPPER_CASE='startUpperCase';
 
 enum NameOperator returns NameOperator:
-	LIKE='like' | EQUAL='equal' | END='ends' | START='start'| CONTAIN='contains';
+	LIKE='like' | EQUAL='equal' | END='end' | START='start'| CONTAIN='contain';
 
 enum Language returns Language:
 	ENGLISH='English' | SPANISH='Spanish';

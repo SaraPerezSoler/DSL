@@ -3,9 +3,9 @@ package es.uam.sara.tfg.properties.methods;
 import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-public class MethNoEmty extends Method{
+public class MethNoEmpty extends Method{
 
-	public MethNoEmty(List<MethodDeclaration> analyze) {
+	public MethNoEmpty(List<MethodDeclaration> analyze) {
 		super(analyze);
 	}
 

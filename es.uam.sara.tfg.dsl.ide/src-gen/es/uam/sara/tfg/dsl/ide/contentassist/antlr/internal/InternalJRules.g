@@ -1066,7 +1066,7 @@ rule__NameOperator__Alternatives
 	|
 	(
 		{ before(grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2()); }
-		('ends')
+		('end')
 		{ after(grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2()); }
 	)
 	|
@@ -1078,7 +1078,7 @@ rule__NameOperator__Alternatives
 	|
 	(
 		{ before(grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4()); }
-		('contains')
+		('contain')
 		{ after(grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4()); }
 	)
 ;

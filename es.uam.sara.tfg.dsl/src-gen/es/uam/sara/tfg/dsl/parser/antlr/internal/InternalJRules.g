@@ -2214,7 +2214,7 @@ ruleNameOperator returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_2='ends'
+			enumLiteral_2='end'
 			{
 				$current = grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2());
@@ -2230,7 +2230,7 @@ ruleNameOperator returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_4='contains'
+			enumLiteral_4='contain'
 			{
 				$current = grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4());

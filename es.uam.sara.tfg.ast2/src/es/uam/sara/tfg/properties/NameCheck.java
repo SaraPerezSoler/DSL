@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class NameCheck {
 
 	public enum Operation {
-		EQUAL, LIKE, START, ENDS, CONTAINS, UNDEFINE
+		EQUAL, LIKE, START, END, CONTAIN, UNDEFINE
 	}
 	public enum Type {
 		UPPER_CAMEL_CASE, LOWER_CAMEL_CASE, UPPER_CASE, LOWER_CASE, START_UPPER_CASE, UNDEFINE 
@@ -52,9 +52,9 @@ public class NameCheck {
 			return nameLike(name, other, idioma);
 		case START:
 			return nameStart(name, other);
-		case ENDS:
+		case END:
 			return nameEnd(name, other);
-		case CONTAINS:
+		case CONTAIN:
 			return nameContein(name, other);
 		default:
 			return true;
@@ -187,8 +187,8 @@ public class NameCheck {
 	
 	private ArrayList<String> synonyms (String name){
 		try {
-			String word="book";
-			URL url = new URL("http://www.wordreference.com/synonyms/"+word);
+			
+			URL url = new URL("http://www.wordreference.com/synonyms/"+name);
 			URLConnection con = url.openConnection();
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -205,20 +205,20 @@ public class NameCheck {
 			}
 			linea = in.readLine();
 		
-			String palabras[] = linea.split("<u><b>"+word+"</b></u>");
+			String palabras[] = linea.split("<u><b>"+name+"</b></u>");
 			String sinonimos[] = palabras[1].split("title=\"\">");
 			ArrayList<String> defSinonimo = new ArrayList<String>();
 			for (int i = 1; i < sinonimos.length; i++) {
 				sinonimos[i] = sinonimos[i].split("<")[0];
 				defSinonimo.add(sinonimos[i]);
 			}
-
 			return defSinonimo;
 		} catch (UnknownHostException e) {
 			System.out.println("Imposible conectar con la web");
 		}catch (IOException e2){
 			System.out.println (e2);
 		}
+		
 		return null;
 	}
 	private ArrayList<String> sinonimos (String name){

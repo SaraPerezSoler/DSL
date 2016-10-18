@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'ends'", "'start'", "'contains'", "'English'", "'Spanish'", "'default'", "'public'", "'protected'", "'private'", "'ProjectName:'", "';'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'equal'", "'end'", "'start'", "'contain'", "'English'", "'Spanish'", "'default'", "'public'", "'protected'", "'private'", "'ProjectName:'", "';'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'inheritor'", "'implements'", "'interfaces'", "'min='", "'max='", "'extended'", "'numParameters='", "'types='", "'['", "']'", "','", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'JavaDoc'", "'have'", "'{'", "'}'", "'modifiers:'", "'-'", "'no'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'static'", "'final'", "'abstract'", "'synchronized'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -3487,13 +3487,13 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameOperator__Alternatives"
-    // InternalJRules.g:1050:1: rule__NameOperator__Alternatives : ( ( ( 'like' ) ) | ( ( 'equal' ) ) | ( ( 'ends' ) ) | ( ( 'start' ) ) | ( ( 'contains' ) ) );
+    // InternalJRules.g:1050:1: rule__NameOperator__Alternatives : ( ( ( 'like' ) ) | ( ( 'equal' ) ) | ( ( 'end' ) ) | ( ( 'start' ) ) | ( ( 'contain' ) ) );
     public final void rule__NameOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:1054:1: ( ( ( 'like' ) ) | ( ( 'equal' ) ) | ( ( 'ends' ) ) | ( ( 'start' ) ) | ( ( 'contains' ) ) )
+            // InternalJRules.g:1054:1: ( ( ( 'like' ) ) | ( ( 'equal' ) ) | ( ( 'end' ) ) | ( ( 'start' ) ) | ( ( 'contain' ) ) )
             int alt10=5;
             switch ( input.LA(1) ) {
             case 25:
@@ -3572,14 +3572,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:1067:2: ( ( 'ends' ) )
+                    // InternalJRules.g:1067:2: ( ( 'end' ) )
                     {
-                    // InternalJRules.g:1067:2: ( ( 'ends' ) )
-                    // InternalJRules.g:1068:3: ( 'ends' )
+                    // InternalJRules.g:1067:2: ( ( 'end' ) )
+                    // InternalJRules.g:1068:3: ( 'end' )
                     {
                      before(grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2()); 
-                    // InternalJRules.g:1069:3: ( 'ends' )
-                    // InternalJRules.g:1069:4: 'ends'
+                    // InternalJRules.g:1069:3: ( 'end' )
+                    // InternalJRules.g:1069:4: 'end'
                     {
                     match(input,27,FOLLOW_2); 
 
@@ -3614,14 +3614,14 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalJRules.g:1079:2: ( ( 'contains' ) )
+                    // InternalJRules.g:1079:2: ( ( 'contain' ) )
                     {
-                    // InternalJRules.g:1079:2: ( ( 'contains' ) )
-                    // InternalJRules.g:1080:3: ( 'contains' )
+                    // InternalJRules.g:1079:2: ( ( 'contain' ) )
+                    // InternalJRules.g:1080:3: ( 'contain' )
                     {
                      before(grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4()); 
-                    // InternalJRules.g:1081:3: ( 'contains' )
-                    // InternalJRules.g:1081:4: 'contains'
+                    // InternalJRules.g:1081:3: ( 'contain' )
+                    // InternalJRules.g:1081:4: 'contain'
                     {
                     match(input,29,FOLLOW_2); 
 

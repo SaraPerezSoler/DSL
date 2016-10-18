@@ -1493,17 +1493,17 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cEQUALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cEQUALEqualKeyword_1_0 = (Keyword)cEQUALEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cENDEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cENDEndsKeyword_2_0 = (Keyword)cENDEnumLiteralDeclaration_2.eContents().get(0);
+		private final Keyword cENDEndKeyword_2_0 = (Keyword)cENDEnumLiteralDeclaration_2.eContents().get(0);
 		private final EnumLiteralDeclaration cSTARTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
 		private final Keyword cSTARTStartKeyword_3_0 = (Keyword)cSTARTEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cCONTAINEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cCONTAINContainsKeyword_4_0 = (Keyword)cCONTAINEnumLiteralDeclaration_4.eContents().get(0);
+		private final Keyword cCONTAINContainKeyword_4_0 = (Keyword)cCONTAINEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum NameOperator:
-		//	LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains';
+		//	LIKE='like' | EQUAL='equal' | END='end' | START='start' | CONTAIN='contain';
 		public EnumRule getRule() { return rule; }
 		
-		//LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains'
+		//LIKE='like' | EQUAL='equal' | END='end' | START='start' | CONTAIN='contain'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LIKE='like'
@@ -1518,11 +1518,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'equal'
 		public Keyword getEQUALEqualKeyword_1_0() { return cEQUALEqualKeyword_1_0; }
 		
-		//END='ends'
+		//END='end'
 		public EnumLiteralDeclaration getENDEnumLiteralDeclaration_2() { return cENDEnumLiteralDeclaration_2; }
 		
-		//'ends'
-		public Keyword getENDEndsKeyword_2_0() { return cENDEndsKeyword_2_0; }
+		//'end'
+		public Keyword getENDEndKeyword_2_0() { return cENDEndKeyword_2_0; }
 		
 		//START='start'
 		public EnumLiteralDeclaration getSTARTEnumLiteralDeclaration_3() { return cSTARTEnumLiteralDeclaration_3; }
@@ -1530,11 +1530,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'start'
 		public Keyword getSTARTStartKeyword_3_0() { return cSTARTStartKeyword_3_0; }
 		
-		//CONTAIN='contains'
+		//CONTAIN='contain'
 		public EnumLiteralDeclaration getCONTAINEnumLiteralDeclaration_4() { return cCONTAINEnumLiteralDeclaration_4; }
 		
-		//'contains'
-		public Keyword getCONTAINContainsKeyword_4_0() { return cCONTAINContainsKeyword_4_0; }
+		//'contain'
+		public Keyword getCONTAINContainKeyword_4_0() { return cCONTAINContainKeyword_4_0; }
 	}
 	public class LanguageElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Language");
@@ -2003,7 +2003,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum NameOperator:
-	//	LIKE='like' | EQUAL='equal' | END='ends' | START='start' | CONTAIN='contains';
+	//	LIKE='like' | EQUAL='equal' | END='end' | START='start' | CONTAIN='contain';
 	public NameOperatorElements getNameOperatorAccess() {
 		return eNameOperator;
 	}

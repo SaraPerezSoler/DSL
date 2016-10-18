@@ -3,27 +3,20 @@
  */
 package es.uam.sara.tfg.dsl.generator
 
-import javaRule.AttributeType
-import javaRule.BlendModifiers
-import javaRule.Constructor
+import javaRule.Attribute
+import javaRule.Class
 import javaRule.ElementJava
-import javaRule.Initialize
-import javaRule.JavaDoc
-import javaRule.Modifiers
-import javaRule.Name
-import javaRule.NameOperator
-import javaRule.NameType
-import javaRule.NoEmpty
+import javaRule.Enumeration
+import javaRule.Interface
+import javaRule.Method
 import javaRule.Or
-import javaRule.Parameter
-import javaRule.Return
+import javaRule.Package
 import javaRule.Rule
-import javaRule.Satisfy
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import java.util.jar.Attributes
+import javaRule.And
 
 /**
  * Generates code from your model files on save.
@@ -38,104 +31,158 @@ class JRulesGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Rule)));
+	}
+
+	def CharSequence RuleFactory(Iterable<Rule> rules) {
+
 		var i = 1;
-		for (rule : resource.allContents.toIterable.filter(Rule)) {
-			fsa.generateFile('Rule' + i + "Factory.java", rule.generateClass(i))
-			i++;
-		}
+		'''
+			import java.util.*;
+			import es.uam.sara.tfg.rule.*;
+			import es.uam.sara.tfg.rule.Rule.*;
+			import es.uam.sara.tfg.properties.*;
+			import es.uam.sara.tfg.properties.interfaces.*;
+			import es.uam.sara.tfg.properties.classes.*;
+			import es.uam.sara.tfg.properties.enumerations.*;
+			import es.uam.sara.tfg.properties.methods.*;
+			import es.uam.sara.tfg.properties.attributes.*;
+			import es.uam.sara.tfg.properties.packages.*;
+			import org.eclipse.jdt.core.dom.TypeDeclaration;
+			import org.eclipse.jdt.core.dom.EnumDeclaration;
+			import org.eclipse.jdt.core.dom.MethodDeclaration;
+			import org.eclipse.jdt.core.dom.FieldDeclaration;
+			
+			public class RuleFactory {
+				
+				private List <Rule<?>> rules=null;
+				
+				public List<Rule<?>> getRules(){
+					if (rules!=null){
+						return rules;
+					}else{
+						rules= new ArrayList<Rule<?>>();
+						
+						«FOR Rule r : rules»
+						//r«i» «r.toString»
+									«IF r.filter!=null»
+									«var t= getType(r.element)»
+									Or<«t»> filter«i»= new Filter<«t»>(«r.filter.no»,elements);
+									/*«var j=1»
+										«FOR And a: r.filter.filter.op»
+										And<«t»> andFilter«i»«j» = new And<«t»>(elements);
+										
+										«ENDFOR»*/
+						«ENDIF»
+							
+				«ENDFOR»
+				
+				return rules;
+					}
+				}
+			}
+			
+		'''
 	}
 
 	def CharSequence generateClass(Rule rule, int i) {
-		var t = getType(rule.element)
-		'''
-		import java.util.*;
-		import es.uam.sara.tfg.rule.*;
-		import es.uam.sara.tfg.rule.Rule.*;
-		import es.uam.sara.tfg.properties.*;
-		«IF rule.element==ElementJava.INTERFACE»
-			import es.uam.sara.tfg.properties.interfaces.*;
-		«ELSEIF rule.element==ElementJava.CLASS»
-			import es.uam.sara.tfg.properties.classes.*;
-		«ELSEIF rule.element==ElementJava.ENUM»
-			import es.uam.sara.tfg.properties.enumerations.*;
-		«ELSEIF rule.element==ElementJava.METHOD»
-			import es.uam.sara.tfg.properties.methods.*;
-		«ELSEIF rule.element==ElementJava.ATTRIBUTE»
-			import es.uam.sara.tfg.properties.attributes.*;
-		«ELSEIF rule.element==ElementJava.PACKAGE»
-			import es.uam.sara.tfg.properties.packages.*;
-		«ENDIF»
-		«IF rule.element!=ElementJava.PACKAGE»
-			import org.eclipse.jdt.core.dom.«t»;
-		«ENDIF»
-		
-		//«IF rule.no»no«ENDIF» «rule.quantifier» «rule.element»
-		«IF rule.filter!=null»// whitch «IF rule.filter.no»no«ENDIF» «getTextProperty(rule.filter.filter)»«ENDIF»
-		//«IF rule.satisfy!=null» satisfy «getTextProperty(rule.satisfy)»«ENDIF»
-		public class Rule«i»Factory implements RuleFactory<«t»>{
-			
-			public Rule<«t»> getRule (List<«t»> elements){
-					
-					«IF rule.filter!=null»
-						Or<«t»> filter= new Filter<«t»>(«rule.filter.no»,elements);
-						«createProperty(rule, true)»
-					«ELSE»
-						Or<«t»> filter=null;
-					«ENDIF»
-					«IF rule.satisfy!=null»
-						Or<«t»> satisfy= new Or<«t»>(elements);
-						«createProperty(rule, false)»
-					«ELSE»
-						Or<«t»> satisfy=null;
-					«ENDIF»
-					
-					return new Rule<«t»>(«rule.no», Quantifier.«rule.quantifier.literal.toUpperCase»,elements, filter, satisfy);
-			}
-			
-		}'''
-
 	}
 
-	def CharSequence getTextProperty(Or or) {
-		'''
-			or(«FOR a : or.op» and:(«FOR s:a.op»«s.class.simpleName.replace("Impl", "")», «ENDFOR»)«ENDFOR»)
-		'''
-	}
+	/*def CharSequence generateClass(Rule rule, int i) {
+	 * 	var t = getType(rule.element)
+	 * 	'''
+	 * 	import java.util.*;
+	 * 	import es.uam.sara.tfg.rule.*;
+	 * 	import es.uam.sara.tfg.rule.Rule.*;
+	 * 	import es.uam.sara.tfg.properties.*;
+	 * 	«IF rule.element==ElementJava.INTERFACE»
+	 * 		import es.uam.sara.tfg.properties.interfaces.*;
+	 * 	«ELSEIF rule.element==ElementJava.CLASS»
+	 * 		import es.uam.sara.tfg.properties.classes.*;
+	 * 	«ELSEIF rule.element==ElementJava.ENUM»
+	 * 		import es.uam.sara.tfg.properties.enumerations.*;
+	 * 	«ELSEIF rule.element==ElementJava.METHOD»
+	 * 		import es.uam.sara.tfg.properties.methods.*;
+	 * 	«ELSEIF rule.element==ElementJava.ATTRIBUTE»
+	 * 		import es.uam.sara.tfg.properties.attributes.*;
+	 * 	«ELSEIF rule.element==ElementJava.PACKAGE»
+	 * 		import es.uam.sara.tfg.properties.packages.*;
+	 * 	«ENDIF»
+	 * 	«IF rule.element!=ElementJava.PACKAGE»
+	 * 		import org.eclipse.jdt.core.dom.«t»;
+	 * 	«ENDIF»
+	 * 	
+	 * 	//«IF rule.no»no«ENDIF» «rule.quantifier» «rule.element»
+	 * 	«IF rule.filter!=null»// whitch «IF rule.filter.no»no«ENDIF» «getTextProperty(rule.filter.filter)»«ENDIF»
+	 * 	//«IF rule.satisfy!=null» satisfy «getTextProperty(rule.satisfy)»«ENDIF»
+	 * 	public class Rule«i»Factory implements RuleFactory<«t»>{
+	 * 		
+	 * 		public Rule<«t»> getRule (List<«t»> elements){
+	 * 				
+	 * 				«IF rule.filter!=null»
+	 * 					Or<«t»> filter= new Filter<«t»>(«rule.filter.no»,elements);
+	 * 					«createAnds(rule, true)»
+	 * 				«ELSE»
+	 * 					Or<«t»> filter=null;
+	 * 				«ENDIF»
+	 * 				«IF rule.satisfy!=null»
+	 * 					Or<«t»> satisfy= new Or<«t»>(elements);
+	 * 					«createAnds(rule, false)»
+	 * 				«ELSE»
+	 * 					Or<«t»> satisfy=null;
+	 * 				«ENDIF»
+	 * 				
+	 * 				return new Rule<«t»>(«rule.no», Quantifier.«rule.quantifier.literal.toUpperCase»,elements, filter, satisfy);
+	 * 		}
+	 * 		
+	 * 	}'''
 
-	def CharSequence createProperty(Rule r, boolean filter) {
-		var prop = null as Or
-		var cad=""
-		if (filter) {
-			prop = r.filter.filter;
-			cad="Filter"
-		} else {
-			prop = r.satisfy;
-		}
-		var t = getType(r.element)
-		'''
-			«var i=1»
-			«FOR a : prop.op»
-				And<«t»> and«cad»«(i)»= new And<«t»>(elements);
-				«FOR s:a.op»
-					«IF r.element ==  ElementJava.ATTRIBUTE»
-						«new AttributesSatisfy().getPropertieAttributes(s, cad+i)»
-					«ELSEIF r.element ==  ElementJava.METHOD»
-						«getNamePropertieMethod(s,cad, i)»
-					«ENDIF»
-				«ENDFOR»
-				«IF filter»
-				filter.addAnd(and«cad»«(i++)»);
-				«ELSE»
-				satisfy.addAnd(and«cad»«(i++)»);
-				«ENDIF»
-			«ENDFOR»
-		'''
-	}
+	 * }
 
-	
+	 * def CharSequence getTextProperty(Or or) {
+	 * 	'''
+	 * 		or(«FOR a : or.op» and:(«FOR s:a.op»«s.class.simpleName.replace("Impl", "")», «ENDFOR»)«ENDFOR»)
+	 * 	'''
+	 * }
 
-	
+	 * def CharSequence createAnds(Rule r, boolean filter) {
+	 * 	var prop = null as Or
+	 * 	var cad = ""
+	 * 	if (filter) {
+	 * 		prop = r.filter.filter;
+	 * 		cad = "Filter"
+	 * 	} else {
+	 * 		prop = r.satisfy;
+	 * 	}
+	 * 	var t = getType(r.element)
 
+	 * 	'''
+	 * 		«var i=1»
+	 * 		«FOR a : prop.op»
+	 * 			And<«t»> and«cad»«(i)»= new And<«t»>(elements);
+	 * 			«FOR s:a.op»
+	 * 				«IF r.element ==  ElementJava.ATTRIBUTE»
+	 * 					«AttributesSatisfy.getPropertie(s as Attribute, cad+i)»
+	 * 				«ELSEIF r.element ==  ElementJava.METHOD»
+	 * 					«MethodsSatisfy.getPropertie(s as Method,cad+i)»
+	 * 				«ELSEIF r.element ==  ElementJava.CLASS»
+	 * 					«ClassesSatisfy.getPropertie(s as Class,cad+i)»
+	 * 				«ELSEIF r.element ==  ElementJava.INTERFACE»
+	 * 					«InterfaceSatisfy.getPropertie(s as Interface,cad+i)»
+	 * 				«ELSEIF r.element ==  ElementJava.ENUM»
+	 * 					«EnumSatisfy.getPropertie(s as Enumeration,cad+i)»
+	 * 				«ELSEIF r.element ==  ElementJava.PACKAGE»
+	 * 					«PackageSatisfy.getPropertie(s as Package,cad+i)»
+	 * 				«ENDIF»
+	 * 			«ENDFOR»
+	 * 			«IF filter»
+	 * 				filter.addAnd(and«cad»«(i++)»);
+	 * 			«ELSE»
+	 * 				satisfy.addAnd(and«cad»«(i++)»);
+	 * 			«ENDIF»
+	 * 		«ENDFOR»
+	 * 	'''
+	 }*/
 	def CharSequence getType(ElementJava e) {
 		if (e == ElementJava.PACKAGE) {
 			return "String"
