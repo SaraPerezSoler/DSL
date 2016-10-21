@@ -6,13 +6,13 @@ import java.util.List;
 
 public class PackNoEmpty extends Package {
 
-	public PackNoEmpty(List<String> analyze) {
-		super(analyze);
+	public PackNoEmpty() {
+		super();
 	}
 
 	@Override
-	public void check() {
-		for (String s: super.analyze){
+	public void check(List<String> analyze) {
+		for (String s: analyze){
 			File file= new File(s);
 			if (file.isDirectory()){
 				if (file.list().length!=0){

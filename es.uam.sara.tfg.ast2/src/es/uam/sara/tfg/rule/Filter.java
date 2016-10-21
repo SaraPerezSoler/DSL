@@ -5,11 +5,11 @@ import java.util.List;
 public class Filter<T> extends Or<T> {
 
 	boolean no;
-	public Filter(boolean no,List<T> analyce) {
-		super(analyce);
+	public Filter(boolean no) {
+		super();
 		this.no=no;
 	}
-	public List<T> filter(){
+	public List<T> getFiltering(){
 		if (no){
 			return this.getWrong();
 		}

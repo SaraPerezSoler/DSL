@@ -15,8 +15,8 @@ public class Constructor extends Method{
 	/**
 	 * @param analyze
 	 */
-	public Constructor(List<MethodDeclaration> analyze) {
-		super(analyze);
+	public Constructor() {
+		super();
 	}
 
 	/*
@@ -25,8 +25,8 @@ public class Constructor extends Method{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check(){
-		for (MethodDeclaration m : super.analyze) {
+	public void check(List<MethodDeclaration> analyze){
+		for (MethodDeclaration m : analyze) {
 			if (m.isConstructor()) {
 				super.addRight(m);
 			} else {

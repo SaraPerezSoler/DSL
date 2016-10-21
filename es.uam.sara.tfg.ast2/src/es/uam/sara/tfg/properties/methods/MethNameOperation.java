@@ -8,14 +8,14 @@ import es.uam.sara.tfg.properties.NameCheck;
 public class MethNameOperation extends Method{
 
 	private NameCheck nCheck; 
-	public MethNameOperation(List<MethodDeclaration> analyze,NameCheck.Operation op, String cad, int idioma) {
-		super(analyze);
+	public MethNameOperation(NameCheck.Operation op, String cad, int idioma) {
+		super();
 		nCheck= new NameCheck(op, cad, idioma);
 	}
 
 	@Override
-	public void check() {
-		for (MethodDeclaration m: super.analyze){
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m: analyze){
 			if (nCheck.checkNameOperation(m.getName().toString())){
 				super.addRight(m);
 			}else{

@@ -6,13 +6,13 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class ClassNoEmpty extends Class{
 
-	public ClassNoEmpty(List<TypeDeclaration> analyze) {
-		super(analyze);
+	public ClassNoEmpty() {
+		super();
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (t.bodyDeclarations().isEmpty()){
 				super.addWrong(t);
 			}else{

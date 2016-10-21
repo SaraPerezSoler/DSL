@@ -23,7 +23,7 @@ public class ComunSatisfy {
     if (_notEquals) {
       String _cadena = cadena;
       NameType _type_1 = n.getType();
-      String _plus = (((start + prefix) + "NameType(elements, NameCheck.Type.") + _type_1);
+      String _plus = (((start + prefix) + "NameType(NameCheck.Type.") + _type_1);
       String _plus_1 = (_plus + ")");
       String _plus_2 = (_plus_1 + end);
       cadena = (_cadena + _plus_2);
@@ -33,7 +33,7 @@ public class ComunSatisfy {
     if (_notEquals_1) {
       String _cadena_1 = cadena;
       NameOperator _operator_1 = n.getOperator();
-      String _plus_3 = (((start + prefix) + "NameOperation(elements,NameCheck.Operation.") + _operator_1);
+      String _plus_3 = (((start + prefix) + "NameOperation(NameCheck.Operation.") + _operator_1);
       String _plus_4 = (_plus_3 + 
         ",\"");
       String _name = n.getName();
@@ -50,7 +50,7 @@ public class ComunSatisfy {
   
   public static CharSequence javaDoc(final JavaDoc jd, final String prefix) {
     boolean _isAuthor = jd.isAuthor();
-    String _plus = ((prefix + "JavaDoc (elements,") + Boolean.valueOf(_isAuthor));
+    String _plus = ((prefix + "JavaDoc (") + Boolean.valueOf(_isAuthor));
     String _plus_1 = (_plus + ",");
     boolean _isParameter = jd.isParameter();
     String _plus_2 = (_plus_1 + Boolean.valueOf(_isParameter));
@@ -93,12 +93,12 @@ public class ComunSatisfy {
       cadena = (_cadena + _plus_9);
     }
     String _cadena_1 = cadena;
-    cadena = (_cadena_1 + (((((start + prefix) + "Modifiers (elements, mc") + Integer.valueOf(ComunSatisfy.iMod)) + ")") + end));
+    cadena = (_cadena_1 + (((((start + prefix) + "Modifiers (mc") + Integer.valueOf(ComunSatisfy.iMod)) + ")") + end));
     ComunSatisfy.iMod++;
     return cadena;
   }
   
   public static CharSequence noEmpty(final NoEmpty ne, final String prefix) {
-    return (prefix + "NoEmpty (elements)");
+    return (prefix + "NoEmpty ()");
   }
 }

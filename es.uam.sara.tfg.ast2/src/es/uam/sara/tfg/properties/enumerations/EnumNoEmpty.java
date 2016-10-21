@@ -6,13 +6,13 @@ import org.eclipse.jdt.core.dom.EnumDeclaration;
 
 public class EnumNoEmpty extends Enumeration{
 
-	public EnumNoEmpty(List<EnumDeclaration> analyze) {
-		super(analyze);
+	public EnumNoEmpty() {
+		super();
 	}
 
 	@Override
-	public void check() {
-		for (EnumDeclaration en: super.analyze){
+	public void check(List<EnumDeclaration> analyze) {
+		for (EnumDeclaration en: analyze){
 			if (en.bodyDeclarations().isEmpty()){
 				addWrong(en);
 			}else{

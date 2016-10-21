@@ -18,8 +18,8 @@ public class Initialize extends Attribute{
 	/**
 	 * @param analyze
 	 */
-	public Initialize(List<FieldDeclaration> analyze) {
-		super(analyze);
+	public Initialize() {
+		super();
 	}
 
 	/*
@@ -28,8 +28,8 @@ public class Initialize extends Attribute{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check(){
-		for (FieldDeclaration fd : super.analyze) {
+	public void check(List<FieldDeclaration> analyze){
+		for (FieldDeclaration fd : analyze) {
 			if (fd.fragments().get(0) instanceof VariableDeclarationFragment) {
 				VariableDeclarationFragment declaration = (VariableDeclarationFragment) fd.fragments().get(0);
 				if (declaration.getInitializer() == null) {

@@ -17,6 +17,8 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import javaRule.And
+import javaRule.Satisfy
+import javaRule.Filter
 
 /**
  * Generates code from your model files on save.
@@ -52,6 +54,7 @@ class JRulesGenerator extends AbstractGenerator {
 			import org.eclipse.jdt.core.dom.EnumDeclaration;
 			import org.eclipse.jdt.core.dom.MethodDeclaration;
 			import org.eclipse.jdt.core.dom.FieldDeclaration;
+			import es.uam.sara.tfg.ast.Visitors;
 			
 			public class RuleFactory {
 				
@@ -62,27 +65,80 @@ class JRulesGenerator extends AbstractGenerator {
 						return rules;
 					}else{
 						rules= new ArrayList<Rule<?>>();
+						List<String> packages=Visitors.getPackages();
+						List<TypeDeclaration> classes=Visitors.getClasses();
+						List<TypeDeclaration> interfaces=Visitors.getInterfaces();
+						List<EnumDeclaration> enums=Visitors.getEnumerations();
+						List<MethodDeclaration> methods=Visitors.getMethods();
+						List<FieldDeclaration> attributes=Visitors.getAttributes();
 						
 						«FOR Rule r : rules»
-						//r«i» «r.toString»
-									«IF r.filter!=null»
-									«var t= getType(r.element)»
-									Or<«t»> filter«i»= new Filter<«t»>(«r.filter.no»,elements);
-									/*«var j=1»
-										«FOR And a: r.filter.filter.op»
-										And<«t»> andFilter«i»«j» = new And<«t»>(elements);
-										
-										«ENDFOR»*/
-						«ENDIF»
+							//r«i» «r.toString»
+							«var type=getType(r.element)»
+							«var analize=getAnalize(r.element)»
+							«getFilter(r.filter, i, r.element)»
+							«getOr(r.satisfy, i, r.element)»
+							rules.add(new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,filter«i», or«i++»));	
 							
-				«ENDFOR»
-				
-				return rules;
+						«ENDFOR»
+						return rules;
 					}
 				}
 			}
 			
 		'''
+	}
+
+	def CharSequence getFilter(Filter filter, int i, ElementJava element) {
+		'''
+		«var type= getType(element)»
+		«IF filter!=null»
+			Filter<«type»> filter«i»= new Filter<«type»>(«filter.no»);
+			«var j=1»
+				«FOR And a: filter.filter.op»
+					And<«type»> andFilter«i»«j» = new And<«type»>();
+					«FOR Satisfy s: a.op»
+						«s.getSatisfy(element , "Filter"+i+j)»
+					«ENDFOR»
+					filter«i».addAnd(andFilter«i»«j++»);
+				«ENDFOR»
+		«ELSE»
+			Filter<«type»> filter«i»=	null;
+		«ENDIF»'''
+	}
+
+	def CharSequence getOr(Or or, int i, ElementJava element) {
+		'''
+		«var type= getType(element)»
+		«IF or!=null»
+			Or<«type»> or«i»= new Or<«type»>();
+			«var j=1»
+				«FOR And a: or.op»
+					And<«type»> and«i»«j» = new And<«type»>();
+					«FOR Satisfy s: a.op»
+						«s.getSatisfy(element , ""+i+j)»
+					«ENDFOR»
+					or«i».addAnd(and«i»«j++»);
+				«ENDFOR»
+		«ELSE»
+			Or<«type»> or«i»=	null;
+		«ENDIF»'''
+	}
+
+	def CharSequence getSatisfy(Satisfy s, ElementJava e, String sufix) {
+		if (e == ElementJava.PACKAGE) {
+			return PackageSatisfy.getPropertie(s as Package, sufix);
+		} else if (e == ElementJava.INTERFACE) {
+			return InterfaceSatisfy.getPropertie(s as Interface, sufix);
+		} else if (e == ElementJava.CLASS) {
+			return ClassesSatisfy.getPropertie(s as Class, sufix);
+		} else if (e == ElementJava.ENUM) {
+			return EnumSatisfy.getPropertie(s as Enumeration, sufix);
+		} else if (e == ElementJava.METHOD) {
+			return MethodsSatisfy.getPropertie(s as Method, sufix);
+		} else {
+			return AttributesSatisfy.getPropertie(s as Attribute, sufix);
+		}
 	}
 
 	def CharSequence generateClass(Rule rule, int i) {
@@ -196,6 +252,22 @@ class JRulesGenerator extends AbstractGenerator {
 			return "MethodDeclaration"
 		} else {
 			return "FieldDeclaration"
+		}
+	}
+
+	def CharSequence getAnalize(ElementJava e) {
+		if (e == ElementJava.PACKAGE) {
+			return "packages"
+		} else if (e == ElementJava.INTERFACE) {
+			return "interfaces"
+		} else if (e == ElementJava.CLASS) {
+			return "classes"
+		} else if (e == ElementJava.ENUM) {
+			return "enums"
+		} else if (e == ElementJava.METHOD) {
+			return "methods"
+		} else {
+			return "attributes"
 		}
 	}
 

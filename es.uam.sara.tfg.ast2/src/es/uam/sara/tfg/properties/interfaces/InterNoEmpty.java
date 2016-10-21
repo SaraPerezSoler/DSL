@@ -6,13 +6,13 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class InterNoEmpty extends Interface{
 
-	public InterNoEmpty(List<TypeDeclaration> analyze) {
-		super(analyze);
+	public InterNoEmpty() {
+		super();
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (t.bodyDeclarations().isEmpty()){
 				addWrong(t);
 			}else{

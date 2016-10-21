@@ -8,15 +8,15 @@ import es.uam.sara.tfg.properties.JavaDocCheck;
 public class MethJavaDoc extends Method{
 
 	private JavaDocCheck jdc;
-	public MethJavaDoc(List<MethodDeclaration> analyze,boolean author, boolean parameter,
+	public MethJavaDoc(boolean author, boolean parameter,
 			boolean returns, boolean version, boolean throwss, boolean see) {
-		super(analyze);
+		super();
 		jdc= new JavaDocCheck(author, parameter, returns, version, throwss, see);
 	}
 
 	@Override
-	public void check() {
-		for (MethodDeclaration m: super.analyze){
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m: analyze){
 			if (jdc.javaDoc(m.getJavadoc())){
 				super.addRight(m);
 			}else{

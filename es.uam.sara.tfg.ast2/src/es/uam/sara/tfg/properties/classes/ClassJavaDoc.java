@@ -9,15 +9,15 @@ import es.uam.sara.tfg.properties.JavaDocCheck;
 public class ClassJavaDoc extends Class{
 
 	private JavaDocCheck jdc;
-	public ClassJavaDoc(List<TypeDeclaration> analyze,boolean author, boolean parameter,
+	public ClassJavaDoc(boolean author, boolean parameter,
 			boolean returns, boolean version, boolean throwss, boolean see) {
-		super(analyze);
+		super();
 		jdc= new JavaDocCheck(author, parameter, returns, version, throwss, see);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (jdc.javaDoc(t.getJavadoc())){
 				super.addRight(t);
 			}else{

@@ -25,11 +25,11 @@ class ClassesSatisfy {
 			return start + ComunSatisfy.noEmpty(s as NoEmpty, PREFIX) + END;
 		} else if (s instanceof Implements) {
 			var imp = s as Implements;
-			return start + "Implements(elements, " + imp.minInterface + ", " + imp.maxInterface + ")" + END;
+			return start + "Implements(" + imp.minInterface + ", " + imp.maxInterface + ")" + END;
 		} else if (s instanceof IsExtended) {
-			return start + "isExtended(elements,es.uam.sara.tfg.ast.Visitors.getClasses())" + END;
+			return start + "isExtended(Visitors.getClasses())" + END;
 		} else if (s instanceof IsInheritor) {
-			return start + "IsInheritor(elements)" + END;
+			return start + "IsInheritor()" + END;
 		}
 
 		return null;

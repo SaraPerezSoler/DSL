@@ -11,14 +11,14 @@ public class InterModifiers extends Interface{
 
 	private ModifiersCheck mc;
 
-	public InterModifiers(List<TypeDeclaration> analyce, ModifiersCheck mc) {
-		super(analyce);
+	public InterModifiers( ModifiersCheck mc) {
+		super();
 		this.mc = mc;
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (mc.modifiers(getList(t))) {
 				super.addRight(t);
 			} else {

@@ -10,14 +10,14 @@ import es.uam.sara.tfg.properties.NameCheck.Type;
 public class MethNameType extends Method{
 
 	private NameCheck nCheck;
-	public MethNameType(List<MethodDeclaration> analyze, Type type) {
-		super(analyze);
+	public MethNameType(Type type) {
+		super();
 		nCheck= new NameCheck(type);
 	}
 
 	@Override
-	public void check() {
-		for (MethodDeclaration m: super.analyze){
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m: analyze){
 			if (nCheck.checkNameType(m.getName().toString())){
 				super.addRight(m);
 			}else{

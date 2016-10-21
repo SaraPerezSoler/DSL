@@ -30,11 +30,11 @@ class AttributesSatisfy {
 
 		} else if (s instanceof Initialize) {
 			
-			return start + "Initialize(elements)" + END
+			return start + "Initialize()" + END
 			
 		} else if (s instanceof AttributeType) {
 			var at = s as AttributeType
-			return start + "Type(elements, \"" + at.type + "\")" + END
+			return start + "Type(\"" + at.type + "\")" + END
 		}
 	}
 

@@ -1,6 +1,8 @@
 package es.uam.sara.tfg.ast;
 
 import java.util.ArrayList;
+
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
@@ -28,6 +30,7 @@ public class UnitVisitor extends ASTVisitor{
 		methods=new ArrayList<MethodDeclaration>();
 		attributes=new ArrayList<FieldDeclaration>();
 	}
+	
 	
 	@Override
 	public boolean visit(PackageDeclaration node) {
@@ -66,7 +69,7 @@ public class UnitVisitor extends ASTVisitor{
 	public String getNameFile(){
 		return nameFile;
 	}
-	public PackageDeclaration getPackages() {
+	public PackageDeclaration getPackage() {
 		return packageDeclaration;
 	}
 

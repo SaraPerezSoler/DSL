@@ -33,7 +33,7 @@ public class InterfaceSatisfy {
             return (_plus_1 + InterfaceSatisfy.END);
           } else {
             if ((s instanceof isImplemented)) {
-              return ((start + "IsImplemented(elements, es.uam.sara.tfg.ast.Visitors.getTypes())") + InterfaceSatisfy.END);
+              return ((start + "IsImplemented(es.uam.sara.tfg.ast.Visitors.getTypes())") + InterfaceSatisfy.END);
             }
           }
         }

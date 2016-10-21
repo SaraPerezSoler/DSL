@@ -10,14 +10,14 @@ import es.uam.sara.tfg.properties.NameCheck.Type;
 public class InterNameType extends Interface{
 
 	private NameCheck nCheck;
-	public InterNameType(List<TypeDeclaration> analyce, Type type) {
-		super(analyce);
+	public InterNameType( Type type) {
+		super();
 		nCheck= new NameCheck(type);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (nCheck.checkNameType(t.getName().toString())) {
 				super.addRight(t);
 			} else {

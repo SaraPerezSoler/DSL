@@ -10,14 +10,14 @@ public class ClassNameType extends Class{
 
 	NameCheck nCheck;
 
-	public ClassNameType(List<TypeDeclaration> analyze, Type type) {
-		super(analyze);
+	public ClassNameType( Type type) {
+		super();
 		nCheck = new NameCheck(type);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (nCheck.checkNameType(t.getName().toString())) {
 				super.addRight(t);
 			} else {

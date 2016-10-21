@@ -9,15 +9,15 @@ import es.uam.sara.tfg.properties.JavaDocCheck;
 public class AttrJavaDoc extends Attribute{
 
 	private JavaDocCheck jdc;
-	public AttrJavaDoc(List<FieldDeclaration> analyze,boolean author, boolean parameter,
+	public AttrJavaDoc(boolean author, boolean parameter,
 			boolean returns, boolean version, boolean throwss, boolean see) {
-		super(analyze);
+		super();
 		jdc= new JavaDocCheck(author, parameter, returns, version, throwss, see);
 	}
 
 	@Override
-	public void check(){
-		for (FieldDeclaration a: super.analyze){
+	public void check(List<FieldDeclaration> analyze){
+		for (FieldDeclaration a: analyze){
 			if(jdc.javaDoc(a.getJavadoc())){
 				super.addRight(a);
 			}else{
@@ -26,5 +26,5 @@ public class AttrJavaDoc extends Attribute{
 		}
 		
 	}
-
 }
+

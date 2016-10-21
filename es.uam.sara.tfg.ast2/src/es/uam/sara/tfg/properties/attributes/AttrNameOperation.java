@@ -21,8 +21,8 @@ public class AttrNameOperation extends Attribute{
 	/**
 	 * @param analyze
 	 */
-	public AttrNameOperation(List<FieldDeclaration> analyze, NameCheck.Operation op, String cad, int idioma) {
-		super(analyze);
+	public AttrNameOperation(NameCheck.Operation op, String cad, int idioma) {
+		super();
 		ncheck= new NameCheck(op,cad,idioma);
 	}
 
@@ -32,8 +32,8 @@ public class AttrNameOperation extends Attribute{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check() {
-		for (FieldDeclaration a : super.analyze) {
+	public void check(List<FieldDeclaration> analyze) {
+		for (FieldDeclaration a : analyze) {
 			if (a.fragments().get(0) instanceof VariableDeclarationFragment) {
 				VariableDeclarationFragment declaration = (VariableDeclarationFragment) a.fragments().get(0);
 				if (ncheck.checkNameOperation(declaration.getName().toString())) {

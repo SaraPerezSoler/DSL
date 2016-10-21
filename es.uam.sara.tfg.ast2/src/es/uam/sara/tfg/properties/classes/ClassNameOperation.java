@@ -9,14 +9,14 @@ public class ClassNameOperation extends Class{
 	
 	private NameCheck nCheck;
 
-	public ClassNameOperation(List<TypeDeclaration> analyze,NameCheck.Operation op, String cad, int idioma) {
-		super(analyze);
+	public ClassNameOperation(NameCheck.Operation op, String cad, int idioma) {
+		super();
 		nCheck= new NameCheck(op, cad, idioma);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if(nCheck.checkNameOperation(t.getName().toString())){
 				super.addRight(t);
 			}else{

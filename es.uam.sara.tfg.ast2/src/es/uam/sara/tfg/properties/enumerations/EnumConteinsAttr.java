@@ -11,14 +11,14 @@ public class EnumConteinsAttr extends Enumeration {
 
 	private Rule<FieldDeclaration> rule;
 
-	public EnumConteinsAttr(List<EnumDeclaration> analyze, Rule<FieldDeclaration> rule) {
-		super(analyze);
+	public EnumConteinsAttr( Rule<FieldDeclaration> rule) {
+		super();
 		this.rule = rule;
 	}
 
 	@Override
-	public void check() {
-		for (EnumDeclaration t : super.analyze) {
+	public void check(List<EnumDeclaration> analyze) {
+		for (EnumDeclaration t : analyze) {
 			rule.reset(getListAttributes(t));
 			if (rule.checkTest()) {
 				super.addRight(t);

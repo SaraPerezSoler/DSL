@@ -10,14 +10,14 @@ import es.uam.sara.tfg.rule.Rule;
 public class ClassConteinsMethod extends Class {
 
 	private Rule<MethodDeclaration> rule;
-	public ClassConteinsMethod(List<TypeDeclaration> analyze, Rule<MethodDeclaration> r) {
-		super(analyze);
+	public ClassConteinsMethod( Rule<MethodDeclaration> r) {
+		super();
 		rule=r;
 	}
 	
 	@Override
-	public void check() {
-	 for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+	 for (TypeDeclaration t: analyze){
 		 rule.reset(getListMethod(t));
 		 if(rule.checkTest()){
 			 super.addRight(t);

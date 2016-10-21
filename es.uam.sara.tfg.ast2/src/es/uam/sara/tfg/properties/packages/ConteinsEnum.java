@@ -5,12 +5,12 @@ import java.util.List;
 public class ConteinsEnum extends Package {
 
 	public ConteinsEnum(List<String> analize) {
-		super(analize);
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void check() {
+	public void check(List<String> analyze) {
 		// TODO Auto-generated method stub
 
 	}

@@ -11,13 +11,13 @@ public class InterConteinsMethod extends Interface {
 
 	private Rule<MethodDeclaration> rule;
 	public InterConteinsMethod(List<TypeDeclaration> analyze, Rule<MethodDeclaration> r) {
-		super(analyze);
+		super();
 		rule=r;
 	}
 	
 	@Override
-	public void check() {
-	 for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+	 for (TypeDeclaration t: analyze){
 		 rule.reset(getListMethod(t));
 		 if(rule.checkTest()){
 			 super.addRight(t);

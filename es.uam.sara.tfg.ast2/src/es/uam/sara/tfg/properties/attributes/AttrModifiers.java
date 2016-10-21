@@ -12,14 +12,14 @@ public class AttrModifiers extends Attribute{
 
 	private ModifiersCheck mc;
 
-	public AttrModifiers(List<FieldDeclaration> analyze, ModifiersCheck mc) {
-		super(analyze);
+	public AttrModifiers(ModifiersCheck mc) {
+		super();
 		this.mc = mc;
 	}
 
 	@Override
-	public void check() {
-		for (FieldDeclaration a : super.analyze) {
+	public void check(List<FieldDeclaration> analyze) {
+		for (FieldDeclaration a : analyze) {
 			if (mc.modifiers(getList(a))) {
 				super.addRight(a);
 			} else {

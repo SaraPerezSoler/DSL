@@ -36,7 +36,7 @@ public class ClassesSatisfy {
             if ((s instanceof Implements)) {
               Implements imp = ((Implements) s);
               int _minInterface = imp.getMinInterface();
-              String _plus_2 = ((start + "Implements(elements, ") + Integer.valueOf(_minInterface));
+              String _plus_2 = ((start + "Implements(") + Integer.valueOf(_minInterface));
               String _plus_3 = (_plus_2 + ", ");
               int _maxInterface = imp.getMaxInterface();
               String _plus_4 = (_plus_3 + Integer.valueOf(_maxInterface));
@@ -44,10 +44,10 @@ public class ClassesSatisfy {
               return (_plus_5 + ClassesSatisfy.END);
             } else {
               if ((s instanceof IsExtended)) {
-                return ((start + "isExtended(elements,es.uam.sara.tfg.ast.Visitors.getClasses())") + ClassesSatisfy.END);
+                return ((start + "isExtended(Visitors.getClasses())") + ClassesSatisfy.END);
               } else {
                 if ((s instanceof IsInheritor)) {
-                  return ((start + "IsInheritor(elements)") + ClassesSatisfy.END);
+                  return ((start + "IsInheritor()") + ClassesSatisfy.END);
                 }
               }
             }

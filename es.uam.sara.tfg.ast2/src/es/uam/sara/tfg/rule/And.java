@@ -11,8 +11,8 @@ public class And<T> extends Properties<T>{
 
 	private List<Properties<T>>properties;
 	
-	public And(List<T> analyze) {
-		super(analyze);
+	public And() {
+		super();
 		properties= new ArrayList<Properties<T>>();
 	}
 
@@ -33,13 +33,14 @@ public class And<T> extends Properties<T>{
 	}
 	
 	@Override
-	public void check(){
+	public void check(List<T> analyze){
+	
 		for (Properties<T> p: properties){
-			p.check();
+			p.check(analyze);
 			removeAllWrong(p.getWrong());
 			addAllWrong(p.getWrong());
 		}
-		addAllRight(getAnalyze());
+		addAllRight(analyze);
 		removeAllRight(getWrong());
 	}
 

@@ -10,14 +10,14 @@ import es.uam.sara.tfg.properties.ModifiersCheck;
 public class MethModifiers extends Method{
 
 	private ModifiersCheck mc;
-	public MethModifiers(List<MethodDeclaration> analyze, ModifiersCheck mc) {
-		super(analyze);
+	public MethModifiers(ModifiersCheck mc) {
+		super();
 		this.mc=mc;
 	}
 
 	@Override
-	public void check() {
-		for (MethodDeclaration m : super.analyze) {
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m : analyze) {
 			if (mc.modifiers(getList(m))) {
 				super.addRight(m);
 			} else {

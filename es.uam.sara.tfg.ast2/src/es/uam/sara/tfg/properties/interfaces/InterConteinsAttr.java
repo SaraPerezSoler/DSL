@@ -11,14 +11,14 @@ public class InterConteinsAttr extends Interface{
 
 	private Rule<FieldDeclaration> rule;
 	
-	public InterConteinsAttr(List<TypeDeclaration> analyze, Rule<FieldDeclaration> rule) {
-		super(analyze);
+	public InterConteinsAttr(Rule<FieldDeclaration> rule) {
+		super();
 		this.rule=rule;
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t:super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t:analyze){
 			 rule.reset(getListAttributes(t));
 			 if(rule.checkTest()){
 				 super.addRight(t);

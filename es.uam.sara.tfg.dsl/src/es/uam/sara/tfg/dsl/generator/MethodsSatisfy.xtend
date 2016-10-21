@@ -36,14 +36,14 @@ class MethodsSatisfy {
 
 		} else if (s instanceof Constructor) {
 
-			return start + "Constructor (elements)" + END;
+			return start + "Constructor ()" + END;
 
 		} else if (s instanceof Parameter) {
 
 			var p = s as Parameter
 			if (p.typesParam.isEmpty) {
 
-				return start + "Parameters (elements," + p.numParam + ")" + END
+				return start + "Parameters (" + p.numParam + ")" + END
 
 			} else {
 
@@ -51,13 +51,13 @@ class MethodsSatisfy {
 				for (tp : p.typesParam) {
 					cadena += "param.add(\"" + tp + "\");\n"
 				}
-				cadena += start + "Parameters (elements, param)" + END
+				cadena += start + "Parameters (param)" + END
 				return cadena;
 			}
 
 		} else if (s instanceof Return) {
 			var r = s as Return
-			return start + "Return (elements,\"" + r.returnType + "\")" + END
+			return start + "Return (\"" + r.returnType + "\")" + END
 		}
 	}
 }

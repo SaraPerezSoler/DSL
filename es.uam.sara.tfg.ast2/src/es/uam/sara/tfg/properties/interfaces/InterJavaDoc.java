@@ -8,15 +8,15 @@ import es.uam.sara.tfg.properties.JavaDocCheck;
 public class InterJavaDoc extends Interface{
 
 	private JavaDocCheck jdc;
-	public InterJavaDoc(List<TypeDeclaration> analyce,boolean author, boolean parameter,
+	public InterJavaDoc(boolean author, boolean parameter,
 			boolean returns, boolean version, boolean throwss, boolean see) {
-		super(analyce);
+		super();
 		jdc=new JavaDocCheck(author, parameter, returns, version, throwss, see);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (jdc.javaDoc(t.getJavadoc())){
 				super.addRight(t);
 			}else{

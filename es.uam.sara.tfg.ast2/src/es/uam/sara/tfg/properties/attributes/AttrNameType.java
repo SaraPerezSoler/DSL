@@ -11,14 +11,14 @@ public class AttrNameType extends Attribute{
 
 	private NameCheck nCheck;
 	
-	public AttrNameType(List<FieldDeclaration> analyze, NameCheck.Type type) {
-		super(analyze);
+	public AttrNameType(NameCheck.Type type) {
+		super();
 		nCheck= new NameCheck(type);
 	}
 
 	@Override
-	public void check() {
-		for (FieldDeclaration a : super.analyze) {
+	public void check(List<FieldDeclaration> analyze) {
+		for (FieldDeclaration a : analyze) {
 			if (a.fragments().get(0) instanceof VariableDeclarationFragment) {
 				VariableDeclarationFragment declaration = (VariableDeclarationFragment) a.fragments().get(0);
 				if (nCheck.checkNameType(declaration.getName().toString())) {

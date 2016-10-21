@@ -5,13 +5,13 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 public class MethNoEmpty extends Method{
 
-	public MethNoEmpty(List<MethodDeclaration> analyze) {
-		super(analyze);
+	public MethNoEmpty() {
+		super();
 	}
 
 	@Override
-	public void check()  {
-		for (MethodDeclaration m: super.analyze){
+	public void check(List<MethodDeclaration> analyze)  {
+		for (MethodDeclaration m: analyze){
 			if (m.getBody().statements().isEmpty()){
 				addWrong(m);
 			}else{

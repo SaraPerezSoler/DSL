@@ -8,18 +8,12 @@ public abstract class Properties<T> {
 
 	private List<T> right;
 	private List<T> wrong;
-	protected List<T> analyze = null;
 
-	public Properties(List<T> analyce) {
-		this.analyze = analyce;
+	public Properties() {
 		this.right = new ArrayList<T>();
 		this.wrong = new ArrayList<T>();
 	}
 
-	public void setAnlyze(List<T> analyze) {
-		if (this.analyze == null)
-			this.analyze = analyze;
-	}
 
 	public List<T> getRight() {
 		return right;
@@ -29,13 +23,10 @@ public abstract class Properties<T> {
 		return wrong;
 	}
 
-	public List<T> getAnalyze() {
-		return analyze;
-	}
 
 	public void addRight(T t) {
 		try {
-			if ((!analyze.contains(t)) || right.contains(t) || wrong.contains(t)) {
+			if (right.contains(t) || wrong.contains(t)) {
 				throw new PropertiesException(
 						"Cod 01: El elemento que intenta añadir no se encuentra o ya se ha añadido.");
 			}
@@ -47,7 +38,7 @@ public abstract class Properties<T> {
 
 	public void addWrong(T t) {
 		try {
-			if ((!analyze.contains(t)) || right.contains(t) || wrong.contains(t)) {
+			if (right.contains(t) || wrong.contains(t)) {
 				throw new PropertiesException(
 						"Cod 01: El elemento que intenta añadir no se encuentra o ya se ha añadido.");
 			}
@@ -59,7 +50,6 @@ public abstract class Properties<T> {
 	}
 
 	public void reset(List<T> analyze) {
-		this.analyze = analyze;
 		this.right.clear();
 		this.wrong.clear();
 	}
@@ -80,6 +70,6 @@ public abstract class Properties<T> {
 		wrong.addAll(c);
 	}
 
-	public abstract void check();
+	public abstract void check(List<T> analize);
 
 }

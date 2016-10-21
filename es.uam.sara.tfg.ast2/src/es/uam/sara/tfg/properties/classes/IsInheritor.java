@@ -16,8 +16,8 @@ public class IsInheritor extends Class{
 	/**
 	 * @param analyze
 	 */
-	public IsInheritor(List<TypeDeclaration> analyze) {
-		super(analyze);
+	public IsInheritor() {
+		super();
 	}
 
 	/*
@@ -26,8 +26,8 @@ public class IsInheritor extends Class{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (t.getSuperclassType().toString().equals(Object.class.toString())) {
 				super.addWrong(t);
 			} else {

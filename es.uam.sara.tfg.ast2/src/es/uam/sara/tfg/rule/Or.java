@@ -8,8 +8,8 @@ public class Or<T> extends Properties<T>{
 
 	protected List <And<T>> ands;
 		
-	public Or(List<T> analyce) {
-		super(analyce);
+	public Or() {
+		super();
 		ands= new ArrayList<And<T>>();
 	}
 
@@ -17,13 +17,14 @@ public class Or<T> extends Properties<T>{
 		ands.add(a);
 	}
 	
-	public void check() {
+	public void check(List<T> analyze) {
+		
 		for (And<T> a: ands){
-			a.check();
+			a.check(analyze);
 			removeAllRight(a.getRight());
 			addAllRight(a.getRight());
 		}
-		addAllWrong(getAnalyze());
+		addAllWrong(analyze);
 		removeAllWrong(getRight());
 	}
 

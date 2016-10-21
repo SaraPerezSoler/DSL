@@ -19,8 +19,8 @@ public class Parameters extends Method{
 	private int numParametres;
 	private List<String> paramList;
 
-	public Parameters(List<MethodDeclaration> analyze, int num) {
-		super(analyze);
+	public Parameters(int num) {
+		super();
 		numParametres = num;
 		paramList = null;
 	}
@@ -28,8 +28,8 @@ public class Parameters extends Method{
 	/**
 	 * @param analyze
 	 */
-	public Parameters(List<MethodDeclaration> analyze, List<String> param) {
-		super(analyze);
+	public Parameters(List<String> param) {
+		super();
 		numParametres = param.size();
 		paramList = param;
 	}
@@ -40,8 +40,8 @@ public class Parameters extends Method{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check() {
-		for (MethodDeclaration m : super.analyze) {
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m : analyze) {
 			if (m.parameters().size() != numParametres) {
 				super.addWrong(m);
 			} else if (comparaParam(getList(m.parameters()))) {

@@ -4,13 +4,13 @@ import java.util.List;
 
 public class ConteinsClass extends Package {
 
-	public ConteinsClass(List<String> analize) {
-		super(analize);
+	public ConteinsClass() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void check() {
+	public void check(List<String> analize) {
 		// TODO Auto-generated method stub
 
 	}

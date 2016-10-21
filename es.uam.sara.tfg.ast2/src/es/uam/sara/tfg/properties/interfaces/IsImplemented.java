@@ -8,14 +8,14 @@ public class IsImplemented extends Interface{
 	
 	private List<TypeDeclaration> allTypes;
 
-	public IsImplemented(List<TypeDeclaration> analyce, List<TypeDeclaration> allTypes) {
-		super(analyce);
+	public IsImplemented(List<TypeDeclaration> allTypes) {
+		super();
 		this.allTypes=allTypes;
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (check(t)){
 				super.addRight(t);
 			}else{

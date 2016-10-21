@@ -1,8 +1,17 @@
 
-public enum Test{
-	hola;
-	enum nime{
+public class Test{
+	
+	public enum nada{
+		cafe(0), chocolate(1);
 		
+		private int valor;
+		private nada(int i){
+			valor=i;
+		}
+		
+		private enum th{
+			
+		}
 	}
 	interface hola{
 		
@@ -18,7 +27,7 @@ public enum Test{
 		}
 	}
 	private int numCasa;
-	
+	private nada eso=nada.cafe;
 	Test() {
 		//numCasa=new Casa().get();
 	}

@@ -8,14 +8,14 @@ import es.uam.sara.tfg.properties.NameCheck;
 public class InterNameOperation extends Interface{
 
 	private NameCheck nCheck;
-	public InterNameOperation(List<TypeDeclaration> analyce,NameCheck.Operation op, String cad, int idioma) {
-		super(analyce);
+	public InterNameOperation(NameCheck.Operation op, String cad, int idioma) {
+		super();
 		nCheck=new NameCheck(op, cad, idioma);
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (nCheck.checkNameOperation(t.getName().toString())) {
 				super.addRight(t);
 			} else {

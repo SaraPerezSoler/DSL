@@ -1,7 +1,10 @@
 
 package es.uam.sara.tfg.ast;
 
+import java.util.Map;
+
 import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -17,6 +20,9 @@ public class ParserAst {
 		parser.setBindingsRecovery(true);
 		parser.setSource(str.toCharArray());
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
+		Map<String, String> options = JavaCore.getOptions();
+		options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_1_5); //or newer version
+		parser.setCompilerOptions(options);
 		
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 		cu.accept(visitor);

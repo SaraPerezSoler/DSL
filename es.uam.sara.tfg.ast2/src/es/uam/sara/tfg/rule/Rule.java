@@ -7,7 +7,7 @@ public class Rule<T> {
 	protected boolean no;
 	protected Quantifier quantifier;
 	protected List<T> elements;
-	protected Or<T> filter;
+	protected Filter<T> filter;
 	protected Or<T> properties;
 	private boolean checkeado = false;
 
@@ -15,7 +15,7 @@ public class Rule<T> {
 		ALL, ONE, EXISTS,
 	}
 
-	public Rule(boolean no, Quantifier q, List<T> elements, Or<T> filter, Or<T> properties) {
+	public Rule(boolean no, Quantifier q, List<T> elements, Filter<T> filter, Or<T> properties) {
 		this.no = no;
 		this.quantifier = q;
 		this.elements = elements;
@@ -27,18 +27,24 @@ public class Rule<T> {
 		this.elements = elements;
 		filter.reset(elements);
 		properties.reset(elements);
-		checkeado=false;
+		checkeado = false;
 	}
 
 	public boolean checkTest() {
+		
 		if (!checkeado) {
+			List<T> analyze=this.elements;
 			if (filter != null) {
-				filter.check();
-				properties.reset(filter.getAnalyze());
+				filter.check(this.elements);
+				analyze=filter.getFiltering();
+			} 
+			if (properties != null) {
+				properties.check(analyze);
 			}
-			properties.check();
-			checkeado=true;
+			checkeado = true;
+			
 		}
+		/////////////
 		if (no) {
 			return checkQuantifier(properties.getWrong());
 		} else {

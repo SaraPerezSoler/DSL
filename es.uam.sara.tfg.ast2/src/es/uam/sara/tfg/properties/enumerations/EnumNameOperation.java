@@ -10,13 +10,13 @@ public class EnumNameOperation extends Enumeration{
 
 	private NameCheck nCheck;
 	public EnumNameOperation(List<EnumDeclaration> analyce,NameCheck.Operation op, String cad, int idioma) {
-		super(analyce);
+		super();
 		nCheck= new NameCheck(op, cad, idioma);
 	}
 
 	@Override
-	public void check() {
-		for (EnumDeclaration en:super.analyze){
+	public void check(List<EnumDeclaration> analyze) {
+		for (EnumDeclaration en:analyze){
 			if (nCheck.checkNameOperation(en.getName().toString())){
 				super.addRight(en);
 			}else{

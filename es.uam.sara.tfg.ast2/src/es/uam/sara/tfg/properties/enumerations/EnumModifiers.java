@@ -12,13 +12,13 @@ public class EnumModifiers extends Enumeration{
 
 	private ModifiersCheck mc;
 	public EnumModifiers(List<EnumDeclaration> analyce, ModifiersCheck mc) {
-		super(analyce);
+		super();
 		this.mc=mc;
 	}
 
 	@Override
-	public void check() {
-		for (EnumDeclaration en : super.analyze) {
+	public void check(List<EnumDeclaration> analyze) {
+		for (EnumDeclaration en : analyze) {
 			if (mc.modifiers(getList(en))) {
 				super.addRight(en);
 			} else {

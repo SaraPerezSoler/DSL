@@ -10,14 +10,14 @@ import es.uam.sara.tfg.rule.Rule;
 public class EnumConteinsMethod extends Enumeration {
 
 	private Rule<MethodDeclaration> rule;
-	public EnumConteinsMethod(List<EnumDeclaration> analyze, Rule<MethodDeclaration> r) {
-		super(analyze);
+	public EnumConteinsMethod( Rule<MethodDeclaration> r) {
+		super();
 		rule=r;
 	}
 	
 	@Override
-	public void check() {
-	 for (EnumDeclaration t: super.analyze){
+	public void check(List<EnumDeclaration> analyze) {
+	 for (EnumDeclaration t: analyze){
 		 rule.reset(getListMethod(t));
 		 if(rule.checkTest()){
 			 super.addRight(t);

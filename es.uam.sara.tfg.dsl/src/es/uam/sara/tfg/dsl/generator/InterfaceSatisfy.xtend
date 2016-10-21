@@ -22,7 +22,7 @@ class InterfaceSatisfy {
 		} else if (s instanceof NoEmpty) {
 			return start + ComunSatisfy.noEmpty(s as NoEmpty, PREFIX) + END;
 		} else if (s instanceof isImplemented) {
-			return start + "IsImplemented(elements, es.uam.sara.tfg.ast.Visitors.getTypes())" + END;
+			return start + "IsImplemented(es.uam.sara.tfg.ast.Visitors.getTypes())" + END;
 		}
 	}
 	

@@ -28,12 +28,12 @@ public class AttributesSatisfy {
           return ComunSatisfy.modifiers(((Modifiers) s), AttributesSatisfy.PREFIX, start, AttributesSatisfy.END);
         } else {
           if ((s instanceof Initialize)) {
-            return ((start + "Initialize(elements)") + AttributesSatisfy.END);
+            return ((start + "Initialize()") + AttributesSatisfy.END);
           } else {
             if ((s instanceof AttributeType)) {
               AttributeType at = ((AttributeType) s);
               String _type = at.getType();
-              String _plus_1 = ((start + "Type(elements, \"") + _type);
+              String _plus_1 = ((start + "Type(\"") + _type);
               String _plus_2 = (_plus_1 + "\")");
               return (_plus_2 + AttributesSatisfy.END);
             }

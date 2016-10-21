@@ -8,16 +8,16 @@ import es.uam.sara.tfg.properties.JavaDocCheck;
 public class EnumJavaDoc extends Enumeration{
 
 	private JavaDocCheck jdc;
-	public EnumJavaDoc(List<EnumDeclaration> analyce,boolean author, boolean parameter,
+	public EnumJavaDoc(boolean author, boolean parameter,
 			boolean returns, boolean version, boolean throwss, boolean see) {
-		super(analyce);
+		super();
 		jdc= new JavaDocCheck(author, parameter, returns, version, throwss, see);
 		
 	}
 
 	@Override
-	public void check() {
-		for (EnumDeclaration en: super.analyze){
+	public void check(List<EnumDeclaration> analyze) {
+		for (EnumDeclaration en: analyze){
 			if (jdc.javaDoc(en.getJavadoc())){
 				super.addRight(en);
 			}else{

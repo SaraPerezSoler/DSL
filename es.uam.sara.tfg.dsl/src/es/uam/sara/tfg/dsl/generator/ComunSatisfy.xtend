@@ -14,10 +14,10 @@ class ComunSatisfy {
 	def static CharSequence name(Name n, String prefix ,String start, String end){
 		var cadena="";
 		if (n.type != NameType.NOTHING) {
-				cadena += start + prefix +"NameType(elements, NameCheck.Type." + n.type +")" + end
+				cadena += start + prefix +"NameType(NameCheck.Type." + n.type +")" + end
 			}
 			if (n.operator != NameOperator.NOTHING) {
-				cadena += start + prefix + "NameOperation(elements,NameCheck.Operation." + n.operator +
+				cadena += start + prefix + "NameOperation(NameCheck.Operation." + n.operator +
 						",\"" + n.name + "\", NameCheck." + n.language + ")" + end
 			}
 			return cadena;
@@ -25,7 +25,7 @@ class ComunSatisfy {
 	
 	def static CharSequence javaDoc(JavaDoc jd, String prefix){
 		
-		var cadena = prefix + "JavaDoc (elements," + jd.author + "," + jd.parameter + "," +
+		var cadena = prefix + "JavaDoc (" + jd.author + "," + jd.parameter + "," +
 					jd.^return + "," + jd.version + "," + jd.throws + "," + jd.see +")";
 		return cadena;
 	}
@@ -38,13 +38,13 @@ class ComunSatisfy {
 					"mc"+ iMod +".addBlend(\"" + b.access + "\"," + b.static + "," + b.final + "," + b.abstract + "," +
 						b.synchronized + ");\n"
 			}
-			cadena +=start + prefix + "Modifiers (elements, mc"+ iMod +")" + end
+			cadena +=start + prefix + "Modifiers (mc"+ iMod +")" + end
 			iMod++;
 			return cadena;
 	}
 	
 	def static CharSequence noEmpty(NoEmpty ne, String prefix){
-		return prefix +"NoEmpty (elements)"
+		return prefix +"NoEmpty ()"
 	}
 	
 }

@@ -17,8 +17,8 @@ public class isExtended extends Class{
 	/**
 	 * @param allClasses
 	 */
-	public isExtended(List<TypeDeclaration> analyze, List<TypeDeclaration> allClasses) {
-		super(analyze);
+	public isExtended(List<TypeDeclaration> allClasses) {
+		super();
 		this.allClasses=allClasses;
 
 	}
@@ -27,8 +27,8 @@ public class isExtended extends Class{
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (check(t)){
 				super.addRight(t);
 			}else{

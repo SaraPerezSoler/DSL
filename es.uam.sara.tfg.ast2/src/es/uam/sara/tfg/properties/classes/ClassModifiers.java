@@ -11,14 +11,14 @@ import es.uam.sara.tfg.properties.ModifiersCheck;
 public class ClassModifiers extends Class{
 
 	private ModifiersCheck mc;
-	public ClassModifiers(List<TypeDeclaration> analyze, ModifiersCheck mc) {
-		super(analyze);
+	public ClassModifiers(ModifiersCheck mc) {
+		super();
 		this.mc=mc;
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t : super.analyze) {
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t : analyze) {
 			if (mc.modifiers(getList(t))) {
 				super.addRight(t);
 			} else {

@@ -6,12 +6,12 @@ import es.uam.sara.tfg.properties.NameCheck.Type;
 
 public class PackNameType extends Package{
 
-	public PackNameType(List<String> analize, Type type) {
-		super(analize);
+	public PackNameType(Type type) {
+		super();
 	}
 
 	@Override
-	public void check() {
+	public void check(List<String> analyze) {
 
 	}
 

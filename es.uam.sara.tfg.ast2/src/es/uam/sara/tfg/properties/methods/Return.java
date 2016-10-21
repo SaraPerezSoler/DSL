@@ -7,14 +7,14 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 public class Return extends Method{
 
 	private String type;
-	public Return(List<MethodDeclaration> analyze, String type) {
-		super(analyze);
+	public Return( String type) {
+		super();
 		this.type=type;
 	}
 
 	@Override
-	public void check() {
-		for (MethodDeclaration m: super.analyze){
+	public void check(List<MethodDeclaration> analyze) {
+		for (MethodDeclaration m: analyze){
 			if (m.getReturnType2().toString().compareTo(type)==0){
 				super.addRight(m);
 			}else{

@@ -9,15 +9,15 @@ public class Implements extends Class{
 	private int intMin;
 	private int intMax;
 	
-	public Implements(List<TypeDeclaration> analyze,int min, int max) {
-		super(analyze);
+	public Implements(int min, int max) {
+		super();
 		intMin=min;
 		intMax=max;
 	}
 
 	@Override
-	public void check() {
-		for (TypeDeclaration t: super.analyze){
+	public void check(List<TypeDeclaration> analyze) {
+		for (TypeDeclaration t: analyze){
 			if (comprobar(t)){
 				super.addRight(t);
 			}else{

@@ -36,7 +36,7 @@ public class MethodsSatisfy {
             return (_plus_1 + MethodsSatisfy.END);
           } else {
             if ((s instanceof Constructor)) {
-              return ((start + "Constructor (elements)") + MethodsSatisfy.END);
+              return ((start + "Constructor ()") + MethodsSatisfy.END);
             } else {
               if ((s instanceof Parameter)) {
                 Parameter p = ((Parameter) s);
@@ -44,7 +44,7 @@ public class MethodsSatisfy {
                 boolean _isEmpty = _typesParam.isEmpty();
                 if (_isEmpty) {
                   int _numParam = p.getNumParam();
-                  String _plus_2 = ((start + "Parameters (elements,") + Integer.valueOf(_numParam));
+                  String _plus_2 = ((start + "Parameters (") + Integer.valueOf(_numParam));
                   String _plus_3 = (_plus_2 + ")");
                   return (_plus_3 + MethodsSatisfy.END);
                 } else {
@@ -55,14 +55,14 @@ public class MethodsSatisfy {
                     cadena = (_cadena + (("param.add(\"" + tp) + "\");\n"));
                   }
                   String _cadena_1 = cadena;
-                  cadena = (_cadena_1 + ((start + "Parameters (elements, param)") + MethodsSatisfy.END));
+                  cadena = (_cadena_1 + ((start + "Parameters (param)") + MethodsSatisfy.END));
                   return cadena;
                 }
               } else {
                 if ((s instanceof Return)) {
                   Return r = ((Return) s);
                   String _returnType = r.getReturnType();
-                  String _plus_4 = ((start + "Return (elements,\"") + _returnType);
+                  String _plus_4 = ((start + "Return (\"") + _returnType);
                   String _plus_5 = (_plus_4 + "\")");
                   return (_plus_5 + MethodsSatisfy.END);
                 }
