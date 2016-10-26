@@ -21,5 +21,8 @@ public class EnumNoEmpty extends Enumeration{
 		}
 		
 	}
-
+	@Override
+	public String toString() {
+		return "no empty";
+	}
 }

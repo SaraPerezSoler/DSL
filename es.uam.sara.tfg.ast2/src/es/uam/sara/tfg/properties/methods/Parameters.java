@@ -17,7 +17,7 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 public class Parameters extends Method{
 
 	private int numParametres;
-	private List<String> paramList;
+	private List<String> paramList=null;
 
 	public Parameters(int num) {
 		super();
@@ -82,6 +82,15 @@ public class Parameters extends Method{
 			listanueva.add(s);
 		}
 		return listanueva;
+	}
+
+	@Override
+	public String toString() {
+		if (paramList==null){
+			return "numParametres=" + numParametres;
+		}else{
+			return "numParametres=" + numParametres +" and types= "+ paramList;
+		}
 	}
 
 }

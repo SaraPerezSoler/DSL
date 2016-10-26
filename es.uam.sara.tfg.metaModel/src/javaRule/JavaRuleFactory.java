@@ -157,13 +157,22 @@ public interface JavaRuleFactory extends EFactory {
 	NoEmpty createNoEmpty();
 
 	/**
-	 * Returns a new object of class '<em>Name</em>'.
+	 * Returns a new object of class '<em>Name Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Name</em>'.
+	 * @return a new object of class '<em>Name Operation</em>'.
 	 * @generated
 	 */
-	Name createName();
+	NameOperation createNameOperation();
+
+	/**
+	 * Returns a new object of class '<em>Name Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Type</em>'.
+	 * @generated
+	 */
+	NameType createNameType();
 
 	/**
 	 * Returns a new object of class '<em>Java Doc</em>'.

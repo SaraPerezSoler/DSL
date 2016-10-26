@@ -25,5 +25,8 @@ public class InterNameType extends Interface{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return "name type="+nCheck.getType();
+	}
 }

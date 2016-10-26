@@ -25,5 +25,8 @@ public class EnumJavaDoc extends Enumeration{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return  jdc.toString();
+	}
 }

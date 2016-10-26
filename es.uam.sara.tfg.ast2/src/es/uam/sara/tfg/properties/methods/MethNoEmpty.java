@@ -19,5 +19,8 @@ public class MethNoEmpty extends Method{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return "no empty";
+	}
 }

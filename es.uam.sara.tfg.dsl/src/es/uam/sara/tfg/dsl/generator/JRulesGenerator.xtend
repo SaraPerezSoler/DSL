@@ -19,6 +19,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import javaRule.And
 import javaRule.Satisfy
 import javaRule.Filter
+import javaRule.RuleSet
 
 /**
  * Generates code from your model files on save.
@@ -34,6 +35,28 @@ class JRulesGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Rule)));
+		fsa.generateFile("Main.java", main());
+	}
+
+	def CharSequence main() {
+		'''
+		import java.util.List;
+		import es.uam.sara.tfg.rule.Rule;
+		
+		public class Main {
+		
+		 
+			public static void main(String[] args){
+				RuleFactory ruleFactory=new RuleFactory();
+				List <Rule<?>> rules=ruleFactory.getRules();
+				for (Rule<?> r: rules){
+					System.out.println(r);
+				}
+			}
+		
+		}
+		
+		'''
 	}
 
 	def CharSequence RuleFactory(Iterable<Rule> rules) {
@@ -55,6 +78,7 @@ class JRulesGenerator extends AbstractGenerator {
 			import org.eclipse.jdt.core.dom.MethodDeclaration;
 			import org.eclipse.jdt.core.dom.FieldDeclaration;
 			import es.uam.sara.tfg.ast.Visitors;
+			import es.uam.sara.tfg.properties.Properties;
 			
 			public class RuleFactory {
 				
@@ -72,16 +96,15 @@ class JRulesGenerator extends AbstractGenerator {
 						List<MethodDeclaration> methods=Visitors.getMethods();
 						List<FieldDeclaration> attributes=Visitors.getAttributes();
 						
-						«FOR Rule r : rules»
-							//r«i» «r.toString»
-							«var type=getType(r.element)»
-							«var analize=getAnalize(r.element)»
-							«getFilter(r.filter, i, r.element)»
-							«getOr(r.satisfy, i, r.element)»
-							rules.add(new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,filter«i», or«i++»));	
+					«FOR Rule r : rules»
+						«IF r.eContainer instanceof RuleSet»
 							
-						«ENDFOR»
-						return rules;
+								«genetateRule(r, ""+i)»
+								rules.add(r«i++»);
+								
+						«ENDIF»
+					«ENDFOR»
+					return rules;
 					}
 				}
 			}
@@ -89,43 +112,65 @@ class JRulesGenerator extends AbstractGenerator {
 		'''
 	}
 
-	def CharSequence getFilter(Filter filter, int i, ElementJava element) {
+	def static String genetateRule(Rule r,
+		String i) {
+		'''
+			//r«i» «r.toString»
+			«var type=getType(r.element)»
+			«var analize=getAnalize(r.element)»
+			«getFilter(r.filter, i, r.element)»
+			«getOr(r.satisfy, i, r.element)»
+			Rule<«type»> r«i»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,filter«i», or«i», "«r.element»");	
+		'''
+	}
+
+	def static CharSequence getFilter(Filter filter, String i, ElementJava element) {
 		'''
 		«var type= getType(element)»
 		«IF filter!=null»
 			Filter<«type»> filter«i»= new Filter<«type»>(«filter.no»);
 			«var j=1»
-				«FOR And a: filter.filter.op»
-					And<«type»> andFilter«i»«j» = new And<«type»>();
-					«FOR Satisfy s: a.op»
-						«s.getSatisfy(element , "Filter"+i+j)»
-					«ENDFOR»
-					filter«i».addAnd(andFilter«i»«j++»);
-				«ENDFOR»
+			«FOR And a: filter.filter.op»
+				«getAnd(a, "Filter"+i+j, element)»
+				filter«i».addAnd(andFilter«i»«j++»);
+				
+			«ENDFOR»
 		«ELSE»
 			Filter<«type»> filter«i»=	null;
+			
 		«ENDIF»'''
 	}
 
-	def CharSequence getOr(Or or, int i, ElementJava element) {
+	def static CharSequence getOr(Or or, String i, ElementJava element) {
 		'''
 		«var type= getType(element)»
 		«IF or!=null»
 			Or<«type»> or«i»= new Or<«type»>();
 			«var j=1»
-				«FOR And a: or.op»
-					And<«type»> and«i»«j» = new And<«type»>();
-					«FOR Satisfy s: a.op»
-						«s.getSatisfy(element , ""+i+j)»
-					«ENDFOR»
-					or«i».addAnd(and«i»«j++»);
-				«ENDFOR»
+			«FOR And a: or.op»
+				«getAnd(a, i+j, element)»
+				or«i».addAnd(and«i»«j++»);
+				
+			«ENDFOR»
 		«ELSE»
 			Or<«type»> or«i»=	null;
+			
 		«ENDIF»'''
 	}
 
-	def CharSequence getSatisfy(Satisfy s, ElementJava e, String sufix) {
+	def static CharSequence getAnd(And a, String i, ElementJava element) {
+		'''
+			«var j=1»
+			«var type= getType(element)»
+			And<«type»> and«i» = new And<«type»>();
+			«FOR Satisfy s : a.op»
+				«s.getSatisfy(element , i+j)»
+				and«i».addPropertie(p«i»«j++»);
+			«ENDFOR»
+		'''
+	}
+
+	def static CharSequence getSatisfy(Satisfy s, ElementJava e, String sufix) {
 		if (e == ElementJava.PACKAGE) {
 			return PackageSatisfy.getPropertie(s as Package, sufix);
 		} else if (e == ElementJava.INTERFACE) {
@@ -141,105 +186,7 @@ class JRulesGenerator extends AbstractGenerator {
 		}
 	}
 
-	def CharSequence generateClass(Rule rule, int i) {
-	}
-
-	/*def CharSequence generateClass(Rule rule, int i) {
-	 * 	var t = getType(rule.element)
-	 * 	'''
-	 * 	import java.util.*;
-	 * 	import es.uam.sara.tfg.rule.*;
-	 * 	import es.uam.sara.tfg.rule.Rule.*;
-	 * 	import es.uam.sara.tfg.properties.*;
-	 * 	«IF rule.element==ElementJava.INTERFACE»
-	 * 		import es.uam.sara.tfg.properties.interfaces.*;
-	 * 	«ELSEIF rule.element==ElementJava.CLASS»
-	 * 		import es.uam.sara.tfg.properties.classes.*;
-	 * 	«ELSEIF rule.element==ElementJava.ENUM»
-	 * 		import es.uam.sara.tfg.properties.enumerations.*;
-	 * 	«ELSEIF rule.element==ElementJava.METHOD»
-	 * 		import es.uam.sara.tfg.properties.methods.*;
-	 * 	«ELSEIF rule.element==ElementJava.ATTRIBUTE»
-	 * 		import es.uam.sara.tfg.properties.attributes.*;
-	 * 	«ELSEIF rule.element==ElementJava.PACKAGE»
-	 * 		import es.uam.sara.tfg.properties.packages.*;
-	 * 	«ENDIF»
-	 * 	«IF rule.element!=ElementJava.PACKAGE»
-	 * 		import org.eclipse.jdt.core.dom.«t»;
-	 * 	«ENDIF»
-	 * 	
-	 * 	//«IF rule.no»no«ENDIF» «rule.quantifier» «rule.element»
-	 * 	«IF rule.filter!=null»// whitch «IF rule.filter.no»no«ENDIF» «getTextProperty(rule.filter.filter)»«ENDIF»
-	 * 	//«IF rule.satisfy!=null» satisfy «getTextProperty(rule.satisfy)»«ENDIF»
-	 * 	public class Rule«i»Factory implements RuleFactory<«t»>{
-	 * 		
-	 * 		public Rule<«t»> getRule (List<«t»> elements){
-	 * 				
-	 * 				«IF rule.filter!=null»
-	 * 					Or<«t»> filter= new Filter<«t»>(«rule.filter.no»,elements);
-	 * 					«createAnds(rule, true)»
-	 * 				«ELSE»
-	 * 					Or<«t»> filter=null;
-	 * 				«ENDIF»
-	 * 				«IF rule.satisfy!=null»
-	 * 					Or<«t»> satisfy= new Or<«t»>(elements);
-	 * 					«createAnds(rule, false)»
-	 * 				«ELSE»
-	 * 					Or<«t»> satisfy=null;
-	 * 				«ENDIF»
-	 * 				
-	 * 				return new Rule<«t»>(«rule.no», Quantifier.«rule.quantifier.literal.toUpperCase»,elements, filter, satisfy);
-	 * 		}
-	 * 		
-	 * 	}'''
-
-	 * }
-
-	 * def CharSequence getTextProperty(Or or) {
-	 * 	'''
-	 * 		or(«FOR a : or.op» and:(«FOR s:a.op»«s.class.simpleName.replace("Impl", "")», «ENDFOR»)«ENDFOR»)
-	 * 	'''
-	 * }
-
-	 * def CharSequence createAnds(Rule r, boolean filter) {
-	 * 	var prop = null as Or
-	 * 	var cad = ""
-	 * 	if (filter) {
-	 * 		prop = r.filter.filter;
-	 * 		cad = "Filter"
-	 * 	} else {
-	 * 		prop = r.satisfy;
-	 * 	}
-	 * 	var t = getType(r.element)
-
-	 * 	'''
-	 * 		«var i=1»
-	 * 		«FOR a : prop.op»
-	 * 			And<«t»> and«cad»«(i)»= new And<«t»>(elements);
-	 * 			«FOR s:a.op»
-	 * 				«IF r.element ==  ElementJava.ATTRIBUTE»
-	 * 					«AttributesSatisfy.getPropertie(s as Attribute, cad+i)»
-	 * 				«ELSEIF r.element ==  ElementJava.METHOD»
-	 * 					«MethodsSatisfy.getPropertie(s as Method,cad+i)»
-	 * 				«ELSEIF r.element ==  ElementJava.CLASS»
-	 * 					«ClassesSatisfy.getPropertie(s as Class,cad+i)»
-	 * 				«ELSEIF r.element ==  ElementJava.INTERFACE»
-	 * 					«InterfaceSatisfy.getPropertie(s as Interface,cad+i)»
-	 * 				«ELSEIF r.element ==  ElementJava.ENUM»
-	 * 					«EnumSatisfy.getPropertie(s as Enumeration,cad+i)»
-	 * 				«ELSEIF r.element ==  ElementJava.PACKAGE»
-	 * 					«PackageSatisfy.getPropertie(s as Package,cad+i)»
-	 * 				«ENDIF»
-	 * 			«ENDFOR»
-	 * 			«IF filter»
-	 * 				filter.addAnd(and«cad»«(i++)»);
-	 * 			«ELSE»
-	 * 				satisfy.addAnd(and«cad»«(i++)»);
-	 * 			«ENDIF»
-	 * 		«ENDFOR»
-	 * 	'''
-	 }*/
-	def CharSequence getType(ElementJava e) {
+	def static CharSequence getType(ElementJava e) {
 		if (e == ElementJava.PACKAGE) {
 			return "String"
 		} else if (e == ElementJava.INTERFACE) {
@@ -255,7 +202,7 @@ class JRulesGenerator extends AbstractGenerator {
 		}
 	}
 
-	def CharSequence getAnalize(ElementJava e) {
+	def static String getAnalize(ElementJava e) {
 		if (e == ElementJava.PACKAGE) {
 			return "packages"
 		} else if (e == ElementJava.INTERFACE) {

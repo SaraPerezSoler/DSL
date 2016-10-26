@@ -15,4 +15,14 @@ public class Filter<T> extends Or<T> {
 		}
 		return this.getRight();
 	}
+	@Override
+	public String toString() {
+		if(no){
+			return "no "+super.toString();
+		}else{
+			return super.toString();
+		}
+		
+	}
+	
 }

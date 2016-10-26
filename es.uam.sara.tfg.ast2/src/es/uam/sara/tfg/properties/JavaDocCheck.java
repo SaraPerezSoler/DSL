@@ -66,5 +66,29 @@ public class JavaDocCheck {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		String cad="JavaDoc ";
+		if (author){
+			cad+="@author ";
+		}
+		if (parameter){
+			cad+="@parameter ";
+		}
+		if (returns){
+			cad+="@returns ";
+		}
+		if (version){
+			cad+="@version ";
+		}
+		if (throwss){
+			cad+="@throwss ";
+		}
+		if (see){
+			cad+="@see ";
+		} 
+		return cad;
+	}
 	
 }

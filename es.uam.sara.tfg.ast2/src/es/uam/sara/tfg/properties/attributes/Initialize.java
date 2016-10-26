@@ -41,4 +41,9 @@ public class Initialize extends Attribute{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "is initialize";
+	}
+
 }

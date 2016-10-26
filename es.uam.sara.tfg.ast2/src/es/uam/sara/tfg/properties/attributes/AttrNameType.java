@@ -31,4 +31,9 @@ public class AttrNameType extends Attribute{
 
 	}
 
+	@Override
+	public String toString() {
+		return "name type="+nCheck.getType();
+	}
+
 }

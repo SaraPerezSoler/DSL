@@ -26,7 +26,9 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHING(0, "nothing", "nothing"), /**
+	NOTHING(0, "nothing", "nothing"),
+
+	/**
 	 * The '<em><b>Public</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PUBLIC(1, "public", "public"), /**
+	PUBLIC(1, "public", "public"),
+
+	/**
 	 * The '<em><b>Protected</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +46,9 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROTECTED(2, "protected", "protected"), /**
+	PROTECTED(2, "protected", "protected"),
+
+	/**
 	 * The '<em><b>Private</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +56,9 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIVATE(3, "private", "private"), /**
+	PRIVATE(3, "private", "private"),
+
+	/**
 	 * The '<em><b>Default</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

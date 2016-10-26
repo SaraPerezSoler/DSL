@@ -43,5 +43,27 @@ public class And<T> extends Properties<T>{
 		addAllRight(analyze);
 		removeAllRight(getWrong());
 	}
+	
+	public void reset() {
+		for (Properties<T> a: properties){
+			a.reset();
+		}
+		super.reset();
+	}
+
+	@Override
+	public String toString() {
+		String cad;
+		if (properties.size()==1){
+			cad=properties.get(0).toString();
+		}else{
+			cad="("+properties.get(0).toString();
+			for (int i=1; i<properties.size();i++){
+				cad+=" and "+properties.get(i).toString();
+			}
+			cad+=")";
+		}
+		return cad;
+	}
 
 }

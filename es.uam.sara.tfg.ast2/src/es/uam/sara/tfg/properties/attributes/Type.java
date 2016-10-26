@@ -33,4 +33,9 @@ public class Type extends Attribute{
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "type=" + type ;
+	}
+
 }

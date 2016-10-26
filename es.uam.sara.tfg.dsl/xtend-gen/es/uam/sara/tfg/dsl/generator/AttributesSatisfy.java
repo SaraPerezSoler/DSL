@@ -6,36 +6,37 @@ import javaRule.AttributeType;
 import javaRule.Initialize;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameOperation;
+import javaRule.NameType;
 
 @SuppressWarnings("all")
 public class AttributesSatisfy {
-  private final static String END = ");\n";
-  
   private final static String PREFIX = "Attr";
   
+  private final static String PROPERTY = "Properties<FieldDeclaration> p";
+  
   public static CharSequence getPropertie(final Attribute s, final String sufix) {
-    String start = (("and" + sufix) + ".addPropertie (new ");
-    if ((s instanceof Name)) {
-      return ComunSatisfy.name(((Name) s), AttributesSatisfy.PREFIX, start, AttributesSatisfy.END);
+    if ((s instanceof NameOperation)) {
+      return ComunSatisfy.nameOperation(((NameOperation) s), AttributesSatisfy.PREFIX, sufix, AttributesSatisfy.PROPERTY);
     } else {
-      if ((s instanceof JavaDoc)) {
-        CharSequence _javaDoc = ComunSatisfy.javaDoc(((JavaDoc) s), AttributesSatisfy.PREFIX);
-        String _plus = (start + _javaDoc);
-        return (_plus + AttributesSatisfy.END);
+      if ((s instanceof NameType)) {
+        return ComunSatisfy.nameType(((NameType) s), AttributesSatisfy.PREFIX, sufix, AttributesSatisfy.PROPERTY);
       } else {
-        if ((s instanceof Modifiers)) {
-          return ComunSatisfy.modifiers(((Modifiers) s), AttributesSatisfy.PREFIX, start, AttributesSatisfy.END);
+        if ((s instanceof JavaDoc)) {
+          return ComunSatisfy.javaDoc(((JavaDoc) s), AttributesSatisfy.PREFIX, sufix, AttributesSatisfy.PROPERTY);
         } else {
-          if ((s instanceof Initialize)) {
-            return ((start + "Initialize()") + AttributesSatisfy.END);
+          if ((s instanceof Modifiers)) {
+            return ComunSatisfy.modifiers(((Modifiers) s), AttributesSatisfy.PREFIX, sufix, AttributesSatisfy.PROPERTY);
           } else {
-            if ((s instanceof AttributeType)) {
-              AttributeType at = ((AttributeType) s);
-              String _type = at.getType();
-              String _plus_1 = ((start + "Type(\"") + _type);
-              String _plus_2 = (_plus_1 + "\")");
-              return (_plus_2 + AttributesSatisfy.END);
+            if ((s instanceof Initialize)) {
+              return ((AttributesSatisfy.PROPERTY + sufix) + "= new Initialize();");
+            } else {
+              if ((s instanceof AttributeType)) {
+                AttributeType at = ((AttributeType) s);
+                String _type = at.getType();
+                String _plus = (((AttributesSatisfy.PROPERTY + sufix) + "= new Type(\"") + _type);
+                return (_plus + "\");");
+              }
             }
           }
         }

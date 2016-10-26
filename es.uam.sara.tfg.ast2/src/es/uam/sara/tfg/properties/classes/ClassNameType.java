@@ -26,5 +26,8 @@ public class ClassNameType extends Class{
 		}
 
 	}
-
+	@Override
+	public String toString() {
+		return "name type="+nCheck.getType();
+	}
 }

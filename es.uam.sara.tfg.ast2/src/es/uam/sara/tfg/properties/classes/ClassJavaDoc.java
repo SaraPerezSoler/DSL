@@ -27,4 +27,9 @@ public class ClassJavaDoc extends Class{
 
 	}
 
+	@Override
+	public String toString() {
+		return  jdc.toString();
+	}
+
 }

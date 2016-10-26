@@ -3,61 +3,64 @@ package es.uam.sara.tfg.dsl.generator
 import javaRule.Constructor
 import javaRule.JavaDoc
 import javaRule.Modifiers
-import javaRule.Name
 import javaRule.NoEmpty
 import javaRule.Parameter
 import javaRule.Return
 import javaRule.Method
+import javaRule.NameOperation
+import javaRule.NameType
 
 class MethodsSatisfy {
 
-	private static final String END = ");\n"
 	private static final String PREFIX = "Meth"
+	private static final String PROPERTY = "Properties<MethodDeclaration> p"
 
 	def static CharSequence getPropertie(Method s, String sufix) {
 
-		var start = "and" + sufix + ".addPropertie (new "
+		if (s instanceof NameOperation) {
 
-		if (s instanceof Name) {
+			return ComunSatisfy.nameOperation(s as NameOperation, PREFIX,  sufix,PROPERTY)
 
-			return  ComunSatisfy.name(s as Name, PREFIX,start,END)
+		} else if (s instanceof NameType) {
+
+			return ComunSatisfy.nameType(s as NameType, PREFIX,  sufix,PROPERTY)
 
 		} else if (s instanceof JavaDoc) {
 
-			return start + ComunSatisfy.javaDoc(s as JavaDoc, PREFIX) + END;
+			return ComunSatisfy.javaDoc(s as JavaDoc, PREFIX,  sufix,PROPERTY);
 
 		} else if (s instanceof Modifiers) {
 
-			return   ComunSatisfy.modifiers(s as Modifiers, PREFIX, start, END) ;
+			return ComunSatisfy.modifiers(s as Modifiers, PREFIX,  sufix,PROPERTY);
 
 		} else if (s instanceof NoEmpty) {
 
-			return start + ComunSatisfy.noEmpty(s as NoEmpty, PREFIX) + END;
+			return ComunSatisfy.noEmpty(s as NoEmpty, PREFIX,  sufix,PROPERTY);
 
 		} else if (s instanceof Constructor) {
 
-			return start + "Constructor ()" + END;
+			return PROPERTY + sufix + "= new Constructor ();";
 
 		} else if (s instanceof Parameter) {
 
 			var p = s as Parameter
 			if (p.typesParam.isEmpty) {
 
-				return start + "Parameters (" + p.numParam + ")" + END
+				return PROPERTY + sufix + "= new Parameters (" + p.numParam + ");"
 
 			} else {
 
-				var cadena = "List<String> param= new ArrayList<String>();\n"
+				var cadena = "List<String> param" + sufix + "= new ArrayList<String>();\n"
 				for (tp : p.typesParam) {
-					cadena += "param.add(\"" + tp + "\");\n"
+					cadena += "param" + sufix + ".add(\"" + tp + "\");\n"
 				}
-				cadena += start + "Parameters (param)" + END
+				cadena += PROPERTY + sufix + "= new Parameters (param" + sufix + ");"
 				return cadena;
 			}
 
 		} else if (s instanceof Return) {
 			var r = s as Return
-			return start + "Return (\"" + r.returnType + "\")" + END
+			return PROPERTY + sufix + "= new Return (\"" + r.returnType + "\");"
 		}
 	}
 }

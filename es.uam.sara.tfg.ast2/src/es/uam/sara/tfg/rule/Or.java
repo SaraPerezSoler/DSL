@@ -27,5 +27,19 @@ public class Or<T> extends Properties<T>{
 		addAllWrong(analyze);
 		removeAllWrong(getRight());
 	}
+	public void reset() {
+		for (And<T> a: ands){
+			a.reset();
+		}
+		super.reset();
+	}
 
+	@Override
+	public String toString() {
+		String cad= ands.get(0).toString();
+		for (int i=1; i < ands.size(); i++){
+			cad+=" or "+ ands.get(i).toString();
+		}
+		return cad;
+	}
 }

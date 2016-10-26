@@ -26,5 +26,10 @@ public class AttrJavaDoc extends Attribute{
 		}
 		
 	}
+
+	@Override
+	public String toString() {
+		return jdc.toString();
+	}
 }
 

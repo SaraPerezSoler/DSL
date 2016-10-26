@@ -24,5 +24,8 @@ public class InterJavaDoc extends Interface{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return  jdc.toString();
+	}
 }

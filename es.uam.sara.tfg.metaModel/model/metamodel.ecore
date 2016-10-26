@@ -77,21 +77,23 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initialize" eSuperTypes="#//Attribute"/>
   <eClassifiers xsi:type="ecore:EClass" name="NoEmpty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NameType"
-        defaultValueLiteral="nothing"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//NameOperator"
-        defaultValueLiteral="nothing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NameOperation" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//NameOperator" defaultValueLiteral="nothing"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Language" eType="#//Language"
         defaultValueLiteral="EMPTY"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameType" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//NameCheck"
+        defaultValueLiteral="nothing"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Language">
     <eLiterals name="EMPTY"/>
     <eLiterals name="SPANISH" value="1"/>
     <eLiterals name="ENGLISH" value="2" literal="ENGLISH"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="NameType">
+  <eClassifiers xsi:type="ecore:EEnum" name="NameCheck">
     <eLiterals name="nothing"/>
     <eLiterals name="UPPER_CASE" value="1"/>
     <eLiterals name="LOWER_CASE" value="2"/>

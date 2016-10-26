@@ -46,4 +46,9 @@ public class isExtended extends Class{
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "is extended";
+	}
+
 }

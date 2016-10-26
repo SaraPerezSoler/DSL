@@ -19,7 +19,8 @@ import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameOperation;
+import javaRule.NameType;
 import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Return;
@@ -86,8 +87,11 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case JavaRulePackage.MODIFIERS:
 				sequence_Modifiers(context, (Modifiers) semanticObject); 
 				return; 
-			case JavaRulePackage.NAME:
-				sequence_Name(context, (Name) semanticObject); 
+			case JavaRulePackage.NAME_OPERATION:
+				sequence_NameOperation(context, (NameOperation) semanticObject); 
+				return; 
+			case JavaRulePackage.NAME_TYPE:
+				sequence_NameType(context, (NameType) semanticObject); 
 				return; 
 			case JavaRulePackage.NO_EMPTY:
 				sequence_NoEmpty(context, (NoEmpty) semanticObject); 
@@ -295,17 +299,33 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Satisfy returns Name
-	 *     Name returns Name
+	 *     Satisfy returns NameOperation
+	 *     NameOperation returns NameOperation
 	 *
 	 * Constraint:
-	 *     (
-	 *         (type=NameType (operator=NameOperator name=EString Language=Language?)?) | 
-	 *         (operator=NameOperator name=EString Language=Language? type=NameType?)
-	 *     )
+	 *     (operator=NameOperator name=EString Language=Language?)
 	 */
-	protected void sequence_Name(ISerializationContext context, Name semanticObject) {
+	protected void sequence_NameOperation(ISerializationContext context, NameOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Satisfy returns NameType
+	 *     NameType returns NameType
+	 *
+	 * Constraint:
+	 *     type=NameCheck
+	 */
+	protected void sequence_NameType(ISerializationContext context, NameType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.NAME_TYPE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.NAME_TYPE__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNameTypeAccess().getTypeNameCheckEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	

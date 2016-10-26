@@ -20,5 +20,8 @@ public class InterNoEmpty extends Interface{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return "no empty";
+	}
 }

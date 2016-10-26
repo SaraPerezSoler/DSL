@@ -38,4 +38,9 @@ public class AttrModifiers extends Attribute{
 		return mList;
 	}
 
+	@Override
+	public String toString() {
+		return  mc.toString();
+	}
+
 }

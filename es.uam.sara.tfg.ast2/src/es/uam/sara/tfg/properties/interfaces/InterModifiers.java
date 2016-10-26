@@ -36,5 +36,8 @@ public class InterModifiers extends Interface{
 		}
 		return mList;
 	}
-
+	@Override
+	public String toString() {
+		return mc.toString();
+	}
 }

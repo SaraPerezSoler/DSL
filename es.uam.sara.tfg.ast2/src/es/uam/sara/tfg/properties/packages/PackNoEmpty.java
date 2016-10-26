@@ -23,4 +23,8 @@ public class PackNoEmpty extends Package {
 			}
 		}
 	}
+	@Override
+	public String toString() {
+		return "no empty";
+	}
 }

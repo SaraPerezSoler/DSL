@@ -35,6 +35,9 @@ public class MethModifiers extends Method{
 		}
 		return mList;
 	}
-
+	@Override
+	public String toString() {
+		return mc.toString();
+	}
 
 }

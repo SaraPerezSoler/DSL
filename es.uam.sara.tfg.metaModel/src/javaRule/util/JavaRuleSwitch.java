@@ -19,7 +19,8 @@ import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Method;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameOperation;
+import javaRule.NameType;
 import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
@@ -28,6 +29,7 @@ import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
 import javaRule.isImplemented;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -252,16 +254,29 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.NAME: {
-				Name name = (Name)theEObject;
-				T result = caseName(name);
-				if (result == null) result = caseAttribute(name);
-				if (result == null) result = caseClass(name);
-				if (result == null) result = caseMethod(name);
-				if (result == null) result = casePackage(name);
-				if (result == null) result = caseInterface(name);
-				if (result == null) result = caseEnumeration(name);
-				if (result == null) result = caseSatisfy(name);
+			case JavaRulePackage.NAME_OPERATION: {
+				NameOperation nameOperation = (NameOperation)theEObject;
+				T result = caseNameOperation(nameOperation);
+				if (result == null) result = caseAttribute(nameOperation);
+				if (result == null) result = caseClass(nameOperation);
+				if (result == null) result = caseMethod(nameOperation);
+				if (result == null) result = casePackage(nameOperation);
+				if (result == null) result = caseInterface(nameOperation);
+				if (result == null) result = caseEnumeration(nameOperation);
+				if (result == null) result = caseSatisfy(nameOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.NAME_TYPE: {
+				NameType nameType = (NameType)theEObject;
+				T result = caseNameType(nameType);
+				if (result == null) result = caseAttribute(nameType);
+				if (result == null) result = caseClass(nameType);
+				if (result == null) result = caseMethod(nameType);
+				if (result == null) result = casePackage(nameType);
+				if (result == null) result = caseInterface(nameType);
+				if (result == null) result = caseEnumeration(nameType);
+				if (result == null) result = caseSatisfy(nameType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -641,17 +656,32 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Name</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Name Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Name</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Name Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseName(Name object) {
+	public T caseNameOperation(NameOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Name Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Name Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameType(NameType object) {
 		return null;
 	}
 

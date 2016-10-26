@@ -56,5 +56,31 @@ public class BlendModifiers {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		String and="";
+		String cad="";
+		if(this.acceso!="nothing"){
+			cad+=this.acceso;
+			and=" and ";
+		}
+		if (static_){
+			cad+=and+"static";
+			and=" and ";
+		}
+		if (final_){
+			cad+=and+"final";
+			and=" and ";
+		}
+		if (abstract_){
+			cad+=and+"abstract";
+			and=" and ";
+		}
+		if (synchronized_){
+			cad+=and+"synchronized";
+		}
+		return cad;
+	}
 }
  

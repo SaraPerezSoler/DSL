@@ -24,13 +24,13 @@
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/SPANISH"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//Language/ENGLISH"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameType">
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/nothing"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/UPPER_CASE"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/LOWER_CASE"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/UPPER_CAMEL_CASE"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/LOWER_CAMEL_CASE"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameType/START_UPPER_CASE"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameCheck">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/nothing"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/UPPER_CASE"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/LOWER_CASE"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/UPPER_CAMEL_CASE"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/LOWER_CAMEL_CASE"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameCheck/START_UPPER_CASE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//NameOperator">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//NameOperator/nothing"/>
@@ -95,11 +95,13 @@
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Initialize"/>
     <genClasses ecoreClass="metamodel.ecore#//NoEmpty"/>
-    <genClasses ecoreClass="metamodel.ecore#//Name">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/operator"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Name/Language"/>
+    <genClasses ecoreClass="metamodel.ecore#//NameOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameOperation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameOperation/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameOperation/Language"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//NameType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameType/type"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//JavaDoc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//JavaDoc/author"/>

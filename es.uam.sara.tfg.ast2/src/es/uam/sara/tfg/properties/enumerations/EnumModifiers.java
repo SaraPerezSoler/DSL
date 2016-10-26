@@ -36,5 +36,9 @@ public class EnumModifiers extends Enumeration{
 		}
 		return mList;
 	}
+	@Override
+	public String toString() {
+		return mc.toString();
+	}
 
 }

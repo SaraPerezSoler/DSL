@@ -49,7 +49,7 @@ public abstract class Properties<T> {
 		}
 	}
 
-	public void reset(List<T> analyze) {
+	public void reset() {
 		this.right.clear();
 		this.wrong.clear();
 	}

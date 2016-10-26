@@ -6,12 +6,13 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class Visitors {
 	private static List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
-
+	private static List<String>packages= new ArrayList<String>();
+	
+	
 	public static void addVisitor(UnitVisitor v) {
 		visitors.add(v);
 	}
@@ -33,13 +34,12 @@ public class Visitors {
 		return result;
 	}
 
-	/* Cambiar */
-	public static List<PackageDeclaration> getPackages() {
-		List<PackageDeclaration> result = new ArrayList<PackageDeclaration>();
-		for (UnitVisitor u : visitors) {
-			result.add(u.getPackage());
-		}
-		return result;
+	public static List<String> getPackages() {
+		return packages;
+	}
+	
+	public static void addPackage(String pack){
+		packages.add(pack);
 	}
 
 	public static List<TypeDeclaration> getInterfaces() {

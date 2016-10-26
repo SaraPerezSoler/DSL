@@ -49,4 +49,15 @@ public class ModifiersCheck {
 		}
 		return new BlendModifiers(acceso, static_, final_, abstract_, synchronized_);
 	}
+
+	@Override
+	public String toString() {
+		String cad="modifiers: [";
+		cad+="("+blends.get(0).toString()+") ";
+		for (int i=1; i<blends.size(); i++){
+			cad+="or ("+blends.get(i).toString()+") ";
+		}
+		cad+="]";
+		return cad;
+	}
 }

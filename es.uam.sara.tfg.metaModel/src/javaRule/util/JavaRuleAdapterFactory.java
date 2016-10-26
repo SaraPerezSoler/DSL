@@ -19,7 +19,8 @@ import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Method;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameOperation;
+import javaRule.NameType;
 import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
@@ -28,6 +29,7 @@ import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
 import javaRule.isImplemented;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -180,8 +182,12 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createNoEmptyAdapter();
 			}
 			@Override
-			public Adapter caseName(Name object) {
-				return createNameAdapter();
+			public Adapter caseNameOperation(NameOperation object) {
+				return createNameOperationAdapter();
+			}
+			@Override
+			public Adapter caseNameType(NameType object) {
+				return createNameTypeAdapter();
 			}
 			@Override
 			public Adapter caseJavaDoc(JavaDoc object) {
@@ -528,16 +534,30 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Name <em>Name</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.NameOperation <em>Name Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Name
+	 * @see javaRule.NameOperation
 	 * @generated
 	 */
-	public Adapter createNameAdapter() {
+	public Adapter createNameOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.NameType <em>Name Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.NameType
+	 * @generated
+	 */
+	public Adapter createNameTypeAdapter() {
 		return null;
 	}
 

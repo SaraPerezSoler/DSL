@@ -23,5 +23,15 @@ public class MethNameOperation extends Method{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		if (nCheck.getIdioma()==NameCheck.EMPTY){
+			return "name "+nCheck.getOp() +" " +nCheck.getOther();
+		}else if (nCheck.getIdioma()==NameCheck.ENGLISH){
+			return "name "+nCheck.getOp() +" " +nCheck.getOther()+", English";
+		}else {
+			return "name "+nCheck.getOp() +" " +nCheck.getOther()+", Spanish";
+		}
+		
+	}
 }

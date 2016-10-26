@@ -90,27 +90,6 @@ public class ImplementsImpl extends ClassImpl implements Implements {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxInterface() {
-		return maxInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMaxInterface(int newMaxInterface) {
-		int oldMaxInterface = maxInterface;
-		maxInterface = newMaxInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.IMPLEMENTS__MAX_INTERFACE, oldMaxInterface, maxInterface));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getMinInterface() {
 		return minInterface;
 	}
@@ -125,6 +104,27 @@ public class ImplementsImpl extends ClassImpl implements Implements {
 		minInterface = newMinInterface;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.IMPLEMENTS__MIN_INTERFACE, oldMinInterface, minInterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxInterface() {
+		return maxInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxInterface(int newMaxInterface) {
+		int oldMaxInterface = maxInterface;
+		maxInterface = newMaxInterface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.IMPLEMENTS__MAX_INTERFACE, oldMaxInterface, maxInterface));
 	}
 
 	/**

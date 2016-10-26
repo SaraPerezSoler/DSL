@@ -21,4 +21,9 @@ public class ClassNoEmpty extends Class{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "no empty";
+	}
+
 }

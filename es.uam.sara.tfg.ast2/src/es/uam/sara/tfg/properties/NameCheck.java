@@ -297,4 +297,20 @@ public class NameCheck {
 		}
 		return false;
 	}
+	public Operation getOp() {
+		return op;
+	}
+
+	public String getOther() {
+		return other;
+	}
+
+	public int getIdioma() {
+		return idioma;
+	}
+	
+	public Type getType() {
+		return type;
+	}
+
 }

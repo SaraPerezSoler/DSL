@@ -258,38 +258,47 @@ ruleSatisfy returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSatisfyAccess().getNameParserRuleCall_10());
+			newCompositeNode(grammarAccess.getSatisfyAccess().getNameOperationParserRuleCall_10());
 		}
-		this_Name_10=ruleName
+		this_NameOperation_10=ruleNameOperation
 		{
-			$current = $this_Name_10.current;
+			$current = $this_NameOperation_10.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSatisfyAccess().getJavaDocParserRuleCall_11());
+			newCompositeNode(grammarAccess.getSatisfyAccess().getNameTypeParserRuleCall_11());
 		}
-		this_JavaDoc_11=ruleJavaDoc
+		this_NameType_11=ruleNameType
 		{
-			$current = $this_JavaDoc_11.current;
+			$current = $this_NameType_11.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSatisfyAccess().getContainsParserRuleCall_12());
+			newCompositeNode(grammarAccess.getSatisfyAccess().getJavaDocParserRuleCall_12());
 		}
-		this_Contains_12=ruleContains
+		this_JavaDoc_12=ruleJavaDoc
 		{
-			$current = $this_Contains_12.current;
+			$current = $this_JavaDoc_12.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSatisfyAccess().getModifiersParserRuleCall_13());
+			newCompositeNode(grammarAccess.getSatisfyAccess().getContainsParserRuleCall_13());
 		}
-		this_Modifiers_13=ruleModifiers
+		this_Contains_13=ruleContains
 		{
-			$current = $this_Modifiers_13.current;
+			$current = $this_Contains_13.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getSatisfyAccess().getModifiersParserRuleCall_14());
+		}
+		this_Modifiers_14=ruleModifiers
+		{
+			$current = $this_Modifiers_14.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -1226,15 +1235,15 @@ ruleNoEmpty returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleName
-entryRuleName returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNameRule()); }
-	iv_ruleName=ruleName
-	{ $current=$iv_ruleName.current; }
+// Entry rule entryRuleNameOperation
+entryRuleNameOperation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNameOperationRule()); }
+	iv_ruleNameOperation=ruleNameOperation
+	{ $current=$iv_ruleNameOperation.current; }
 	EOF;
 
-// Rule Name
-ruleName returns [EObject current=null]
+// Rule NameOperation
+ruleNameOperation returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1245,205 +1254,121 @@ ruleName returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getNameAccess().getNameAction_0(),
+					grammarAccess.getNameOperationAccess().getNameOperationAction_0(),
 					$current);
 			}
 		)
 		otherlv_1='name'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getNameAccess().getNameKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getNameOperationAccess().getNameKeyword_1());
 		}
 		(
 			(
-				otherlv_2='type='
 				{
-					newLeafNode(otherlv_2, grammarAccess.getNameAccess().getTypeKeyword_2_0_0());
+					newCompositeNode(grammarAccess.getNameOperationAccess().getOperatorNameOperatorEnumRuleCall_2_0());
 				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_2_0_1_0());
-						}
-						lv_type_3_0=ruleNameType
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getNameRule());
-							}
-							set(
-								$current,
-								"type",
-								lv_type_3_0,
-								"es.uam.sara.tfg.dsl.JRules.NameType");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				(
-					(
-						otherlv_4='and'
-						{
-							newLeafNode(otherlv_4, grammarAccess.getNameAccess().getAndKeyword_2_0_2_0_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getNameAccess().getOperatorNameOperatorEnumRuleCall_2_0_2_0_1_0());
-								}
-								lv_operator_5_0=ruleNameOperator
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getNameRule());
-									}
-									set(
-										$current,
-										"operator",
-										lv_operator_5_0,
-										"es.uam.sara.tfg.dsl.JRules.NameOperator");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getNameAccess().getNameEStringParserRuleCall_2_0_2_0_2_0());
-								}
-								lv_name_6_0=ruleEString
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getNameRule());
-									}
-									set(
-										$current,
-										"name",
-										lv_name_6_0,
-										"es.uam.sara.tfg.dsl.JRules.EString");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)
-					(
-						otherlv_7=','
-						{
-							newLeafNode(otherlv_7, grammarAccess.getNameAccess().getCommaKeyword_2_0_2_1_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_0_2_1_1_0());
-								}
-								lv_Language_8_0=ruleLanguage
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getNameRule());
-									}
-									set(
-										$current,
-										"Language",
-										lv_Language_8_0,
-										"es.uam.sara.tfg.dsl.JRules.Language");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)?
-				)?
+				lv_operator_2_0=ruleNameOperator
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNameOperationRule());
+					}
+					set(
+						$current,
+						"operator",
+						lv_operator_2_0,
+						"es.uam.sara.tfg.dsl.JRules.NameOperator");
+					afterParserOrEnumRuleCall();
+				}
 			)
-			    |
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNameOperationAccess().getNameEStringParserRuleCall_3_0());
+				}
+				lv_name_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNameOperationRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_3_0,
+						"es.uam.sara.tfg.dsl.JRules.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4=','
+			{
+				newLeafNode(otherlv_4, grammarAccess.getNameOperationAccess().getCommaKeyword_4_0());
+			}
 			(
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getNameAccess().getOperatorNameOperatorEnumRuleCall_2_1_0_0());
+					{
+						newCompositeNode(grammarAccess.getNameOperationAccess().getLanguageLanguageEnumRuleCall_4_1_0());
+					}
+					lv_Language_5_0=ruleLanguage
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNameOperationRule());
 						}
-						lv_operator_9_0=ruleNameOperator
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getNameRule());
-							}
-							set(
-								$current,
-								"operator",
-								lv_operator_9_0,
-								"es.uam.sara.tfg.dsl.JRules.NameOperator");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						set(
+							$current,
+							"Language",
+							lv_Language_5_0,
+							"es.uam.sara.tfg.dsl.JRules.Language");
+						afterParserOrEnumRuleCall();
+					}
 				)
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getNameAccess().getNameEStringParserRuleCall_2_1_1_0());
-						}
-						lv_name_10_0=ruleEString
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getNameRule());
-							}
-							set(
-								$current,
-								"name",
-								lv_name_10_0,
-								"es.uam.sara.tfg.dsl.JRules.EString");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				(
-					otherlv_11=','
-					{
-						newLeafNode(otherlv_11, grammarAccess.getNameAccess().getCommaKeyword_2_1_2_0());
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleNameType
+entryRuleNameType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNameTypeRule()); }
+	iv_ruleNameType=ruleNameType
+	{ $current=$iv_ruleNameType.current; }
+	EOF;
+
+// Rule NameType
+ruleNameType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='name'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getNameTypeAccess().getNameKeyword_0());
+		}
+		otherlv_1='type='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getNameTypeAccess().getTypeKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNameTypeAccess().getTypeNameCheckEnumRuleCall_2_0());
+				}
+				lv_type_2_0=ruleNameCheck
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNameTypeRule());
 					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getNameAccess().getLanguageLanguageEnumRuleCall_2_1_2_1_0());
-							}
-							lv_Language_12_0=ruleLanguage
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getNameRule());
-								}
-								set(
-									$current,
-									"Language",
-									lv_Language_12_0,
-									"es.uam.sara.tfg.dsl.JRules.Language");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)?
-				(
-					otherlv_13='and'
-					{
-						newLeafNode(otherlv_13, grammarAccess.getNameAccess().getAndKeyword_2_1_3_0());
-					}
-					otherlv_14='type='
-					{
-						newLeafNode(otherlv_14, grammarAccess.getNameAccess().getTypeKeyword_2_1_3_1());
-					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getNameAccess().getTypeNameTypeEnumRuleCall_2_1_3_2_0());
-							}
-							lv_type_15_0=ruleNameType
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getNameRule());
-								}
-								set(
-									$current,
-									"type",
-									lv_type_15_0,
-									"es.uam.sara.tfg.dsl.JRules.NameType");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)?
+					set(
+						$current,
+						"type",
+						lv_type_2_0,
+						"es.uam.sara.tfg.dsl.JRules.NameCheck");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 	)
@@ -2137,8 +2062,8 @@ ruleElementJava returns [Enumerator current=null]
 	)
 ;
 
-// Rule NameType
-ruleNameType returns [Enumerator current=null]
+// Rule NameCheck
+ruleNameCheck returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -2149,40 +2074,40 @@ ruleNameType returns [Enumerator current=null]
 		(
 			enumLiteral_0='upperCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getNameTypeAccess().getUPPER_CASEEnumLiteralDeclaration_0());
+				$current = grammarAccess.getNameCheckAccess().getUPPER_CASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getNameCheckAccess().getUPPER_CASEEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
 			enumLiteral_1='lowerCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getNameTypeAccess().getLOWER_CASEEnumLiteralDeclaration_1());
+				$current = grammarAccess.getNameCheckAccess().getLOWER_CASEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getNameCheckAccess().getLOWER_CASEEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
 			enumLiteral_2='upperCamelCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getNameTypeAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2());
+				$current = grammarAccess.getNameCheckAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getNameCheckAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2());
 			}
 		)
 		    |
 		(
 			enumLiteral_3='lowerCamelCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getNameTypeAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3());
+				$current = grammarAccess.getNameCheckAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getNameCheckAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3());
 			}
 		)
 		    |
 		(
 			enumLiteral_4='startUpperCase'
 			{
-				$current = grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getNameTypeAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4());
+				$current = grammarAccess.getNameCheckAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getNameCheckAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4());
 			}
 		)
 	)

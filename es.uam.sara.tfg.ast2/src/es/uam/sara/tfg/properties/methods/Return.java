@@ -23,4 +23,9 @@ public class Return extends Method{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "return type=" + type;
+	}
+
 }

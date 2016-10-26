@@ -25,5 +25,8 @@ public class MethNameType extends Method{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return "name type="+nCheck.getType();
+	}
 }

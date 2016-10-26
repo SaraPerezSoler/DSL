@@ -36,4 +36,9 @@ public class IsImplemented extends Interface{
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return "is implemented";
+	}
+
 }

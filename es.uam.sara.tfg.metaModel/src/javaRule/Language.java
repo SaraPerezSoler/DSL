@@ -26,7 +26,9 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EMPTY(0, "EMPTY", "EMPTY"), /**
+	EMPTY(0, "EMPTY", "EMPTY"),
+
+	/**
 	 * The '<em><b>SPANISH</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPANISH(1, "SPANISH", "SPANISH"), /**
+	SPANISH(1, "SPANISH", "SPANISH"),
+
+	/**
 	 * The '<em><b>ENGLISH</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

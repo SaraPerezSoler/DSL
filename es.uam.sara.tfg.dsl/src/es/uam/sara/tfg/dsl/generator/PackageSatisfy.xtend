@@ -1,21 +1,26 @@
 package es.uam.sara.tfg.dsl.generator
 
-import javaRule.Name
 import javaRule.NoEmpty
 import javaRule.Satisfy
+import javaRule.Contains
+import javaRule.NameOperation
+import javaRule.NameType
 
 class PackageSatisfy{
 	
-	private static final String END = ");\n"
 	private static final String PREFIX = "Pack"
+	private static final String PROPERTY="Properties<String> p"
 
 	def static CharSequence getPropertie(Satisfy s, String sufix){
-		var start = "and" + sufix + ".addPropertie (new ";
 		
-		if (s instanceof Name){
-			return ComunSatisfy.name(s as Name, PREFIX, start, END);
+		if (s instanceof NameOperation){
+			return ComunSatisfy.nameOperation(s as NameOperation, PREFIX, sufix,PROPERTY);
+		}else if (s instanceof NameType){
+			return ComunSatisfy.nameType(s as NameType, PREFIX, sufix,PROPERTY);
 		}else if (s instanceof NoEmpty){
-			return start + ComunSatisfy.noEmpty(s as NoEmpty, PREFIX) + END;
+			return ComunSatisfy.noEmpty(s as NoEmpty, PREFIX, sufix,PROPERTY);
+		}else if (s instanceof Contains){
+			return ComunSatisfy.contains(s as Contains, PREFIX, sufix,PROPERTY);
 		}
 	}
 

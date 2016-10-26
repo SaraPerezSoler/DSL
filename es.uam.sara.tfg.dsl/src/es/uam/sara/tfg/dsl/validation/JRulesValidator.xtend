@@ -13,7 +13,6 @@ import javaRule.Interface
 import javaRule.Enumeration
 import javaRule.Method
 import javaRule.JavaRulePackage
-import javaRule.Name
 import javaRule.NameOperator
 import javaRule.JavaDoc
 import javaRule.BlendModifiers
@@ -24,6 +23,7 @@ import javaRule.Language
 import javaRule.RuleSet
 import javaRule.Implements
 import javaRule.Parameter
+import javaRule.NameOperation
 
 /**
  * This class contains custom validation rules. 
@@ -104,18 +104,18 @@ class JRulesValidator extends AbstractJRulesValidator {
 		
 	}
 	@Check
-	def checkNameLanguage(Name n) {
+	def checkNameLanguage(NameOperation n) {
 		if (n.operator == NameOperator.LIKE && n.language == Language.EMPTY) {
 			error(
 				"Language must be define for Like operator",
-				JavaRulePackage.Literals.NAME__OPERATOR,
+				JavaRulePackage.Literals.NAME_OPERATION__OPERATOR,
 				"invalidLanguage"
 			)
 		}
 		if (n.operator != NameOperator.LIKE && n.language != Language.EMPTY) {
 			error(
 				"Language is only for Like operator",
-				JavaRulePackage.Literals.NAME__LANGUAGE,
+				JavaRulePackage.Literals.NAME_OPERATION__LANGUAGE,
 				"invalidLanguage"
 			)
 		}

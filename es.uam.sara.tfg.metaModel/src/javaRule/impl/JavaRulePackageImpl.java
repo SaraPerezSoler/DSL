@@ -23,7 +23,8 @@ import javaRule.JavaRulePackage;
 import javaRule.Language;
 import javaRule.Method;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameCheck;
+import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.NoEmpty;
@@ -35,6 +36,7 @@ import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
 import javaRule.isImplemented;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -209,7 +211,14 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass nameEClass = null;
+	private EClass nameOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nameTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,7 +274,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum nameTypeEEnum = null;
+	private EEnum nameCheckEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -563,8 +572,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImplements_MaxInterface() {
-		return (EAttribute)implementsEClass.getEStructuralFeatures().get(1);
+	public EAttribute getImplements_MinInterface() {
+		return (EAttribute)implementsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -572,8 +581,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getImplements_MinInterface() {
-		return (EAttribute)implementsEClass.getEStructuralFeatures().get(0);
+	public EAttribute getImplements_MaxInterface() {
+		return (EAttribute)implementsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -698,8 +707,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getName_() {
-		return nameEClass;
+	public EClass getNameOperation() {
+		return nameOperationEClass;
 	}
 
 	/**
@@ -707,8 +716,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getName_Type() {
-		return (EAttribute)nameEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNameOperation_Name() {
+		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -716,8 +725,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getName_Name() {
-		return (EAttribute)nameEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNameOperation_Operator() {
+		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -725,8 +734,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getName_Operator() {
-		return (EAttribute)nameEClass.getEStructuralFeatures().get(2);
+	public EAttribute getNameOperation_Language() {
+		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -734,8 +743,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getName_Language() {
-		return (EAttribute)nameEClass.getEStructuralFeatures().get(3);
+	public EClass getNameType() {
+		return nameTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameType_Type() {
+		return (EAttribute)nameTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -923,8 +941,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getNameType() {
-		return nameTypeEEnum;
+	public EEnum getNameCheck() {
+		return nameCheckEEnum;
 	}
 
 	/**
@@ -1034,11 +1052,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		noEmptyEClass = createEClass(NO_EMPTY);
 
-		nameEClass = createEClass(NAME);
-		createEAttribute(nameEClass, NAME__TYPE);
-		createEAttribute(nameEClass, NAME__NAME);
-		createEAttribute(nameEClass, NAME__OPERATOR);
-		createEAttribute(nameEClass, NAME__LANGUAGE);
+		nameOperationEClass = createEClass(NAME_OPERATION);
+		createEAttribute(nameOperationEClass, NAME_OPERATION__NAME);
+		createEAttribute(nameOperationEClass, NAME_OPERATION__OPERATOR);
+		createEAttribute(nameOperationEClass, NAME_OPERATION__LANGUAGE);
+
+		nameTypeEClass = createEClass(NAME_TYPE);
+		createEAttribute(nameTypeEClass, NAME_TYPE__TYPE);
 
 		javaDocEClass = createEClass(JAVA_DOC);
 		createEAttribute(javaDocEClass, JAVA_DOC__AUTHOR);
@@ -1065,7 +1085,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		elementJavaEEnum = createEEnum(ELEMENT_JAVA);
 		languageEEnum = createEEnum(LANGUAGE);
-		nameTypeEEnum = createEEnum(NAME_TYPE);
+		nameCheckEEnum = createEEnum(NAME_CHECK);
 		nameOperatorEEnum = createEEnum(NAME_OPERATOR);
 		accessModifierEEnum = createEEnum(ACCESS_MODIFIER);
 	}
@@ -1118,12 +1138,18 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		noEmptyEClass.getESuperTypes().add(this.getClass_());
 		noEmptyEClass.getESuperTypes().add(this.getInterface());
 		noEmptyEClass.getESuperTypes().add(this.getEnumeration());
-		nameEClass.getESuperTypes().add(this.getAttribute());
-		nameEClass.getESuperTypes().add(this.getClass_());
-		nameEClass.getESuperTypes().add(this.getMethod());
-		nameEClass.getESuperTypes().add(this.getPackage());
-		nameEClass.getESuperTypes().add(this.getInterface());
-		nameEClass.getESuperTypes().add(this.getEnumeration());
+		nameOperationEClass.getESuperTypes().add(this.getAttribute());
+		nameOperationEClass.getESuperTypes().add(this.getClass_());
+		nameOperationEClass.getESuperTypes().add(this.getMethod());
+		nameOperationEClass.getESuperTypes().add(this.getPackage());
+		nameOperationEClass.getESuperTypes().add(this.getInterface());
+		nameOperationEClass.getESuperTypes().add(this.getEnumeration());
+		nameTypeEClass.getESuperTypes().add(this.getAttribute());
+		nameTypeEClass.getESuperTypes().add(this.getClass_());
+		nameTypeEClass.getESuperTypes().add(this.getMethod());
+		nameTypeEClass.getESuperTypes().add(this.getPackage());
+		nameTypeEClass.getESuperTypes().add(this.getInterface());
+		nameTypeEClass.getESuperTypes().add(this.getEnumeration());
 		javaDocEClass.getESuperTypes().add(this.getAttribute());
 		javaDocEClass.getESuperTypes().add(this.getClass_());
 		javaDocEClass.getESuperTypes().add(this.getMethod());
@@ -1201,11 +1227,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(noEmptyEClass, NoEmpty.class, "NoEmpty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(nameEClass, Name.class, "Name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getName_Type(), this.getNameType(), "type", "nothing", 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getName_Name(), ecorePackage.getEString(), "name", null, 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getName_Operator(), this.getNameOperator(), "operator", "nothing", 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getName_Language(), this.getLanguage(), "Language", "EMPTY", 0, 1, Name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(nameOperationEClass, NameOperation.class, "NameOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameOperation_Name(), ecorePackage.getEString(), "name", null, 1, 1, NameOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNameOperation_Operator(), this.getNameOperator(), "operator", "nothing", 1, 1, NameOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNameOperation_Language(), this.getLanguage(), "Language", "EMPTY", 0, 1, NameOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nameTypeEClass, NameType.class, "NameType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameType_Type(), this.getNameCheck(), "type", "nothing", 1, 1, NameType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaDoc_Author(), ecorePackage.getEBoolean(), "author", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1247,13 +1275,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(languageEEnum, Language.SPANISH);
 		addEEnumLiteral(languageEEnum, Language.ENGLISH);
 
-		initEEnum(nameTypeEEnum, NameType.class, "NameType");
-		addEEnumLiteral(nameTypeEEnum, NameType.NOTHING);
-		addEEnumLiteral(nameTypeEEnum, NameType.UPPER_CASE);
-		addEEnumLiteral(nameTypeEEnum, NameType.LOWER_CASE);
-		addEEnumLiteral(nameTypeEEnum, NameType.UPPER_CAMEL_CASE);
-		addEEnumLiteral(nameTypeEEnum, NameType.LOWER_CAMEL_CASE);
-		addEEnumLiteral(nameTypeEEnum, NameType.START_UPPER_CASE);
+		initEEnum(nameCheckEEnum, NameCheck.class, "NameCheck");
+		addEEnumLiteral(nameCheckEEnum, NameCheck.NOTHING);
+		addEEnumLiteral(nameCheckEEnum, NameCheck.UPPER_CASE);
+		addEEnumLiteral(nameCheckEEnum, NameCheck.LOWER_CASE);
+		addEEnumLiteral(nameCheckEEnum, NameCheck.UPPER_CAMEL_CASE);
+		addEEnumLiteral(nameCheckEEnum, NameCheck.LOWER_CAMEL_CASE);
+		addEEnumLiteral(nameCheckEEnum, NameCheck.START_UPPER_CASE);
 
 		initEEnum(nameOperatorEEnum, NameOperator.class, "NameOperator");
 		addEEnumLiteral(nameOperatorEEnum, NameOperator.NOTHING);

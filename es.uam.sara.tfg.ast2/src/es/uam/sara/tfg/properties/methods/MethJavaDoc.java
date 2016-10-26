@@ -24,5 +24,8 @@ public class MethJavaDoc extends Method{
 			}
 		}
 	}
-
+	@Override
+	public String toString() {
+		return  jdc.toString();
+	}
 }

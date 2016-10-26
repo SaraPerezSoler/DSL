@@ -91,18 +91,19 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributeTypeParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cInitializeParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final RuleCall cNoEmptyParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cNameParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cJavaDocParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cContainsParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cModifiersParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cNameOperationParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cNameTypeParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cJavaDocParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cContainsParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cModifiersParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
 		
 		//Satisfy:
 		//	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-		//	| NoEmpty | Name | JavaDoc | Contains | Modifiers;
+		//	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize |
-		//NoEmpty | Name | JavaDoc | Contains | Modifiers
+		//NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//isImplemented
@@ -135,17 +136,20 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//NoEmpty
 		public RuleCall getNoEmptyParserRuleCall_9() { return cNoEmptyParserRuleCall_9; }
 		
-		//Name
-		public RuleCall getNameParserRuleCall_10() { return cNameParserRuleCall_10; }
+		//NameOperation
+		public RuleCall getNameOperationParserRuleCall_10() { return cNameOperationParserRuleCall_10; }
+		
+		//NameType
+		public RuleCall getNameTypeParserRuleCall_11() { return cNameTypeParserRuleCall_11; }
 		
 		//JavaDoc
-		public RuleCall getJavaDocParserRuleCall_11() { return cJavaDocParserRuleCall_11; }
+		public RuleCall getJavaDocParserRuleCall_12() { return cJavaDocParserRuleCall_12; }
 		
 		//Contains
-		public RuleCall getContainsParserRuleCall_12() { return cContainsParserRuleCall_12; }
+		public RuleCall getContainsParserRuleCall_13() { return cContainsParserRuleCall_13; }
 		
 		//Modifiers
-		public RuleCall getModifiersParserRuleCall_13() { return cModifiersParserRuleCall_13; }
+		public RuleCall getModifiersParserRuleCall_14() { return cModifiersParserRuleCall_14; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.EString");
@@ -751,148 +755,84 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'empty'
 		public Keyword getEmptyKeyword_3() { return cEmptyKeyword_3; }
 	}
-	public class NameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Name");
+	public class NameOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNameAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cNameOperationAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cTypeKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cTypeAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final RuleCall cTypeNameTypeEnumRuleCall_2_0_1_0 = (RuleCall)cTypeAssignment_2_0_1.eContents().get(0);
-		private final Group cGroup_2_0_2 = (Group)cGroup_2_0.eContents().get(2);
-		private final Group cGroup_2_0_2_0 = (Group)cGroup_2_0_2.eContents().get(0);
-		private final Keyword cAndKeyword_2_0_2_0_0 = (Keyword)cGroup_2_0_2_0.eContents().get(0);
-		private final Assignment cOperatorAssignment_2_0_2_0_1 = (Assignment)cGroup_2_0_2_0.eContents().get(1);
-		private final RuleCall cOperatorNameOperatorEnumRuleCall_2_0_2_0_1_0 = (RuleCall)cOperatorAssignment_2_0_2_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_2_0_2_0_2 = (Assignment)cGroup_2_0_2_0.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0_2_0_2_0 = (RuleCall)cNameAssignment_2_0_2_0_2.eContents().get(0);
-		private final Group cGroup_2_0_2_1 = (Group)cGroup_2_0_2.eContents().get(1);
-		private final Keyword cCommaKeyword_2_0_2_1_0 = (Keyword)cGroup_2_0_2_1.eContents().get(0);
-		private final Assignment cLanguageAssignment_2_0_2_1_1 = (Assignment)cGroup_2_0_2_1.eContents().get(1);
-		private final RuleCall cLanguageLanguageEnumRuleCall_2_0_2_1_1_0 = (RuleCall)cLanguageAssignment_2_0_2_1_1.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Assignment cOperatorAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
-		private final RuleCall cOperatorNameOperatorEnumRuleCall_2_1_0_0 = (RuleCall)cOperatorAssignment_2_1_0.eContents().get(0);
-		private final Assignment cNameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_2_1_1_0 = (RuleCall)cNameAssignment_2_1_1.eContents().get(0);
-		private final Group cGroup_2_1_2 = (Group)cGroup_2_1.eContents().get(2);
-		private final Keyword cCommaKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
-		private final Assignment cLanguageAssignment_2_1_2_1 = (Assignment)cGroup_2_1_2.eContents().get(1);
-		private final RuleCall cLanguageLanguageEnumRuleCall_2_1_2_1_0 = (RuleCall)cLanguageAssignment_2_1_2_1.eContents().get(0);
-		private final Group cGroup_2_1_3 = (Group)cGroup_2_1.eContents().get(3);
-		private final Keyword cAndKeyword_2_1_3_0 = (Keyword)cGroup_2_1_3.eContents().get(0);
-		private final Keyword cTypeKeyword_2_1_3_1 = (Keyword)cGroup_2_1_3.eContents().get(1);
-		private final Assignment cTypeAssignment_2_1_3_2 = (Assignment)cGroup_2_1_3.eContents().get(2);
-		private final RuleCall cTypeNameTypeEnumRuleCall_2_1_3_2_0 = (RuleCall)cTypeAssignment_2_1_3_2.eContents().get(0);
+		private final Assignment cOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOperatorNameOperatorEnumRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLanguageAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLanguageLanguageEnumRuleCall_4_1_0 = (RuleCall)cLanguageAssignment_4_1.eContents().get(0);
 		
-		//Name:
-		//	{Name}
-		//	'name' ('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)? |
-		//	operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?);
+		//NameOperation:
+		//	{NameOperation}
+		//	'name' operator=NameOperator name=EString (',' Language=Language)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Name} 'name' ('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)? |
-		//operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?)
+		//{NameOperation} 'name' operator=NameOperator name=EString (',' Language=Language)?
 		public Group getGroup() { return cGroup; }
 		
-		//{Name}
-		public Action getNameAction_0() { return cNameAction_0; }
+		//{NameOperation}
+		public Action getNameOperationAction_0() { return cNameOperationAction_0; }
 		
 		//'name'
 		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
 		
-		//('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)? | operator=NameOperator
-		//name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?)
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//'type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)?
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//'type='
-		public Keyword getTypeKeyword_2_0_0() { return cTypeKeyword_2_0_0; }
-		
-		//type=NameType
-		public Assignment getTypeAssignment_2_0_1() { return cTypeAssignment_2_0_1; }
-		
-		//NameType
-		public RuleCall getTypeNameTypeEnumRuleCall_2_0_1_0() { return cTypeNameTypeEnumRuleCall_2_0_1_0; }
-		
-		//(('and' operator=NameOperator name=EString) (',' Language=Language)?)?
-		public Group getGroup_2_0_2() { return cGroup_2_0_2; }
-		
-		//('and' operator=NameOperator name=EString)
-		public Group getGroup_2_0_2_0() { return cGroup_2_0_2_0; }
-		
-		//'and'
-		public Keyword getAndKeyword_2_0_2_0_0() { return cAndKeyword_2_0_2_0_0; }
-		
 		//operator=NameOperator
-		public Assignment getOperatorAssignment_2_0_2_0_1() { return cOperatorAssignment_2_0_2_0_1; }
+		public Assignment getOperatorAssignment_2() { return cOperatorAssignment_2; }
 		
 		//NameOperator
-		public RuleCall getOperatorNameOperatorEnumRuleCall_2_0_2_0_1_0() { return cOperatorNameOperatorEnumRuleCall_2_0_2_0_1_0; }
+		public RuleCall getOperatorNameOperatorEnumRuleCall_2_0() { return cOperatorNameOperatorEnumRuleCall_2_0; }
 		
 		//name=EString
-		public Assignment getNameAssignment_2_0_2_0_2() { return cNameAssignment_2_0_2_0_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0_2_0_2_0() { return cNameEStringParserRuleCall_2_0_2_0_2_0; }
+		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
 		
 		//(',' Language=Language)?
-		public Group getGroup_2_0_2_1() { return cGroup_2_0_2_1; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//','
-		public Keyword getCommaKeyword_2_0_2_1_0() { return cCommaKeyword_2_0_2_1_0; }
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
 		
 		//Language=Language
-		public Assignment getLanguageAssignment_2_0_2_1_1() { return cLanguageAssignment_2_0_2_1_1; }
+		public Assignment getLanguageAssignment_4_1() { return cLanguageAssignment_4_1; }
 		
 		//Language
-		public RuleCall getLanguageLanguageEnumRuleCall_2_0_2_1_1_0() { return cLanguageLanguageEnumRuleCall_2_0_2_1_1_0; }
+		public RuleCall getLanguageLanguageEnumRuleCall_4_1_0() { return cLanguageLanguageEnumRuleCall_4_1_0; }
+	}
+	public class NameTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cTypeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeNameCheckEnumRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		
-		//operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		//NameType:
+		//	'name' 'type=' type=NameCheck;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//operator=NameOperator
-		public Assignment getOperatorAssignment_2_1_0() { return cOperatorAssignment_2_1_0; }
+		//'name' 'type=' type=NameCheck
+		public Group getGroup() { return cGroup; }
 		
-		//NameOperator
-		public RuleCall getOperatorNameOperatorEnumRuleCall_2_1_0_0() { return cOperatorNameOperatorEnumRuleCall_2_1_0_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_2_1_1() { return cNameAssignment_2_1_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_1_1_0() { return cNameEStringParserRuleCall_2_1_1_0; }
-		
-		//(',' Language=Language)?
-		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_1_2_0() { return cCommaKeyword_2_1_2_0; }
-		
-		//Language=Language
-		public Assignment getLanguageAssignment_2_1_2_1() { return cLanguageAssignment_2_1_2_1; }
-		
-		//Language
-		public RuleCall getLanguageLanguageEnumRuleCall_2_1_2_1_0() { return cLanguageLanguageEnumRuleCall_2_1_2_1_0; }
-		
-		//('and' 'type=' type=NameType)?
-		public Group getGroup_2_1_3() { return cGroup_2_1_3; }
-		
-		//'and'
-		public Keyword getAndKeyword_2_1_3_0() { return cAndKeyword_2_1_3_0; }
+		//'name'
+		public Keyword getNameKeyword_0() { return cNameKeyword_0; }
 		
 		//'type='
-		public Keyword getTypeKeyword_2_1_3_1() { return cTypeKeyword_2_1_3_1; }
+		public Keyword getTypeKeyword_1() { return cTypeKeyword_1; }
 		
-		//type=NameType
-		public Assignment getTypeAssignment_2_1_3_2() { return cTypeAssignment_2_1_3_2; }
+		//type=NameCheck
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 		
-		//NameType
-		public RuleCall getTypeNameTypeEnumRuleCall_2_1_3_2_0() { return cTypeNameTypeEnumRuleCall_2_1_3_2_0; }
+		//NameCheck
+		public RuleCall getTypeNameCheckEnumRuleCall_2_0() { return cTypeNameCheckEnumRuleCall_2_0; }
 	}
 	public class JavaDocElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.JavaDoc");
@@ -1431,8 +1371,8 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'Attribute'
 		public Keyword getAttributeAttributeKeyword_5_0() { return cAttributeAttributeKeyword_5_0; }
 	}
-	public class NameTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameType");
+	public class NameCheckElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NameCheck");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cUPPER_CASEEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cUPPER_CASEUpperCaseKeyword_0_0 = (Keyword)cUPPER_CASEEnumLiteralDeclaration_0.eContents().get(0);
@@ -1445,7 +1385,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final EnumLiteralDeclaration cSTART_UPPER_CASEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cSTART_UPPER_CASEStartUpperCaseKeyword_4_0 = (Keyword)cSTART_UPPER_CASEEnumLiteralDeclaration_4.eContents().get(0);
 		
-		//enum NameType:
+		//enum NameCheck:
 		//	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' |
 		//	LOWER_CAMEL_CASE='lowerCamelCase' |
 		//	START_UPPER_CASE='startUpperCase';
@@ -1627,13 +1567,14 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	private final AttributeTypeElements pAttributeType;
 	private final InitializeElements pInitialize;
 	private final NoEmptyElements pNoEmpty;
-	private final NameElements pName;
+	private final NameOperationElements pNameOperation;
+	private final NameTypeElements pNameType;
 	private final JavaDocElements pJavaDoc;
 	private final ContainsElements pContains;
 	private final ModifiersElements pModifiers;
 	private final EIntElements pEInt;
 	private final EBigIntegerElements pEBigInteger;
-	private final NameTypeElements eNameType;
+	private final NameCheckElements eNameCheck;
 	private final NameOperatorElements eNameOperator;
 	private final LanguageElements eLanguage;
 	private final BlendModifiersElements pBlendModifiers;
@@ -1668,13 +1609,14 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAttributeType = new AttributeTypeElements();
 		this.pInitialize = new InitializeElements();
 		this.pNoEmpty = new NoEmptyElements();
-		this.pName = new NameElements();
+		this.pNameOperation = new NameOperationElements();
+		this.pNameType = new NameTypeElements();
 		this.pJavaDoc = new JavaDocElements();
 		this.pContains = new ContainsElements();
 		this.pModifiers = new ModifiersElements();
 		this.pEInt = new EIntElements();
 		this.pEBigInteger = new EBigIntegerElements();
-		this.eNameType = new NameTypeElements();
+		this.eNameCheck = new NameCheckElements();
 		this.eNameOperator = new NameOperatorElements();
 		this.eLanguage = new LanguageElements();
 		this.pBlendModifiers = new BlendModifiersElements();
@@ -1721,7 +1663,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Satisfy:
 	//	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-	//	| NoEmpty | Name | JavaDoc | Contains | Modifiers;
+	//	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
 	public SatisfyElements getSatisfyAccess() {
 		return pSatisfy;
 	}
@@ -1920,16 +1862,25 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		return getNoEmptyAccess().getRule();
 	}
 	
-	//Name:
-	//	{Name}
-	//	'name' ('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)? |
-	//	operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?);
-	public NameElements getNameAccess() {
-		return pName;
+	//NameOperation:
+	//	{NameOperation}
+	//	'name' operator=NameOperator name=EString (',' Language=Language)?;
+	public NameOperationElements getNameOperationAccess() {
+		return pNameOperation;
 	}
 	
-	public ParserRule getNameRule() {
-		return getNameAccess().getRule();
+	public ParserRule getNameOperationRule() {
+		return getNameOperationAccess().getRule();
+	}
+	
+	//NameType:
+	//	'name' 'type=' type=NameCheck;
+	public NameTypeElements getNameTypeAccess() {
+		return pNameType;
+	}
+	
+	public ParserRule getNameTypeRule() {
+		return getNameTypeAccess().getRule();
 	}
 	
 	//JavaDoc:
@@ -1990,16 +1941,16 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		return getEBigIntegerAccess().getRule();
 	}
 	
-	//enum NameType:
+	//enum NameCheck:
 	//	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' |
 	//	LOWER_CAMEL_CASE='lowerCamelCase' |
 	//	START_UPPER_CASE='startUpperCase';
-	public NameTypeElements getNameTypeAccess() {
-		return eNameType;
+	public NameCheckElements getNameCheckAccess() {
+		return eNameCheck;
 	}
 	
-	public EnumRule getNameTypeRule() {
-		return getNameTypeAccess().getRule();
+	public EnumRule getNameCheckRule() {
+		return getNameCheckAccess().getRule();
 	}
 	
 	//enum NameOperator:

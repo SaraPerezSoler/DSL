@@ -26,7 +26,9 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHING(0, "nothing", "nothing"), /**
+	NOTHING(0, "nothing", "nothing"),
+
+	/**
 	 * The '<em><b>EQUAL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(1, "EQUAL", "EQUAL"), /**
+	EQUAL(1, "EQUAL", "EQUAL"),
+
+	/**
 	 * The '<em><b>START</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +46,9 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	START(2, "START", "START"), /**
+	START(2, "START", "START"),
+
+	/**
 	 * The '<em><b>END</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +56,9 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	END(3, "END", "END"), /**
+	END(3, "END", "END"),
+
+	/**
 	 * The '<em><b>CONTAIN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +66,9 @@ public enum NameOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONTAIN(4, "CONTAIN", "CONTAIN"), /**
+	CONTAIN(4, "CONTAIN", "CONTAIN"),
+
+	/**
 	 * The '<em><b>LIKE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,7 +97,7 @@ public enum NameOperator implements Enumerator {
 	 * The '<em><b>EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Equal</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>EQUAL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -102,7 +112,7 @@ public enum NameOperator implements Enumerator {
 	 * The '<em><b>START</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Start</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>START</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -147,7 +157,7 @@ public enum NameOperator implements Enumerator {
 	 * The '<em><b>LIKE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Like</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LIKE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

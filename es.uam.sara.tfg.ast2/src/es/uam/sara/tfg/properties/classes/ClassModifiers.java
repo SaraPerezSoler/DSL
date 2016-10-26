@@ -37,5 +37,10 @@ public class ClassModifiers extends Class{
 		return mList;
 	}
 
+	@Override
+	public String toString() {
+		return mc.toString();
+	}
+
 
 }

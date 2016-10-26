@@ -35,4 +35,9 @@ public class Constructor extends Method{
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "is constructor";
+	}
+
 }

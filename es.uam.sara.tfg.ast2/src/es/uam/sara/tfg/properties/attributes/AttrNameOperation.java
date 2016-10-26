@@ -45,4 +45,16 @@ public class AttrNameOperation extends Attribute{
 		}
 	}
 
+	@Override
+	public String toString() {
+		if (ncheck.getIdioma()==NameCheck.EMPTY){
+			return "name "+ncheck.getOp() +" " +ncheck.getOther();
+		}else if (ncheck.getIdioma()==NameCheck.ENGLISH){
+			return "name "+ncheck.getOp() +" " +ncheck.getOther()+", English";
+		}else {
+			return "name "+ncheck.getOp() +" " +ncheck.getOther()+", Spanish";
+		}
+		
+	}
+
 }

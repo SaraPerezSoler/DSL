@@ -827,23 +827,14 @@ public interface JavaRulePackage extends EPackage {
 	int NO_EMPTY_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link javaRule.impl.NameImpl <em>Name</em>}' class.
+	 * The meta object id for the '{@link javaRule.impl.NameOperationImpl <em>Name Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.NameImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getName_()
+	 * @see javaRule.impl.NameOperationImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperation()
 	 * @generated
 	 */
-	int NAME = 22;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
+	int NAME_OPERATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -852,7 +843,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAME__NAME = ATTRIBUTE_FEATURE_COUNT + 1;
+	int NAME_OPERATION__NAME = ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -861,7 +852,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAME__OPERATOR = ATTRIBUTE_FEATURE_COUNT + 2;
+	int NAME_OPERATION__OPERATOR = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' attribute.
@@ -870,25 +861,62 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAME__LANGUAGE = ATTRIBUTE_FEATURE_COUNT + 3;
+	int NAME_OPERATION__LANGUAGE = ATTRIBUTE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Name</em>' class.
+	 * The number of structural features of the '<em>Name Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAME_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 4;
+	int NAME_OPERATION_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Name</em>' class.
+	 * The number of operations of the '<em>Name Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAME_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+	int NAME_OPERATION_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link javaRule.impl.NameTypeImpl <em>Name Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.NameTypeImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
+	 * @generated
+	 */
+	int NAME_TYPE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_TYPE__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Name Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_TYPE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Name Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_TYPE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.JavaDocImpl <em>Java Doc</em>}' class.
@@ -898,7 +926,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getJavaDoc()
 	 * @generated
 	 */
-	int JAVA_DOC = 23;
+	int JAVA_DOC = 24;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -980,7 +1008,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
 	 * @generated
 	 */
-	int CONTAINS = 24;
+	int CONTAINS = 25;
 
 	/**
 	 * The feature id for the '<em><b>Which</b></em>' containment reference.
@@ -1017,7 +1045,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getModifiers()
 	 * @generated
 	 */
-	int MODIFIERS = 25;
+	int MODIFIERS = 26;
 
 	/**
 	 * The feature id for the '<em><b>Blend</b></em>' containment reference list.
@@ -1054,7 +1082,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getBlendModifiers()
 	 * @generated
 	 */
-	int BLEND_MODIFIERS = 26;
+	int BLEND_MODIFIERS = 27;
 
 	/**
 	 * The feature id for the '<em><b>Access</b></em>' attribute.
@@ -1127,7 +1155,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 27;
+	int QUANTIFIER = 28;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementJava <em>Element Java</em>}' enum.
@@ -1137,7 +1165,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementJava()
 	 * @generated
 	 */
-	int ELEMENT_JAVA = 28;
+	int ELEMENT_JAVA = 29;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -1147,17 +1175,17 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 29;
+	int LANGUAGE = 30;
 
 	/**
-	 * The meta object id for the '{@link javaRule.NameType <em>Name Type</em>}' enum.
+	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.NameType
-	 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
+	 * @see javaRule.NameCheck
+	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_TYPE = 30;
+	int NAME_CHECK = 31;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -1167,7 +1195,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 31;
+	int NAME_OPERATOR = 32;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1177,7 +1205,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 32;
+	int ACCESS_MODIFIER = 33;
 
 
 	/**
@@ -1432,17 +1460,6 @@ public interface JavaRulePackage extends EPackage {
 	EClass getImplements();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Implements#getMaxInterface <em>Max Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Interface</em>'.
-	 * @see javaRule.Implements#getMaxInterface()
-	 * @see #getImplements()
-	 * @generated
-	 */
-	EAttribute getImplements_MaxInterface();
-
-	/**
 	 * Returns the meta object for the attribute '{@link javaRule.Implements#getMinInterface <em>Min Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1452,6 +1469,17 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getImplements_MinInterface();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.Implements#getMaxInterface <em>Max Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Interface</em>'.
+	 * @see javaRule.Implements#getMaxInterface()
+	 * @see #getImplements()
+	 * @generated
+	 */
+	EAttribute getImplements_MaxInterface();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.IsExtended <em>Is Extended</em>}'.
@@ -1588,58 +1616,68 @@ public interface JavaRulePackage extends EPackage {
 	EClass getNoEmpty();
 
 	/**
-	 * Returns the meta object for class '{@link javaRule.Name <em>Name</em>}'.
+	 * Returns the meta object for class '{@link javaRule.NameOperation <em>Name Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Name</em>'.
-	 * @see javaRule.Name
+	 * @return the meta object for class '<em>Name Operation</em>'.
+	 * @see javaRule.NameOperation
 	 * @generated
 	 */
-	EClass getName_();
+	EClass getNameOperation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Name#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see javaRule.Name#getType()
-	 * @see #getName_()
-	 * @generated
-	 */
-	EAttribute getName_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Name#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see javaRule.Name#getName()
-	 * @see #getName_()
+	 * @see javaRule.NameOperation#getName()
+	 * @see #getNameOperation()
 	 * @generated
 	 */
-	EAttribute getName_Name();
+	EAttribute getNameOperation_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Name#getOperator <em>Operator</em>}'.
+	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getOperator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Operator</em>'.
-	 * @see javaRule.Name#getOperator()
-	 * @see #getName_()
+	 * @see javaRule.NameOperation#getOperator()
+	 * @see #getNameOperation()
 	 * @generated
 	 */
-	EAttribute getName_Operator();
+	EAttribute getNameOperation_Operator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Name#getLanguage <em>Language</em>}'.
+	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getLanguage <em>Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see javaRule.Name#getLanguage()
-	 * @see #getName_()
+	 * @see javaRule.NameOperation#getLanguage()
+	 * @see #getNameOperation()
 	 * @generated
 	 */
-	EAttribute getName_Language();
+	EAttribute getNameOperation_Language();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.NameType <em>Name Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Type</em>'.
+	 * @see javaRule.NameType
+	 * @generated
+	 */
+	EClass getNameType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.NameType#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see javaRule.NameType#getType()
+	 * @see #getNameType()
+	 * @generated
+	 */
+	EAttribute getNameType_Type();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.JavaDoc <em>Java Doc</em>}'.
@@ -1855,14 +1893,14 @@ public interface JavaRulePackage extends EPackage {
 	EEnum getLanguage();
 
 	/**
-	 * Returns the meta object for enum '{@link javaRule.NameType <em>Name Type</em>}'.
+	 * Returns the meta object for enum '{@link javaRule.NameCheck <em>Name Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Name Type</em>'.
-	 * @see javaRule.NameType
+	 * @return the meta object for enum '<em>Name Check</em>'.
+	 * @see javaRule.NameCheck
 	 * @generated
 	 */
-	EEnum getNameType();
+	EEnum getNameCheck();
 
 	/**
 	 * Returns the meta object for enum '{@link javaRule.NameOperator <em>Name Operator</em>}'.
@@ -2126,20 +2164,20 @@ public interface JavaRulePackage extends EPackage {
 		EClass IMPLEMENTS = eINSTANCE.getImplements();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Interface</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IMPLEMENTS__MAX_INTERFACE = eINSTANCE.getImplements_MaxInterface();
-
-		/**
 		 * The meta object literal for the '<em><b>Min Interface</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute IMPLEMENTS__MIN_INTERFACE = eINSTANCE.getImplements_MinInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Interface</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPLEMENTS__MAX_INTERFACE = eINSTANCE.getImplements_MaxInterface();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.IsExtendedImpl <em>Is Extended</em>}' class.
@@ -2264,22 +2302,14 @@ public interface JavaRulePackage extends EPackage {
 		EClass NO_EMPTY = eINSTANCE.getNoEmpty();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.impl.NameImpl <em>Name</em>}' class.
+		 * The meta object literal for the '{@link javaRule.impl.NameOperationImpl <em>Name Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.NameImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getName_()
+		 * @see javaRule.impl.NameOperationImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getNameOperation()
 		 * @generated
 		 */
-		EClass NAME = eINSTANCE.getName_();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAME__TYPE = eINSTANCE.getName_Type();
+		EClass NAME_OPERATION = eINSTANCE.getNameOperation();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2287,7 +2317,7 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAME__NAME = eINSTANCE.getName_Name();
+		EAttribute NAME_OPERATION__NAME = eINSTANCE.getNameOperation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
@@ -2295,7 +2325,7 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAME__OPERATOR = eINSTANCE.getName_Operator();
+		EAttribute NAME_OPERATION__OPERATOR = eINSTANCE.getNameOperation_Operator();
 
 		/**
 		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
@@ -2303,7 +2333,25 @@ public interface JavaRulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAME__LANGUAGE = eINSTANCE.getName_Language();
+		EAttribute NAME_OPERATION__LANGUAGE = eINSTANCE.getNameOperation_Language();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.NameTypeImpl <em>Name Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.NameTypeImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
+		 * @generated
+		 */
+		EClass NAME_TYPE = eINSTANCE.getNameType();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_TYPE__TYPE = eINSTANCE.getNameType_Type();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.JavaDocImpl <em>Java Doc</em>}' class.
@@ -2480,14 +2528,14 @@ public interface JavaRulePackage extends EPackage {
 		EEnum LANGUAGE = eINSTANCE.getLanguage();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.NameType <em>Name Type</em>}' enum.
+		 * The meta object literal for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.NameType
-		 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
+		 * @see javaRule.NameCheck
+		 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 		 * @generated
 		 */
-		EEnum NAME_TYPE = eINSTANCE.getNameType();
+		EEnum NAME_CHECK = eINSTANCE.getNameCheck();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.

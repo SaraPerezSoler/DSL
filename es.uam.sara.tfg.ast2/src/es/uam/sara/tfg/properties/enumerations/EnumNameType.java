@@ -26,5 +26,8 @@ public class EnumNameType extends Enumeration{
 
 		}
 	}
-
+	@Override
+	public String toString() {
+		return "name type="+nCheck.getType();
+	}
 }

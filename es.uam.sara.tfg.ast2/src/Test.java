@@ -26,14 +26,12 @@ public class Test{
 			return num;
 		}
 	}
-	private int numCasa;
-	private nada eso=nada.cafe;
 	Test() {
 		//numCasa=new Casa().get();
 	}
 	
 	public  int getNumCasa() {
-		return numCasa;
+		return 1;
 	}
 
 	

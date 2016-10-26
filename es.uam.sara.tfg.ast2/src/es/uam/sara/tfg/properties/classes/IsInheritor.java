@@ -35,4 +35,9 @@ public class IsInheritor extends Class{
 			}
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "is inheritor";
+	}
 }

@@ -19,7 +19,8 @@ import javaRule.JavaRuleFactory;
 import javaRule.JavaRulePackage;
 import javaRule.Language;
 import javaRule.Modifiers;
-import javaRule.Name;
+import javaRule.NameCheck;
+import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.NoEmpty;
@@ -30,6 +31,7 @@ import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.isImplemented;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -98,7 +100,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.ATTRIBUTE_TYPE: return createAttributeType();
 			case JavaRulePackage.INITIALIZE: return createInitialize();
 			case JavaRulePackage.NO_EMPTY: return createNoEmpty();
-			case JavaRulePackage.NAME: return createName();
+			case JavaRulePackage.NAME_OPERATION: return createNameOperation();
+			case JavaRulePackage.NAME_TYPE: return createNameType();
 			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
 			case JavaRulePackage.CONTAINS: return createContains();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
@@ -122,8 +125,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return createElementJavaFromString(eDataType, initialValue);
 			case JavaRulePackage.LANGUAGE:
 				return createLanguageFromString(eDataType, initialValue);
-			case JavaRulePackage.NAME_TYPE:
-				return createNameTypeFromString(eDataType, initialValue);
+			case JavaRulePackage.NAME_CHECK:
+				return createNameCheckFromString(eDataType, initialValue);
 			case JavaRulePackage.NAME_OPERATOR:
 				return createNameOperatorFromString(eDataType, initialValue);
 			case JavaRulePackage.ACCESS_MODIFIER:
@@ -147,8 +150,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return convertElementJavaToString(eDataType, instanceValue);
 			case JavaRulePackage.LANGUAGE:
 				return convertLanguageToString(eDataType, instanceValue);
-			case JavaRulePackage.NAME_TYPE:
-				return convertNameTypeToString(eDataType, instanceValue);
+			case JavaRulePackage.NAME_CHECK:
+				return convertNameCheckToString(eDataType, instanceValue);
 			case JavaRulePackage.NAME_OPERATOR:
 				return convertNameOperatorToString(eDataType, instanceValue);
 			case JavaRulePackage.ACCESS_MODIFIER:
@@ -313,9 +316,19 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Name createName() {
-		NameImpl name = new NameImpl();
-		return name;
+	public NameOperation createNameOperation() {
+		NameOperationImpl nameOperation = new NameOperationImpl();
+		return nameOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NameType createNameType() {
+		NameTypeImpl nameType = new NameTypeImpl();
+		return nameType;
 	}
 
 	/**
@@ -423,8 +436,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NameType createNameTypeFromString(EDataType eDataType, String initialValue) {
-		NameType result = NameType.get(initialValue);
+	public NameCheck createNameCheckFromString(EDataType eDataType, String initialValue) {
+		NameCheck result = NameCheck.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -434,7 +447,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertNameTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertNameCheckToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

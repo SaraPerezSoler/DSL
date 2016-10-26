@@ -10,7 +10,9 @@ RuleSet returns RuleSet:
 
 Satisfy returns Satisfy:
 	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-	| NoEmpty | Name | JavaDoc | Contains | Modifiers;
+	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+
+
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -77,11 +79,12 @@ NoEmpty returns NoEmpty:
 	{NoEmpty}
 	'is' 'not' 'empty';
 
-Name returns Name:
-	{Name}
-	'name'
-	(('type=' type=NameType (('and' operator=NameOperator name=EString) (',' Language=Language)?)?)
-	| (operator=NameOperator name=EString (',' Language=Language)? ('and' 'type=' type=NameType)?));
+NameOperation returns NameOperation:
+	{NameOperation}
+	'name' operator=NameOperator name=EString (',' Language=Language)?;
+
+NameType returns NameType:
+	'name' 'type='type=NameCheck;  
 
 JavaDoc returns JavaDoc:
 	{JavaDoc}
@@ -106,7 +109,7 @@ EInt returns ecore::EInt:
 EBigInteger returns ecore::EBigInteger:
 	'-'? INT;
 
-enum NameType returns NameType:
+enum NameCheck returns NameCheck:
 	UPPER_CASE='upperCase' | LOWER_CASE='lowerCase' | UPPER_CAMEL_CASE='upperCamelCase' | LOWER_CAMEL_CASE='lowerCamelCase' |
 	START_UPPER_CASE='startUpperCase';
 

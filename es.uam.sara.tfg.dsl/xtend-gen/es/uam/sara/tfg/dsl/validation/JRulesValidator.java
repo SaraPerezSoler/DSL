@@ -19,7 +19,7 @@ import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Language;
 import javaRule.Method;
-import javaRule.Name;
+import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.Or;
 import javaRule.Parameter;
@@ -130,17 +130,17 @@ public class JRulesValidator extends AbstractJRulesValidator {
   }
   
   @Check
-  public void checkNameLanguage(final Name n) {
+  public void checkNameLanguage(final NameOperation n) {
     if ((Objects.equal(n.getOperator(), NameOperator.LIKE) && Objects.equal(n.getLanguage(), Language.EMPTY))) {
       this.error(
         "Language must be define for Like operator", 
-        JavaRulePackage.Literals.NAME__OPERATOR, 
+        JavaRulePackage.Literals.NAME_OPERATION__OPERATOR, 
         "invalidLanguage");
     }
     if (((!Objects.equal(n.getOperator(), NameOperator.LIKE)) && (!Objects.equal(n.getLanguage(), Language.EMPTY)))) {
       this.error(
         "Language is only for Like operator", 
-        JavaRulePackage.Literals.NAME__LANGUAGE, 
+        JavaRulePackage.Literals.NAME_OPERATION__LANGUAGE, 
         "invalidLanguage");
     }
   }
