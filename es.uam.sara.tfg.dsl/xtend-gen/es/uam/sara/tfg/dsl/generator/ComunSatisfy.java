@@ -5,6 +5,7 @@ import javaRule.AccessModifier;
 import javaRule.BlendModifiers;
 import javaRule.Contains;
 import javaRule.ElementJava;
+import javaRule.Empty;
 import javaRule.JavaDoc;
 import javaRule.Language;
 import javaRule.Modifiers;
@@ -12,7 +13,6 @@ import javaRule.NameCheck;
 import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Rule;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -86,8 +86,10 @@ public class ComunSatisfy {
     return cadena;
   }
   
-  public static CharSequence noEmpty(final NoEmpty ne, final String prefix, final String sufix, final String property) {
-    return ((((property + sufix) + "= new ") + prefix) + "NoEmpty ();");
+  public static CharSequence empty(final Empty ne, final String prefix, final String sufix, final String property) {
+    boolean _isNo = ne.isNo();
+    String _plus = (((((property + sufix) + "= new ") + prefix) + "Empty (") + Boolean.valueOf(_isNo));
+    return (_plus + ");");
   }
   
   public static CharSequence contains(final Contains c, final String prefix, final String sufix, final String property) {

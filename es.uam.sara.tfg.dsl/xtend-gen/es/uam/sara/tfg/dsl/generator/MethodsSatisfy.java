@@ -2,12 +2,12 @@ package es.uam.sara.tfg.dsl.generator;
 
 import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Constructor;
+import javaRule.Empty;
 import javaRule.JavaDoc;
 import javaRule.Method;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Parameter;
 import javaRule.Return;
 import org.eclipse.emf.common.util.EList;
@@ -31,8 +31,8 @@ public class MethodsSatisfy {
           if ((s instanceof Modifiers)) {
             return ComunSatisfy.modifiers(((Modifiers) s), MethodsSatisfy.PREFIX, sufix, MethodsSatisfy.PROPERTY);
           } else {
-            if ((s instanceof NoEmpty)) {
-              return ComunSatisfy.noEmpty(((NoEmpty) s), MethodsSatisfy.PREFIX, sufix, MethodsSatisfy.PROPERTY);
+            if ((s instanceof Empty)) {
+              return ComunSatisfy.empty(((Empty) s), MethodsSatisfy.PREFIX, sufix, MethodsSatisfy.PROPERTY);
             } else {
               if ((s instanceof Constructor)) {
                 return ((MethodsSatisfy.PROPERTY + sufix) + "= new Constructor ();");

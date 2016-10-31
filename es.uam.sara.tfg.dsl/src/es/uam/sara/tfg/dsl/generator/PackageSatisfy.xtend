@@ -1,6 +1,6 @@
 package es.uam.sara.tfg.dsl.generator
 
-import javaRule.NoEmpty
+import javaRule.Empty
 import javaRule.Satisfy
 import javaRule.Contains
 import javaRule.NameOperation
@@ -17,8 +17,8 @@ class PackageSatisfy{
 			return ComunSatisfy.nameOperation(s as NameOperation, PREFIX, sufix,PROPERTY);
 		}else if (s instanceof NameType){
 			return ComunSatisfy.nameType(s as NameType, PREFIX, sufix,PROPERTY);
-		}else if (s instanceof NoEmpty){
-			return ComunSatisfy.noEmpty(s as NoEmpty, PREFIX, sufix,PROPERTY);
+		}else if (s instanceof Empty){
+			return ComunSatisfy.empty(s as Empty, PREFIX, sufix,PROPERTY);
 		}else if (s instanceof Contains){
 			return ComunSatisfy.contains(s as Contains, PREFIX, sufix,PROPERTY);
 		}

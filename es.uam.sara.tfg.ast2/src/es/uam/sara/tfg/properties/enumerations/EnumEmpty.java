@@ -4,19 +4,31 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 
 
-public class EnumNoEmpty extends Enumeration{
+public class EnumEmpty extends Enumeration{
 
-	public EnumNoEmpty() {
+	private boolean no;
+
+	public EnumEmpty(boolean no) {
 		super();
+		this.no = no;
 	}
 
 	@Override
 	public void check(List<EnumDeclaration> analyze) {
 		for (EnumDeclaration en: analyze){
 			if (en.bodyDeclarations().isEmpty()){
-				addWrong(en);
-			}else{
-				addRight(en);
+				if (no) {
+					addWrong(en);
+				} else {
+					addRight(en);
+				}
+			} else {
+				if (no) {
+					addRight(en);
+				} else {
+					addWrong(en);
+				}
+				
 			}
 		}
 		

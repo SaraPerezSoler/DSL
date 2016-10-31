@@ -10,7 +10,7 @@ RuleSet returns RuleSet:
 
 Satisfy returns Satisfy:
 	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+	| Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
 
 
 
@@ -75,9 +75,9 @@ Initialize returns Initialize:
 	{Initialize}
 	'is' 'initialize';
 
-NoEmpty returns NoEmpty:
-	{NoEmpty}
-	'is' 'not' 'empty';
+Empty returns Empty:
+	{Empty}
+	'is' (no?='not')? 'empty';
 
 NameOperation returns NameOperation:
 	{NameOperation}

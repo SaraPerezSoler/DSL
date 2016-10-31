@@ -9,6 +9,7 @@ import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.ElementJava;
+import javaRule.Empty;
 import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
@@ -23,7 +24,6 @@ import javaRule.NameCheck;
 import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
 import javaRule.Quantifier;
@@ -99,7 +99,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.RETURN: return createReturn();
 			case JavaRulePackage.ATTRIBUTE_TYPE: return createAttributeType();
 			case JavaRulePackage.INITIALIZE: return createInitialize();
-			case JavaRulePackage.NO_EMPTY: return createNoEmpty();
+			case JavaRulePackage.EMPTY: return createEmpty();
 			case JavaRulePackage.NAME_OPERATION: return createNameOperation();
 			case JavaRulePackage.NAME_TYPE: return createNameType();
 			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
@@ -306,9 +306,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NoEmpty createNoEmpty() {
-		NoEmptyImpl noEmpty = new NoEmptyImpl();
-		return noEmpty;
+	public Empty createEmpty() {
+		EmptyImpl empty = new EmptyImpl();
+		return empty;
 	}
 
 	/**

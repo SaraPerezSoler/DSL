@@ -11,6 +11,7 @@ import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
@@ -21,7 +22,6 @@ import javaRule.JavaRulePackage;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Return;
 import javaRule.Rule;
@@ -66,6 +66,9 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case JavaRulePackage.CONTAINS:
 				sequence_Contains(context, (Contains) semanticObject); 
 				return; 
+			case JavaRulePackage.EMPTY:
+				sequence_Empty(context, (Empty) semanticObject); 
+				return; 
 			case JavaRulePackage.FILTER:
 				sequence_Filter(context, (Filter) semanticObject); 
 				return; 
@@ -92,9 +95,6 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case JavaRulePackage.NAME_TYPE:
 				sequence_NameType(context, (NameType) semanticObject); 
-				return; 
-			case JavaRulePackage.NO_EMPTY:
-				sequence_NoEmpty(context, (NoEmpty) semanticObject); 
 				return; 
 			case JavaRulePackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
@@ -197,6 +197,19 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getContainsAccess().getWhichRuleParserRuleCall_2_0(), semanticObject.getWhich());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Satisfy returns Empty
+	 *     Empty returns Empty
+	 *
+	 * Constraint:
+	 *     no?='not'?
+	 */
+	protected void sequence_Empty(ISerializationContext context, Empty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -326,19 +339,6 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNameTypeAccess().getTypeNameCheckEnumRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Satisfy returns NoEmpty
-	 *     NoEmpty returns NoEmpty
-	 *
-	 * Constraint:
-	 *     {NoEmpty}
-	 */
-	protected void sequence_NoEmpty(ISerializationContext context, NoEmpty semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

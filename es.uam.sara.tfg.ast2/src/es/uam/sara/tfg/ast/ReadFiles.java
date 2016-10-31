@@ -5,8 +5,33 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadFiles {
+	
+	public static void parseFiles(File root) throws IOException{
+		/*Cogemos todos los packetes del proyecto y lo guardamos en el visitors*/
+		List<String> packs = new ArrayList<String>();
+		ReadFiles.getPackages(root, packs, root);
+		Visitors.addPackages(packs);
+		
+		/*Cogemos todos los ficheros del proyecto*/
+		List<File> files = new ArrayList<File>();
+		ReadFiles.getFiles(root, files);
+		
+		String filePath = null;
+
+		/*Por cada fichero si tiene extension .java lo parseamos y guardamos el visitor*/
+		for (File f : files) {
+			filePath = f.getAbsolutePath();
+			//
+			if (f.isFile() && f.getName().endsWith(".java")) {
+				UnitVisitor u = new UnitVisitor(f.getName());
+				Visitors.addVisitor(u);
+				ParserAst.parse(readFileToString(filePath), u);
+			}
+		}
+	}
 	public static String readFileToString(String filePath) throws IOException {
 
 		String fileData = new String();
@@ -19,7 +44,7 @@ public class ReadFiles {
 		return fileData;	
 	}
 	
-	public static void getFiles(File f, ArrayList<File> list){
+	public static void getFiles(File f,List<File> list){
 		if (f.isFile()){
 			list.add(f);
 		}else{
@@ -27,6 +52,34 @@ public class ReadFiles {
 			for (File faux: files){
 				getFiles(faux, list);
 			}
+		}
+	}
+
+	public static void getPackages(File f, List<String> list, File root) {
+
+		if (f.isFile()) {
+			savePack(f.getParentFile(), list, root);
+		} else {
+			File[] files = f.listFiles();
+			if (files.length == 0) {
+				savePack(f, list, root);
+			} else {
+				for (File faux : files) {
+					getPackages(faux, list, root);
+				}
+			}
+		}
+	}
+
+	private static void savePack(File f, List<String> list, File root){
+		String pack;
+		if (f.equals(root)) {
+			pack="(default package)";
+		} else {
+			pack=f.getAbsolutePath().replace("\\src\\", " ").split(" ")[1].replace("\\", ".");
+		}
+		if (!list.contains(pack)){
+			list.add(pack);
 		}
 	}
 }

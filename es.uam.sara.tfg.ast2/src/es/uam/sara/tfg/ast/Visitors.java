@@ -10,9 +10,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 public class Visitors {
 	private static List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
-	private static List<String>packages= new ArrayList<String>();
-	
-	
+	private static List<String> packages = new ArrayList<String>();
+
 	public static void addVisitor(UnitVisitor v) {
 		visitors.add(v);
 	}
@@ -37,8 +36,8 @@ public class Visitors {
 	public static List<String> getPackages() {
 		return packages;
 	}
-	
-	public static void addPackage(String pack){
+
+	public static void addPackage(String pack) {
 		packages.add(pack);
 	}
 
@@ -176,20 +175,38 @@ public class Visitors {
 		return temp;
 	}
 
+	private static boolean isThisPackage(String name, UnitVisitor u) {
+		if (name.equals("(default package)")) {
+			if (u.getPackage() == null) {
+				return true;
+			}
+		} else {
+			if (u.getPackage() != null) {
+				if (u.getPackage().getName().toString().equals(name)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public static List<TypeDeclaration> getClasses(String pk) {
+
 		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
 		for (UnitVisitor u : visitors) {
-			if (u.getPackage().getName().toString().equals(pk)) {
+			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getClasses());
 			}
 		}
 		return temp;
 	}
 
+	
+
 	public static List<TypeDeclaration> getInterfaces(String pk) {
 		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
 		for (UnitVisitor u : visitors) {
-			if (u.getPackage().getName().toString().equals(pk)) {
+			if (isThisPackage(pk, u)){
 				temp.addAll(u.getInterfaces());
 			}
 		}
@@ -199,7 +216,7 @@ public class Visitors {
 	public static List<EnumDeclaration> getEnumerations(String pk) {
 		List<EnumDeclaration> temp = new ArrayList<EnumDeclaration>();
 		for (UnitVisitor u : visitors) {
-			if (u.getPackage().getName().toString().equals(pk)) {
+			if (isThisPackage(pk, u)){
 				temp.addAll(u.getEnumerations());
 			}
 		}
@@ -209,7 +226,7 @@ public class Visitors {
 	public static List<MethodDeclaration> getMethods(String pk) {
 		List<MethodDeclaration> temp = new ArrayList<MethodDeclaration>();
 		for (UnitVisitor u : visitors) {
-			if (u.getPackage().getName().toString().equals(pk)) {
+			if (isThisPackage(pk, u)){
 				temp.addAll(u.getMethods());
 			}
 		}
@@ -219,10 +236,14 @@ public class Visitors {
 	public static List<FieldDeclaration> getAttributes(String pk) {
 		List<FieldDeclaration> temp = new ArrayList<FieldDeclaration>();
 		for (UnitVisitor u : visitors) {
-			if (u.getPackage().getName().toString().equals(pk)) {
+			if (isThisPackage(pk, u)){
 				temp.addAll(u.getAttributes());
 			}
 		}
 		return temp;
+	}
+
+	public static void addPackages(List<String> packs) {
+		packages = packs;
 	}
 }

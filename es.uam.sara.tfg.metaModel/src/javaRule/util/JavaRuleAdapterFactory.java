@@ -8,6 +8,7 @@ import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Enumeration;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -21,7 +22,6 @@ import javaRule.Method;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
 import javaRule.Return;
@@ -178,8 +178,8 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createInitializeAdapter();
 			}
 			@Override
-			public Adapter caseNoEmpty(NoEmpty object) {
-				return createNoEmptyAdapter();
+			public Adapter caseEmpty(Empty object) {
+				return createEmptyAdapter();
 			}
 			@Override
 			public Adapter caseNameOperation(NameOperation object) {
@@ -520,16 +520,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.NoEmpty <em>No Empty</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Empty <em>Empty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.NoEmpty
+	 * @see javaRule.Empty
 	 * @generated
 	 */
-	public Adapter createNoEmptyAdapter() {
+	public Adapter createEmptyAdapter() {
 		return null;
 	}
 

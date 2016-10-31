@@ -76,7 +76,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initialize" eSuperTypes="#//Attribute"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NoEmpty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Empty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NameOperation" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"

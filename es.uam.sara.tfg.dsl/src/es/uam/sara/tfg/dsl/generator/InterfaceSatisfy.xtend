@@ -3,7 +3,7 @@ package es.uam.sara.tfg.dsl.generator
 import javaRule.Interface
 import javaRule.JavaDoc
 import javaRule.Modifiers
-import javaRule.NoEmpty
+import javaRule.Empty
 import javaRule.isImplemented
 import javaRule.Contains
 import javaRule.NameOperation
@@ -23,8 +23,8 @@ class InterfaceSatisfy {
 			return  ComunSatisfy.nameOperation(s as NameOperation, PREFIX, sufix,PROPERTY);
 		} else if (s instanceof NameType) {
 			return  ComunSatisfy.nameType(s as NameType, PREFIX, sufix,PROPERTY);
-		}else if (s instanceof NoEmpty) {
-			return ComunSatisfy.noEmpty(s as NoEmpty, PREFIX, sufix,PROPERTY);
+		}else if (s instanceof Empty) {
+			return ComunSatisfy.empty(s as Empty, PREFIX, sufix,PROPERTY);
 		} else if (s instanceof isImplemented) {
 			return PROPERTY + sufix + "= new IsImplemented(es.uam.sara.tfg.ast.Visitors.getTypes());";
 		}else if (s instanceof Contains){

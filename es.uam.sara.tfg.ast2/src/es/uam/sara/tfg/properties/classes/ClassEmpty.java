@@ -4,19 +4,31 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 
-public class ClassNoEmpty extends Class{
+public class ClassEmpty extends Class{
 
-	public ClassNoEmpty() {
+	private boolean no;
+
+	public ClassEmpty(boolean no) {
 		super();
+		this.no = no;
 	}
 
 	@Override
 	public void check(List<TypeDeclaration> analyze) {
 		for (TypeDeclaration t: analyze){
 			if (t.bodyDeclarations().isEmpty()){
-				super.addWrong(t);
-			}else{
-				super.addRight(t);
+				if (no) {
+					addWrong(t);
+				} else {
+					addRight(t);
+				}
+			} else {
+				if (no) {
+					addRight(t);
+				} else {
+					addWrong(t);
+				}
+				
 			}
 		}
 	}

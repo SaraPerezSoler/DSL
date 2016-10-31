@@ -2,6 +2,7 @@ package es.uam.sara.tfg.dsl.generator;
 
 import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Implements;
 import javaRule.IsExtended;
 import javaRule.IsInheritor;
@@ -9,7 +10,6 @@ import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 
 @SuppressWarnings("all")
 public class ClassesSatisfy {
@@ -30,8 +30,8 @@ public class ClassesSatisfy {
           if ((s instanceof NameType)) {
             return ComunSatisfy.nameType(((NameType) s), ClassesSatisfy.PREFIX, sufix, ClassesSatisfy.PROPERTY);
           } else {
-            if ((s instanceof NoEmpty)) {
-              return ComunSatisfy.noEmpty(((NoEmpty) s), ClassesSatisfy.PREFIX, sufix, ClassesSatisfy.PROPERTY);
+            if ((s instanceof Empty)) {
+              return ComunSatisfy.empty(((Empty) s), ClassesSatisfy.PREFIX, sufix, ClassesSatisfy.PROPERTY);
             } else {
               if ((s instanceof Implements)) {
                 Implements imp = ((Implements) s);

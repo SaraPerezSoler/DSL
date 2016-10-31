@@ -449,25 +449,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleNoEmpty
-entryRuleNoEmpty
+// Entry rule entryRuleEmpty
+entryRuleEmpty
 :
-{ before(grammarAccess.getNoEmptyRule()); }
-	 ruleNoEmpty
-{ after(grammarAccess.getNoEmptyRule()); } 
+{ before(grammarAccess.getEmptyRule()); }
+	 ruleEmpty
+{ after(grammarAccess.getEmptyRule()); } 
 	 EOF 
 ;
 
-// Rule NoEmpty
-ruleNoEmpty 
+// Rule Empty
+ruleEmpty 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getNoEmptyAccess().getGroup()); }
-		(rule__NoEmpty__Group__0)
-		{ after(grammarAccess.getNoEmptyAccess().getGroup()); }
+		{ before(grammarAccess.getEmptyAccess().getGroup()); }
+		(rule__Empty__Group__0)
+		{ after(grammarAccess.getEmptyAccess().getGroup()); }
 	)
 ;
 finally {
@@ -805,9 +805,9 @@ rule__Satisfy__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getSatisfyAccess().getNoEmptyParserRuleCall_9()); }
-		ruleNoEmpty
-		{ after(grammarAccess.getSatisfyAccess().getNoEmptyParserRuleCall_9()); }
+		{ before(grammarAccess.getSatisfyAccess().getEmptyParserRuleCall_9()); }
+		ruleEmpty
+		{ after(grammarAccess.getSatisfyAccess().getEmptyParserRuleCall_9()); }
 	)
 	|
 	(
@@ -3229,107 +3229,107 @@ finally {
 }
 
 
-rule__NoEmpty__Group__0
+rule__Empty__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__NoEmpty__Group__0__Impl
-	rule__NoEmpty__Group__1
+	rule__Empty__Group__0__Impl
+	rule__Empty__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__0__Impl
+rule__Empty__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getNoEmptyAccess().getNoEmptyAction_0()); }
+	{ before(grammarAccess.getEmptyAccess().getEmptyAction_0()); }
 	()
-	{ after(grammarAccess.getNoEmptyAccess().getNoEmptyAction_0()); }
+	{ after(grammarAccess.getEmptyAccess().getEmptyAction_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__1
+rule__Empty__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__NoEmpty__Group__1__Impl
-	rule__NoEmpty__Group__2
+	rule__Empty__Group__1__Impl
+	rule__Empty__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__1__Impl
+rule__Empty__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getNoEmptyAccess().getIsKeyword_1()); }
+	{ before(grammarAccess.getEmptyAccess().getIsKeyword_1()); }
 	'is'
-	{ after(grammarAccess.getNoEmptyAccess().getIsKeyword_1()); }
+	{ after(grammarAccess.getEmptyAccess().getIsKeyword_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__2
+rule__Empty__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__NoEmpty__Group__2__Impl
-	rule__NoEmpty__Group__3
+	rule__Empty__Group__2__Impl
+	rule__Empty__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__2__Impl
+rule__Empty__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getNoEmptyAccess().getNotKeyword_2()); }
-	'not'
-	{ after(grammarAccess.getNoEmptyAccess().getNotKeyword_2()); }
+	{ before(grammarAccess.getEmptyAccess().getNoAssignment_2()); }
+	(rule__Empty__NoAssignment_2)?
+	{ after(grammarAccess.getEmptyAccess().getNoAssignment_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__3
+rule__Empty__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__NoEmpty__Group__3__Impl
+	rule__Empty__Group__3__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NoEmpty__Group__3__Impl
+rule__Empty__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getNoEmptyAccess().getEmptyKeyword_3()); }
+	{ before(grammarAccess.getEmptyAccess().getEmptyKeyword_3()); }
 	'empty'
-	{ after(grammarAccess.getNoEmptyAccess().getEmptyKeyword_3()); }
+	{ after(grammarAccess.getEmptyAccess().getEmptyKeyword_3()); }
 )
 ;
 finally {
@@ -5577,6 +5577,25 @@ rule__AttributeType__TypeAssignment_1
 		{ before(grammarAccess.getAttributeTypeAccess().getTypeEStringParserRuleCall_1_0()); }
 		ruleEString
 		{ after(grammarAccess.getAttributeTypeAccess().getTypeEStringParserRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Empty__NoAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getEmptyAccess().getNoNotKeyword_2_0()); }
+		(
+			{ before(grammarAccess.getEmptyAccess().getNoNotKeyword_2_0()); }
+			'not'
+			{ after(grammarAccess.getEmptyAccess().getNoNotKeyword_2_0()); }
+		)
+		{ after(grammarAccess.getEmptyAccess().getNoNotKeyword_2_0()); }
 	)
 ;
 finally {

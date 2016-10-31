@@ -249,11 +249,11 @@ ruleSatisfy returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getSatisfyAccess().getNoEmptyParserRuleCall_9());
+			newCompositeNode(grammarAccess.getSatisfyAccess().getEmptyParserRuleCall_9());
 		}
-		this_NoEmpty_9=ruleNoEmpty
+		this_Empty_9=ruleEmpty
 		{
-			$current = $this_NoEmpty_9.current;
+			$current = $this_Empty_9.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1197,15 +1197,15 @@ ruleInitialize returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleNoEmpty
-entryRuleNoEmpty returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNoEmptyRule()); }
-	iv_ruleNoEmpty=ruleNoEmpty
-	{ $current=$iv_ruleNoEmpty.current; }
+// Entry rule entryRuleEmpty
+entryRuleEmpty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEmptyRule()); }
+	iv_ruleEmpty=ruleEmpty
+	{ $current=$iv_ruleEmpty.current; }
 	EOF;
 
-// Rule NoEmpty
-ruleNoEmpty returns [EObject current=null]
+// Rule Empty
+ruleEmpty returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1216,21 +1216,31 @@ ruleNoEmpty returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getNoEmptyAccess().getNoEmptyAction_0(),
+					grammarAccess.getEmptyAccess().getEmptyAction_0(),
 					$current);
 			}
 		)
 		otherlv_1='is'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getNoEmptyAccess().getIsKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getEmptyAccess().getIsKeyword_1());
 		}
-		otherlv_2='not'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getNoEmptyAccess().getNotKeyword_2());
-		}
+		(
+			(
+				lv_no_2_0='not'
+				{
+					newLeafNode(lv_no_2_0, grammarAccess.getEmptyAccess().getNoNotKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEmptyRule());
+					}
+					setWithLastConsumed($current, "no", true, "not");
+				}
+			)
+		)?
 		otherlv_3='empty'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getNoEmptyAccess().getEmptyKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getEmptyAccess().getEmptyKeyword_3());
 		}
 	)
 ;

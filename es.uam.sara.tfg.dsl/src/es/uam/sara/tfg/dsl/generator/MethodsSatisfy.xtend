@@ -3,7 +3,7 @@ package es.uam.sara.tfg.dsl.generator
 import javaRule.Constructor
 import javaRule.JavaDoc
 import javaRule.Modifiers
-import javaRule.NoEmpty
+import javaRule.Empty
 import javaRule.Parameter
 import javaRule.Return
 import javaRule.Method
@@ -33,9 +33,9 @@ class MethodsSatisfy {
 
 			return ComunSatisfy.modifiers(s as Modifiers, PREFIX,  sufix,PROPERTY);
 
-		} else if (s instanceof NoEmpty) {
+		} else if (s instanceof Empty) {
 
-			return ComunSatisfy.noEmpty(s as NoEmpty, PREFIX,  sufix,PROPERTY);
+			return ComunSatisfy.empty(s as Empty, PREFIX,  sufix,PROPERTY);
 
 		} else if (s instanceof Constructor) {
 

@@ -799,32 +799,41 @@ public interface JavaRulePackage extends EPackage {
 	int INITIALIZE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link javaRule.impl.NoEmptyImpl <em>No Empty</em>}' class.
+	 * The meta object id for the '{@link javaRule.impl.EmptyImpl <em>Empty</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.NoEmptyImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getNoEmpty()
+	 * @see javaRule.impl.EmptyImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getEmpty()
 	 * @generated
 	 */
-	int NO_EMPTY = 21;
+	int EMPTY = 21;
 
 	/**
-	 * The number of structural features of the '<em>No Empty</em>' class.
+	 * The feature id for the '<em><b>No</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NO_EMPTY_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 0;
+	int EMPTY__NO = PACKAGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>No Empty</em>' class.
+	 * The number of structural features of the '<em>Empty</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NO_EMPTY_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
+	int EMPTY_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Empty</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.NameOperationImpl <em>Name Operation</em>}' class.
@@ -1606,14 +1615,25 @@ public interface JavaRulePackage extends EPackage {
 	EClass getInitialize();
 
 	/**
-	 * Returns the meta object for class '{@link javaRule.NoEmpty <em>No Empty</em>}'.
+	 * Returns the meta object for class '{@link javaRule.Empty <em>Empty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>No Empty</em>'.
-	 * @see javaRule.NoEmpty
+	 * @return the meta object for class '<em>Empty</em>'.
+	 * @see javaRule.Empty
 	 * @generated
 	 */
-	EClass getNoEmpty();
+	EClass getEmpty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.Empty#isNo <em>No</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>No</em>'.
+	 * @see javaRule.Empty#isNo()
+	 * @see #getEmpty()
+	 * @generated
+	 */
+	EAttribute getEmpty_No();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.NameOperation <em>Name Operation</em>}'.
@@ -2292,14 +2312,22 @@ public interface JavaRulePackage extends EPackage {
 		EClass INITIALIZE = eINSTANCE.getInitialize();
 
 		/**
-		 * The meta object literal for the '{@link javaRule.impl.NoEmptyImpl <em>No Empty</em>}' class.
+		 * The meta object literal for the '{@link javaRule.impl.EmptyImpl <em>Empty</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.NoEmptyImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getNoEmpty()
+		 * @see javaRule.impl.EmptyImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getEmpty()
 		 * @generated
 		 */
-		EClass NO_EMPTY = eINSTANCE.getNoEmpty();
+		EClass EMPTY = eINSTANCE.getEmpty();
+
+		/**
+		 * The meta object literal for the '<em><b>No</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMPTY__NO = eINSTANCE.getEmpty_No();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.NameOperationImpl <em>Name Operation</em>}' class.

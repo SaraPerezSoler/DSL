@@ -78,7 +78,7 @@ public class Rule<T> {
 			}
 			break;
 		default:
-			if (elements.size() >= 1) {
+			if (l.size() >= 1) {
 				return true;
 			}
 			break;
@@ -100,6 +100,32 @@ public class Rule<T> {
 			cad+=" satisfy "+properties+" ";
 		}
 		return cad;
+	}
+	public String log(){
+		List<T> right;
+		if (checkeado){
+			if (properties != null) {
+				right = properties.getRight();
+			} else {
+				right = this.elements;
+			}
+			String cad=toString()+"\n"+"Checked.....";
+			boolean res;
+			if (no) {
+				res= !checkQuantifier(right);
+			} else {
+				res= checkQuantifier(right);
+			}
+			if (res){
+				cad+="OK\n";
+			}else{
+				cad+="ERROR\n";
+			}
+			return cad;
+		}else{
+			return toString()+"Rule is not checked\n";
+		}
+		
 	}
 
 }

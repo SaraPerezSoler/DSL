@@ -10,6 +10,7 @@ import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.ElementJava;
+import javaRule.Empty;
 import javaRule.Enumeration;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -27,7 +28,6 @@ import javaRule.NameCheck;
 import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
 import javaRule.Quantifier;
@@ -204,7 +204,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass noEmptyEClass = null;
+	private EClass emptyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -698,8 +698,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNoEmpty() {
-		return noEmptyEClass;
+	public EClass getEmpty() {
+		return emptyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEmpty_No() {
+		return (EAttribute)emptyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1050,7 +1059,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initializeEClass = createEClass(INITIALIZE);
 
-		noEmptyEClass = createEClass(NO_EMPTY);
+		emptyEClass = createEClass(EMPTY);
+		createEAttribute(emptyEClass, EMPTY__NO);
 
 		nameOperationEClass = createEClass(NAME_OPERATION);
 		createEAttribute(nameOperationEClass, NAME_OPERATION__NAME);
@@ -1133,11 +1143,11 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		attributeEClass.getESuperTypes().add(this.getSatisfy());
 		attributeTypeEClass.getESuperTypes().add(this.getAttribute());
 		initializeEClass.getESuperTypes().add(this.getAttribute());
-		noEmptyEClass.getESuperTypes().add(this.getPackage());
-		noEmptyEClass.getESuperTypes().add(this.getMethod());
-		noEmptyEClass.getESuperTypes().add(this.getClass_());
-		noEmptyEClass.getESuperTypes().add(this.getInterface());
-		noEmptyEClass.getESuperTypes().add(this.getEnumeration());
+		emptyEClass.getESuperTypes().add(this.getPackage());
+		emptyEClass.getESuperTypes().add(this.getMethod());
+		emptyEClass.getESuperTypes().add(this.getClass_());
+		emptyEClass.getESuperTypes().add(this.getInterface());
+		emptyEClass.getESuperTypes().add(this.getEnumeration());
 		nameOperationEClass.getESuperTypes().add(this.getAttribute());
 		nameOperationEClass.getESuperTypes().add(this.getClass_());
 		nameOperationEClass.getESuperTypes().add(this.getMethod());
@@ -1225,7 +1235,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(initializeEClass, Initialize.class, "Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(noEmptyEClass, NoEmpty.class, "NoEmpty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(emptyEClass, Empty.class, "Empty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmpty_No(), ecorePackage.getEBoolean(), "no", "false", 0, 1, Empty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nameOperationEClass, NameOperation.class, "NameOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameOperation_Name(), ecorePackage.getEString(), "name", null, 1, 1, NameOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2,12 +2,12 @@ package es.uam.sara.tfg.dsl.generator;
 
 import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Enumeration;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 
 @SuppressWarnings("all")
 public class EnumSatisfy {
@@ -28,8 +28,8 @@ public class EnumSatisfy {
           if ((s instanceof NameType)) {
             return ComunSatisfy.nameType(((NameType) s), EnumSatisfy.PREFIX, sufix, EnumSatisfy.PROPERTY);
           } else {
-            if ((s instanceof NoEmpty)) {
-              return ComunSatisfy.noEmpty(((NoEmpty) s), EnumSatisfy.PREFIX, sufix, EnumSatisfy.PROPERTY);
+            if ((s instanceof Empty)) {
+              return ComunSatisfy.empty(((Empty) s), EnumSatisfy.PREFIX, sufix, EnumSatisfy.PROPERTY);
             } else {
               if ((s instanceof Contains)) {
                 return ComunSatisfy.contains(((Contains) s), EnumSatisfy.PREFIX, sufix, EnumSatisfy.PROPERTY);

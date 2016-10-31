@@ -3,23 +3,25 @@
  */
 package es.uam.sara.tfg.dsl.generator
 
+import javaRule.And
 import javaRule.Attribute
 import javaRule.Class
 import javaRule.ElementJava
 import javaRule.Enumeration
+import javaRule.Filter
 import javaRule.Interface
 import javaRule.Method
 import javaRule.Or
 import javaRule.Package
 import javaRule.Rule
+import javaRule.RuleSet
+import javaRule.Satisfy
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import javaRule.And
-import javaRule.Satisfy
-import javaRule.Filter
-import javaRule.RuleSet
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.resources.IProject
 
 /**
  * Generates code from your model files on save.
@@ -35,27 +37,42 @@ class JRulesGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Rule)));
-		fsa.generateFile("Main.java", main());
+		var workspace = ResourcesPlugin.getWorkspace().getRoot();
+		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
+		var project = workspace.getProject(ruleSet.projectName)
+		fsa.generateFile("Main.java", main(project));
+
 	}
 
-	def CharSequence main() {
+	def CharSequence getWorksapce(RuleSet rs) {
+	}
+
+	def CharSequence main(IProject project) {
+
 		'''
-		import java.util.List;
-		import es.uam.sara.tfg.rule.Rule;
-		
-		public class Main {
-		
-		 
-			public static void main(String[] args){
-				RuleFactory ruleFactory=new RuleFactory();
-				List <Rule<?>> rules=ruleFactory.getRules();
-				for (Rule<?> r: rules){
-					System.out.println(r);
+			import java.io.File;
+			import java.io.IOException;
+			import java.util.List;
+			
+			import es.uam.sara.tfg.ast.ReadFiles;
+			import es.uam.sara.tfg.rule.Rule;
+				
+				public class Main {
+				
+				 
+				 public static void main(String[] args)throws IOException{
+				 	«var src= project.getFolder("src")»
+				 	File root= new File("«src.location»");
+				 	ReadFiles.parseFiles(root);
+				 	
+				 	RuleFactory ruleFactory=new RuleFactory();
+				 	List <Rule<?>> rules=ruleFactory.getRules();
+				 	for (Rule<?> r: rules){
+				 		r.checkTest();
+				 		System.out.println(r.log());
+				 	}
+				 }
 				}
-			}
-		
-		}
-		
 		'''
 	}
 

@@ -8,6 +8,7 @@ import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Enumeration;
 import javaRule.Filter;
 import javaRule.Implements;
@@ -21,7 +22,6 @@ import javaRule.Method;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.Or;
 import javaRule.Parameter;
 import javaRule.Return;
@@ -242,15 +242,15 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.NO_EMPTY: {
-				NoEmpty noEmpty = (NoEmpty)theEObject;
-				T result = caseNoEmpty(noEmpty);
-				if (result == null) result = casePackage(noEmpty);
-				if (result == null) result = caseMethod(noEmpty);
-				if (result == null) result = caseClass(noEmpty);
-				if (result == null) result = caseInterface(noEmpty);
-				if (result == null) result = caseEnumeration(noEmpty);
-				if (result == null) result = caseSatisfy(noEmpty);
+			case JavaRulePackage.EMPTY: {
+				Empty empty = (Empty)theEObject;
+				T result = caseEmpty(empty);
+				if (result == null) result = casePackage(empty);
+				if (result == null) result = caseMethod(empty);
+				if (result == null) result = caseClass(empty);
+				if (result == null) result = caseInterface(empty);
+				if (result == null) result = caseEnumeration(empty);
+				if (result == null) result = caseSatisfy(empty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -641,17 +641,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>No Empty</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Empty</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>No Empty</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Empty</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNoEmpty(NoEmpty object) {
+	public T caseEmpty(Empty object) {
 		return null;
 	}
 

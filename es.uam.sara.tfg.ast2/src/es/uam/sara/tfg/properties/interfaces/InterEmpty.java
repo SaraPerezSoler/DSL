@@ -4,19 +4,31 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 
-public class InterNoEmpty extends Interface{
+public class InterEmpty extends Interface{
 
-	public InterNoEmpty() {
+	private boolean no;
+
+	public InterEmpty(boolean no) {
 		super();
+		this.no = no;
 	}
 
 	@Override
 	public void check(List<TypeDeclaration> analyze) {
 		for (TypeDeclaration t: analyze){
 			if (t.bodyDeclarations().isEmpty()){
-				addWrong(t);
-			}else{
-				addRight(t);
+				if (no) {
+					addWrong(t);
+				} else {
+					addRight(t);
+				}
+			} else {
+				if (no) {
+					addRight(t);
+				} else {
+					addWrong(t);
+				}
+				
 			}
 		}
 	}

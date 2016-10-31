@@ -2,12 +2,12 @@ package es.uam.sara.tfg.dsl.generator;
 
 import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Contains;
+import javaRule.Empty;
 import javaRule.Interface;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
-import javaRule.NoEmpty;
 import javaRule.isImplemented;
 
 @SuppressWarnings("all")
@@ -29,8 +29,8 @@ public class InterfaceSatisfy {
           if ((s instanceof NameType)) {
             return ComunSatisfy.nameType(((NameType) s), InterfaceSatisfy.PREFIX, sufix, InterfaceSatisfy.PROPERTY);
           } else {
-            if ((s instanceof NoEmpty)) {
-              return ComunSatisfy.noEmpty(((NoEmpty) s), InterfaceSatisfy.PREFIX, sufix, InterfaceSatisfy.PROPERTY);
+            if ((s instanceof Empty)) {
+              return ComunSatisfy.empty(((Empty) s), InterfaceSatisfy.PREFIX, sufix, InterfaceSatisfy.PROPERTY);
             } else {
               if ((s instanceof isImplemented)) {
                 return ((InterfaceSatisfy.PROPERTY + sufix) + "= new IsImplemented(es.uam.sara.tfg.ast.Visitors.getTypes());");

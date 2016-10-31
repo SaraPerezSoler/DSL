@@ -90,7 +90,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cReturnParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cAttributeTypeParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cInitializeParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cNoEmptyParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cEmptyParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cNameOperationParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		private final RuleCall cNameTypeParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		private final RuleCall cJavaDocParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
@@ -99,11 +99,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Satisfy:
 		//	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-		//	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+		//	| Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize |
-		//NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers
+		//Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//isImplemented
@@ -133,8 +133,8 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//Initialize
 		public RuleCall getInitializeParserRuleCall_8() { return cInitializeParserRuleCall_8; }
 		
-		//NoEmpty
-		public RuleCall getNoEmptyParserRuleCall_9() { return cNoEmptyParserRuleCall_9; }
+		//Empty
+		public RuleCall getEmptyParserRuleCall_9() { return cEmptyParserRuleCall_9; }
 		
 		//NameOperation
 		public RuleCall getNameOperationParserRuleCall_10() { return cNameOperationParserRuleCall_10; }
@@ -727,30 +727,34 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'initialize'
 		public Keyword getInitializeKeyword_2() { return cInitializeKeyword_2; }
 	}
-	public class NoEmptyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.NoEmpty");
+	public class EmptyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Empty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNoEmptyAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cEmptyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cIsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cNotKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNoAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cNoNotKeyword_2_0 = (Keyword)cNoAssignment_2.eContents().get(0);
 		private final Keyword cEmptyKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//NoEmpty:
-		//	{NoEmpty}
-		//	'is' 'not' 'empty';
+		//Empty:
+		//	{Empty}
+		//	'is' no?='not'? 'empty';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{NoEmpty} 'is' 'not' 'empty'
+		//{Empty} 'is' no?='not'? 'empty'
 		public Group getGroup() { return cGroup; }
 		
-		//{NoEmpty}
-		public Action getNoEmptyAction_0() { return cNoEmptyAction_0; }
+		//{Empty}
+		public Action getEmptyAction_0() { return cEmptyAction_0; }
 		
 		//'is'
 		public Keyword getIsKeyword_1() { return cIsKeyword_1; }
 		
+		//no?='not'?
+		public Assignment getNoAssignment_2() { return cNoAssignment_2; }
+		
 		//'not'
-		public Keyword getNotKeyword_2() { return cNotKeyword_2; }
+		public Keyword getNoNotKeyword_2_0() { return cNoNotKeyword_2_0; }
 		
 		//'empty'
 		public Keyword getEmptyKeyword_3() { return cEmptyKeyword_3; }
@@ -1566,7 +1570,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ReturnElements pReturn;
 	private final AttributeTypeElements pAttributeType;
 	private final InitializeElements pInitialize;
-	private final NoEmptyElements pNoEmpty;
+	private final EmptyElements pEmpty;
 	private final NameOperationElements pNameOperation;
 	private final NameTypeElements pNameType;
 	private final JavaDocElements pJavaDoc;
@@ -1608,7 +1612,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pReturn = new ReturnElements();
 		this.pAttributeType = new AttributeTypeElements();
 		this.pInitialize = new InitializeElements();
-		this.pNoEmpty = new NoEmptyElements();
+		this.pEmpty = new EmptyElements();
 		this.pNameOperation = new NameOperationElements();
 		this.pNameType = new NameTypeElements();
 		this.pJavaDoc = new JavaDocElements();
@@ -1663,7 +1667,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Satisfy:
 	//	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-	//	| NoEmpty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+	//	| Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
 	public SatisfyElements getSatisfyAccess() {
 		return pSatisfy;
 	}
@@ -1851,15 +1855,15 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		return getInitializeAccess().getRule();
 	}
 	
-	//NoEmpty:
-	//	{NoEmpty}
-	//	'is' 'not' 'empty';
-	public NoEmptyElements getNoEmptyAccess() {
-		return pNoEmpty;
+	//Empty:
+	//	{Empty}
+	//	'is' no?='not'? 'empty';
+	public EmptyElements getEmptyAccess() {
+		return pEmpty;
 	}
 	
-	public ParserRule getNoEmptyRule() {
-		return getNoEmptyAccess().getRule();
+	public ParserRule getEmptyRule() {
+		return getEmptyAccess().getRule();
 	}
 	
 	//NameOperation:

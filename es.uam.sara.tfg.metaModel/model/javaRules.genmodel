@@ -94,7 +94,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//AttributeType/Type"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Initialize"/>
-    <genClasses ecoreClass="metamodel.ecore#//NoEmpty"/>
+    <genClasses ecoreClass="metamodel.ecore#//Empty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Empty/no"/>
+    </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//NameOperation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameOperation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameOperation/operator"/>

@@ -4,7 +4,7 @@ import javaRule.NameType
 import javaRule.JavaDoc
 import javaRule.Modifiers
 import javaRule.BlendModifiers
-import javaRule.NoEmpty
+import javaRule.Empty
 import javaRule.Contains
 import javaRule.NameOperation
 
@@ -39,8 +39,8 @@ class ComunSatisfy {
 		return cadena;
 	}
 
-	def static CharSequence noEmpty(NoEmpty ne, String prefix, String sufix, String property) {
-		return property + sufix + "= new "+prefix+"NoEmpty ();"
+	def static CharSequence empty(Empty ne, String prefix, String sufix, String property) {
+		return property + sufix + "= new "+prefix+"Empty ("+ne.no+");"
 	}
 
 	def static CharSequence contains(Contains c, String prefix, String sufix, String property) {

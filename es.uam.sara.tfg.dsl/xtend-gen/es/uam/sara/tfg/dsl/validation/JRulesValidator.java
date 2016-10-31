@@ -26,6 +26,10 @@ import javaRule.Parameter;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -41,14 +45,36 @@ public class JRulesValidator extends AbstractJRulesValidator {
   public final static String INVALID_SATISFY = "invalidSatisfy";
   
   @Check
+  public void checkProject(final RuleSet rs) {
+    String _projectName = rs.getProjectName();
+    boolean _isEmpty = _projectName.isEmpty();
+    if (_isEmpty) {
+      this.error("You must put a name Project", JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+    } else {
+      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+      IWorkspaceRoot workspace = _workspace.getRoot();
+      String _projectName_1 = rs.getProjectName();
+      IProject project = workspace.getProject(_projectName_1);
+      boolean _exists = project.exists();
+      boolean _not = (!_exists);
+      if (_not) {
+        String _projectName_2 = rs.getProjectName();
+        String _plus = ("The project " + _projectName_2);
+        String _plus_1 = (_plus + " is not into worksapce");
+        this.error(_plus_1, 
+          JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+      }
+    }
+  }
+  
+  @Check
   public void checkSatisfyExists(final Rule r) {
     if (((r.eContainer() instanceof RuleSet) && Objects.equal(r.getSatisfy(), null))) {
-      this.error("\"Satisfy\" is required", 
-        JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
+      this.error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
     }
     if ((Objects.equal(r.getSatisfy(), null) && (!Objects.equal(r.getFilter(), null)))) {
-      this.error("\"Satisfy\" is required after clause \"which\"", 
-        JavaRulePackage.Literals.RULE__FILTER, "invalidRule");
+      this.error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER, 
+        "invalidRule");
     }
   }
   
@@ -223,8 +249,8 @@ public class JRulesValidator extends AbstractJRulesValidator {
           JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, "inadvisableModifier");
       } else {
         if (((!Objects.equal(r.getElement(), ElementJava.CLASS)) && (!Objects.equal(r.getElement(), ElementJava.METHOD)))) {
-          this.error("Abstract is for methods and class", 
-            JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, "invalidModifier");
+          this.error("Abstract is for methods and class", JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 
+            "invalidModifier");
         } else {
           boolean _isFinal = b.isFinal();
           if (_isFinal) {
@@ -237,8 +263,8 @@ public class JRulesValidator extends AbstractJRulesValidator {
     boolean _isFinal_1 = b.isFinal();
     if (_isFinal_1) {
       if ((Objects.equal(r.getElement(), ElementJava.INTERFACE) || Objects.equal(r.getElement(), ElementJava.ENUM))) {
-        this.error("Final is for methods, class and attributes", 
-          JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, "invalidModifier");
+        this.error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, 
+          "invalidModifier");
       }
     }
     boolean _isStatic = b.isStatic();
@@ -249,8 +275,8 @@ public class JRulesValidator extends AbstractJRulesValidator {
       }
     }
     if ((b.isSynchronized() && (!Objects.equal(r.getElement(), ElementJava.METHOD)))) {
-      this.error("Synchronized is for methods", 
-        JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED, "invalidModifier");
+      this.error("Synchronized is for methods", JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED, 
+        "invalidModifier");
     }
   }
   
@@ -267,9 +293,10 @@ public class JRulesValidator extends AbstractJRulesValidator {
     ElementJava _element = r.getElement();
     boolean _equals = Objects.equal(_element, ElementJava.PACKAGE);
     if (_equals) {
-      if (((Objects.equal(c.getWhich().getElement(), ElementJava.METHOD) || Objects.equal(c.getWhich().getElement(), ElementJava.ATTRIBUTE)) || Objects.equal(c.getWhich().getElement(), ElementJava.PACKAGE))) {
-        this.error("Package contains Class, Interfaces or Enumerations", 
-          JavaRulePackage.Literals.CONTAINS__WHICH, "invalidContains");
+      if (((Objects.equal(c.getWhich().getElement(), ElementJava.METHOD) || Objects.equal(c.getWhich().getElement(), ElementJava.ATTRIBUTE)) || 
+        Objects.equal(c.getWhich().getElement(), ElementJava.PACKAGE))) {
+        this.error("Package contains Class, Interfaces or Enumerations", JavaRulePackage.Literals.CONTAINS__WHICH, 
+          "invalidContains");
       }
     }
   }

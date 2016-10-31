@@ -24,6 +24,7 @@ import javaRule.RuleSet
 import javaRule.Implements
 import javaRule.Parameter
 import javaRule.NameOperation
+import org.eclipse.core.resources.ResourcesPlugin
 
 /**
  * This class contains custom validation rules. 
@@ -44,30 +45,43 @@ class JRulesValidator extends AbstractJRulesValidator {
 //					INVALID_NAME)
 //		}
 //	}
-
 	@Check
-	def checkSatisfyExists (Rule r){
-	
-		if ((r.eContainer instanceof RuleSet) && (r.satisfy==null)){
-			error("\"Satisfy\" is required",
-				JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
-		}
-		if ((r.satisfy==null) && (r.filter!=null)){
-			error("\"Satisfy\" is required after clause \"which\"", 
-				JavaRulePackage.Literals.RULE__FILTER, "invalidRule")
+	def checkProject(RuleSet rs) {
+		if (rs.projectName.empty) {
+			error("You must put a name Project", JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+		} else {
+			var workspace = ResourcesPlugin.getWorkspace().getRoot();
+			var project = workspace.getProject(rs.projectName)
+			if (!project.exists) {
+				error("The project " + rs.projectName + " is not into worksapce",
+					JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+			}
 		}
 	}
+
+	@Check
+	def checkSatisfyExists(Rule r) {
+
+		if ((r.eContainer instanceof RuleSet) && (r.satisfy == null)) {
+			error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
+		}
+		if ((r.satisfy == null) && (r.filter != null)) {
+			error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER,
+				"invalidRule")
+		}
+	}
+
 	@Check
 	def checkFilterValido(Rule r) {
-		if (comprobarPropiedades(r.filter.filter, r.element)==false) {
+		if (comprobarPropiedades(r.filter.filter, r.element) == false) {
 			error("The filter is not valid for " + r.element.literal.toLowerCase,
 				JavaRulePackage.Literals.RULE__ELEMENT, INVALID_SATISFY);
 		}
 	}
 
 	@Check
-	def checkSatisfyType(Rule r){
-		if (comprobarPropiedades(r.satisfy, r.element)==false) {
+	def checkSatisfyType(Rule r) {
+		if (comprobarPropiedades(r.satisfy, r.element) == false) {
 			error(
 				"The property is not valid for " + r.element.literal.toLowerCase,
 				JavaRulePackage.Literals.RULE__ELEMENT,
@@ -75,34 +89,37 @@ class JRulesValidator extends AbstractJRulesValidator {
 			)
 		}
 	}
+
 	def comprobarPropiedades(Or or, ElementJava e) {
 		for (And a : or.op) {
 			for (Satisfy s : a.op) {
-				if (comprobarSatisfy(e, s)==false) {
+				if (comprobarSatisfy(e, s) == false) {
 					return false;
 				}
 			}
 		}
 		return true;
 	}
-	def comprobarSatisfy(ElementJava e, Satisfy s){
-		if ((e==ElementJava.PACKAGE) &&(s instanceof javaRule.Package)){
+
+	def comprobarSatisfy(ElementJava e, Satisfy s) {
+		if ((e == ElementJava.PACKAGE) && (s instanceof javaRule.Package)) {
 			return true;
-		}else if ((e==ElementJava.INTERFACE) && (s instanceof Interface)){
+		} else if ((e == ElementJava.INTERFACE) && (s instanceof Interface)) {
 			return true;
-		}else if ((e==ElementJava.CLASS) && (s instanceof javaRule.Class)){
+		} else if ((e == ElementJava.CLASS) && (s instanceof javaRule.Class)) {
 			return true;
-		}else if ((e==ElementJava.ENUM) && (s instanceof Enumeration)){
+		} else if ((e == ElementJava.ENUM) && (s instanceof Enumeration)) {
 			return true;
-		}else if ((e==ElementJava.METHOD) && (s instanceof Method)){
+		} else if ((e == ElementJava.METHOD) && (s instanceof Method)) {
 			return true;
-		}else if ((e==ElementJava.ATTRIBUTE) && (s instanceof Attribute)){
+		} else if ((e == ElementJava.ATTRIBUTE) && (s instanceof Attribute)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
-		
+
 	}
+
 	@Check
 	def checkNameLanguage(NameOperation n) {
 		if (n.operator == NameOperator.LIKE && n.language == Language.EMPTY) {
@@ -123,10 +140,10 @@ class JRulesValidator extends AbstractJRulesValidator {
 
 	@Check
 	def checkJavaDoc(JavaDoc jd) {
-		var rule=getRule(jd);
+		var rule = getRule(jd);
 		if (rule.element != ElementJava.METHOD && jd.parameter) {
-				warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER,
-					'inadvisableJavaDoc')
+			warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER,
+				'inadvisableJavaDoc')
 		}
 		if (rule.element != ElementJava.METHOD && jd.^return) {
 			warning("The tag @return is used for methods", JavaRulePackage.Literals.JAVA_DOC__RETURN,
@@ -138,133 +155,133 @@ class JRulesValidator extends AbstractJRulesValidator {
 		}
 	}
 
-	def getRule(JavaDoc jd){
+	def getRule(JavaDoc jd) {
 		var aux1 = jd.eContainer.eContainer.eContainer;
 		var aux2 = jd.eContainer.eContainer.eContainer.eContainer;
 		if (aux1 instanceof Rule) {
-			var rule=aux1 as Rule
+			var rule = aux1 as Rule
 			return rule;
-		}else if(aux2 instanceof Rule){
-			var rule=aux2 as Rule
+		} else if (aux2 instanceof Rule) {
+			var rule = aux2 as Rule
 			return rule;
 		}
 	}
-	
-	def getRule(BlendModifiers b){
+
+	def getRule(BlendModifiers b) {
 		var aux1 = b.eContainer.eContainer.eContainer.eContainer;
 		var aux2 = b.eContainer.eContainer.eContainer.eContainer.eContainer;
 		if (aux1 instanceof Rule) {
-			var rule=aux1 as Rule
-			//println("Dentro de Satisfy "+ rule.quantifier+" "+rule.element)
+			var rule = aux1 as Rule
+			// println("Dentro de Satisfy "+ rule.quantifier+" "+rule.element)
 			return rule;
-		}else if(aux2 instanceof Rule){
-			var rule=aux2 as Rule
-			//println("Dentro de filter "+ rule.quantifier+" "+rule.element)
+		} else if (aux2 instanceof Rule) {
+			var rule = aux2 as Rule
+			// println("Dentro de filter "+ rule.quantifier+" "+rule.element)
 			return rule;
 		}
 	}
+
 	@Check
 	def checkModifiers(BlendModifiers b) {
-		
-		var r=getRule(b);
+
+		var r = getRule(b);
 		if (accessPrivateProtecte(b)) {
 			if (r.element == ElementJava.CLASS || r.element == ElementJava.INTERFACE || r.element == ElementJava.ENUM) {
 				warning("The private and protected modifiers are for classes, interfaces and enumeration internal",
-					JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS,'inadvisableModifier')
+					JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, 'inadvisableModifier')
 			}
 		}
 		if (b.abstract) {
 			if (r.element == ElementJava.INTERFACE) {
 				warning("The interfaces are implicitly abstract, its not necessary add the modifier",
-					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT,'inadvisableModifier')
-			}else if (r.element != ElementJava.CLASS && r.element != ElementJava.METHOD){
-				error("Abstract is for methods and class", 
-					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 'invalidModifier')
-			}else if (b.final) {
+					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 'inadvisableModifier')
+			} else if (r.element != ElementJava.CLASS && r.element != ElementJava.METHOD) {
+				error("Abstract is for methods and class", JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT,
+					'invalidModifier')
+			} else if (b.final) {
 				error("Methods and Class can't be abstract and final simultaneously",
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 'invalidModifier')
 			}
 		}
-		
-		if (b.final){
-			if (r.element==ElementJava.INTERFACE || r.element==ElementJava.ENUM){
-				error("Final is for methods, class and attributes", 
-					JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, 'invalidModifier')
+
+		if (b.final) {
+			if (r.element == ElementJava.INTERFACE || r.element == ElementJava.ENUM) {
+				error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL,
+					'invalidModifier')
 			}
 		}
-		
+
 		if (b.static) {
 			if (r.element == ElementJava.CLASS || r.element == ElementJava.INTERFACE || r.element == ElementJava.ENUM) {
 				warning("Static is for classes, interfaces and enumeration internal",
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, 'inadvisableModifier')
 			}
 		}
-		if (b.synchronized && r.element!=ElementJava.METHOD){
-			error("Synchronized is for methods", 
-					JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED, 'invalidModifier')
+		if (b.synchronized && r.element != ElementJava.METHOD) {
+			error("Synchronized is for methods", JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED,
+				'invalidModifier')
 		}
 
 	}
-	
+
 	def accessPrivateProtecte(BlendModifiers b) {
 		if (b.access == AccessModifier.PRIVATE || b.access == AccessModifier.PROTECTED) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Check
-	def checkContains (Contains c){
-		var r=getRule(c);
-		if (r.element==ElementJava.PACKAGE){
-			if (c.which.element==ElementJava.METHOD || c.which.element==ElementJava.ATTRIBUTE 
-				|| c.which.element==ElementJava.PACKAGE){
-					error("Package contains Class, Interfaces or Enumerations", 
-						JavaRulePackage.Literals.CONTAINS__WHICH, "invalidContains")
-				}
+	def checkContains(Contains c) {
+		var r = getRule(c);
+		if (r.element == ElementJava.PACKAGE) {
+			if (c.which.element == ElementJava.METHOD || c.which.element == ElementJava.ATTRIBUTE ||
+				c.which.element == ElementJava.PACKAGE) {
+				error("Package contains Class, Interfaces or Enumerations", JavaRulePackage.Literals.CONTAINS__WHICH,
+					"invalidContains")
+			}
 		}
-	} 
-	def getRule(Contains c){
+	}
+
+	def getRule(Contains c) {
 		var aux1 = c.eContainer.eContainer.eContainer;
 		var aux2 = c.eContainer.eContainer.eContainer.eContainer;
 		if (aux1 instanceof Rule) {
-			var rule=aux1 as Rule
-			//println("Dentro de Satisfy "+ rule.quantifier+" "+rule.element)
+			var rule = aux1 as Rule
+			// println("Dentro de Satisfy "+ rule.quantifier+" "+rule.element)
 			return rule;
-		}else if(aux2 instanceof Rule){
-			var rule=aux2 as Rule
-			//println("Dentro de filter "+ rule.quantifier+" "+rule.element)
+		} else if (aux2 instanceof Rule) {
+			var rule = aux2 as Rule
+			// println("Dentro de filter "+ rule.quantifier+" "+rule.element)
 			return rule;
 		}
 	}
 
 	@Check
-	def checkImplements (Implements i){
-		if (i.minInterface<0){
+	def checkImplements(Implements i) {
+		if (i.minInterface < 0) {
 			error("The minimum of interfaces must be greater than 0",
 				JavaRulePackage.Literals.IMPLEMENTS__MIN_INTERFACE, 'invalidMin')
 		}
-		if (i.maxInterface<0){
+		if (i.maxInterface < 0) {
 			error("The maximum of interfaces must be greater than 0",
 				JavaRulePackage.Literals.IMPLEMENTS__MAX_INTERFACE, 'invalidMin')
 		}
-	
-		if (i.minInterface>i.maxInterface){
+
+		if (i.minInterface > i.maxInterface) {
 			error("The minimum of interfaces can't be greater than the maximum",
 				JavaRulePackage.Literals.IMPLEMENTS__MIN_INTERFACE, 'invalidMin')
 		}
 	}
-	
+
 	@Check
-	def checkParameters(Parameter p){
-		if (p.typesParam.length!=0){
-			if (p.typesParam.length!= p.numParam){
+	def checkParameters(Parameter p) {
+		if (p.typesParam.length != 0) {
+			if (p.typesParam.length != p.numParam) {
 				error("The number of parameters should be equal to the number of types",
-				JavaRulePackage.Literals.PARAMETER__NUM_PARAM, 'invalidMin')
+					JavaRulePackage.Literals.PARAMETER__NUM_PARAM, 'invalidMin')
 			}
 		}
 	}
-	
-	
 
 }

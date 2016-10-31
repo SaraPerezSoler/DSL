@@ -72,7 +72,7 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReturnAccess().getGroup(), "rule__Return__Group__0");
 					put(grammarAccess.getAttributeTypeAccess().getGroup(), "rule__AttributeType__Group__0");
 					put(grammarAccess.getInitializeAccess().getGroup(), "rule__Initialize__Group__0");
-					put(grammarAccess.getNoEmptyAccess().getGroup(), "rule__NoEmpty__Group__0");
+					put(grammarAccess.getEmptyAccess().getGroup(), "rule__Empty__Group__0");
 					put(grammarAccess.getNameOperationAccess().getGroup(), "rule__NameOperation__Group__0");
 					put(grammarAccess.getNameOperationAccess().getGroup_4(), "rule__NameOperation__Group_4__0");
 					put(grammarAccess.getNameTypeAccess().getGroup(), "rule__NameType__Group__0");
@@ -121,6 +121,7 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterAccess().getTypesParamAssignment_2_4_1(), "rule__Parameter__TypesParamAssignment_2_4_1");
 					put(grammarAccess.getReturnAccess().getReturnTypeAssignment_2(), "rule__Return__ReturnTypeAssignment_2");
 					put(grammarAccess.getAttributeTypeAccess().getTypeAssignment_1(), "rule__AttributeType__TypeAssignment_1");
+					put(grammarAccess.getEmptyAccess().getNoAssignment_2(), "rule__Empty__NoAssignment_2");
 					put(grammarAccess.getNameOperationAccess().getOperatorAssignment_2(), "rule__NameOperation__OperatorAssignment_2");
 					put(grammarAccess.getNameOperationAccess().getNameAssignment_3(), "rule__NameOperation__NameAssignment_3");
 					put(grammarAccess.getNameOperationAccess().getLanguageAssignment_4_1(), "rule__NameOperation__LanguageAssignment_4_1");

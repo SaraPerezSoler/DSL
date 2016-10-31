@@ -28,7 +28,9 @@ public class IsInheritor extends Class{
 	@Override
 	public void check(List<TypeDeclaration> analyze) {
 		for (TypeDeclaration t : analyze) {
-			if (t.getSuperclassType().toString().equals(Object.class.toString())) {
+			if (t.getSuperclassType()==null){
+				super.addWrong(t);
+			}else if (t.getSuperclassType().toString().equals(Object.class.toString())) {
 				super.addWrong(t);
 			} else {
 				super.addRight(t);
