@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 public class ReadFiles {
 	
 	public static void parseFiles(File root) throws IOException{
@@ -76,7 +78,7 @@ public class ReadFiles {
 		if (f.equals(root)) {
 			pack="(default package)";
 		} else {
-			pack=f.getAbsolutePath().replace("\\src\\", " ").split(" ")[1].replace("\\", ".");
+			pack=StringUtils.substringAfter(f.getAbsolutePath(), "\\src\\").replace("\\", ".");
 		}
 		if (!list.contains(pack)){
 			list.add(pack);

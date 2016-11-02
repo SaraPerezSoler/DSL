@@ -14,7 +14,13 @@ public class PackNameOperation extends Package {
 
 	@Override
 	public void check(List<String> analyze) {
-
+		for (String p: analyze){
+			if (nCheck.checkNameOperation(p)){
+				addRight(p);
+			}else{
+				addWrong(p);
+			}
+		}
 
 	}
 	@Override

@@ -15,7 +15,13 @@ public class PackNameType extends Package{
 
 	@Override
 	public void check(List<String> analyze) {
-
+		for (String p: analyze){
+			if (nCheck.checkNameType(p)){
+				addRight(p);
+			}else{
+				addWrong(p);
+			}
+		}
 	}
 	@Override
 	public String toString() {
