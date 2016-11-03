@@ -17,7 +17,7 @@ public class Main {
 		File root = new File(dirPath);
 		ReadFiles.parseFiles(root);
 		
-		for (TypeDeclaration t:Visitors.getClasses("nada")){
+		for (String t:Visitors.getPackages()){
 			System.out.println("--------------------------------");
 			System.out.println(t);
 		}

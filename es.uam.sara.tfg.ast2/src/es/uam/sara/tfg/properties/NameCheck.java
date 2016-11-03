@@ -80,9 +80,9 @@ public class NameCheck {
 	
 	private boolean upperCamelCase (String name){
 		char [] nameArray= name.toCharArray();
-		if (upperLetter(nameArray[0])){
+		if (Character.isUpperCase(nameArray[0])){
 			for (int i=1; i<nameArray.length; i++){
-				if (!(upperLetter(nameArray[i]) || lowerLetter(nameArray[i]))){
+				if (!(Character.isUpperCase(nameArray[i]) || Character.isLowerCase(nameArray[i]))){
 					return false;
 				}
 			}
@@ -94,9 +94,9 @@ public class NameCheck {
 	
 	private boolean lowerCamelCase (String name){
 		char [] nameArray= name.toCharArray();
-		if (lowerLetter(nameArray[0])){
+		if (Character.isLowerCase(nameArray[0])){
 			for (int i=1; i<nameArray.length; i++){
-				if (!(upperLetter(nameArray[i]) || lowerLetter(nameArray[i]))){
+				if (!(Character.isUpperCase(nameArray[i]) || Character.isLowerCase(nameArray[i]))){
 					return false;
 				}
 			}
@@ -109,8 +109,8 @@ public class NameCheck {
 	private boolean upperCase (String name){
 		char [] nameArray= name.toCharArray();
 		for (int i=0; i<nameArray.length; i++){
-			if (nameArray[i]!='_' && nameArray[i]!='$' && !isNumber(nameArray[i])){
-				if (!upperLetter(nameArray[i])){
+			if (Character.isLetter(nameArray[i])){
+				if (!Character.isUpperCase(nameArray[i])){
 					return false;
 				}
 			}
@@ -122,8 +122,8 @@ public class NameCheck {
 	private boolean lowerCase (String name){
 		char [] nameArray= name.toCharArray();
 		for (int i=0; i<nameArray.length; i++){
-			if (nameArray[i]!='_' && nameArray[i]!='$' && !isNumber(nameArray[i])){
-				if (!lowerLetter(nameArray[i])){
+			if (Character.isLetter(nameArray[i])){
+				if (!Character.isLowerCase(nameArray[i])){
 					return false;
 				}
 			}
@@ -132,31 +132,11 @@ public class NameCheck {
 	}
 	private boolean startUpperCase(String name){
 		char [] nameArray= name.toCharArray();
-		if (!upperLetter(nameArray[0])){
+		if (!Character.isUpperCase(nameArray[0])){
 			return false;
 		}
 		return true;
-	}
-	
-	private boolean isNumber (char a){
-		if (a>=0 && a<=9){
-			return true;
-		}
-		return false;
-	}
-	private boolean upperLetter (char a){
-		if (a>='A' && a<='Z'){
-			return true;
-		}
-		return false;
-	}
-	private boolean lowerLetter (char a){
-		if (a>='a' && a<='z'){
-			return true;
-		}
-		return false;
-	}
-	
+	}	
 	
 	private boolean nameLike (String name, String name2, int idioma){
 		ArrayList<String> sinonimos=null;
