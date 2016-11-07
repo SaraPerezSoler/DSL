@@ -66,4 +66,22 @@ public class And<T> extends Properties<T>{
 		return cad;
 	}
 
+	@Override
+	public String printRight() {
+		String cad="";
+		for (Properties<T> p: properties){
+			cad+=p.printRight();
+		}
+		return cad+"\n";
+	}
+
+	@Override
+	public String printWrong() {
+		String cad="";
+		for (Properties<T> p: properties){
+			cad+=p.printWrong();
+		}
+		return cad+"\n";
+	}
+
 }

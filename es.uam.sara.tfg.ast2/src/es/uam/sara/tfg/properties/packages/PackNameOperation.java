@@ -7,9 +7,9 @@ import es.uam.sara.tfg.properties.NameCheck;
 public class PackNameOperation extends Package {
 
 	private NameCheck nCheck;
-	public PackNameOperation(NameCheck nCheck) {
+	public PackNameOperation(NameCheck.Operation op, String cad, int idioma) {
 		super();
-		this.nCheck=nCheck;
+		this.nCheck=new NameCheck(op, cad, idioma);
 	}
 
 	@Override

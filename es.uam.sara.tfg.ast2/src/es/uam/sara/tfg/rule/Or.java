@@ -42,4 +42,23 @@ public class Or<T> extends Properties<T>{
 		}
 		return cad;
 	}
+
+	@Override
+	public String printRight() {
+		String cad="";
+		for (And<T> a: ands){
+			cad+=a.printRight();
+		}
+		return cad;
+	}
+
+	@Override
+	public String printWrong() {
+	
+		String cad="";
+		for (And<T> a: ands){
+			cad+=a.printWrong();
+		}
+		return cad;
+	}
 }

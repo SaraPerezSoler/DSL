@@ -71,5 +71,7 @@ public abstract class Properties<T> {
 	}
 
 	public abstract void check(List<T> analize);
+	public abstract String printRight();
+	public abstract String printWrong();
 
 }

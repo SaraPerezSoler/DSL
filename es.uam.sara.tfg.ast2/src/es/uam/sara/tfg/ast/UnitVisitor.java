@@ -1,9 +1,10 @@
 package es.uam.sara.tfg.ast;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -14,12 +15,13 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 public class UnitVisitor extends ASTVisitor{
 	
 	private String nameFile;
+	private CompilationUnit comp;
 	private PackageDeclaration packageDeclaration;
-	private ArrayList<TypeDeclaration> interfaces;
-	private ArrayList<TypeDeclaration> classes;
-	private ArrayList<EnumDeclaration> enumerations;
-	private ArrayList<MethodDeclaration> methods;
-	private ArrayList<FieldDeclaration> attributes;
+	private List<TypeDeclaration> interfaces;
+	private List<TypeDeclaration> classes;
+	private List<EnumDeclaration> enumerations;
+	private List<MethodDeclaration> methods;
+	private List<FieldDeclaration> attributes;
 	
 	
 	public UnitVisitor(String nameFile){
@@ -73,23 +75,77 @@ public class UnitVisitor extends ASTVisitor{
 		return packageDeclaration;
 	}
 
-	public ArrayList<TypeDeclaration> getInterfaces() {
+	public List<TypeDeclaration> getInterfaces() {
 		return interfaces;
 	}
 
-	public ArrayList<TypeDeclaration> getClasses() {
+	public List<TypeDeclaration> getClasses() {
 		return classes;
 	}
 
-	public ArrayList<EnumDeclaration> getEnumerations() {
+	public List<EnumDeclaration> getEnumerations() {
 		return enumerations;
 	}
 
-	public ArrayList<MethodDeclaration> getMethods() {
+	public List<MethodDeclaration> getMethods() {
 		return methods;
 	}
 
-	public ArrayList<FieldDeclaration> getAttributes() {
+	public List<FieldDeclaration> getAttributes() {
 		return attributes;
+	}
+
+
+	public boolean isVisitorFrom(TypeDeclaration type) {
+		if (type.isInterface()){
+			if (interfaces.contains(type)){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			if (classes.contains(type)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+
+
+	public boolean isVisitorFrom(EnumDeclaration en) {
+		if (enumerations.contains(en)){
+			return true;
+		}
+		return false;
+	}
+
+
+	public boolean isVisitorFrom(MethodDeclaration meth) {
+		if (methods.contains(meth)){
+			return true;
+		}
+		return false;
+	}
+
+
+	public boolean isVisitorFrom(FieldDeclaration field) {
+		if (attributes.contains(field)){
+			return true;
+		}
+		return false;
+	}
+
+
+	public CompilationUnit getComp() {
+		return comp;
+	}
+	public int getLineNumber(int position) {
+		return (comp.getLineNumber(position));
+	}
+
+
+	public void setComp(CompilationUnit comp) {
+		this.comp = comp;
 	}
 }

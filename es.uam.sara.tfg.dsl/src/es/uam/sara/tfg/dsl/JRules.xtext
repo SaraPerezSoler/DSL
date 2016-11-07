@@ -33,11 +33,22 @@ Filter returns Filter:
 	(no?='no')? filter=Or;
 
 Or returns Or:
-	op+=And ('or' op+=And)*;
+	 (=>OrUnico)|OrComplejo;
 
-And returns And:
-	op+=Satisfy|
-	'('op+=Satisfy 'and' op+=Satisfy ('and' op+=Satisfy)*')';
+OrUnico returns Or:
+	op+=AndSimple
+;
+OrComplejo returns Or:
+	op+=(AndComplejo|AndUnico)('or' op+=(AndComplejo|AndUnico))+
+;
+AndUnico returns And:
+	op+=Satisfy;
+	
+AndSimple returns And:
+	op+=Satisfy ('and' op+=Satisfy)+;
+	
+AndComplejo returns And:
+	'('op+=Satisfy ('and' op+=Satisfy)+')';
 
 isImplemented returns isImplemented:
 	{isImplemented}

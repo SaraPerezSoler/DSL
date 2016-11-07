@@ -285,64 +285,120 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class OrElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Or");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cOrUnicoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cOrComplejoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Or:
+		//	=> OrUnico | OrComplejo;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//=> OrUnico | OrComplejo
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//=> OrUnico
+		public RuleCall getOrUnicoParserRuleCall_0() { return cOrUnicoParserRuleCall_0; }
+		
+		//OrComplejo
+		public RuleCall getOrComplejoParserRuleCall_1() { return cOrComplejoParserRuleCall_1; }
+	}
+	public class OrUnicoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.OrUnico");
+		private final Assignment cOpAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cOpAndSimpleParserRuleCall_0 = (RuleCall)cOpAssignment.eContents().get(0);
+		
+		//OrUnico Or:
+		//	op+=AndSimple
+		@Override public ParserRule getRule() { return rule; }
+		
+		//op+=AndSimple
+		public Assignment getOpAssignment() { return cOpAssignment; }
+		
+		//AndSimple
+		public RuleCall getOpAndSimpleParserRuleCall_0() { return cOpAndSimpleParserRuleCall_0; }
+	}
+	public class OrComplejoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.OrComplejo");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cOpAndParserRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
+		private final Alternatives cOpAlternatives_0_0 = (Alternatives)cOpAssignment_0.eContents().get(0);
+		private final RuleCall cOpAndComplejoParserRuleCall_0_0_0 = (RuleCall)cOpAlternatives_0_0.eContents().get(0);
+		private final RuleCall cOpAndUnicoParserRuleCall_0_0_1 = (RuleCall)cOpAlternatives_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cOrKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpAndParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
+		private final Alternatives cOpAlternatives_1_1_0 = (Alternatives)cOpAssignment_1_1.eContents().get(0);
+		private final RuleCall cOpAndComplejoParserRuleCall_1_1_0_0 = (RuleCall)cOpAlternatives_1_1_0.eContents().get(0);
+		private final RuleCall cOpAndUnicoParserRuleCall_1_1_0_1 = (RuleCall)cOpAlternatives_1_1_0.eContents().get(1);
 		
-		//Or:
-		//	op+=And ('or' op+=And)*;
+		//OrComplejo Or:
+		//	op+=(AndComplejo | AndUnico) ('or' op+=(AndComplejo | AndUnico))+
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op+=And ('or' op+=And)*
+		//op+=(AndComplejo | AndUnico) ('or' op+=(AndComplejo | AndUnico))+
 		public Group getGroup() { return cGroup; }
 		
-		//op+=And
+		//op+=(AndComplejo | AndUnico)
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
 		
-		//And
-		public RuleCall getOpAndParserRuleCall_0_0() { return cOpAndParserRuleCall_0_0; }
+		//(AndComplejo | AndUnico)
+		public Alternatives getOpAlternatives_0_0() { return cOpAlternatives_0_0; }
 		
-		//('or' op+=And)*
+		//AndComplejo
+		public RuleCall getOpAndComplejoParserRuleCall_0_0_0() { return cOpAndComplejoParserRuleCall_0_0_0; }
+		
+		//AndUnico
+		public RuleCall getOpAndUnicoParserRuleCall_0_0_1() { return cOpAndUnicoParserRuleCall_0_0_1; }
+		
+		//('or' op+=(AndComplejo | AndUnico))+
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'or'
 		public Keyword getOrKeyword_1_0() { return cOrKeyword_1_0; }
 		
-		//op+=And
+		//op+=(AndComplejo | AndUnico)
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
-		//And
-		public RuleCall getOpAndParserRuleCall_1_1_0() { return cOpAndParserRuleCall_1_1_0; }
-	}
-	public class AndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.And");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cOpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cOpSatisfyParserRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cOpSatisfyParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Keyword cAndKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cOpAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cOpSatisfyParserRuleCall_1_3_0 = (RuleCall)cOpAssignment_1_3.eContents().get(0);
-		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
-		private final Keyword cAndKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cOpAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cOpSatisfyParserRuleCall_1_4_1_0 = (RuleCall)cOpAssignment_1_4_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
+		//(AndComplejo | AndUnico)
+		public Alternatives getOpAlternatives_1_1_0() { return cOpAlternatives_1_1_0; }
 		
-		//And:
-		//	op+=Satisfy |
-		//	'(' op+=Satisfy 'and' op+=Satisfy ('and' op+=Satisfy)* ')';
+		//AndComplejo
+		public RuleCall getOpAndComplejoParserRuleCall_1_1_0_0() { return cOpAndComplejoParserRuleCall_1_1_0_0; }
+		
+		//AndUnico
+		public RuleCall getOpAndUnicoParserRuleCall_1_1_0_1() { return cOpAndUnicoParserRuleCall_1_1_0_1; }
+	}
+	public class AndUnicoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.AndUnico");
+		private final Assignment cOpAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cOpSatisfyParserRuleCall_0 = (RuleCall)cOpAssignment.eContents().get(0);
+		
+		//AndUnico And:
+		//	op+=Satisfy
 		@Override public ParserRule getRule() { return rule; }
 		
-		//op+=Satisfy | '(' op+=Satisfy 'and' op+=Satisfy ('and' op+=Satisfy)* ')'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//op+=Satisfy
+		public Assignment getOpAssignment() { return cOpAssignment; }
+		
+		//Satisfy
+		public RuleCall getOpSatisfyParserRuleCall_0() { return cOpSatisfyParserRuleCall_0; }
+	}
+	public class AndSimpleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.AndSimple");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOpAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOpSatisfyParserRuleCall_0_0 = (RuleCall)cOpAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAndKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOpSatisfyParserRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
+		
+		//AndSimple And:
+		//	op+=Satisfy ('and' op+=Satisfy)+
+		@Override public ParserRule getRule() { return rule; }
+		
+		//op+=Satisfy ('and' op+=Satisfy)+
+		public Group getGroup() { return cGroup; }
 		
 		//op+=Satisfy
 		public Assignment getOpAssignment_0() { return cOpAssignment_0; }
@@ -350,41 +406,60 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//Satisfy
 		public RuleCall getOpSatisfyParserRuleCall_0_0() { return cOpSatisfyParserRuleCall_0_0; }
 		
-		//'(' op+=Satisfy 'and' op+=Satisfy ('and' op+=Satisfy)* ')'
+		//('and' op+=Satisfy)+
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		//'and'
+		public Keyword getAndKeyword_1_0() { return cAndKeyword_1_0; }
 		
 		//op+=Satisfy
 		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
 		
 		//Satisfy
 		public RuleCall getOpSatisfyParserRuleCall_1_1_0() { return cOpSatisfyParserRuleCall_1_1_0; }
+	}
+	public class AndComplejoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.AndComplejo");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cOpAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOpSatisfyParserRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAndKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cOpAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cOpSatisfyParserRuleCall_2_1_0 = (RuleCall)cOpAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//'and'
-		public Keyword getAndKeyword_1_2() { return cAndKeyword_1_2; }
+		//AndComplejo And:
+		//	'(' op+=Satisfy ('and' op+=Satisfy)+ ')'
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' op+=Satisfy ('and' op+=Satisfy)+ ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
 		//op+=Satisfy
-		public Assignment getOpAssignment_1_3() { return cOpAssignment_1_3; }
+		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
 		
 		//Satisfy
-		public RuleCall getOpSatisfyParserRuleCall_1_3_0() { return cOpSatisfyParserRuleCall_1_3_0; }
+		public RuleCall getOpSatisfyParserRuleCall_1_0() { return cOpSatisfyParserRuleCall_1_0; }
 		
-		//('and' op+=Satisfy)*
-		public Group getGroup_1_4() { return cGroup_1_4; }
+		//('and' op+=Satisfy)+
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'and'
-		public Keyword getAndKeyword_1_4_0() { return cAndKeyword_1_4_0; }
+		public Keyword getAndKeyword_2_0() { return cAndKeyword_2_0; }
 		
 		//op+=Satisfy
-		public Assignment getOpAssignment_1_4_1() { return cOpAssignment_1_4_1; }
+		public Assignment getOpAssignment_2_1() { return cOpAssignment_2_1; }
 		
 		//Satisfy
-		public RuleCall getOpSatisfyParserRuleCall_1_4_1_0() { return cOpSatisfyParserRuleCall_1_4_1_0; }
+		public RuleCall getOpSatisfyParserRuleCall_2_1_0() { return cOpSatisfyParserRuleCall_2_1_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_1_5() { return cRightParenthesisKeyword_1_5; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class IsImplementedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.isImplemented");
@@ -1560,7 +1635,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	private final ElementJavaElements eElementJava;
 	private final FilterElements pFilter;
 	private final OrElements pOr;
-	private final AndElements pAnd;
+	private final OrUnicoElements pOrUnico;
+	private final OrComplejoElements pOrComplejo;
+	private final AndUnicoElements pAndUnico;
+	private final AndSimpleElements pAndSimple;
+	private final AndComplejoElements pAndComplejo;
 	private final IsImplementedElements pIsImplemented;
 	private final IsInheritorElements pIsInheritor;
 	private final ImplementsElements pImplements;
@@ -1602,7 +1681,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		this.eElementJava = new ElementJavaElements();
 		this.pFilter = new FilterElements();
 		this.pOr = new OrElements();
-		this.pAnd = new AndElements();
+		this.pOrUnico = new OrUnicoElements();
+		this.pOrComplejo = new OrComplejoElements();
+		this.pAndUnico = new AndUnicoElements();
+		this.pAndSimple = new AndSimpleElements();
+		this.pAndComplejo = new AndComplejoElements();
 		this.pIsImplemented = new IsImplementedElements();
 		this.pIsInheritor = new IsInheritorElements();
 		this.pImplements = new ImplementsElements();
@@ -1737,7 +1820,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Or:
-	//	op+=And ('or' op+=And)*;
+	//	=> OrUnico | OrComplejo;
 	public OrElements getOrAccess() {
 		return pOr;
 	}
@@ -1746,15 +1829,54 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		return getOrAccess().getRule();
 	}
 	
-	//And:
-	//	op+=Satisfy |
-	//	'(' op+=Satisfy 'and' op+=Satisfy ('and' op+=Satisfy)* ')';
-	public AndElements getAndAccess() {
-		return pAnd;
+	//OrUnico Or:
+	//	op+=AndSimple
+	public OrUnicoElements getOrUnicoAccess() {
+		return pOrUnico;
 	}
 	
-	public ParserRule getAndRule() {
-		return getAndAccess().getRule();
+	public ParserRule getOrUnicoRule() {
+		return getOrUnicoAccess().getRule();
+	}
+	
+	//OrComplejo Or:
+	//	op+=(AndComplejo | AndUnico) ('or' op+=(AndComplejo | AndUnico))+
+	public OrComplejoElements getOrComplejoAccess() {
+		return pOrComplejo;
+	}
+	
+	public ParserRule getOrComplejoRule() {
+		return getOrComplejoAccess().getRule();
+	}
+	
+	//AndUnico And:
+	//	op+=Satisfy
+	public AndUnicoElements getAndUnicoAccess() {
+		return pAndUnico;
+	}
+	
+	public ParserRule getAndUnicoRule() {
+		return getAndUnicoAccess().getRule();
+	}
+	
+	//AndSimple And:
+	//	op+=Satisfy ('and' op+=Satisfy)+
+	public AndSimpleElements getAndSimpleAccess() {
+		return pAndSimple;
+	}
+	
+	public ParserRule getAndSimpleRule() {
+		return getAndSimpleAccess().getRule();
+	}
+	
+	//AndComplejo And:
+	//	'(' op+=Satisfy ('and' op+=Satisfy)+ ')'
+	public AndComplejoElements getAndComplejoAccess() {
+		return pAndComplejo;
+	}
+	
+	public ParserRule getAndComplejoRule() {
+		return getAndComplejoAccess().getRule();
 	}
 	
 	//isImplemented:

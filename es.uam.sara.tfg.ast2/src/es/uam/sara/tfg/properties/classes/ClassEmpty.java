@@ -35,7 +35,11 @@ public class ClassEmpty extends Class{
 
 	@Override
 	public String toString() {
-		return "no empty";
+		if (no){
+			return "no empty";
+		}else{
+			return "empty";
+		}
 	}
 
 }

@@ -243,6 +243,70 @@ public class Visitors {
 		return temp;
 	}
 
+	public static String getFileName(TypeDeclaration type) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(type)){
+				return u.getNameFile();
+			}
+		}
+		return "";
+	}
+	public static String getFileName(EnumDeclaration en) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(en)){
+				return u.getNameFile();
+			}
+		}
+		return "";
+	}
+	public static String getFileName(MethodDeclaration meth) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(meth)){
+				return u.getNameFile();
+			}
+		}
+		return "";
+	}
+	public static String getFileName(FieldDeclaration field) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(field)){
+				return u.getNameFile();
+			}
+		}
+		return "";
+	}
+	public static UnitVisitor getVisitor(TypeDeclaration type) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(type)){
+				return u;
+			}
+		}
+		return null;
+	}
+	public static  UnitVisitor getVisitor(EnumDeclaration en) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(en)){
+				return u;
+			}
+		}
+		return null;
+	}
+	public static  UnitVisitor getVisitor(MethodDeclaration meth) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(meth)){
+				return u;
+			}
+		}
+		return null;
+	}
+	public static UnitVisitor getVisitor(FieldDeclaration field) {
+		for (UnitVisitor u: visitors){
+			if (u.isVisitorFrom(field)){
+				return u;
+			}
+		}
+		return null;
+	}
 	public static void addPackages(List<String> packs) {
 		packages = packs;
 	}

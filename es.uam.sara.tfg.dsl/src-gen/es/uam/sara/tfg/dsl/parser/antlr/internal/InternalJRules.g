@@ -528,61 +528,208 @@ ruleOr returns [EObject current=null]
 }:
 	(
 		(
+			(ruleOrUnico)=>
+			{
+				newCompositeNode(grammarAccess.getOrAccess().getOrUnicoParserRuleCall_0());
+			}
+			this_OrUnico_0=ruleOrUnico
+			{
+				$current = $this_OrUnico_0.current;
+				afterParserOrEnumRuleCall();
+			}
+		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getOrAccess().getOrComplejoParserRuleCall_1());
+		}
+		this_OrComplejo_1=ruleOrComplejo
+		{
+			$current = $this_OrComplejo_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleOrUnico
+entryRuleOrUnico returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOrUnicoRule()); }
+	iv_ruleOrUnico=ruleOrUnico
+	{ $current=$iv_ruleOrUnico.current; }
+	EOF;
+
+// Rule OrUnico
+ruleOrUnico returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getOrUnicoAccess().getOpAndSimpleParserRuleCall_0());
+			}
+			lv_op_0_0=ruleAndSimple
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getOrUnicoRule());
+				}
+				add(
+					$current,
+					"op",
+					lv_op_0_0,
+					"es.uam.sara.tfg.dsl.JRules.AndSimple");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleOrComplejo
+entryRuleOrComplejo returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getOrComplejoRule()); }
+	iv_ruleOrComplejo=ruleOrComplejo
+	{ $current=$iv_ruleOrComplejo.current; }
+	EOF;
+
+// Rule OrComplejo
+ruleOrComplejo returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
 			(
-				{
-					newCompositeNode(grammarAccess.getOrAccess().getOpAndParserRuleCall_0_0());
-				}
-				lv_op_0_0=ruleAnd
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getOrRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getOrComplejoAccess().getOpAndComplejoParserRuleCall_0_0_0());
 					}
-					add(
-						$current,
-						"op",
-						lv_op_0_0,
-						"es.uam.sara.tfg.dsl.JRules.And");
-					afterParserOrEnumRuleCall();
-				}
+					lv_op_0_1=ruleAndComplejo
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOrComplejoRule());
+						}
+						add(
+							$current,
+							"op",
+							lv_op_0_1,
+							"es.uam.sara.tfg.dsl.JRules.AndComplejo");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getOrComplejoAccess().getOpAndUnicoParserRuleCall_0_0_1());
+					}
+					lv_op_0_2=ruleAndUnico
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getOrComplejoRule());
+						}
+						add(
+							$current,
+							"op",
+							lv_op_0_2,
+							"es.uam.sara.tfg.dsl.JRules.AndUnico");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 		(
 			otherlv_1='or'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getOrAccess().getOrKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getOrComplejoAccess().getOrKeyword_1_0());
 			}
 			(
 				(
-					{
-						newCompositeNode(grammarAccess.getOrAccess().getOpAndParserRuleCall_1_1_0());
-					}
-					lv_op_2_0=ruleAnd
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getOrRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getOrComplejoAccess().getOpAndComplejoParserRuleCall_1_1_0_0());
 						}
-						add(
-							$current,
-							"op",
-							lv_op_2_0,
-							"es.uam.sara.tfg.dsl.JRules.And");
-						afterParserOrEnumRuleCall();
-					}
+						lv_op_2_1=ruleAndComplejo
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getOrComplejoRule());
+							}
+							add(
+								$current,
+								"op",
+								lv_op_2_1,
+								"es.uam.sara.tfg.dsl.JRules.AndComplejo");
+							afterParserOrEnumRuleCall();
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getOrComplejoAccess().getOpAndUnicoParserRuleCall_1_1_0_1());
+						}
+						lv_op_2_2=ruleAndUnico
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getOrComplejoRule());
+							}
+							add(
+								$current,
+								"op",
+								lv_op_2_2,
+								"es.uam.sara.tfg.dsl.JRules.AndUnico");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)
-		)*
+		)+
 	)
 ;
 
-// Entry rule entryRuleAnd
-entryRuleAnd returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAndRule()); }
-	iv_ruleAnd=ruleAnd
-	{ $current=$iv_ruleAnd.current; }
+// Entry rule entryRuleAndUnico
+entryRuleAndUnico returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAndUnicoRule()); }
+	iv_ruleAndUnico=ruleAndUnico
+	{ $current=$iv_ruleAndUnico.current; }
 	EOF;
 
-// Rule And
-ruleAnd returns [EObject current=null]
+// Rule AndUnico
+ruleAndUnico returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getAndUnicoAccess().getOpSatisfyParserRuleCall_0());
+			}
+			lv_op_0_0=ruleSatisfy
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getAndUnicoRule());
+				}
+				add(
+					$current,
+					"op",
+					lv_op_0_0,
+					"es.uam.sara.tfg.dsl.JRules.Satisfy");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleAndSimple
+entryRuleAndSimple returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAndSimpleRule()); }
+	iv_ruleAndSimple=ruleAndSimple
+	{ $current=$iv_ruleAndSimple.current; }
+	EOF;
+
+// Rule AndSimple
+ruleAndSimple returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -593,12 +740,12 @@ ruleAnd returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getAndSimpleAccess().getOpSatisfyParserRuleCall_0_0());
 				}
 				lv_op_0_0=ruleSatisfy
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAndRule());
+						$current = createModelElementForParent(grammarAccess.getAndSimpleRule());
 					}
 					add(
 						$current,
@@ -609,21 +756,20 @@ ruleAnd returns [EObject current=null]
 				}
 			)
 		)
-		    |
 		(
-			otherlv_1='('
+			otherlv_1='and'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getAndAccess().getLeftParenthesisKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getAndSimpleAccess().getAndKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getAndSimpleAccess().getOpSatisfyParserRuleCall_1_1_0());
 					}
 					lv_op_2_0=ruleSatisfy
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
+							$current = createModelElementForParent(grammarAccess.getAndSimpleRule());
 						}
 						add(
 							$current,
@@ -634,59 +780,78 @@ ruleAnd returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_3='and'
+		)+
+	)
+;
+
+// Entry rule entryRuleAndComplejo
+entryRuleAndComplejo returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAndComplejoRule()); }
+	iv_ruleAndComplejo=ruleAndComplejo
+	{ $current=$iv_ruleAndComplejo.current; }
+	EOF;
+
+// Rule AndComplejo
+ruleAndComplejo returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAndComplejoAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAndComplejoAccess().getOpSatisfyParserRuleCall_1_0());
+				}
+				lv_op_1_0=ruleSatisfy
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAndComplejoRule());
+					}
+					add(
+						$current,
+						"op",
+						lv_op_1_0,
+						"es.uam.sara.tfg.dsl.JRules.Satisfy");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2='and'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getAndAccess().getAndKeyword_1_2());
+				newLeafNode(otherlv_2, grammarAccess.getAndComplejoAccess().getAndKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_3_0());
+						newCompositeNode(grammarAccess.getAndComplejoAccess().getOpSatisfyParserRuleCall_2_1_0());
 					}
-					lv_op_4_0=ruleSatisfy
+					lv_op_3_0=ruleSatisfy
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAndRule());
+							$current = createModelElementForParent(grammarAccess.getAndComplejoRule());
 						}
 						add(
 							$current,
 							"op",
-							lv_op_4_0,
+							lv_op_3_0,
 							"es.uam.sara.tfg.dsl.JRules.Satisfy");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			(
-				otherlv_5='and'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getAndAccess().getAndKeyword_1_4_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getAndAccess().getOpSatisfyParserRuleCall_1_4_1_0());
-						}
-						lv_op_6_0=ruleSatisfy
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAndRule());
-							}
-							add(
-								$current,
-								"op",
-								lv_op_6_0,
-								"es.uam.sara.tfg.dsl.JRules.Satisfy");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_7=')'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getAndAccess().getRightParenthesisKeyword_1_5());
-			}
-		)
+		)+
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getAndComplejoAccess().getRightParenthesisKeyword_3());
+		}
 	)
 ;
 

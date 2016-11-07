@@ -101,6 +101,18 @@ public class Rule<T> {
 		}
 		return cad;
 	}
+	
+	public String printWrong(){
+		if (checkeado){
+			if (no){
+				return properties.printRight();
+			}else{
+				return properties.printWrong();
+			}
+		}else{
+			return "";
+		}
+	}
 	public String log(){
 		List<T> right;
 		if (checkeado){
@@ -120,7 +132,9 @@ public class Rule<T> {
 				cad+="OK\n";
 			}else{
 				cad+="ERROR\n";
+				cad+= this.printWrong();
 			}
+			
 			return cad;
 		}else{
 			return toString()+"Rule is not checked\n";

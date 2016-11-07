@@ -7,6 +7,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class NameCheck {
 
@@ -82,7 +83,7 @@ public class NameCheck {
 		char [] nameArray= name.toCharArray();
 		if (Character.isUpperCase(nameArray[0])){
 			for (int i=1; i<nameArray.length; i++){
-				if (!(Character.isUpperCase(nameArray[i]) || Character.isLowerCase(nameArray[i]))){
+				if (!(Character.isUpperCase(nameArray[i]) || Character.isLowerCase(nameArray[i]) || Character.isDigit(nameArray[i]))){
 					return false;
 				}
 			}
@@ -139,7 +140,7 @@ public class NameCheck {
 	}	
 	
 	private boolean nameLike (String name, String name2, int idioma){
-		ArrayList<String> sinonimos=null;
+		List<String> sinonimos=null;
 		if (name.compareToIgnoreCase(name2)==0){
 			return true;
 		}
@@ -165,7 +166,7 @@ public class NameCheck {
 	}
 	
 	
-	private ArrayList<String> synonyms (String name){
+	private List<String> synonyms (String name){
 		try {
 			
 			URL url = new URL("http://www.wordreference.com/synonyms/"+name);
@@ -201,7 +202,7 @@ public class NameCheck {
 		
 		return null;
 	}
-	private ArrayList<String> sinonimos (String name){
+	private List<String> sinonimos (String name){
 		try {
 			URL url = new URL("http://www.wordreference.com/sinonimos/"+name);
 			URLConnection con = url.openConnection();
@@ -258,21 +259,21 @@ public class NameCheck {
 	}
 	
 	private boolean nameStart (String name, String prefix){
-		if (name.startsWith(prefix)){
+		if (name.toLowerCase().startsWith(prefix.toLowerCase())){
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean nameEnd (String name, String suffix){
-		if (name.endsWith(suffix)){
+		if (name.toLowerCase().endsWith(suffix.toLowerCase())){
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean nameContein (String name, String text){
-		if (name.contentEquals(text)){
+		if (name.toLowerCase().contains(text.toLowerCase())){
 			return true;
 		}
 		return false;
