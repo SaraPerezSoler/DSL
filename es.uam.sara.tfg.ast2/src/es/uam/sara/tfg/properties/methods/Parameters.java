@@ -67,8 +67,8 @@ public class Parameters extends Method{
 		List<String> copia= copia(paramList);
 		for (SingleVariableDeclaration s: parameters){
 			String nombre=s.getType().toString();
-			if (copia.contains(nombre)){
-				copia.remove(nombre);
+			if (copia.contains(nombre.toLowerCase())){
+				copia.remove(nombre.toLowerCase());
 			}else{
 				return false;
 			}
@@ -79,7 +79,7 @@ public class Parameters extends Method{
 	private List<String> copia(List<String> paramList2){
 		List<String> listanueva= new ArrayList<String>();
 		for (String s: paramList2){
-			listanueva.add(s);
+			listanueva.add(s.toLowerCase());
 		}
 		return listanueva;
 	}

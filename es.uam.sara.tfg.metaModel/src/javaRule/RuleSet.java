@@ -25,30 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RuleSet extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Project Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Project Name</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Project Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Project Name</em>' attribute.
-	 * @see #setProjectName(String)
+	 * @return the value of the '<em>Project Name</em>' attribute list.
 	 * @see javaRule.JavaRulePackage#getRuleSet_ProjectName()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	String getProjectName();
-
-	/**
-	 * Sets the value of the '{@link javaRule.RuleSet#getProjectName <em>Project Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Project Name</em>' attribute.
-	 * @see #getProjectName()
-	 * @generated
-	 */
-	void setProjectName(String value);
+	EList<String> getProjectName();
 
 	/**
 	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.

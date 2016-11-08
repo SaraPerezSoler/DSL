@@ -46,23 +46,28 @@ public class JRulesValidator extends AbstractJRulesValidator {
   
   @Check
   public void checkProject(final RuleSet rs) {
-    String _projectName = rs.getProjectName();
+    EList<String> _projectName = rs.getProjectName();
     boolean _isEmpty = _projectName.isEmpty();
     if (_isEmpty) {
       this.error("You must put a name Project", JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
     } else {
       IWorkspace _workspace = ResourcesPlugin.getWorkspace();
       IWorkspaceRoot workspace = _workspace.getRoot();
-      String _projectName_1 = rs.getProjectName();
-      IProject project = workspace.getProject(_projectName_1);
-      boolean _exists = project.exists();
-      boolean _not = (!_exists);
-      if (_not) {
-        String _projectName_2 = rs.getProjectName();
-        String _plus = ("The project " + _projectName_2);
-        String _plus_1 = (_plus + " is not into worksapce");
-        this.error(_plus_1, 
-          JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+      EList<String> _projectName_1 = rs.getProjectName();
+      for (final String name : _projectName_1) {
+        boolean _equals = Objects.equal(name, "");
+        if (_equals) {
+          this.error((("The project " + name) + " is not into worksapce"), 
+            JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+        } else {
+          IProject project = workspace.getProject(name);
+          boolean _exists = project.exists();
+          boolean _not = (!_exists);
+          if (_not) {
+            this.error((("The project " + name) + " is not into worksapce"), 
+              JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+          }
+        }
       }
     }
   }

@@ -22,6 +22,8 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.resources.IProject
+import java.util.List
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -39,21 +41,26 @@ class JRulesGenerator extends AbstractGenerator {
 		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Rule)));
 		var workspace = ResourcesPlugin.getWorkspace().getRoot();
 		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
-		var project = workspace.getProject(ruleSet.projectName)
-		fsa.generateFile("Main.java", main(project));
+		var projects=new ArrayList<IProject>();
+		for (name: ruleSet.projectName){
+			projects.add(workspace.getProject(name));
+		}
+		fsa.generateFile("Main.java", main(projects));
 
 	}
 
 	def CharSequence getWorksapce(RuleSet rs) {
 	}
 
-	def CharSequence main(IProject project) {
+	def CharSequence main(List<IProject> projects) {
 
 		'''
 			import java.io.File;
+			import java.io.FileWriter;
 			import java.io.IOException;
+			import java.io.PrintWriter;
 			import java.util.List;
-			
+			import java.util.ArrayList;
 			import es.uam.sara.tfg.ast.ReadFiles;
 			import es.uam.sara.tfg.rule.Rule;
 				
@@ -61,15 +68,43 @@ class JRulesGenerator extends AbstractGenerator {
 				
 				 
 				 public static void main(String[] args)throws IOException{
-				 	«var src= project.getFolder("src")»
-				 	File root= new File("«src.location»");
-				 	ReadFiles.parseFiles(root);
 				 	
-				 	RuleFactory ruleFactory=new RuleFactory();
-				 	List <Rule<?>> rules=ruleFactory.getRules();
-				 	for (Rule<?> r: rules){
-				 		r.checkTest();
-				 		System.out.println(r.log());
+				 	List<File> roots= new ArrayList<File>();
+				 	List<File> outs= new ArrayList<File>();
+				 	«FOR p: projects»
+				 	«var src= p.getFolder("src")»
+				 	roots.add(new File("«src.location»"));
+				 	outs.add(new File("outs/«p.name».txt"));
+				 	«ENDFOR»
+				 	for (int i=0; i <roots.size(); i++){
+				 		File root=roots.get(i);
+				 		File out=outs.get(i);
+					 	ReadFiles.parseFiles(root);
+					 	FileWriter fichero = null;
+					 	 PrintWriter pw = null;
+					 	try{
+				            fichero = new FileWriter(out);
+				            pw = new PrintWriter(fichero);
+										RuleFactory ruleFactory=new RuleFactory();
+									 	List <Rule<?>> rules=ruleFactory.getRules();
+									 	for (Rule<?> r: rules){
+									 		r.checkTest();
+									 		System.out.println(r.log());
+									 		pw.println(r.log());
+									 	}
+				
+				        } catch (Exception e) {
+				            e.printStackTrace();
+				        } finally {
+				           try {
+					           if (null != fichero)
+					              fichero.close();
+				           } catch (Exception e2) {
+				              e2.printStackTrace();
+				           }
+				           ReadFiles.reset();
+				        }
+				        
 				 	}
 				 }
 				}

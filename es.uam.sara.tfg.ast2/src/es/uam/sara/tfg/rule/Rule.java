@@ -2,6 +2,8 @@ package es.uam.sara.tfg.rule;
 
 import java.util.List;
 
+import es.uam.sara.tfg.properties.NoProperty;
+
 public class Rule<T> {
 
 	protected boolean no;
@@ -20,49 +22,37 @@ public class Rule<T> {
 		this.no = no;
 		this.quantifier = q;
 		this.elements = elements;
-		this.filter = filter;
-		this.properties = properties;
-		this.elementJava=elemntJava;
+		if (filter==null){
+			this.filter= new NoProperty<T>();
+		}else{
+			this.filter = filter;
+		}
+		if (properties==null){
+			this.properties= new NoProperty<T>();
+		}else{
+			this.properties = properties;
+		}
+		this.elementJava = elemntJava;
 	}
 
 	public void reset(List<T> elements) {
 		this.elements = elements;
-		if (filter!=null)
-			filter.reset();
-		if (properties!=null)
-			properties.reset();
+		filter.reset();
+		properties.reset();
 		checkeado = false;
 	}
 
 	public boolean checkTest() {
-		List<T> right;
 		if (!checkeado) {
-			List<T> analyze = this.elements;
-			if (filter != null) {
-				filter.check(this.elements);
-				analyze = filter.getFiltering();
-			}
-
-			if (properties != null) {
-				properties.check(analyze);
-				right = properties.getRight();
-			} else {
-				right = analyze;
-			}
+			filter.check(this.elements);
+			List<T> analyze = filter.getFiltering();
+			properties.check(analyze);
 			checkeado = true;
-
-		} else {
-			if (properties != null) {
-				right = properties.getRight();
-			} else {
-				right = this.elements;
-			}
 		}
-
 		if (no) {
-			return !checkQuantifier(right);
+			return !checkQuantifier(properties.getRight());
 		} else {
-			return checkQuantifier(right);
+			return checkQuantifier(properties.getRight());
 		}
 	}
 
@@ -88,58 +78,67 @@ public class Rule<T> {
 
 	@Override
 	public String toString() {
-		String cad="";
-		if (no){
-			cad+="no ";
+		String cad = "";
+		if (no) {
+			cad += "no ";
 		}
-		cad+=this.quantifier.toString().toLowerCase()+" "+elementJava;
-		if (filter!= null){
-			cad+=" which "+filter;
+		cad += this.quantifier.toString().toLowerCase() + " " + elementJava;
+		if (!(filter.isNoProperty())) {
+			cad += " which " + filter;
 		}
-		if (properties!= null){
-			cad+=" satisfy "+properties+" ";
+		if (!(properties.isNoProperty())) {
+			cad += " satisfy " + properties + " ";
 		}
 		return cad;
 	}
-	
-	public String printWrong(){
-		if (checkeado){
-			if (no){
+
+	public String printWrong() {
+		if (checkeado) {
+			if (no) {
 				return properties.printRight();
-			}else{
+			} else {
 				return properties.printWrong();
 			}
-		}else{
+		}
+		return "";
+	}
+
+	public String printRight() {
+		if (checkeado) {
+			if (no) {
+				return properties.printWrong();
+			} else {
+				return properties.printRight();
+			}
+		} else {
 			return "";
 		}
 	}
-	public String log(){
-		List<T> right;
-		if (checkeado){
-			if (properties != null) {
-				right = properties.getRight();
-			} else {
-				right = this.elements;
-			}
-			String cad=toString()+"\n"+"Checked.....";
+
+	public String log() {
+		if (checkeado) {
+			String cad = toString() + "\n" + "Checked.....";
 			boolean res;
 			if (no) {
-				res= !checkQuantifier(right);
+				res = !checkQuantifier(properties.getRight());
 			} else {
-				res= checkQuantifier(right);
+				res = checkQuantifier(properties.getRight());
 			}
-			if (res){
-				cad+="OK\n";
+			if (res) {
+				cad += "OK\n";
+			} else {
+				cad += "ERROR\n";
+			}
+			if (properties.isNoProperty()){
+				cad+=this.printWrong().replace("\n", "\n\t")+this.printRight().replace("\n", "\n\t");
 			}else{
-				cad+="ERROR\n";
-				cad+= this.printWrong();
-			}
-			
-			return cad;
-		}else{
-			return toString()+"Rule is not checked\n";
+				cad += "WRONG: \n\t" + this.printWrong().replace("\n", "\n\t")+"\n";
+				cad += "RIGHT: \n\t" + this.printRight().replace("\n", "\n\t")+"\n";
+			}return cad;
+		} else {
+			return toString() + "Rule is not checked\n";
 		}
-		
+
 	}
 
 }

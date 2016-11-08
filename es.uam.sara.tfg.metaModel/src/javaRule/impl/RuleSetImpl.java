@@ -7,18 +7,15 @@ import java.util.Collection;
 import javaRule.JavaRulePackage;
 import javaRule.Rule;
 import javaRule.RuleSet;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,24 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet {
 	/**
-	 * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+	 * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProjectName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROJECT_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProjectName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String projectName = PROJECT_NAME_EDEFAULT;
+	protected EList<String> projectName;
 
 	/**
 	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
@@ -91,20 +78,11 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getProjectName() {
+	public EList<String> getProjectName() {
+		if (projectName == null) {
+			projectName = new EDataTypeUniqueEList<String>(String.class, this, JavaRulePackage.RULE_SET__PROJECT_NAME);
+		}
 		return projectName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProjectName(String newProjectName) {
-		String oldProjectName = projectName;
-		projectName = newProjectName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE_SET__PROJECT_NAME, oldProjectName, projectName));
 	}
 
 	/**
@@ -159,7 +137,8 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
-				setProjectName((String)newValue);
+				getProjectName().clear();
+				getProjectName().addAll((Collection<? extends String>)newValue);
 				return;
 			case JavaRulePackage.RULE_SET__RULES:
 				getRules().clear();
@@ -178,7 +157,7 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
-				setProjectName(PROJECT_NAME_EDEFAULT);
+				getProjectName().clear();
 				return;
 			case JavaRulePackage.RULE_SET__RULES:
 				getRules().clear();
@@ -196,7 +175,7 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
-				return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+				return projectName != null && !projectName.isEmpty();
 			case JavaRulePackage.RULE_SET__RULES:
 				return rules != null && !rules.isEmpty();
 		}

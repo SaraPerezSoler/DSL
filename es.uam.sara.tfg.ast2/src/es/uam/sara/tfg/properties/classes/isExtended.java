@@ -43,7 +43,7 @@ public class isExtended extends Class {
 	private boolean check(TypeDeclaration t) {
 		for (TypeDeclaration td : allClasses) {
 			if (td.getSuperclassType() != null){
-				if (td.getSuperclassType().toString().equals(t.getName())) {
+				if (td.getSuperclassType().toString().equals(t.getName().toString())) {
 					return true;
 				}
 			}

@@ -52,19 +52,8 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		if (epackage == JavaRulePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case JavaRulePackage.AND:
-				if (rule == grammarAccess.getAndComplejoRule()) {
-					sequence_AndComplejo(context, (And) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getAndSimpleRule()) {
-					sequence_AndSimple(context, (And) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getAndUnicoRule()) {
-					sequence_AndUnico(context, (And) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_And(context, (And) semanticObject); 
+				return; 
 			case JavaRulePackage.ATTRIBUTE_TYPE:
 				sequence_AttributeType(context, (AttributeType) semanticObject); 
 				return; 
@@ -108,19 +97,8 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				sequence_NameType(context, (NameType) semanticObject); 
 				return; 
 			case JavaRulePackage.OR:
-				if (rule == grammarAccess.getOrComplejoRule()) {
-					sequence_OrComplejo(context, (Or) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOrRule()) {
-					sequence_OrComplejo_OrUnico(context, (Or) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOrUnicoRule()) {
-					sequence_OrUnico(context, (Or) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Or(context, (Or) semanticObject); 
+				return; 
 			case JavaRulePackage.PARAMETER:
 				sequence_Parameter(context, (javaRule.Parameter) semanticObject); 
 				return; 
@@ -143,36 +121,12 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     AndComplejo returns And
+	 *     And returns And
 	 *
 	 * Constraint:
-	 *     (op+=Satisfy op+=Satisfy+)
+	 *     ((op+=Satisfy op+=Satisfy*) | (op+=Satisfy op+=Satisfy*))
 	 */
-	protected void sequence_AndComplejo(ISerializationContext context, And semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AndSimple returns And
-	 *
-	 * Constraint:
-	 *     (op+=Satisfy op+=Satisfy+)
-	 */
-	protected void sequence_AndSimple(ISerializationContext context, And semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AndUnico returns And
-	 *
-	 * Constraint:
-	 *     op+=Satisfy
-	 */
-	protected void sequence_AndUnico(ISerializationContext context, And semanticObject) {
+	protected void sequence_And(ISerializationContext context, And semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -390,36 +344,12 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     OrComplejo returns Or
-	 *
-	 * Constraint:
-	 *     ((op+=AndComplejo | op+=AndUnico) (op+=AndComplejo | op+=AndUnico)+)
-	 */
-	protected void sequence_OrComplejo(ISerializationContext context, Or semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Or returns Or
 	 *
 	 * Constraint:
-	 *     (op+=AndSimple | ((op+=AndComplejo | op+=AndUnico) (op+=AndComplejo | op+=AndUnico)+))
+	 *     (op+=And op+=And*)
 	 */
-	protected void sequence_OrComplejo_OrUnico(ISerializationContext context, Or semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     OrUnico returns Or
-	 *
-	 * Constraint:
-	 *     op+=AndSimple
-	 */
-	protected void sequence_OrUnico(ISerializationContext context, Or semanticObject) {
+	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -461,7 +391,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     RuleSet returns RuleSet
 	 *
 	 * Constraint:
-	 *     (ProjectName=EString rules+=Rule rules+=Rule*)
+	 *     (ProjectName+=EString ProjectName+=EString* rules+=Rule rules+=Rule*)
 	 */
 	protected void sequence_RuleSet(ISerializationContext context, RuleSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

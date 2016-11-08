@@ -1,35 +1,38 @@
 package es.uam.sara.tfg.properties.interfaces;
 
 import java.util.List;
+
+import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+public class IsImplemented extends Interface {
 
-public class IsImplemented extends Interface{
-	
 	private List<TypeDeclaration> allTypes;
 
 	public IsImplemented(List<TypeDeclaration> allTypes) {
 		super();
-		this.allTypes=allTypes;
+		this.allTypes = allTypes;
 	}
 
 	@Override
 	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if (check(t)){
+		for (TypeDeclaration t : analyze) {
+			if (check(t)) {
 				super.addRight(t);
-			}else{
+			} else {
 				super.addWrong(t);
 			}
 		}
 	}
-	
-	private boolean check(TypeDeclaration td){
-		for (TypeDeclaration a: allTypes){
-			System.out.println(a.getName());
-			for (Object t:a.superInterfaceTypes()){
-				if (t.toString().equals(td.getName())){
-					return true;
+
+	private boolean check(TypeDeclaration td) {
+		for (TypeDeclaration a : allTypes) {
+			for (Object t : a.superInterfaceTypes()) {
+				if (t instanceof SimpleType) {
+					SimpleType st = (SimpleType) t;
+					if (st.getName().toString().equals(td.getName().toString())) {
+						return true;
+					}
 				}
 			}
 		}

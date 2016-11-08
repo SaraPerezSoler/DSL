@@ -15,7 +15,9 @@ public class Return extends Method{
 	@Override
 	public void check(List<MethodDeclaration> analyze) {
 		for (MethodDeclaration m: analyze){
-			if (m.getReturnType2().toString().compareTo(type)==0){
+			if (m.getReturnType2()==null){
+				super.addWrong(m);
+			}else if (m.getReturnType2().toString().compareTo(type)==0){
 				super.addRight(m);
 			}else{
 				super.addWrong(m);

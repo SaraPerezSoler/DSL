@@ -29,4 +29,22 @@ public abstract class PackContain<T> extends Package {
 		return "have {\n" + rule + "\n}";
 	}
 
+	public String printRight(){
+		String cad="";
+		List<String> right=super.getRight();
+		for (String meth: right){
+			cad+="The package "+meth+"  satisfy \""+this.toString()+"\"\n";
+			cad+="{\n"+rule.log().replace("\n", "\n\t")+"\n}\n";
+		}
+		return cad;
+	}
+	public String printWrong(){
+		String cad="";
+		List<String> wrong=super.getWrong();
+		for (String meth: wrong){
+			cad+="The package "+meth+" not satisfy \""+this.toString()+"\"\n";
+			cad+="{\n"+rule.log().replace("\n", "\n\t")+"\n}\n";
+		}
+		return cad;
+	}
 }

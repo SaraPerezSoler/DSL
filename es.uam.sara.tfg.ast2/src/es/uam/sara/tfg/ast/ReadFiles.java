@@ -84,4 +84,7 @@ public class ReadFiles {
 			list.add(pack);
 		}
 	}
+	public static void reset(){
+		Visitors.reset();
+	}
 }

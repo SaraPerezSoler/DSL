@@ -21,7 +21,7 @@ public abstract class Class extends Properties<TypeDeclaration> {
 		List<TypeDeclaration> right=super.getRight();
 		for (TypeDeclaration tp: right){
 			UnitVisitor uv=Visitors.getVisitor(tp);
-			cad+="In file: "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")  satisfy \""+this.toString()+"\"\n";
+			cad+="In file "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")  satisfy \""+this.toString()+"\"\n";
 		}
 		return cad;
 	}
@@ -30,7 +30,7 @@ public abstract class Class extends Properties<TypeDeclaration> {
 		List<TypeDeclaration> wrong=super.getWrong();
 		for (TypeDeclaration tp: wrong){
 			UnitVisitor uv=Visitors.getVisitor(tp);
-			cad+="In file: "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
+			cad+="In file "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
 		}
 		return cad;
 	}

@@ -310,4 +310,9 @@ public class Visitors {
 	public static void addPackages(List<String> packs) {
 		packages = packs;
 	}
+
+	public static void reset() {
+		visitors.clear();
+		packages.clear();
+	}
 }

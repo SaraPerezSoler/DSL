@@ -38,7 +38,7 @@ public class Implements extends Class{
 
 	@Override
 	public String toString() {
-		return "implements intMin=" + intMin + "and intMax=" + intMax;
+		return "implements min=" + intMin + " and max=" + intMax;
 	}
 	
 	

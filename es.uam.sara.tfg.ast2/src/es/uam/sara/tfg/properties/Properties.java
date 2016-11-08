@@ -69,7 +69,9 @@ public abstract class Properties<T> {
 	public void addAllWrong(Collection<T> c) {
 		wrong.addAll(c);
 	}
-
+	public boolean isNoProperty(){
+		return false;
+	}
 	public abstract void check(List<T> analize);
 	public abstract String printRight();
 	public abstract String printWrong();

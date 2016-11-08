@@ -17,14 +17,9 @@ public class Test{
 		
 	}
 
-	public  class Casa implements hola{
-		private int num=0;
-		public Casa() {
-		}
-		public int get() {
-			num++;
-			return num;
-		}
+	public  interface Casa extends hola{
+		int num=0;
+		public int get();
 	}
 	Test() {
 		//numCasa=new Casa().get();

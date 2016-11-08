@@ -47,15 +47,23 @@ class JRulesValidator extends AbstractJRulesValidator {
 //	}
 	@Check
 	def checkProject(RuleSet rs) {
-		if (rs.projectName.empty) {
+		if (rs.projectName.isEmpty) {
 			error("You must put a name Project", JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
 		} else {
 			var workspace = ResourcesPlugin.getWorkspace().getRoot();
-			var project = workspace.getProject(rs.projectName)
-			if (!project.exists) {
-				error("The project " + rs.projectName + " is not into worksapce",
-					JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+			for (name : rs.projectName) {
+				if (name == "") {
+					error("The project " + name + " is not into worksapce",
+						JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+				} else {
+					var project = workspace.getProject(name)
+					if (!project.exists) {
+						error("The project " + name + " is not into worksapce",
+							JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+					}
+				}
 			}
+
 		}
 	}
 

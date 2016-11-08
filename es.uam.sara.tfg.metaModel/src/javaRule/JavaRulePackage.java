@@ -68,7 +68,7 @@ public interface JavaRulePackage extends EPackage {
 	int RULE_SET = 0;
 
 	/**
-	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Project Name</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1228,10 +1228,10 @@ public interface JavaRulePackage extends EPackage {
 	EClass getRuleSet();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.RuleSet#getProjectName <em>Project Name</em>}'.
+	 * Returns the meta object for the attribute list '{@link javaRule.RuleSet#getProjectName <em>Project Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Project Name</em>'.
+	 * @return the meta object for the attribute list '<em>Project Name</em>'.
 	 * @see javaRule.RuleSet#getProjectName()
 	 * @see #getRuleSet()
 	 * @generated
@@ -1976,7 +1976,7 @@ public interface JavaRulePackage extends EPackage {
 		EClass RULE_SET = eINSTANCE.getRuleSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Project Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Project Name</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
