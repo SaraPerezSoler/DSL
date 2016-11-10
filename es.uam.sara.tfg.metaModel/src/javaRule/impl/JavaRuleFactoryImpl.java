@@ -14,6 +14,7 @@ import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRuleFactory;
@@ -106,6 +107,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.CONTAINS: return createContains();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
+			case JavaRulePackage.IS_GENERIC: return createIsGeneric();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -369,6 +371,16 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public BlendModifiers createBlendModifiers() {
 		BlendModifiersImpl blendModifiers = new BlendModifiersImpl();
 		return blendModifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsGeneric createIsGeneric() {
+		IsGenericImpl isGeneric = new IsGenericImpl();
+		return isGeneric;
 	}
 
 	/**

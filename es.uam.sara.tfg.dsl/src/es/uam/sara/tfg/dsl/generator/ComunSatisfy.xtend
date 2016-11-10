@@ -7,6 +7,7 @@ import javaRule.BlendModifiers
 import javaRule.Empty
 import javaRule.Contains
 import javaRule.NameOperation
+import javaRule.IsGeneric
 
 class ComunSatisfy {
 
@@ -47,5 +48,9 @@ class ComunSatisfy {
 		var cadena = JRulesGenerator.genetateRule(c.which, sufix);
 		cadena +=property + sufix + "= new "+prefix+"Contain" + JRulesGenerator.getAnalize(c.which.element).toFirstUpper + "(r" + sufix + ");";
 		return cadena;
+	}
+	
+	def static CharSequence isGeneric(IsGeneric g, String prefix, String sufix, String property){
+		return property + sufix + "= new "+prefix+"IsGeneric();\n"
 	}
 }

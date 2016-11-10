@@ -10,7 +10,7 @@ RuleSet returns RuleSet:
 
 Satisfy returns Satisfy:
 	isImplemented | IsInheritor | Implements | IsExtended | Parameter | Constructor | Return | AttributeType | Initialize
-	| Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+	| Empty | NameOperation | NameType | JavaDoc | Contains | Modifiers | IsGeneric;
 
 
 
@@ -43,12 +43,12 @@ isImplemented returns isImplemented:
 
 IsInheritor returns IsInheritor:
 	{IsInheritor}
-	'is' 'inheritor';
+	'is' 'subclass';
 
 Implements returns Implements:
 	{Implements}
 	'implements'
-	(('min=' minInterface=EInt ('and' 'max=' maxInterface=EInt)?)|('max=' maxInterface=EInt('and' 'min=' minInterface=EInt)?))?
+	('['( minInterface=EInt '..' maxInterface=EInt)|( minInterface=EInt '..' '*')']')?
 	'interfaces';
 
 IsExtended returns IsExtended:
@@ -82,7 +82,7 @@ NameOperation returns NameOperation:
 	'name' operator=NameOperator name=EString (',' Language=Language)?;
 
 NameType returns NameType:
-	'name' 'type='type=NameCheck;  
+	'name' 'in'type=NameCheck;  
 
 JavaDoc returns JavaDoc:
 	{JavaDoc}
@@ -99,7 +99,13 @@ Contains returns Contains:
 
 Modifiers returns Modifiers:
 	'modifiers:' '['
-	 '(' blend+=BlendModifiers')'( "or"  '('blend+=BlendModifiers')')* ']';
+	 (('(' blend+=BlendModifiers')'( "or"  '('blend+=BlendModifiers')')*) | ( blend+=BlendModifiers ( "or" blend+=BlendModifiers)*)) ']';
+
+IsGeneric returns IsGeneric:
+	{IsGeneric}
+	'is' 'generic'
+;
+
 
 EInt returns ecore::EInt:
 	'-'? INT;
@@ -112,7 +118,7 @@ enum NameCheck returns NameCheck:
 	START_UPPER_CASE='startUpperCase';
 
 enum NameOperator returns NameOperator:
-	LIKE='like' | EQUAL='equal' | END='end' | START='start'| CONTAIN='contain';
+	LIKE='like' | EQUAL='=' | END='end' | START='start'| CONTAIN='contain';
 
 enum Language returns Language:
 	ENGLISH='English' | SPANISH='Spanish';

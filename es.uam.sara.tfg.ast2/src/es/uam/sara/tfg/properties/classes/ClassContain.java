@@ -46,7 +46,7 @@ public abstract class ClassContain<T> extends Class {
 		for (TypeDeclaration tp: right){
 			UnitVisitor uv=Visitors.getVisitor(tp);
 			cad+="In file "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")  satisfy \""+this.toString()+"\"\n";
-			cad+="{\n\t"+(map.get(tp)).replace("\n", "\n\t")+"}\n";
+			cad+="{\n\t"+map.get(tp).replace("\n", "\n\t")+"\n}\n";
 		}
 		return cad;
 	}
@@ -56,7 +56,7 @@ public abstract class ClassContain<T> extends Class {
 		for (TypeDeclaration tp: wrong){
 			UnitVisitor uv=Visitors.getVisitor(tp);
 			cad+="In file: "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
-			cad+="{\n\t"+(map.get(tp)).replace("\n", "\n\t")+"\n}\n";
+			cad+="{\n\t"+map.get(tp).replace("\n", "\n\t")+"\n}\n";
 		}
 		return cad;
 	}

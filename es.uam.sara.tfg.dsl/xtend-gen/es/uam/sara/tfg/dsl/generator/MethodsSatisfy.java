@@ -3,6 +3,7 @@ package es.uam.sara.tfg.dsl.generator;
 import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Constructor;
 import javaRule.Empty;
+import javaRule.IsGeneric;
 import javaRule.JavaDoc;
 import javaRule.Method;
 import javaRule.Modifiers;
@@ -62,6 +63,10 @@ public class MethodsSatisfy {
                     String _returnType = r.getReturnType();
                     String _plus_1 = (((MethodsSatisfy.PROPERTY + sufix) + "= new Return (\"") + _returnType);
                     return (_plus_1 + "\");");
+                  } else {
+                    if ((s instanceof IsGeneric)) {
+                      return ComunSatisfy.isGeneric(((IsGeneric) s), MethodsSatisfy.PREFIX, sufix, MethodsSatisfy.PROPERTY);
+                    }
                   }
                 }
               }

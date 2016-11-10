@@ -6,6 +6,7 @@ import javaRule.BlendModifiers;
 import javaRule.Contains;
 import javaRule.ElementJava;
 import javaRule.Empty;
+import javaRule.IsGeneric;
 import javaRule.JavaDoc;
 import javaRule.Language;
 import javaRule.Modifiers;
@@ -106,5 +107,9 @@ public class ComunSatisfy {
     String _plus_3 = (_plus_2 + ");");
     cadena = (_cadena + _plus_3);
     return cadena;
+  }
+  
+  public static CharSequence isGeneric(final IsGeneric g, final String prefix, final String sufix, final String property) {
+    return ((((property + sufix) + "= new ") + prefix) + "IsGeneric();\n");
   }
 }

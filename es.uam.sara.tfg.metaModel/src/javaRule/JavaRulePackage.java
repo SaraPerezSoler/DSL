@@ -1157,6 +1157,34 @@ public interface JavaRulePackage extends EPackage {
 	int BLEND_MODIFIERS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.IsGenericImpl <em>Is Generic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.IsGenericImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getIsGeneric()
+	 * @generated
+	 */
+	int IS_GENERIC = 28;
+
+	/**
+	 * The number of structural features of the '<em>Is Generic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_GENERIC_FEATURE_COUNT = CLASS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Is Generic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_GENERIC_OPERATION_COUNT = CLASS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.Quantifier <em>Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,7 +1192,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 28;
+	int QUANTIFIER = 29;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementJava <em>Element Java</em>}' enum.
@@ -1174,7 +1202,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementJava()
 	 * @generated
 	 */
-	int ELEMENT_JAVA = 29;
+	int ELEMENT_JAVA = 30;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -1184,7 +1212,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 30;
+	int LANGUAGE = 31;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
@@ -1194,7 +1222,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_CHECK = 31;
+	int NAME_CHECK = 32;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -1204,7 +1232,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 32;
+	int NAME_OPERATOR = 33;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1214,7 +1242,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 33;
+	int ACCESS_MODIFIER = 34;
 
 
 	/**
@@ -1883,6 +1911,16 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getBlendModifiers_Synchronized();
 
 	/**
+	 * Returns the meta object for class '{@link javaRule.IsGeneric <em>Is Generic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Is Generic</em>'.
+	 * @see javaRule.IsGeneric
+	 * @generated
+	 */
+	EClass getIsGeneric();
+
+	/**
 	 * Returns the meta object for enum '{@link javaRule.Quantifier <em>Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2524,6 +2562,16 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BLEND_MODIFIERS__SYNCHRONIZED = eINSTANCE.getBlendModifiers_Synchronized();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.IsGenericImpl <em>Is Generic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.IsGenericImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getIsGeneric()
+		 * @generated
+		 */
+		EClass IS_GENERIC = eINSTANCE.getIsGeneric();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.Quantifier <em>Quantifier</em>}' enum.

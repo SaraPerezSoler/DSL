@@ -20,7 +20,7 @@ public abstract class Attribute extends Properties<FieldDeclaration> {
 		List<FieldDeclaration> right=super.getRight();
 		for (FieldDeclaration fd: right){
 			UnitVisitor uv=Visitors.getVisitor(fd);
-			cad+="In file "+uv.getNameFile()+" the attribute "+fd +" (line: " +uv.getLineNumber(fd.getStartPosition())+") satisfy \""+this.toString()+"\"\n";
+			cad+="In file "+uv.getNameFile()+" the attribute \""+fd.toString().replace("\n", "") +"\" (line: " +uv.getLineNumber(fd.getStartPosition())+") satisfy \""+this.toString()+"\"\n";
 		}
 		return cad;
 	}
@@ -29,7 +29,7 @@ public abstract class Attribute extends Properties<FieldDeclaration> {
 		List<FieldDeclaration> wrong=super.getWrong();
 		for (FieldDeclaration fd: wrong){
 			UnitVisitor uv=Visitors.getVisitor(fd);
-			cad+="In file "+uv.getNameFile()+" the attribute "+fd +" (line: " +uv.getLineNumber(fd.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
+			cad+="In file "+uv.getNameFile()+" the attribute "+fd.toString().replace("\n", "") +" (line: " +uv.getLineNumber(fd.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
 		}
 		return cad;
 	}

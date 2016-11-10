@@ -15,6 +15,7 @@ import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
@@ -204,6 +205,10 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBlendModifiers(BlendModifiers object) {
 				return createBlendModifiersAdapter();
+			}
+			@Override
+			public Adapter caseIsGeneric(IsGeneric object) {
+				return createIsGenericAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -614,6 +619,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBlendModifiersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsGeneric <em>Is Generic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsGeneric
+	 * @generated
+	 */
+	public Adapter createIsGenericAdapter() {
 		return null;
 	}
 

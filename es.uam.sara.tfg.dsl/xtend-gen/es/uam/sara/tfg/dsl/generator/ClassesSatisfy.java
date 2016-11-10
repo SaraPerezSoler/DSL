@@ -5,6 +5,7 @@ import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Implements;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
@@ -50,6 +51,10 @@ public class ClassesSatisfy {
                   } else {
                     if ((s instanceof Contains)) {
                       return ComunSatisfy.contains(((Contains) s), ClassesSatisfy.PREFIX, sufix, ClassesSatisfy.PROPERTY);
+                    } else {
+                      if ((s instanceof IsGeneric)) {
+                        return ComunSatisfy.isGeneric(((IsGeneric) s), ClassesSatisfy.PREFIX, sufix, ClassesSatisfy.PROPERTY);
+                      }
                     }
                   }
                 }

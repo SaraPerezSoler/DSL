@@ -16,6 +16,7 @@ import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
@@ -80,6 +81,9 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case JavaRulePackage.IS_EXTENDED:
 				sequence_IsExtended(context, (IsExtended) semanticObject); 
+				return; 
+			case JavaRulePackage.IS_GENERIC:
+				sequence_IsGeneric(context, (IsGeneric) semanticObject); 
 				return; 
 			case JavaRulePackage.IS_INHERITOR:
 				sequence_IsInheritor(context, (IsInheritor) semanticObject); 
@@ -231,7 +235,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Implements returns Implements
 	 *
 	 * Constraint:
-	 *     ((minInterface=EInt maxInterface=EInt?) | (maxInterface=EInt minInterface=EInt?))?
+	 *     ((minInterface=EInt maxInterface=EInt) | minInterface=EInt)?
 	 */
 	protected void sequence_Implements(ISerializationContext context, Implements semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -260,6 +264,19 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     {IsExtended}
 	 */
 	protected void sequence_IsExtended(ISerializationContext context, IsExtended semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Satisfy returns IsGeneric
+	 *     IsGeneric returns IsGeneric
+	 *
+	 * Constraint:
+	 *     {IsGeneric}
+	 */
+	protected void sequence_IsGeneric(ISerializationContext context, IsGeneric semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -303,7 +320,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Modifiers returns Modifiers
 	 *
 	 * Constraint:
-	 *     (blend+=BlendModifiers blend+=BlendModifiers*)
+	 *     ((blend+=BlendModifiers blend+=BlendModifiers*) | (blend+=BlendModifiers blend+=BlendModifiers*))
 	 */
 	protected void sequence_Modifiers(ISerializationContext context, Modifiers semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

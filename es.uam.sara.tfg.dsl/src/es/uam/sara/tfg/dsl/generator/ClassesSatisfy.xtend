@@ -9,6 +9,7 @@ import javaRule.IsInheritor
 import javaRule.Contains
 import javaRule.NameOperation
 import javaRule.NameType
+import javaRule.IsGeneric
 
 class ClassesSatisfy {
 
@@ -36,6 +37,8 @@ class ClassesSatisfy {
 			return PROPERTY + sufix + "= new IsInheritor();";
 		} else if (s instanceof Contains) {
 			return ComunSatisfy.contains(s as Contains, PREFIX,  sufix,PROPERTY);
+		}else if (s instanceof IsGeneric){
+			return ComunSatisfy.isGeneric(s as IsGeneric, PREFIX, sufix, PROPERTY);
 		}
 
 		return null;

@@ -4,6 +4,7 @@ import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Interface;
+import javaRule.IsGeneric;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
@@ -37,6 +38,10 @@ public class InterfaceSatisfy {
               } else {
                 if ((s instanceof Contains)) {
                   return ComunSatisfy.contains(((Contains) s), InterfaceSatisfy.PREFIX, sufix, InterfaceSatisfy.PROPERTY);
+                } else {
+                  if ((s instanceof IsGeneric)) {
+                    return ComunSatisfy.isGeneric(((IsGeneric) s), InterfaceSatisfy.PREFIX, sufix, InterfaceSatisfy.PROPERTY);
+                  }
                 }
               }
             }

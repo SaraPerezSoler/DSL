@@ -17,6 +17,7 @@ import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRuleFactory;
@@ -247,6 +248,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EClass blendModifiersEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass isGenericEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -923,6 +931,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIsGeneric() {
+		return isGenericEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantifier() {
 		return quantifierEEnum;
 	}
@@ -1091,6 +1108,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__ABSTRACT);
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__SYNCHRONIZED);
 
+		isGenericEClass = createEClass(IS_GENERIC);
+
 		// Create enums
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		elementJavaEEnum = createEEnum(ELEMENT_JAVA);
@@ -1174,6 +1193,9 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		modifiersEClass.getESuperTypes().add(this.getMethod());
 		modifiersEClass.getESuperTypes().add(this.getEnumeration());
 		modifiersEClass.getESuperTypes().add(this.getInterface());
+		isGenericEClass.getESuperTypes().add(this.getClass_());
+		isGenericEClass.getESuperTypes().add(this.getInterface());
+		isGenericEClass.getESuperTypes().add(this.getMethod());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(ruleSetEClass, RuleSet.class, "RuleSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1266,6 +1288,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getBlendModifiers_Final(), ecorePackage.getEBoolean(), "final", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Abstract(), ecorePackage.getEBoolean(), "abstract", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Synchronized(), ecorePackage.getEBoolean(), "synchronized", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(isGenericEClass, IsGeneric.class, "IsGeneric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantifierEEnum, Quantifier.class, "Quantifier");

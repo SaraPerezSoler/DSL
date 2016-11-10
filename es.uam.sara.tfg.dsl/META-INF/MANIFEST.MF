@@ -14,7 +14,8 @@ Require-Bundle: es.uam.sara.tfg.metaModel,
  org.eclipse.xtext.util,
  org.eclipse.xtend.lib,
  org.eclipse.core.resources;bundle-version="3.10.1",
- org.eclipse.core.runtime;bundle-version="3.11.1"
+ org.eclipse.core.runtime;bundle-version="3.11.1",
+ org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: es.uam.sara.tfg.dsl.validation,
  es.uam.sara.tfg.dsl.services,
@@ -25,4 +26,5 @@ Export-Package: es.uam.sara.tfg.dsl.validation,
  es.uam.sara.tfg.dsl.serializer,
  es.uam.sara.tfg.dsl.parser.antlr,
  es.uam.sara.tfg.dsl
-Import-Package: org.apache.log4j
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.ui.editor.utils

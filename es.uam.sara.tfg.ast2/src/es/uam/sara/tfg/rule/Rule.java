@@ -59,7 +59,7 @@ public class Rule<T> {
 	private boolean checkQuantifier(List<T> l) {
 		switch (quantifier) {
 		case ALL:
-			if (elements.size() == l.size())
+			if (filter.getFiltering().size() == l.size())
 				return true;
 			break;
 		case ONE:

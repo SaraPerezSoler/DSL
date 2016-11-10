@@ -51,7 +51,7 @@ public class Parameters extends Method{
 			}
 		}
 	}
-	private List<SingleVariableDeclaration> getList(List<?> lista){
+	public static List<SingleVariableDeclaration> getList(List<?> lista){
 		List<SingleVariableDeclaration> list= new ArrayList<SingleVariableDeclaration>();
 		for (Object a:lista){
 			if (a instanceof SingleVariableDeclaration){

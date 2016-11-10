@@ -52,7 +52,7 @@ public class ModifiersCheck {
 
 	@Override
 	public String toString() {
-		String cad="modifiers: [";
+		String cad="modifiers: [ ";
 		cad+="("+blends.get(0).toString()+") ";
 		for (int i=1; i<blends.size(); i++){
 			cad+="or ("+blends.get(i).toString()+") ";

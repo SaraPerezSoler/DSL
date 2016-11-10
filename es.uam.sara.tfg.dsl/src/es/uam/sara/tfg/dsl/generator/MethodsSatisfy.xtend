@@ -9,6 +9,7 @@ import javaRule.Return
 import javaRule.Method
 import javaRule.NameOperation
 import javaRule.NameType
+import javaRule.IsGeneric
 
 class MethodsSatisfy {
 
@@ -61,6 +62,8 @@ class MethodsSatisfy {
 		} else if (s instanceof Return) {
 			var r = s as Return
 			return PROPERTY + sufix + "= new Return (\"" + r.returnType + "\");"
+		}else if (s instanceof IsGeneric){
+			return ComunSatisfy.isGeneric(s as IsGeneric, PREFIX, sufix, PROPERTY);
 		}
 	}
 }

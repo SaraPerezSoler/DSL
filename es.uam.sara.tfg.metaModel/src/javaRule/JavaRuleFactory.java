@@ -211,6 +211,15 @@ public interface JavaRuleFactory extends EFactory {
 	BlendModifiers createBlendModifiers();
 
 	/**
+	 * Returns a new object of class '<em>Is Generic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Generic</em>'.
+	 * @generated
+	 */
+	IsGeneric createIsGeneric();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

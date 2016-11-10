@@ -23,6 +23,7 @@ import javaRule.NameOperation;
 import javaRule.NameOperator;
 import javaRule.Or;
 import javaRule.Parameter;
+import javaRule.Quantifier;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
@@ -76,6 +77,10 @@ public class JRulesValidator extends AbstractJRulesValidator {
   public void checkSatisfyExists(final Rule r) {
     if (((r.eContainer() instanceof RuleSet) && Objects.equal(r.getSatisfy(), null))) {
       this.error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
+    } else {
+      if ((Objects.equal(r.getQuantifier(), Quantifier.ALL) && Objects.equal(r.getSatisfy(), null))) {
+        this.error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
+      }
     }
     if ((Objects.equal(r.getSatisfy(), null) && (!Objects.equal(r.getFilter(), null)))) {
       this.error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER, 

@@ -43,7 +43,7 @@ public class NoProperty<T> extends Filter<T> {
 			}else if (t instanceof FieldDeclaration){
 				FieldDeclaration fd=(FieldDeclaration)t;
 				UnitVisitor uv=Visitors.getVisitor(fd);
-				cad+="In file "+uv.getNameFile()+" is the attribute "+fd +" (line: " +uv.getLineNumber(fd.getStartPosition())+")\n";
+				cad+="In file "+uv.getNameFile()+" is the attribute "+fd.toString().replace("\n", "") +" (line: " +uv.getLineNumber(fd.getStartPosition())+")\n";
 			}
 			
 		}

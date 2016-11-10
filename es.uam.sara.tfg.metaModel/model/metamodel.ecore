@@ -154,4 +154,5 @@
     <eLiterals name="private" value="3"/>
     <eLiterals name="default" value="4"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsGeneric" eSuperTypes="#//Class #//Interface #//Method"/>
 </ecore:EPackage>

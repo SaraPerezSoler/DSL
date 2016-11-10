@@ -15,6 +15,7 @@ import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsExtended;
+import javaRule.IsGeneric;
 import javaRule.IsInheritor;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
@@ -318,6 +319,16 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 			case JavaRulePackage.BLEND_MODIFIERS: {
 				BlendModifiers blendModifiers = (BlendModifiers)theEObject;
 				T result = caseBlendModifiers(blendModifiers);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.IS_GENERIC: {
+				IsGeneric isGeneric = (IsGeneric)theEObject;
+				T result = caseIsGeneric(isGeneric);
+				if (result == null) result = caseClass(isGeneric);
+				if (result == null) result = caseInterface(isGeneric);
+				if (result == null) result = caseMethod(isGeneric);
+				if (result == null) result = caseSatisfy(isGeneric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -742,6 +753,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBlendModifiers(BlendModifiers object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Generic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Generic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsGeneric(IsGeneric object) {
 		return null;
 	}
 

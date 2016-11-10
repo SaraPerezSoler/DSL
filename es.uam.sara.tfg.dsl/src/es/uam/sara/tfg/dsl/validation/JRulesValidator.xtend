@@ -25,6 +25,7 @@ import javaRule.Implements
 import javaRule.Parameter
 import javaRule.NameOperation
 import org.eclipse.core.resources.ResourcesPlugin
+import javaRule.Quantifier
 
 /**
  * This class contains custom validation rules. 
@@ -70,8 +71,10 @@ class JRulesValidator extends AbstractJRulesValidator {
 	@Check
 	def checkSatisfyExists(Rule r) {
 
-		if ((r.eContainer instanceof RuleSet) && (r.satisfy == null)) {
+		if (((r.eContainer instanceof RuleSet)) && (r.satisfy == null)) {
 			error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
+		}else if ((r.quantifier==Quantifier.ALL) && (r.satisfy == null)){
+				error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
 		}
 		if ((r.satisfy == null) && (r.filter != null)) {
 			error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER,

@@ -1,5 +1,6 @@
+import java.util.List;
 
-public class Test{
+public class Test<T, K>{
 	
 	public enum nada{
 		cafe(0), chocolate(1);
@@ -25,7 +26,7 @@ public class Test{
 		//numCasa=new Casa().get();
 	}
 	
-	public  int getNumCasa() {
+	public  int getNumCasa(List<List<T>> i) {
 		return 1;
 	}
 
