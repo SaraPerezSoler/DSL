@@ -1,5 +1,6 @@
 package es.uam.sara.tfg.properties.classes;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
@@ -8,11 +9,17 @@ public class Implements extends Class{
 
 	private int intMin;
 	private int intMax;
+	private String inter;
 	
 	public Implements(int min, int max) {
-		super();
 		intMin=min;
 		intMax=max;
+		inter="";
+	}
+	public Implements(String inter) {
+		this.inter=inter;
+		intMin=-1;
+		intMax=-1;
 	}
 
 	@Override
@@ -27,6 +34,9 @@ public class Implements extends Class{
 		}
 	}
 	private boolean comprobar(TypeDeclaration t){
+		if (intMin==-1 && intMax==-1){
+			if ()
+		}
 		if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
 			return true;
 		}
@@ -36,6 +46,12 @@ public class Implements extends Class{
 		return false;
 	}
 
+	public List<String> getInterface(TypeDeclaration t){
+		List<String> ret=new ArrayList<String>();
+		List<?>inter=t.superInterfaceTypes();
+		
+		return ret;
+	}
 	@Override
 	public String toString() {
 		return "implements min=" + intMin + " and max=" + intMax;

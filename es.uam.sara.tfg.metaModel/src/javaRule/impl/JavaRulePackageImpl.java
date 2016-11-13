@@ -1196,6 +1196,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		isGenericEClass.getESuperTypes().add(this.getClass_());
 		isGenericEClass.getESuperTypes().add(this.getInterface());
 		isGenericEClass.getESuperTypes().add(this.getMethod());
+		isGenericEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(ruleSetEClass, RuleSet.class, "RuleSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

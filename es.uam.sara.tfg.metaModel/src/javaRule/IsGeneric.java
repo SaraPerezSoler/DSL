@@ -13,5 +13,5 @@ package javaRule;
  * @model
  * @generated
  */
-public interface IsGeneric extends javaRule.Class, Interface, Method {
+public interface IsGeneric extends javaRule.Class, Interface, Method, Attribute {
 } // IsGeneric

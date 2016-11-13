@@ -328,6 +328,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseClass(isGeneric);
 				if (result == null) result = caseInterface(isGeneric);
 				if (result == null) result = caseMethod(isGeneric);
+				if (result == null) result = caseAttribute(isGeneric);
 				if (result == null) result = caseSatisfy(isGeneric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

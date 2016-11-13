@@ -4,6 +4,7 @@ import es.uam.sara.tfg.dsl.generator.ComunSatisfy;
 import javaRule.Attribute;
 import javaRule.AttributeType;
 import javaRule.Initialize;
+import javaRule.IsGeneric;
 import javaRule.JavaDoc;
 import javaRule.Modifiers;
 import javaRule.NameOperation;
@@ -36,6 +37,10 @@ public class AttributesSatisfy {
                 String _type = at.getType();
                 String _plus = (((AttributesSatisfy.PROPERTY + sufix) + "= new Type(\"") + _type);
                 return (_plus + "\");");
+              } else {
+                if ((s instanceof IsGeneric)) {
+                  return ComunSatisfy.isGeneric(((IsGeneric) s), AttributesSatisfy.PREFIX, sufix, AttributesSatisfy.PROPERTY);
+                }
               }
             }
           }

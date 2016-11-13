@@ -1,7 +1,7 @@
 import java.util.List;
 
-public class Test<T, K>{
-	
+public class Test<T, K> implements Comparable<T>{
+	private List<K> i;
 	public enum nada{
 		cafe(0), chocolate(1);
 		
@@ -30,5 +30,13 @@ public class Test<T, K>{
 		return 1;
 	}
 
-	
+	public String toString(){
+		return "";
+	}
+
+	@Override
+	public int compareTo(T arg0) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

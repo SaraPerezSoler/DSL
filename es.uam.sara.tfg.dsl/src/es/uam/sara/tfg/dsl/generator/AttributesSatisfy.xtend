@@ -7,6 +7,7 @@ import javaRule.Modifiers
 import javaRule.Attribute
 import javaRule.NameOperation
 import javaRule.NameType
+import javaRule.IsGeneric
 
 class AttributesSatisfy {
 
@@ -38,6 +39,8 @@ class AttributesSatisfy {
 		} else if (s instanceof AttributeType) {
 			var at = s as AttributeType
 			return PROPERTY + sufix + "= new Type(\"" + at.type + "\");"
+		}else if (s instanceof IsGeneric){
+			return ComunSatisfy.isGeneric(s as IsGeneric, PREFIX,sufix,PROPERTY)
 		}
 	}
 
