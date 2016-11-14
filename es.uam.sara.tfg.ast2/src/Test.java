@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Test<T, K> implements Comparable<T>{
+public class Test<T, K> extends ArrayList<T>{
 	private List<K> i;
 	public enum nada{
 		cafe(0), chocolate(1);
@@ -34,7 +35,6 @@ public class Test<T, K> implements Comparable<T>{
 		return "";
 	}
 
-	@Override
 	public int compareTo(T arg0) {
 		// TODO Auto-generated method stub
 		return 0;

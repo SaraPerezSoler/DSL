@@ -1,8 +1,10 @@
 package es.uam.sara.tfg.properties.classes;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
+import es.uam.sara.tfg.properties.TypeToString;
 
 
 public class Implements extends Class{
@@ -35,22 +37,21 @@ public class Implements extends Class{
 	}
 	private boolean comprobar(TypeDeclaration t){
 		if (intMin==-1 && intMax==-1){
-			if ()
-		}
-		if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
+			List<String> lis=getInterface(t);
+			if (lis.contains(inter.toLowerCase())){
+				return true;
+			}
+		}else if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
 			return true;
-		}
-		if (t.superInterfaceTypes().size()>=intMin && t.superInterfaceTypes().size()<=intMax){
+		}else if (t.superInterfaceTypes().size()>=intMin && t.superInterfaceTypes().size()<=intMax){
 			return true;
 		}
 		return false;
 	}
 
 	public List<String> getInterface(TypeDeclaration t){
-		List<String> ret=new ArrayList<String>();
 		List<?>inter=t.superInterfaceTypes();
-		
-		return ret;
+		return TypeToString.getString(inter);
 	}
 	@Override
 	public String toString() {

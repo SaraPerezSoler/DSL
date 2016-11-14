@@ -3,6 +3,8 @@ package es.uam.sara.tfg.properties.methods;
 import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
+import es.uam.sara.tfg.properties.TypeToString;
+
 
 public class Return extends Method{
 
@@ -15,9 +17,10 @@ public class Return extends Method{
 	@Override
 	public void check(List<MethodDeclaration> analyze) {
 		for (MethodDeclaration m: analyze){
-			if (m.getReturnType2()==null){
+			List<String> returnType= TypeToString.getString(m.getReturnType2());
+			if (returnType.isEmpty()){
 				super.addWrong(m);
-			}else if (m.getReturnType2().toString().compareTo(type)==0){
+			}else if (returnType.contains(type.toLowerCase())){
 				super.addRight(m);
 			}else{
 				super.addWrong(m);

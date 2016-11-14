@@ -47,20 +47,22 @@
         defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Satisfy" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="File" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Package" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="isImplemented" eSuperTypes="#//Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" abstract="true" eSuperTypes="#//Satisfy"/>
   <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true" eSuperTypes="#//Satisfy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IsInheritor" eSuperTypes="#//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IsInheritor" eSuperTypes="#//Class #//Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Implements" eSuperTypes="#//Class">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="2147483647"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IsExtended" eSuperTypes="#//Class"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IsExtended" eSuperTypes="#//Class #//Interface"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true" eSuperTypes="#//Satisfy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tamanio" eSuperTypes="#//Method"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//Method">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numParam" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -77,18 +79,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initialize" eSuperTypes="#//Attribute"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Empty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration">
+  <eClassifiers xsi:type="ecore:EClass" name="Empty" eSuperTypes="#//Package #//Method #//Class #//Interface #//Enumeration #//File">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NameOperation" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
+  <eClassifiers xsi:type="ecore:EClass" name="NameOperation" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration #//File">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
         eType="#//NameOperator" defaultValueLiteral="nothing"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Language" eType="#//Language"
         defaultValueLiteral="EMPTY"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NameType" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration">
+  <eClassifiers xsi:type="ecore:EClass" name="NameType" eSuperTypes="#//Attribute #//Class #//Method #//Package #//Interface #//Enumeration #//File">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//NameCheck"
         defaultValueLiteral="nothing"/>
   </eClassifiers>
@@ -127,7 +129,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="see" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//Package #//Interface #//Enumeration #//Class">
+  <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//Package #//Interface #//Enumeration #//Class #//File">
     <eStructuralFeatures xsi:type="ecore:EReference" name="which" lowerBound="1" eType="#//Rule"
         containment="true"/>
   </eClassifiers>

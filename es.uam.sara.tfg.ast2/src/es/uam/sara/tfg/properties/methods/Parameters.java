@@ -5,9 +5,8 @@ package es.uam.sara.tfg.properties.methods;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
+import es.uam.sara.tfg.properties.TypeToString;
 
 
 /**
@@ -44,29 +43,20 @@ public class Parameters extends Method{
 		for (MethodDeclaration m : analyze) {
 			if (m.parameters().size() != numParametres) {
 				super.addWrong(m);
-			} else if (comparaParam(getList(m.parameters()))) {
+			} else if (comparaParam(TypeToString.getString(m.parameters()))) {
 				super.addRight(m);
 			} else {
 				super.addWrong(m);
 			}
 		}
 	}
-	public static List<SingleVariableDeclaration> getList(List<?> lista){
-		List<SingleVariableDeclaration> list= new ArrayList<SingleVariableDeclaration>();
-		for (Object a:lista){
-			if (a instanceof SingleVariableDeclaration){
-				list.add((SingleVariableDeclaration) a);
-			}
-		}
-		return list;
-	}
-	private boolean comparaParam(List<SingleVariableDeclaration> parameters) {
+
+	private boolean comparaParam(List<String> parameters) {
 		if (paramList==null){
 			return true;
 		}
 		List<String> copia= copia(paramList);
-		for (SingleVariableDeclaration s: parameters){
-			String nombre=s.getType().toString();
+		for (String nombre: parameters){
 			if (copia.contains(nombre.toLowerCase())){
 				copia.remove(nombre.toLowerCase());
 			}else{

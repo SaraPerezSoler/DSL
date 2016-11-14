@@ -3,6 +3,8 @@ package es.uam.sara.tfg.properties.attributes;
 import java.util.List;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 
+import es.uam.sara.tfg.properties.TypeToString;
+
 
 public class Type extends Attribute{
 
@@ -17,7 +19,8 @@ public class Type extends Attribute{
 	@Override
 	public void check(List<FieldDeclaration> analyze) {
 		for (FieldDeclaration a : analyze) {
-			if (a.getType().toString().compareToIgnoreCase(type)==0) {
+			List<String>types=TypeToString.getString(a.getType());
+			if (types.contains(type.toLowerCase())) {
 				super.addRight(a);
 			} else {
 				super.addWrong(a);
