@@ -1,7 +1,5 @@
 package es.uam.sara.tfg.properties.methods;
 
-import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
@@ -14,19 +12,13 @@ public class MethNameType extends Method{
 		super();
 		nCheck= new NameCheck(type);
 	}
-
-	@Override
-	public void check(List<MethodDeclaration> analyze) {
-		for (MethodDeclaration m: analyze){
-			if (nCheck.checkNameType(m.getName().toString())){
-				super.addRight(m);
-			}else{
-				super.addWrong(m);
-			}
-		}
-	}
 	@Override
 	public String toString() {
 		return "name type="+nCheck.getType();
+	}
+
+	@Override
+	public boolean checkElement(MethodDeclaration analyze) {
+		return nCheck.checkNameType(analyze);
 	}
 }

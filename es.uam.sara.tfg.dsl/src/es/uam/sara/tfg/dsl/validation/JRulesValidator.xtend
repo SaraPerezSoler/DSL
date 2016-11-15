@@ -26,6 +26,7 @@ import javaRule.Parameter
 import javaRule.NameOperation
 import org.eclipse.core.resources.ResourcesPlugin
 import javaRule.Quantifier
+import java.lang.annotation.ElementType
 
 /**
  * This class contains custom validation rules. 
@@ -100,7 +101,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 			)
 		}
 	}
-
+	
 	def comprobarPropiedades(Or or, ElementJava e) {
 		for (And a : or.op) {
 			for (Satisfy s : a.op) {
@@ -196,6 +197,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 	def checkModifiers(BlendModifiers b) {
 
 		var r = getRule(b);
+		
 		if (accessPrivateProtecte(b)) {
 			if (r.element == ElementJava.CLASS || r.element == ElementJava.INTERFACE || r.element == ElementJava.ENUM) {
 				warning("The private and protected modifiers are for classes, interfaces and enumeration internal",
@@ -212,6 +214,14 @@ class JRulesValidator extends AbstractJRulesValidator {
 			} else if (b.final) {
 				error("Methods and Class can't be abstract and final simultaneously",
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 'invalidModifier')
+			}
+		}
+		if (b.^default){
+			if (r.element!=ElementJava.METHOD){
+				error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, 'invalidModifier')
+			}
+			if (r.eContainer instanceof RuleSet){
+				///////////////////////////////////////////////////////////
 			}
 		}
 

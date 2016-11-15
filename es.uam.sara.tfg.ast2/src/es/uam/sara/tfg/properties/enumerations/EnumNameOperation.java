@@ -13,17 +13,6 @@ public class EnumNameOperation extends Enumeration{
 		super();
 		nCheck= new NameCheck(op, cad, idioma);
 	}
-
-	@Override
-	public void check(List<EnumDeclaration> analyze) {
-		for (EnumDeclaration en:analyze){
-			if (nCheck.checkNameOperation(en.getName().toString())){
-				super.addRight(en);
-			}else{
-				super.addWrong(en);
-			}
-		}
-	}
 	@Override
 	public String toString() {
 		if (nCheck.getIdioma()==NameCheck.EMPTY){
@@ -34,5 +23,10 @@ public class EnumNameOperation extends Enumeration{
 			return "name "+nCheck.getOp() +" " +nCheck.getOther()+", Spanish";
 		}
 		
+	}
+
+	@Override
+	public boolean checkElement(EnumDeclaration analyze) {
+		return nCheck.checkNameOperation(analyze);
 	}
 }

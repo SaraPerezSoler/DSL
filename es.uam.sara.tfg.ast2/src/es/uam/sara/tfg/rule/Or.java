@@ -44,21 +44,21 @@ public class Or<T> extends Properties<T>{
 	}
 
 	@Override
-	public String printRight() {
+	public String print(boolean right) {
 		String cad="";
 		for (And<T> a: ands){
-			cad+=a.printRight();
+			cad+=a.print(right);
 		}
 		return cad;
 	}
 
 	@Override
-	public String printWrong() {
-	
-		String cad="";
-		for (And<T> a: ands){
-			cad+=a.printWrong();
-		}
-		return cad;
+	public boolean checkElement(T analyze) {
+		return false;
+	}
+
+	@Override
+	public String print(T print) {
+		return "";
 	}
 }

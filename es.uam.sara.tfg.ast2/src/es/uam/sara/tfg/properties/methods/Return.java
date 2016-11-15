@@ -15,22 +15,19 @@ public class Return extends Method{
 	}
 
 	@Override
-	public void check(List<MethodDeclaration> analyze) {
-		for (MethodDeclaration m: analyze){
-			List<String> returnType= TypeToString.getString(m.getReturnType2());
-			if (returnType.isEmpty()){
-				super.addWrong(m);
-			}else if (returnType.contains(type.toLowerCase())){
-				super.addRight(m);
-			}else{
-				super.addWrong(m);
-			}
-		}
+	public String toString() {
+		return "return type=" + type;
 	}
 
 	@Override
-	public String toString() {
-		return "return type=" + type;
+	public boolean checkElement(MethodDeclaration analyze) {
+		List<String> returnType= TypeToString.getString(analyze.getReturnType2());
+		if (returnType.contains(type.toLowerCase())){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
 }

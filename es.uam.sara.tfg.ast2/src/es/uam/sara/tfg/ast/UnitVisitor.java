@@ -148,4 +148,26 @@ public class UnitVisitor extends ASTVisitor{
 	public void setComp(CompilationUnit comp) {
 		this.comp = comp;
 	}
+	
+	public boolean isEmpty(){
+		if (this.packageDeclaration!= null){
+			return false;
+		}
+		if (!this.interfaces.isEmpty()){
+			return false;
+		}
+		if (!this.classes.isEmpty()){
+			return false;
+		}
+		if (!this.enumerations.isEmpty()){
+			return false;
+		}
+		if (!this.methods.isEmpty()){
+			return false;
+		}
+		if (!this.attributes.isEmpty()){
+			return false;
+		}
+		return true;
+	}
 }

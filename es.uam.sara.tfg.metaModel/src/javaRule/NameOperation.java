@@ -21,7 +21,7 @@ package javaRule;
  * @model
  * @generated
  */
-public interface NameOperation extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration {
+public interface NameOperation extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration, File {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

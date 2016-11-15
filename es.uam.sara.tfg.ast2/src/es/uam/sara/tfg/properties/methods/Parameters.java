@@ -33,23 +33,6 @@ public class Parameters extends Method{
 		paramList = param;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see es.uam.sara.tfg.properties.Properties#check()
-	 */
-	@Override
-	public void check(List<MethodDeclaration> analyze) {
-		for (MethodDeclaration m : analyze) {
-			if (m.parameters().size() != numParametres) {
-				super.addWrong(m);
-			} else if (comparaParam(TypeToString.getString(m.parameters()))) {
-				super.addRight(m);
-			} else {
-				super.addWrong(m);
-			}
-		}
-	}
 
 	private boolean comparaParam(List<String> parameters) {
 		if (paramList==null){
@@ -80,6 +63,17 @@ public class Parameters extends Method{
 			return "numParametres=" + numParametres;
 		}else{
 			return "numParametres=" + numParametres +" and types= "+ paramList;
+		}
+	}
+
+	@Override
+	public boolean checkElement(MethodDeclaration analyze) {
+		if (analyze.parameters().size() != numParametres) {
+			return false;
+		} else if (comparaParam(TypeToString.getString(analyze.parameters()))) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 

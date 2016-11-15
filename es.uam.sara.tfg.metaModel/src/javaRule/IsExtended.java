@@ -13,5 +13,5 @@ package javaRule;
  * @model
  * @generated
  */
-public interface IsExtended extends javaRule.Class {
+public interface IsExtended extends javaRule.Class, Interface {
 } // IsExtended

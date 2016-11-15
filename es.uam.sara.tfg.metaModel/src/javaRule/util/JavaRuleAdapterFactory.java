@@ -10,6 +10,7 @@ import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Enumeration;
+import javaRule.File;
 import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
@@ -29,6 +30,7 @@ import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
+import javaRule.Tamanio;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -119,6 +121,10 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createSatisfyAdapter();
 			}
 			@Override
+			public Adapter caseFile(File object) {
+				return createFileAdapter();
+			}
+			@Override
 			public Adapter casePackage(javaRule.Package object) {
 				return createPackageAdapter();
 			}
@@ -153,6 +159,10 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMethod(Method object) {
 				return createMethodAdapter();
+			}
+			@Override
+			public Adapter caseTamanio(Tamanio object) {
+				return createTamanioAdapter();
 			}
 			@Override
 			public Adapter caseParameter(Parameter object) {
@@ -315,6 +325,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.File
+	 * @generated
+	 */
+	public Adapter createFileAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link javaRule.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -437,6 +461,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMethodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.Tamanio <em>Tamanio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.Tamanio
+	 * @generated
+	 */
+	public Adapter createTamanioAdapter() {
 		return null;
 	}
 

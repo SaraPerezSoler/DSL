@@ -6,16 +6,11 @@ import es.uam.sara.tfg.properties.Properties;
 public abstract class File extends Properties<UnitVisitor>{
 
 	@Override
-	public String printRight() {
-		// TODO Auto-generated method stub
-		return null;
+	public String print(UnitVisitor print) {
+		
+		return "The file "+print.getNameFile()+"\n";
 	}
 
-	@Override
-	public String printWrong() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 
 }

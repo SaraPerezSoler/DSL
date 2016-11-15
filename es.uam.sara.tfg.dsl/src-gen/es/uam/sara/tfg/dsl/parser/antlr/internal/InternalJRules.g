@@ -1875,9 +1875,29 @@ ruleBlendModifiers returns [EObject current=null]
 				}
 				(
 					(
-						lv_synchronized_8_0='synchronized'
+						lv_default_8_0='default'
 						{
-							newLeafNode(lv_synchronized_8_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0());
+							newLeafNode(lv_default_8_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_0_4_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBlendModifiersRule());
+							}
+							setWithLastConsumed($current, "default", true, "default");
+						}
+					)
+				)
+			)?
+			(
+				otherlv_9='and'
+				{
+					newLeafNode(otherlv_9, grammarAccess.getBlendModifiersAccess().getAndKeyword_0_5_0());
+				}
+				(
+					(
+						lv_synchronized_10_0='synchronized'
+						{
+							newLeafNode(lv_synchronized_10_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_5_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1893,9 +1913,9 @@ ruleBlendModifiers returns [EObject current=null]
 		(
 			(
 				(
-					lv_static_9_0='static'
+					lv_static_11_0='static'
 					{
-						newLeafNode(lv_static_9_0, grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0());
+						newLeafNode(lv_static_11_0, grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0());
 					}
 					{
 						if ($current==null) {
@@ -1906,15 +1926,15 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_10='and'
+				otherlv_12='and'
 				{
-					newLeafNode(otherlv_10, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_1_0());
+					newLeafNode(otherlv_12, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_1_0());
 				}
 				(
 					(
-						lv_final_11_0='final'
+						lv_final_13_0='final'
 						{
-							newLeafNode(lv_final_11_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0());
+							newLeafNode(lv_final_13_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1926,15 +1946,15 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_12='and'
+				otherlv_14='and'
 				{
-					newLeafNode(otherlv_12, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_2_0());
+					newLeafNode(otherlv_14, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_2_0());
 				}
 				(
 					(
-						lv_abstract_13_0='abstract'
+						lv_abstract_15_0='abstract'
 						{
-							newLeafNode(lv_abstract_13_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0());
+							newLeafNode(lv_abstract_15_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1946,15 +1966,35 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_14='and'
+				otherlv_16='and'
 				{
-					newLeafNode(otherlv_14, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_3_0());
+					newLeafNode(otherlv_16, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_3_0());
 				}
 				(
 					(
-						lv_synchronized_15_0='synchronized'
+						lv_default_17_0='default'
 						{
-							newLeafNode(lv_synchronized_15_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0());
+							newLeafNode(lv_default_17_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_1_3_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBlendModifiersRule());
+							}
+							setWithLastConsumed($current, "default", true, "default");
+						}
+					)
+				)
+			)?
+			(
+				otherlv_18='and'
+				{
+					newLeafNode(otherlv_18, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_4_0());
+				}
+				(
+					(
+						lv_synchronized_19_0='synchronized'
+						{
+							newLeafNode(lv_synchronized_19_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_4_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1970,9 +2010,9 @@ ruleBlendModifiers returns [EObject current=null]
 		(
 			(
 				(
-					lv_final_16_0='final'
+					lv_final_20_0='final'
 					{
-						newLeafNode(lv_final_16_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0());
+						newLeafNode(lv_final_20_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0());
 					}
 					{
 						if ($current==null) {
@@ -1983,15 +2023,15 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_17='and'
+				otherlv_21='and'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_1_0());
+					newLeafNode(otherlv_21, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_1_0());
 				}
 				(
 					(
-						lv_abstract_18_0='abstract'
+						lv_abstract_22_0='abstract'
 						{
-							newLeafNode(lv_abstract_18_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0());
+							newLeafNode(lv_abstract_22_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0());
 						}
 						{
 							if ($current==null) {
@@ -2003,15 +2043,35 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)?
 			(
-				otherlv_19='and'
+				otherlv_23='and'
 				{
-					newLeafNode(otherlv_19, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_2_0());
+					newLeafNode(otherlv_23, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_2_0());
 				}
 				(
 					(
-						lv_synchronized_20_0='synchronized'
+						lv_default_24_0='default'
 						{
-							newLeafNode(lv_synchronized_20_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0());
+							newLeafNode(lv_default_24_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_2_2_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBlendModifiersRule());
+							}
+							setWithLastConsumed($current, "default", true, "default");
+						}
+					)
+				)
+			)?
+			(
+				otherlv_25='and'
+				{
+					newLeafNode(otherlv_25, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_3_0());
+				}
+				(
+					(
+						lv_synchronized_26_0='synchronized'
+						{
+							newLeafNode(lv_synchronized_26_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_3_1_0());
 						}
 						{
 							if ($current==null) {
@@ -2027,9 +2087,9 @@ ruleBlendModifiers returns [EObject current=null]
 		(
 			(
 				(
-					lv_abstract_21_0='abstract'
+					lv_abstract_27_0='abstract'
 					{
-						newLeafNode(lv_abstract_21_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0());
+						newLeafNode(lv_abstract_27_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0());
 					}
 					{
 						if ($current==null) {
@@ -2040,15 +2100,35 @@ ruleBlendModifiers returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_22='and'
+				otherlv_28='and'
 				{
-					newLeafNode(otherlv_22, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_1_0());
+					newLeafNode(otherlv_28, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_1_0());
 				}
 				(
 					(
-						lv_synchronized_23_0='synchronized'
+						lv_default_29_0='default'
 						{
-							newLeafNode(lv_synchronized_23_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0());
+							newLeafNode(lv_default_29_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_3_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBlendModifiersRule());
+							}
+							setWithLastConsumed($current, "default", true, "default");
+						}
+					)
+				)
+			)?
+			(
+				otherlv_30='and'
+				{
+					newLeafNode(otherlv_30, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_2_0());
+				}
+				(
+					(
+						lv_synchronized_31_0='synchronized'
+						{
+							newLeafNode(lv_synchronized_31_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_2_1_0());
 						}
 						{
 							if ($current==null) {
@@ -2063,9 +2143,46 @@ ruleBlendModifiers returns [EObject current=null]
 		    |
 		(
 			(
-				lv_synchronized_24_0='synchronized'
+				(
+					lv_default_32_0='default'
+					{
+						newLeafNode(lv_default_32_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_4_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getBlendModifiersRule());
+						}
+						setWithLastConsumed($current, "default", true, "default");
+					}
+				)
+			)
+			(
+				otherlv_33='and'
 				{
-					newLeafNode(lv_synchronized_24_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0());
+					newLeafNode(otherlv_33, grammarAccess.getBlendModifiersAccess().getAndKeyword_4_1_0());
+				}
+				(
+					(
+						lv_synchronized_34_0='synchronized'
+						{
+							newLeafNode(lv_synchronized_34_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBlendModifiersRule());
+							}
+							setWithLastConsumed($current, "synchronized", true, "synchronized");
+						}
+					)
+				)
+			)?
+		)
+		    |
+		(
+			(
+				lv_synchronized_35_0='synchronized'
+				{
+					newLeafNode(lv_synchronized_35_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_5_0());
 				}
 				{
 					if ($current==null) {
@@ -2311,34 +2428,26 @@ ruleAccessModifier returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='default'
+			enumLiteral_0='public'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0());
+				$current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='public'
+			enumLiteral_1='protected'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1());
+				$current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='protected'
+			enumLiteral_2='private'
 			{
-				$current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='private'
-			{
-				$current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3());
+				$current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2());
 			}
 		)
 	)

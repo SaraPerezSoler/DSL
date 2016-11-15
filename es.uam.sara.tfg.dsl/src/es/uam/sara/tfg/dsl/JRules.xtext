@@ -124,10 +124,10 @@ enum Language returns Language:
 	ENGLISH='English' | SPANISH='Spanish';
 
 BlendModifiers returns BlendModifiers:
-	(access=AccessModifier ('and'static?='static')? ('and'final?='final')? ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?) | 
-	(static?='static' ('and'final?='final')? ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?)|
-	(final?='final' ('and'abstract?='abstract')? ('and'synchronized?='synchronized')?)|
-	(abstract?='abstract' ('and' synchronized?='synchronized')?)| synchronized?='synchronized';
+	(access=AccessModifier ('and'static?='static')? ('and'final?='final')? ('and'abstract?='abstract')? ('and'default?='default')? ('and'synchronized?='synchronized')?) | 
+	(static?='static' ('and'final?='final')? ('and'abstract?='abstract')? ('and'default?='default')? ('and'synchronized?='synchronized')?)|
+	(final?='final' ('and'abstract?='abstract')? ('and'default?='default')? ('and'synchronized?='synchronized')?)|
+	(abstract?='abstract' ('and'default?='default')? ('and' synchronized?='synchronized')?)| (default?='default' ('and' synchronized?='synchronized')?) |synchronized?='synchronized';
 
 enum AccessModifier returns AccessModifier:
-	default='default' | public='public' | protected='protected' | private='private';
+	public='public' | protected='protected' | private='private';

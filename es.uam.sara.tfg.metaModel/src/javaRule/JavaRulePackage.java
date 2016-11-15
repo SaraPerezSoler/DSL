@@ -325,6 +325,34 @@ public interface JavaRulePackage extends EPackage {
 	int SATISFY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.FileImpl <em>File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.FileImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 6;
+
+	/**
+	 * The number of structural features of the '<em>File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_FEATURE_COUNT = SATISFY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_OPERATION_COUNT = SATISFY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.impl.PackageImpl <em>Package</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,7 +360,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getPackage()
 	 * @generated
 	 */
-	int PACKAGE = 6;
+	int PACKAGE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Package</em>' class.
@@ -360,7 +388,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 7;
+	int INTERFACE = 8;
 
 	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
@@ -388,7 +416,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getisImplemented()
 	 * @generated
 	 */
-	int IS_IMPLEMENTED = 8;
+	int IS_IMPLEMENTED = 9;
 
 	/**
 	 * The number of structural features of the '<em>is Implemented</em>' class.
@@ -416,7 +444,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getEnumeration()
 	 * @generated
 	 */
-	int ENUMERATION = 9;
+	int ENUMERATION = 10;
 
 	/**
 	 * The number of structural features of the '<em>Enumeration</em>' class.
@@ -444,7 +472,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 10;
+	int CLASS = 11;
 
 	/**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -472,7 +500,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsInheritor()
 	 * @generated
 	 */
-	int IS_INHERITOR = 11;
+	int IS_INHERITOR = 12;
 
 	/**
 	 * The number of structural features of the '<em>Is Inheritor</em>' class.
@@ -500,7 +528,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getImplements()
 	 * @generated
 	 */
-	int IMPLEMENTS = 12;
+	int IMPLEMENTS = 13;
 
 	/**
 	 * The feature id for the '<em><b>Min Interface</b></em>' attribute.
@@ -546,7 +574,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsExtended()
 	 * @generated
 	 */
-	int IS_EXTENDED = 13;
+	int IS_EXTENDED = 14;
 
 	/**
 	 * The number of structural features of the '<em>Is Extended</em>' class.
@@ -574,7 +602,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 14;
+	int METHOD = 15;
 
 	/**
 	 * The number of structural features of the '<em>Method</em>' class.
@@ -595,6 +623,34 @@ public interface JavaRulePackage extends EPackage {
 	int METHOD_OPERATION_COUNT = SATISFY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.TamanioImpl <em>Tamanio</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.TamanioImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getTamanio()
+	 * @generated
+	 */
+	int TAMANIO = 16;
+
+	/**
+	 * The number of structural features of the '<em>Tamanio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAMANIO_FEATURE_COUNT = METHOD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Tamanio</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAMANIO_OPERATION_COUNT = METHOD_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,7 +658,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 15;
+	int PARAMETER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Num Param</b></em>' attribute.
@@ -648,7 +704,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 16;
+	int CONSTRUCTOR = 18;
 
 	/**
 	 * The number of structural features of the '<em>Constructor</em>' class.
@@ -676,7 +732,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getReturn()
 	 * @generated
 	 */
-	int RETURN = 17;
+	int RETURN = 19;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' attribute.
@@ -713,7 +769,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 18;
+	int ATTRIBUTE = 20;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -741,7 +797,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAttributeType()
 	 * @generated
 	 */
-	int ATTRIBUTE_TYPE = 19;
+	int ATTRIBUTE_TYPE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -778,7 +834,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getInitialize()
 	 * @generated
 	 */
-	int INITIALIZE = 20;
+	int INITIALIZE = 22;
 
 	/**
 	 * The number of structural features of the '<em>Initialize</em>' class.
@@ -806,7 +862,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getEmpty()
 	 * @generated
 	 */
-	int EMPTY = 21;
+	int EMPTY = 23;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -843,7 +899,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperation()
 	 * @generated
 	 */
-	int NAME_OPERATION = 22;
+	int NAME_OPERATION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -898,7 +954,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
 	 * @generated
 	 */
-	int NAME_TYPE = 23;
+	int NAME_TYPE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -935,7 +991,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getJavaDoc()
 	 * @generated
 	 */
-	int JAVA_DOC = 24;
+	int JAVA_DOC = 26;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -1017,7 +1073,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
 	 * @generated
 	 */
-	int CONTAINS = 25;
+	int CONTAINS = 27;
 
 	/**
 	 * The feature id for the '<em><b>Which</b></em>' containment reference.
@@ -1054,7 +1110,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getModifiers()
 	 * @generated
 	 */
-	int MODIFIERS = 26;
+	int MODIFIERS = 28;
 
 	/**
 	 * The feature id for the '<em><b>Blend</b></em>' containment reference list.
@@ -1091,7 +1147,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getBlendModifiers()
 	 * @generated
 	 */
-	int BLEND_MODIFIERS = 27;
+	int BLEND_MODIFIERS = 29;
 
 	/**
 	 * The feature id for the '<em><b>Access</b></em>' attribute.
@@ -1130,13 +1186,22 @@ public interface JavaRulePackage extends EPackage {
 	int BLEND_MODIFIERS__ABSTRACT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLEND_MODIFIERS__DEFAULT = 4;
+
+	/**
 	 * The feature id for the '<em><b>Synchronized</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLEND_MODIFIERS__SYNCHRONIZED = 4;
+	int BLEND_MODIFIERS__SYNCHRONIZED = 5;
 
 	/**
 	 * The number of structural features of the '<em>Blend Modifiers</em>' class.
@@ -1145,7 +1210,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLEND_MODIFIERS_FEATURE_COUNT = 5;
+	int BLEND_MODIFIERS_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Blend Modifiers</em>' class.
@@ -1164,7 +1229,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsGeneric()
 	 * @generated
 	 */
-	int IS_GENERIC = 28;
+	int IS_GENERIC = 30;
 
 	/**
 	 * The number of structural features of the '<em>Is Generic</em>' class.
@@ -1192,7 +1257,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 29;
+	int QUANTIFIER = 31;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementJava <em>Element Java</em>}' enum.
@@ -1202,7 +1267,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementJava()
 	 * @generated
 	 */
-	int ELEMENT_JAVA = 30;
+	int ELEMENT_JAVA = 32;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -1212,7 +1277,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 31;
+	int LANGUAGE = 33;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
@@ -1222,7 +1287,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_CHECK = 32;
+	int NAME_CHECK = 34;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -1232,7 +1297,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 33;
+	int NAME_OPERATOR = 35;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1242,7 +1307,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 34;
+	int ACCESS_MODIFIER = 36;
 
 
 	/**
@@ -1427,6 +1492,16 @@ public interface JavaRulePackage extends EPackage {
 	EClass getSatisfy();
 
 	/**
+	 * Returns the meta object for class '{@link javaRule.File <em>File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File</em>'.
+	 * @see javaRule.File
+	 * @generated
+	 */
+	EClass getFile();
+
+	/**
 	 * Returns the meta object for class '{@link javaRule.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1537,6 +1612,16 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMethod();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.Tamanio <em>Tamanio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tamanio</em>'.
+	 * @see javaRule.Tamanio
+	 * @generated
+	 */
+	EClass getTamanio();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Parameter <em>Parameter</em>}'.
@@ -1900,6 +1985,17 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getBlendModifiers_Abstract();
 
 	/**
+	 * Returns the meta object for the attribute '{@link javaRule.BlendModifiers#isDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see javaRule.BlendModifiers#isDefault()
+	 * @see #getBlendModifiers()
+	 * @generated
+	 */
+	EAttribute getBlendModifiers_Default();
+
+	/**
 	 * Returns the meta object for the attribute '{@link javaRule.BlendModifiers#isSynchronized <em>Synchronized</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2152,6 +2248,16 @@ public interface JavaRulePackage extends EPackage {
 		EClass SATISFY = eINSTANCE.getSatisfy();
 
 		/**
+		 * The meta object literal for the '{@link javaRule.impl.FileImpl <em>File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.FileImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getFile()
+		 * @generated
+		 */
+		EClass FILE = eINSTANCE.getFile();
+
+		/**
 		 * The meta object literal for the '{@link javaRule.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2256,6 +2362,16 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass METHOD = eINSTANCE.getMethod();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.TamanioImpl <em>Tamanio</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.TamanioImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getTamanio()
+		 * @generated
+		 */
+		EClass TAMANIO = eINSTANCE.getTamanio();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -2554,6 +2670,14 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BLEND_MODIFIERS__ABSTRACT = eINSTANCE.getBlendModifiers_Abstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLEND_MODIFIERS__DEFAULT = eINSTANCE.getBlendModifiers_Default();
 
 		/**
 		 * The meta object literal for the '<em><b>Synchronized</b></em>' attribute feature.

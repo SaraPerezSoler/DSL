@@ -1,7 +1,5 @@
 package es.uam.sara.tfg.properties.packages;
 
-import java.util.List;
-
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
 
@@ -12,19 +10,13 @@ public class PackNameType extends Package{
 		super();
 		nCheck= new NameCheck(type);
 	}
-
-	@Override
-	public void check(List<String> analyze) {
-		for (String p: analyze){
-			if (nCheck.checkNameType(p)){
-				addRight(p);
-			}else{
-				addWrong(p);
-			}
-		}
-	}
 	@Override
 	public String toString() {
 		return "name type="+nCheck.getType();
+	}
+
+	@Override
+	public boolean checkElement(String analyze) {
+		return nCheck.checkNameType(analyze);
 	}
 }

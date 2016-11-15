@@ -10,6 +10,7 @@ import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Enumeration;
+import javaRule.File;
 import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
@@ -29,6 +30,7 @@ import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
+import javaRule.Tamanio;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EObject;
@@ -129,6 +131,13 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaRulePackage.FILE: {
+				File file = (File)theEObject;
+				T result = caseFile(file);
+				if (result == null) result = caseSatisfy(file);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaRulePackage.PACKAGE: {
 				javaRule.Package package_ = (javaRule.Package)theEObject;
 				T result = casePackage(package_);
@@ -169,6 +178,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				IsInheritor isInheritor = (IsInheritor)theEObject;
 				T result = caseIsInheritor(isInheritor);
 				if (result == null) result = caseClass(isInheritor);
+				if (result == null) result = caseInterface(isInheritor);
 				if (result == null) result = caseSatisfy(isInheritor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -185,6 +195,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				IsExtended isExtended = (IsExtended)theEObject;
 				T result = caseIsExtended(isExtended);
 				if (result == null) result = caseClass(isExtended);
+				if (result == null) result = caseInterface(isExtended);
 				if (result == null) result = caseSatisfy(isExtended);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -193,6 +204,14 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Method method = (Method)theEObject;
 				T result = caseMethod(method);
 				if (result == null) result = caseSatisfy(method);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.TAMANIO: {
+				Tamanio tamanio = (Tamanio)theEObject;
+				T result = caseTamanio(tamanio);
+				if (result == null) result = caseMethod(tamanio);
+				if (result == null) result = caseSatisfy(tamanio);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -251,6 +270,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseClass(empty);
 				if (result == null) result = caseInterface(empty);
 				if (result == null) result = caseEnumeration(empty);
+				if (result == null) result = caseFile(empty);
 				if (result == null) result = caseSatisfy(empty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -264,6 +284,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = casePackage(nameOperation);
 				if (result == null) result = caseInterface(nameOperation);
 				if (result == null) result = caseEnumeration(nameOperation);
+				if (result == null) result = caseFile(nameOperation);
 				if (result == null) result = caseSatisfy(nameOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -277,6 +298,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = casePackage(nameType);
 				if (result == null) result = caseInterface(nameType);
 				if (result == null) result = caseEnumeration(nameType);
+				if (result == null) result = caseFile(nameType);
 				if (result == null) result = caseSatisfy(nameType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -300,6 +322,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInterface(contains);
 				if (result == null) result = caseEnumeration(contains);
 				if (result == null) result = caseClass(contains);
+				if (result == null) result = caseFile(contains);
 				if (result == null) result = caseSatisfy(contains);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -424,6 +447,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSatisfy(Satisfy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFile(File object) {
 		return null;
 	}
 
@@ -559,6 +597,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethod(Method object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tamanio</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tamanio</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTamanio(Tamanio object) {
 		return null;
 	}
 

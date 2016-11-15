@@ -26,31 +26,6 @@ public class SubClass extends Class{
 	public SubClass() {
 		of=null;
 	}
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see es.uam.sara.tfg.properties.Properties#check()
-	 */
-	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		
-		for (TypeDeclaration t : analyze) {
-			List<String> superClass=TypeToString.getString(t.getSuperclassType());
-			if (of==null){
-				if (superClass.isEmpty() || superClass.contains(Object.class.toString().toLowerCase())){
-					addWrong(t);
-				}else{
-					addRight(t);
-				}
-			}else{
-				if (superClass.contains(of.toLowerCase())){
-					addRight(t);
-				}else{
-					addWrong(t);
-				}
-			}
-		}
-	}
 
 	@Override
 	public String toString() {
@@ -58,5 +33,23 @@ public class SubClass extends Class{
 			return "is subClass";
 		else 
 			return "is subClass of "+ of;
+	}
+
+	@Override
+	public boolean checkElement(TypeDeclaration t) {
+		List<String> superClass=TypeToString.getString(t.getSuperclassType());
+		if (of==null){
+			if (superClass.isEmpty() || superClass.contains(Object.class.toString().toLowerCase())){
+				return false;
+			}else{
+				return true;
+			}
+		}else{
+			if (superClass.contains(of.toLowerCase())){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}
 }

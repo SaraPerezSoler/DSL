@@ -3,7 +3,6 @@
  */
 package es.uam.sara.tfg.properties.methods;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 /**
@@ -18,26 +17,15 @@ public class Constructor extends Method{
 	public Constructor() {
 		super();
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see es.uam.sara.tfg.properties.Properties#check()
-	 */
-	@Override
-	public void check(List<MethodDeclaration> analyze){
-		for (MethodDeclaration m : analyze) {
-			if (m.isConstructor()) {
-				super.addRight(m);
-			} else {
-				super.addWrong(m);
-			}
-		}
-	}
-
+	
 	@Override
 	public String toString() {
 		return "is constructor";
+	}
+
+	@Override
+	public boolean checkElement(MethodDeclaration analyze) {
+		return analyze.isConstructor();
 	}
 
 }

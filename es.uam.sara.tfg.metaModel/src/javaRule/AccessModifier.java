@@ -56,17 +56,7 @@ public enum AccessModifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIVATE(3, "private", "private"),
-
-	/**
-	 * The '<em><b>Default</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DEFAULT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DEFAULT(4, "default", "default");
+	PRIVATE(3, "private", "private");
 
 	/**
 	 * The '<em><b>Nothing</b></em>' literal value.
@@ -129,21 +119,6 @@ public enum AccessModifier implements Enumerator {
 	public static final int PRIVATE_VALUE = 3;
 
 	/**
-	 * The '<em><b>Default</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Default</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #DEFAULT
-	 * @model name="default"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int DEFAULT_VALUE = 4;
-
-	/**
 	 * An array of all the '<em><b>Access Modifier</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,7 +130,6 @@ public enum AccessModifier implements Enumerator {
 			PUBLIC,
 			PROTECTED,
 			PRIVATE,
-			DEFAULT,
 		};
 
 	/**
@@ -216,7 +190,6 @@ public enum AccessModifier implements Enumerator {
 			case PUBLIC_VALUE: return PUBLIC;
 			case PROTECTED_VALUE: return PROTECTED;
 			case PRIVATE_VALUE: return PRIVATE;
-			case DEFAULT_VALUE: return DEFAULT;
 		}
 		return null;
 	}

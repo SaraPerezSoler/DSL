@@ -31,6 +31,7 @@ import javaRule.Quantifier;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
+import javaRule.Tamanio;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EClass;
@@ -95,6 +96,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.IS_INHERITOR: return createIsInheritor();
 			case JavaRulePackage.IMPLEMENTS: return createImplements();
 			case JavaRulePackage.IS_EXTENDED: return createIsExtended();
+			case JavaRulePackage.TAMANIO: return createTamanio();
 			case JavaRulePackage.PARAMETER: return createParameter();
 			case JavaRulePackage.CONSTRUCTOR: return createConstructor();
 			case JavaRulePackage.RETURN: return createReturn();
@@ -251,6 +253,16 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public IsExtended createIsExtended() {
 		IsExtendedImpl isExtended = new IsExtendedImpl();
 		return isExtended;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tamanio createTamanio() {
+		TamanioImpl tamanio = new TamanioImpl();
+		return tamanio;
 	}
 
 	/**

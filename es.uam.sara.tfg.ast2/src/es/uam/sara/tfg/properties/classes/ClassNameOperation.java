@@ -1,8 +1,7 @@
 package es.uam.sara.tfg.properties.classes;
 
-import java.util.List;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
 import es.uam.sara.tfg.properties.NameCheck;
 
 public class ClassNameOperation extends Class{
@@ -15,15 +14,8 @@ public class ClassNameOperation extends Class{
 	}
 
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if(nCheck.checkNameOperation(t.getName().toString())){
-				super.addRight(t);
-			}else{
-				super.addWrong(t);
-			}
-		}
-
+	public boolean checkElement(TypeDeclaration analyze) {
+		return nCheck.checkNameOperation(analyze);
 	}
 	@Override
 	public String toString() {
@@ -36,4 +28,6 @@ public class ClassNameOperation extends Class{
 		}
 		
 	}
+
+	
 }

@@ -22,6 +22,8 @@ public class isExtended extends Class {
 
 	private List<TypeDeclaration> allClasses;
 	private Map<TypeDeclaration, List<TypeDeclaration>> classesExtended;
+	private int intMin;
+	private int intMax;
 
 	/**
 	 * @param allClasses
@@ -29,7 +31,18 @@ public class isExtended extends Class {
 	public isExtended(List<TypeDeclaration> allClasses) {
 		super();
 		this.allClasses = allClasses;
+		this.intMax=-1;
+		this.intMax=Integer.MAX_VALUE;
 		classesExtended=new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		
+	}
+	
+	public isExtended(List<TypeDeclaration> allClasses, int min, int max) {
+		super();
+		this.allClasses = allClasses;
+		classesExtended=new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		this.intMin=min;
+		this.intMax=max;
 	}
 
 	/*
@@ -38,18 +51,7 @@ public class isExtended extends Class {
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t : analyze) {
-			if (check(t)) {
-				super.addRight(t);
-			} else {
-				super.addWrong(t);
-			}
-		}
-
-	}
-
-	private boolean check(TypeDeclaration td) {
+	public boolean checkElement(TypeDeclaration td) {
 		List<TypeDeclaration> save= new ArrayList<TypeDeclaration>();
 		for (TypeDeclaration a : allClasses) {
 			List<String> superClass= TypeToString.getString(a.getSuperclassType());
@@ -57,7 +59,8 @@ public class isExtended extends Class {
 				save.add(a);
 			}
 		}
-		if (save.isEmpty()){
+		if (save.size()<this.intMin || save.size()>this.intMax){
+			classesExtended.put(td, save);
 			return false;
 		}else{
 			classesExtended.put(td, save);

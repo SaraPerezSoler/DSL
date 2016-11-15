@@ -1,8 +1,7 @@
 package es.uam.sara.tfg.properties.classes;
 
-import java.util.List;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
@@ -16,20 +15,13 @@ public class ClassJavaDoc extends Class{
 	}
 
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if (jdc.javaDoc(t.getJavadoc())){
-				super.addRight(t);
-			}else{
-				super.addWrong(t);
-			}
-		}
-
+	public String toString() {
+		return  jdc.toString();
 	}
 
 	@Override
-	public String toString() {
-		return  jdc.toString();
+	public boolean checkElement(TypeDeclaration analize) {
+		return jdc.javaDoc(analize);
 	}
 
 }

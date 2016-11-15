@@ -19,7 +19,7 @@ package javaRule;
  * @model
  * @generated
  */
-public interface Contains extends javaRule.Package, Interface, Enumeration, javaRule.Class {
+public interface Contains extends javaRule.Package, Interface, Enumeration, javaRule.Class, File {
 	/**
 	 * Returns the value of the '<em><b>Which</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -1,63 +1,30 @@
 package es.uam.sara.tfg.properties.classes;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.ast.UnitVisitor;
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.properties.Contain;
 import es.uam.sara.tfg.rule.Rule;
 
 public abstract class ClassContain<T> extends Class {
 
-	private Rule<T> rule;
-	private Map<TypeDeclaration, String> map;
+	private Contain<T, TypeDeclaration> contain;
 	
 	public ClassContain(Rule<T> r) {
-		rule = r;
-		map= new HashMap<TypeDeclaration, String>();
+		contain= new Contain<T, TypeDeclaration>(r);
 	}
 	
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			rule.reset(getSubType(t));
-			if (rule.checkTest()){
-				this.addRight(t);
-			}else{
-				this.addWrong(t);
-			}
-			map.put(t, rule.log());
-		}
+	public boolean checkElement(TypeDeclaration analyze){
+		return contain.checkElement(analyze, getSubType(analyze));
+
 	}
-	
 	public abstract List<T> getSubType(TypeDeclaration t);
-
-	@Override
-	public String toString() {
-		return "have {" + rule + "}";
+	
+	public String print(TypeDeclaration print){
+		return super.print(print) + contain.print(print);
 	}
-
-	public String printRight(){
-		String cad="";
-		List<TypeDeclaration> right=super.getRight();
-		for (TypeDeclaration tp: right){
-			UnitVisitor uv=Visitors.getVisitor(tp);
-			cad+="In file "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")  satisfy \""+this.toString()+"\"\n";
-			cad+="{\n\t"+map.get(tp).replace("\n", "\n\t")+"\n}\n";
-		}
-		return cad;
-	}
-	public String printWrong(){
-		String cad="";
-		List<TypeDeclaration> wrong=super.getWrong();
-		for (TypeDeclaration tp: wrong){
-			UnitVisitor uv=Visitors.getVisitor(tp);
-			cad+="In file: "+uv.getNameFile()+" the class "+tp.getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+") not satisfy \""+this.toString()+"\"\n";
-			cad+="{\n\t"+map.get(tp).replace("\n", "\n\t")+"\n}\n";
-		}
-		return cad;
+	
+	public String toString(){
+		return contain.toString();
 	}
 }

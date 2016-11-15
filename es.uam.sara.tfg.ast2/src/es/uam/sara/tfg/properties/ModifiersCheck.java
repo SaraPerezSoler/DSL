@@ -3,14 +3,18 @@ package es.uam.sara.tfg.properties;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.Annotation;
+import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
+
+import es.uam.sara.tfg.properties.BlendModifiers.Acceso;
 
 public class ModifiersCheck {
 
 
 	private ArrayList<BlendModifiers> blends=new ArrayList<BlendModifiers>();
-	public void addBlend(String acceso, boolean static_, boolean final_, boolean abstract_, boolean synchronized_){
-		blends.add(new BlendModifiers(acceso, static_, final_, abstract_, synchronized_));
+	public void addBlend(Acceso acceso, boolean static_, boolean final_, boolean abstract_, boolean default_, boolean synchronized_){
+		blends.add(new BlendModifiers(acceso, static_, final_, abstract_,default_, synchronized_));
 	}
 	
 	public boolean modifiers(List<Modifier> list){
@@ -24,30 +28,33 @@ public class ModifiersCheck {
 		
 	}
 	private BlendModifiers createBlend(List<Modifier> list){
-		String acceso="";
+		Acceso acceso=Acceso.NOTHING;
 		boolean static_=false; 
 		boolean final_=false; 
 		boolean abstract_=false; 
+		boolean default_=false; 
 		boolean synchronized_=false;
 		
 		for (Modifier m:list){
 			if (m.isPublic()){
-				acceso="public";
+				acceso=Acceso.PUBLIC;
 			}else if (m.isPrivate()){
-				acceso="private";
+				acceso=Acceso.PRIVATE;
 			}else if (m.isProtected()){
-				acceso="protected";
+				acceso=Acceso.PROTECTED;
 			}else if(m.isStatic()){
 				static_=true;
 			}else if(m.isFinal()){
 				final_=true;
 			}else if(m.isAbstract()){
 				abstract_=true;
+			}else if (m.isDefault()){
+				default_=true;
 			}else if(m.isSynchronized()){
 				synchronized_=true;
 			}
 		}
-		return new BlendModifiers(acceso, static_, final_, abstract_, synchronized_);
+		return new BlendModifiers(acceso, static_, final_, abstract_,default_, synchronized_);
 	}
 
 	@Override
@@ -60,4 +67,16 @@ public class ModifiersCheck {
 		cad+="]";
 		return cad;
 	}
+	
+	public static List<Modifier> getList(BodyDeclaration bd) {
+		List<Modifier> mList = new ArrayList<Modifier>();
+		for (Object o : bd.modifiers()) {
+			if (o instanceof Modifier) {
+				mList.add((Modifier) o);
+			}
+		}
+		return mList;
+	}
+	
+	
 }

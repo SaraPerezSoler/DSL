@@ -1,6 +1,8 @@
 package es.uam.sara.tfg.properties;
 
 import java.util.ArrayList;
+
+import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.TagElement;
 
@@ -24,8 +26,8 @@ public class JavaDocCheck {
 
 	}
 
-	public boolean javaDoc(Javadoc j) {
-
+	public boolean javaDoc(BodyDeclaration bd) {
+		Javadoc j= bd.getJavadoc();
 		if (j == null)
 			return false;
 		else {

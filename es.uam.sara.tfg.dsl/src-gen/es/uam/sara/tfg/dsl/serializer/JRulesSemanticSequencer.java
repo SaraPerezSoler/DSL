@@ -160,10 +160,18 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (access=AccessModifier static?='static'? final?='final'? abstract?='abstract'? synchronized?='synchronized'?) | 
-	 *         (static?='static' final?='final'? abstract?='abstract'? synchronized?='synchronized'?) | 
-	 *         (final?='final' abstract?='abstract'? synchronized?='synchronized'?) | 
-	 *         (abstract?='abstract' synchronized?='synchronized'?) | 
+	 *         (
+	 *             access=AccessModifier 
+	 *             static?='static'? 
+	 *             final?='final'? 
+	 *             abstract?='abstract'? 
+	 *             default?='default'? 
+	 *             synchronized?='synchronized'?
+	 *         ) | 
+	 *         (static?='static' final?='final'? abstract?='abstract'? default?='default'? synchronized?='synchronized'?) | 
+	 *         (final?='final' abstract?='abstract'? default?='default'? synchronized?='synchronized'?) | 
+	 *         (abstract?='abstract' default?='default'? synchronized?='synchronized'?) | 
+	 *         (default?='default' synchronized?='synchronized'?) | 
 	 *         synchronized?='synchronized'
 	 *     )
 	 */

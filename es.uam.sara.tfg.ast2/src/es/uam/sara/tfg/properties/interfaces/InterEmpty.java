@@ -1,39 +1,23 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.properties.Empty;
 
 
 public class InterEmpty extends Interface{
 
-	private boolean no;
 
-	public InterEmpty(boolean no) {
+	public InterEmpty() {
 		super();
-		this.no = no;
-	}
-
-	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if (t.bodyDeclarations().isEmpty()){
-				if (no) {
-					addWrong(t);
-				} else {
-					addRight(t);
-				}
-			} else {
-				if (no) {
-					addRight(t);
-				} else {
-					addWrong(t);
-				}
-				
-			}
-		}
 	}
 	@Override
 	public String toString() {
 		return "no empty";
+	}
+
+	@Override
+	public boolean checkElement(TypeDeclaration analyze) {
+		// TODO Auto-generated method stub
+		return Empty.isEmpty(analyze);
 	}
 }

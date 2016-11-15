@@ -8,55 +8,70 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.properties.TypeToString;
 
-
 /**
  * @author Sara
  *
  */
-public class SubInterface extends Interface{
+public class SubInterface extends Interface {
 
 	private String of;
+	private int intMin;
+	private int intMax;
+
 	/**
 	 * @param analyze
 	 */
 	public SubInterface(String of) {
-		this.of=of;
+		this.of = of;
+		this.intMax = Integer.MAX_VALUE;
+		this.intMin = -1;
+	}
+
+	public SubInterface(int min, int max) {
+		of = null;
+		this.intMax = max;
+		this.intMin = min;
 	}
 
 	public SubInterface() {
-		of=null;
-	}
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see es.uam.sara.tfg.properties.Properties#check()
-	 */
-	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		
-		for (TypeDeclaration t : analyze) {
-			List<String> superInterface=TypeToString.getString(t.superInterfaceTypes());
-			if (of==null){
-				if (superInterface.isEmpty()){
-					addWrong(t);
-				}else{
-					addRight(t);
-				}
-			}else{
-				if (superInterface.contains(of.toLowerCase())){
-					addRight(t);
-				}else{
-					addWrong(t);
-				}
-			}
-		}
+		this.of = null;
+		this.intMax = Integer.MAX_VALUE;
+		this.intMin = -1;
 	}
 
 	@Override
 	public String toString() {
-		if (of==null)
-			return "is subClass";
-		else 
-			return "is subClass of "+ of;
+		if (of == null) {
+			if (intMin == -1 && intMax == Integer.MAX_VALUE) {
+				return "extends some interface";
+			} else {
+				if (intMax == Integer.MAX_VALUE) {
+					return "extends [" + intMin + "..*] interfaces";
+				} else {
+					return "extends [" + intMin + ".." + intMax + "] interfaces";
+				}
+			}
+		} else {
+			return "extends the interface " + of;
+		}
+	}
+
+	@Override
+	public boolean checkElement(TypeDeclaration analyze) {
+		List<String> superInterface = TypeToString.getString(analyze.superInterfaceTypes());
+		if (of == null) {
+			if (superInterface.size() < intMin || superInterface.size() > intMax) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {
+			if (superInterface.contains(of.toLowerCase())) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
 	}
 }

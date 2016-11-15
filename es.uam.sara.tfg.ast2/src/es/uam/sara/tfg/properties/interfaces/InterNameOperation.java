@@ -1,6 +1,5 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.properties.NameCheck;
 
@@ -14,16 +13,6 @@ public class InterNameOperation extends Interface{
 	}
 
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t : analyze) {
-			if (nCheck.checkNameOperation(t.getName().toString())) {
-				super.addRight(t);
-			} else {
-				super.addWrong(t);
-			}
-		}
-	}
-	@Override
 	public String toString() {
 		if (nCheck.getIdioma()==NameCheck.EMPTY){
 			return "name "+nCheck.getOp() +" " +nCheck.getOther();
@@ -33,5 +22,10 @@ public class InterNameOperation extends Interface{
 			return "name "+nCheck.getOp() +" " +nCheck.getOther()+", Spanish";
 		}
 		
+	}
+
+	@Override
+	public boolean checkElement(TypeDeclaration analyze) {
+		return nCheck.checkNameOperation(analyze);
 	}
 }

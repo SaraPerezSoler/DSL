@@ -103,6 +103,15 @@ public interface JavaRuleFactory extends EFactory {
 	IsExtended createIsExtended();
 
 	/**
+	 * Returns a new object of class '<em>Tamanio</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tamanio</em>'.
+	 * @generated
+	 */
+	Tamanio createTamanio();
+
+	/**
 	 * Returns a new object of class '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectName:'", "','", "';'", "'no'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'subclass'", "'implements'", "'['", "'..'", "'*'", "']'", "'interfaces'", "'extended'", "'numParameters='", "'types='", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'in'", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers:'", "'generic'", "'-'", "'static'", "'final'", "'abstract'", "'synchronized'", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'='", "'end'", "'start'", "'contain'", "'English'", "'Spanish'", "'default'", "'public'", "'protected'", "'private'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'ProjectName:'", "','", "';'", "'no'", "'which'", "'satisfy'", "'or'", "'('", "'and'", "')'", "'is'", "'implemented'", "'subclass'", "'implements'", "'['", "'..'", "'*'", "']'", "'interfaces'", "'extended'", "'numParameters='", "'types='", "'constructor'", "'return'", "'type='", "'initialize'", "'not'", "'empty'", "'name'", "'in'", "'JavaDoc'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'have'", "'{'", "'}'", "'modifiers:'", "'generic'", "'-'", "'static'", "'final'", "'abstract'", "'default'", "'synchronized'", "'one'", "'exists'", "'all'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'upperCase'", "'lowerCase'", "'upperCamelCase'", "'lowerCamelCase'", "'startUpperCase'", "'like'", "'='", "'end'", "'start'", "'contain'", "'English'", "'Spanish'", "'public'", "'protected'", "'private'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -343,7 +343,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==14||(LA2_0>=58 && LA2_0<=60)) ) {
+                if ( (LA2_0==14||(LA2_0>=59 && LA2_0<=61)) ) {
                     alt2=1;
                 }
 
@@ -4013,7 +4013,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
             if ( (LA26_0==18) ) {
                 alt26=1;
             }
-            else if ( ((LA26_0>=54 && LA26_0<=57)||(LA26_0>=79 && LA26_0<=82)) ) {
+            else if ( ((LA26_0>=54 && LA26_0<=58)||(LA26_0>=80 && LA26_0<=82)) ) {
                 alt26=2;
             }
             else {
@@ -4509,7 +4509,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBlendModifiers"
-    // InternalJRules.g:1783:1: ruleBlendModifiers returns [EObject current=null] : ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? ) | ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? ) | ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_24_0= 'synchronized' ) ) ) ;
+    // InternalJRules.g:1783:1: ruleBlendModifiers returns [EObject current=null] : ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? ) | ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? ) | ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? ) | ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_35_0= 'synchronized' ) ) ) ;
     public final EObject ruleBlendModifiers() throws RecognitionException {
         EObject current = null;
 
@@ -4520,23 +4520,34 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token lv_abstract_6_0=null;
         Token otherlv_7=null;
-        Token lv_synchronized_8_0=null;
-        Token lv_static_9_0=null;
-        Token otherlv_10=null;
-        Token lv_final_11_0=null;
+        Token lv_default_8_0=null;
+        Token otherlv_9=null;
+        Token lv_synchronized_10_0=null;
+        Token lv_static_11_0=null;
         Token otherlv_12=null;
-        Token lv_abstract_13_0=null;
+        Token lv_final_13_0=null;
         Token otherlv_14=null;
-        Token lv_synchronized_15_0=null;
-        Token lv_final_16_0=null;
-        Token otherlv_17=null;
-        Token lv_abstract_18_0=null;
-        Token otherlv_19=null;
-        Token lv_synchronized_20_0=null;
-        Token lv_abstract_21_0=null;
-        Token otherlv_22=null;
-        Token lv_synchronized_23_0=null;
-        Token lv_synchronized_24_0=null;
+        Token lv_abstract_15_0=null;
+        Token otherlv_16=null;
+        Token lv_default_17_0=null;
+        Token otherlv_18=null;
+        Token lv_synchronized_19_0=null;
+        Token lv_final_20_0=null;
+        Token otherlv_21=null;
+        Token lv_abstract_22_0=null;
+        Token otherlv_23=null;
+        Token lv_default_24_0=null;
+        Token otherlv_25=null;
+        Token lv_synchronized_26_0=null;
+        Token lv_abstract_27_0=null;
+        Token otherlv_28=null;
+        Token lv_default_29_0=null;
+        Token otherlv_30=null;
+        Token lv_synchronized_31_0=null;
+        Token lv_default_32_0=null;
+        Token otherlv_33=null;
+        Token lv_synchronized_34_0=null;
+        Token lv_synchronized_35_0=null;
         Enumerator lv_access_0_0 = null;
 
 
@@ -4544,53 +4555,57 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:1789:2: ( ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? ) | ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? ) | ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_24_0= 'synchronized' ) ) ) )
-            // InternalJRules.g:1790:2: ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? ) | ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? ) | ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_24_0= 'synchronized' ) ) )
+            // InternalJRules.g:1789:2: ( ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? ) | ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? ) | ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? ) | ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_35_0= 'synchronized' ) ) ) )
+            // InternalJRules.g:1790:2: ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? ) | ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? ) | ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? ) | ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_35_0= 'synchronized' ) ) )
             {
-            // InternalJRules.g:1790:2: ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? ) | ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? ) | ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_24_0= 'synchronized' ) ) )
-            int alt38=5;
+            // InternalJRules.g:1790:2: ( ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? ) | ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? ) | ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? ) | ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? ) | ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? ) | ( (lv_synchronized_35_0= 'synchronized' ) ) )
+            int alt43=6;
             switch ( input.LA(1) ) {
-            case 79:
             case 80:
             case 81:
             case 82:
                 {
-                alt38=1;
+                alt43=1;
                 }
                 break;
             case 54:
                 {
-                alt38=2;
+                alt43=2;
                 }
                 break;
             case 55:
                 {
-                alt38=3;
+                alt43=3;
                 }
                 break;
             case 56:
                 {
-                alt38=4;
+                alt43=4;
                 }
                 break;
             case 57:
                 {
-                alt38=5;
+                alt43=5;
+                }
+                break;
+            case 58:
+                {
+                alt43=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 38, 0, input);
+                    new NoViableAltException("", 43, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt38) {
+            switch (alt43) {
                 case 1 :
-                    // InternalJRules.g:1791:3: ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:1791:3: ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? )
                     {
-                    // InternalJRules.g:1791:3: ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )? )
-                    // InternalJRules.g:1792:4: ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )?
+                    // InternalJRules.g:1791:3: ( ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:1792:4: ( (lv_access_0_0= ruleAccessModifier ) ) (otherlv_1= 'and' ( (lv_static_2_0= 'static' ) ) )? (otherlv_3= 'and' ( (lv_final_4_0= 'final' ) ) )? (otherlv_5= 'and' ( (lv_abstract_6_0= 'abstract' ) ) )? (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )? (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )?
                     {
                     // InternalJRules.g:1792:4: ( (lv_access_0_0= ruleAccessModifier ) )
                     // InternalJRules.g:1793:5: (lv_access_0_0= ruleAccessModifier )
@@ -4764,30 +4779,77 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:1871:4: (otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) ) )?
+                    // InternalJRules.g:1871:4: (otherlv_7= 'and' ( (lv_default_8_0= 'default' ) ) )?
                     int alt31=2;
                     int LA31_0 = input.LA(1);
 
                     if ( (LA31_0==19) ) {
-                        alt31=1;
+                        int LA31_1 = input.LA(2);
+
+                        if ( (LA31_1==57) ) {
+                            alt31=1;
+                        }
                     }
                     switch (alt31) {
                         case 1 :
-                            // InternalJRules.g:1872:5: otherlv_7= 'and' ( (lv_synchronized_8_0= 'synchronized' ) )
+                            // InternalJRules.g:1872:5: otherlv_7= 'and' ( (lv_default_8_0= 'default' ) )
                             {
                             otherlv_7=(Token)match(input,19,FOLLOW_53); 
 
                             					newLeafNode(otherlv_7, grammarAccess.getBlendModifiersAccess().getAndKeyword_0_4_0());
                             				
-                            // InternalJRules.g:1876:5: ( (lv_synchronized_8_0= 'synchronized' ) )
-                            // InternalJRules.g:1877:6: (lv_synchronized_8_0= 'synchronized' )
+                            // InternalJRules.g:1876:5: ( (lv_default_8_0= 'default' ) )
+                            // InternalJRules.g:1877:6: (lv_default_8_0= 'default' )
                             {
-                            // InternalJRules.g:1877:6: (lv_synchronized_8_0= 'synchronized' )
-                            // InternalJRules.g:1878:7: lv_synchronized_8_0= 'synchronized'
+                            // InternalJRules.g:1877:6: (lv_default_8_0= 'default' )
+                            // InternalJRules.g:1878:7: lv_default_8_0= 'default'
                             {
-                            lv_synchronized_8_0=(Token)match(input,57,FOLLOW_2); 
+                            lv_default_8_0=(Token)match(input,57,FOLLOW_13); 
 
-                            							newLeafNode(lv_synchronized_8_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_4_1_0());
+                            							newLeafNode(lv_default_8_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_0_4_1_0());
+                            						
+
+                            							if (current==null) {
+                            								current = createModelElement(grammarAccess.getBlendModifiersRule());
+                            							}
+                            							setWithLastConsumed(current, "default", true, "default");
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalJRules.g:1891:4: (otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) ) )?
+                    int alt32=2;
+                    int LA32_0 = input.LA(1);
+
+                    if ( (LA32_0==19) ) {
+                        alt32=1;
+                    }
+                    switch (alt32) {
+                        case 1 :
+                            // InternalJRules.g:1892:5: otherlv_9= 'and' ( (lv_synchronized_10_0= 'synchronized' ) )
+                            {
+                            otherlv_9=(Token)match(input,19,FOLLOW_54); 
+
+                            					newLeafNode(otherlv_9, grammarAccess.getBlendModifiersAccess().getAndKeyword_0_5_0());
+                            				
+                            // InternalJRules.g:1896:5: ( (lv_synchronized_10_0= 'synchronized' ) )
+                            // InternalJRules.g:1897:6: (lv_synchronized_10_0= 'synchronized' )
+                            {
+                            // InternalJRules.g:1897:6: (lv_synchronized_10_0= 'synchronized' )
+                            // InternalJRules.g:1898:7: lv_synchronized_10_0= 'synchronized'
+                            {
+                            lv_synchronized_10_0=(Token)match(input,58,FOLLOW_2); 
+
+                            							newLeafNode(lv_synchronized_10_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_0_5_1_0());
                             						
 
                             							if (current==null) {
@@ -4814,20 +4876,20 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:1893:3: ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:1913:3: ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? )
                     {
-                    // InternalJRules.g:1893:3: ( ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )? )
-                    // InternalJRules.g:1894:4: ( (lv_static_9_0= 'static' ) ) (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )? (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )? (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )?
+                    // InternalJRules.g:1913:3: ( ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:1914:4: ( (lv_static_11_0= 'static' ) ) (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )? (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )? (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )? (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )?
                     {
-                    // InternalJRules.g:1894:4: ( (lv_static_9_0= 'static' ) )
-                    // InternalJRules.g:1895:5: (lv_static_9_0= 'static' )
+                    // InternalJRules.g:1914:4: ( (lv_static_11_0= 'static' ) )
+                    // InternalJRules.g:1915:5: (lv_static_11_0= 'static' )
                     {
-                    // InternalJRules.g:1895:5: (lv_static_9_0= 'static' )
-                    // InternalJRules.g:1896:6: lv_static_9_0= 'static'
+                    // InternalJRules.g:1915:5: (lv_static_11_0= 'static' )
+                    // InternalJRules.g:1916:6: lv_static_11_0= 'static'
                     {
-                    lv_static_9_0=(Token)match(input,54,FOLLOW_13); 
+                    lv_static_11_0=(Token)match(input,54,FOLLOW_13); 
 
-                    						newLeafNode(lv_static_9_0, grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0());
+                    						newLeafNode(lv_static_11_0, grammarAccess.getBlendModifiersAccess().getStaticStaticKeyword_1_0_0());
                     					
 
                     						if (current==null) {
@@ -4841,34 +4903,34 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:1908:4: (otherlv_10= 'and' ( (lv_final_11_0= 'final' ) ) )?
-                    int alt32=2;
-                    int LA32_0 = input.LA(1);
+                    // InternalJRules.g:1928:4: (otherlv_12= 'and' ( (lv_final_13_0= 'final' ) ) )?
+                    int alt33=2;
+                    int LA33_0 = input.LA(1);
 
-                    if ( (LA32_0==19) ) {
-                        int LA32_1 = input.LA(2);
+                    if ( (LA33_0==19) ) {
+                        int LA33_1 = input.LA(2);
 
-                        if ( (LA32_1==55) ) {
-                            alt32=1;
+                        if ( (LA33_1==55) ) {
+                            alt33=1;
                         }
                     }
-                    switch (alt32) {
+                    switch (alt33) {
                         case 1 :
-                            // InternalJRules.g:1909:5: otherlv_10= 'and' ( (lv_final_11_0= 'final' ) )
+                            // InternalJRules.g:1929:5: otherlv_12= 'and' ( (lv_final_13_0= 'final' ) )
                             {
-                            otherlv_10=(Token)match(input,19,FOLLOW_51); 
+                            otherlv_12=(Token)match(input,19,FOLLOW_51); 
 
-                            					newLeafNode(otherlv_10, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_1_0());
+                            					newLeafNode(otherlv_12, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_1_0());
                             				
-                            // InternalJRules.g:1913:5: ( (lv_final_11_0= 'final' ) )
-                            // InternalJRules.g:1914:6: (lv_final_11_0= 'final' )
+                            // InternalJRules.g:1933:5: ( (lv_final_13_0= 'final' ) )
+                            // InternalJRules.g:1934:6: (lv_final_13_0= 'final' )
                             {
-                            // InternalJRules.g:1914:6: (lv_final_11_0= 'final' )
-                            // InternalJRules.g:1915:7: lv_final_11_0= 'final'
+                            // InternalJRules.g:1934:6: (lv_final_13_0= 'final' )
+                            // InternalJRules.g:1935:7: lv_final_13_0= 'final'
                             {
-                            lv_final_11_0=(Token)match(input,55,FOLLOW_13); 
+                            lv_final_13_0=(Token)match(input,55,FOLLOW_13); 
 
-                            							newLeafNode(lv_final_11_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0());
+                            							newLeafNode(lv_final_13_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_1_1_1_0());
                             						
 
                             							if (current==null) {
@@ -4888,34 +4950,34 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:1928:4: (otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) ) )?
-                    int alt33=2;
-                    int LA33_0 = input.LA(1);
+                    // InternalJRules.g:1948:4: (otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) ) )?
+                    int alt34=2;
+                    int LA34_0 = input.LA(1);
 
-                    if ( (LA33_0==19) ) {
-                        int LA33_1 = input.LA(2);
+                    if ( (LA34_0==19) ) {
+                        int LA34_1 = input.LA(2);
 
-                        if ( (LA33_1==56) ) {
-                            alt33=1;
+                        if ( (LA34_1==56) ) {
+                            alt34=1;
                         }
                     }
-                    switch (alt33) {
+                    switch (alt34) {
                         case 1 :
-                            // InternalJRules.g:1929:5: otherlv_12= 'and' ( (lv_abstract_13_0= 'abstract' ) )
+                            // InternalJRules.g:1949:5: otherlv_14= 'and' ( (lv_abstract_15_0= 'abstract' ) )
                             {
-                            otherlv_12=(Token)match(input,19,FOLLOW_52); 
+                            otherlv_14=(Token)match(input,19,FOLLOW_52); 
 
-                            					newLeafNode(otherlv_12, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_2_0());
+                            					newLeafNode(otherlv_14, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_2_0());
                             				
-                            // InternalJRules.g:1933:5: ( (lv_abstract_13_0= 'abstract' ) )
-                            // InternalJRules.g:1934:6: (lv_abstract_13_0= 'abstract' )
+                            // InternalJRules.g:1953:5: ( (lv_abstract_15_0= 'abstract' ) )
+                            // InternalJRules.g:1954:6: (lv_abstract_15_0= 'abstract' )
                             {
-                            // InternalJRules.g:1934:6: (lv_abstract_13_0= 'abstract' )
-                            // InternalJRules.g:1935:7: lv_abstract_13_0= 'abstract'
+                            // InternalJRules.g:1954:6: (lv_abstract_15_0= 'abstract' )
+                            // InternalJRules.g:1955:7: lv_abstract_15_0= 'abstract'
                             {
-                            lv_abstract_13_0=(Token)match(input,56,FOLLOW_13); 
+                            lv_abstract_15_0=(Token)match(input,56,FOLLOW_13); 
 
-                            							newLeafNode(lv_abstract_13_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0());
+                            							newLeafNode(lv_abstract_15_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_1_2_1_0());
                             						
 
                             							if (current==null) {
@@ -4935,30 +4997,77 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:1948:4: (otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) ) )?
-                    int alt34=2;
-                    int LA34_0 = input.LA(1);
+                    // InternalJRules.g:1968:4: (otherlv_16= 'and' ( (lv_default_17_0= 'default' ) ) )?
+                    int alt35=2;
+                    int LA35_0 = input.LA(1);
 
-                    if ( (LA34_0==19) ) {
-                        alt34=1;
+                    if ( (LA35_0==19) ) {
+                        int LA35_1 = input.LA(2);
+
+                        if ( (LA35_1==57) ) {
+                            alt35=1;
+                        }
                     }
-                    switch (alt34) {
+                    switch (alt35) {
                         case 1 :
-                            // InternalJRules.g:1949:5: otherlv_14= 'and' ( (lv_synchronized_15_0= 'synchronized' ) )
+                            // InternalJRules.g:1969:5: otherlv_16= 'and' ( (lv_default_17_0= 'default' ) )
                             {
-                            otherlv_14=(Token)match(input,19,FOLLOW_53); 
+                            otherlv_16=(Token)match(input,19,FOLLOW_53); 
 
-                            					newLeafNode(otherlv_14, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_3_0());
+                            					newLeafNode(otherlv_16, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_3_0());
                             				
-                            // InternalJRules.g:1953:5: ( (lv_synchronized_15_0= 'synchronized' ) )
-                            // InternalJRules.g:1954:6: (lv_synchronized_15_0= 'synchronized' )
+                            // InternalJRules.g:1973:5: ( (lv_default_17_0= 'default' ) )
+                            // InternalJRules.g:1974:6: (lv_default_17_0= 'default' )
                             {
-                            // InternalJRules.g:1954:6: (lv_synchronized_15_0= 'synchronized' )
-                            // InternalJRules.g:1955:7: lv_synchronized_15_0= 'synchronized'
+                            // InternalJRules.g:1974:6: (lv_default_17_0= 'default' )
+                            // InternalJRules.g:1975:7: lv_default_17_0= 'default'
                             {
-                            lv_synchronized_15_0=(Token)match(input,57,FOLLOW_2); 
+                            lv_default_17_0=(Token)match(input,57,FOLLOW_13); 
 
-                            							newLeafNode(lv_synchronized_15_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_3_1_0());
+                            							newLeafNode(lv_default_17_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_1_3_1_0());
+                            						
+
+                            							if (current==null) {
+                            								current = createModelElement(grammarAccess.getBlendModifiersRule());
+                            							}
+                            							setWithLastConsumed(current, "default", true, "default");
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalJRules.g:1988:4: (otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) ) )?
+                    int alt36=2;
+                    int LA36_0 = input.LA(1);
+
+                    if ( (LA36_0==19) ) {
+                        alt36=1;
+                    }
+                    switch (alt36) {
+                        case 1 :
+                            // InternalJRules.g:1989:5: otherlv_18= 'and' ( (lv_synchronized_19_0= 'synchronized' ) )
+                            {
+                            otherlv_18=(Token)match(input,19,FOLLOW_54); 
+
+                            					newLeafNode(otherlv_18, grammarAccess.getBlendModifiersAccess().getAndKeyword_1_4_0());
+                            				
+                            // InternalJRules.g:1993:5: ( (lv_synchronized_19_0= 'synchronized' ) )
+                            // InternalJRules.g:1994:6: (lv_synchronized_19_0= 'synchronized' )
+                            {
+                            // InternalJRules.g:1994:6: (lv_synchronized_19_0= 'synchronized' )
+                            // InternalJRules.g:1995:7: lv_synchronized_19_0= 'synchronized'
+                            {
+                            lv_synchronized_19_0=(Token)match(input,58,FOLLOW_2); 
+
+                            							newLeafNode(lv_synchronized_19_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_1_4_1_0());
                             						
 
                             							if (current==null) {
@@ -4985,20 +5094,20 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:1970:3: ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:2010:3: ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? )
                     {
-                    // InternalJRules.g:1970:3: ( ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )? )
-                    // InternalJRules.g:1971:4: ( (lv_final_16_0= 'final' ) ) (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )? (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )?
+                    // InternalJRules.g:2010:3: ( ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:2011:4: ( (lv_final_20_0= 'final' ) ) (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )? (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )? (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )?
                     {
-                    // InternalJRules.g:1971:4: ( (lv_final_16_0= 'final' ) )
-                    // InternalJRules.g:1972:5: (lv_final_16_0= 'final' )
+                    // InternalJRules.g:2011:4: ( (lv_final_20_0= 'final' ) )
+                    // InternalJRules.g:2012:5: (lv_final_20_0= 'final' )
                     {
-                    // InternalJRules.g:1972:5: (lv_final_16_0= 'final' )
-                    // InternalJRules.g:1973:6: lv_final_16_0= 'final'
+                    // InternalJRules.g:2012:5: (lv_final_20_0= 'final' )
+                    // InternalJRules.g:2013:6: lv_final_20_0= 'final'
                     {
-                    lv_final_16_0=(Token)match(input,55,FOLLOW_13); 
+                    lv_final_20_0=(Token)match(input,55,FOLLOW_13); 
 
-                    						newLeafNode(lv_final_16_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0());
+                    						newLeafNode(lv_final_20_0, grammarAccess.getBlendModifiersAccess().getFinalFinalKeyword_2_0_0());
                     					
 
                     						if (current==null) {
@@ -5012,34 +5121,34 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:1985:4: (otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) ) )?
-                    int alt35=2;
-                    int LA35_0 = input.LA(1);
+                    // InternalJRules.g:2025:4: (otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) ) )?
+                    int alt37=2;
+                    int LA37_0 = input.LA(1);
 
-                    if ( (LA35_0==19) ) {
-                        int LA35_1 = input.LA(2);
+                    if ( (LA37_0==19) ) {
+                        int LA37_1 = input.LA(2);
 
-                        if ( (LA35_1==56) ) {
-                            alt35=1;
+                        if ( (LA37_1==56) ) {
+                            alt37=1;
                         }
                     }
-                    switch (alt35) {
+                    switch (alt37) {
                         case 1 :
-                            // InternalJRules.g:1986:5: otherlv_17= 'and' ( (lv_abstract_18_0= 'abstract' ) )
+                            // InternalJRules.g:2026:5: otherlv_21= 'and' ( (lv_abstract_22_0= 'abstract' ) )
                             {
-                            otherlv_17=(Token)match(input,19,FOLLOW_52); 
+                            otherlv_21=(Token)match(input,19,FOLLOW_52); 
 
-                            					newLeafNode(otherlv_17, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_1_0());
+                            					newLeafNode(otherlv_21, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_1_0());
                             				
-                            // InternalJRules.g:1990:5: ( (lv_abstract_18_0= 'abstract' ) )
-                            // InternalJRules.g:1991:6: (lv_abstract_18_0= 'abstract' )
+                            // InternalJRules.g:2030:5: ( (lv_abstract_22_0= 'abstract' ) )
+                            // InternalJRules.g:2031:6: (lv_abstract_22_0= 'abstract' )
                             {
-                            // InternalJRules.g:1991:6: (lv_abstract_18_0= 'abstract' )
-                            // InternalJRules.g:1992:7: lv_abstract_18_0= 'abstract'
+                            // InternalJRules.g:2031:6: (lv_abstract_22_0= 'abstract' )
+                            // InternalJRules.g:2032:7: lv_abstract_22_0= 'abstract'
                             {
-                            lv_abstract_18_0=(Token)match(input,56,FOLLOW_13); 
+                            lv_abstract_22_0=(Token)match(input,56,FOLLOW_13); 
 
-                            							newLeafNode(lv_abstract_18_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0());
+                            							newLeafNode(lv_abstract_22_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_2_1_1_0());
                             						
 
                             							if (current==null) {
@@ -5059,30 +5168,77 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:2005:4: (otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) ) )?
-                    int alt36=2;
-                    int LA36_0 = input.LA(1);
+                    // InternalJRules.g:2045:4: (otherlv_23= 'and' ( (lv_default_24_0= 'default' ) ) )?
+                    int alt38=2;
+                    int LA38_0 = input.LA(1);
 
-                    if ( (LA36_0==19) ) {
-                        alt36=1;
+                    if ( (LA38_0==19) ) {
+                        int LA38_1 = input.LA(2);
+
+                        if ( (LA38_1==57) ) {
+                            alt38=1;
+                        }
                     }
-                    switch (alt36) {
+                    switch (alt38) {
                         case 1 :
-                            // InternalJRules.g:2006:5: otherlv_19= 'and' ( (lv_synchronized_20_0= 'synchronized' ) )
+                            // InternalJRules.g:2046:5: otherlv_23= 'and' ( (lv_default_24_0= 'default' ) )
                             {
-                            otherlv_19=(Token)match(input,19,FOLLOW_53); 
+                            otherlv_23=(Token)match(input,19,FOLLOW_53); 
 
-                            					newLeafNode(otherlv_19, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_2_0());
+                            					newLeafNode(otherlv_23, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_2_0());
                             				
-                            // InternalJRules.g:2010:5: ( (lv_synchronized_20_0= 'synchronized' ) )
-                            // InternalJRules.g:2011:6: (lv_synchronized_20_0= 'synchronized' )
+                            // InternalJRules.g:2050:5: ( (lv_default_24_0= 'default' ) )
+                            // InternalJRules.g:2051:6: (lv_default_24_0= 'default' )
                             {
-                            // InternalJRules.g:2011:6: (lv_synchronized_20_0= 'synchronized' )
-                            // InternalJRules.g:2012:7: lv_synchronized_20_0= 'synchronized'
+                            // InternalJRules.g:2051:6: (lv_default_24_0= 'default' )
+                            // InternalJRules.g:2052:7: lv_default_24_0= 'default'
                             {
-                            lv_synchronized_20_0=(Token)match(input,57,FOLLOW_2); 
+                            lv_default_24_0=(Token)match(input,57,FOLLOW_13); 
 
-                            							newLeafNode(lv_synchronized_20_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_2_1_0());
+                            							newLeafNode(lv_default_24_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_2_2_1_0());
+                            						
+
+                            							if (current==null) {
+                            								current = createModelElement(grammarAccess.getBlendModifiersRule());
+                            							}
+                            							setWithLastConsumed(current, "default", true, "default");
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalJRules.g:2065:4: (otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) ) )?
+                    int alt39=2;
+                    int LA39_0 = input.LA(1);
+
+                    if ( (LA39_0==19) ) {
+                        alt39=1;
+                    }
+                    switch (alt39) {
+                        case 1 :
+                            // InternalJRules.g:2066:5: otherlv_25= 'and' ( (lv_synchronized_26_0= 'synchronized' ) )
+                            {
+                            otherlv_25=(Token)match(input,19,FOLLOW_54); 
+
+                            					newLeafNode(otherlv_25, grammarAccess.getBlendModifiersAccess().getAndKeyword_2_3_0());
+                            				
+                            // InternalJRules.g:2070:5: ( (lv_synchronized_26_0= 'synchronized' ) )
+                            // InternalJRules.g:2071:6: (lv_synchronized_26_0= 'synchronized' )
+                            {
+                            // InternalJRules.g:2071:6: (lv_synchronized_26_0= 'synchronized' )
+                            // InternalJRules.g:2072:7: lv_synchronized_26_0= 'synchronized'
+                            {
+                            lv_synchronized_26_0=(Token)match(input,58,FOLLOW_2); 
+
+                            							newLeafNode(lv_synchronized_26_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_2_3_1_0());
                             						
 
                             							if (current==null) {
@@ -5109,20 +5265,20 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2027:3: ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:2087:3: ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? )
                     {
-                    // InternalJRules.g:2027:3: ( ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )? )
-                    // InternalJRules.g:2028:4: ( (lv_abstract_21_0= 'abstract' ) ) (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )?
+                    // InternalJRules.g:2087:3: ( ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:2088:4: ( (lv_abstract_27_0= 'abstract' ) ) (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )? (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )?
                     {
-                    // InternalJRules.g:2028:4: ( (lv_abstract_21_0= 'abstract' ) )
-                    // InternalJRules.g:2029:5: (lv_abstract_21_0= 'abstract' )
+                    // InternalJRules.g:2088:4: ( (lv_abstract_27_0= 'abstract' ) )
+                    // InternalJRules.g:2089:5: (lv_abstract_27_0= 'abstract' )
                     {
-                    // InternalJRules.g:2029:5: (lv_abstract_21_0= 'abstract' )
-                    // InternalJRules.g:2030:6: lv_abstract_21_0= 'abstract'
+                    // InternalJRules.g:2089:5: (lv_abstract_27_0= 'abstract' )
+                    // InternalJRules.g:2090:6: lv_abstract_27_0= 'abstract'
                     {
-                    lv_abstract_21_0=(Token)match(input,56,FOLLOW_13); 
+                    lv_abstract_27_0=(Token)match(input,56,FOLLOW_13); 
 
-                    						newLeafNode(lv_abstract_21_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0());
+                    						newLeafNode(lv_abstract_27_0, grammarAccess.getBlendModifiersAccess().getAbstractAbstractKeyword_3_0_0());
                     					
 
                     						if (current==null) {
@@ -5136,30 +5292,77 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJRules.g:2042:4: (otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) ) )?
-                    int alt37=2;
-                    int LA37_0 = input.LA(1);
+                    // InternalJRules.g:2102:4: (otherlv_28= 'and' ( (lv_default_29_0= 'default' ) ) )?
+                    int alt40=2;
+                    int LA40_0 = input.LA(1);
 
-                    if ( (LA37_0==19) ) {
-                        alt37=1;
+                    if ( (LA40_0==19) ) {
+                        int LA40_1 = input.LA(2);
+
+                        if ( (LA40_1==57) ) {
+                            alt40=1;
+                        }
                     }
-                    switch (alt37) {
+                    switch (alt40) {
                         case 1 :
-                            // InternalJRules.g:2043:5: otherlv_22= 'and' ( (lv_synchronized_23_0= 'synchronized' ) )
+                            // InternalJRules.g:2103:5: otherlv_28= 'and' ( (lv_default_29_0= 'default' ) )
                             {
-                            otherlv_22=(Token)match(input,19,FOLLOW_53); 
+                            otherlv_28=(Token)match(input,19,FOLLOW_53); 
 
-                            					newLeafNode(otherlv_22, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_1_0());
+                            					newLeafNode(otherlv_28, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_1_0());
                             				
-                            // InternalJRules.g:2047:5: ( (lv_synchronized_23_0= 'synchronized' ) )
-                            // InternalJRules.g:2048:6: (lv_synchronized_23_0= 'synchronized' )
+                            // InternalJRules.g:2107:5: ( (lv_default_29_0= 'default' ) )
+                            // InternalJRules.g:2108:6: (lv_default_29_0= 'default' )
                             {
-                            // InternalJRules.g:2048:6: (lv_synchronized_23_0= 'synchronized' )
-                            // InternalJRules.g:2049:7: lv_synchronized_23_0= 'synchronized'
+                            // InternalJRules.g:2108:6: (lv_default_29_0= 'default' )
+                            // InternalJRules.g:2109:7: lv_default_29_0= 'default'
                             {
-                            lv_synchronized_23_0=(Token)match(input,57,FOLLOW_2); 
+                            lv_default_29_0=(Token)match(input,57,FOLLOW_13); 
 
-                            							newLeafNode(lv_synchronized_23_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_1_1_0());
+                            							newLeafNode(lv_default_29_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_3_1_1_0());
+                            						
+
+                            							if (current==null) {
+                            								current = createModelElement(grammarAccess.getBlendModifiersRule());
+                            							}
+                            							setWithLastConsumed(current, "default", true, "default");
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    // InternalJRules.g:2122:4: (otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) ) )?
+                    int alt41=2;
+                    int LA41_0 = input.LA(1);
+
+                    if ( (LA41_0==19) ) {
+                        alt41=1;
+                    }
+                    switch (alt41) {
+                        case 1 :
+                            // InternalJRules.g:2123:5: otherlv_30= 'and' ( (lv_synchronized_31_0= 'synchronized' ) )
+                            {
+                            otherlv_30=(Token)match(input,19,FOLLOW_54); 
+
+                            					newLeafNode(otherlv_30, grammarAccess.getBlendModifiersAccess().getAndKeyword_3_2_0());
+                            				
+                            // InternalJRules.g:2127:5: ( (lv_synchronized_31_0= 'synchronized' ) )
+                            // InternalJRules.g:2128:6: (lv_synchronized_31_0= 'synchronized' )
+                            {
+                            // InternalJRules.g:2128:6: (lv_synchronized_31_0= 'synchronized' )
+                            // InternalJRules.g:2129:7: lv_synchronized_31_0= 'synchronized'
+                            {
+                            lv_synchronized_31_0=(Token)match(input,58,FOLLOW_2); 
+
+                            							newLeafNode(lv_synchronized_31_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_3_2_1_0());
                             						
 
                             							if (current==null) {
@@ -5186,17 +5389,94 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJRules.g:2064:3: ( (lv_synchronized_24_0= 'synchronized' ) )
+                    // InternalJRules.g:2144:3: ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? )
                     {
-                    // InternalJRules.g:2064:3: ( (lv_synchronized_24_0= 'synchronized' ) )
-                    // InternalJRules.g:2065:4: (lv_synchronized_24_0= 'synchronized' )
+                    // InternalJRules.g:2144:3: ( ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )? )
+                    // InternalJRules.g:2145:4: ( (lv_default_32_0= 'default' ) ) (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )?
                     {
-                    // InternalJRules.g:2065:4: (lv_synchronized_24_0= 'synchronized' )
-                    // InternalJRules.g:2066:5: lv_synchronized_24_0= 'synchronized'
+                    // InternalJRules.g:2145:4: ( (lv_default_32_0= 'default' ) )
+                    // InternalJRules.g:2146:5: (lv_default_32_0= 'default' )
                     {
-                    lv_synchronized_24_0=(Token)match(input,57,FOLLOW_2); 
+                    // InternalJRules.g:2146:5: (lv_default_32_0= 'default' )
+                    // InternalJRules.g:2147:6: lv_default_32_0= 'default'
+                    {
+                    lv_default_32_0=(Token)match(input,57,FOLLOW_13); 
 
-                    					newLeafNode(lv_synchronized_24_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_0());
+                    						newLeafNode(lv_default_32_0, grammarAccess.getBlendModifiersAccess().getDefaultDefaultKeyword_4_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getBlendModifiersRule());
+                    						}
+                    						setWithLastConsumed(current, "default", true, "default");
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalJRules.g:2159:4: (otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) ) )?
+                    int alt42=2;
+                    int LA42_0 = input.LA(1);
+
+                    if ( (LA42_0==19) ) {
+                        alt42=1;
+                    }
+                    switch (alt42) {
+                        case 1 :
+                            // InternalJRules.g:2160:5: otherlv_33= 'and' ( (lv_synchronized_34_0= 'synchronized' ) )
+                            {
+                            otherlv_33=(Token)match(input,19,FOLLOW_54); 
+
+                            					newLeafNode(otherlv_33, grammarAccess.getBlendModifiersAccess().getAndKeyword_4_1_0());
+                            				
+                            // InternalJRules.g:2164:5: ( (lv_synchronized_34_0= 'synchronized' ) )
+                            // InternalJRules.g:2165:6: (lv_synchronized_34_0= 'synchronized' )
+                            {
+                            // InternalJRules.g:2165:6: (lv_synchronized_34_0= 'synchronized' )
+                            // InternalJRules.g:2166:7: lv_synchronized_34_0= 'synchronized'
+                            {
+                            lv_synchronized_34_0=(Token)match(input,58,FOLLOW_2); 
+
+                            							newLeafNode(lv_synchronized_34_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_4_1_1_0());
+                            						
+
+                            							if (current==null) {
+                            								current = createModelElement(grammarAccess.getBlendModifiersRule());
+                            							}
+                            							setWithLastConsumed(current, "synchronized", true, "synchronized");
+                            						
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalJRules.g:2181:3: ( (lv_synchronized_35_0= 'synchronized' ) )
+                    {
+                    // InternalJRules.g:2181:3: ( (lv_synchronized_35_0= 'synchronized' ) )
+                    // InternalJRules.g:2182:4: (lv_synchronized_35_0= 'synchronized' )
+                    {
+                    // InternalJRules.g:2182:4: (lv_synchronized_35_0= 'synchronized' )
+                    // InternalJRules.g:2183:5: lv_synchronized_35_0= 'synchronized'
+                    {
+                    lv_synchronized_35_0=(Token)match(input,58,FOLLOW_2); 
+
+                    					newLeafNode(lv_synchronized_35_0, grammarAccess.getBlendModifiersAccess().getSynchronizedSynchronizedKeyword_5_0());
                     				
 
                     					if (current==null) {
@@ -5236,7 +5516,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantifier"
-    // InternalJRules.g:2082:1: ruleQuantifier returns [Enumerator current=null] : ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) ) ;
+    // InternalJRules.g:2199:1: ruleQuantifier returns [Enumerator current=null] : ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) ) ;
     public final Enumerator ruleQuantifier() throws RecognitionException {
         Enumerator current = null;
 
@@ -5248,42 +5528,42 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2088:2: ( ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) ) )
-            // InternalJRules.g:2089:2: ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) )
+            // InternalJRules.g:2205:2: ( ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) ) )
+            // InternalJRules.g:2206:2: ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) )
             {
-            // InternalJRules.g:2089:2: ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) )
-            int alt39=3;
+            // InternalJRules.g:2206:2: ( (enumLiteral_0= 'one' ) | (enumLiteral_1= 'exists' ) | (enumLiteral_2= 'all' ) )
+            int alt44=3;
             switch ( input.LA(1) ) {
-            case 58:
-                {
-                alt39=1;
-                }
-                break;
             case 59:
                 {
-                alt39=2;
+                alt44=1;
                 }
                 break;
             case 60:
                 {
-                alt39=3;
+                alt44=2;
+                }
+                break;
+            case 61:
+                {
+                alt44=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 44, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt39) {
+            switch (alt44) {
                 case 1 :
-                    // InternalJRules.g:2090:3: (enumLiteral_0= 'one' )
+                    // InternalJRules.g:2207:3: (enumLiteral_0= 'one' )
                     {
-                    // InternalJRules.g:2090:3: (enumLiteral_0= 'one' )
-                    // InternalJRules.g:2091:4: enumLiteral_0= 'one'
+                    // InternalJRules.g:2207:3: (enumLiteral_0= 'one' )
+                    // InternalJRules.g:2208:4: enumLiteral_0= 'one'
                     {
-                    enumLiteral_0=(Token)match(input,58,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,59,FOLLOW_2); 
 
                     				current = grammarAccess.getQuantifierAccess().getOneEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getQuantifierAccess().getOneEnumLiteralDeclaration_0());
@@ -5295,12 +5575,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2098:3: (enumLiteral_1= 'exists' )
+                    // InternalJRules.g:2215:3: (enumLiteral_1= 'exists' )
                     {
-                    // InternalJRules.g:2098:3: (enumLiteral_1= 'exists' )
-                    // InternalJRules.g:2099:4: enumLiteral_1= 'exists'
+                    // InternalJRules.g:2215:3: (enumLiteral_1= 'exists' )
+                    // InternalJRules.g:2216:4: enumLiteral_1= 'exists'
                     {
-                    enumLiteral_1=(Token)match(input,59,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,60,FOLLOW_2); 
 
                     				current = grammarAccess.getQuantifierAccess().getExistsEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getQuantifierAccess().getExistsEnumLiteralDeclaration_1());
@@ -5312,12 +5592,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2106:3: (enumLiteral_2= 'all' )
+                    // InternalJRules.g:2223:3: (enumLiteral_2= 'all' )
                     {
-                    // InternalJRules.g:2106:3: (enumLiteral_2= 'all' )
-                    // InternalJRules.g:2107:4: enumLiteral_2= 'all'
+                    // InternalJRules.g:2223:3: (enumLiteral_2= 'all' )
+                    // InternalJRules.g:2224:4: enumLiteral_2= 'all'
                     {
-                    enumLiteral_2=(Token)match(input,60,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,61,FOLLOW_2); 
 
                     				current = grammarAccess.getQuantifierAccess().getAllEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getQuantifierAccess().getAllEnumLiteralDeclaration_2());
@@ -5351,7 +5631,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElementJava"
-    // InternalJRules.g:2117:1: ruleElementJava returns [Enumerator current=null] : ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) ) ;
+    // InternalJRules.g:2234:1: ruleElementJava returns [Enumerator current=null] : ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) ) ;
     public final Enumerator ruleElementJava() throws RecognitionException {
         Enumerator current = null;
 
@@ -5366,57 +5646,57 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2123:2: ( ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) ) )
-            // InternalJRules.g:2124:2: ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) )
+            // InternalJRules.g:2240:2: ( ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) ) )
+            // InternalJRules.g:2241:2: ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) )
             {
-            // InternalJRules.g:2124:2: ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) )
-            int alt40=6;
+            // InternalJRules.g:2241:2: ( (enumLiteral_0= 'Package' ) | (enumLiteral_1= 'Class' ) | (enumLiteral_2= 'Interface' ) | (enumLiteral_3= 'Enum' ) | (enumLiteral_4= 'Method' ) | (enumLiteral_5= 'Attribute' ) )
+            int alt45=6;
             switch ( input.LA(1) ) {
-            case 61:
-                {
-                alt40=1;
-                }
-                break;
             case 62:
                 {
-                alt40=2;
+                alt45=1;
                 }
                 break;
             case 63:
                 {
-                alt40=3;
+                alt45=2;
                 }
                 break;
             case 64:
                 {
-                alt40=4;
+                alt45=3;
                 }
                 break;
             case 65:
                 {
-                alt40=5;
+                alt45=4;
                 }
                 break;
             case 66:
                 {
-                alt40=6;
+                alt45=5;
+                }
+                break;
+            case 67:
+                {
+                alt45=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 40, 0, input);
+                    new NoViableAltException("", 45, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt40) {
+            switch (alt45) {
                 case 1 :
-                    // InternalJRules.g:2125:3: (enumLiteral_0= 'Package' )
+                    // InternalJRules.g:2242:3: (enumLiteral_0= 'Package' )
                     {
-                    // InternalJRules.g:2125:3: (enumLiteral_0= 'Package' )
-                    // InternalJRules.g:2126:4: enumLiteral_0= 'Package'
+                    // InternalJRules.g:2242:3: (enumLiteral_0= 'Package' )
+                    // InternalJRules.g:2243:4: enumLiteral_0= 'Package'
                     {
-                    enumLiteral_0=(Token)match(input,61,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,62,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getPackageEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getElementJavaAccess().getPackageEnumLiteralDeclaration_0());
@@ -5428,12 +5708,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2133:3: (enumLiteral_1= 'Class' )
+                    // InternalJRules.g:2250:3: (enumLiteral_1= 'Class' )
                     {
-                    // InternalJRules.g:2133:3: (enumLiteral_1= 'Class' )
-                    // InternalJRules.g:2134:4: enumLiteral_1= 'Class'
+                    // InternalJRules.g:2250:3: (enumLiteral_1= 'Class' )
+                    // InternalJRules.g:2251:4: enumLiteral_1= 'Class'
                     {
-                    enumLiteral_1=(Token)match(input,62,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,63,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getClassEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getElementJavaAccess().getClassEnumLiteralDeclaration_1());
@@ -5445,12 +5725,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2141:3: (enumLiteral_2= 'Interface' )
+                    // InternalJRules.g:2258:3: (enumLiteral_2= 'Interface' )
                     {
-                    // InternalJRules.g:2141:3: (enumLiteral_2= 'Interface' )
-                    // InternalJRules.g:2142:4: enumLiteral_2= 'Interface'
+                    // InternalJRules.g:2258:3: (enumLiteral_2= 'Interface' )
+                    // InternalJRules.g:2259:4: enumLiteral_2= 'Interface'
                     {
-                    enumLiteral_2=(Token)match(input,63,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,64,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getInterfaceEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getElementJavaAccess().getInterfaceEnumLiteralDeclaration_2());
@@ -5462,12 +5742,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2149:3: (enumLiteral_3= 'Enum' )
+                    // InternalJRules.g:2266:3: (enumLiteral_3= 'Enum' )
                     {
-                    // InternalJRules.g:2149:3: (enumLiteral_3= 'Enum' )
-                    // InternalJRules.g:2150:4: enumLiteral_3= 'Enum'
+                    // InternalJRules.g:2266:3: (enumLiteral_3= 'Enum' )
+                    // InternalJRules.g:2267:4: enumLiteral_3= 'Enum'
                     {
-                    enumLiteral_3=(Token)match(input,64,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,65,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getEnumEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getElementJavaAccess().getEnumEnumLiteralDeclaration_3());
@@ -5479,12 +5759,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJRules.g:2157:3: (enumLiteral_4= 'Method' )
+                    // InternalJRules.g:2274:3: (enumLiteral_4= 'Method' )
                     {
-                    // InternalJRules.g:2157:3: (enumLiteral_4= 'Method' )
-                    // InternalJRules.g:2158:4: enumLiteral_4= 'Method'
+                    // InternalJRules.g:2274:3: (enumLiteral_4= 'Method' )
+                    // InternalJRules.g:2275:4: enumLiteral_4= 'Method'
                     {
-                    enumLiteral_4=(Token)match(input,65,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,66,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getMethodEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getElementJavaAccess().getMethodEnumLiteralDeclaration_4());
@@ -5496,12 +5776,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalJRules.g:2165:3: (enumLiteral_5= 'Attribute' )
+                    // InternalJRules.g:2282:3: (enumLiteral_5= 'Attribute' )
                     {
-                    // InternalJRules.g:2165:3: (enumLiteral_5= 'Attribute' )
-                    // InternalJRules.g:2166:4: enumLiteral_5= 'Attribute'
+                    // InternalJRules.g:2282:3: (enumLiteral_5= 'Attribute' )
+                    // InternalJRules.g:2283:4: enumLiteral_5= 'Attribute'
                     {
-                    enumLiteral_5=(Token)match(input,66,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,67,FOLLOW_2); 
 
                     				current = grammarAccess.getElementJavaAccess().getAttributeEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getElementJavaAccess().getAttributeEnumLiteralDeclaration_5());
@@ -5535,7 +5815,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNameCheck"
-    // InternalJRules.g:2176:1: ruleNameCheck returns [Enumerator current=null] : ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) ) ;
+    // InternalJRules.g:2293:1: ruleNameCheck returns [Enumerator current=null] : ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) ) ;
     public final Enumerator ruleNameCheck() throws RecognitionException {
         Enumerator current = null;
 
@@ -5549,52 +5829,52 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2182:2: ( ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) ) )
-            // InternalJRules.g:2183:2: ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) )
+            // InternalJRules.g:2299:2: ( ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) ) )
+            // InternalJRules.g:2300:2: ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) )
             {
-            // InternalJRules.g:2183:2: ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) )
-            int alt41=5;
+            // InternalJRules.g:2300:2: ( (enumLiteral_0= 'upperCase' ) | (enumLiteral_1= 'lowerCase' ) | (enumLiteral_2= 'upperCamelCase' ) | (enumLiteral_3= 'lowerCamelCase' ) | (enumLiteral_4= 'startUpperCase' ) )
+            int alt46=5;
             switch ( input.LA(1) ) {
-            case 67:
-                {
-                alt41=1;
-                }
-                break;
             case 68:
                 {
-                alt41=2;
+                alt46=1;
                 }
                 break;
             case 69:
                 {
-                alt41=3;
+                alt46=2;
                 }
                 break;
             case 70:
                 {
-                alt41=4;
+                alt46=3;
                 }
                 break;
             case 71:
                 {
-                alt41=5;
+                alt46=4;
+                }
+                break;
+            case 72:
+                {
+                alt46=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 41, 0, input);
+                    new NoViableAltException("", 46, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt41) {
+            switch (alt46) {
                 case 1 :
-                    // InternalJRules.g:2184:3: (enumLiteral_0= 'upperCase' )
+                    // InternalJRules.g:2301:3: (enumLiteral_0= 'upperCase' )
                     {
-                    // InternalJRules.g:2184:3: (enumLiteral_0= 'upperCase' )
-                    // InternalJRules.g:2185:4: enumLiteral_0= 'upperCase'
+                    // InternalJRules.g:2301:3: (enumLiteral_0= 'upperCase' )
+                    // InternalJRules.g:2302:4: enumLiteral_0= 'upperCase'
                     {
-                    enumLiteral_0=(Token)match(input,67,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,68,FOLLOW_2); 
 
                     				current = grammarAccess.getNameCheckAccess().getUPPER_CASEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getNameCheckAccess().getUPPER_CASEEnumLiteralDeclaration_0());
@@ -5606,12 +5886,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2192:3: (enumLiteral_1= 'lowerCase' )
+                    // InternalJRules.g:2309:3: (enumLiteral_1= 'lowerCase' )
                     {
-                    // InternalJRules.g:2192:3: (enumLiteral_1= 'lowerCase' )
-                    // InternalJRules.g:2193:4: enumLiteral_1= 'lowerCase'
+                    // InternalJRules.g:2309:3: (enumLiteral_1= 'lowerCase' )
+                    // InternalJRules.g:2310:4: enumLiteral_1= 'lowerCase'
                     {
-                    enumLiteral_1=(Token)match(input,68,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,69,FOLLOW_2); 
 
                     				current = grammarAccess.getNameCheckAccess().getLOWER_CASEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getNameCheckAccess().getLOWER_CASEEnumLiteralDeclaration_1());
@@ -5623,12 +5903,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2200:3: (enumLiteral_2= 'upperCamelCase' )
+                    // InternalJRules.g:2317:3: (enumLiteral_2= 'upperCamelCase' )
                     {
-                    // InternalJRules.g:2200:3: (enumLiteral_2= 'upperCamelCase' )
-                    // InternalJRules.g:2201:4: enumLiteral_2= 'upperCamelCase'
+                    // InternalJRules.g:2317:3: (enumLiteral_2= 'upperCamelCase' )
+                    // InternalJRules.g:2318:4: enumLiteral_2= 'upperCamelCase'
                     {
-                    enumLiteral_2=(Token)match(input,69,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,70,FOLLOW_2); 
 
                     				current = grammarAccess.getNameCheckAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getNameCheckAccess().getUPPER_CAMEL_CASEEnumLiteralDeclaration_2());
@@ -5640,12 +5920,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2208:3: (enumLiteral_3= 'lowerCamelCase' )
+                    // InternalJRules.g:2325:3: (enumLiteral_3= 'lowerCamelCase' )
                     {
-                    // InternalJRules.g:2208:3: (enumLiteral_3= 'lowerCamelCase' )
-                    // InternalJRules.g:2209:4: enumLiteral_3= 'lowerCamelCase'
+                    // InternalJRules.g:2325:3: (enumLiteral_3= 'lowerCamelCase' )
+                    // InternalJRules.g:2326:4: enumLiteral_3= 'lowerCamelCase'
                     {
-                    enumLiteral_3=(Token)match(input,70,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,71,FOLLOW_2); 
 
                     				current = grammarAccess.getNameCheckAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getNameCheckAccess().getLOWER_CAMEL_CASEEnumLiteralDeclaration_3());
@@ -5657,12 +5937,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJRules.g:2216:3: (enumLiteral_4= 'startUpperCase' )
+                    // InternalJRules.g:2333:3: (enumLiteral_4= 'startUpperCase' )
                     {
-                    // InternalJRules.g:2216:3: (enumLiteral_4= 'startUpperCase' )
-                    // InternalJRules.g:2217:4: enumLiteral_4= 'startUpperCase'
+                    // InternalJRules.g:2333:3: (enumLiteral_4= 'startUpperCase' )
+                    // InternalJRules.g:2334:4: enumLiteral_4= 'startUpperCase'
                     {
-                    enumLiteral_4=(Token)match(input,71,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,72,FOLLOW_2); 
 
                     				current = grammarAccess.getNameCheckAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getNameCheckAccess().getSTART_UPPER_CASEEnumLiteralDeclaration_4());
@@ -5696,7 +5976,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNameOperator"
-    // InternalJRules.g:2227:1: ruleNameOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) ) ;
+    // InternalJRules.g:2344:1: ruleNameOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) ) ;
     public final Enumerator ruleNameOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5710,52 +5990,52 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2233:2: ( ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) ) )
-            // InternalJRules.g:2234:2: ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) )
+            // InternalJRules.g:2350:2: ( ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) ) )
+            // InternalJRules.g:2351:2: ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) )
             {
-            // InternalJRules.g:2234:2: ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) )
-            int alt42=5;
+            // InternalJRules.g:2351:2: ( (enumLiteral_0= 'like' ) | (enumLiteral_1= '=' ) | (enumLiteral_2= 'end' ) | (enumLiteral_3= 'start' ) | (enumLiteral_4= 'contain' ) )
+            int alt47=5;
             switch ( input.LA(1) ) {
-            case 72:
-                {
-                alt42=1;
-                }
-                break;
             case 73:
                 {
-                alt42=2;
+                alt47=1;
                 }
                 break;
             case 74:
                 {
-                alt42=3;
+                alt47=2;
                 }
                 break;
             case 75:
                 {
-                alt42=4;
+                alt47=3;
                 }
                 break;
             case 76:
                 {
-                alt42=5;
+                alt47=4;
+                }
+                break;
+            case 77:
+                {
+                alt47=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 42, 0, input);
+                    new NoViableAltException("", 47, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt42) {
+            switch (alt47) {
                 case 1 :
-                    // InternalJRules.g:2235:3: (enumLiteral_0= 'like' )
+                    // InternalJRules.g:2352:3: (enumLiteral_0= 'like' )
                     {
-                    // InternalJRules.g:2235:3: (enumLiteral_0= 'like' )
-                    // InternalJRules.g:2236:4: enumLiteral_0= 'like'
+                    // InternalJRules.g:2352:3: (enumLiteral_0= 'like' )
+                    // InternalJRules.g:2353:4: enumLiteral_0= 'like'
                     {
-                    enumLiteral_0=(Token)match(input,72,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,73,FOLLOW_2); 
 
                     				current = grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getNameOperatorAccess().getLIKEEnumLiteralDeclaration_0());
@@ -5767,12 +6047,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2243:3: (enumLiteral_1= '=' )
+                    // InternalJRules.g:2360:3: (enumLiteral_1= '=' )
                     {
-                    // InternalJRules.g:2243:3: (enumLiteral_1= '=' )
-                    // InternalJRules.g:2244:4: enumLiteral_1= '='
+                    // InternalJRules.g:2360:3: (enumLiteral_1= '=' )
+                    // InternalJRules.g:2361:4: enumLiteral_1= '='
                     {
-                    enumLiteral_1=(Token)match(input,73,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,74,FOLLOW_2); 
 
                     				current = grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getNameOperatorAccess().getEQUALEnumLiteralDeclaration_1());
@@ -5784,12 +6064,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2251:3: (enumLiteral_2= 'end' )
+                    // InternalJRules.g:2368:3: (enumLiteral_2= 'end' )
                     {
-                    // InternalJRules.g:2251:3: (enumLiteral_2= 'end' )
-                    // InternalJRules.g:2252:4: enumLiteral_2= 'end'
+                    // InternalJRules.g:2368:3: (enumLiteral_2= 'end' )
+                    // InternalJRules.g:2369:4: enumLiteral_2= 'end'
                     {
-                    enumLiteral_2=(Token)match(input,74,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,75,FOLLOW_2); 
 
                     				current = grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getNameOperatorAccess().getENDEnumLiteralDeclaration_2());
@@ -5801,12 +6081,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2259:3: (enumLiteral_3= 'start' )
+                    // InternalJRules.g:2376:3: (enumLiteral_3= 'start' )
                     {
-                    // InternalJRules.g:2259:3: (enumLiteral_3= 'start' )
-                    // InternalJRules.g:2260:4: enumLiteral_3= 'start'
+                    // InternalJRules.g:2376:3: (enumLiteral_3= 'start' )
+                    // InternalJRules.g:2377:4: enumLiteral_3= 'start'
                     {
-                    enumLiteral_3=(Token)match(input,75,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,76,FOLLOW_2); 
 
                     				current = grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getNameOperatorAccess().getSTARTEnumLiteralDeclaration_3());
@@ -5818,12 +6098,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJRules.g:2267:3: (enumLiteral_4= 'contain' )
+                    // InternalJRules.g:2384:3: (enumLiteral_4= 'contain' )
                     {
-                    // InternalJRules.g:2267:3: (enumLiteral_4= 'contain' )
-                    // InternalJRules.g:2268:4: enumLiteral_4= 'contain'
+                    // InternalJRules.g:2384:3: (enumLiteral_4= 'contain' )
+                    // InternalJRules.g:2385:4: enumLiteral_4= 'contain'
                     {
-                    enumLiteral_4=(Token)match(input,76,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,77,FOLLOW_2); 
 
                     				current = grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getNameOperatorAccess().getCONTAINEnumLiteralDeclaration_4());
@@ -5857,7 +6137,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLanguage"
-    // InternalJRules.g:2278:1: ruleLanguage returns [Enumerator current=null] : ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) ) ;
+    // InternalJRules.g:2395:1: ruleLanguage returns [Enumerator current=null] : ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) ) ;
     public final Enumerator ruleLanguage() throws RecognitionException {
         Enumerator current = null;
 
@@ -5868,33 +6148,33 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJRules.g:2284:2: ( ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) ) )
-            // InternalJRules.g:2285:2: ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) )
+            // InternalJRules.g:2401:2: ( ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) ) )
+            // InternalJRules.g:2402:2: ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) )
             {
-            // InternalJRules.g:2285:2: ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) )
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // InternalJRules.g:2402:2: ( (enumLiteral_0= 'English' ) | (enumLiteral_1= 'Spanish' ) )
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA43_0==77) ) {
-                alt43=1;
+            if ( (LA48_0==78) ) {
+                alt48=1;
             }
-            else if ( (LA43_0==78) ) {
-                alt43=2;
+            else if ( (LA48_0==79) ) {
+                alt48=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 48, 0, input);
 
                 throw nvae;
             }
-            switch (alt43) {
+            switch (alt48) {
                 case 1 :
-                    // InternalJRules.g:2286:3: (enumLiteral_0= 'English' )
+                    // InternalJRules.g:2403:3: (enumLiteral_0= 'English' )
                     {
-                    // InternalJRules.g:2286:3: (enumLiteral_0= 'English' )
-                    // InternalJRules.g:2287:4: enumLiteral_0= 'English'
+                    // InternalJRules.g:2403:3: (enumLiteral_0= 'English' )
+                    // InternalJRules.g:2404:4: enumLiteral_0= 'English'
                     {
-                    enumLiteral_0=(Token)match(input,77,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,78,FOLLOW_2); 
 
                     				current = grammarAccess.getLanguageAccess().getENGLISHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getLanguageAccess().getENGLISHEnumLiteralDeclaration_0());
@@ -5906,12 +6186,12 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2294:3: (enumLiteral_1= 'Spanish' )
+                    // InternalJRules.g:2411:3: (enumLiteral_1= 'Spanish' )
                     {
-                    // InternalJRules.g:2294:3: (enumLiteral_1= 'Spanish' )
-                    // InternalJRules.g:2295:4: enumLiteral_1= 'Spanish'
+                    // InternalJRules.g:2411:3: (enumLiteral_1= 'Spanish' )
+                    // InternalJRules.g:2412:4: enumLiteral_1= 'Spanish'
                     {
-                    enumLiteral_1=(Token)match(input,78,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,79,FOLLOW_2); 
 
                     				current = grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getLanguageAccess().getSPANISHEnumLiteralDeclaration_1());
@@ -5945,63 +6225,57 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAccessModifier"
-    // InternalJRules.g:2305:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) ) ;
+    // InternalJRules.g:2422:1: ruleAccessModifier returns [Enumerator current=null] : ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'protected' ) | (enumLiteral_2= 'private' ) ) ;
     public final Enumerator ruleAccessModifier() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
         Token enumLiteral_2=null;
-        Token enumLiteral_3=null;
 
 
         	enterRule();
 
         try {
-            // InternalJRules.g:2311:2: ( ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) ) )
-            // InternalJRules.g:2312:2: ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) )
+            // InternalJRules.g:2428:2: ( ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'protected' ) | (enumLiteral_2= 'private' ) ) )
+            // InternalJRules.g:2429:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'protected' ) | (enumLiteral_2= 'private' ) )
             {
-            // InternalJRules.g:2312:2: ( (enumLiteral_0= 'default' ) | (enumLiteral_1= 'public' ) | (enumLiteral_2= 'protected' ) | (enumLiteral_3= 'private' ) )
-            int alt44=4;
+            // InternalJRules.g:2429:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'protected' ) | (enumLiteral_2= 'private' ) )
+            int alt49=3;
             switch ( input.LA(1) ) {
-            case 79:
-                {
-                alt44=1;
-                }
-                break;
             case 80:
                 {
-                alt44=2;
+                alt49=1;
                 }
                 break;
             case 81:
                 {
-                alt44=3;
+                alt49=2;
                 }
                 break;
             case 82:
                 {
-                alt44=4;
+                alt49=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 44, 0, input);
+                    new NoViableAltException("", 49, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt44) {
+            switch (alt49) {
                 case 1 :
-                    // InternalJRules.g:2313:3: (enumLiteral_0= 'default' )
+                    // InternalJRules.g:2430:3: (enumLiteral_0= 'public' )
                     {
-                    // InternalJRules.g:2313:3: (enumLiteral_0= 'default' )
-                    // InternalJRules.g:2314:4: enumLiteral_0= 'default'
+                    // InternalJRules.g:2430:3: (enumLiteral_0= 'public' )
+                    // InternalJRules.g:2431:4: enumLiteral_0= 'public'
                     {
-                    enumLiteral_0=(Token)match(input,79,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,80,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getDefaultEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -6010,15 +6284,15 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJRules.g:2321:3: (enumLiteral_1= 'public' )
+                    // InternalJRules.g:2438:3: (enumLiteral_1= 'protected' )
                     {
-                    // InternalJRules.g:2321:3: (enumLiteral_1= 'public' )
-                    // InternalJRules.g:2322:4: enumLiteral_1= 'public'
+                    // InternalJRules.g:2438:3: (enumLiteral_1= 'protected' )
+                    // InternalJRules.g:2439:4: enumLiteral_1= 'protected'
                     {
-                    enumLiteral_1=(Token)match(input,80,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,81,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getPublicEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -6027,32 +6301,15 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJRules.g:2329:3: (enumLiteral_2= 'protected' )
+                    // InternalJRules.g:2446:3: (enumLiteral_2= 'private' )
                     {
-                    // InternalJRules.g:2329:3: (enumLiteral_2= 'protected' )
-                    // InternalJRules.g:2330:4: enumLiteral_2= 'protected'
+                    // InternalJRules.g:2446:3: (enumLiteral_2= 'private' )
+                    // InternalJRules.g:2447:4: enumLiteral_2= 'private'
                     {
-                    enumLiteral_2=(Token)match(input,81,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,82,FOLLOW_2); 
 
-                    				current = grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getProtectedEnumLiteralDeclaration_2());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // InternalJRules.g:2337:3: (enumLiteral_3= 'private' )
-                    {
-                    // InternalJRules.g:2337:3: (enumLiteral_3= 'private' )
-                    // InternalJRules.g:2338:4: enumLiteral_3= 'private'
-                    {
-                    enumLiteral_3=(Token)match(input,82,FOLLOW_2); 
-
-                    				current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getAccessModifierAccess().getPrivateEnumLiteralDeclaration_2());
                     			
 
                     }
@@ -6087,7 +6344,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
     protected DFA3 dfa3 = new DFA3(this);
     static final String dfa_1s = "\23\uffff";
     static final String dfa_2s = "\1\25\1\26\4\uffff\1\50\14\uffff";
-    static final String dfa_3s = "\1\63\1\64\4\uffff\1\114\14\uffff";
+    static final String dfa_3s = "\1\63\1\64\4\uffff\1\115\14\uffff";
     static final String dfa_4s = "\2\uffff\1\3\1\5\1\7\1\10\1\uffff\1\15\1\16\1\17\1\20\1\6\1\12\1\11\1\2\1\1\1\4\1\14\1\13";
     static final String dfa_5s = "\23\uffff}>";
     static final String[] dfa_6s = {
@@ -6097,7 +6354,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\21\37\uffff\5\22",
+            "\1\21\40\uffff\5\22",
             "",
             "",
             "",
@@ -6141,10 +6398,10 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x1C00000000005000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x3800000000005000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x1C00000000005002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000007L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x3800000000005002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0xC000000000000000L,0x000000000000000FL});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018002L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0009028C81244000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010002L});
@@ -6168,11 +6425,11 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000006000000000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001F00L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000000L,0x0000000000003E00L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x0000000000006000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x000000000000C000L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000F8L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001F0L});
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000FC0000000002L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000F80000000002L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000F00000000002L});
@@ -6181,7 +6438,7 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000800000000002L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x03C0000000040000L,0x0000000000078000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x07C0000000040000L,0x0000000000070000L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000010020000L});
     public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000040000L});
@@ -6191,5 +6448,6 @@ public class InternalJRulesParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0080000000000000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0100000000000000L});
     public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0400000000000000L});
 
 }

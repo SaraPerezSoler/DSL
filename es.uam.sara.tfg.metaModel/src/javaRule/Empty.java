@@ -19,7 +19,7 @@ package javaRule;
  * @model
  * @generated
  */
-public interface Empty extends javaRule.Package, Method, javaRule.Class, Interface, Enumeration {
+public interface Empty extends javaRule.Package, Method, javaRule.Class, Interface, Enumeration, File {
 	/**
 	 * Returns the value of the '<em><b>No</b></em>' attribute.
 	 * The default value is <code>"false"</code>.

@@ -1141,8 +1141,12 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAbstractAbstractKeyword_0_3_1_0 = (Keyword)cAbstractAssignment_0_3_1.eContents().get(0);
 		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
 		private final Keyword cAndKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
-		private final Assignment cSynchronizedAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
-		private final Keyword cSynchronizedSynchronizedKeyword_0_4_1_0 = (Keyword)cSynchronizedAssignment_0_4_1.eContents().get(0);
+		private final Assignment cDefaultAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
+		private final Keyword cDefaultDefaultKeyword_0_4_1_0 = (Keyword)cDefaultAssignment_0_4_1.eContents().get(0);
+		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
+		private final Keyword cAndKeyword_0_5_0 = (Keyword)cGroup_0_5.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_0_5_1 = (Assignment)cGroup_0_5.eContents().get(1);
+		private final Keyword cSynchronizedSynchronizedKeyword_0_5_1_0 = (Keyword)cSynchronizedAssignment_0_5_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cStaticAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final Keyword cStaticStaticKeyword_1_0_0 = (Keyword)cStaticAssignment_1_0.eContents().get(0);
@@ -1156,8 +1160,12 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAbstractAbstractKeyword_1_2_1_0 = (Keyword)cAbstractAssignment_1_2_1.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
 		private final Keyword cAndKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cSynchronizedAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final Keyword cSynchronizedSynchronizedKeyword_1_3_1_0 = (Keyword)cSynchronizedAssignment_1_3_1.eContents().get(0);
+		private final Assignment cDefaultAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final Keyword cDefaultDefaultKeyword_1_3_1_0 = (Keyword)cDefaultAssignment_1_3_1.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cAndKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final Keyword cSynchronizedSynchronizedKeyword_1_4_1_0 = (Keyword)cSynchronizedAssignment_1_4_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Assignment cFinalAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final Keyword cFinalFinalKeyword_2_0_0 = (Keyword)cFinalAssignment_2_0.eContents().get(0);
@@ -1167,33 +1175,52 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAbstractAbstractKeyword_2_1_1_0 = (Keyword)cAbstractAssignment_2_1_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cAndKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cSynchronizedAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final Keyword cSynchronizedSynchronizedKeyword_2_2_1_0 = (Keyword)cSynchronizedAssignment_2_2_1.eContents().get(0);
+		private final Assignment cDefaultAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final Keyword cDefaultDefaultKeyword_2_2_1_0 = (Keyword)cDefaultAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cAndKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final Keyword cSynchronizedSynchronizedKeyword_2_3_1_0 = (Keyword)cSynchronizedAssignment_2_3_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Assignment cAbstractAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
 		private final Keyword cAbstractAbstractKeyword_3_0_0 = (Keyword)cAbstractAssignment_3_0.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
 		private final Keyword cAndKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cSynchronizedAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final Keyword cSynchronizedSynchronizedKeyword_3_1_1_0 = (Keyword)cSynchronizedAssignment_3_1_1.eContents().get(0);
-		private final Assignment cSynchronizedAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final Keyword cSynchronizedSynchronizedKeyword_4_0 = (Keyword)cSynchronizedAssignment_4.eContents().get(0);
+		private final Assignment cDefaultAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final Keyword cDefaultDefaultKeyword_3_1_1_0 = (Keyword)cDefaultAssignment_3_1_1.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cAndKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final Keyword cSynchronizedSynchronizedKeyword_3_2_1_0 = (Keyword)cSynchronizedAssignment_3_2_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Assignment cDefaultAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final Keyword cDefaultDefaultKeyword_4_0_0 = (Keyword)cDefaultAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cAndKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final Keyword cSynchronizedSynchronizedKeyword_4_1_1_0 = (Keyword)cSynchronizedAssignment_4_1_1.eContents().get(0);
+		private final Assignment cSynchronizedAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final Keyword cSynchronizedSynchronizedKeyword_5_0 = (Keyword)cSynchronizedAssignment_5.eContents().get(0);
 		
 		//BlendModifiers:
 		//	access=AccessModifier ('and' static?='static')? ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-		//	synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-		//	synchronized?='synchronized')? | final?='final' ('and' abstract?='abstract')? ('and' synchronized?='synchronized')? |
-		//	abstract?='abstract' ('and' synchronized?='synchronized')? | synchronized?='synchronized';
+		//	default?='default')? ('and' synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and'
+		//	abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | final?='final' ('and'
+		//	abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | abstract?='abstract'
+		//	('and' default?='default')? ('and' synchronized?='synchronized')? | default?='default' ('and'
+		//	synchronized?='synchronized')? | synchronized?='synchronized';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//access=AccessModifier ('and' static?='static')? ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-		//synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-		//synchronized?='synchronized')? | final?='final' ('and' abstract?='abstract')? ('and' synchronized?='synchronized')? |
-		//abstract?='abstract' ('and' synchronized?='synchronized')? | synchronized?='synchronized'
+		//default?='default')? ('and' synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and'
+		//abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | final?='final' ('and'
+		//abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | abstract?='abstract' ('and'
+		//default?='default')? ('and' synchronized?='synchronized')? | default?='default' ('and' synchronized?='synchronized')?
+		//| synchronized?='synchronized'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//access=AccessModifier ('and' static?='static')? ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-		//synchronized?='synchronized')?
+		//default?='default')? ('and' synchronized?='synchronized')?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//access=AccessModifier
@@ -1238,19 +1265,32 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_0_3_1_0() { return cAbstractAbstractKeyword_0_3_1_0; }
 		
-		//('and' synchronized?='synchronized')?
+		//('and' default?='default')?
 		public Group getGroup_0_4() { return cGroup_0_4; }
 		
 		//'and'
 		public Keyword getAndKeyword_0_4_0() { return cAndKeyword_0_4_0; }
 		
+		//default?='default'
+		public Assignment getDefaultAssignment_0_4_1() { return cDefaultAssignment_0_4_1; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_0_4_1_0() { return cDefaultDefaultKeyword_0_4_1_0; }
+		
+		//('and' synchronized?='synchronized')?
+		public Group getGroup_0_5() { return cGroup_0_5; }
+		
+		//'and'
+		public Keyword getAndKeyword_0_5_0() { return cAndKeyword_0_5_0; }
+		
 		//synchronized?='synchronized'
-		public Assignment getSynchronizedAssignment_0_4_1() { return cSynchronizedAssignment_0_4_1; }
+		public Assignment getSynchronizedAssignment_0_5_1() { return cSynchronizedAssignment_0_5_1; }
 		
 		//'synchronized'
-		public Keyword getSynchronizedSynchronizedKeyword_0_4_1_0() { return cSynchronizedSynchronizedKeyword_0_4_1_0; }
+		public Keyword getSynchronizedSynchronizedKeyword_0_5_1_0() { return cSynchronizedSynchronizedKeyword_0_5_1_0; }
 		
-		//static?='static' ('and' final?='final')? ('and' abstract?='abstract')? ('and' synchronized?='synchronized')?
+		//static?='static' ('and' final?='final')? ('and' abstract?='abstract')? ('and' default?='default')? ('and'
+		//synchronized?='synchronized')?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//static?='static'
@@ -1283,19 +1323,31 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_1_2_1_0() { return cAbstractAbstractKeyword_1_2_1_0; }
 		
-		//('and' synchronized?='synchronized')?
+		//('and' default?='default')?
 		public Group getGroup_1_3() { return cGroup_1_3; }
 		
 		//'and'
 		public Keyword getAndKeyword_1_3_0() { return cAndKeyword_1_3_0; }
 		
+		//default?='default'
+		public Assignment getDefaultAssignment_1_3_1() { return cDefaultAssignment_1_3_1; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_1_3_1_0() { return cDefaultDefaultKeyword_1_3_1_0; }
+		
+		//('and' synchronized?='synchronized')?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//'and'
+		public Keyword getAndKeyword_1_4_0() { return cAndKeyword_1_4_0; }
+		
 		//synchronized?='synchronized'
-		public Assignment getSynchronizedAssignment_1_3_1() { return cSynchronizedAssignment_1_3_1; }
+		public Assignment getSynchronizedAssignment_1_4_1() { return cSynchronizedAssignment_1_4_1; }
 		
 		//'synchronized'
-		public Keyword getSynchronizedSynchronizedKeyword_1_3_1_0() { return cSynchronizedSynchronizedKeyword_1_3_1_0; }
+		public Keyword getSynchronizedSynchronizedKeyword_1_4_1_0() { return cSynchronizedSynchronizedKeyword_1_4_1_0; }
 		
-		//final?='final' ('and' abstract?='abstract')? ('and' synchronized?='synchronized')?
+		//final?='final' ('and' abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//final?='final'
@@ -1316,19 +1368,31 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_2_1_1_0() { return cAbstractAbstractKeyword_2_1_1_0; }
 		
-		//('and' synchronized?='synchronized')?
+		//('and' default?='default')?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//'and'
 		public Keyword getAndKeyword_2_2_0() { return cAndKeyword_2_2_0; }
 		
+		//default?='default'
+		public Assignment getDefaultAssignment_2_2_1() { return cDefaultAssignment_2_2_1; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_2_2_1_0() { return cDefaultDefaultKeyword_2_2_1_0; }
+		
+		//('and' synchronized?='synchronized')?
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//'and'
+		public Keyword getAndKeyword_2_3_0() { return cAndKeyword_2_3_0; }
+		
 		//synchronized?='synchronized'
-		public Assignment getSynchronizedAssignment_2_2_1() { return cSynchronizedAssignment_2_2_1; }
+		public Assignment getSynchronizedAssignment_2_3_1() { return cSynchronizedAssignment_2_3_1; }
 		
 		//'synchronized'
-		public Keyword getSynchronizedSynchronizedKeyword_2_2_1_0() { return cSynchronizedSynchronizedKeyword_2_2_1_0; }
+		public Keyword getSynchronizedSynchronizedKeyword_2_3_1_0() { return cSynchronizedSynchronizedKeyword_2_3_1_0; }
 		
-		//abstract?='abstract' ('and' synchronized?='synchronized')?
+		//abstract?='abstract' ('and' default?='default')? ('and' synchronized?='synchronized')?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//abstract?='abstract'
@@ -1337,23 +1401,56 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'abstract'
 		public Keyword getAbstractAbstractKeyword_3_0_0() { return cAbstractAbstractKeyword_3_0_0; }
 		
-		//('and' synchronized?='synchronized')?
+		//('and' default?='default')?
 		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//'and'
 		public Keyword getAndKeyword_3_1_0() { return cAndKeyword_3_1_0; }
 		
+		//default?='default'
+		public Assignment getDefaultAssignment_3_1_1() { return cDefaultAssignment_3_1_1; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_3_1_1_0() { return cDefaultDefaultKeyword_3_1_1_0; }
+		
+		//('and' synchronized?='synchronized')?
+		public Group getGroup_3_2() { return cGroup_3_2; }
+		
+		//'and'
+		public Keyword getAndKeyword_3_2_0() { return cAndKeyword_3_2_0; }
+		
 		//synchronized?='synchronized'
-		public Assignment getSynchronizedAssignment_3_1_1() { return cSynchronizedAssignment_3_1_1; }
+		public Assignment getSynchronizedAssignment_3_2_1() { return cSynchronizedAssignment_3_2_1; }
 		
 		//'synchronized'
-		public Keyword getSynchronizedSynchronizedKeyword_3_1_1_0() { return cSynchronizedSynchronizedKeyword_3_1_1_0; }
+		public Keyword getSynchronizedSynchronizedKeyword_3_2_1_0() { return cSynchronizedSynchronizedKeyword_3_2_1_0; }
+		
+		//default?='default' ('and' synchronized?='synchronized')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//default?='default'
+		public Assignment getDefaultAssignment_4_0() { return cDefaultAssignment_4_0; }
+		
+		//'default'
+		public Keyword getDefaultDefaultKeyword_4_0_0() { return cDefaultDefaultKeyword_4_0_0; }
+		
+		//('and' synchronized?='synchronized')?
+		public Group getGroup_4_1() { return cGroup_4_1; }
+		
+		//'and'
+		public Keyword getAndKeyword_4_1_0() { return cAndKeyword_4_1_0; }
 		
 		//synchronized?='synchronized'
-		public Assignment getSynchronizedAssignment_4() { return cSynchronizedAssignment_4; }
+		public Assignment getSynchronizedAssignment_4_1_1() { return cSynchronizedAssignment_4_1_1; }
 		
 		//'synchronized'
-		public Keyword getSynchronizedSynchronizedKeyword_4_0() { return cSynchronizedSynchronizedKeyword_4_0; }
+		public Keyword getSynchronizedSynchronizedKeyword_4_1_1_0() { return cSynchronizedSynchronizedKeyword_4_1_1_0; }
+		
+		//synchronized?='synchronized'
+		public Assignment getSynchronizedAssignment_5() { return cSynchronizedAssignment_5; }
+		
+		//'synchronized'
+		public Keyword getSynchronizedSynchronizedKeyword_5_0() { return cSynchronizedSynchronizedKeyword_5_0; }
 	}
 	
 	public class QuantifierElements extends AbstractEnumRuleElementFinder {
@@ -1585,45 +1682,37 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	public class AccessModifierElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.AccessModifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cDefaultEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cDefaultDefaultKeyword_0_0 = (Keyword)cDefaultEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cPublicPublicKeyword_1_0 = (Keyword)cPublicEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cProtectedProtectedKeyword_2_0 = (Keyword)cProtectedEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cPrivatePrivateKeyword_3_0 = (Keyword)cPrivateEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPublicPublicKeyword_0_0 = (Keyword)cPublicEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cProtectedProtectedKeyword_1_0 = (Keyword)cProtectedEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cPrivatePrivateKeyword_2_0 = (Keyword)cPrivateEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum AccessModifier:
-		//	default | public | protected | private;
+		//	public | protected | private;
 		public EnumRule getRule() { return rule; }
 		
-		//default | public | protected | private
+		//public | protected | private
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//default
-		public EnumLiteralDeclaration getDefaultEnumLiteralDeclaration_0() { return cDefaultEnumLiteralDeclaration_0; }
-		
-		//'default'
-		public Keyword getDefaultDefaultKeyword_0_0() { return cDefaultDefaultKeyword_0_0; }
-		
 		//public
-		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_1() { return cPublicEnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_0() { return cPublicEnumLiteralDeclaration_0; }
 		
 		//'public'
-		public Keyword getPublicPublicKeyword_1_0() { return cPublicPublicKeyword_1_0; }
+		public Keyword getPublicPublicKeyword_0_0() { return cPublicPublicKeyword_0_0; }
 		
 		//protected
-		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_2() { return cProtectedEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_1() { return cProtectedEnumLiteralDeclaration_1; }
 		
 		//'protected'
-		public Keyword getProtectedProtectedKeyword_2_0() { return cProtectedProtectedKeyword_2_0; }
+		public Keyword getProtectedProtectedKeyword_1_0() { return cProtectedProtectedKeyword_1_0; }
 		
 		//private
-		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_3() { return cPrivateEnumLiteralDeclaration_3; }
+		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_2() { return cPrivateEnumLiteralDeclaration_2; }
 		
 		//'private'
-		public Keyword getPrivatePrivateKeyword_3_0() { return cPrivatePrivateKeyword_3_0; }
+		public Keyword getPrivatePrivateKeyword_2_0() { return cPrivatePrivateKeyword_2_0; }
 	}
 	
 	private final RuleSetElements pRuleSet;
@@ -2065,9 +2154,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BlendModifiers:
 	//	access=AccessModifier ('and' static?='static')? ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-	//	synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and' abstract?='abstract')? ('and'
-	//	synchronized?='synchronized')? | final?='final' ('and' abstract?='abstract')? ('and' synchronized?='synchronized')? |
-	//	abstract?='abstract' ('and' synchronized?='synchronized')? | synchronized?='synchronized';
+	//	default?='default')? ('and' synchronized?='synchronized')? | static?='static' ('and' final?='final')? ('and'
+	//	abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | final?='final' ('and'
+	//	abstract?='abstract')? ('and' default?='default')? ('and' synchronized?='synchronized')? | abstract?='abstract'
+	//	('and' default?='default')? ('and' synchronized?='synchronized')? | default?='default' ('and'
+	//	synchronized?='synchronized')? | synchronized?='synchronized';
 	public BlendModifiersElements getBlendModifiersAccess() {
 		return pBlendModifiers;
 	}
@@ -2077,7 +2168,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum AccessModifier:
-	//	default | public | protected | private;
+	//	public | protected | private;
 	public AccessModifierElements getAccessModifierAccess() {
 		return eAccessModifier;
 	}

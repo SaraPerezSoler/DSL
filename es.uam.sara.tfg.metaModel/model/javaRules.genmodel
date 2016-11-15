@@ -45,7 +45,6 @@
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/public"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/protected"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/private"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//AccessModifier/default"/>
     </genEnums>
     <genClasses ecoreClass="metamodel.ecore#//RuleSet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//RuleSet/ProjectName"/>
@@ -69,6 +68,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Filter/no"/>
     </genClasses>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Satisfy"/>
+    <genClasses image="false" ecoreClass="metamodel.ecore#//File"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Package"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Interface"/>
     <genClasses ecoreClass="metamodel.ecore#//isImplemented"/>
@@ -81,6 +81,7 @@
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//IsExtended"/>
     <genClasses image="false" ecoreClass="metamodel.ecore#//Method"/>
+    <genClasses ecoreClass="metamodel.ecore#//Tamanio"/>
     <genClasses ecoreClass="metamodel.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parameter/numParam"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Parameter/typesParam"/>
@@ -124,6 +125,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/static"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/final"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/default"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BlendModifiers/synchronized"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//IsGeneric"/>

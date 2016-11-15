@@ -19,4 +19,6 @@ public class InterContainAttributes extends InterContain<FieldDeclaration> {
 		return Visitors.getAttributes(t);
 	}
 
+	
+
 }

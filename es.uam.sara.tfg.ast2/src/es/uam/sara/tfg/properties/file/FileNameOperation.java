@@ -1,6 +1,5 @@
 package es.uam.sara.tfg.properties.file;
 
-import java.util.List;
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.properties.NameCheck;
 
@@ -12,18 +11,7 @@ public class FileNameOperation extends File{
 		super();
 		nCheck= new NameCheck(op, cad, idioma);
 	}
-
-	@Override
-	public void check(List<UnitVisitor> analyze) {
-		for (UnitVisitor uv: analyze){
-			if(nCheck.checkNameOperation(uv.getNameFile())){
-				super.addRight(uv);
-			}else{
-				super.addWrong(uv);
-			}
-		}
-
-	}
+	
 	@Override
 	public String toString() {
 		if (nCheck.getIdioma()==NameCheck.EMPTY){
@@ -34,5 +22,10 @@ public class FileNameOperation extends File{
 			return "name "+nCheck.getOp() +" " +nCheck.getOther()+", Spanish";
 		}
 		
+	}
+
+	@Override
+	public boolean checkElement(UnitVisitor analyze) {
+		return nCheck.checkNameOperation(analyze.getNameFile());
 	}
 }

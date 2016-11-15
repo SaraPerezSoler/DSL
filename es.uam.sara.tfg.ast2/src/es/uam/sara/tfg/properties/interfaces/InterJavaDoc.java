@@ -1,6 +1,5 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
@@ -15,17 +14,12 @@ public class InterJavaDoc extends Interface{
 	}
 
 	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if (jdc.javaDoc(t.getJavadoc())){
-				super.addRight(t);
-			}else{
-				super.addWrong(t);
-			}
-		}
-	}
-	@Override
 	public String toString() {
 		return  jdc.toString();
+	}
+
+	@Override
+	public boolean checkElement(TypeDeclaration analyze) {
+		return jdc.javaDoc(analyze);
 	}
 }

@@ -2,8 +2,6 @@ package es.uam.sara.tfg.rule;
 
 import java.util.List;
 
-import es.uam.sara.tfg.properties.NoProperty;
-
 public class Rule<T> {
 
 	protected boolean no;
@@ -23,12 +21,12 @@ public class Rule<T> {
 		this.quantifier = q;
 		this.elements = elements;
 		if (filter==null){
-			this.filter= new NoProperty<T>();
+			this.filter= new NoOr<T>();
 		}else{
 			this.filter = filter;
 		}
 		if (properties==null){
-			this.properties= new NoProperty<T>();
+			this.properties= new NoOr<T>();
 		}else{
 			this.properties = properties;
 		}
@@ -95,9 +93,9 @@ public class Rule<T> {
 	public String printWrong() {
 		if (checkeado) {
 			if (no) {
-				return properties.printRight();
+				return properties.print(true);
 			} else {
-				return properties.printWrong();
+				return properties.print(false);
 			}
 		}
 		return "";
@@ -106,9 +104,9 @@ public class Rule<T> {
 	public String printRight() {
 		if (checkeado) {
 			if (no) {
-				return properties.printWrong();
+				return properties.print(false);
 			} else {
-				return properties.printRight();
+				return properties.print(true);
 			}
 		} else {
 			return "";

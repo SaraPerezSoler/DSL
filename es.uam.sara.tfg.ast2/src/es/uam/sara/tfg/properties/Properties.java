@@ -14,7 +14,6 @@ public abstract class Properties<T> {
 		this.wrong = new ArrayList<T>();
 	}
 
-
 	public List<T> getRight() {
 		return right;
 	}
@@ -22,7 +21,6 @@ public abstract class Properties<T> {
 	public List<T> getWrong() {
 		return wrong;
 	}
-
 
 	public void addRight(T t) {
 		try {
@@ -69,11 +67,41 @@ public abstract class Properties<T> {
 	public void addAllWrong(Collection<T> c) {
 		wrong.addAll(c);
 	}
-	public boolean isNoProperty(){
+
+	public boolean isNoProperty() {
 		return false;
 	}
-	public abstract void check(List<T> analize);
-	public abstract String printRight();
-	public abstract String printWrong();
 
+	public void check(List<T> analyze) {
+		for (T t : analyze) {
+			if (checkElement(t)) {
+				addRight(t);
+			} else {
+				addWrong(t);
+			}
+		}
+	}
+
+	public abstract boolean checkElement(T analyze);
+
+	public String print(boolean right) {
+		List<T> print;
+		String cad;
+		if (right){
+			cad="This elements satisfy "+this.toString()+":\n";
+			print=this.getRight();
+		}else{
+			cad="This elements not satisfy "+this.toString()+":\n";
+			print=this.getWrong();
+		}
+		
+		for (T t : print) {
+			cad+=print(t);
+		}
+		return cad;
+	}
+
+	public abstract String print(T print);
+	
+	public abstract String toString();
 }

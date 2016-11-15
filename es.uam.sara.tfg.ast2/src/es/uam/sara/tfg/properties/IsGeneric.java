@@ -87,4 +87,9 @@ public class IsGeneric {
 		ret.add(returnType2);
 		return ret;
 	}
+
+	@Override
+	public String toString() {
+		return "is generic";
+	}
 }

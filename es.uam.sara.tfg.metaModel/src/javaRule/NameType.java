@@ -19,7 +19,7 @@ package javaRule;
  * @model
  * @generated
  */
-public interface NameType extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration {
+public interface NameType extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration, File {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The default value is <code>"nothing"</code>.

@@ -1,40 +1,24 @@
 package es.uam.sara.tfg.properties.enumerations;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
+
+import es.uam.sara.tfg.properties.Empty;
 
 
 public class EnumEmpty extends Enumeration{
 
-	private boolean no;
 
-	public EnumEmpty(boolean no) {
+	public EnumEmpty() {
 		super();
-		this.no = no;
 	}
 
-	@Override
-	public void check(List<EnumDeclaration> analyze) {
-		for (EnumDeclaration en: analyze){
-			if (en.bodyDeclarations().isEmpty()){
-				if (no) {
-					addWrong(en);
-				} else {
-					addRight(en);
-				}
-			} else {
-				if (no) {
-					addRight(en);
-				} else {
-					addWrong(en);
-				}
-				
-			}
-		}
-		
-	}
 	@Override
 	public String toString() {
-		return "no empty";
+		return " empty";
+	}
+
+	@Override
+	public boolean checkElement(EnumDeclaration analize) {
+		return Empty.isEmpty(analize);
 	}
 }

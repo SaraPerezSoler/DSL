@@ -34,7 +34,6 @@ public class And<T> extends Properties<T>{
 	
 	@Override
 	public void check(List<T> analyze){
-	
 		for (Properties<T> p: properties){
 			p.check(analyze);
 			removeAllWrong(p.getWrong());
@@ -67,21 +66,23 @@ public class And<T> extends Properties<T>{
 	}
 
 	@Override
-	public String printRight() {
+	public String print(boolean right) {
 		String cad="";
 		for (Properties<T> p: properties){
-			cad+=p.printRight();
+			cad+=p.print(right);
 		}
 		return cad+"\n";
 	}
 
+
 	@Override
-	public String printWrong() {
-		String cad="";
-		for (Properties<T> p: properties){
-			cad+=p.printWrong();
-		}
-		return cad+"\n";
+	public boolean checkElement(T analyze) {
+		return false;
+	}
+
+	@Override
+	public String print(T print) {
+		return "";
 	}
 
 }

@@ -12,6 +12,7 @@ import javaRule.Contains;
 import javaRule.ElementJava;
 import javaRule.Empty;
 import javaRule.Enumeration;
+import javaRule.File;
 import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
@@ -36,6 +37,7 @@ import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Satisfy;
+import javaRule.Tamanio;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -100,6 +102,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass fileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass packageEClass = null;
 
 	/**
@@ -157,6 +166,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EClass methodEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tamanioEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -517,6 +533,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFile() {
+		return fileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -609,6 +634,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 */
 	public EClass getMethod() {
 		return methodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTamanio() {
+		return tamanioEClass;
 	}
 
 	/**
@@ -922,8 +956,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBlendModifiers_Synchronized() {
+	public EAttribute getBlendModifiers_Default() {
 		return (EAttribute)blendModifiersEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBlendModifiers_Synchronized() {
+		return (EAttribute)blendModifiersEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1040,6 +1083,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		satisfyEClass = createEClass(SATISFY);
 
+		fileEClass = createEClass(FILE);
+
 		packageEClass = createEClass(PACKAGE);
 
 		interfaceEClass = createEClass(INTERFACE);
@@ -1059,6 +1104,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		isExtendedEClass = createEClass(IS_EXTENDED);
 
 		methodEClass = createEClass(METHOD);
+
+		tamanioEClass = createEClass(TAMANIO);
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__NUM_PARAM);
@@ -1106,6 +1153,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__STATIC);
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__FINAL);
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__ABSTRACT);
+		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__DEFAULT);
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__SYNCHRONIZED);
 
 		isGenericEClass = createEClass(IS_GENERIC);
@@ -1147,15 +1195,19 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		fileEClass.getESuperTypes().add(this.getSatisfy());
 		packageEClass.getESuperTypes().add(this.getSatisfy());
 		interfaceEClass.getESuperTypes().add(this.getSatisfy());
 		isImplementedEClass.getESuperTypes().add(this.getInterface());
 		enumerationEClass.getESuperTypes().add(this.getSatisfy());
 		classEClass.getESuperTypes().add(this.getSatisfy());
 		isInheritorEClass.getESuperTypes().add(this.getClass_());
+		isInheritorEClass.getESuperTypes().add(this.getInterface());
 		implementsEClass.getESuperTypes().add(this.getClass_());
 		isExtendedEClass.getESuperTypes().add(this.getClass_());
+		isExtendedEClass.getESuperTypes().add(this.getInterface());
 		methodEClass.getESuperTypes().add(this.getSatisfy());
+		tamanioEClass.getESuperTypes().add(this.getMethod());
 		parameterEClass.getESuperTypes().add(this.getMethod());
 		constructorEClass.getESuperTypes().add(this.getMethod());
 		returnEClass.getESuperTypes().add(this.getMethod());
@@ -1167,18 +1219,21 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		emptyEClass.getESuperTypes().add(this.getClass_());
 		emptyEClass.getESuperTypes().add(this.getInterface());
 		emptyEClass.getESuperTypes().add(this.getEnumeration());
+		emptyEClass.getESuperTypes().add(this.getFile());
 		nameOperationEClass.getESuperTypes().add(this.getAttribute());
 		nameOperationEClass.getESuperTypes().add(this.getClass_());
 		nameOperationEClass.getESuperTypes().add(this.getMethod());
 		nameOperationEClass.getESuperTypes().add(this.getPackage());
 		nameOperationEClass.getESuperTypes().add(this.getInterface());
 		nameOperationEClass.getESuperTypes().add(this.getEnumeration());
+		nameOperationEClass.getESuperTypes().add(this.getFile());
 		nameTypeEClass.getESuperTypes().add(this.getAttribute());
 		nameTypeEClass.getESuperTypes().add(this.getClass_());
 		nameTypeEClass.getESuperTypes().add(this.getMethod());
 		nameTypeEClass.getESuperTypes().add(this.getPackage());
 		nameTypeEClass.getESuperTypes().add(this.getInterface());
 		nameTypeEClass.getESuperTypes().add(this.getEnumeration());
+		nameTypeEClass.getESuperTypes().add(this.getFile());
 		javaDocEClass.getESuperTypes().add(this.getAttribute());
 		javaDocEClass.getESuperTypes().add(this.getClass_());
 		javaDocEClass.getESuperTypes().add(this.getMethod());
@@ -1188,6 +1243,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		containsEClass.getESuperTypes().add(this.getInterface());
 		containsEClass.getESuperTypes().add(this.getEnumeration());
 		containsEClass.getESuperTypes().add(this.getClass_());
+		containsEClass.getESuperTypes().add(this.getFile());
 		modifiersEClass.getESuperTypes().add(this.getAttribute());
 		modifiersEClass.getESuperTypes().add(this.getClass_());
 		modifiersEClass.getESuperTypes().add(this.getMethod());
@@ -1222,6 +1278,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(satisfyEClass, Satisfy.class, "Satisfy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(packageEClass, javaRule.Package.class, "Package", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1241,6 +1299,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(isExtendedEClass, IsExtended.class, "IsExtended", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(methodEClass, Method.class, "Method", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tamanioEClass, Tamanio.class, "Tamanio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_NumParam(), ecorePackage.getEInt(), "numParam", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1288,6 +1348,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getBlendModifiers_Static(), ecorePackage.getEBoolean(), "static", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Final(), ecorePackage.getEBoolean(), "final", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Abstract(), ecorePackage.getEBoolean(), "abstract", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBlendModifiers_Default(), ecorePackage.getEBoolean(), "default", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Synchronized(), ecorePackage.getEBoolean(), "synchronized", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(isGenericEClass, IsGeneric.class, "IsGeneric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1332,7 +1393,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PUBLIC);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PROTECTED);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PRIVATE);
-		addEEnumLiteral(accessModifierEEnum, AccessModifier.DEFAULT);
 
 		// Create resource
 		createResource(eNS_URI);

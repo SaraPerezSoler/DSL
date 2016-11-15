@@ -23,19 +23,8 @@ public class Implements extends Class{
 		intMin=-1;
 		intMax=-1;
 	}
-
-	@Override
-	public void check(List<TypeDeclaration> analyze) {
-		for (TypeDeclaration t: analyze){
-			if (comprobar(t)){
-				super.addRight(t);
-			}else{
-				super.addWrong(t);
-				
-			}
-		}
-	}
-	private boolean comprobar(TypeDeclaration t){
+	
+	public boolean checkElement(TypeDeclaration t){
 		if (intMin==-1 && intMax==-1){
 			List<String> lis=getInterface(t);
 			if (lis.contains(inter.toLowerCase())){
@@ -57,7 +46,6 @@ public class Implements extends Class{
 	public String toString() {
 		return "implements min=" + intMin + " and max=" + intMax;
 	}
-	
 	
 
 }

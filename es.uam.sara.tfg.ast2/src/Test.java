@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class Test<T, K> extends ArrayList<T>{
-	private List<K> i;
+public abstract class Test<T, K> {
 	public enum nada{
 		cafe(0), chocolate(1);
 		
@@ -23,20 +24,24 @@ public class Test<T, K> extends ArrayList<T>{
 		int num=0;
 		public int get();
 	}
-	Test() {
-		//numCasa=new Casa().get();
-	}
-	
+
+	/**
+	 * 
+	 * 
+	 * */
 	public  int getNumCasa(List<List<T>> i) {
 		return 1;
-	}
-
-	public String toString(){
-		return "";
 	}
 
 	public int compareTo(T arg0) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return "Test []";
+	}
+	
+	
 }

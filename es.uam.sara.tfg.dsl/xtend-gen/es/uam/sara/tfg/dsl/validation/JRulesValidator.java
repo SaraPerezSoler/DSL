@@ -75,43 +75,14 @@ public class JRulesValidator extends AbstractJRulesValidator {
   
   @Check
   public void checkSatisfyExists(final Rule r) {
-    boolean _and = false;
-    EObject _eContainer = r.eContainer();
-    if (!(_eContainer instanceof RuleSet)) {
-      _and = false;
-    } else {
-      Or _satisfy = r.getSatisfy();
-      boolean _equals = Objects.equal(_satisfy, null);
-      _and = _equals;
-    }
-    if (_and) {
+    if (((r.eContainer() instanceof RuleSet) && Objects.equal(r.getSatisfy(), null))) {
       this.error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
     } else {
-      boolean _and_1 = false;
-      Quantifier _quantifier = r.getQuantifier();
-      boolean _equals_1 = Objects.equal(_quantifier, Quantifier.ALL);
-      if (!_equals_1) {
-        _and_1 = false;
-      } else {
-        Or _satisfy_1 = r.getSatisfy();
-        boolean _equals_2 = Objects.equal(_satisfy_1, null);
-        _and_1 = _equals_2;
-      }
-      if (_and_1) {
+      if ((Objects.equal(r.getQuantifier(), Quantifier.ALL) && Objects.equal(r.getSatisfy(), null))) {
         this.error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
       }
     }
-    boolean _and_2 = false;
-    Or _satisfy_2 = r.getSatisfy();
-    boolean _equals_3 = Objects.equal(_satisfy_2, null);
-    if (!_equals_3) {
-      _and_2 = false;
-    } else {
-      Filter _filter = r.getFilter();
-      boolean _notEquals = (!Objects.equal(_filter, null));
-      _and_2 = _notEquals;
-    }
-    if (_and_2) {
+    if ((Objects.equal(r.getSatisfy(), null) && (!Objects.equal(r.getFilter(), null)))) {
       this.error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER, 
         "invalidRule");
     }
@@ -167,64 +138,22 @@ public class JRulesValidator extends AbstractJRulesValidator {
   }
   
   public boolean comprobarSatisfy(final ElementJava e, final Satisfy s) {
-    boolean _and = false;
-    boolean _equals = Objects.equal(e, ElementJava.PACKAGE);
-    if (!_equals) {
-      _and = false;
-    } else {
-      _and = (s instanceof javaRule.Package);
-    }
-    if (_and) {
+    if ((Objects.equal(e, ElementJava.PACKAGE) && (s instanceof javaRule.Package))) {
       return true;
     } else {
-      boolean _and_1 = false;
-      boolean _equals_1 = Objects.equal(e, ElementJava.INTERFACE);
-      if (!_equals_1) {
-        _and_1 = false;
-      } else {
-        _and_1 = (s instanceof Interface);
-      }
-      if (_and_1) {
+      if ((Objects.equal(e, ElementJava.INTERFACE) && (s instanceof Interface))) {
         return true;
       } else {
-        boolean _and_2 = false;
-        boolean _equals_2 = Objects.equal(e, ElementJava.CLASS);
-        if (!_equals_2) {
-          _and_2 = false;
-        } else {
-          _and_2 = (s instanceof javaRule.Class);
-        }
-        if (_and_2) {
+        if ((Objects.equal(e, ElementJava.CLASS) && (s instanceof javaRule.Class))) {
           return true;
         } else {
-          boolean _and_3 = false;
-          boolean _equals_3 = Objects.equal(e, ElementJava.ENUM);
-          if (!_equals_3) {
-            _and_3 = false;
-          } else {
-            _and_3 = (s instanceof Enumeration);
-          }
-          if (_and_3) {
+          if ((Objects.equal(e, ElementJava.ENUM) && (s instanceof Enumeration))) {
             return true;
           } else {
-            boolean _and_4 = false;
-            boolean _equals_4 = Objects.equal(e, ElementJava.METHOD);
-            if (!_equals_4) {
-              _and_4 = false;
-            } else {
-              _and_4 = (s instanceof Method);
-            }
-            if (_and_4) {
+            if ((Objects.equal(e, ElementJava.METHOD) && (s instanceof Method))) {
               return true;
             } else {
-              boolean _and_5 = false;
-              boolean _equals_5 = Objects.equal(e, ElementJava.ATTRIBUTE);
-              if (!_equals_5) {
-                _and_5 = false;
-              } else {
-                _and_5 = (s instanceof Attribute);
-              }
-              if (_and_5) {
+              if ((Objects.equal(e, ElementJava.ATTRIBUTE) && (s instanceof Attribute))) {
                 return true;
               } else {
                 return false;
@@ -238,33 +167,13 @@ public class JRulesValidator extends AbstractJRulesValidator {
   
   @Check
   public void checkNameLanguage(final NameOperation n) {
-    boolean _and = false;
-    NameOperator _operator = n.getOperator();
-    boolean _equals = Objects.equal(_operator, NameOperator.LIKE);
-    if (!_equals) {
-      _and = false;
-    } else {
-      Language _language = n.getLanguage();
-      boolean _equals_1 = Objects.equal(_language, Language.EMPTY);
-      _and = _equals_1;
-    }
-    if (_and) {
+    if ((Objects.equal(n.getOperator(), NameOperator.LIKE) && Objects.equal(n.getLanguage(), Language.EMPTY))) {
       this.error(
         "Language must be define for Like operator", 
         JavaRulePackage.Literals.NAME_OPERATION__OPERATOR, 
         "invalidLanguage");
     }
-    boolean _and_1 = false;
-    NameOperator _operator_1 = n.getOperator();
-    boolean _notEquals = (!Objects.equal(_operator_1, NameOperator.LIKE));
-    if (!_notEquals) {
-      _and_1 = false;
-    } else {
-      Language _language_1 = n.getLanguage();
-      boolean _notEquals_1 = (!Objects.equal(_language_1, Language.EMPTY));
-      _and_1 = _notEquals_1;
-    }
-    if (_and_1) {
+    if (((!Objects.equal(n.getOperator(), NameOperator.LIKE)) && (!Objects.equal(n.getLanguage(), Language.EMPTY)))) {
       this.error(
         "Language is only for Like operator", 
         JavaRulePackage.Literals.NAME_OPERATION__LANGUAGE, 
@@ -275,42 +184,15 @@ public class JRulesValidator extends AbstractJRulesValidator {
   @Check
   public void checkJavaDoc(final JavaDoc jd) {
     Rule rule = this.getRule(jd);
-    boolean _and = false;
-    ElementJava _element = rule.getElement();
-    boolean _notEquals = (!Objects.equal(_element, ElementJava.METHOD));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      boolean _isParameter = jd.isParameter();
-      _and = _isParameter;
-    }
-    if (_and) {
+    if (((!Objects.equal(rule.getElement(), ElementJava.METHOD)) && jd.isParameter())) {
       this.warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER, 
         "inadvisableJavaDoc");
     }
-    boolean _and_1 = false;
-    ElementJava _element_1 = rule.getElement();
-    boolean _notEquals_1 = (!Objects.equal(_element_1, ElementJava.METHOD));
-    if (!_notEquals_1) {
-      _and_1 = false;
-    } else {
-      boolean _isReturn = jd.isReturn();
-      _and_1 = _isReturn;
-    }
-    if (_and_1) {
+    if (((!Objects.equal(rule.getElement(), ElementJava.METHOD)) && jd.isReturn())) {
       this.warning("The tag @return is used for methods", JavaRulePackage.Literals.JAVA_DOC__RETURN, 
         "inadvisableJavaDoc");
     }
-    boolean _and_2 = false;
-    ElementJava _element_2 = rule.getElement();
-    boolean _notEquals_2 = (!Objects.equal(_element_2, ElementJava.METHOD));
-    if (!_notEquals_2) {
-      _and_2 = false;
-    } else {
-      boolean _isThrows = jd.isThrows();
-      _and_2 = _isThrows;
-    }
-    if (_and_2) {
+    if (((!Objects.equal(rule.getElement(), ElementJava.METHOD)) && jd.isThrows())) {
       this.warning("The tag @throws is used for methods", JavaRulePackage.Literals.JAVA_DOC__THROWS, 
         "inadvisableJavaDoc");
     }
@@ -363,48 +245,20 @@ public class JRulesValidator extends AbstractJRulesValidator {
     Rule r = this.getRule(b);
     boolean _accessPrivateProtecte = this.accessPrivateProtecte(b);
     if (_accessPrivateProtecte) {
-      boolean _or = false;
-      boolean _or_1 = false;
-      ElementJava _element = r.getElement();
-      boolean _equals = Objects.equal(_element, ElementJava.CLASS);
-      if (_equals) {
-        _or_1 = true;
-      } else {
-        ElementJava _element_1 = r.getElement();
-        boolean _equals_1 = Objects.equal(_element_1, ElementJava.INTERFACE);
-        _or_1 = _equals_1;
-      }
-      if (_or_1) {
-        _or = true;
-      } else {
-        ElementJava _element_2 = r.getElement();
-        boolean _equals_2 = Objects.equal(_element_2, ElementJava.ENUM);
-        _or = _equals_2;
-      }
-      if (_or) {
+      if (((Objects.equal(r.getElement(), ElementJava.CLASS) || Objects.equal(r.getElement(), ElementJava.INTERFACE)) || Objects.equal(r.getElement(), ElementJava.ENUM))) {
         this.warning("The private and protected modifiers are for classes, interfaces and enumeration internal", 
           JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
       }
     }
     boolean _isAbstract = b.isAbstract();
     if (_isAbstract) {
-      ElementJava _element_3 = r.getElement();
-      boolean _equals_3 = Objects.equal(_element_3, ElementJava.INTERFACE);
-      if (_equals_3) {
+      ElementJava _element = r.getElement();
+      boolean _equals = Objects.equal(_element, ElementJava.INTERFACE);
+      if (_equals) {
         this.warning("The interfaces are implicitly abstract, its not necessary add the modifier", 
           JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, "inadvisableModifier");
       } else {
-        boolean _and = false;
-        ElementJava _element_4 = r.getElement();
-        boolean _notEquals = (!Objects.equal(_element_4, ElementJava.CLASS));
-        if (!_notEquals) {
-          _and = false;
-        } else {
-          ElementJava _element_5 = r.getElement();
-          boolean _notEquals_1 = (!Objects.equal(_element_5, ElementJava.METHOD));
-          _and = _notEquals_1;
-        }
-        if (_and) {
+        if (((!Objects.equal(r.getElement(), ElementJava.CLASS)) && (!Objects.equal(r.getElement(), ElementJava.METHOD)))) {
           this.error("Abstract is for methods and class", JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 
             "invalidModifier");
         } else {
@@ -416,75 +270,39 @@ public class JRulesValidator extends AbstractJRulesValidator {
         }
       }
     }
+    boolean _isDefault = b.isDefault();
+    if (_isDefault) {
+      ElementJava _element_1 = r.getElement();
+      boolean _notEquals = (!Objects.equal(_element_1, ElementJava.METHOD));
+      if (_notEquals) {
+        this.error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, "invalidModifier");
+      }
+      EObject _eContainer = r.eContainer();
+      if ((_eContainer instanceof RuleSet)) {
+      }
+    }
     boolean _isFinal_1 = b.isFinal();
     if (_isFinal_1) {
-      boolean _or_2 = false;
-      ElementJava _element_6 = r.getElement();
-      boolean _equals_4 = Objects.equal(_element_6, ElementJava.INTERFACE);
-      if (_equals_4) {
-        _or_2 = true;
-      } else {
-        ElementJava _element_7 = r.getElement();
-        boolean _equals_5 = Objects.equal(_element_7, ElementJava.ENUM);
-        _or_2 = _equals_5;
-      }
-      if (_or_2) {
+      if ((Objects.equal(r.getElement(), ElementJava.INTERFACE) || Objects.equal(r.getElement(), ElementJava.ENUM))) {
         this.error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, 
           "invalidModifier");
       }
     }
     boolean _isStatic = b.isStatic();
     if (_isStatic) {
-      boolean _or_3 = false;
-      boolean _or_4 = false;
-      ElementJava _element_8 = r.getElement();
-      boolean _equals_6 = Objects.equal(_element_8, ElementJava.CLASS);
-      if (_equals_6) {
-        _or_4 = true;
-      } else {
-        ElementJava _element_9 = r.getElement();
-        boolean _equals_7 = Objects.equal(_element_9, ElementJava.INTERFACE);
-        _or_4 = _equals_7;
-      }
-      if (_or_4) {
-        _or_3 = true;
-      } else {
-        ElementJava _element_10 = r.getElement();
-        boolean _equals_8 = Objects.equal(_element_10, ElementJava.ENUM);
-        _or_3 = _equals_8;
-      }
-      if (_or_3) {
+      if (((Objects.equal(r.getElement(), ElementJava.CLASS) || Objects.equal(r.getElement(), ElementJava.INTERFACE)) || Objects.equal(r.getElement(), ElementJava.ENUM))) {
         this.warning("Static is for classes, interfaces and enumeration internal", 
           JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
       }
     }
-    boolean _and_1 = false;
-    boolean _isSynchronized = b.isSynchronized();
-    if (!_isSynchronized) {
-      _and_1 = false;
-    } else {
-      ElementJava _element_11 = r.getElement();
-      boolean _notEquals_2 = (!Objects.equal(_element_11, ElementJava.METHOD));
-      _and_1 = _notEquals_2;
-    }
-    if (_and_1) {
+    if ((b.isSynchronized() && (!Objects.equal(r.getElement(), ElementJava.METHOD)))) {
       this.error("Synchronized is for methods", JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED, 
         "invalidModifier");
     }
   }
   
   public boolean accessPrivateProtecte(final BlendModifiers b) {
-    boolean _or = false;
-    AccessModifier _access = b.getAccess();
-    boolean _equals = Objects.equal(_access, AccessModifier.PRIVATE);
-    if (_equals) {
-      _or = true;
-    } else {
-      AccessModifier _access_1 = b.getAccess();
-      boolean _equals_1 = Objects.equal(_access_1, AccessModifier.PROTECTED);
-      _or = _equals_1;
-    }
-    if (_or) {
+    if ((Objects.equal(b.getAccess(), AccessModifier.PRIVATE) || Objects.equal(b.getAccess(), AccessModifier.PROTECTED))) {
       return true;
     }
     return false;
@@ -496,28 +314,8 @@ public class JRulesValidator extends AbstractJRulesValidator {
     ElementJava _element = r.getElement();
     boolean _equals = Objects.equal(_element, ElementJava.PACKAGE);
     if (_equals) {
-      boolean _or = false;
-      boolean _or_1 = false;
-      Rule _which = c.getWhich();
-      ElementJava _element_1 = _which.getElement();
-      boolean _equals_1 = Objects.equal(_element_1, ElementJava.METHOD);
-      if (_equals_1) {
-        _or_1 = true;
-      } else {
-        Rule _which_1 = c.getWhich();
-        ElementJava _element_2 = _which_1.getElement();
-        boolean _equals_2 = Objects.equal(_element_2, ElementJava.ATTRIBUTE);
-        _or_1 = _equals_2;
-      }
-      if (_or_1) {
-        _or = true;
-      } else {
-        Rule _which_2 = c.getWhich();
-        ElementJava _element_3 = _which_2.getElement();
-        boolean _equals_3 = Objects.equal(_element_3, ElementJava.PACKAGE);
-        _or = _equals_3;
-      }
-      if (_or) {
+      if (((Objects.equal(c.getWhich().getElement(), ElementJava.METHOD) || Objects.equal(c.getWhich().getElement(), ElementJava.ATTRIBUTE)) || 
+        Objects.equal(c.getWhich().getElement(), ElementJava.PACKAGE))) {
         this.error("Package contains Class, Interfaces or Enumerations", JavaRulePackage.Literals.CONTAINS__WHICH, 
           "invalidContains");
       }

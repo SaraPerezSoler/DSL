@@ -146,6 +146,8 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronized" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
   </eClassifiers>
@@ -154,7 +156,6 @@
     <eLiterals name="public" value="1"/>
     <eLiterals name="protected" value="2"/>
     <eLiterals name="private" value="3"/>
-    <eLiterals name="default" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsGeneric" eSuperTypes="#//Class #//Interface #//Method #//Attribute"/>
 </ecore:EPackage>

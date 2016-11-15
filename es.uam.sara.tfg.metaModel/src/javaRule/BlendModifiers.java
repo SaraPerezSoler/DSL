@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link javaRule.BlendModifiers#isStatic <em>Static</em>}</li>
  *   <li>{@link javaRule.BlendModifiers#isFinal <em>Final</em>}</li>
  *   <li>{@link javaRule.BlendModifiers#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link javaRule.BlendModifiers#isDefault <em>Default</em>}</li>
  *   <li>{@link javaRule.BlendModifiers#isSynchronized <em>Synchronized</em>}</li>
  * </ul>
  *
@@ -135,6 +136,33 @@ public interface BlendModifiers extends EObject {
 	 * @generated
 	 */
 	void setAbstract(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default</em>' attribute.
+	 * @see #setDefault(boolean)
+	 * @see javaRule.JavaRulePackage#getBlendModifiers_Default()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isDefault();
+
+	/**
+	 * Sets the value of the '{@link javaRule.BlendModifiers#isDefault <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default</em>' attribute.
+	 * @see #isDefault()
+	 * @generated
+	 */
+	void setDefault(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Synchronized</b></em>' attribute.

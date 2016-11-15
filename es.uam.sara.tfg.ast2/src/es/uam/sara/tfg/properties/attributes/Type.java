@@ -15,30 +15,15 @@ public class Type extends Attribute{
 		super();
 		this.type = type;
 	}
-
-	@Override
-	public void check(List<FieldDeclaration> analyze) {
-		for (FieldDeclaration a : analyze) {
-			List<String>types=TypeToString.getString(a.getType());
-			if (types.contains(type.toLowerCase())) {
-				super.addRight(a);
-			} else {
-				super.addWrong(a);
-			}
-		}
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	@Override
 	public String toString() {
 		return "type=" + type ;
+	}
+
+	@Override
+	public boolean checkElement(FieldDeclaration a) {
+		List<String>types=TypeToString.getString(a.getType());
+		return types.contains(type.toLowerCase());
 	}
 
 }

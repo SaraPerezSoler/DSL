@@ -3,6 +3,7 @@ package es.uam.sara.tfg.ast;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -307,6 +308,23 @@ public class Visitors {
 		}
 		return null;
 	}
+	public static UnitVisitor getVisitor(ASTNode m) {
+		
+		if (m instanceof MethodDeclaration){
+			return getVisitor((MethodDeclaration)m);
+			
+		}else if (m instanceof TypeDeclaration){
+			return getVisitor((TypeDeclaration)m);
+			
+		}else  if (m instanceof FieldDeclaration){
+			return getVisitor((FieldDeclaration)m);
+			
+		}else if (m instanceof EnumDeclaration){
+			return getVisitor((EnumDeclaration)m);
+		}
+		return null;
+	}
+	
 	public static void addPackages(List<String> packs) {
 		packages = packs;
 	}
@@ -315,4 +333,6 @@ public class Visitors {
 		visitors.clear();
 		packages.clear();
 	}
+
+	
 }

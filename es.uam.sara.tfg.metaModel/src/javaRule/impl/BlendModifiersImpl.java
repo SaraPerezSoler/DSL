@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link javaRule.impl.BlendModifiersImpl#isStatic <em>Static</em>}</li>
  *   <li>{@link javaRule.impl.BlendModifiersImpl#isFinal <em>Final</em>}</li>
  *   <li>{@link javaRule.impl.BlendModifiersImpl#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link javaRule.impl.BlendModifiersImpl#isDefault <em>Default</em>}</li>
  *   <li>{@link javaRule.impl.BlendModifiersImpl#isSynchronized <em>Synchronized</em>}</li>
  * </ul>
  *
@@ -110,6 +111,26 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DEFAULT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDefault() <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDefault()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean default_ = DEFAULT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSynchronized() <em>Synchronized</em>}' attribute.
@@ -239,6 +260,27 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDefault() {
+		return default_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefault(boolean newDefault) {
+		boolean oldDefault = default_;
+		default_ = newDefault;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.BLEND_MODIFIERS__DEFAULT, oldDefault, default_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isSynchronized() {
 		return synchronized_;
 	}
@@ -271,6 +313,8 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 				return isFinal();
 			case JavaRulePackage.BLEND_MODIFIERS__ABSTRACT:
 				return isAbstract();
+			case JavaRulePackage.BLEND_MODIFIERS__DEFAULT:
+				return isDefault();
 			case JavaRulePackage.BLEND_MODIFIERS__SYNCHRONIZED:
 				return isSynchronized();
 		}
@@ -296,6 +340,9 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case JavaRulePackage.BLEND_MODIFIERS__ABSTRACT:
 				setAbstract((Boolean)newValue);
+				return;
+			case JavaRulePackage.BLEND_MODIFIERS__DEFAULT:
+				setDefault((Boolean)newValue);
 				return;
 			case JavaRulePackage.BLEND_MODIFIERS__SYNCHRONIZED:
 				setSynchronized((Boolean)newValue);
@@ -324,6 +371,9 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 			case JavaRulePackage.BLEND_MODIFIERS__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
+			case JavaRulePackage.BLEND_MODIFIERS__DEFAULT:
+				setDefault(DEFAULT_EDEFAULT);
+				return;
 			case JavaRulePackage.BLEND_MODIFIERS__SYNCHRONIZED:
 				setSynchronized(SYNCHRONIZED_EDEFAULT);
 				return;
@@ -347,6 +397,8 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 				return final_ != FINAL_EDEFAULT;
 			case JavaRulePackage.BLEND_MODIFIERS__ABSTRACT:
 				return abstract_ != ABSTRACT_EDEFAULT;
+			case JavaRulePackage.BLEND_MODIFIERS__DEFAULT:
+				return default_ != DEFAULT_EDEFAULT;
 			case JavaRulePackage.BLEND_MODIFIERS__SYNCHRONIZED:
 				return synchronized_ != SYNCHRONIZED_EDEFAULT;
 		}
@@ -371,6 +423,8 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 		result.append(final_);
 		result.append(", abstract: ");
 		result.append(abstract_);
+		result.append(", default: ");
+		result.append(default_);
 		result.append(", synchronized: ");
 		result.append(synchronized_);
 		result.append(')');

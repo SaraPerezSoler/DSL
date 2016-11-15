@@ -1,24 +1,19 @@
 package es.uam.sara.tfg.properties.methods;
 
-import java.util.List;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-
 import es.uam.sara.tfg.properties.IsGeneric;
 
 public class MethIsGeneric extends Method{
 
+	private IsGeneric generic = new IsGeneric();
+
 	@Override
-	public void check(List<MethodDeclaration> analize) {
-		IsGeneric generic= new IsGeneric();
-		for (MethodDeclaration meth: analize){
-			if (generic.check(meth)){
-				super.addRight(meth);
-			}else{
-				super.addWrong(meth);
-			}
-		}
-		
+	public boolean checkElement(MethodDeclaration analyze) {
+		return generic.check(analyze);
 	}
 
+	@Override
+	public String toString() {
+		return generic.toString();
+	}
 }

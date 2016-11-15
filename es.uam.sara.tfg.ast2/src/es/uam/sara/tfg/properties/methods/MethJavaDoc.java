@@ -1,6 +1,5 @@
 package es.uam.sara.tfg.properties.methods;
 
-import java.util.List;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
@@ -15,17 +14,12 @@ public class MethJavaDoc extends Method{
 	}
 
 	@Override
-	public void check(List<MethodDeclaration> analyze) {
-		for (MethodDeclaration m: analyze){
-			if (jdc.javaDoc(m.getJavadoc())){
-				super.addRight(m);
-			}else{
-				super.addWrong(m);
-			}
-		}
-	}
-	@Override
 	public String toString() {
 		return  jdc.toString();
+	}
+
+	@Override
+	public boolean checkElement(MethodDeclaration analyze) {
+		return jdc.javaDoc(analyze);
 	}
 }
