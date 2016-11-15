@@ -42,6 +42,4 @@ public abstract class Test<T, K> {
 	public String toString() {
 		return "Test []";
 	}
-	
-	
 }

@@ -21,35 +21,37 @@ public class Size {
 	}
 
 	public int getSize(ASTNode m) {
-		UnitVisitor uv=Visitors.getVisitor(m);
+		int start = 0;
+		int end = 0;
+		UnitVisitor uv = Visitors.getVisitor(m);
 		Javadoc jd = null;
 		if (m instanceof BodyDeclaration) {
 			jd = ((BodyDeclaration) m).getJavadoc();
 		}
-		int start = uv.getLineNumber(m.getStartPosition());
-		int end = uv.getLineNumber(m.getStartPosition() + m.getLength());
+		start = uv.getLineNumber(m.getStartPosition());
+		end = uv.getLineNumber(m.getStartPosition() + m.getLength() - 1);
 		if (jd != null) {
 			start = uv.getLineNumber(m.getStartPosition() + jd.getLength());
 		}
-
-		int tam = end - start;
+		int tam = (end - start) + 1;
 		return tam;
 	}
+
 	public boolean checkElement(ASTNode analyze) {
-		int size= getSize(analyze);
+		int size = getSize(analyze);
 		map.put(analyze, size);
-		if (size<min || size>max){
+		if (size < min || size > max) {
 			return false;
-		}else{
+		} else {
 			return true;
 		}
 	}
 
-	public String toString(){
-		if (max==Integer.MAX_VALUE){
-			return "size ["+min+".."+"*]";
+	public String toString() {
+		if (max == Integer.MAX_VALUE) {
+			return "size [" + min + ".." + "*]";
 		}
-		return "size ["+min+".."+max+"]";
+		return "size [" + min + ".." + max + "]";
 	}
 
 }

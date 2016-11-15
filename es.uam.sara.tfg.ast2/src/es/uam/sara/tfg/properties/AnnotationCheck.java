@@ -6,8 +6,11 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.Annotation;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 
+import es.uam.sara.tfg.properties.annotations.FrutoSeco;
+
 public class AnnotationCheck {
 
+	@FrutoSeco (calorias=0)
 	private List<String> annotations;
 
 	public AnnotationCheck() {

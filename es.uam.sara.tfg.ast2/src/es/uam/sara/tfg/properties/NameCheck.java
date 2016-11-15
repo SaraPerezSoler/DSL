@@ -70,6 +70,7 @@ public class NameCheck {
 				return declaration.getName().toString();
 			}
 		}
+			
 		return "";
 	}
 

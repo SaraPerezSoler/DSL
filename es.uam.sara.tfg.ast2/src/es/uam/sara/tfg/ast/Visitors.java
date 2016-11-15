@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -308,6 +309,15 @@ public class Visitors {
 		}
 		return null;
 	}
+	
+	public static UnitVisitor getVisitor(CompilationUnit cu) {
+		for (UnitVisitor u: visitors){
+			if (u.getComp()==cu){
+				return u;
+			}
+		}
+		return null;
+	}
 	public static UnitVisitor getVisitor(ASTNode m) {
 		
 		if (m instanceof MethodDeclaration){
@@ -321,7 +331,11 @@ public class Visitors {
 			
 		}else if (m instanceof EnumDeclaration){
 			return getVisitor((EnumDeclaration)m);
+			
+		}else if (m instanceof CompilationUnit){
+			return getVisitor((CompilationUnit)m);
 		}
+		
 		return null;
 	}
 	
