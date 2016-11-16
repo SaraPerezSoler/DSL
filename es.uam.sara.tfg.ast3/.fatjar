@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Nov 07 14:14:07 CET 2016
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=C\:\\Users\\Sara\\git\\DSL\\es.uam.sara.tfg.ast.jar
+manifest.mergeall=false
+manifest.mainclass=Main
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=<inc|es.uam.sara.tfg.ast2/src>~es/;<inc|es.uam.sara.tfg.ast2/src>~Hola.java;<inc|es.uam.sara.tfg.ast2/src>~Main.java;<inc|es.uam.sara.tfg.ast2/src>~Test.java
