@@ -1,6 +1,5 @@
 package es.uam.sara.tfg.properties.enumerations;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.properties.Size;
 
