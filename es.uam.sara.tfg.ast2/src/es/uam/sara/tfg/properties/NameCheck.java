@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
+import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
@@ -59,16 +60,23 @@ public class NameCheck {
 	}
 	
 	public static String getName(ASTNode node){
+		
+		//Interfaces, Clases y Enumerados
 		if (node instanceof AbstractTypeDeclaration){
 			return ((AbstractTypeDeclaration)node).getName().toString();
+		//Metodos
 		}else if (node instanceof MethodDeclaration){
 			return ((MethodDeclaration)node).getName().toString();
+		//Attributos
 		}else if (node instanceof FieldDeclaration){
 			FieldDeclaration elem=(FieldDeclaration) node;
 			if (elem.fragments().get(0) instanceof VariableDeclarationFragment) {
 				VariableDeclarationFragment declaration = (VariableDeclarationFragment) elem.fragments().get(0);
 				return declaration.getName().toString();
 			}
+		//Constantes de enumerados
+		}else if (node instanceof EnumConstantDeclaration){
+			return ((EnumConstantDeclaration)node).getName().toString();
 		}
 			
 		return "";

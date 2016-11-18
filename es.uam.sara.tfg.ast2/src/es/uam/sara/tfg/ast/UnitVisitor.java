@@ -3,8 +3,10 @@ package es.uam.sara.tfg.ast;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -20,6 +22,7 @@ public class UnitVisitor extends ASTVisitor{
 	private List<TypeDeclaration> interfaces;
 	private List<TypeDeclaration> classes;
 	private List<EnumDeclaration> enumerations;
+	private List<EnumConstantDeclaration> enumConstant;
 	private List<MethodDeclaration> methods;
 	private List<FieldDeclaration> attributes;
 	
@@ -31,6 +34,7 @@ public class UnitVisitor extends ASTVisitor{
 		enumerations=new ArrayList<EnumDeclaration>();
 		methods=new ArrayList<MethodDeclaration>();
 		attributes=new ArrayList<FieldDeclaration>();
+		enumConstant= new ArrayList<EnumConstantDeclaration>();
 	}
 	
 	
@@ -54,6 +58,12 @@ public class UnitVisitor extends ASTVisitor{
 	@Override
 	public boolean visit(EnumDeclaration node) {
 		enumerations.add(node);
+		return super.visit(node);
+	}
+	
+	@Override
+	public boolean visit(EnumConstantDeclaration node) {
+		enumConstant.add(node);
 		return super.visit(node);
 	}
 	
@@ -94,48 +104,38 @@ public class UnitVisitor extends ASTVisitor{
 	public List<FieldDeclaration> getAttributes() {
 		return attributes;
 	}
-
-
-	public boolean isVisitorFrom(TypeDeclaration type) {
-		if (type.isInterface()){
+	public boolean isVisitorFrom(ASTNode type) {
+		
+		if (type instanceof TypeDeclaration){
 			if (interfaces.contains(type)){
 				return true;
-			}else{
-				return false;
-			}
-		}else{
-			if (classes.contains(type)){
+			}else if (classes.contains(type));{
 				return true;
-			}else{
-				return false;
+			}
+		}else if (type instanceof EnumDeclaration){
+			if (enumerations.contains(type)){
+				return true;
+			}
+		}else if (type instanceof EnumConstantDeclaration){
+			if (enumConstant.contains(type)){
+				return true;
+			}
+		}else if (type instanceof MethodDeclaration){
+			if (methods.contains(type)){
+				return true;
+			}
+		}else if (type instanceof FieldDeclaration){
+			if (attributes.contains(type)){
+				return true;
+			}
+		}else if (type instanceof CompilationUnit){
+			if (this.comp==(CompilationUnit) type){
+				return true;
 			}
 		}
-	}
-
-
-	public boolean isVisitorFrom(EnumDeclaration en) {
-		if (enumerations.contains(en)){
-			return true;
-		}
+		
 		return false;
 	}
-
-
-	public boolean isVisitorFrom(MethodDeclaration meth) {
-		if (methods.contains(meth)){
-			return true;
-		}
-		return false;
-	}
-
-
-	public boolean isVisitorFrom(FieldDeclaration field) {
-		if (attributes.contains(field)){
-			return true;
-		}
-		return false;
-	}
-
 
 	public CompilationUnit getComp() {
 		return comp;
@@ -169,5 +169,10 @@ public class UnitVisitor extends ASTVisitor{
 			return false;
 		}
 		return true;
+	}
+
+
+	public List<EnumConstantDeclaration> getEnumConstant() {
+		return enumConstant;
 	}
 }

@@ -4,16 +4,16 @@ import java.util.Collection;
 import java.util.List;
 
 public abstract class Test<T, K> {
-	public enum nada{
-		cafe(0), chocolate(1);
+
+	public static enum nada{
+		
+		cafe(0){
+		
+		}, chocolate(1);
 		
 		private int valor;
 		private nada(int i){
 			valor=i;
-		}
-		
-		private enum th{
-			
 		}
 	}
 	interface hola{
