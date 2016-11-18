@@ -10,10 +10,39 @@ public class Rule<T> {
 	protected Filter<T> filter;
 	protected Or<T> properties;
 	private boolean checkeado = false;
+	private boolean check = false;
 	private String elementJava;
 
-	public enum Quantifier {
-		ALL, ONE, EXISTS,
+	public interface Apply{
+		public boolean apply(List<?> lista, int total);
+	}
+	public enum Quantifier implements Apply{
+		ALL{
+			@Override
+			public boolean apply(List<?> lista, int total) {
+				if (lista.size()==total){
+					return true;
+				}
+				return false;
+			}
+		}, ONE{
+			@Override
+			public boolean apply(List<?> lista, int total) {
+				if (lista.size()==1){
+					return true;
+				}
+				return false;
+			}
+		}
+		, EXISTS{
+			@Override
+			public boolean apply(List<?> lista, int total) {
+				if (lista.size()>=1){
+					return true;
+				}
+				return false;
+			}
+		},
 	}
 
 	public Rule(boolean no, Quantifier q, List<T> elements, Filter<T> filter, Or<T> properties, String elemntJava) {
@@ -48,30 +77,11 @@ public class Rule<T> {
 			checkeado = true;
 		}
 		if (no) {
-			return !checkQuantifier(properties.getRight());
+			check= !quantifier.apply(properties.getRight(), filter.getFiltering().size());
 		} else {
-			return checkQuantifier(properties.getRight());
+			check= quantifier.apply(properties.getRight(), filter.getFiltering().size());
 		}
-	}
-
-	private boolean checkQuantifier(List<T> l) {
-		switch (quantifier) {
-		case ALL:
-			if (filter.getFiltering().size() == l.size())
-				return true;
-			break;
-		case ONE:
-			if (l.size() == 1) {
-				return true;
-			}
-			break;
-		default:
-			if (l.size() >= 1) {
-				return true;
-			}
-			break;
-		}
-		return false;
+		return check;
 	}
 
 	@Override
@@ -115,14 +125,8 @@ public class Rule<T> {
 
 	public String log() {
 		if (checkeado) {
-			String cad = toString() + "\n" + "Checked.....";
-			boolean res;
-			if (no) {
-				res = !checkQuantifier(properties.getRight());
-			} else {
-				res = checkQuantifier(properties.getRight());
-			}
-			if (res) {
+			String cad = toString() + "\n" + "Checked.....";	
+			if (check) {
 				cad += "OK\n";
 			} else {
 				cad += "ERROR\n";
