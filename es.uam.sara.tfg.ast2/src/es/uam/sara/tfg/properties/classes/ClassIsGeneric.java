@@ -4,12 +4,12 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.properties.IsGeneric;
 
-public class ClassIsGeneric extends Class{
+public class ClassIsGeneric extends ClassProperty{
 
 	private IsGeneric generic= new IsGeneric();
 
 	@Override
-	public boolean checkElement(TypeDeclaration analize) {
+	public boolean checkElement(ClassInterface analize) {
 		return generic.check(analize);
 	}
 

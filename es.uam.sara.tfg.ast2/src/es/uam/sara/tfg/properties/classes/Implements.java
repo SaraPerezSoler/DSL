@@ -2,12 +2,11 @@ package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.ClassInterface;
 
 
-public class Implements extends Class{
+
+public class Implements extends ClassProperty{
 
 	private int intMin;
 	private int intMax;
@@ -24,24 +23,20 @@ public class Implements extends Class{
 		intMax=-1;
 	}
 	
-	public boolean checkElement(TypeDeclaration t){
+	public boolean checkElement(ClassInterface t){
 		if (intMin==-1 && intMax==-1){
-			List<String> lis=getInterface(t);
+			List<String> lis=t.getSuperInterfaces();
 			if (lis.contains(inter.toLowerCase())){
 				return true;
 			}
-		}else if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
+		}else if (t.getNumSuperInterfaces()>=intMin && intMax==-1){
 			return true;
-		}else if (t.superInterfaceTypes().size()>=intMin && t.superInterfaceTypes().size()<=intMax){
+		}else if (t.getNumSuperInterfaces()>=intMin && t.getNumSuperInterfaces()<=intMax){
 			return true;
 		}
 		return false;
 	}
 
-	public List<String> getInterface(TypeDeclaration t){
-		List<?>inter=t.superInterfaceTypes();
-		return TypeToString.getString(inter);
-	}
 	@Override
 	public String toString() {
 		return "implements min=" + intMin + " and max=" + intMax;

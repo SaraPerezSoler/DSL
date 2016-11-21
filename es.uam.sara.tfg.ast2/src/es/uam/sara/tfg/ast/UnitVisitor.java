@@ -13,27 +13,32 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+import es.uam.sara.tfg.elements.Attribute;
+import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.Enumeration;
+import es.uam.sara.tfg.elements.Method;
+
 
 public class UnitVisitor extends ASTVisitor{
 	
 	private String nameFile;
 	private CompilationUnit comp;
 	private PackageDeclaration packageDeclaration;
-	private List<TypeDeclaration> interfaces;
-	private List<TypeDeclaration> classes;
-	private List<EnumDeclaration> enumerations;
+	private List<ClassInterface> interfaces;
+	private List<ClassInterface> classes;
+	private List<Enumeration> enumerations;
 	private List<EnumConstantDeclaration> enumConstant;
-	private List<MethodDeclaration> methods;
-	private List<FieldDeclaration> attributes;
+	private List<Method> methods;
+	private List<Attribute> attributes;
 	
 	
 	public UnitVisitor(String nameFile){
 		this.nameFile=nameFile;
-		interfaces=new ArrayList<TypeDeclaration>();
-		classes=new ArrayList<TypeDeclaration>();
-		enumerations=new ArrayList<EnumDeclaration>();
-		methods=new ArrayList<MethodDeclaration>();
-		attributes=new ArrayList<FieldDeclaration>();
+		interfaces=new ArrayList<ClassInterface>();
+		classes=new ArrayList<ClassInterface>();
+		enumerations=new ArrayList<Enumeration>();
+		methods=new ArrayList<Method>();
+		attributes=new ArrayList<Attribute>();
 		enumConstant= new ArrayList<EnumConstantDeclaration>();
 	}
 	
@@ -48,16 +53,16 @@ public class UnitVisitor extends ASTVisitor{
 	@Override
 	public boolean visit(TypeDeclaration node) {
 		if (node.isInterface()){
-			interfaces.add(node);
+			interfaces.add(new ClassInterface(node));
 		}else{
-			classes.add(node);
+			classes.add(new ClassInterface(node));
 		}
 		return super.visit(node);
 	}
 	
 	@Override
 	public boolean visit(EnumDeclaration node) {
-		enumerations.add(node);
+		enumerations.add(new Enumeration(node));
 		return super.visit(node);
 	}
 	
@@ -69,12 +74,12 @@ public class UnitVisitor extends ASTVisitor{
 	
 	@Override
 	public boolean visit(MethodDeclaration node) {
-		methods.add(node);
+		methods.add(new Method(node));
 		return super.visit(node);
 	}
 	@Override
 	public boolean visit(FieldDeclaration node) {
-		attributes.add(node);
+		attributes.add(new Attribute(node));
 		return super.visit(node);
 	}
 
@@ -85,23 +90,23 @@ public class UnitVisitor extends ASTVisitor{
 		return packageDeclaration;
 	}
 
-	public List<TypeDeclaration> getInterfaces() {
+	public List<ClassInterface> getInterfaces() {
 		return interfaces;
 	}
 
-	public List<TypeDeclaration> getClasses() {
+	public List<ClassInterface> getClasses() {
 		return classes;
 	}
 
-	public List<EnumDeclaration> getEnumerations() {
+	public List<Enumeration> getEnumerations() {
 		return enumerations;
 	}
 
-	public List<MethodDeclaration> getMethods() {
+	public List<Method> getMethods() {
 		return methods;
 	}
 
-	public List<FieldDeclaration> getAttributes() {
+	public List<Attribute> getAttributes() {
 		return attributes;
 	}
 	public boolean isVisitorFrom(ASTNode type) {

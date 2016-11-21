@@ -4,16 +4,15 @@
 package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 
-import es.uam.sara.tfg.properties.TypeToString;
 
 
 /**
  * @author Sara
  *
  */
-public class SubClass extends Class{
+public class SubClass extends ClassProperty{
 
 	private String of;
 	/**
@@ -36,8 +35,8 @@ public class SubClass extends Class{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration t) {
-		List<String> superClass=TypeToString.getString(t.getSuperclassType());
+	public boolean checkElement(ClassInterface t) {
+		List<String> superClass=t.getSuperclass();
 		if (of==null){
 			if (superClass.isEmpty() || superClass.contains(Object.class.toString().toLowerCase())){
 				return false;

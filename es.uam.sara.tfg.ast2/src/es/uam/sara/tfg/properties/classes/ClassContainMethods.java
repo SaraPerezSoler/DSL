@@ -1,22 +1,19 @@
 package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.rule.Rule;
 
-public class ClassContainMethods extends ClassContain<MethodDeclaration> {
+public class ClassContainMethods extends ClassContain<Method> {
 
-	public ClassContainMethods(Rule<MethodDeclaration> r) {
+	public ClassContainMethods(Rule<Method> r) {
 		super(r);
 	}
 
 	@Override
-	public List<MethodDeclaration> getSubType(TypeDeclaration t) {
-		return Visitors.getMethods(t);
+	public List<Method> getSubType(ClassInterface t) {
+		return t.getMethods();
 	}
 
 }

@@ -11,6 +11,12 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+import es.uam.sara.tfg.elements.Attribute;
+import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.Elements;
+import es.uam.sara.tfg.elements.Enumeration;
+import es.uam.sara.tfg.elements.Method;
+
 public class Visitors {
 	private static List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
 	private static List<String> packages = new ArrayList<String>();
@@ -29,8 +35,8 @@ public class Visitors {
 	}
 
 	/* Metodos para coger todos los elementos de un tipo */
-	public static List<TypeDeclaration> getTypes() {
-		List<TypeDeclaration> result = new ArrayList<TypeDeclaration>();
+	public static List<ClassInterface> getTypes() {
+		List<ClassInterface> result = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 			result.addAll(u.getInterfaces());
@@ -42,40 +48,40 @@ public class Visitors {
 		return packages;
 	}
 
-	public static List<TypeDeclaration> getClasses() {
-		List<TypeDeclaration> result = new ArrayList<TypeDeclaration>();
+	public static List<ClassInterface> getClasses() {
+		List<ClassInterface> result = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 		}
 		return result;
 	}
 
-	public static List<TypeDeclaration> getInterfaces() {
-		List<TypeDeclaration> result = new ArrayList<TypeDeclaration>();
+	public static List<ClassInterface> getInterfaces() {
+		List<ClassInterface> result = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getInterfaces());
 		}
 		return result;
 	}
 
-	public static List<EnumDeclaration> getEnumerations() {
-		List<EnumDeclaration> result = new ArrayList<EnumDeclaration>();
+	public static List<Enumeration> getEnumerations() {
+		List<Enumeration> result = new ArrayList<Enumeration>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getEnumerations());
 		}
 		return result;
 	}
 
-	public static List<MethodDeclaration> getMethods() {
-		List<MethodDeclaration> result = new ArrayList<MethodDeclaration>();
+	public static List<Method> getMethods() {
+		List<Method> result = new ArrayList<Method>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getMethods());
 		}
 		return result;
 	}
 
-	public static List<FieldDeclaration> getAttributes() {
-		List<FieldDeclaration> result = new ArrayList<FieldDeclaration>();
+	public static List<Attribute> getAttributes() {
+		List<Attribute> result = new ArrayList<Attribute>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getAttributes());
 		}
@@ -83,93 +89,93 @@ public class Visitors {
 	}
 
 	/* Metodo para obtener unos determinados elementos de una lista */
-	public static List<TypeDeclaration> getClasses(AbstractTypeDeclaration atd) {
+	public static List<ClassInterface> getClasses(AbstractTypeDeclaration atd) {
 		List<?> bd=atd.bodyDeclarations();
-		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
+		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (!((TypeDeclaration) ed).isInterface())
-					temp.add((TypeDeclaration) ed);
+					temp.add(new ClassInterface((TypeDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<TypeDeclaration> getInterfaces(AbstractTypeDeclaration atd) {
+	public static List<ClassInterface> getInterfaces(AbstractTypeDeclaration atd) {
 		List<?> bd=atd.bodyDeclarations();
-		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
+		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (((TypeDeclaration) ed).isInterface())
-					temp.add((TypeDeclaration) ed);
+					temp.add(new ClassInterface((TypeDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<EnumDeclaration> getEnumerations(AbstractTypeDeclaration atd) {
+	public static List<Enumeration> getEnumerations(AbstractTypeDeclaration atd) {
 		List<?> bd=atd.bodyDeclarations();
-		List<EnumDeclaration> temp = new ArrayList<EnumDeclaration>();
+		List<Enumeration> temp = new ArrayList<Enumeration>();
 		for (Object ed : bd) {
 			if (ed instanceof EnumDeclaration) {
-				temp.add((EnumDeclaration) ed);
+				temp.add(new Enumeration((EnumDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<MethodDeclaration> getMethods(AbstractTypeDeclaration atd) {
+	public static List<Method> getMethods(AbstractTypeDeclaration atd) {
 		List<?> bd=atd.bodyDeclarations();
-		List<MethodDeclaration> temp = new ArrayList<MethodDeclaration>();
+		List<Method> temp = new ArrayList<Method>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
-				temp.add((MethodDeclaration) ed);
+				temp.add(new Method((MethodDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<FieldDeclaration> getAttributes(AbstractTypeDeclaration atd) {
+	public static List<Attribute> getAttributes(AbstractTypeDeclaration atd) {
 		List<?> bd=atd.bodyDeclarations();
-		List<FieldDeclaration> temp = new ArrayList<FieldDeclaration>();
+		List<Attribute> temp = new ArrayList<Attribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
-				temp.add((FieldDeclaration) ed);
+				temp.add(new Attribute((FieldDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
 	//*Class, attributes y Methods de Las constantes del enum*/
-	public static List<TypeDeclaration> getClasses(EnumConstantDeclaration ecd) {
+	public static List<ClassInterface> getClasses(EnumConstantDeclaration ecd) {
 		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
-		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
+		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (!((TypeDeclaration) ed).isInterface())
-					temp.add((TypeDeclaration) ed);
+					temp.add(new ClassInterface((TypeDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<MethodDeclaration> getMethods(EnumConstantDeclaration ecd) {
+	public static List<Method> getMethods(EnumConstantDeclaration ecd) {
 		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
-		List<MethodDeclaration> temp = new ArrayList<MethodDeclaration>();
+		List<Method> temp = new ArrayList<Method>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
-				temp.add((MethodDeclaration) ed);
+				temp.add(new Method((MethodDeclaration) ed));
 			}
 		}
 		return temp;
 	}
 
-	public static List<FieldDeclaration> getAttributes(EnumConstantDeclaration ecd) {
+	public static List<Attribute> getAttributes(EnumConstantDeclaration ecd) {
 		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
-		List<FieldDeclaration> temp = new ArrayList<FieldDeclaration>();
+		List<Attribute> temp = new ArrayList<Attribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
-				temp.add((FieldDeclaration) ed);
+				temp.add(new Attribute((FieldDeclaration) ed));
 			}
 		}
 		return temp;
@@ -190,9 +196,9 @@ public class Visitors {
 		return false;
 	}
 
-	public static List<TypeDeclaration> getClasses(String pk) {
+	public static List<ClassInterface> getClasses(String pk) {
 
-		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
+		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getClasses());
@@ -201,8 +207,8 @@ public class Visitors {
 		return temp;
 	}
 
-	public static List<TypeDeclaration> getInterfaces(String pk) {
-		List<TypeDeclaration> temp = new ArrayList<TypeDeclaration>();
+	public static List<ClassInterface> getInterfaces(String pk) {
+		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getInterfaces());
@@ -211,8 +217,8 @@ public class Visitors {
 		return temp;
 	}
 
-	public static List<EnumDeclaration> getEnumerations(String pk) {
-		List<EnumDeclaration> temp = new ArrayList<EnumDeclaration>();
+	public static List<Enumeration> getEnumerations(String pk) {
+		List<Enumeration> temp = new ArrayList<Enumeration>();
 		for (UnitVisitor u : visitors) {
 			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getEnumerations());
@@ -221,8 +227,8 @@ public class Visitors {
 		return temp;
 	}
 
-	public static List<MethodDeclaration> getMethods(String pk) {
-		List<MethodDeclaration> temp = new ArrayList<MethodDeclaration>();
+	public static List<Method> getMethods(String pk) {
+		List<Method> temp = new ArrayList<Method>();
 		for (UnitVisitor u : visitors) {
 			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getMethods());
@@ -231,8 +237,8 @@ public class Visitors {
 		return temp;
 	}
 
-	public static List<FieldDeclaration> getAttributes(String pk) {
-		List<FieldDeclaration> temp = new ArrayList<FieldDeclaration>();
+	public static List<Attribute> getAttributes(String pk) {
+		List<Attribute> temp = new ArrayList<Attribute>();
 		for (UnitVisitor u : visitors) {
 			if (isThisPackage(pk, u)) {
 				temp.addAll(u.getAttributes());
@@ -250,7 +256,8 @@ public class Visitors {
 		return "";
 	}
 
-	public static UnitVisitor getVisitor(ASTNode type) {
+	public static UnitVisitor getVisitor(Elements elem) {
+		ASTNode type=elem.getASTNode();
 		for (UnitVisitor u : visitors) {
 			if (u.isVisitorFrom(type)) {
 				return u;

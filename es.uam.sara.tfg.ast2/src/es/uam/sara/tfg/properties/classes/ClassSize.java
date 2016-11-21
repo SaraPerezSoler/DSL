@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.classes;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.Size;
 
-public class ClassSize extends Class {
+public class ClassSize extends ClassProperty {
 
 	private Size size;
 	
@@ -12,8 +12,8 @@ public class ClassSize extends Class {
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return size.checkElement(analyze);
+	public boolean checkElement(ClassInterface analyze) {
+		return size.checkElement(analyze.getASTNode());
 	}
 
 	@Override

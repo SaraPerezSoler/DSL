@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.classes;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
 
-public class ClassModifiers extends Class{
+public class ClassModifiers extends ClassProperty{
 
 	private ModifiersCheck mc;
 	public ClassModifiers(ModifiersCheck mc) {
@@ -18,8 +18,8 @@ public class ClassModifiers extends Class{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analize) {
-		return mc.modifiers(ModifiersCheck.getList(analize));
+	public boolean checkElement(ClassInterface analyze) {
+		return mc.check(analyze.getModifiers());
 	}
 
 

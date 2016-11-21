@@ -1,22 +1,19 @@
 package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.elements.Attribute;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.rule.Rule;
 
-public class ClassContainAttributes extends ClassContain<FieldDeclaration> {
+public class ClassContainAttributes extends ClassContain<Attribute> {
 
-	public ClassContainAttributes(Rule<FieldDeclaration> r) {
+	public ClassContainAttributes(Rule<Attribute> r) {
 		super(r);
 	}
 
 	@Override
-	public List<FieldDeclaration> getSubType(TypeDeclaration t) {
-		return Visitors.getAttributes(t);
+	public List<Attribute> getSubType(ClassInterface t) {
+		return t.getAttributes();
 	}
 
 }

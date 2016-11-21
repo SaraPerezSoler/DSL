@@ -2,8 +2,6 @@ package es.uam.sara.tfg.properties;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.Annotation;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 
@@ -27,7 +25,16 @@ public class ModifiersCheck {
 		return false;
 		
 	}
-	private BlendModifiers createBlend(List<Modifier> list){
+	
+	public boolean check(BlendModifiers bd){
+		for (BlendModifiers b: this.blends){
+			if (b.compara(bd)==true){
+				return true;
+			}
+		}
+		return false;
+	}
+	private static BlendModifiers createBlend(List<Modifier> list){
 		Acceso acceso=Acceso.NOTHING;
 		boolean static_=false; 
 		boolean final_=false; 
@@ -77,6 +84,8 @@ public class ModifiersCheck {
 		}
 		return mList;
 	}
-	
+	public static BlendModifiers getBlend(BodyDeclaration bd){
+		return createBlend(getList(bd));
+	}
 	
 }

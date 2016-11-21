@@ -8,39 +8,37 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.ast.Visitors;
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.ClassInterface;
 
 /**
  * @author Sara
  *
  */
-public class isExtended extends Class {
+public class isExtended extends ClassProperty {
 
-	private List<TypeDeclaration> allClasses;
-	private Map<TypeDeclaration, List<TypeDeclaration>> classesExtended;
+	private List<ClassInterface> allClasses;
+	private Map<ClassInterface, List<ClassInterface>> classesExtended;
 	private int intMin;
 	private int intMax;
 
 	/**
 	 * @param allClasses
 	 */
-	public isExtended(List<TypeDeclaration> allClasses) {
+	public isExtended(List<ClassInterface> allClasses) {
 		super();
 		this.allClasses = allClasses;
 		this.intMax=-1;
 		this.intMax=Integer.MAX_VALUE;
-		classesExtended=new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		classesExtended=new HashMap<ClassInterface, List<ClassInterface>>();
 		
 	}
 	
-	public isExtended(List<TypeDeclaration> allClasses, int min, int max) {
+	public isExtended(List<ClassInterface> allClasses, int min, int max) {
 		super();
 		this.allClasses = allClasses;
-		classesExtended=new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		classesExtended=new HashMap<ClassInterface, List<ClassInterface>>();
 		this.intMin=min;
 		this.intMax=max;
 	}
@@ -51,11 +49,11 @@ public class isExtended extends Class {
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public boolean checkElement(TypeDeclaration td) {
-		List<TypeDeclaration> save= new ArrayList<TypeDeclaration>();
-		for (TypeDeclaration a : allClasses) {
-			List<String> superClass= TypeToString.getString(a.getSuperclassType());
-			if (superClass.contains(td.getName().toString().toLowerCase())){
+	public boolean checkElement(ClassInterface td) {
+		List<ClassInterface> save= new ArrayList<ClassInterface>();
+		for (ClassInterface a : allClasses) {
+			List<String> superClass= a.getSuperclass();
+			if (superClass.contains(td.getName().toLowerCase())){
 				save.add(a);
 			}
 		}
@@ -75,14 +73,14 @@ public class isExtended extends Class {
 
 	public String printRight(){
 		String cad="";
-		List<TypeDeclaration> right=super.getRight();
-		for (TypeDeclaration inter: right){
+		List<ClassInterface> right=super.getRight();
+		for (ClassInterface inter: right){
 			UnitVisitor uv=Visitors.getVisitor(inter);
-			cad+="In file "+uv.getNameFile()+" the interface "+inter.getName() +" (line: " +uv.getLineNumber(inter.getStartPosition())+")  satisfy \""+this.toString()+"\" for:\n";
-			List<TypeDeclaration>classes= classesExtended.get(inter);
-			for (TypeDeclaration cl: classes){
+			cad+="In file "+uv.getNameFile()+" the interface "+inter.getName() +" (line: " +uv.getLineNumber(inter.getASTNode().getStartPosition())+")  satisfy \""+this.toString()+"\" for:\n";
+			List<ClassInterface>classes= classesExtended.get(inter);
+			for (ClassInterface cl: classes){
 				UnitVisitor uv1=Visitors.getVisitor(cl);
-				cad+="\t Class "+ cl.getName() + " in file "+ uv1.getNameFile() +" (line: "+uv1.getLineNumber(cl.getStartPosition())+")\n";
+				cad+="\t Class "+ cl.getName() + " in file "+ uv1.getNameFile() +" (line: "+uv1.getLineNumber(cl.getASTNode().getStartPosition())+")\n";
 			}
 		}
 		return cad;

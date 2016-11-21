@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
-public class ClassJavaDoc extends Class{
+public class ClassJavaDoc extends ClassProperty{
 
 	private JavaDocCheck jdc;
 	public ClassJavaDoc(boolean author, boolean parameter,
@@ -20,7 +20,7 @@ public class ClassJavaDoc extends Class{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analize) {
+	public boolean checkElement(ClassInterface analize) {
 		return jdc.javaDoc(analize);
 	}
 
