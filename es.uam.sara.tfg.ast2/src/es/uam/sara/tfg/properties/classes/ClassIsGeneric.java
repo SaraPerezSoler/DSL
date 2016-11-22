@@ -1,7 +1,6 @@
 package es.uam.sara.tfg.properties.classes;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.IsGeneric;
 
 public class ClassIsGeneric extends ClassProperty{
@@ -10,7 +9,7 @@ public class ClassIsGeneric extends ClassProperty{
 
 	@Override
 	public boolean checkElement(ClassInterface analize) {
-		return generic.check(analize);
+		return generic.check(analize.getBodyDeclarations());
 	}
 
 	@Override

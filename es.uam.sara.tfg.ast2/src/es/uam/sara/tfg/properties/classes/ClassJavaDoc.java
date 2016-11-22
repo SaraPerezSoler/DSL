@@ -1,7 +1,6 @@
 package es.uam.sara.tfg.properties.classes;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
@@ -21,7 +20,7 @@ public class ClassJavaDoc extends ClassProperty{
 
 	@Override
 	public boolean checkElement(ClassInterface analize) {
-		return jdc.javaDoc(analize);
+		return jdc.javaDoc(analize.getBodyDeclarations());
 	}
 
 }

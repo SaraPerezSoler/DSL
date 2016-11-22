@@ -1,12 +1,10 @@
 package es.uam.sara.tfg.properties.enumerations;
 
 import java.util.List;
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.Enumeration;
 
 
-public class Implements extends Enumeration{
+public class Implements extends EnumerationProperty{
 
 	private int intMin;
 	private int intMax;
@@ -23,24 +21,21 @@ public class Implements extends Enumeration{
 		intMax=-1;
 	}
 	
-	public boolean checkElement(EnumDeclaration t){
+	public boolean checkElement(Enumeration t){
 		if (intMin==-1 && intMax==-1){
-			List<String> lis=getInterface(t);
+			List<String> lis=t.getSuperInterfaces();
 			if (lis.contains(inter.toLowerCase())){
 				return true;
 			}
-		}else if (t.superInterfaceTypes().size()>=intMin && intMax==-1){
+		}else if (t.getNumSuperInterfaces()>=intMin && intMax==-1){
 			return true;
-		}else if (t.superInterfaceTypes().size()>=intMin && t.superInterfaceTypes().size()<=intMax){
+		}else if (t.getNumSuperInterfaces()>=intMin && t.getNumSuperInterfaces()<=intMax){
 			return true;
 		}
 		return false;
 	}
 
-	public List<String> getInterface(EnumDeclaration t){
-		List<?>inter=t.superInterfaceTypes();
-		return TypeToString.getString(inter);
-	}
+
 	@Override
 	public String toString() {
 		return "implements min=" + intMin + " and max=" + intMax;

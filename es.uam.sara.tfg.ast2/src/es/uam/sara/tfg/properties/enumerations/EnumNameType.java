@@ -1,11 +1,11 @@
 package es.uam.sara.tfg.properties.enumerations;
 
-import org.eclipse.jdt.core.dom.EnumDeclaration;
+import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
 
 
-public class EnumNameType extends Enumeration{
+public class EnumNameType extends EnumerationProperty{
 
 	private NameCheck nCheck;
 
@@ -20,7 +20,7 @@ public class EnumNameType extends Enumeration{
 	}
 
 	@Override
-	public boolean checkElement(EnumDeclaration analyze) {
-		return nCheck.checkNameType(analyze);
+	public boolean checkElement(Enumeration analyze) {
+		return nCheck.checkNameType(analyze.getName());
 	}
 }

@@ -56,9 +56,4 @@ public class Or<T> extends Properties<T>{
 	public boolean checkElement(T analyze) {
 		return false;
 	}
-
-	@Override
-	public String print(T print) {
-		return "";
-	}
 }

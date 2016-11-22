@@ -1,10 +1,8 @@
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 
-import es.uam.sara.tfg.properties.Empty;
-
-public class MethEmpty extends Method {
+public class MethEmpty extends MethodProperty {
 
 
 
@@ -19,7 +17,7 @@ public class MethEmpty extends Method {
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analize) {
-		return Empty.isEmpty(analize);
+	public boolean checkElement(Method analize) {
+		return analize.isEmpty();
 	}
 }

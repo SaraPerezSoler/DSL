@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.file;
 
-import es.uam.sara.tfg.ast.UnitVisitor;
+import es.uam.sara.tfg.elements.File;
 import es.uam.sara.tfg.properties.NameCheck;
 
-public class FileNameOperation extends File{
+public class FileNameOperation extends FileProperty{
 	
 	private NameCheck nCheck;
 
@@ -25,7 +25,7 @@ public class FileNameOperation extends File{
 	}
 
 	@Override
-	public boolean checkElement(UnitVisitor analyze) {
-		return nCheck.checkNameOperation(analyze.getNameFile());
+	public boolean checkElement(File analyze) {
+		return nCheck.checkNameOperation(analyze.getName());
 	}
 }

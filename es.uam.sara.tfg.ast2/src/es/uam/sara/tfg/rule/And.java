@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import es.uam.sara.tfg.properties.Properties;
 import es.uam.sara.tfg.properties.classes.ClassProperty;
-import es.uam.sara.tfg.properties.interfaces.Interface;
+import es.uam.sara.tfg.properties.interfaces.InterfaceProperty;
 
 public class And<T> extends Properties<T>{
 
@@ -20,7 +20,7 @@ public class And<T> extends Properties<T>{
 		if ((a instanceof ClassProperty) && !(a instanceof ClassProperty)){
 			return false;
 		}
-		if ((a instanceof Interface) && !(a instanceof Interface)){
+		if ((a instanceof InterfaceProperty) && !(a instanceof InterfaceProperty)){
 			return false;
 		}
 		return true;
@@ -78,11 +78,6 @@ public class And<T> extends Properties<T>{
 	@Override
 	public boolean checkElement(T analyze) {
 		return false;
-	}
-
-	@Override
-	public String print(T print) {
-		return "";
 	}
 
 }

@@ -13,7 +13,7 @@ public class ClassSize extends ClassProperty {
 
 	@Override
 	public boolean checkElement(ClassInterface analyze) {
-		return size.checkElement(analyze.getASTNode());
+		return size.checkElement(analyze.getBodyDeclarations(),analyze.getVisitor());
 	}
 
 	@Override

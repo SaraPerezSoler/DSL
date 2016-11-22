@@ -5,7 +5,7 @@ package es.uam.sara.tfg.properties.methods;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.properties.TypeToString;
 
 
@@ -13,7 +13,7 @@ import es.uam.sara.tfg.properties.TypeToString;
  * @author Sara
  *
  */
-public class Parameters extends Method{
+public class Parameters extends MethodProperty{
 
 	private int numParametres;
 	private List<String> paramList=null;
@@ -67,10 +67,10 @@ public class Parameters extends Method{
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		if (analyze.parameters().size() != numParametres) {
+	public boolean checkElement(Method analyze) {
+		if (analyze.getBodyDeclarations().parameters().size() != numParametres) {
 			return false;
-		} else if (comparaParam(TypeToString.getString(analyze.parameters()))) {
+		} else if (comparaParam(TypeToString.getString(analyze.getBodyDeclarations().parameters()))) {
 			return true;
 		} else {
 			return false;

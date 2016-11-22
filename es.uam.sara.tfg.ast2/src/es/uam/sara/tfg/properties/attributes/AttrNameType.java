@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
+import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.NameCheck;
 
 
-public class AttrNameType extends Attribute{
+public class AttrNameType extends AttributeProperty{
 
 	private NameCheck nCheck;
 	
@@ -19,8 +19,8 @@ public class AttrNameType extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analyze) {
-		return nCheck.checkNameType(analyze);
+	public boolean checkElement(Attribute analyze) {
+		return nCheck.checkNameType(analyze.getName());
 	}
 
 }

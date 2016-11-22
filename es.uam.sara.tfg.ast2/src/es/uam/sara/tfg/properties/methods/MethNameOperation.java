@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.properties.NameCheck;
 
 
-public class MethNameOperation extends Method{
+public class MethNameOperation extends MethodProperty{
 
 	private NameCheck nCheck; 
 	public MethNameOperation(NameCheck.Operation op, String cad, int idioma) {
@@ -25,7 +25,7 @@ public class MethNameOperation extends Method{
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		return nCheck.checkNameOperation(analyze);
+	public boolean checkElement(Method analyze) {
+		return nCheck.checkNameOperation(analyze.getName());
 	}
 }

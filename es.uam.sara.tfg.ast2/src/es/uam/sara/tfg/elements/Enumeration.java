@@ -1,13 +1,12 @@
 package es.uam.sara.tfg.elements;
 
-import java.util.List;
-
+import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
-public class Enumeration extends Elements{
+public class Enumeration extends Elements implements Types{
 	private EnumDeclaration em;
 	public Enumeration(EnumDeclaration em) {
 		super(ModifiersCheck.getBlend(em));
@@ -19,20 +18,22 @@ public class Enumeration extends Elements{
 		return em.getName().toString();
 	}
 
-	public List<Attribute> getAttributes(){
-		return Visitors.getAttributes(em);
+	@Override
+	public AbstractTypeDeclaration getAbstractTypeDeclaration() {
+		return em;
 	}
-	public List<ClassInterface> getClasses(){
-		return Visitors.getClasses(em);
+
+	@Override
+	public EnumDeclaration getBodyDeclarations() {
+		return em;
+	}
+
+	@Override
+	public String toString() {
+		UnitVisitor uv=getVisitor();
+		return "In file "+uv.getNameFile()+" the enumeration "+getName() +" (line: " +uv.getLineNumber(em.getStartPosition())+")\n";
+
 	}
 	
-	public List<ClassInterface> getInterfaces(){
-		return Visitors.getInterfaces(em);
-	}
-	public List<Enumeration> getEnumerations(){
-		return Visitors.getEnumerations(em);
-	}
-	public List<Method> getMethods(){
-		return Visitors.getMethods(em);
-	}
+
 }

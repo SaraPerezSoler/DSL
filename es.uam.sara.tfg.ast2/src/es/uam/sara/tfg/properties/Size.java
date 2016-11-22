@@ -5,9 +5,8 @@ import java.util.Map;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Javadoc;
-
 import es.uam.sara.tfg.ast.UnitVisitor;
-import es.uam.sara.tfg.ast.Visitors;
+
 
 public class Size {
 
@@ -20,10 +19,9 @@ public class Size {
 		map = new HashMap<ASTNode, Integer>();
 	}
 
-	public int getSize(ASTNode m) {
+	public int getSize(ASTNode m, UnitVisitor uv) {
 		int start = 0;
 		int end = 0;
-		UnitVisitor uv = Visitors.getVisitor(m);
 		Javadoc jd = null;
 		if (m instanceof BodyDeclaration) {
 			jd = ((BodyDeclaration) m).getJavadoc();
@@ -37,8 +35,8 @@ public class Size {
 		return tam;
 	}
 
-	public boolean checkElement(ASTNode analyze) {
-		int size = getSize(analyze);
+	public boolean checkElement(ASTNode analyze, UnitVisitor uv) {
+		int size = getSize(analyze, uv);
 		map.put(analyze, size);
 		if (size < min || size > max) {
 			return false;

@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
-public class InterJavaDoc extends Interface{
+public class InterJavaDoc extends InterfaceProperty{
 
 	private JavaDocCheck jdc;
 	public InterJavaDoc(boolean author, boolean parameter,
@@ -19,7 +19,7 @@ public class InterJavaDoc extends Interface{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return jdc.javaDoc(analyze);
+	public boolean checkElement(ClassInterface analyze) {
+		return jdc.javaDoc(analyze.getBodyDeclarations());
 	}
 }

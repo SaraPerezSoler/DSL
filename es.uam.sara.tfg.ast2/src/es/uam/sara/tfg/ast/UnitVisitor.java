@@ -180,4 +180,15 @@ public class UnitVisitor extends ASTVisitor{
 	public List<EnumConstantDeclaration> getEnumConstant() {
 		return enumConstant;
 	}
+
+
+	public boolean isVisitorFrom(String name) {
+		if (this.nameFile.equals(name)){
+			return true;
+		}
+		if (this.packageDeclaration.getName().toString().equals(name)){
+			return true;
+		}
+		return false;
+	}
 }

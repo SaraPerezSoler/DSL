@@ -1,19 +1,18 @@
 package es.uam.sara.tfg.properties.file;
 
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-import es.uam.sara.tfg.ast.UnitVisitor;
+import es.uam.sara.tfg.elements.Enumeration;
+import es.uam.sara.tfg.elements.File;
 import es.uam.sara.tfg.rule.Rule;
 
-public class FileContainEnums extends FileContain<EnumDeclaration> {
+public class FileContainEnums extends FileContain<Enumeration> {
 
-	public FileContainEnums(Rule<EnumDeclaration> r) {
+	public FileContainEnums(Rule<Enumeration> r) {
 		super(r);
 	}
 
 	@Override
-	public List<EnumDeclaration> getSubType(UnitVisitor uv) {
+	public List<Enumeration> getSubType(File uv) {
 		return uv.getEnumerations();
 	}
 

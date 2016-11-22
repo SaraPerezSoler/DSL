@@ -4,15 +4,13 @@
 package es.uam.sara.tfg.properties.interfaces;
 
 import java.util.List;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.ClassInterface;
 
 /**
  * @author Sara
  *
  */
-public class SubInterface extends Interface {
+public class SubInterface extends InterfaceProperty {
 
 	private String of;
 	private int intMin;
@@ -57,8 +55,8 @@ public class SubInterface extends Interface {
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		List<String> superInterface = TypeToString.getString(analyze.superInterfaceTypes());
+	public boolean checkElement(ClassInterface analyze) {
+		List<String> superInterface = analyze.getSuperInterfaces();
 		if (of == null) {
 			if (superInterface.size() < intMin || superInterface.size() > intMax) {
 				return false;

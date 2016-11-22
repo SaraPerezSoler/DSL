@@ -2,8 +2,9 @@ package es.uam.sara.tfg.properties.packages;
 
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
+import es.uam.sara.tfg.elements.Package;
 
-public class PackNameType extends Package{
+public class PackNameType extends PackageProperty{
 
 	private NameCheck nCheck;
 	public PackNameType( Type type) {
@@ -16,7 +17,7 @@ public class PackNameType extends Package{
 	}
 
 	@Override
-	public boolean checkElement(String analyze) {
-		return nCheck.checkNameType(analyze);
+	public boolean checkElement(Package analyze) {
+		return nCheck.checkNameType(analyze.getName());
 	}
 }

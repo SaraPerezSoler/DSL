@@ -1,10 +1,9 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-import es.uam.sara.tfg.properties.Empty;
+import es.uam.sara.tfg.elements.ClassInterface;
 
 
-public class InterEmpty extends Interface{
+public class InterEmpty extends InterfaceProperty{
 
 
 	public InterEmpty() {
@@ -16,8 +15,8 @@ public class InterEmpty extends Interface{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
+	public boolean checkElement(ClassInterface analyze) {
 		// TODO Auto-generated method stub
-		return Empty.isEmpty(analyze);
+		return analyze.isEmpty();
 	}
 }

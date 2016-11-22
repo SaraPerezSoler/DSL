@@ -1,11 +1,10 @@
 package es.uam.sara.tfg.properties.enumerations;
 
-import org.eclipse.jdt.core.dom.EnumDeclaration;
 
-import es.uam.sara.tfg.properties.Empty;
+import es.uam.sara.tfg.elements.Enumeration;
 
 
-public class EnumEmpty extends Enumeration{
+public class EnumEmpty extends EnumerationProperty{
 
 
 	public EnumEmpty() {
@@ -14,11 +13,11 @@ public class EnumEmpty extends Enumeration{
 
 	@Override
 	public String toString() {
-		return " empty";
+		return "is empty";
 	}
 
 	@Override
-	public boolean checkElement(EnumDeclaration analize) {
-		return Empty.isEmpty(analize);
+	public boolean checkElement(Enumeration analize) {
+		return analize.isEmpty();
 	}
 }

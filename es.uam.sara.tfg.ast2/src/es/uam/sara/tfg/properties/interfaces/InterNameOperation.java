@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.NameCheck;
 
 
-public class InterNameOperation extends Interface{
+public class InterNameOperation extends InterfaceProperty{
 
 	private NameCheck nCheck;
 	public InterNameOperation(NameCheck.Operation op, String cad, int idioma) {
@@ -25,7 +25,7 @@ public class InterNameOperation extends Interface{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return nCheck.checkNameOperation(analyze);
+	public boolean checkElement(ClassInterface analyze) {
+		return nCheck.checkNameOperation(analyze.getName());
 	}
 }

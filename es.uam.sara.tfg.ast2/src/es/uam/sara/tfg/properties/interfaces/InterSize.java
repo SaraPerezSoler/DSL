@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.interfaces;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
 
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.Size;
 
-public class InterSize extends Interface {
+public class InterSize extends InterfaceProperty {
 
 	private Size size;
 	
@@ -12,8 +12,8 @@ public class InterSize extends Interface {
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return size.checkElement(analyze);
+	public boolean checkElement(ClassInterface analyze) {
+		return size.checkElement(analyze.getBodyDeclarations(), analyze.getVisitor());
 	}
 
 	@Override

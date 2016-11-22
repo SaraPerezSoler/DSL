@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import es.uam.sara.tfg.ast.UnitVisitor;
-import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.elements.ClassInterface;
 
 /**
@@ -75,12 +74,12 @@ public class isExtended extends ClassProperty {
 		String cad="";
 		List<ClassInterface> right=super.getRight();
 		for (ClassInterface inter: right){
-			UnitVisitor uv=Visitors.getVisitor(inter);
-			cad+="In file "+uv.getNameFile()+" the interface "+inter.getName() +" (line: " +uv.getLineNumber(inter.getASTNode().getStartPosition())+")  satisfy \""+this.toString()+"\" for:\n";
+			UnitVisitor uv=inter.getVisitor();
+			cad+="In file "+uv.getNameFile()+" the interface "+inter.getName() +" (line: " +uv.getLineNumber(inter.getBodyDeclarations().getStartPosition())+")  satisfy \""+this.toString()+"\" for:\n";
 			List<ClassInterface>classes= classesExtended.get(inter);
 			for (ClassInterface cl: classes){
-				UnitVisitor uv1=Visitors.getVisitor(cl);
-				cad+="\t Class "+ cl.getName() + " in file "+ uv1.getNameFile() +" (line: "+uv1.getLineNumber(cl.getASTNode().getStartPosition())+")\n";
+				UnitVisitor uv1=cl.getVisitor();
+				cad+="\t Class "+ cl.getName() + " in file "+ uv1.getNameFile() +" (line: "+uv1.getLineNumber(cl.getBodyDeclarations().getStartPosition())+")\n";
 			}
 		}
 		return cad;

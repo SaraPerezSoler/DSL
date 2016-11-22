@@ -3,8 +3,7 @@
  */
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
-
+import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.NameCheck;
 
 
@@ -12,7 +11,7 @@ import es.uam.sara.tfg.properties.NameCheck;
  * @author Sara
  *
  */
-public class AttrNameOperation extends Attribute{
+public class AttrNameOperation extends AttributeProperty{
 
 	private NameCheck ncheck;
 
@@ -37,8 +36,8 @@ public class AttrNameOperation extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analyze) {
-		return ncheck.checkNameOperation(analyze);
+	public boolean checkElement(Attribute analyze) {
+		return ncheck.checkNameOperation(analyze.getName());
 
 	}
 

@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
 
-public class InterModifiers extends Interface{
+public class InterModifiers extends InterfaceProperty{
 
 	private ModifiersCheck mc;
 
@@ -18,7 +18,7 @@ public class InterModifiers extends Interface{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return mc.modifiers(ModifiersCheck.getList(analyze));
+	public boolean checkElement(ClassInterface analyze) {
+		return mc.check(analyze.getModifiers());
 	}
 }

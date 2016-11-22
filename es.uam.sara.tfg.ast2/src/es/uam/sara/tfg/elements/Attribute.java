@@ -3,6 +3,7 @@ package es.uam.sara.tfg.elements;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
+import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 import es.uam.sara.tfg.properties.TypeToString;
 
@@ -27,6 +28,19 @@ public class Attribute extends Elements{
 	public String getType(){
 		return TypeToString.getString(fd.getType()).get(0);
 	}
+
+	@Override
+	public FieldDeclaration getBodyDeclarations() {
+		return fd;
+	}
+
+	@Override
+	public String toString() {
+		UnitVisitor uv=getVisitor();
+		return "In file "+uv.getNameFile()+" the attribute "+getName() +" (line: " +uv.getLineNumber(fd.getStartPosition())+")\n";
+	}
+
+	
 
 
 }

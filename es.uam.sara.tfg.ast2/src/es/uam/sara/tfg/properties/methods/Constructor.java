@@ -3,13 +3,13 @@
  */
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 
 /**
  * @author Sara
  *
  */
-public class Constructor extends Method{
+public class Constructor extends MethodProperty{
 
 	/**
 	 * @param analyze
@@ -24,8 +24,8 @@ public class Constructor extends Method{
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		return analyze.isConstructor();
+	public boolean checkElement(Method analyze) {
+		return analyze.getBodyDeclarations().isConstructor();
 	}
 
 }

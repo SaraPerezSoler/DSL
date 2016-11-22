@@ -1,15 +1,14 @@
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.Method;
 
-public class isOverride extends Method{
+public class isOverride extends MethodProperty{
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		if (analyze.getParent() instanceof TypeDeclaration){
+	public boolean checkElement(Method analyze) {
+		/*if (analyze.getParent() instanceof TypeDeclaration){
 			
-		}
+		}*/
 		return false;
 	}
 

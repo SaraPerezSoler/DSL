@@ -7,11 +7,4 @@ import es.uam.sara.tfg.properties.Properties;
 public abstract class EnumConstant extends Properties<EnumConstantDeclaration>{
 
 
-	@Override
-	public String print(EnumConstantDeclaration print) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 }

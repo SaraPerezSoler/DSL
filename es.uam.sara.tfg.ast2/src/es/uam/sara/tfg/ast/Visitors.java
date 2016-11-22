@@ -90,7 +90,7 @@ public class Visitors {
 
 	/* Metodo para obtener unos determinados elementos de una lista */
 	public static List<ClassInterface> getClasses(AbstractTypeDeclaration atd) {
-		List<?> bd=atd.bodyDeclarations();
+		List<?> bd = atd.bodyDeclarations();
 		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
@@ -102,7 +102,7 @@ public class Visitors {
 	}
 
 	public static List<ClassInterface> getInterfaces(AbstractTypeDeclaration atd) {
-		List<?> bd=atd.bodyDeclarations();
+		List<?> bd = atd.bodyDeclarations();
 		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
@@ -114,7 +114,7 @@ public class Visitors {
 	}
 
 	public static List<Enumeration> getEnumerations(AbstractTypeDeclaration atd) {
-		List<?> bd=atd.bodyDeclarations();
+		List<?> bd = atd.bodyDeclarations();
 		List<Enumeration> temp = new ArrayList<Enumeration>();
 		for (Object ed : bd) {
 			if (ed instanceof EnumDeclaration) {
@@ -125,7 +125,7 @@ public class Visitors {
 	}
 
 	public static List<Method> getMethods(AbstractTypeDeclaration atd) {
-		List<?> bd=atd.bodyDeclarations();
+		List<?> bd = atd.bodyDeclarations();
 		List<Method> temp = new ArrayList<Method>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
@@ -136,7 +136,7 @@ public class Visitors {
 	}
 
 	public static List<Attribute> getAttributes(AbstractTypeDeclaration atd) {
-		List<?> bd=atd.bodyDeclarations();
+		List<?> bd = atd.bodyDeclarations();
 		List<Attribute> temp = new ArrayList<Attribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
@@ -146,9 +146,9 @@ public class Visitors {
 		return temp;
 	}
 
-	//*Class, attributes y Methods de Las constantes del enum*/
+	// *Class, attributes y Methods de Las constantes del enum*/
 	public static List<ClassInterface> getClasses(EnumConstantDeclaration ecd) {
-		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
+		List<?> bd = ecd.getAnonymousClassDeclaration().bodyDeclarations();
 		List<ClassInterface> temp = new ArrayList<ClassInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
@@ -160,7 +160,7 @@ public class Visitors {
 	}
 
 	public static List<Method> getMethods(EnumConstantDeclaration ecd) {
-		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
+		List<?> bd = ecd.getAnonymousClassDeclaration().bodyDeclarations();
 		List<Method> temp = new ArrayList<Method>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
@@ -171,7 +171,7 @@ public class Visitors {
 	}
 
 	public static List<Attribute> getAttributes(EnumConstantDeclaration ecd) {
-		List<?> bd=ecd.getAnonymousClassDeclaration().bodyDeclarations();
+		List<?> bd = ecd.getAnonymousClassDeclaration().bodyDeclarations();
 		List<Attribute> temp = new ArrayList<Attribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
@@ -180,7 +180,7 @@ public class Visitors {
 		}
 		return temp;
 	}
-	
+
 	private static boolean isThisPackage(String name, UnitVisitor u) {
 		if (name.equals("(default package)")) {
 			if (u.getPackage() == null) {
@@ -257,10 +257,18 @@ public class Visitors {
 	}
 
 	public static UnitVisitor getVisitor(Elements elem) {
-		ASTNode type=elem.getASTNode();
-		for (UnitVisitor u : visitors) {
-			if (u.isVisitorFrom(type)) {
-				return u;
+		ASTNode type = elem.getBodyDeclarations();
+		if (type != null) {
+			for (UnitVisitor u : visitors) {
+				if (u.isVisitorFrom(type)) {
+					return u;
+				}
+			}
+		}else{
+			for (UnitVisitor u : visitors) {
+				if (u.isVisitorFrom(elem.getName())) {
+					return u;
+				}
 			}
 		}
 		return null;
@@ -269,6 +277,16 @@ public class Visitors {
 	public static void reset() {
 		visitors.clear();
 		packages.clear();
+	}
+
+	public static List<UnitVisitor> getVisitors(String pck) {
+		List<UnitVisitor> ret= new ArrayList<UnitVisitor>();
+		for (UnitVisitor u : visitors) {
+			if (u.isVisitorFrom(pck)) {
+				 ret.add(u);
+			}
+		}
+		return ret;
 	}
 
 }

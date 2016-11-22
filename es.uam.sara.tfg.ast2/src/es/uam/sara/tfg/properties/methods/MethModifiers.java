@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
 
-public class MethModifiers extends Method{
+public class MethModifiers extends MethodProperty{
 
 	private ModifiersCheck mc;
 	public MethModifiers(ModifiersCheck mc) {
@@ -18,8 +18,8 @@ public class MethModifiers extends Method{
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		return mc.modifiers(ModifiersCheck.getList(analyze));
+	public boolean checkElement(Method analyze) {
+		return mc.check(analyze.getModifiers());
 	}
 
 }

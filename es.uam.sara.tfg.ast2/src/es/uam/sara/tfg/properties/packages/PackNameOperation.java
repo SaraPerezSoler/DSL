@@ -1,8 +1,9 @@
 package es.uam.sara.tfg.properties.packages;
 
 import es.uam.sara.tfg.properties.NameCheck;
+import es.uam.sara.tfg.elements.Package;
 
-public class PackNameOperation extends Package {
+public class PackNameOperation extends PackageProperty {
 
 	private NameCheck nCheck;
 	public PackNameOperation(NameCheck.Operation op, String cad, int idioma) {
@@ -22,7 +23,7 @@ public class PackNameOperation extends Package {
 	}
 
 	@Override
-	public boolean checkElement(String analyze) {
-		return nCheck.checkNameOperation(analyze);
+	public boolean checkElement(Package analyze) {
+		return nCheck.checkNameOperation(analyze.getName());
 	}
 }

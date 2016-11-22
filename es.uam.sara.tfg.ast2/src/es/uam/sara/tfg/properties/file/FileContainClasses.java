@@ -1,17 +1,17 @@
 package es.uam.sara.tfg.properties.file;
 
 import java.util.List;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-import es.uam.sara.tfg.ast.UnitVisitor;
+import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.File;
 import es.uam.sara.tfg.rule.Rule;
 
-public class FileContainClasses extends FileContain<TypeDeclaration> {
+public class FileContainClasses extends FileContain<ClassInterface> {
 
-	public FileContainClasses(Rule<TypeDeclaration> r) {
+	public FileContainClasses(Rule<ClassInterface> r) {
 		super(r);
 	}
 	@Override
-	public List<TypeDeclaration> getSubType(UnitVisitor uv) {
+	public List<ClassInterface> getSubType(File uv) {
 		return uv.getClasses();
 	}
 

@@ -4,38 +4,37 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 
-import es.uam.sara.tfg.properties.TypeToString;
 
-public class IsImplemented extends Interface {
+public class IsImplemented extends InterfaceProperty {
 
-	private List<TypeDeclaration> allClass;
-	private Map<TypeDeclaration, List<TypeDeclaration>> interfacesImplemented;
+	private List<ClassInterface> allClass;
+	private Map<ClassInterface, List<ClassInterface>> interfacesImplemented;
 	private int intMin;
 	private int intMax;
 
-	public IsImplemented(List<TypeDeclaration> allClass) {
+	public IsImplemented(List<ClassInterface> allClass) {
 		super();
 		this.allClass = allClass;
-		interfacesImplemented= new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		interfacesImplemented= new HashMap<ClassInterface, List<ClassInterface>>();
 		this.intMax = Integer.MAX_VALUE;
 		this.intMin = -1;
 	}
 
-	public IsImplemented(List<TypeDeclaration> allClass, int min, int max) {
+	public IsImplemented(List<ClassInterface> allClass, int min, int max) {
 		super();
 		this.allClass = allClass;
-		interfacesImplemented= new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		interfacesImplemented= new HashMap<ClassInterface, List<ClassInterface>>();
 		this.intMax = max;
 		this.intMin = min;
 	} 
 	
 
-	public boolean checkElement(TypeDeclaration td) {
-		List<TypeDeclaration> save= new ArrayList<TypeDeclaration>();
-		for (TypeDeclaration a : allClass) {
-			List<String> interfaces= TypeToString.getString(a.superInterfaceTypes());
+	public boolean checkElement(ClassInterface td) {
+		List<ClassInterface> save= new ArrayList<ClassInterface>();
+		for (ClassInterface a : allClass) {
+			List<String> interfaces= a.getSuperInterfaces();
 			if (interfaces.contains(td.getName().toString().toLowerCase())){
 				save.add(a);
 			}

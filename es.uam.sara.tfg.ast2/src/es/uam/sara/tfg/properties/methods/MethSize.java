@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.methods;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
 
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.properties.Size;
 
-public class MethSize extends Method {
+public class MethSize extends MethodProperty {
 
 	private Size size;
 	
@@ -12,8 +12,8 @@ public class MethSize extends Method {
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		return size.checkElement(analyze);
+	public boolean checkElement(Method analyze) {
+		return size.checkElement(analyze.getBodyDeclarations(), analyze.getVisitor());
 	}
 
 	@Override

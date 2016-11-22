@@ -1,22 +1,19 @@
 package es.uam.sara.tfg.properties.enumerations;
 
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.rule.Rule;
 
-public class EnumContainClasses extends EnumContain<TypeDeclaration> {
+public class EnumContainClasses extends EnumContain<ClassInterface> {
 
-	public EnumContainClasses(Rule<TypeDeclaration> r) {
+	public EnumContainClasses(Rule<ClassInterface> r) {
 		super(r);
 	}
 
 	@Override
-	public List<TypeDeclaration> getSubType(EnumDeclaration t) {
-		return Visitors.getClasses(t);
+	public List<ClassInterface> getSubType(Enumeration t) {
+		return t.getClasses();
 	}
 
 }

@@ -4,23 +4,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.ClassInterface;
 
-public class IsExtended extends Interface{
+public class IsExtended extends InterfaceProperty{
 
-	private List<TypeDeclaration> allInterfaces;
-	private Map<TypeDeclaration, List<TypeDeclaration>> interfacesExtended;
-	public IsExtended(List<TypeDeclaration> interfaces) {
+	private List<ClassInterface> allInterfaces;
+	private Map<ClassInterface, List<ClassInterface>> interfacesExtended;
+	public IsExtended(List<ClassInterface> interfaces) {
 		allInterfaces=interfaces;
-		interfacesExtended=new HashMap<TypeDeclaration, List<TypeDeclaration>>();
+		interfacesExtended=new HashMap<ClassInterface, List<ClassInterface>>();
 		
 	}
 
-	public boolean checkElement(TypeDeclaration td) {
-		List<TypeDeclaration> save= new ArrayList<TypeDeclaration>();
-		for (TypeDeclaration a : allInterfaces) {
-			List<String> interfaces= TypeToString.getString(a.superInterfaceTypes());
+	public boolean checkElement(ClassInterface td) {
+		List<ClassInterface> save= new ArrayList<ClassInterface>();
+		for (ClassInterface a : allInterfaces) {
+			List<String> interfaces= a.getSuperInterfaces();
 			if (interfaces.contains(td.getName().toString().toLowerCase())){
 				save.add(a);
 			}

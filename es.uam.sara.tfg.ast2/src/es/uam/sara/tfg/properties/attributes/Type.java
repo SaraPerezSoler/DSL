@@ -1,12 +1,9 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import java.util.List;
-import org.eclipse.jdt.core.dom.FieldDeclaration;
-
-import es.uam.sara.tfg.properties.TypeToString;
+import es.uam.sara.tfg.elements.Attribute;
 
 
-public class Type extends Attribute{
+public class Type extends AttributeProperty{
 
 	private String type;
 
@@ -21,9 +18,9 @@ public class Type extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration a) {
-		List<String>types=TypeToString.getString(a.getType());
-		return types.contains(type.toLowerCase());
+	public boolean checkElement(Attribute a) {
+		String types=a.getType();
+		return types.equalsIgnoreCase(type);
 	}
 
 }

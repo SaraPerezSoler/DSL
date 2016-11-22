@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.enumerations;
-import org.eclipse.jdt.core.dom.EnumDeclaration;
 
+import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.properties.Size;
 
-public class EnumSize extends Enumeration {
+public class EnumSize extends EnumerationProperty {
 
 	private Size size;
 	
@@ -12,8 +12,8 @@ public class EnumSize extends Enumeration {
 	}
 
 	@Override
-	public boolean checkElement(EnumDeclaration analyze) {
-		return size.checkElement(analyze);
+	public boolean checkElement(Enumeration analyze) {
+		return size.checkElement(analyze.getBodyDeclarations(), analyze.getVisitor());
 	}
 
 	@Override

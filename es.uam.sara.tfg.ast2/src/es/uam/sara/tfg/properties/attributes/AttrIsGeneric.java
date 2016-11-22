@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
+import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.IsGeneric;
 
-public class AttrIsGeneric extends Attribute{
+public class AttrIsGeneric extends AttributeProperty{
 
 	private IsGeneric generic;
 	public AttrIsGeneric() {
@@ -11,9 +11,9 @@ public class AttrIsGeneric extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analize) {
+	public boolean checkElement(Attribute analize) {
 		// TODO Auto-generated method stub
-		return generic.check(analize);
+		return generic.check(analize.getBodyDeclarations());
 	}
 
 	@Override

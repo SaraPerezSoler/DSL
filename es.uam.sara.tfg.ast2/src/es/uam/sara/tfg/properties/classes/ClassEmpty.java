@@ -1,8 +1,6 @@
 package es.uam.sara.tfg.properties.classes;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import es.uam.sara.tfg.properties.Empty;
+import es.uam.sara.tfg.elements.ClassInterface;
 
 
 public class ClassEmpty extends ClassProperty{
@@ -21,7 +19,7 @@ public class ClassEmpty extends ClassProperty{
 
 	@Override
 	public boolean checkElement(ClassInterface analize) {
-		return Empty.isEmpty(analize);
+		return analize.isEmpty();
 	}
 
 }

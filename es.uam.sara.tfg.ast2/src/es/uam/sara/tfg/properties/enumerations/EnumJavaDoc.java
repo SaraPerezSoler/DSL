@@ -1,11 +1,10 @@
 package es.uam.sara.tfg.properties.enumerations;
 
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-
+import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
-public class EnumJavaDoc extends Enumeration{
+public class EnumJavaDoc extends EnumerationProperty{
 
 	private JavaDocCheck jdc;
 	public EnumJavaDoc(boolean author, boolean parameter,
@@ -20,7 +19,7 @@ public class EnumJavaDoc extends Enumeration{
 	}
 
 	@Override
-	public boolean checkElement(EnumDeclaration analyze) {
-		return jdc.javaDoc(analyze);
+	public boolean checkElement(Enumeration analyze) {
+		return jdc.javaDoc(analyze.getBodyDeclarations());
 	}
 }

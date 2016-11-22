@@ -1,11 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
-
+import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
 
-public class AttrModifiers extends Attribute{
+public class AttrModifiers extends AttributeProperty{
 
 	private ModifiersCheck mc;
 
@@ -20,8 +19,8 @@ public class AttrModifiers extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analize) {
-		return mc.modifiers(ModifiersCheck.getList(analize));
+	public boolean checkElement(Attribute analize) {
+		return mc.check(analize.getModifiers());
 	}
 
 }

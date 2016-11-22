@@ -1,7 +1,8 @@
 package es.uam.sara.tfg.elements;
+import org.eclipse.jdt.core.dom.BodyDeclaration;
 
-import org.eclipse.jdt.core.dom.ASTNode;
-
+import es.uam.sara.tfg.ast.UnitVisitor;
+import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.properties.BlendModifiers;
 
 public abstract class Elements {
@@ -19,29 +20,54 @@ public abstract class Elements {
 	}
 
 	public boolean isAbstract() {
-		return bm.isAbstract_();
+		if (bm!=null){
+			return bm.isAbstract_();
+		}
+		return false;
 	}
 
 	public boolean isStatic() {
-		return bm.isStatic_();
+		if (bm!=null){
+			return bm.isStatic_();
+		}
+		return false;
 	}
 
 	public boolean isFinal() {
-		return bm.isFinal_();
+		if (bm!=null){
+			return bm.isFinal_();
+		}
+		return false;
 	}
 
 	public boolean isDefault() {
-		return bm.isDefault_();
+		
+		if (bm!=null){
+			return bm.isDefault_();
+		}
+		return false;
 	}
 
 	public boolean isSynchronize() {
-		return bm.isSynchronized_();
+		if (bm!=null){
+			return bm.isSynchronized_();
+		}
+		return false;
 	}
 
 	public String accessModifier() {
-		return bm.getAcceso().toString();
+		if (bm!=null){
+			return bm.getAcceso().toString();
+		}
+		return "";
 	}
 
-	public abstract ASTNode getASTNode();
+	//public abstract ASTNode getASTNode();
+	public abstract BodyDeclaration getBodyDeclarations();
+	public abstract String toString();
+	
+	public UnitVisitor getVisitor() {
+		return Visitors.getVisitor(this);
+	}
 	
 }

@@ -1,16 +1,13 @@
 package es.uam.sara.tfg.properties.enumerations;
 
-import java.util.List;
-
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-
+import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 
 
-public class EnumModifiers extends Enumeration{
+public class EnumModifiers extends EnumerationProperty{
 
 	private ModifiersCheck mc;
-	public EnumModifiers(List<EnumDeclaration> analyce, ModifiersCheck mc) {
+	public EnumModifiers(ModifiersCheck mc) {
 		super();
 		this.mc=mc;
 	}
@@ -22,8 +19,8 @@ public class EnumModifiers extends Enumeration{
 	}
 
 	@Override
-	public boolean checkElement(EnumDeclaration analyze) {
-		return mc.modifiers(ModifiersCheck.getList(analyze));
+	public boolean checkElement(Enumeration analyze) {
+		return mc.check(analyze.getModifiers());
 	}
 
 }

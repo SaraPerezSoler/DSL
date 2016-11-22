@@ -1,8 +1,8 @@
 package es.uam.sara.tfg.properties.packages;
 
-import es.uam.sara.tfg.properties.Empty;
+import es.uam.sara.tfg.elements.Package;
 
-public class PackEmpty extends Package {
+public class PackEmpty extends PackageProperty {
 
 
 	public PackEmpty() {
@@ -16,7 +16,7 @@ public class PackEmpty extends Package {
 	}
 
 	@Override
-	public boolean checkElement(String analyze) {
-		return Empty.isEmpty(analyze);
+	public boolean checkElement(Package analyze) {
+		return analyze.isEmpty();
 	}
 }

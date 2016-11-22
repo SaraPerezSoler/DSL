@@ -50,7 +50,7 @@ public class Rule<T> {
 		this.quantifier = q;
 		this.elements = elements;
 		if (filter==null){
-			this.filter= new NoOr<T>();
+			this.filter= new NoOr();
 		}else{
 			this.filter = filter;
 		}

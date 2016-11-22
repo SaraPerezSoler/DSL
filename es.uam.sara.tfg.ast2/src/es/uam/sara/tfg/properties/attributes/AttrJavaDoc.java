@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
+import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
-public class AttrJavaDoc extends Attribute{
+public class AttrJavaDoc extends AttributeProperty{
 
 	private JavaDocCheck jdc;
 	public AttrJavaDoc(boolean author, boolean parameter,
@@ -19,8 +19,8 @@ public class AttrJavaDoc extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analize) {
-		return jdc.javaDoc(analize);
+	public boolean checkElement(Attribute analize) {
+		return jdc.javaDoc(analize.getBodyDeclarations());
 	}
 }
 

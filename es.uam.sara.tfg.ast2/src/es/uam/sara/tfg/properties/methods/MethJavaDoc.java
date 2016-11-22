@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.methods;
 
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.properties.JavaDocCheck;
 
 
-public class MethJavaDoc extends Method{
+public class MethJavaDoc extends MethodProperty{
 
 	private JavaDocCheck jdc;
 	public MethJavaDoc(boolean author, boolean parameter,
@@ -19,7 +19,7 @@ public class MethJavaDoc extends Method{
 	}
 
 	@Override
-	public boolean checkElement(MethodDeclaration analyze) {
-		return jdc.javaDoc(analyze);
+	public boolean checkElement(Method analyze) {
+		return jdc.javaDoc(analyze.getBodyDeclarations());
 	}
 }

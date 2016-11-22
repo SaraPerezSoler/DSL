@@ -2,14 +2,14 @@ package es.uam.sara.tfg.elements;
 
 import java.util.List;
 
-import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.properties.ModifiersCheck;
 import es.uam.sara.tfg.properties.TypeToString;
 
-public class ClassInterface extends Elements{
+public class ClassInterface extends Elements implements Types{
 	private TypeDeclaration tp;
 	
 	public ClassInterface(TypeDeclaration tp) {
@@ -20,37 +20,28 @@ public class ClassInterface extends Elements{
 	public String getName(){
 		return tp.getName().toString();
 	}
-	public List<Attribute> getAttributes(){
-		return Visitors.getAttributes(tp);
-	}
-	public List<ClassInterface> getClasses(){
-		return Visitors.getClasses(tp);
-	}
 	
-	public List<ClassInterface> getInterfaces(){
-		return Visitors.getInterfaces(tp);
-	}
-	public List<Enumeration> getEnumerations(){
-		return Visitors.getEnumerations(tp);
-	}
-	public List<Method> getMethods(){
-		return null;
-	}
-	@Override
-	public ASTNode getASTNode() {
-		return tp;
-	}
-	
-	public List<String> getSuperInterfaces(){
-		List<?>inter=tp.superInterfaceTypes();
-		return TypeToString.getString(inter);
-	}
-	public int getNumSuperInterfaces(){
-		return tp.superInterfaceTypes().size();
-		 
-	}
 	public List<String> getSuperclass() {
 		return TypeToString.getString(tp.getSuperclassType());
+	}
+	@Override
+	public TypeDeclaration getBodyDeclarations() {
+		return tp;
+	}
+	@Override
+	public AbstractTypeDeclaration getAbstractTypeDeclaration() {
+		return tp;
+	}
+	@Override
+	public String toString() {
+		UnitVisitor uv=getVisitor();
+		if (tp.isInterface()){
+			return "In file "+uv.getNameFile()+" the interface "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
+		}else{
+			return "In file "+uv.getNameFile()+" the class "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
+		}
+		
+	
 	}
 	
 }

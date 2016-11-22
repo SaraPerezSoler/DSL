@@ -1,21 +1,19 @@
 package es.uam.sara.tfg.properties.enumerations;
 
 import java.util.List;
-
-import org.eclipse.jdt.core.dom.EnumDeclaration;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import es.uam.sara.tfg.ast.Visitors;
+import es.uam.sara.tfg.elements.Enumeration;
+import es.uam.sara.tfg.elements.Method;
 import es.uam.sara.tfg.rule.Rule;
 
-public class EnumContainMethods extends EnumContain<MethodDeclaration> {
+public class EnumContainMethods extends EnumContain<Method> {
 
-	public EnumContainMethods(Rule<MethodDeclaration> r) {
+	public EnumContainMethods(Rule<Method> r) {
 		super(r);
 	}
 
 	@Override
-	public List<MethodDeclaration> getSubType(EnumDeclaration t) {
-		return Visitors.getMethods(t);
+	public List<Method> getSubType(Enumeration t) {
+		return t.getMethods();
 	}
 
 }

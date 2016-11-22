@@ -100,8 +100,9 @@ public abstract class Properties<T> {
 		}
 		return cad;
 	}
-
-	public abstract String print(T print);
+	public String print(T t) {
+		return t.toString();
+	}
 	
 	public abstract String toString();
 }

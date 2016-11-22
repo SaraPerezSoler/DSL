@@ -1,15 +1,15 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.IsGeneric;
 
-public class InterIsGeneric extends Interface{
+public class InterIsGeneric extends InterfaceProperty{
 
 	private IsGeneric generic= new IsGeneric();
 	
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
-		return generic.check(analyze);
+	public boolean checkElement(ClassInterface analyze) {
+		return generic.check(analyze.getBodyDeclarations());
 	}
 	@Override
 	public String toString() {

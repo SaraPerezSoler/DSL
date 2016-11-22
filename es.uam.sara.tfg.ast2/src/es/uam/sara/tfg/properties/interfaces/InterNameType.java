@@ -1,11 +1,11 @@
 package es.uam.sara.tfg.properties.interfaces;
 
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.NameCheck;
 import es.uam.sara.tfg.properties.NameCheck.Type;
 
 
-public class InterNameType extends Interface{
+public class InterNameType extends InterfaceProperty{
 
 	private NameCheck nCheck;
 	public InterNameType( Type type) {
@@ -19,8 +19,8 @@ public class InterNameType extends Interface{
 	}
 
 	@Override
-	public boolean checkElement(TypeDeclaration analyze) {
+	public boolean checkElement(ClassInterface analyze) {
 		// TODO Auto-generated method stub
-		return nCheck.checkNameType(analyze);
+		return nCheck.checkNameType(analyze.getName());
 	}
 }

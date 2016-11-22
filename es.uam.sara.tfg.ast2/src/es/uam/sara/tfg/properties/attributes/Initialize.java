@@ -4,15 +4,16 @@
  */
 package es.uam.sara.tfg.properties.attributes;
 
-import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+
+import es.uam.sara.tfg.elements.Attribute;
 
 
 /**
  * @author Sara
  *
  */
-public class Initialize extends Attribute{
+public class Initialize extends AttributeProperty{
 
 	/**
 	 * @param analyze
@@ -27,9 +28,9 @@ public class Initialize extends Attribute{
 	}
 
 	@Override
-	public boolean checkElement(FieldDeclaration analize) {
-		if (analize.fragments().get(0) instanceof VariableDeclarationFragment) {
-			VariableDeclarationFragment declaration = (VariableDeclarationFragment) analize.fragments().get(0);
+	public boolean checkElement(Attribute analize) {
+		if (analize.getBodyDeclarations().fragments().get(0) instanceof VariableDeclarationFragment) {
+			VariableDeclarationFragment declaration = (VariableDeclarationFragment) analize.getBodyDeclarations().fragments().get(0);
 			if (declaration.getInitializer() != null) {
 				return true;
 			}

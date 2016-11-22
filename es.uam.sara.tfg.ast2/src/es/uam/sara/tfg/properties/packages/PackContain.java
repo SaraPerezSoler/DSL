@@ -3,23 +3,24 @@ package es.uam.sara.tfg.properties.packages;
 import java.util.List;
 import es.uam.sara.tfg.properties.Contain;
 import es.uam.sara.tfg.rule.Rule;
+import es.uam.sara.tfg.elements.Package;
 
-public abstract class PackContain<T> extends Package {
+public abstract class PackContain<T> extends PackageProperty {
 
-	private Contain<T, String> contain;
+	private Contain<T, Package> contain;
 	
 	public PackContain(Rule<T> r) {
-		contain= new Contain<T, String>(r);
+		contain= new Contain<T, Package>(r);
 	}
 	
 	@Override
-	public boolean checkElement(String analyze) {
+	public boolean checkElement(Package analyze) {
 		return contain.checkElement(analyze, getSubType(analyze));
 	}
 	
-	public abstract List<T> getSubType(String pk);
+	public abstract List<T> getSubType(Package pk);
 
-	public String print(String print){
+	public String print(Package print){
 		return super.print(print) + contain.print(print);
 	}
 	@Override
