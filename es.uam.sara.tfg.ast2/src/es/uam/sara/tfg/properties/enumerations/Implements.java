@@ -2,9 +2,10 @@ package es.uam.sara.tfg.properties.enumerations;
 
 import java.util.List;
 import es.uam.sara.tfg.elements.Enumeration;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
-public class Implements extends EnumerationProperty{
+public class Implements extends EnumerationProperty implements StringProperty{
 
 	private int intMin;
 	private int intMax;

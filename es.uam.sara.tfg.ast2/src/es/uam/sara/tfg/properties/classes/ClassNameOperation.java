@@ -2,8 +2,9 @@ package es.uam.sara.tfg.properties.classes;
 
 import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.properties.NameCheck;
+import es.uam.sara.tfg.properties.StringProperty;
 
-public class ClassNameOperation extends ClassProperty{
+public class ClassNameOperation extends ClassProperty implements StringProperty{
 	
 	private NameCheck nCheck;
 

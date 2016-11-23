@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.elements.ClassInterface;
 
@@ -15,12 +14,13 @@ import es.uam.sara.tfg.elements.ClassInterface;
  * @author Sara
  *
  */
-public class isExtended extends ClassProperty {
+public class isExtended extends ClassProperty{
 
 	private List<ClassInterface> allClasses;
 	private Map<ClassInterface, List<ClassInterface>> classesExtended;
 	private int intMin;
 	private int intMax;
+	
 
 	/**
 	 * @param allClasses

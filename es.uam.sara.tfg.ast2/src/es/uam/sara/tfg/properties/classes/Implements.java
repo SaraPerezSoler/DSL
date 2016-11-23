@@ -3,10 +3,11 @@ package es.uam.sara.tfg.properties.classes;
 import java.util.List;
 
 import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
 
-public class Implements extends ClassProperty{
+public class Implements extends ClassProperty implements StringProperty{
 
 	private int intMin;
 	private int intMax;

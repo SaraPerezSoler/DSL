@@ -2,9 +2,10 @@ package es.uam.sara.tfg.properties.enumerations;
 
 import es.uam.sara.tfg.elements.Enumeration;
 import es.uam.sara.tfg.properties.NameCheck;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
-public class EnumNameOperation extends EnumerationProperty{
+public class EnumNameOperation extends EnumerationProperty implements StringProperty{
 
 	private NameCheck nCheck;
 	public EnumNameOperation(NameCheck.Operation op, String cad, int idioma) {

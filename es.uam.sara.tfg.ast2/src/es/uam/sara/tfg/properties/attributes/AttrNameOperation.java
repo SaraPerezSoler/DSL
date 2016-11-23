@@ -5,24 +5,27 @@ package es.uam.sara.tfg.properties.attributes;
 
 import es.uam.sara.tfg.elements.Attribute;
 import es.uam.sara.tfg.properties.NameCheck;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
 /**
  * @author Sara
  *
  */
-public class AttrNameOperation extends AttributeProperty{
+public class AttrNameOperation extends AttributeProperty implements StringProperty{
 
 	private NameCheck ncheck;
 
-	/**
-	 * @param analyze
-	 */
+	
 	public AttrNameOperation(NameCheck.Operation op, String cad, int idioma) {
 		super();
 		ncheck= new NameCheck(op,cad,idioma);
 	}
 
+	public AttrNameOperation(NameCheck.Operation op, String cad) {
+		super();
+		ncheck= new NameCheck(op,cad,NameCheck.EMPTY);
+	}
 	@Override
 	public String toString() {
 		if (ncheck.getIdioma()==NameCheck.EMPTY){

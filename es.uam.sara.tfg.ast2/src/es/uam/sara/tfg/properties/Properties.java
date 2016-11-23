@@ -6,9 +6,10 @@ import java.util.List;
 
 public abstract class Properties<T> {
 
-	private List<T> right;
+	private ArrayList<T> right;
 	private List<T> wrong;
-
+	private int[][] i;
+	
 	public Properties() {
 		this.right = new ArrayList<T>();
 		this.wrong = new ArrayList<T>();

@@ -1,9 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
 import es.uam.sara.tfg.elements.Attribute;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
-public class Type extends AttributeProperty{
+public class Type extends AttributeProperty implements StringProperty{
 
 	private String type;
 

@@ -5,6 +5,7 @@ package es.uam.sara.tfg.properties.classes;
 
 import java.util.List;
 import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.properties.StringProperty;
 
 
 
@@ -12,7 +13,7 @@ import es.uam.sara.tfg.elements.ClassInterface;
  * @author Sara
  *
  */
-public class SubClass extends ClassProperty{
+public class SubClass extends ClassProperty implements StringProperty{
 
 	private String of;
 	/**

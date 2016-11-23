@@ -2,8 +2,9 @@ package es.uam.sara.tfg.properties.file;
 
 import es.uam.sara.tfg.elements.File;
 import es.uam.sara.tfg.properties.NameCheck;
+import es.uam.sara.tfg.properties.StringProperty;
 
-public class FileNameOperation extends FileProperty{
+public class FileNameOperation extends FileProperty implements StringProperty{
 	
 	private NameCheck nCheck;
 
