@@ -20,36 +20,36 @@ public class Parameters extends MethodProperty implements TypeProperty {
 	private int max;
 	private List<String> paramList = null;
 
-	public Parameters(int min) {
-		super();
+	public Parameters(boolean no,int min) {
+		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		paramList = new ArrayList<String>();
 	}
 
-	public Parameters(int min, int max) {
-		super();
+	public Parameters(boolean no,int min, int max) {
+		super(no);
 		this.min = min;
 		this.max = max;
 		paramList = new ArrayList<String>();
 	}
 
-	public Parameters(List<String> paramList) {
-		super();
+	public Parameters(boolean no,List<String> paramList) {
+		super(no);
 		this.min = paramList.size();
 		this.max = Integer.MAX_VALUE;
 		this.paramList = paramList;
 	}
 
-	public Parameters(int min, List<String> paramList) {
-		super();
+	public Parameters(boolean no,int min, List<String> paramList) {
+		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.paramList = paramList;
 	}
 
-	public Parameters(int min, int max, List<String> paramList) {
-		super();
+	public Parameters(boolean no,int min, int max, List<String> paramList) {
+		super(no);
 		this.min = min;
 		this.max = max;
 		this.paramList = paramList;
@@ -67,6 +67,9 @@ public class Parameters extends MethodProperty implements TypeProperty {
 			cad += "and contains [";
 
 			cad += "]";
+		}
+		if (no){
+			return "no (" + cad+")";
 		}
 		return cad;
 	}

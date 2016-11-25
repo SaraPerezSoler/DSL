@@ -10,7 +10,6 @@ import es.uam.sara.tfg.properties.all.NameOperation.Operation;
 
 public class Main {
 
-	
 	public static void main(String[] args) throws IOException {
 
 		File dirs = new File(".");
@@ -18,17 +17,24 @@ public class Main {
 
 		File root = new File(dirPath);
 		ReadFiles.parseFiles(root);
-		NameOperation<Method> name= new NameOperation<Method>(Operation.EQUAL, "prueba", NameOperation.EMPTY);
+		NameOperation<Method> name = new NameOperation<Method>(true, Operation.EQUAL, "prueba", NameOperation.EMPTY);
 		name.check(Visitors.getMethods());
-		Method prueba=name.getRight().get(0);
-		
-		NameOperation<ClassInterface> classname= new NameOperation<ClassInterface>(Operation.EQUAL, "test", NameOperation.EMPTY);
+		Method prueba = name.getRight().get(0);
+
+		NameOperation<ClassInterface> classname = new NameOperation<ClassInterface>(true, Operation.EQUAL, "test",
+				NameOperation.EMPTY);
 		classname.check(Visitors.getClasses());
-		ClassInterface test=classname.getRight().get(0);
-		for (Method m: test.getMethods()){
-			if (prueba.equals(m)){
-				System.out.println("Funciona");
+		ClassInterface test = classname.getRight().get(0);
+		/*for (Method m1 : name.getRight()) {
+			for (Method m : test.getMethods()) {
+				if (m1.equals(m)) {
+					System.out.println(m1);
+				}
 			}
+		}*/
+		
+		for (ClassInterface c: classname.getRight()){
+			System.out.print(c);
 		}
 	}
 

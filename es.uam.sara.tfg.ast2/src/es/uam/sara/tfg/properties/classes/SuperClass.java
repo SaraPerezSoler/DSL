@@ -13,33 +13,33 @@ public class SuperClass extends Super {
 
 	private List<ClassInterface> all;
 
-	public SuperClass(List<ClassInterface> allClasses) {
-		super(-1, Integer.MAX_VALUE, new ArrayList<String>());
+	public SuperClass(boolean no,List<ClassInterface> allClasses) {
+		super(no,-1, Integer.MAX_VALUE, new ArrayList<String>());
 		this.all = allClasses;
 	}
 
-	public SuperClass(List<ClassInterface> allClasses, int min) {
-		super(min, Integer.MAX_VALUE, new ArrayList<String>());
+	public SuperClass(boolean no,List<ClassInterface> allClasses, int min) {
+		super(no,min, Integer.MAX_VALUE, new ArrayList<String>());
 		this.all = allClasses;
 	}
 
-	public SuperClass(List<ClassInterface> allClasses, int min, int max) {
-		super(min, max, new ArrayList<String>());
+	public SuperClass(boolean no,List<ClassInterface> allClasses, int min, int max) {
+		super(no,min, max, new ArrayList<String>());
 		this.all = allClasses;
 	}
 
-	public SuperClass(List<ClassInterface> allClasses, List<String> subClass) {
-		super(-1, Integer.MAX_VALUE, subClass);
+	public SuperClass(boolean no,List<ClassInterface> allClasses, List<String> subClass) {
+		super(no,-1, Integer.MAX_VALUE, subClass);
 		this.all = allClasses;
 	}
 
-	public SuperClass(List<ClassInterface> allClasses, int min, List<String> subClass) {
-		super(min, Integer.MAX_VALUE, subClass);
+	public SuperClass(boolean no,List<ClassInterface> allClasses, int min, List<String> subClass) {
+		super(no,min, Integer.MAX_VALUE, subClass);
 		this.all = allClasses;
 	}
 
-	public SuperClass(List<ClassInterface> allClasses, int min, int max, List<String> subClass) {
-		super(min, max, subClass);
+	public SuperClass(boolean no,List<ClassInterface> allClasses, int min, int max, List<String> subClass) {
+		super(no,min, max, subClass);
 		this.all = allClasses;
 	}
 

@@ -13,6 +13,7 @@ public class NameType<T extends IElements> extends Properties<T> {
 	private Type type = Type.UNDEFINE;
 
 	public NameType(Type type) {
+		super(false);
 		this.type = type;
 	}
 

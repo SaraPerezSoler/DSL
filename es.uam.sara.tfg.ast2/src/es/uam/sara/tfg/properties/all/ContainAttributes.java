@@ -8,8 +8,8 @@ import es.uam.sara.tfg.rule.Rule;
 
 public class ContainAttributes<T extends Container> extends Contain<T,Attribute> {
 
-	public ContainAttributes(Rule<Attribute> r) {
-		super(r);
+	public ContainAttributes(boolean no,Rule<Attribute> r) {
+		super(no, r);
 	}
 
 

@@ -8,8 +8,8 @@ import es.uam.sara.tfg.rule.Rule;
 
 public class ContainClasses<T extends Container> extends Contain<T, ClassInterface> {
 
-	public ContainClasses(Rule<ClassInterface> r) {
-		super(r);
+	public ContainClasses(boolean no,Rule<ClassInterface> r) {
+		super(no, r);
 	}
 
 	@Override

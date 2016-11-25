@@ -11,8 +11,9 @@ import java.util.List;
 
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.StringProperty;
 
-public class NameOperation<T extends IElements> extends Properties<T> {
+public class NameOperation<T extends IElements> extends Properties<T> implements StringProperty {
 
 	public enum Operation {
 		EQUAL, LIKE, START, END, CONTAIN, UNDEFINE
@@ -26,8 +27,8 @@ public class NameOperation<T extends IElements> extends Properties<T> {
 	private String other;
 	private int idioma;
 
-	public NameOperation(Operation op, String cad, int idioma) {
-		
+	public NameOperation(boolean no, Operation op, String cad, int idioma) {
+		super(no);
 		this.op = op;
 		this.other = cad;
 		this.idioma = idioma;
@@ -208,8 +209,12 @@ public class NameOperation<T extends IElements> extends Properties<T> {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		String cad="name ";
+		if (no){
+			cad+="don't ";
+		}
+		cad+=this.op.toString().toLowerCase()+" "+this.other;
+		return cad;
 	}
 
 	@Override

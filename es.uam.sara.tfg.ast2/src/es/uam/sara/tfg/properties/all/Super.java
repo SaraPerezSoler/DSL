@@ -31,8 +31,8 @@ public abstract class Super extends Properties<ClassInterface> implements TypePr
 	private boolean bIsInterface;
 
 
-	public Super(int min, int max, List<String> subClass) {
-		super();
+	public Super(boolean no,int min, int max, List<String> subClass) {
+		super(no);
 		this.intMax = min;
 		this.intMax = max;
 		this.nameSub = subClass;
@@ -66,13 +66,19 @@ public abstract class Super extends Properties<ClassInterface> implements TypePr
 
 	@Override
 	public String toString() {
+		
 		String cad;
+		if (no){
+			cad="is not ";
+		}else{
+			cad="is ";
+		}
 		if (aIsInterface == false && bIsInterface == false) {
-			cad = "is superclass ";
+			cad += "superclass ";
 		} else if (aIsInterface && bIsInterface == false) {
-			cad = "is implemented ";
+			cad += "implemented ";
 		} else {
-			cad = "is superinterface ";
+			cad += "superinterface ";
 		}
 		if (this.intMin != -1) {
 			if (this.intMax != Integer.MAX_VALUE) {

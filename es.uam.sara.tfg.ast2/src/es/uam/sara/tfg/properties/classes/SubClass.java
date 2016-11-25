@@ -20,20 +20,28 @@ public class SubClass extends ClassProperty implements TypeProperty{
 	/**
 	 * @param analyze
 	 */
-	public SubClass(String subClass) {
+	public SubClass(boolean no,String subClass) {
+		super(no);
 		this.of=subClass;
 	}
 
-	public SubClass() {
+	public SubClass(boolean no) {
+		super(no);
 		of=null;
 	}
 
 	@Override
 	public String toString() {
+		String cad;
+		if (no){
+			cad="is not ";
+		}else{
+			cad="is ";
+		}
 		if (of==null)
-			return "is subClass";
+			return cad +"subClass";
 		else 
-			return "is subClass of "+ of;
+			return cad +"subClass of "+ of;
 	}
 
 	@Override

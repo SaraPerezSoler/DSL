@@ -8,14 +8,17 @@ public class Type extends AttributeProperty implements TypeProperty{
 
 	private String type;
 
-	public Type(String type) {
+	public Type(boolean no,String type) {
 		
-		super();
+		super(no);
 		this.type = type;
 	}
 	@Override
 	public String toString() {
-		return "type=" + type ;
+		if (no){
+			return "type <>" + type ;
+		}
+		return "type =" + type ;
 	}
 
 	@Override

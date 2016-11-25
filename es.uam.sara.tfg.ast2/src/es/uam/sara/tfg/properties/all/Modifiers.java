@@ -12,6 +12,10 @@ import es.uam.sara.tfg.properties.BlendModifiers.Acceso;
 public class Modifiers<T extends JavaElement> extends Properties<T>{
 
 
+	public Modifiers(boolean no) {
+		super(no);
+	}
+
 	private ArrayList<BlendModifiers> blends=new ArrayList<BlendModifiers>();
 	public void addBlend(Acceso acceso, boolean static_, boolean final_, boolean abstract_, boolean default_, boolean synchronized_){
 		blends.add(new BlendModifiers(acceso, static_, final_, abstract_,default_, synchronized_));
@@ -68,7 +72,13 @@ public class Modifiers<T extends JavaElement> extends Properties<T>{
 
 	@Override
 	public String toString() {
-		String cad="modifiers: [ ";
+		String cad;
+		if (no){
+			cad="not modifiers: [ ";
+		}else{
+			cad="modifiers: [ ";
+		}
+		
 		cad+="("+blends.get(0).toString()+") ";
 		for (int i=1; i<blends.size(); i++){
 			cad+="or ("+blends.get(i).toString()+") ";

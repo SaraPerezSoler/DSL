@@ -37,7 +37,7 @@ public class Method extends JavaElement implements ICanGeneric, ICanEmpty, IElem
 	@Override
 	public String toString() {
 		UnitVisitor uv=getVisitor();
-		return "In file "+uv.getNameFile()+" the class "+getName() +" (line: " +uv.getLineNumber(md.getStartPosition())+")\n";
+		return "In file "+uv.getNameFile()+" the method "+getName() +" (line: " +uv.getLineNumber(md.getStartPosition())+")\n";
 	}
 	@Override
 	public boolean isGeneric() {

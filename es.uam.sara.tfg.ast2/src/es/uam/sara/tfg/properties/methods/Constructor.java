@@ -14,12 +14,15 @@ public class Constructor extends MethodProperty{
 	/**
 	 * @param analyze
 	 */
-	public Constructor() {
-		super();
+	public Constructor(boolean no) {
+		super(no);
 	}
 	
 	@Override
 	public String toString() {
+		if (no){
+			return "is not constructor";
+		}
 		return "is constructor";
 	}
 

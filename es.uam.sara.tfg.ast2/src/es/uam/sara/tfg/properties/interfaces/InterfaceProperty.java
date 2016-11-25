@@ -6,8 +6,9 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class InterfaceProperty extends Properties<ClassInterface> {
 
-	public InterfaceProperty() {
-		super();
+	public InterfaceProperty(boolean no) {
+		super(no);
 	}
+
 	
 }

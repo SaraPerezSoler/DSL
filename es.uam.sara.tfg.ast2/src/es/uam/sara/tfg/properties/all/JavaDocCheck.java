@@ -16,8 +16,9 @@ public class JavaDocCheck<T extends JavaElement>  extends Properties<T>{
 	private boolean throwss;
 	private boolean see;
 
-	public JavaDocCheck(boolean author, boolean parameter, boolean returns, boolean version, boolean throwss,
+	public JavaDocCheck(boolean no,boolean author, boolean parameter, boolean returns, boolean version, boolean throwss,
 			boolean see) {
+		super(no);
 		this.author = author;
 		this.parameter = parameter;
 		this.returns = returns;
@@ -80,25 +81,45 @@ public class JavaDocCheck<T extends JavaElement>  extends Properties<T>{
 
 	@Override
 	public String toString() {
-		String cad = "JavaDoc ";
+		String cad;
+		if (no){
+			cad= "have not JavaDoc ";
+		}else{
+			cad = "have JavaDoc ";
+		}
+		String open="[";
+		String close="";
 		if (author) {
-			cad += "@author ";
+			cad += open+ "@author ";
+			open="";
+			close="]";
 		}
 		if (parameter) {
-			cad += "@parameter ";
+			cad +=open+ "@parameter ";
+			open="";
+			close="]";
 		}
 		if (returns) {
-			cad += "@returns ";
+			cad +=open+ "@returns ";
+			open="";
+			close="]";
 		}
 		if (version) {
-			cad += "@version ";
+			cad += open+"@version ";
+			open="";
+			close="]";
 		}
 		if (throwss) {
-			cad += "@throwss ";
+			cad +=open+ "@throwss ";
+			open="";
+			close="]";
 		}
 		if (see) {
-			cad += "@see ";
+			cad +=open+ "@see ";
+			open="";
+			close="]";
 		}
+		cad+=close;
 		return cad;
 	}
 

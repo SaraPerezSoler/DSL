@@ -11,33 +11,33 @@ public class isImplemented extends Super {
 
 	private List<JavaTypes> all;
 
-	public isImplemented(List<JavaTypes> all) {
-		super(-1, Integer.MAX_VALUE, new ArrayList<String>());
+	public isImplemented(boolean no,List<JavaTypes> all) {
+		super(no,-1, Integer.MAX_VALUE, new ArrayList<String>());
 		this.all = all;
 	}
 
-	public isImplemented(List<JavaTypes> allClasses, int min) {
-		super(min, Integer.MAX_VALUE, new ArrayList<String>());
+	public isImplemented(boolean no,List<JavaTypes> allClasses, int min) {
+		super(no,min, Integer.MAX_VALUE, new ArrayList<String>());
 		this.all = allClasses;
 	}
 
-	public isImplemented(List<JavaTypes> all, int min, int max) {
-		super(min, max, new ArrayList<String>());
+	public isImplemented(boolean no,List<JavaTypes> all, int min, int max) {
+		super(no,min, max, new ArrayList<String>());
 		this.all = all;
 	}
 
-	public isImplemented(List<JavaTypes> all, List<String> subClass) {
-		super(-1, Integer.MAX_VALUE, subClass);
+	public isImplemented(boolean no,List<JavaTypes> all, List<String> subClass) {
+		super(no,-1, Integer.MAX_VALUE, subClass);
 		this.all = all;
 	}
 
-	public isImplemented(List<JavaTypes> all, int min, List<String> subClass) {
-		super(min, Integer.MAX_VALUE, subClass);
+	public isImplemented(boolean no,List<JavaTypes> all, int min, List<String> subClass) {
+		super(no,min, Integer.MAX_VALUE, subClass);
 		this.all = all;
 	}
 
-	public isImplemented(List<JavaTypes> all, int min, int max, List<String> subClass) {
-		super(min, max, subClass);
+	public isImplemented(boolean no,List<JavaTypes> all, int min, int max, List<String> subClass) {
+		super(no,min, max, subClass);
 		this.all = all;
 	}
 

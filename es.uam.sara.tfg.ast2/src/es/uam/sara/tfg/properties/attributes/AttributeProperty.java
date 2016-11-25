@@ -5,4 +5,8 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class AttributeProperty extends Properties<Attribute>{
 
+	public AttributeProperty(boolean no) {
+		super(no);
+	}
+
 }

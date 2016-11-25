@@ -6,8 +6,8 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class EnumerationProperty extends Properties<Enumeration> {
 
-	public EnumerationProperty() {
-		super();
+	public EnumerationProperty(boolean no) {
+		super(no);
 	}
 
 }

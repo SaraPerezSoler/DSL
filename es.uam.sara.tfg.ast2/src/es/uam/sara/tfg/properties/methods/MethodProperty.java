@@ -13,7 +13,8 @@ import es.uam.sara.tfg.properties.Properties;
  */
 public abstract class MethodProperty extends Properties<Method> {
 
-	public MethodProperty() {
-		super();
+	public MethodProperty(boolean no) {
+		super(no);
 	}
+
 }

@@ -14,32 +14,32 @@ public class SuperInterface extends Super{
 
 	private List<ClassInterface> allInterfaces;
 	
-	public SuperInterface(List<ClassInterface> allInterfaces) {
-		super(-1, Integer.MAX_VALUE, new ArrayList<String>());
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces) {
+		super(no,-1, Integer.MAX_VALUE, new ArrayList<String>());
 		this.allInterfaces=allInterfaces;
 	}
 
-	public SuperInterface(List<ClassInterface> allInterfaces, int min) {
-		super(min, Integer.MAX_VALUE, new ArrayList<String>());
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces, int min) {
+		super(no,min, Integer.MAX_VALUE, new ArrayList<String>());
 		this.allInterfaces=allInterfaces;
 	}
 
-	public SuperInterface(List<ClassInterface> allInterfaces, int min, int max) {
-		super(min, max, new ArrayList<String>());
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces, int min, int max) {
+		super(no,min, max, new ArrayList<String>());
 		this.allInterfaces=allInterfaces;
 	}
 
-	public SuperInterface(List<ClassInterface> allInterfaces, List<String> subClass) {
-		super(-1, Integer.MAX_VALUE, subClass);
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces, List<String> subClass) {
+		super(no,-1, Integer.MAX_VALUE, subClass);
 		this.allInterfaces=allInterfaces;
 	}
 
-	public SuperInterface(List<ClassInterface> allInterfaces, int min, List<String> subClass) {
-		super(min, Integer.MAX_VALUE, subClass);
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces, int min, List<String> subClass) {
+		super(no,min, Integer.MAX_VALUE, subClass);
 		this.allInterfaces=allInterfaces;
 	}
-	public SuperInterface(List<ClassInterface> allInterfaces,int min, int max, List<String> subClass) {
-		super(min, max, subClass);
+	public SuperInterface(boolean no,List<ClassInterface> allInterfaces,int min, int max, List<String> subClass) {
+		super(no,min, max, subClass);
 		this.allInterfaces=allInterfaces;
 	}
 

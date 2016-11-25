@@ -14,7 +14,8 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 	private Rule<T> rule;
 	private Map<Container, String> map;
 
-	public Contain(Rule<T> r) {
+	public Contain(boolean no, Rule<T> r) {
+		super(no);
 		rule = r;
 		map = new HashMap<Container, String>();
 	}
@@ -35,7 +36,11 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 
 	@Override
 	public String toString() {
-		return "have {" + rule + "}";
+		if (no){
+			return "don't have {" + rule + "}";
+		}else{
+			return "have {" + rule + "}";
+		}
 	}
 
 	@Override

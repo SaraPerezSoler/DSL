@@ -8,8 +8,8 @@ import es.uam.sara.tfg.rule.Rule;
 
 public class ContainMethods<T extends Container> extends Contain<T,Method> {
 
-	public ContainMethods(Rule<Method> r) {
-		super(r);
+	public ContainMethods(boolean no,Rule<Method> r) {
+		super(no, r);
 	}
 
 	@Override

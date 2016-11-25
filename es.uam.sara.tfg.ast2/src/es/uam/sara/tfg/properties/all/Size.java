@@ -12,6 +12,7 @@ public class Size<T extends IPosicionable> extends Properties<T>{
 	private Map<IPosicionable, Integer> map;
 
 	public Size(int min, int max) {
+		super(false);
 		this.max = max;
 		this.min = min;
 		map = new HashMap<IPosicionable, Integer>();

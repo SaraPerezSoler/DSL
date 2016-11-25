@@ -5,9 +5,17 @@ import es.uam.sara.tfg.properties.Properties;
 
 public class IsGeneric<T extends ICanGeneric> extends Properties<T> {
 
+	public IsGeneric(boolean no) {
+		super(no);
+	}
+
 	@Override
 	public String toString() {
-		return "is generic";
+		if (no){
+			return "is not generic";
+		}else{
+			return "is generic";
+		}
 	}
 
 	@Override

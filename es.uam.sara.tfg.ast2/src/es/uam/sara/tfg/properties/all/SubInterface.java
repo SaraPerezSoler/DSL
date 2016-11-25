@@ -16,37 +16,43 @@ public class SubInterface<T extends JavaTypes> extends Properties<T> implements 
 	private List<String> interf;
 	private boolean isInterface;
 
-	public SubInterface() {
+	public SubInterface(boolean no) {
+		super(no);
 		min = 1;
 		max = Integer.MAX_VALUE;
 		interf = new ArrayList<String>();
 	}
 
-	public SubInterface(int min) {
+	public SubInterface(boolean no,int min) {
+		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.interf = new ArrayList<String>();
 	}
 
-	public SubInterface(int min, int max) {
+	public SubInterface(boolean no,int min, int max) {
+		super(no);
 		this.min = min;
 		this.max = max;
 		this.interf = new ArrayList<String>();
 	}
 
-	public SubInterface(List<String> interf) {
+	public SubInterface(boolean no,List<String> interf) {
+		super(no);
 		this.min = interf.size();
 		this.max = Integer.MAX_VALUE;
 		this.interf = interf;
 	}
 
-	public SubInterface(int min, List<String> interf) {
+	public SubInterface(boolean no,int min, List<String> interf) {
+		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.interf = interf;
 	}
 
-	public SubInterface(int min, int max, List<String> interf) {
+	public SubInterface(boolean no,int min, int max, List<String> interf) {
+		super(no);
 		this.min = min;
 		this.max = max;
 		this.interf = interf;
@@ -72,10 +78,16 @@ public class SubInterface<T extends JavaTypes> extends Properties<T> implements 
 	@Override
 	public String toString() {
 		String cad;
+		if (no){
+			cad="don't ";
+		}else{
+			cad="";
+		}
+		
 		if (!isInterface) {
-			cad = "implements ";
+			cad += "implement ";
 		} else {
-			cad = "extends";
+			cad += "extend";
 		}
 		if (min != -1) {
 			if (max != Integer.MAX_VALUE) {

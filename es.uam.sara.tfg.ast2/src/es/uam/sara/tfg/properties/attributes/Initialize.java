@@ -16,12 +16,15 @@ public class Initialize extends AttributeProperty{
 	/**
 	 * @param analyze
 	 */
-	public Initialize() {
-		super();
+	public Initialize(boolean no) {
+		super(no);
 	}
 
 	@Override
 	public String toString() {
+		if (no){
+			return "is not initialize";
+		}
 		return "is initialize";
 	}
 

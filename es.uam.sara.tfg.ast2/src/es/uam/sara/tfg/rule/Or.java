@@ -9,7 +9,7 @@ public class Or<T> extends Properties<T>{
 	protected List <And<T>> ands;
 		
 	public Or() {
-		super();
+		super(false);
 		ands= new ArrayList<And<T>>();
 	}
 

@@ -4,6 +4,10 @@ import es.uam.sara.tfg.elements.type.Method;
 
 public class isOverride extends MethodProperty{
 
+	public isOverride(boolean no) {
+		super(no);
+	}
+
 	@Override
 	public boolean checkElement(Method analyze) {
 		/*if (analyze.getParent() instanceof TypeDeclaration){
@@ -14,7 +18,6 @@ public class isOverride extends MethodProperty{
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -6,4 +6,8 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class  AnnotationDeclaration extends Properties<AnnotationTypeDeclaration>{
 
+	public AnnotationDeclaration(boolean no) {
+		super(no);
+	}
+
 }

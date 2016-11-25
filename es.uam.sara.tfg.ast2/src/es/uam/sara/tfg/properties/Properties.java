@@ -8,8 +8,10 @@ public abstract class Properties<T> {
 
 	private ArrayList<T> right;
 	private List<T> wrong;
+	protected boolean no;
 
-	public Properties() {
+	public Properties(boolean no) {
+		this.no = no;
 		this.right = new ArrayList<T>();
 		this.wrong = new ArrayList<T>();
 	}
@@ -57,10 +59,18 @@ public abstract class Properties<T> {
 
 	public void check(List<T> analyze) {
 		for (T t : analyze) {
-			if (checkElement(t)) {
-				addRight(t);
-			} else {
-				addWrong(t);
+			if (no) {
+				if (!checkElement(t)) {
+					addRight(t);
+				} else {
+					addWrong(t);
+				}
+			}else{
+				if (checkElement(t)) {
+					addRight(t);
+				} else {
+					addWrong(t);
+				}
 			}
 		}
 	}

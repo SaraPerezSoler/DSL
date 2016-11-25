@@ -12,7 +12,7 @@ public class And<T> extends Properties<T>{
 	private List<Properties<T>>properties;
 	
 	public And() {
-		super();
+		super(false);
 		properties= new ArrayList<Properties<T>>();
 	}
 

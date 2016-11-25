@@ -5,6 +5,10 @@ import es.uam.sara.tfg.properties.Properties;
 
 public class isEmpty<T extends ICanEmpty> extends Properties<T> {
 
+	public isEmpty(boolean no) {
+		super(no);
+	}
+
 	@Override
 	public boolean checkElement(T analyze) {
 
@@ -13,7 +17,11 @@ public class isEmpty<T extends ICanEmpty> extends Properties<T> {
 
 	@Override
 	public String toString() {
-		return "is empty";
+		if (no){
+			return "is not empty";
+		}else{
+			return "is empty";
+		}
 	}
 
 }

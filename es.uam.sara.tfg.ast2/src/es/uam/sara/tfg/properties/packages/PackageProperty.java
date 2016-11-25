@@ -7,7 +7,9 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class PackageProperty extends Properties<Package> {
 
-	public PackageProperty() {
-		super();
+	public PackageProperty(boolean no) {
+		super(no);
 	}
+
+
 }

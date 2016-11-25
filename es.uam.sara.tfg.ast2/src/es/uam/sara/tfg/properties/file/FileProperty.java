@@ -5,5 +5,9 @@ import es.uam.sara.tfg.properties.Properties;
 
 public abstract class FileProperty extends Properties<File>{
 
+	public FileProperty(boolean no) {
+		super(no);
+	}
+
 
 }

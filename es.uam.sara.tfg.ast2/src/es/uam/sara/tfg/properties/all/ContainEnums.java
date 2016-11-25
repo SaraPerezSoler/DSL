@@ -8,8 +8,8 @@ import es.uam.sara.tfg.rule.Rule;
 
 public class ContainEnums<T extends Container> extends Contain<T,Enumeration> {
 
-	public ContainEnums(Rule<Enumeration> r) {
-		super(r);
+	public ContainEnums(boolean no,Rule<Enumeration> r) {
+		super(no,r);
 	}
 
 	@Override
