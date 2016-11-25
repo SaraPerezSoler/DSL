@@ -42,4 +42,8 @@ public abstract class Test<T, K> {
 	public String toString() {
 		return "Test []";
 	}
+	
+	public static void prueba(String a, String b, String i, int j) {
+		
+	}
 }

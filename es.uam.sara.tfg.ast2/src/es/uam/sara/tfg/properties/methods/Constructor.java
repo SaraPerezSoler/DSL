@@ -3,7 +3,7 @@
  */
 package es.uam.sara.tfg.properties.methods;
 
-import es.uam.sara.tfg.elements.Method;
+import es.uam.sara.tfg.elements.type.Method;
 
 /**
  * @author Sara
@@ -25,7 +25,7 @@ public class Constructor extends MethodProperty{
 
 	@Override
 	public boolean checkElement(Method analyze) {
-		return analyze.getBodyDeclarations().isConstructor();
+		return analyze.isConstructor();
 	}
 
 }

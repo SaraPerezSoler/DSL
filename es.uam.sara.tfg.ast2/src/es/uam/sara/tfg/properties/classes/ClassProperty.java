@@ -1,6 +1,6 @@
 package es.uam.sara.tfg.properties.classes;
 
-import es.uam.sara.tfg.elements.ClassInterface;
+import es.uam.sara.tfg.elements.type.ClassInterface;
 import es.uam.sara.tfg.properties.Properties;
 
 

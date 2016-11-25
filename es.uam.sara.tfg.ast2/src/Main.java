@@ -3,9 +3,10 @@ import java.io.IOException;
 
 import es.uam.sara.tfg.ast.ReadFiles;
 import es.uam.sara.tfg.ast.Visitors;
-import es.uam.sara.tfg.elements.Attribute;
-import es.uam.sara.tfg.properties.TypeToString;
-import es.uam.sara.tfg.properties.TypeToString.Primitive;
+import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.properties.all.NameOperation;
+import es.uam.sara.tfg.properties.all.NameOperation.Operation;
 
 public class Main {
 
@@ -17,16 +18,18 @@ public class Main {
 
 		File root = new File(dirPath);
 		ReadFiles.parseFiles(root);
+		NameOperation<Method> name= new NameOperation<Method>(Operation.EQUAL, "prueba", NameOperation.EMPTY);
+		name.check(Visitors.getMethods());
+		Method prueba=name.getRight().get(0);
 		
-		for (Attribute a: Visitors.getAttributes()){
-			System.out.println(a.getBodyDeclarations());
-			//System.out.println(TypeToString.isPrimitiveType(a.getType(), Primitive.INT));
-			TypeToString.isCollectionOf(a.getType(), "");
-			
+		NameOperation<ClassInterface> classname= new NameOperation<ClassInterface>(Operation.EQUAL, "test", NameOperation.EMPTY);
+		classname.check(Visitors.getClasses());
+		ClassInterface test=classname.getRight().get(0);
+		for (Method m: test.getMethods()){
+			if (prueba.equals(m)){
+				System.out.println("Funciona");
+			}
 		}
-		
-		
-
 	}
 
 }

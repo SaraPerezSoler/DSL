@@ -1,11 +1,12 @@
 package es.uam.sara.tfg.properties.methods;
 
-import java.util.List;
-import es.uam.sara.tfg.elements.Method;
-import es.uam.sara.tfg.properties.TypeToString;
+import org.eclipse.jdt.core.dom.Type;
+
+import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.properties.TypeProperty;
 
 
-public class Return extends MethodProperty{
+public class Return extends MethodProperty implements TypeProperty{
 
 	private String type;
 	public Return( String type) {
@@ -20,8 +21,8 @@ public class Return extends MethodProperty{
 
 	@Override
 	public boolean checkElement(Method analyze) {
-		List<String> returnType= TypeToString.getString(analyze.getBodyDeclarations().getReturnType2());
-		if (returnType.contains(type.toLowerCase())){
+		Type returnType= analyze.getReturnType();
+		if (this.equalType(returnType, type.toLowerCase())){
 			return true;
 		}else{
 			return false;

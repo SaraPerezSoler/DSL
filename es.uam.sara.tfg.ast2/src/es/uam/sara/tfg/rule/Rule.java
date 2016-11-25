@@ -2,7 +2,9 @@ package es.uam.sara.tfg.rule;
 
 import java.util.List;
 
-public class Rule<T> {
+import es.uam.sara.tfg.elements.IElements;
+
+public class Rule<T extends IElements> {
 
 	protected boolean no;
 	protected Quantifier quantifier;
@@ -50,7 +52,7 @@ public class Rule<T> {
 		this.quantifier = q;
 		this.elements = elements;
 		if (filter==null){
-			this.filter= new NoOr();
+			this.filter= new NoOr<T>();
 		}else{
 			this.filter = filter;
 		}

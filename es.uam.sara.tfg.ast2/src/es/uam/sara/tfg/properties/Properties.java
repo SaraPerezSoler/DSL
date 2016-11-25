@@ -8,8 +8,7 @@ public abstract class Properties<T> {
 
 	private ArrayList<T> right;
 	private List<T> wrong;
-	private int[][] i;
-	
+
 	public Properties() {
 		this.right = new ArrayList<T>();
 		this.wrong = new ArrayList<T>();
@@ -24,28 +23,11 @@ public abstract class Properties<T> {
 	}
 
 	public void addRight(T t) {
-		try {
-			if (right.contains(t) || wrong.contains(t)) {
-				throw new PropertiesException(
-						"Cod 01: El elemento que intenta añadir no se encuentra o ya se ha añadido.");
-			}
-			this.right.add(t);
-		} catch (PropertiesException p) {
-			p.printStackTrace();
-		}
+		this.right.add(t);
 	}
 
 	public void addWrong(T t) {
-		try {
-			if (right.contains(t) || wrong.contains(t)) {
-				throw new PropertiesException(
-						"Cod 01: El elemento que intenta añadir no se encuentra o ya se ha añadido.");
-			}
-			this.wrong.add(t);
-		} catch (PropertiesException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.wrong.add(t);
 	}
 
 	public void reset() {
@@ -88,22 +70,23 @@ public abstract class Properties<T> {
 	public String print(boolean right) {
 		List<T> print;
 		String cad;
-		if (right){
-			cad="This elements satisfy "+this.toString()+":\n";
-			print=this.getRight();
-		}else{
-			cad="This elements not satisfy "+this.toString()+":\n";
-			print=this.getWrong();
+		if (right) {
+			cad = "This elements satisfy " + this.toString() + ":\n";
+			print = this.getRight();
+		} else {
+			cad = "This elements not satisfy " + this.toString() + ":\n";
+			print = this.getWrong();
 		}
-		
+
 		for (T t : print) {
-			cad+=print(t);
+			cad += print(t);
 		}
 		return cad;
 	}
+
 	public String print(T t) {
 		return t.toString();
 	}
-	
+
 	public abstract String toString();
 }

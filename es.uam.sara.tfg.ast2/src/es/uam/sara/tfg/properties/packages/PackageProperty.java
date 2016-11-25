@@ -1,7 +1,7 @@
 
 package es.uam.sara.tfg.properties.packages;
 
-import es.uam.sara.tfg.elements.Package;
+import es.uam.sara.tfg.elements.type.Package;
 import es.uam.sara.tfg.properties.Properties;
 
 

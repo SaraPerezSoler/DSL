@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import es.uam.sara.tfg.elements.Attribute;
-import es.uam.sara.tfg.properties.StringProperty;
+import es.uam.sara.tfg.elements.type.Attribute;
+import es.uam.sara.tfg.properties.TypeProperty;
 
 
-public class Type extends AttributeProperty implements StringProperty{
+public class Type extends AttributeProperty implements TypeProperty{
 
 	private String type;
 
@@ -20,8 +20,7 @@ public class Type extends AttributeProperty implements StringProperty{
 
 	@Override
 	public boolean checkElement(Attribute a) {
-		String types=a.getType();
-		return types.equalsIgnoreCase(type);
+		return this.equalType(a.getType(), type);
 	}
 
 }

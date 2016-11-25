@@ -1,6 +1,6 @@
 package es.uam.sara.tfg.properties.methods;
 
-import es.uam.sara.tfg.elements.Method;
+import es.uam.sara.tfg.elements.type.Method;
 
 public class isOverride extends MethodProperty{
 

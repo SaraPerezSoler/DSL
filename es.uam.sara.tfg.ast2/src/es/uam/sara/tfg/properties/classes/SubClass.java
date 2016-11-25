@@ -3,9 +3,10 @@
  */
 package es.uam.sara.tfg.properties.classes;
 
-import java.util.List;
-import es.uam.sara.tfg.elements.ClassInterface;
-import es.uam.sara.tfg.properties.StringProperty;
+
+import org.eclipse.jdt.core.dom.Type;
+import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.properties.TypeProperty;
 
 
 
@@ -13,7 +14,7 @@ import es.uam.sara.tfg.properties.StringProperty;
  * @author Sara
  *
  */
-public class SubClass extends ClassProperty implements StringProperty{
+public class SubClass extends ClassProperty implements TypeProperty{
 
 	private String of;
 	/**
@@ -37,15 +38,15 @@ public class SubClass extends ClassProperty implements StringProperty{
 
 	@Override
 	public boolean checkElement(ClassInterface t) {
-		List<String> superClass=t.getSuperclass();
+		Type superClass=t.getSuperclass();
 		if (of==null){
-			if (superClass.isEmpty() || superClass.contains(Object.class.toString().toLowerCase())){
+			if (superClass!=null){
 				return false;
 			}else{
 				return true;
 			}
 		}else{
-			if (superClass.contains(of.toLowerCase())){
+			if (this.equalType(superClass, of)){
 				return true;
 			}else{
 				return false;
