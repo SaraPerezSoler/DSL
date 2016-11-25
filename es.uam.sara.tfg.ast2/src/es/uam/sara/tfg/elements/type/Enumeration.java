@@ -10,8 +10,8 @@ import es.uam.sara.tfg.elements.JavaTypes;
 
 public class Enumeration extends JavaElement implements JavaTypes{
 	private EnumDeclaration em;
-	public Enumeration(EnumDeclaration em) {
-		super(em);
+	public Enumeration(EnumDeclaration em, UnitVisitor uv) {
+		super(em, uv);
 		this.em=em;
 	}
 

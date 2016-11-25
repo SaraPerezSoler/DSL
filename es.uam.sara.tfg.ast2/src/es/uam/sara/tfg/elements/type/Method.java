@@ -17,8 +17,8 @@ import es.uam.sara.tfg.elements.JavaElement;
 public class Method extends JavaElement implements ICanGeneric, ICanEmpty, IElements{
 
 	private MethodDeclaration md;
-	public Method(MethodDeclaration md) {
-		super(md);
+	public Method(MethodDeclaration md, UnitVisitor uv) {
+		super(md, uv);
 		this.md=md;
 	}
 	@Override
@@ -46,7 +46,7 @@ public class Method extends JavaElement implements ICanGeneric, ICanEmpty, IElem
 			if (t.isInterface()){
 				return false;
 			}
-			ClassInterface c= new ClassInterface(t);
+			ClassInterface c= new ClassInterface(t, getVisitor());
 			if (c.isGeneric()) {
 				if (comparaParam(getTypes(md.parameters()), getGenericTypes(t.typeParameters()))) {
 					return true;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uam.sara.tfg.ast.UnitVisitor;
-import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.ICanEmpty;
 import es.uam.sara.tfg.elements.IElements;
@@ -12,9 +11,10 @@ import es.uam.sara.tfg.elements.IElements;
 public class Package implements IElements, Container, ICanEmpty {
 
 	private String pck;
-
-	public Package(String pck) {
+	List<UnitVisitor> visitors;
+	public Package(String pck,List<UnitVisitor> uv) {
 		this.pck = pck;
+		visitors=uv;
 	}
 
 	@Override
@@ -29,7 +29,6 @@ public class Package implements IElements, Container, ICanEmpty {
 
 	public List<ClassInterface> getClasses() {
 		List<ClassInterface> temp = new ArrayList<ClassInterface>();
-		List<UnitVisitor> visitors = Visitors.getVisitors(this);
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getClasses());
 		}
@@ -38,7 +37,6 @@ public class Package implements IElements, Container, ICanEmpty {
 
 	public List<ClassInterface> getInterfaces() {
 		List<ClassInterface> temp = new ArrayList<ClassInterface>();
-		List<UnitVisitor> visitors = Visitors.getVisitors(this);
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getInterfaces());
 		}
@@ -47,7 +45,6 @@ public class Package implements IElements, Container, ICanEmpty {
 
 	public List<Enumeration> getEnumerations() {
 		List<Enumeration> temp = new ArrayList<Enumeration>();
-		List<UnitVisitor> visitors = Visitors.getVisitors(this);
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getEnumerations());
 
@@ -57,7 +54,6 @@ public class Package implements IElements, Container, ICanEmpty {
 
 	public List<Method> getMethods() {
 		List<Method> temp = new ArrayList<Method>();
-		List<UnitVisitor> visitors = Visitors.getVisitors(this);
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getMethods());
 
@@ -67,7 +63,6 @@ public class Package implements IElements, Container, ICanEmpty {
 
 	public List<Attribute> getAttributes() {
 		List<Attribute> temp = new ArrayList<Attribute>();
-		List<UnitVisitor> visitors = Visitors.getVisitors(this);
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getAttributes());
 
@@ -76,7 +71,7 @@ public class Package implements IElements, Container, ICanEmpty {
 	}
 
 	public boolean isEmpty() {
-		return Visitors.getVisitors(this).isEmpty();
+		return visitors.isEmpty();
 	}
 
 	@Override
@@ -88,6 +83,11 @@ public class Package implements IElements, Container, ICanEmpty {
 		}
 
 		return sameSame;
+	}
+
+	@Override
+	public UnitVisitor getVisitor() {
+		return null;
 	}
 
 }

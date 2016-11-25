@@ -16,14 +16,15 @@ public class Main {
 		String dirPath = dirs.getCanonicalPath() + File.separator + "src" + File.separator;
 
 		File root = new File(dirPath);
-		ReadFiles.parseFiles(root);
+		Visitors visit=new Visitors("AST2");
+		ReadFiles.parseFiles(root, visit);
 		NameOperation<Method> name = new NameOperation<Method>(true, Operation.EQUAL, "prueba", NameOperation.EMPTY);
-		name.check(Visitors.getMethods());
+		name.check(visit.getMethods());
 		Method prueba = name.getRight().get(0);
 
 		NameOperation<ClassInterface> classname = new NameOperation<ClassInterface>(true, Operation.EQUAL, "test",
 				NameOperation.EMPTY);
-		classname.check(Visitors.getClasses());
+		classname.check(visit.getClasses());
 		ClassInterface test = classname.getRight().get(0);
 		/*for (Method m1 : name.getRight()) {
 			for (Method m : test.getMethods()) {

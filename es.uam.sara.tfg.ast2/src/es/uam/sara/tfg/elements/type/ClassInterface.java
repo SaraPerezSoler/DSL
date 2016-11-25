@@ -12,8 +12,8 @@ import es.uam.sara.tfg.elements.JavaTypes;
 public class ClassInterface extends JavaElement implements JavaTypes, ICanGeneric{
 	private TypeDeclaration tp;
 	
-	public ClassInterface(TypeDeclaration tp) {
-		super(tp);
+	public ClassInterface(TypeDeclaration tp, UnitVisitor uv) {
+		super(tp, uv);
 		this.tp=tp;
 		
 	}	

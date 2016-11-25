@@ -13,8 +13,8 @@ public class Attribute extends JavaElement implements ICanGeneric{
 
 	private FieldDeclaration fd;
 	
-	public Attribute(FieldDeclaration fd) {
-		super(fd);
+	public Attribute(FieldDeclaration fd, UnitVisitor uv) {
+		super(fd, uv);
 		this.fd=fd;
 	}
 	
@@ -59,7 +59,7 @@ public class Attribute extends JavaElement implements ICanGeneric{
 			if (t.isInterface()){
 				return false;
 			}
-			ClassInterface c= new ClassInterface(t);
+			ClassInterface c= new ClassInterface(t, getVisitor());
 			if (c.isGeneric()) {
 				if (comparaParam(getTypes(fd.getType()), getGenericTypes(t.typeParameters()))) {
 					return true;

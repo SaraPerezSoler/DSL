@@ -50,16 +50,16 @@ public class UnitVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(TypeDeclaration node) {
 		if (node.isInterface()) {
-			interfaces.add(new ClassInterface(node));
+			interfaces.add(new ClassInterface(node, this));
 		} else {
-			classes.add(new ClassInterface(node));
+			classes.add(new ClassInterface(node, this));
 		}
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(EnumDeclaration node) {
-		enumerations.add(new Enumeration(node));
+		enumerations.add(new Enumeration(node, this));
 		return super.visit(node);
 	}
 
@@ -70,13 +70,13 @@ public class UnitVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(MethodDeclaration node) {
-		methods.add(new Method(node));
+		methods.add(new Method(node, this) );
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(FieldDeclaration node) {
-		attributes.add(new Attribute(node));
+		attributes.add(new Attribute(node, this));
 		return super.visit(node);
 	}
 
@@ -108,6 +108,18 @@ public class UnitVisitor extends ASTVisitor {
 		return attributes;
 	}
 
+	public boolean isVisitorFrom(String pk) {
+		if (pk.equals("(default package)")){
+			if (packageDeclaration == null) {
+				return true;
+			}
+		}else if (packageDeclaration!=null) {
+			if (packageDeclaration.getName().toString().equals(pk)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public boolean isVisitorFrom(IElements type) {
 
 		if (type instanceof Package) {

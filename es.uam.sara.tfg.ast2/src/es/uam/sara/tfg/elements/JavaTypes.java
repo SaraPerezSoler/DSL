@@ -24,7 +24,7 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (!((TypeDeclaration) ed).isInterface())
-					temp.add(new ClassInterface((TypeDeclaration) ed));
+					temp.add(new ClassInterface((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
@@ -36,7 +36,7 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (((TypeDeclaration) ed).isInterface())
-					temp.add(new ClassInterface((TypeDeclaration) ed));
+					temp.add(new ClassInterface((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
@@ -47,7 +47,7 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		List<Enumeration> temp = new ArrayList<Enumeration>();
 		for (Object ed : bd) {
 			if (ed instanceof EnumDeclaration) {
-				temp.add(new Enumeration((EnumDeclaration) ed));
+				temp.add(new Enumeration((EnumDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
@@ -58,7 +58,7 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		List<Method> temp = new ArrayList<Method>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
-				temp.add(new Method((MethodDeclaration) ed));
+				temp.add(new Method((MethodDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
@@ -69,7 +69,7 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		List<Attribute> temp = new ArrayList<Attribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
-				temp.add(new Attribute((FieldDeclaration) ed));
+				temp.add(new Attribute((FieldDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;

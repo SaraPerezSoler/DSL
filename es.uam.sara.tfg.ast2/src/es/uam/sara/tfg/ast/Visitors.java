@@ -12,26 +12,30 @@ import es.uam.sara.tfg.elements.type.Method;
 import es.uam.sara.tfg.elements.type.Package;
 
 public class Visitors {
-	private static List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
-	private static List<Package> packages = new ArrayList<Package>();
-
+	private  List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
+	private  List<Package> packages = new ArrayList<Package>();
+	private String projectName;
+	
+	public Visitors(String projectName) {
+		this.projectName=projectName;
+	}
 	/* Metodos de inicializacion del Visitors */
-	public static void addVisitor(UnitVisitor v) {
+	public void addVisitor(UnitVisitor v) {
 		visitors.add(v);
 	}
 
-	public static void addPackage(String pack) {
-		packages.add(new Package(pack));
+	public void addPackage(String pack) {
+		packages.add(new Package(pack,getVisitors(pack)) );
 	}
 
-	public static void addPackages(List<String> packs) {
+	public void addPackages(List<String> packs) {
 		for (String s: packs){
-			packages.add(new Package(s));
+			packages.add(new Package(s, getVisitors(s)));
 		}
 	}
 
 	/* Metodos para coger todos los elementos de un tipo */
-	public static List<JavaElement> getTypes() {
+	public List<JavaElement> getTypes() {
 		List<JavaElement> result = new ArrayList<JavaElement>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
@@ -41,7 +45,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<JavaElement> getEnumClass() {
+	public List<JavaElement> getEnumClass() {
 		List<JavaElement> result = new ArrayList<JavaElement>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
@@ -50,11 +54,11 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<Package> getPackages() {
+	public List<Package> getPackages() {
 		return packages;
 	}
 
-	public static List<ClassInterface> getClasses() {
+	public List<ClassInterface> getClasses() {
 		List<ClassInterface> result = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
@@ -62,7 +66,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<ClassInterface> getInterfaces() {
+	public List<ClassInterface> getInterfaces() {
 		List<ClassInterface> result = new ArrayList<ClassInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getInterfaces());
@@ -70,7 +74,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<Enumeration> getEnumerations() {
+	public List<Enumeration> getEnumerations() {
 		List<Enumeration> result = new ArrayList<Enumeration>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getEnumerations());
@@ -78,7 +82,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<Method> getMethods() {
+	public List<Method> getMethods() {
 		List<Method> result = new ArrayList<Method>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getMethods());
@@ -86,7 +90,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static List<Attribute> getAttributes() {
+	public List<Attribute> getAttributes() {
 		List<Attribute> result = new ArrayList<Attribute>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getAttributes());
@@ -94,7 +98,7 @@ public class Visitors {
 		return result;
 	}
 
-	public static String getFileName(IElements type) {
+	public String getFileName(IElements type) {
 		
 		for (UnitVisitor u : visitors) {
 			if (u.isVisitorFrom(type)) {
@@ -104,7 +108,7 @@ public class Visitors {
 		return "";
 	}
 
-	public static UnitVisitor getVisitor(IElements elem) {
+	public UnitVisitor getVisitor(IElements elem) {
 
 		for (UnitVisitor u : visitors) {
 			if (u.isVisitorFrom(elem)) {
@@ -114,7 +118,7 @@ public class Visitors {
 		return null;
 	}
 	
-	public static List<UnitVisitor> getVisitors(Package elem) {
+	public List<UnitVisitor> getVisitors(String elem) {
 		List<UnitVisitor> list=new ArrayList<UnitVisitor>();
 		for (UnitVisitor u : visitors) {
 			if (u.isVisitorFrom(elem)) {
@@ -124,8 +128,11 @@ public class Visitors {
 		return list;
 	}
 
-	public static void reset() {
+	public void reset() {
 		visitors.clear();
 		packages.clear();
+	}
+	public String getProjectName() {
+		return projectName;
 	}
 }
