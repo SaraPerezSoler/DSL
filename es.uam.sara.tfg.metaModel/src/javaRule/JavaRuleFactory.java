@@ -31,6 +31,15 @@ public interface JavaRuleFactory extends EFactory {
 	RuleSet createRuleSet();
 
 	/**
+	 * Returns a new object of class '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable</em>'.
+	 * @generated
+	 */
+	Variable createVariable();
+
+	/**
 	 * Returns a new object of class '<em>Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,13 +67,13 @@ public interface JavaRuleFactory extends EFactory {
 	And createAnd();
 
 	/**
-	 * Returns a new object of class '<em>Filter</em>'.
+	 * Returns a new object of class '<em>Property Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Filter</em>'.
+	 * @return a new object of class '<em>Property Literal</em>'.
 	 * @generated
 	 */
-	Filter createFilter();
+	PropertyLiteral createPropertyLiteral();
 
 	/**
 	 * Returns a new object of class '<em>is Implemented</em>'.
@@ -76,13 +85,31 @@ public interface JavaRuleFactory extends EFactory {
 	isImplemented createisImplemented();
 
 	/**
-	 * Returns a new object of class '<em>Is Inheritor</em>'.
+	 * Returns a new object of class '<em>Is Super Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Is Inheritor</em>'.
+	 * @return a new object of class '<em>Is Super Interface</em>'.
 	 * @generated
 	 */
-	IsInheritor createIsInheritor();
+	IsSuperInterface createIsSuperInterface();
+
+	/**
+	 * Returns a new object of class '<em>Is Super Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Super Class</em>'.
+	 * @generated
+	 */
+	IsSuperClass createIsSuperClass();
+
+	/**
+	 * Returns a new object of class '<em>Is Sub Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Sub Class</em>'.
+	 * @generated
+	 */
+	IsSubClass createIsSubClass();
 
 	/**
 	 * Returns a new object of class '<em>Implements</em>'.
@@ -94,13 +121,22 @@ public interface JavaRuleFactory extends EFactory {
 	Implements createImplements();
 
 	/**
-	 * Returns a new object of class '<em>Is Extended</em>'.
+	 * Returns a new object of class '<em>Extends</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Is Extended</em>'.
+	 * @return a new object of class '<em>Extends</em>'.
 	 * @generated
 	 */
-	IsExtended createIsExtended();
+	Extends createExtends();
+
+	/**
+	 * Returns a new object of class '<em>Rango Names</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rango Names</em>'.
+	 * @generated
+	 */
+	RangoNames createRangoNames();
 
 	/**
 	 * Returns a new object of class '<em>Tamanio</em>'.
@@ -166,6 +202,15 @@ public interface JavaRuleFactory extends EFactory {
 	Empty createEmpty();
 
 	/**
+	 * Returns a new object of class '<em>Is Generic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Generic</em>'.
+	 * @generated
+	 */
+	IsGeneric createIsGeneric();
+
+	/**
 	 * Returns a new object of class '<em>Name Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,6 +218,24 @@ public interface JavaRuleFactory extends EFactory {
 	 * @generated
 	 */
 	NameOperation createNameOperation();
+
+	/**
+	 * Returns a new object of class '<em>String Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Variable</em>'.
+	 * @generated
+	 */
+	StringVariable createStringVariable();
+
+	/**
+	 * Returns a new object of class '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Value</em>'.
+	 * @generated
+	 */
+	StringValue createStringValue();
 
 	/**
 	 * Returns a new object of class '<em>Name Type</em>'.
@@ -218,15 +281,6 @@ public interface JavaRuleFactory extends EFactory {
 	 * @generated
 	 */
 	BlendModifiers createBlendModifiers();
-
-	/**
-	 * Returns a new object of class '<em>Is Generic</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Is Generic</em>'.
-	 * @generated
-	 */
-	IsGeneric createIsGeneric();
 
 	/**
 	 * Returns the package supported by this factory.

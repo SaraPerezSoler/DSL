@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class MethodImpl extends SatisfyImpl implements Method {
+public abstract class MethodImpl extends PropertyImpl implements Method {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

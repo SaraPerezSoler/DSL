@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class InterfaceImpl extends SatisfyImpl implements Interface {
+public abstract class InterfaceImpl extends PropertyImpl implements Interface {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

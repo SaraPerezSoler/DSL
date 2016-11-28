@@ -5,8 +5,8 @@ package javaRule.impl;
 import java.util.Collection;
 
 import javaRule.JavaRulePackage;
-import javaRule.Rule;
 import javaRule.RuleSet;
+import javaRule.Sentence;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link javaRule.impl.RuleSetImpl#getProjectName <em>Project Name</em>}</li>
- *   <li>{@link javaRule.impl.RuleSetImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link javaRule.impl.RuleSetImpl#getSentences <em>Sentences</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +47,14 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	protected EList<String> projectName;
 
 	/**
-	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
+	 * The cached value of the '{@link #getSentences() <em>Sentences</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRules()
+	 * @see #getSentences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Rule> rules;
+	protected EList<Sentence> sentences;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +92,11 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Rule> getRules() {
-		if (rules == null) {
-			rules = new EObjectContainmentEList<Rule>(Rule.class, this, JavaRulePackage.RULE_SET__RULES);
+	public EList<Sentence> getSentences() {
+		if (sentences == null) {
+			sentences = new EObjectContainmentEList<Sentence>(Sentence.class, this, JavaRulePackage.RULE_SET__SENTENCES);
 		}
-		return rules;
+		return sentences;
 	}
 
 	/**
@@ -107,8 +107,8 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaRulePackage.RULE_SET__RULES:
-				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+			case JavaRulePackage.RULE_SET__SENTENCES:
+				return ((InternalEList<?>)getSentences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +123,8 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 		switch (featureID) {
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
 				return getProjectName();
-			case JavaRulePackage.RULE_SET__RULES:
-				return getRules();
+			case JavaRulePackage.RULE_SET__SENTENCES:
+				return getSentences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,9 +142,9 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 				getProjectName().clear();
 				getProjectName().addAll((Collection<? extends String>)newValue);
 				return;
-			case JavaRulePackage.RULE_SET__RULES:
-				getRules().clear();
-				getRules().addAll((Collection<? extends Rule>)newValue);
+			case JavaRulePackage.RULE_SET__SENTENCES:
+				getSentences().clear();
+				getSentences().addAll((Collection<? extends Sentence>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -161,8 +161,8 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
 				getProjectName().clear();
 				return;
-			case JavaRulePackage.RULE_SET__RULES:
-				getRules().clear();
+			case JavaRulePackage.RULE_SET__SENTENCES:
+				getSentences().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,8 +178,8 @@ public class RuleSetImpl extends MinimalEObjectImpl.Container implements RuleSet
 		switch (featureID) {
 			case JavaRulePackage.RULE_SET__PROJECT_NAME:
 				return projectName != null && !projectName.isEmpty();
-			case JavaRulePackage.RULE_SET__RULES:
-				return rules != null && !rules.isEmpty();
+			case JavaRulePackage.RULE_SET__SENTENCES:
+				return sentences != null && !sentences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

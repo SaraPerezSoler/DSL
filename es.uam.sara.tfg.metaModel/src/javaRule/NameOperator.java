@@ -19,16 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum NameOperator implements Enumerator {
 	/**
-	 * The '<em><b>Nothing</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOTHING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NOTHING(0, "nothing", "nothing"),
-
-	/**
 	 * The '<em><b>EQUAL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,21 +67,6 @@ public enum NameOperator implements Enumerator {
 	 * @ordered
 	 */
 	LIKE(5, "LIKE", "LIKE");
-
-	/**
-	 * The '<em><b>Nothing</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Nothing</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NOTHING
-	 * @model name="nothing"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NOTHING_VALUE = 0;
 
 	/**
 	 * The '<em><b>EQUAL</b></em>' literal value.
@@ -176,7 +151,6 @@ public enum NameOperator implements Enumerator {
 	 */
 	private static final NameOperator[] VALUES_ARRAY =
 		new NameOperator[] {
-			NOTHING,
 			EQUAL,
 			START,
 			END,
@@ -238,7 +212,6 @@ public enum NameOperator implements Enumerator {
 	 */
 	public static NameOperator get(int value) {
 		switch (value) {
-			case NOTHING_VALUE: return NOTHING;
 			case EQUAL_VALUE: return EQUAL;
 			case START_VALUE: return START;
 			case END_VALUE: return END;

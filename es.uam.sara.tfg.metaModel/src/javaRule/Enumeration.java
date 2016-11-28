@@ -13,5 +13,5 @@ package javaRule;
  * @model abstract="true"
  * @generated
  */
-public interface Enumeration extends Satisfy {
+public interface Enumeration extends Property {
 } // Enumeration

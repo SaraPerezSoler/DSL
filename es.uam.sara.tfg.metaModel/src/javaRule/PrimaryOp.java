@@ -6,13 +6,13 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Satisfy</b></em>'.
+ * A representation of the model object '<em><b>Primary Op</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see javaRule.JavaRulePackage#getSatisfy()
+ * @see javaRule.JavaRulePackage#getPrimaryOp()
  * @model abstract="true"
  * @generated
  */
-public interface Satisfy extends EObject {
-} // Satisfy
+public interface PrimaryOp extends EObject {
+} // PrimaryOp

@@ -10,14 +10,15 @@ import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Enumeration;
+import javaRule.Extends;
 import javaRule.File;
-import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
-import javaRule.IsExtended;
 import javaRule.IsGeneric;
-import javaRule.IsInheritor;
+import javaRule.IsSubClass;
+import javaRule.IsSuperClass;
+import javaRule.IsSuperInterface;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Method;
@@ -26,11 +27,19 @@ import javaRule.NameOperation;
 import javaRule.NameType;
 import javaRule.Or;
 import javaRule.Parameter;
+import javaRule.PrimaryOp;
+import javaRule.Property;
+import javaRule.PropertyLiteral;
+import javaRule.RangoNames;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
-import javaRule.Satisfy;
+import javaRule.Sentence;
+import javaRule.StringProperty;
+import javaRule.StringValue;
+import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.Variable;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EObject;
@@ -101,15 +110,30 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaRulePackage.SENTENCE: {
+				Sentence sentence = (Sentence)theEObject;
+				T result = caseSentence(sentence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.VARIABLE: {
+				Variable variable = (Variable)theEObject;
+				T result = caseVariable(variable);
+				if (result == null) result = caseSentence(variable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaRulePackage.RULE: {
 				Rule rule = (Rule)theEObject;
 				T result = caseRule(rule);
+				if (result == null) result = caseSentence(rule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaRulePackage.OR: {
 				Or or = (Or)theEObject;
 				T result = caseOr(or);
+				if (result == null) result = casePrimaryOp(or);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,36 +143,71 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.FILTER: {
-				Filter filter = (Filter)theEObject;
-				T result = caseFilter(filter);
+			case JavaRulePackage.PRIMARY_OP: {
+				PrimaryOp primaryOp = (PrimaryOp)theEObject;
+				T result = casePrimaryOp(primaryOp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.SATISFY: {
-				Satisfy satisfy = (Satisfy)theEObject;
-				T result = caseSatisfy(satisfy);
+			case JavaRulePackage.PROPERTY_LITERAL: {
+				PropertyLiteral propertyLiteral = (PropertyLiteral)theEObject;
+				T result = casePropertyLiteral(propertyLiteral);
+				if (result == null) result = casePrimaryOp(propertyLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.PROPERTY: {
+				Property property = (Property)theEObject;
+				T result = caseProperty(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaRulePackage.FILE: {
 				File file = (File)theEObject;
 				T result = caseFile(file);
-				if (result == null) result = caseSatisfy(file);
+				if (result == null) result = caseProperty(file);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaRulePackage.PACKAGE: {
 				javaRule.Package package_ = (javaRule.Package)theEObject;
 				T result = casePackage(package_);
-				if (result == null) result = caseSatisfy(package_);
+				if (result == null) result = caseProperty(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaRulePackage.INTERFACE: {
 				Interface interface_ = (Interface)theEObject;
 				T result = caseInterface(interface_);
-				if (result == null) result = caseSatisfy(interface_);
+				if (result == null) result = caseProperty(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.CLASS: {
+				javaRule.Class class_ = (javaRule.Class)theEObject;
+				T result = caseClass(class_);
+				if (result == null) result = caseProperty(class_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.ENUMERATION: {
+				Enumeration enumeration = (Enumeration)theEObject;
+				T result = caseEnumeration(enumeration);
+				if (result == null) result = caseProperty(enumeration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.METHOD: {
+				Method method = (Method)theEObject;
+				T result = caseMethod(method);
+				if (result == null) result = caseProperty(method);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.ATTRIBUTE: {
+				Attribute attribute = (Attribute)theEObject;
+				T result = caseAttribute(attribute);
+				if (result == null) result = caseProperty(attribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,30 +215,31 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				isImplemented isImplemented = (isImplemented)theEObject;
 				T result = caseisImplemented(isImplemented);
 				if (result == null) result = caseInterface(isImplemented);
-				if (result == null) result = caseSatisfy(isImplemented);
+				if (result == null) result = caseProperty(isImplemented);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.ENUMERATION: {
-				Enumeration enumeration = (Enumeration)theEObject;
-				T result = caseEnumeration(enumeration);
-				if (result == null) result = caseSatisfy(enumeration);
+			case JavaRulePackage.IS_SUPER_INTERFACE: {
+				IsSuperInterface isSuperInterface = (IsSuperInterface)theEObject;
+				T result = caseIsSuperInterface(isSuperInterface);
+				if (result == null) result = caseInterface(isSuperInterface);
+				if (result == null) result = caseProperty(isSuperInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.CLASS: {
-				javaRule.Class class_ = (javaRule.Class)theEObject;
-				T result = caseClass(class_);
-				if (result == null) result = caseSatisfy(class_);
+			case JavaRulePackage.IS_SUPER_CLASS: {
+				IsSuperClass isSuperClass = (IsSuperClass)theEObject;
+				T result = caseIsSuperClass(isSuperClass);
+				if (result == null) result = caseClass(isSuperClass);
+				if (result == null) result = caseProperty(isSuperClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.IS_INHERITOR: {
-				IsInheritor isInheritor = (IsInheritor)theEObject;
-				T result = caseIsInheritor(isInheritor);
-				if (result == null) result = caseClass(isInheritor);
-				if (result == null) result = caseInterface(isInheritor);
-				if (result == null) result = caseSatisfy(isInheritor);
+			case JavaRulePackage.IS_SUB_CLASS: {
+				IsSubClass isSubClass = (IsSubClass)theEObject;
+				T result = caseIsSubClass(isSubClass);
+				if (result == null) result = caseClass(isSubClass);
+				if (result == null) result = caseProperty(isSubClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,23 +247,22 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Implements implements_ = (Implements)theEObject;
 				T result = caseImplements(implements_);
 				if (result == null) result = caseClass(implements_);
-				if (result == null) result = caseSatisfy(implements_);
+				if (result == null) result = caseEnumeration(implements_);
+				if (result == null) result = caseProperty(implements_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.IS_EXTENDED: {
-				IsExtended isExtended = (IsExtended)theEObject;
-				T result = caseIsExtended(isExtended);
-				if (result == null) result = caseClass(isExtended);
-				if (result == null) result = caseInterface(isExtended);
-				if (result == null) result = caseSatisfy(isExtended);
+			case JavaRulePackage.EXTENDS: {
+				Extends extends_ = (Extends)theEObject;
+				T result = caseExtends(extends_);
+				if (result == null) result = caseInterface(extends_);
+				if (result == null) result = caseProperty(extends_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JavaRulePackage.METHOD: {
-				Method method = (Method)theEObject;
-				T result = caseMethod(method);
-				if (result == null) result = caseSatisfy(method);
+			case JavaRulePackage.RANGO_NAMES: {
+				RangoNames rangoNames = (RangoNames)theEObject;
+				T result = caseRangoNames(rangoNames);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,7 +270,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Tamanio tamanio = (Tamanio)theEObject;
 				T result = caseTamanio(tamanio);
 				if (result == null) result = caseMethod(tamanio);
-				if (result == null) result = caseSatisfy(tamanio);
+				if (result == null) result = caseProperty(tamanio);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,7 +278,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
 				if (result == null) result = caseMethod(parameter);
-				if (result == null) result = caseSatisfy(parameter);
+				if (result == null) result = caseProperty(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,7 +286,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Constructor constructor = (Constructor)theEObject;
 				T result = caseConstructor(constructor);
 				if (result == null) result = caseMethod(constructor);
-				if (result == null) result = caseSatisfy(constructor);
+				if (result == null) result = caseProperty(constructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -235,14 +294,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Return return_ = (Return)theEObject;
 				T result = caseReturn(return_);
 				if (result == null) result = caseMethod(return_);
-				if (result == null) result = caseSatisfy(return_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaRulePackage.ATTRIBUTE: {
-				Attribute attribute = (Attribute)theEObject;
-				T result = caseAttribute(attribute);
-				if (result == null) result = caseSatisfy(attribute);
+				if (result == null) result = caseProperty(return_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,7 +302,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				AttributeType attributeType = (AttributeType)theEObject;
 				T result = caseAttributeType(attributeType);
 				if (result == null) result = caseAttribute(attributeType);
-				if (result == null) result = caseSatisfy(attributeType);
+				if (result == null) result = caseProperty(attributeType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -258,7 +310,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Initialize initialize = (Initialize)theEObject;
 				T result = caseInitialize(initialize);
 				if (result == null) result = caseAttribute(initialize);
-				if (result == null) result = caseSatisfy(initialize);
+				if (result == null) result = caseProperty(initialize);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -271,7 +323,18 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInterface(empty);
 				if (result == null) result = caseEnumeration(empty);
 				if (result == null) result = caseFile(empty);
-				if (result == null) result = caseSatisfy(empty);
+				if (result == null) result = caseProperty(empty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.IS_GENERIC: {
+				IsGeneric isGeneric = (IsGeneric)theEObject;
+				T result = caseIsGeneric(isGeneric);
+				if (result == null) result = caseClass(isGeneric);
+				if (result == null) result = caseInterface(isGeneric);
+				if (result == null) result = caseMethod(isGeneric);
+				if (result == null) result = caseAttribute(isGeneric);
+				if (result == null) result = caseProperty(isGeneric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -285,7 +348,27 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInterface(nameOperation);
 				if (result == null) result = caseEnumeration(nameOperation);
 				if (result == null) result = caseFile(nameOperation);
-				if (result == null) result = caseSatisfy(nameOperation);
+				if (result == null) result = caseProperty(nameOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.STRING_PROPERTY: {
+				StringProperty stringProperty = (StringProperty)theEObject;
+				T result = caseStringProperty(stringProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.STRING_VARIABLE: {
+				StringVariable stringVariable = (StringVariable)theEObject;
+				T result = caseStringVariable(stringVariable);
+				if (result == null) result = caseStringProperty(stringVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.STRING_VALUE: {
+				StringValue stringValue = (StringValue)theEObject;
+				T result = caseStringValue(stringValue);
+				if (result == null) result = caseStringProperty(stringValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,7 +382,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInterface(nameType);
 				if (result == null) result = caseEnumeration(nameType);
 				if (result == null) result = caseFile(nameType);
-				if (result == null) result = caseSatisfy(nameType);
+				if (result == null) result = caseProperty(nameType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -311,7 +394,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMethod(javaDoc);
 				if (result == null) result = caseInterface(javaDoc);
 				if (result == null) result = caseEnumeration(javaDoc);
-				if (result == null) result = caseSatisfy(javaDoc);
+				if (result == null) result = caseProperty(javaDoc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -323,7 +406,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEnumeration(contains);
 				if (result == null) result = caseClass(contains);
 				if (result == null) result = caseFile(contains);
-				if (result == null) result = caseSatisfy(contains);
+				if (result == null) result = caseProperty(contains);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -335,24 +418,13 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseMethod(modifiers);
 				if (result == null) result = caseEnumeration(modifiers);
 				if (result == null) result = caseInterface(modifiers);
-				if (result == null) result = caseSatisfy(modifiers);
+				if (result == null) result = caseProperty(modifiers);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case JavaRulePackage.BLEND_MODIFIERS: {
 				BlendModifiers blendModifiers = (BlendModifiers)theEObject;
 				T result = caseBlendModifiers(blendModifiers);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaRulePackage.IS_GENERIC: {
-				IsGeneric isGeneric = (IsGeneric)theEObject;
-				T result = caseIsGeneric(isGeneric);
-				if (result == null) result = caseClass(isGeneric);
-				if (result == null) result = caseInterface(isGeneric);
-				if (result == null) result = caseMethod(isGeneric);
-				if (result == null) result = caseAttribute(isGeneric);
-				if (result == null) result = caseSatisfy(isGeneric);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -372,6 +444,36 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRuleSet(RuleSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sentence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sentence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSentence(Sentence object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariable(Variable object) {
 		return null;
 	}
 
@@ -421,32 +523,47 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Primary Op</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Filter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Primary Op</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFilter(Filter object) {
+	public T casePrimaryOp(PrimaryOp object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Satisfy</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Property Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Satisfy</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Property Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSatisfy(Satisfy object) {
+	public T casePropertyLiteral(PropertyLiteral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProperty(Property object) {
 		return null;
 	}
 
@@ -496,17 +613,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseisImplemented(isImplemented object) {
+	public T caseClass(javaRule.Class object) {
 		return null;
 	}
 
@@ -526,32 +643,92 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Class</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Method</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseClass(javaRule.Class object) {
+	public T caseMethod(Method object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Is Inheritor</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Is Inheritor</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIsInheritor(IsInheritor object) {
+	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseisImplemented(isImplemented object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Super Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Super Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsSuperInterface(IsSuperInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Super Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Super Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsSuperClass(IsSuperClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Sub Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Sub Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsSubClass(IsSubClass object) {
 		return null;
 	}
 
@@ -571,32 +748,32 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Is Extended</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Extends</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Is Extended</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Extends</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIsExtended(IsExtended object) {
+	public T caseExtends(Extends object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rango Names</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rango Names</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMethod(Method object) {
+	public T caseRangoNames(RangoNames object) {
 		return null;
 	}
 
@@ -661,21 +838,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAttribute(Attribute object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Attribute Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -721,6 +883,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Generic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Generic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsGeneric(IsGeneric object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Name Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -732,6 +909,51 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNameOperation(NameOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringProperty(StringProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringVariable(StringVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringValue(StringValue object) {
 		return null;
 	}
 
@@ -807,21 +1029,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBlendModifiers(BlendModifiers object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Is Generic</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Is Generic</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIsGeneric(IsGeneric object) {
 		return null;
 	}
 

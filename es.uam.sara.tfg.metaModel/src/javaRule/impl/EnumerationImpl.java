@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class EnumerationImpl extends SatisfyImpl implements Enumeration {
+public abstract class EnumerationImpl extends PropertyImpl implements Enumeration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

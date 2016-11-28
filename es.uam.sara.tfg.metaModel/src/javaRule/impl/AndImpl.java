@@ -6,15 +6,14 @@ import java.util.Collection;
 
 import javaRule.And;
 import javaRule.JavaRulePackage;
-import javaRule.Satisfy;
+import javaRule.PrimaryOp;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -42,7 +41,7 @@ public class AndImpl extends MinimalEObjectImpl.Container implements And {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Satisfy> op;
+	protected EList<PrimaryOp> op;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,9 +67,9 @@ public class AndImpl extends MinimalEObjectImpl.Container implements And {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Satisfy> getOp() {
+	public EList<PrimaryOp> getOp() {
 		if (op == null) {
-			op = new EObjectContainmentEList<Satisfy>(Satisfy.class, this, JavaRulePackage.AND__OP);
+			op = new EObjectContainmentEList<PrimaryOp>(PrimaryOp.class, this, JavaRulePackage.AND__OP);
 		}
 		return op;
 	}
@@ -114,7 +113,7 @@ public class AndImpl extends MinimalEObjectImpl.Container implements And {
 		switch (featureID) {
 			case JavaRulePackage.AND__OP:
 				getOp().clear();
-				getOp().addAll((Collection<? extends Satisfy>)newValue);
+				getOp().addAll((Collection<? extends PrimaryOp>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

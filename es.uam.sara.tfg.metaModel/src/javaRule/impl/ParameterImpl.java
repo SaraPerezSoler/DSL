@@ -3,19 +3,17 @@
 package javaRule.impl;
 
 import java.util.Collection;
-
 import javaRule.JavaRulePackage;
 import javaRule.Parameter;
-
+import javaRule.StringProperty;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,43 +23,78 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.ParameterImpl#getNumParam <em>Num Param</em>}</li>
- *   <li>{@link javaRule.impl.ParameterImpl#getTypesParam <em>Types Param</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getExact <em>Exact</em>}</li>
+ *   <li>{@link javaRule.impl.ParameterImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParameterImpl extends MethodImpl implements Parameter {
 	/**
-	 * The default value of the '{@link #getNumParam() <em>Num Param</em>}' attribute.
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumParam()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUM_PARAM_EDEFAULT = 0;
-
+	protected static final int MIN_EDEFAULT = 1;
 	/**
-	 * The cached value of the '{@link #getNumParam() <em>Num Param</em>}' attribute.
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumParam()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected int numParam = NUM_PARAM_EDEFAULT;
-
+	protected int min = MIN_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getTypesParam() <em>Types Param</em>}' attribute list.
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypesParam()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> typesParam;
-
+	protected static final int MAX_EDEFAULT = 2147483647;
+	/**
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMax()
+	 * @generated
+	 * @ordered
+	 */
+	protected int max = MAX_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getExact() <em>Exact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExact()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int EXACT_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getExact() <em>Exact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExact()
+	 * @generated
+	 * @ordered
+	 */
+	protected int exact = EXACT_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StringProperty> types;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,8 +119,8 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNumParam() {
-		return numParam;
+	public int getMin() {
+		return min;
 	}
 
 	/**
@@ -95,11 +128,11 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumParam(int newNumParam) {
-		int oldNumParam = numParam;
-		numParam = newNumParam;
+	public void setMin(int newMin) {
+		int oldMin = min;
+		min = newMin;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__NUM_PARAM, oldNumParam, numParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__MIN, oldMin, min));
 	}
 
 	/**
@@ -107,11 +140,67 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getTypesParam() {
-		if (typesParam == null) {
-			typesParam = new EDataTypeUniqueEList<String>(String.class, this, JavaRulePackage.PARAMETER__TYPES_PARAM);
+	public int getMax() {
+		return max;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMax(int newMax) {
+		int oldMax = max;
+		max = newMax;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__MAX, oldMax, max));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getExact() {
+		return exact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExact(int newExact) {
+		int oldExact = exact;
+		exact = newExact;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.PARAMETER__EXACT, oldExact, exact));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<StringProperty> getTypes() {
+		if (types == null) {
+			types = new EObjectContainmentEList<StringProperty>(StringProperty.class, this, JavaRulePackage.PARAMETER__TYPES);
 		}
-		return typesParam;
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaRulePackage.PARAMETER__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -122,10 +211,14 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				return getNumParam();
-			case JavaRulePackage.PARAMETER__TYPES_PARAM:
-				return getTypesParam();
+			case JavaRulePackage.PARAMETER__MIN:
+				return getMin();
+			case JavaRulePackage.PARAMETER__MAX:
+				return getMax();
+			case JavaRulePackage.PARAMETER__EXACT:
+				return getExact();
+			case JavaRulePackage.PARAMETER__TYPES:
+				return getTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,12 +232,18 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				setNumParam((Integer)newValue);
+			case JavaRulePackage.PARAMETER__MIN:
+				setMin((Integer)newValue);
 				return;
-			case JavaRulePackage.PARAMETER__TYPES_PARAM:
-				getTypesParam().clear();
-				getTypesParam().addAll((Collection<? extends String>)newValue);
+			case JavaRulePackage.PARAMETER__MAX:
+				setMax((Integer)newValue);
+				return;
+			case JavaRulePackage.PARAMETER__EXACT:
+				setExact((Integer)newValue);
+				return;
+			case JavaRulePackage.PARAMETER__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends StringProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,11 +257,17 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				setNumParam(NUM_PARAM_EDEFAULT);
+			case JavaRulePackage.PARAMETER__MIN:
+				setMin(MIN_EDEFAULT);
 				return;
-			case JavaRulePackage.PARAMETER__TYPES_PARAM:
-				getTypesParam().clear();
+			case JavaRulePackage.PARAMETER__MAX:
+				setMax(MAX_EDEFAULT);
+				return;
+			case JavaRulePackage.PARAMETER__EXACT:
+				setExact(EXACT_EDEFAULT);
+				return;
+			case JavaRulePackage.PARAMETER__TYPES:
+				getTypes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -176,10 +281,14 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.PARAMETER__NUM_PARAM:
-				return numParam != NUM_PARAM_EDEFAULT;
-			case JavaRulePackage.PARAMETER__TYPES_PARAM:
-				return typesParam != null && !typesParam.isEmpty();
+			case JavaRulePackage.PARAMETER__MIN:
+				return min != MIN_EDEFAULT;
+			case JavaRulePackage.PARAMETER__MAX:
+				return max != MAX_EDEFAULT;
+			case JavaRulePackage.PARAMETER__EXACT:
+				return exact != EXACT_EDEFAULT;
+			case JavaRulePackage.PARAMETER__TYPES:
+				return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -194,10 +303,12 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (numParam: ");
-		result.append(numParam);
-		result.append(", typesParam: ");
-		result.append(typesParam);
+		result.append(" (min: ");
+		result.append(min);
+		result.append(", max: ");
+		result.append(max);
+		result.append(", exact: ");
+		result.append(exact);
 		result.append(')');
 		return result.toString();
 	}

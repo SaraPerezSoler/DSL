@@ -2,25 +2,27 @@
  */
 package javaRule.impl;
 
-import javaRule.IsInheritor;
 import javaRule.JavaRulePackage;
+import javaRule.PrimaryOp;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Is Inheritor</b></em>'.
+ * An implementation of the model object '<em><b>Primary Op</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class IsInheritorImpl extends ClassImpl implements IsInheritor {
+public abstract class PrimaryOpImpl extends MinimalEObjectImpl.Container implements PrimaryOp {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IsInheritorImpl() {
+	protected PrimaryOpImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class IsInheritorImpl extends ClassImpl implements IsInheritor {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.IS_INHERITOR;
+		return JavaRulePackage.Literals.PRIMARY_OP;
 	}
 
-} //IsInheritorImpl
+} //PrimaryOpImpl

@@ -10,14 +10,15 @@ import javaRule.Constructor;
 import javaRule.Contains;
 import javaRule.Empty;
 import javaRule.Enumeration;
+import javaRule.Extends;
 import javaRule.File;
-import javaRule.Filter;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
-import javaRule.IsExtended;
 import javaRule.IsGeneric;
-import javaRule.IsInheritor;
+import javaRule.IsSubClass;
+import javaRule.IsSuperClass;
+import javaRule.IsSuperInterface;
 import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
 import javaRule.Method;
@@ -26,11 +27,19 @@ import javaRule.NameOperation;
 import javaRule.NameType;
 import javaRule.Or;
 import javaRule.Parameter;
+import javaRule.PrimaryOp;
+import javaRule.Property;
+import javaRule.PropertyLiteral;
+import javaRule.RangoNames;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
-import javaRule.Satisfy;
+import javaRule.Sentence;
+import javaRule.StringProperty;
+import javaRule.StringValue;
+import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.Variable;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -101,6 +110,14 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createRuleSetAdapter();
 			}
 			@Override
+			public Adapter caseSentence(Sentence object) {
+				return createSentenceAdapter();
+			}
+			@Override
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
+			}
+			@Override
 			public Adapter caseRule(Rule object) {
 				return createRuleAdapter();
 			}
@@ -113,12 +130,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createAndAdapter();
 			}
 			@Override
-			public Adapter caseFilter(Filter object) {
-				return createFilterAdapter();
+			public Adapter casePrimaryOp(PrimaryOp object) {
+				return createPrimaryOpAdapter();
 			}
 			@Override
-			public Adapter caseSatisfy(Satisfy object) {
-				return createSatisfyAdapter();
+			public Adapter casePropertyLiteral(PropertyLiteral object) {
+				return createPropertyLiteralAdapter();
+			}
+			@Override
+			public Adapter caseProperty(Property object) {
+				return createPropertyAdapter();
 			}
 			@Override
 			public Adapter caseFile(File object) {
@@ -133,32 +154,48 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceAdapter();
 			}
 			@Override
-			public Adapter caseisImplemented(isImplemented object) {
-				return createisImplementedAdapter();
+			public Adapter caseClass(javaRule.Class object) {
+				return createClassAdapter();
 			}
 			@Override
 			public Adapter caseEnumeration(Enumeration object) {
 				return createEnumerationAdapter();
 			}
 			@Override
-			public Adapter caseClass(javaRule.Class object) {
-				return createClassAdapter();
+			public Adapter caseMethod(Method object) {
+				return createMethodAdapter();
 			}
 			@Override
-			public Adapter caseIsInheritor(IsInheritor object) {
-				return createIsInheritorAdapter();
+			public Adapter caseAttribute(Attribute object) {
+				return createAttributeAdapter();
+			}
+			@Override
+			public Adapter caseisImplemented(isImplemented object) {
+				return createisImplementedAdapter();
+			}
+			@Override
+			public Adapter caseIsSuperInterface(IsSuperInterface object) {
+				return createIsSuperInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseIsSuperClass(IsSuperClass object) {
+				return createIsSuperClassAdapter();
+			}
+			@Override
+			public Adapter caseIsSubClass(IsSubClass object) {
+				return createIsSubClassAdapter();
 			}
 			@Override
 			public Adapter caseImplements(Implements object) {
 				return createImplementsAdapter();
 			}
 			@Override
-			public Adapter caseIsExtended(IsExtended object) {
-				return createIsExtendedAdapter();
+			public Adapter caseExtends(Extends object) {
+				return createExtendsAdapter();
 			}
 			@Override
-			public Adapter caseMethod(Method object) {
-				return createMethodAdapter();
+			public Adapter caseRangoNames(RangoNames object) {
+				return createRangoNamesAdapter();
 			}
 			@Override
 			public Adapter caseTamanio(Tamanio object) {
@@ -177,10 +214,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createReturnAdapter();
 			}
 			@Override
-			public Adapter caseAttribute(Attribute object) {
-				return createAttributeAdapter();
-			}
-			@Override
 			public Adapter caseAttributeType(AttributeType object) {
 				return createAttributeTypeAdapter();
 			}
@@ -193,8 +226,24 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createEmptyAdapter();
 			}
 			@Override
+			public Adapter caseIsGeneric(IsGeneric object) {
+				return createIsGenericAdapter();
+			}
+			@Override
 			public Adapter caseNameOperation(NameOperation object) {
 				return createNameOperationAdapter();
+			}
+			@Override
+			public Adapter caseStringProperty(StringProperty object) {
+				return createStringPropertyAdapter();
+			}
+			@Override
+			public Adapter caseStringVariable(StringVariable object) {
+				return createStringVariableAdapter();
+			}
+			@Override
+			public Adapter caseStringValue(StringValue object) {
+				return createStringValueAdapter();
 			}
 			@Override
 			public Adapter caseNameType(NameType object) {
@@ -215,10 +264,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBlendModifiers(BlendModifiers object) {
 				return createBlendModifiersAdapter();
-			}
-			@Override
-			public Adapter caseIsGeneric(IsGeneric object) {
-				return createIsGenericAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -251,6 +296,34 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRuleSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.Sentence <em>Sentence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.Sentence
+	 * @generated
+	 */
+	public Adapter createSentenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.Variable
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
 		return null;
 	}
 
@@ -297,30 +370,44 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Filter <em>Filter</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.PrimaryOp <em>Primary Op</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Filter
+	 * @see javaRule.PrimaryOp
 	 * @generated
 	 */
-	public Adapter createFilterAdapter() {
+	public Adapter createPrimaryOpAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Satisfy <em>Satisfy</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.PropertyLiteral <em>Property Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Satisfy
+	 * @see javaRule.PropertyLiteral
 	 * @generated
 	 */
-	public Adapter createSatisfyAdapter() {
+	public Adapter createPropertyLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.Property <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.Property
+	 * @generated
+	 */
+	public Adapter createPropertyAdapter() {
 		return null;
 	}
 
@@ -367,16 +454,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.isImplemented <em>is Implemented</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Class <em>Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.isImplemented
+	 * @see javaRule.Class
 	 * @generated
 	 */
-	public Adapter createisImplementedAdapter() {
+	public Adapter createClassAdapter() {
 		return null;
 	}
 
@@ -395,30 +482,86 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Class <em>Class</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Method <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Class
+	 * @see javaRule.Method
 	 * @generated
 	 */
-	public Adapter createClassAdapter() {
+	public Adapter createMethodAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.IsInheritor <em>Is Inheritor</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Attribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.IsInheritor
+	 * @see javaRule.Attribute
 	 * @generated
 	 */
-	public Adapter createIsInheritorAdapter() {
+	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.isImplemented <em>is Implemented</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.isImplemented
+	 * @generated
+	 */
+	public Adapter createisImplementedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsSuperInterface <em>Is Super Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsSuperInterface
+	 * @generated
+	 */
+	public Adapter createIsSuperInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsSuperClass <em>Is Super Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsSuperClass
+	 * @generated
+	 */
+	public Adapter createIsSuperClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsSubClass <em>Is Sub Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsSubClass
+	 * @generated
+	 */
+	public Adapter createIsSubClassAdapter() {
 		return null;
 	}
 
@@ -437,30 +580,30 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.IsExtended <em>Is Extended</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.Extends <em>Extends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.IsExtended
+	 * @see javaRule.Extends
 	 * @generated
 	 */
-	public Adapter createIsExtendedAdapter() {
+	public Adapter createExtendsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Method <em>Method</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.RangoNames <em>Rango Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.Method
+	 * @see javaRule.RangoNames
 	 * @generated
 	 */
-	public Adapter createMethodAdapter() {
+	public Adapter createRangoNamesAdapter() {
 		return null;
 	}
 
@@ -521,20 +664,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.Attribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see javaRule.Attribute
-	 * @generated
-	 */
-	public Adapter createAttributeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link javaRule.AttributeType <em>Attribute Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -577,6 +706,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsGeneric <em>Is Generic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsGeneric
+	 * @generated
+	 */
+	public Adapter createIsGenericAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link javaRule.NameOperation <em>Name Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -587,6 +730,48 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNameOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.StringProperty <em>String Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.StringProperty
+	 * @generated
+	 */
+	public Adapter createStringPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.StringVariable <em>String Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.StringVariable
+	 * @generated
+	 */
+	public Adapter createStringVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.StringValue
+	 * @generated
+	 */
+	public Adapter createStringValueAdapter() {
 		return null;
 	}
 
@@ -657,20 +842,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBlendModifiersAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.IsGeneric <em>Is Generic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see javaRule.IsGeneric
-	 * @generated
-	 */
-	public Adapter createIsGenericAdapter() {
 		return null;
 	}
 

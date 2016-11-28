@@ -5,10 +5,13 @@ package javaRule.impl;
 import javaRule.JavaRulePackage;
 import javaRule.Return;
 
+import javaRule.StringProperty;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,31 +22,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.ReturnImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link javaRule.impl.ReturnImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ReturnImpl extends MethodImpl implements Return {
 	/**
-	 * The default value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RETURN_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String returnType = RETURN_TYPE_EDEFAULT;
+	protected StringProperty type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +62,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getReturnType() {
-		return returnType;
+	public StringProperty getType() {
+		return type;
 	}
 
 	/**
@@ -78,11 +71,47 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturnType(String newReturnType) {
-		String oldReturnType = returnType;
-		returnType = newReturnType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RETURN__RETURN_TYPE, oldReturnType, returnType));
+	public NotificationChain basicSetType(StringProperty newType, NotificationChain msgs) {
+		StringProperty oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.RETURN__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(StringProperty newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RETURN__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RETURN__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RETURN__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaRulePackage.RETURN__TYPE:
+				return basicSetType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -93,8 +122,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__RETURN_TYPE:
-				return getReturnType();
+			case JavaRulePackage.RETURN__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +136,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__RETURN_TYPE:
-				setReturnType((String)newValue);
+			case JavaRulePackage.RETURN__TYPE:
+				setType((StringProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +151,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__RETURN_TYPE:
-				setReturnType(RETURN_TYPE_EDEFAULT);
+			case JavaRulePackage.RETURN__TYPE:
+				setType((StringProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,26 +166,10 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__RETURN_TYPE:
-				return RETURN_TYPE_EDEFAULT == null ? returnType != null : !RETURN_TYPE_EDEFAULT.equals(returnType);
+			case JavaRulePackage.RETURN__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (returnType: ");
-		result.append(returnType);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ReturnImpl

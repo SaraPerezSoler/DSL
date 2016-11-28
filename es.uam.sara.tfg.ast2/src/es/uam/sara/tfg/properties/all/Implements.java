@@ -9,49 +9,49 @@ import es.uam.sara.tfg.elements.JavaTypes;
 import es.uam.sara.tfg.properties.Properties;
 import es.uam.sara.tfg.properties.TypeProperty;
 
-public class SubInterface<T extends JavaTypes> extends Properties<T> implements TypeProperty {
+public class Implements<T extends JavaTypes> extends Properties<T> implements TypeProperty {
 
 	private int min;
 	private int max;
 	private List<String> interf;
 	private boolean isInterface;
 
-	public SubInterface(boolean no) {
+	public Implements(boolean no) {
 		super(no);
 		min = 1;
 		max = Integer.MAX_VALUE;
 		interf = new ArrayList<String>();
 	}
 
-	public SubInterface(boolean no,int min) {
+	public Implements(boolean no,int min) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.interf = new ArrayList<String>();
 	}
 
-	public SubInterface(boolean no,int min, int max) {
+	public Implements(boolean no,int min, int max) {
 		super(no);
 		this.min = min;
 		this.max = max;
 		this.interf = new ArrayList<String>();
 	}
 
-	public SubInterface(boolean no,List<String> interf) {
+	public Implements(boolean no,List<String> interf) {
 		super(no);
 		this.min = interf.size();
 		this.max = Integer.MAX_VALUE;
 		this.interf = interf;
 	}
 
-	public SubInterface(boolean no,int min, List<String> interf) {
+	public Implements(boolean no,int min, List<String> interf) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.interf = interf;
 	}
 
-	public SubInterface(boolean no,int min, int max, List<String> interf) {
+	public Implements(boolean no,int min, int max, List<String> interf) {
 		super(no);
 		this.min = min;
 		this.max = max;

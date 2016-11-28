@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ClassImpl extends SatisfyImpl implements javaRule.Class {
+public abstract class ClassImpl extends PropertyImpl implements javaRule.Class {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

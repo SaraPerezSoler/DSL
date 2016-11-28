@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class FileImpl extends SatisfyImpl implements File {
+public abstract class FileImpl extends PropertyImpl implements File {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

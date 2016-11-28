@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Element Java</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Element</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see javaRule.JavaRulePackage#getElementJava()
+ * @see javaRule.JavaRulePackage#getElement()
  * @model
  * @generated
  */
-public enum ElementJava implements Enumerator {
+public enum Element implements Enumerator {
 	/**
 	 * The '<em><b>Package</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -76,7 +76,17 @@ public enum ElementJava implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ATTRIBUTE(5, "Attribute", "attribute");
+	ATTRIBUTE(5, "Attribute", "attribute"),
+
+	/**
+	 * The '<em><b>File</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILE(6, "File", "File");
 
 	/**
 	 * The '<em><b>Package</b></em>' literal value.
@@ -169,40 +179,56 @@ public enum ElementJava implements Enumerator {
 	public static final int ATTRIBUTE_VALUE = 5;
 
 	/**
-	 * An array of all the '<em><b>Element Java</b></em>' enumerators.
+	 * The '<em><b>File</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>File</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILE
+	 * @model name="File"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILE_VALUE = 6;
+
+	/**
+	 * An array of all the '<em><b>Element</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ElementJava[] VALUES_ARRAY =
-		new ElementJava[] {
+	private static final Element[] VALUES_ARRAY =
+		new Element[] {
 			PACKAGE,
 			CLASS,
 			INTERFACE,
 			ENUM,
 			METHOD,
 			ATTRIBUTE,
+			FILE,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Element Java</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Element</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ElementJava> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<Element> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Element Java</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Element</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ElementJava get(String literal) {
+	public static Element get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ElementJava result = VALUES_ARRAY[i];
+			Element result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -211,16 +237,16 @@ public enum ElementJava implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Element Java</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Element</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ElementJava getByName(String name) {
+	public static Element getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ElementJava result = VALUES_ARRAY[i];
+			Element result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -229,14 +255,14 @@ public enum ElementJava implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Element Java</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Element</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ElementJava get(int value) {
+	public static Element get(int value) {
 		switch (value) {
 			case PACKAGE_VALUE: return PACKAGE;
 			case CLASS_VALUE: return CLASS;
@@ -244,6 +270,7 @@ public enum ElementJava implements Enumerator {
 			case ENUM_VALUE: return ENUM;
 			case METHOD_VALUE: return METHOD;
 			case ATTRIBUTE_VALUE: return ATTRIBUTE;
+			case FILE_VALUE: return FILE;
 		}
 		return null;
 	}
@@ -275,7 +302,7 @@ public enum ElementJava implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ElementJava(int value, String name, String literal) {
+	private Element(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -319,4 +346,4 @@ public enum ElementJava implements Enumerator {
 		return literal;
 	}
 	
-} //ElementJava
+} //Element

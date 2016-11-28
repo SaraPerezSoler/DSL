@@ -2,12 +2,11 @@
  */
 package javaRule.impl;
 
-import javaRule.ElementJava;
-import javaRule.Filter;
 import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Quantifier;
 import javaRule.Rule;
+import javaRule.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -16,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,14 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link javaRule.impl.RuleImpl#isNo <em>No</em>}</li>
  *   <li>{@link javaRule.impl.RuleImpl#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link javaRule.impl.RuleImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link javaRule.impl.RuleImpl#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.impl.RuleImpl#getFilter <em>Filter</em>}</li>
- *   <li>{@link javaRule.impl.RuleImpl#getSatisfy <em>Satisfy</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
+public class RuleImpl extends SentenceImpl implements Rule {
 	/**
 	 * The default value of the '{@link #isNo() <em>No</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,24 +74,14 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	protected Quantifier quantifier = QUANTIFIER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getElement() <em>Element</em>}' attribute.
+	 * The cached value of the '{@link #getIn() <em>In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getIn()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ElementJava ELEMENT_EDEFAULT = ElementJava.PACKAGE;
-
-	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected ElementJava element = ELEMENT_EDEFAULT;
+	protected Variable in;
 
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
@@ -104,17 +91,7 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * @generated
 	 * @ordered
 	 */
-	protected Filter filter;
-
-	/**
-	 * The cached value of the '{@link #getSatisfy() <em>Satisfy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSatisfy()
-	 * @generated
-	 * @ordered
-	 */
-	protected Or satisfy;
+	protected Or filter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,8 +159,16 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementJava getElement() {
-		return element;
+	public Variable getIn() {
+		if (in != null && in.eIsProxy()) {
+			InternalEObject oldIn = (InternalEObject)in;
+			in = (Variable)eResolveProxy(oldIn);
+			if (in != oldIn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.RULE__IN, oldIn, in));
+			}
+		}
+		return in;
 	}
 
 	/**
@@ -191,11 +176,20 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(ElementJava newElement) {
-		ElementJava oldElement = element;
-		element = newElement == null ? ELEMENT_EDEFAULT : newElement;
+	public Variable basicGetIn() {
+		return in;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIn(Variable newIn) {
+		Variable oldIn = in;
+		in = newIn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__ELEMENT, oldElement, element));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__IN, oldIn, in));
 	}
 
 	/**
@@ -203,7 +197,7 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Filter getFilter() {
+	public Or getFilter() {
 		return filter;
 	}
 
@@ -212,8 +206,8 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFilter(Filter newFilter, NotificationChain msgs) {
-		Filter oldFilter = filter;
+	public NotificationChain basicSetFilter(Or newFilter, NotificationChain msgs) {
+		Or oldFilter = filter;
 		filter = newFilter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__FILTER, oldFilter, newFilter);
@@ -227,7 +221,7 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFilter(Filter newFilter) {
+	public void setFilter(Or newFilter) {
 		if (newFilter != filter) {
 			NotificationChain msgs = null;
 			if (filter != null)
@@ -246,56 +240,11 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Or getSatisfy() {
-		return satisfy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSatisfy(Or newSatisfy, NotificationChain msgs) {
-		Or oldSatisfy = satisfy;
-		satisfy = newSatisfy;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__SATISFY, oldSatisfy, newSatisfy);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSatisfy(Or newSatisfy) {
-		if (newSatisfy != satisfy) {
-			NotificationChain msgs = null;
-			if (satisfy != null)
-				msgs = ((InternalEObject)satisfy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RULE__SATISFY, null, msgs);
-			if (newSatisfy != null)
-				msgs = ((InternalEObject)newSatisfy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RULE__SATISFY, null, msgs);
-			msgs = basicSetSatisfy(newSatisfy, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__SATISFY, newSatisfy, newSatisfy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JavaRulePackage.RULE__FILTER:
 				return basicSetFilter(null, msgs);
-			case JavaRulePackage.RULE__SATISFY:
-				return basicSetSatisfy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,12 +261,11 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 				return isNo();
 			case JavaRulePackage.RULE__QUANTIFIER:
 				return getQuantifier();
-			case JavaRulePackage.RULE__ELEMENT:
-				return getElement();
+			case JavaRulePackage.RULE__IN:
+				if (resolve) return getIn();
+				return basicGetIn();
 			case JavaRulePackage.RULE__FILTER:
 				return getFilter();
-			case JavaRulePackage.RULE__SATISFY:
-				return getSatisfy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -336,14 +284,11 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 			case JavaRulePackage.RULE__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
 				return;
-			case JavaRulePackage.RULE__ELEMENT:
-				setElement((ElementJava)newValue);
+			case JavaRulePackage.RULE__IN:
+				setIn((Variable)newValue);
 				return;
 			case JavaRulePackage.RULE__FILTER:
-				setFilter((Filter)newValue);
-				return;
-			case JavaRulePackage.RULE__SATISFY:
-				setSatisfy((Or)newValue);
+				setFilter((Or)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -363,14 +308,11 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 			case JavaRulePackage.RULE__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
-			case JavaRulePackage.RULE__ELEMENT:
-				setElement(ELEMENT_EDEFAULT);
+			case JavaRulePackage.RULE__IN:
+				setIn((Variable)null);
 				return;
 			case JavaRulePackage.RULE__FILTER:
-				setFilter((Filter)null);
-				return;
-			case JavaRulePackage.RULE__SATISFY:
-				setSatisfy((Or)null);
+				setFilter((Or)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -388,12 +330,10 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 				return no != NO_EDEFAULT;
 			case JavaRulePackage.RULE__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
-			case JavaRulePackage.RULE__ELEMENT:
-				return element != ELEMENT_EDEFAULT;
+			case JavaRulePackage.RULE__IN:
+				return in != null;
 			case JavaRulePackage.RULE__FILTER:
 				return filter != null;
-			case JavaRulePackage.RULE__SATISFY:
-				return satisfy != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -412,8 +352,6 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule {
 		result.append(no);
 		result.append(", quantifier: ");
 		result.append(quantifier);
-		result.append(", element: ");
-		result.append(element);
 		result.append(')');
 		return result.toString();
 	}

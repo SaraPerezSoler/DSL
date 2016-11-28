@@ -13,5 +13,5 @@ package javaRule;
  * @model abstract="true"
  * @generated
  */
-public interface File extends Satisfy {
+public interface File extends Property {
 } // File

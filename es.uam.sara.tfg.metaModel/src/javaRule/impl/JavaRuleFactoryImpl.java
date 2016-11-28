@@ -8,14 +8,16 @@ import javaRule.AttributeType;
 import javaRule.BlendModifiers;
 import javaRule.Constructor;
 import javaRule.Contains;
-import javaRule.ElementJava;
+import javaRule.Element;
+import javaRule.ElementString;
 import javaRule.Empty;
-import javaRule.Filter;
+import javaRule.Extends;
 import javaRule.Implements;
 import javaRule.Initialize;
-import javaRule.IsExtended;
 import javaRule.IsGeneric;
-import javaRule.IsInheritor;
+import javaRule.IsSubClass;
+import javaRule.IsSuperClass;
+import javaRule.IsSuperInterface;
 import javaRule.JavaDoc;
 import javaRule.JavaRuleFactory;
 import javaRule.JavaRulePackage;
@@ -27,11 +29,16 @@ import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.Or;
 import javaRule.Parameter;
+import javaRule.PropertyLiteral;
 import javaRule.Quantifier;
+import javaRule.RangoNames;
 import javaRule.Return;
 import javaRule.Rule;
 import javaRule.RuleSet;
+import javaRule.StringValue;
+import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.Variable;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EClass;
@@ -88,14 +95,18 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JavaRulePackage.RULE_SET: return createRuleSet();
+			case JavaRulePackage.VARIABLE: return createVariable();
 			case JavaRulePackage.RULE: return createRule();
 			case JavaRulePackage.OR: return createOr();
 			case JavaRulePackage.AND: return createAnd();
-			case JavaRulePackage.FILTER: return createFilter();
+			case JavaRulePackage.PROPERTY_LITERAL: return createPropertyLiteral();
 			case JavaRulePackage.IS_IMPLEMENTED: return createisImplemented();
-			case JavaRulePackage.IS_INHERITOR: return createIsInheritor();
+			case JavaRulePackage.IS_SUPER_INTERFACE: return createIsSuperInterface();
+			case JavaRulePackage.IS_SUPER_CLASS: return createIsSuperClass();
+			case JavaRulePackage.IS_SUB_CLASS: return createIsSubClass();
 			case JavaRulePackage.IMPLEMENTS: return createImplements();
-			case JavaRulePackage.IS_EXTENDED: return createIsExtended();
+			case JavaRulePackage.EXTENDS: return createExtends();
+			case JavaRulePackage.RANGO_NAMES: return createRangoNames();
 			case JavaRulePackage.TAMANIO: return createTamanio();
 			case JavaRulePackage.PARAMETER: return createParameter();
 			case JavaRulePackage.CONSTRUCTOR: return createConstructor();
@@ -103,13 +114,15 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.ATTRIBUTE_TYPE: return createAttributeType();
 			case JavaRulePackage.INITIALIZE: return createInitialize();
 			case JavaRulePackage.EMPTY: return createEmpty();
+			case JavaRulePackage.IS_GENERIC: return createIsGeneric();
 			case JavaRulePackage.NAME_OPERATION: return createNameOperation();
+			case JavaRulePackage.STRING_VARIABLE: return createStringVariable();
+			case JavaRulePackage.STRING_VALUE: return createStringValue();
 			case JavaRulePackage.NAME_TYPE: return createNameType();
 			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
 			case JavaRulePackage.CONTAINS: return createContains();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
-			case JavaRulePackage.IS_GENERIC: return createIsGeneric();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,8 +138,10 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 		switch (eDataType.getClassifierID()) {
 			case JavaRulePackage.QUANTIFIER:
 				return createQuantifierFromString(eDataType, initialValue);
-			case JavaRulePackage.ELEMENT_JAVA:
-				return createElementJavaFromString(eDataType, initialValue);
+			case JavaRulePackage.ELEMENT:
+				return createElementFromString(eDataType, initialValue);
+			case JavaRulePackage.ELEMENT_STRING:
+				return createElementStringFromString(eDataType, initialValue);
 			case JavaRulePackage.LANGUAGE:
 				return createLanguageFromString(eDataType, initialValue);
 			case JavaRulePackage.NAME_CHECK:
@@ -150,8 +165,10 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 		switch (eDataType.getClassifierID()) {
 			case JavaRulePackage.QUANTIFIER:
 				return convertQuantifierToString(eDataType, instanceValue);
-			case JavaRulePackage.ELEMENT_JAVA:
-				return convertElementJavaToString(eDataType, instanceValue);
+			case JavaRulePackage.ELEMENT:
+				return convertElementToString(eDataType, instanceValue);
+			case JavaRulePackage.ELEMENT_STRING:
+				return convertElementStringToString(eDataType, instanceValue);
 			case JavaRulePackage.LANGUAGE:
 				return convertLanguageToString(eDataType, instanceValue);
 			case JavaRulePackage.NAME_CHECK:
@@ -173,6 +190,16 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public RuleSet createRuleSet() {
 		RuleSetImpl ruleSet = new RuleSetImpl();
 		return ruleSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable createVariable() {
+		VariableImpl variable = new VariableImpl();
+		return variable;
 	}
 
 	/**
@@ -210,9 +237,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Filter createFilter() {
-		FilterImpl filter = new FilterImpl();
-		return filter;
+	public PropertyLiteral createPropertyLiteral() {
+		PropertyLiteralImpl propertyLiteral = new PropertyLiteralImpl();
+		return propertyLiteral;
 	}
 
 	/**
@@ -230,9 +257,29 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IsInheritor createIsInheritor() {
-		IsInheritorImpl isInheritor = new IsInheritorImpl();
-		return isInheritor;
+	public IsSuperInterface createIsSuperInterface() {
+		IsSuperInterfaceImpl isSuperInterface = new IsSuperInterfaceImpl();
+		return isSuperInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsSuperClass createIsSuperClass() {
+		IsSuperClassImpl isSuperClass = new IsSuperClassImpl();
+		return isSuperClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsSubClass createIsSubClass() {
+		IsSubClassImpl isSubClass = new IsSubClassImpl();
+		return isSubClass;
 	}
 
 	/**
@@ -250,9 +297,19 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IsExtended createIsExtended() {
-		IsExtendedImpl isExtended = new IsExtendedImpl();
-		return isExtended;
+	public Extends createExtends() {
+		ExtendsImpl extends_ = new ExtendsImpl();
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RangoNames createRangoNames() {
+		RangoNamesImpl rangoNames = new RangoNamesImpl();
+		return rangoNames;
 	}
 
 	/**
@@ -330,9 +387,39 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IsGeneric createIsGeneric() {
+		IsGenericImpl isGeneric = new IsGenericImpl();
+		return isGeneric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NameOperation createNameOperation() {
 		NameOperationImpl nameOperation = new NameOperationImpl();
 		return nameOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringVariable createStringVariable() {
+		StringVariableImpl stringVariable = new StringVariableImpl();
+		return stringVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringValue createStringValue() {
+		StringValueImpl stringValue = new StringValueImpl();
+		return stringValue;
 	}
 
 	/**
@@ -390,16 +477,6 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IsGeneric createIsGeneric() {
-		IsGenericImpl isGeneric = new IsGenericImpl();
-		return isGeneric;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Quantifier createQuantifierFromString(EDataType eDataType, String initialValue) {
 		Quantifier result = Quantifier.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -420,8 +497,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementJava createElementJavaFromString(EDataType eDataType, String initialValue) {
-		ElementJava result = ElementJava.get(initialValue);
+	public Element createElementFromString(EDataType eDataType, String initialValue) {
+		Element result = Element.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -431,7 +508,27 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertElementJavaToString(EDataType eDataType, Object instanceValue) {
+	public String convertElementToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementString createElementStringFromString(EDataType eDataType, String initialValue) {
+		ElementString result = ElementString.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertElementStringToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -19,16 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum NameCheck implements Enumerator {
 	/**
-	 * The '<em><b>Nothing</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOTHING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NOTHING(0, "nothing", "nothing"),
-
-	/**
 	 * The '<em><b>UPPER CASE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,21 +67,6 @@ public enum NameCheck implements Enumerator {
 	 * @ordered
 	 */
 	START_UPPER_CASE(5, "START_UPPER_CASE", "START_UPPER_CASE");
-
-	/**
-	 * The '<em><b>Nothing</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Nothing</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NOTHING
-	 * @model name="nothing"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NOTHING_VALUE = 0;
 
 	/**
 	 * The '<em><b>UPPER CASE</b></em>' literal value.
@@ -176,7 +151,6 @@ public enum NameCheck implements Enumerator {
 	 */
 	private static final NameCheck[] VALUES_ARRAY =
 		new NameCheck[] {
-			NOTHING,
 			UPPER_CASE,
 			LOWER_CASE,
 			UPPER_CAMEL_CASE,
@@ -238,7 +212,6 @@ public enum NameCheck implements Enumerator {
 	 */
 	public static NameCheck get(int value) {
 		switch (value) {
-			case NOTHING_VALUE: return NOTHING;
 			case UPPER_CASE_VALUE: return UPPER_CASE;
 			case LOWER_CASE_VALUE: return LOWER_CASE;
 			case UPPER_CAMEL_CASE_VALUE: return UPPER_CAMEL_CASE;

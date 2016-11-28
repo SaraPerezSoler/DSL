@@ -22,7 +22,7 @@ package javaRule;
 public interface NameType extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration, File {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The default value is <code>"nothing"</code>.
+	 * The default value is <code>"UPPER_CASE"</code>.
 	 * The literals are from the enumeration {@link javaRule.NameCheck}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -34,7 +34,7 @@ public interface NameType extends Attribute, javaRule.Class, Method, javaRule.Pa
 	 * @see javaRule.NameCheck
 	 * @see #setType(NameCheck)
 	 * @see javaRule.JavaRulePackage#getNameType_Type()
-	 * @model default="nothing" required="true"
+	 * @model default="UPPER_CASE" required="true"
 	 * @generated
 	 */
 	NameCheck getType();

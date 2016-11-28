@@ -12,9 +12,9 @@ package javaRule;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link javaRule.NameOperation#getName <em>Name</em>}</li>
  *   <li>{@link javaRule.NameOperation#getOperator <em>Operator</em>}</li>
  *   <li>{@link javaRule.NameOperation#getLanguage <em>Language</em>}</li>
+ *   <li>{@link javaRule.NameOperation#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getNameOperation()
@@ -23,34 +23,34 @@ package javaRule;
  */
 public interface NameOperation extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration, File {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(StringProperty)
 	 * @see javaRule.JavaRulePackage#getNameOperation_Name()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	String getName();
+	StringProperty getName();
 
 	/**
-	 * Sets the value of the '{@link javaRule.NameOperation#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link javaRule.NameOperation#getName <em>Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' containment reference.
 	 * @see #getName()
 	 * @generated
 	 */
-	void setName(String value);
+	void setName(StringProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
-	 * The default value is <code>"nothing"</code>.
+	 * The default value is <code>"EQUAL"</code>.
 	 * The literals are from the enumeration {@link javaRule.NameOperator}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -62,7 +62,7 @@ public interface NameOperation extends Attribute, javaRule.Class, Method, javaRu
 	 * @see javaRule.NameOperator
 	 * @see #setOperator(NameOperator)
 	 * @see javaRule.JavaRulePackage#getNameOperation_Operator()
-	 * @model default="nothing" required="true"
+	 * @model default="EQUAL" required="true"
 	 * @generated
 	 */
 	NameOperator getOperator();

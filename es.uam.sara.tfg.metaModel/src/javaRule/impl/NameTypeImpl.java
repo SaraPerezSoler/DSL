@@ -34,7 +34,7 @@ public class NameTypeImpl extends AttributeImpl implements NameType {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NameCheck TYPE_EDEFAULT = NameCheck.NOTHING;
+	protected static final NameCheck TYPE_EDEFAULT = NameCheck.UPPER_CASE;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

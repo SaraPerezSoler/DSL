@@ -2,7 +2,6 @@
  */
 package javaRule;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,16 +14,15 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link javaRule.Rule#isNo <em>No</em>}</li>
  *   <li>{@link javaRule.Rule#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link javaRule.Rule#getElement <em>Element</em>}</li>
+ *   <li>{@link javaRule.Rule#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.Rule#getFilter <em>Filter</em>}</li>
- *   <li>{@link javaRule.Rule#getSatisfy <em>Satisfy</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getRule()
  * @model
  * @generated
  */
-public interface Rule extends EObject {
+public interface Rule extends Sentence {
 	/**
 	 * Returns the value of the '<em><b>No</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
@@ -82,33 +80,30 @@ public interface Rule extends EObject {
 	void setQuantifier(Quantifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' attribute.
-	 * The literals are from the enumeration {@link javaRule.ElementJava}.
+	 * Returns the value of the '<em><b>In</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Element</em>' attribute isn't clear,
+	 * If the meaning of the '<em>In</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' attribute.
-	 * @see javaRule.ElementJava
-	 * @see #setElement(ElementJava)
-	 * @see javaRule.JavaRulePackage#getRule_Element()
-	 * @model required="true"
+	 * @return the value of the '<em>In</em>' reference.
+	 * @see #setIn(Variable)
+	 * @see javaRule.JavaRulePackage#getRule_In()
+	 * @model
 	 * @generated
 	 */
-	ElementJava getElement();
+	Variable getIn();
 
 	/**
-	 * Sets the value of the '{@link javaRule.Rule#getElement <em>Element</em>}' attribute.
+	 * Sets the value of the '{@link javaRule.Rule#getIn <em>In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' attribute.
-	 * @see javaRule.ElementJava
-	 * @see #getElement()
+	 * @param value the new value of the '<em>In</em>' reference.
+	 * @see #getIn()
 	 * @generated
 	 */
-	void setElement(ElementJava value);
+	void setIn(Variable value);
 
 	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' containment reference.
@@ -119,12 +114,12 @@ public interface Rule extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filter</em>' containment reference.
-	 * @see #setFilter(Filter)
+	 * @see #setFilter(Or)
 	 * @see javaRule.JavaRulePackage#getRule_Filter()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Filter getFilter();
+	Or getFilter();
 
 	/**
 	 * Sets the value of the '{@link javaRule.Rule#getFilter <em>Filter</em>}' containment reference.
@@ -134,32 +129,6 @@ public interface Rule extends EObject {
 	 * @see #getFilter()
 	 * @generated
 	 */
-	void setFilter(Filter value);
-
-	/**
-	 * Returns the value of the '<em><b>Satisfy</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Satisfy</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Satisfy</em>' containment reference.
-	 * @see #setSatisfy(Or)
-	 * @see javaRule.JavaRulePackage#getRule_Satisfy()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Or getSatisfy();
-
-	/**
-	 * Sets the value of the '{@link javaRule.Rule#getSatisfy <em>Satisfy</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Satisfy</em>' containment reference.
-	 * @see #getSatisfy()
-	 * @generated
-	 */
-	void setSatisfy(Or value);
+	void setFilter(Or value);
 
 } // Rule

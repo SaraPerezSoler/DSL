@@ -2,25 +2,27 @@
  */
 package javaRule.impl;
 
-import javaRule.IsExtended;
 import javaRule.JavaRulePackage;
+import javaRule.StringProperty;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Is Extended</b></em>'.
+ * An implementation of the model object '<em><b>String Property</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class IsExtendedImpl extends ClassImpl implements IsExtended {
+public abstract class StringPropertyImpl extends MinimalEObjectImpl.Container implements StringProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IsExtendedImpl() {
+	protected StringPropertyImpl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class IsExtendedImpl extends ClassImpl implements IsExtended {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.IS_EXTENDED;
+		return JavaRulePackage.Literals.STRING_PROPERTY;
 	}
 
-} //IsExtendedImpl
+} //StringPropertyImpl

@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link javaRule.RuleSet#getProjectName <em>Project Name</em>}</li>
- *   <li>{@link javaRule.RuleSet#getRules <em>Rules</em>}</li>
+ *   <li>{@link javaRule.RuleSet#getSentences <em>Sentences</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getRuleSet()
@@ -35,25 +35,25 @@ public interface RuleSet extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Project Name</em>' attribute list.
 	 * @see javaRule.JavaRulePackage#getRuleSet_ProjectName()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<String> getProjectName();
 
 	/**
-	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
-	 * The list contents are of type {@link javaRule.Rule}.
+	 * Returns the value of the '<em><b>Sentences</b></em>' containment reference list.
+	 * The list contents are of type {@link javaRule.Sentence}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sentences</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rules</em>' containment reference list.
-	 * @see javaRule.JavaRulePackage#getRuleSet_Rules()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Sentences</em>' containment reference list.
+	 * @see javaRule.JavaRulePackage#getRuleSet_Sentences()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Rule> getRules();
+	EList<Sentence> getSentences();
 
 } // RuleSet
