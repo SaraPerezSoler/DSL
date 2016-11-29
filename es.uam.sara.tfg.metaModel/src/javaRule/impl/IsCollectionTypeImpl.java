@@ -2,8 +2,8 @@
  */
 package javaRule.impl;
 
+import javaRule.IsCollectionType;
 import javaRule.JavaRulePackage;
-import javaRule.Return;
 import javaRule.TypeProperty;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,34 +16,34 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Return</b></em>'.
+ * An implementation of the model object '<em><b>Is Collection Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.ReturnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link javaRule.impl.IsCollectionTypeImpl#getOf <em>Of</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReturnImpl extends MethodImpl implements Return {
+public class IsCollectionTypeImpl extends TypePropertyImpl implements IsCollectionType {
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getOf() <em>Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeProperty type;
+	protected TypeProperty of;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ReturnImpl() {
+	protected IsCollectionTypeImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.RETURN;
+		return JavaRulePackage.Literals.IS_COLLECTION_TYPE;
 	}
 
 	/**
@@ -62,8 +62,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeProperty getType() {
-		return type;
+	public TypeProperty getOf() {
+		return of;
 	}
 
 	/**
@@ -71,11 +71,11 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(TypeProperty newType, NotificationChain msgs) {
-		TypeProperty oldType = type;
-		type = newType;
+	public NotificationChain basicSetOf(TypeProperty newOf, NotificationChain msgs) {
+		TypeProperty oldOf = of;
+		of = newOf;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.RETURN__TYPE, oldType, newType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.IS_COLLECTION_TYPE__OF, oldOf, newOf);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -86,18 +86,18 @@ public class ReturnImpl extends MethodImpl implements Return {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(TypeProperty newType) {
-		if (newType != type) {
+	public void setOf(TypeProperty newOf) {
+		if (newOf != of) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RETURN__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.RETURN__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
+			if (of != null)
+				msgs = ((InternalEObject)of).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.IS_COLLECTION_TYPE__OF, null, msgs);
+			if (newOf != null)
+				msgs = ((InternalEObject)newOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.IS_COLLECTION_TYPE__OF, null, msgs);
+			msgs = basicSetOf(newOf, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RETURN__TYPE, newType, newType));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.IS_COLLECTION_TYPE__OF, newOf, newOf));
 	}
 
 	/**
@@ -108,8 +108,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__TYPE:
-				return basicSetType(null, msgs);
+			case JavaRulePackage.IS_COLLECTION_TYPE__OF:
+				return basicSetOf(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -122,8 +122,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__TYPE:
-				return getType();
+			case JavaRulePackage.IS_COLLECTION_TYPE__OF:
+				return getOf();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,8 +136,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__TYPE:
-				setType((TypeProperty)newValue);
+			case JavaRulePackage.IS_COLLECTION_TYPE__OF:
+				setOf((TypeProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -151,8 +151,8 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__TYPE:
-				setType((TypeProperty)null);
+			case JavaRulePackage.IS_COLLECTION_TYPE__OF:
+				setOf((TypeProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -166,10 +166,10 @@ public class ReturnImpl extends MethodImpl implements Return {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.RETURN__TYPE:
-				return type != null;
+			case JavaRulePackage.IS_COLLECTION_TYPE__OF:
+				return of != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ReturnImpl
+} //IsCollectionTypeImpl

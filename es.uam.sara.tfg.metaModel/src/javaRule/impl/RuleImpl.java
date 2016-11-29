@@ -6,7 +6,6 @@ import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Quantifier;
 import javaRule.Rule;
-import javaRule.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link javaRule.impl.RuleImpl#isNo <em>No</em>}</li>
  *   <li>{@link javaRule.impl.RuleImpl#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link javaRule.impl.RuleImpl#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.impl.RuleImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  *
@@ -72,16 +70,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 	 * @ordered
 	 */
 	protected Quantifier quantifier = QUANTIFIER_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getIn() <em>In</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected Variable in;
 
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
@@ -159,44 +147,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable getIn() {
-		if (in != null && in.eIsProxy()) {
-			InternalEObject oldIn = (InternalEObject)in;
-			in = (Variable)eResolveProxy(oldIn);
-			if (in != oldIn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.RULE__IN, oldIn, in));
-			}
-		}
-		return in;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Variable basicGetIn() {
-		return in;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIn(Variable newIn) {
-		Variable oldIn = in;
-		in = newIn;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.RULE__IN, oldIn, in));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Or getFilter() {
 		return filter;
 	}
@@ -261,9 +211,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 				return isNo();
 			case JavaRulePackage.RULE__QUANTIFIER:
 				return getQuantifier();
-			case JavaRulePackage.RULE__IN:
-				if (resolve) return getIn();
-				return basicGetIn();
 			case JavaRulePackage.RULE__FILTER:
 				return getFilter();
 		}
@@ -283,9 +230,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 				return;
 			case JavaRulePackage.RULE__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
-				return;
-			case JavaRulePackage.RULE__IN:
-				setIn((Variable)newValue);
 				return;
 			case JavaRulePackage.RULE__FILTER:
 				setFilter((Or)newValue);
@@ -308,9 +252,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 			case JavaRulePackage.RULE__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
-			case JavaRulePackage.RULE__IN:
-				setIn((Variable)null);
-				return;
 			case JavaRulePackage.RULE__FILTER:
 				setFilter((Or)null);
 				return;
@@ -330,8 +271,6 @@ public class RuleImpl extends SentenceImpl implements Rule {
 				return no != NO_EDEFAULT;
 			case JavaRulePackage.RULE__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
-			case JavaRulePackage.RULE__IN:
-				return in != null;
 			case JavaRulePackage.RULE__FILTER:
 				return filter != null;
 		}

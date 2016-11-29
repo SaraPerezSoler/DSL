@@ -15,7 +15,9 @@ import javaRule.File;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
+import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
 import javaRule.IsSuperInterface;
@@ -39,6 +41,8 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypeProperty;
+import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.isImplemented;
 
@@ -386,6 +390,18 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaRulePackage.CONTAINS: {
+				Contains contains = (Contains)theEObject;
+				T result = caseContains(contains);
+				if (result == null) result = caseClass(contains);
+				if (result == null) result = caseEnumeration(contains);
+				if (result == null) result = caseFile(contains);
+				if (result == null) result = caseInterface(contains);
+				if (result == null) result = casePackage(contains);
+				if (result == null) result = caseProperty(contains);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JavaRulePackage.JAVA_DOC: {
 				JavaDoc javaDoc = (JavaDoc)theEObject;
 				T result = caseJavaDoc(javaDoc);
@@ -395,18 +411,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInterface(javaDoc);
 				if (result == null) result = caseEnumeration(javaDoc);
 				if (result == null) result = caseProperty(javaDoc);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaRulePackage.CONTAINS: {
-				Contains contains = (Contains)theEObject;
-				T result = caseContains(contains);
-				if (result == null) result = casePackage(contains);
-				if (result == null) result = caseInterface(contains);
-				if (result == null) result = caseEnumeration(contains);
-				if (result == null) result = caseClass(contains);
-				if (result == null) result = caseFile(contains);
-				if (result == null) result = caseProperty(contains);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -425,6 +429,33 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 			case JavaRulePackage.BLEND_MODIFIERS: {
 				BlendModifiers blendModifiers = (BlendModifiers)theEObject;
 				T result = caseBlendModifiers(blendModifiers);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.TYPE_PROPERTY: {
+				TypeProperty typeProperty = (TypeProperty)theEObject;
+				T result = caseTypeProperty(typeProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.TYPE_STRING: {
+				TypeString typeString = (TypeString)theEObject;
+				T result = caseTypeString(typeString);
+				if (result == null) result = caseTypeProperty(typeString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.IS_PRIMITIVE_FUNTION: {
+				IsPrimitiveFuntion isPrimitiveFuntion = (IsPrimitiveFuntion)theEObject;
+				T result = caseIsPrimitiveFuntion(isPrimitiveFuntion);
+				if (result == null) result = caseTypeProperty(isPrimitiveFuntion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.IS_COLLECTION_TYPE: {
+				IsCollectionType isCollectionType = (IsCollectionType)theEObject;
+				T result = caseIsCollectionType(isCollectionType);
+				if (result == null) result = caseTypeProperty(isCollectionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -973,21 +1004,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Java Doc</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Java Doc</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseJavaDoc(JavaDoc object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Contains</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -999,6 +1015,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContains(Contains object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Java Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Java Doc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJavaDoc(JavaDoc object) {
 		return null;
 	}
 
@@ -1029,6 +1060,66 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBlendModifiers(BlendModifiers object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeProperty(TypeProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeString(TypeString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Primitive Funtion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Primitive Funtion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsPrimitiveFuntion(IsPrimitiveFuntion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Is Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Is Collection Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIsCollectionType(IsCollectionType object) {
 		return null;
 	}
 

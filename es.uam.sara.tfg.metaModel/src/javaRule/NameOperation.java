@@ -23,32 +23,6 @@ package javaRule;
  */
 public interface NameOperation extends Attribute, javaRule.Class, Method, javaRule.Package, Interface, Enumeration, File {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' containment reference.
-	 * @see #setName(StringProperty)
-	 * @see javaRule.JavaRulePackage#getNameOperation_Name()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	StringProperty getName();
-
-	/**
-	 * Sets the value of the '{@link javaRule.NameOperation#getName <em>Name</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' containment reference.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(StringProperty value);
-
-	/**
 	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
 	 * The default value is <code>"EQUAL"</code>.
 	 * The literals are from the enumeration {@link javaRule.NameOperator}.
@@ -107,5 +81,31 @@ public interface NameOperation extends Attribute, javaRule.Class, Method, javaRu
 	 * @generated
 	 */
 	void setLanguage(Language value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' containment reference.
+	 * @see #setName(StringProperty)
+	 * @see javaRule.JavaRulePackage#getNameOperation_Name()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	StringProperty getName();
+
+	/**
+	 * Sets the value of the '{@link javaRule.NameOperation#getName <em>Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' containment reference.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(StringProperty value);
 
 } // NameOperation

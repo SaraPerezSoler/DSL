@@ -3,15 +3,21 @@
 package javaRule.impl;
 
 import java.util.Collection;
+
 import javaRule.JavaRulePackage;
 import javaRule.Parameter;
-import javaRule.StringProperty;
+import javaRule.TypeProperty;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -41,6 +47,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final int MIN_EDEFAULT = 1;
+
 	/**
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,6 +57,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected int min = MIN_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,6 +67,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final int MAX_EDEFAULT = 2147483647;
+
 	/**
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -68,6 +77,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected int max = MAX_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getExact() <em>Exact</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,6 +87,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final int EXACT_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getExact() <em>Exact</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -86,6 +97,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @ordered
 	 */
 	protected int exact = EXACT_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -94,7 +106,8 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<StringProperty> types;
+	protected EList<TypeProperty> types;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,9 +195,9 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<StringProperty> getTypes() {
+	public EList<TypeProperty> getTypes() {
 		if (types == null) {
-			types = new EObjectContainmentEList<StringProperty>(StringProperty.class, this, JavaRulePackage.PARAMETER__TYPES);
+			types = new EObjectContainmentEList<TypeProperty>(TypeProperty.class, this, JavaRulePackage.PARAMETER__TYPES);
 		}
 		return types;
 	}
@@ -243,7 +256,7 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 				return;
 			case JavaRulePackage.PARAMETER__TYPES:
 				getTypes().clear();
-				getTypes().addAll((Collection<? extends StringProperty>)newValue);
+				getTypes().addAll((Collection<? extends TypeProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

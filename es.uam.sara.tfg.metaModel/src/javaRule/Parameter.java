@@ -4,7 +4,6 @@ package javaRule;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter</b></em>'.
@@ -107,10 +106,10 @@ public interface Parameter extends Method {
 
 	/**
 	 * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-	 * The list contents are of type {@link javaRule.StringProperty}.
+	 * The list contents are of type {@link javaRule.TypeProperty}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Types</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -119,6 +118,6 @@ public interface Parameter extends Method {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<StringProperty> getTypes();
+	EList<TypeProperty> getTypes();
 
 } // Parameter

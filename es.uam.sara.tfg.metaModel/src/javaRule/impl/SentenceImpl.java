@@ -6,6 +6,7 @@ import javaRule.Element;
 import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Sentence;
+import javaRule.Variable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,6 +27,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link javaRule.impl.SentenceImpl#getElement <em>Element</em>}</li>
  *   <li>{@link javaRule.impl.SentenceImpl#getSatisfy <em>Satisfy</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getIn <em>In</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +63,26 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected Or satisfy;
+
+	/**
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected Variable from;
+
+	/**
+	 * The cached value of the '{@link #getIn() <em>In</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Variable in;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +172,82 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Variable getFrom() {
+		if (from != null && from.eIsProxy()) {
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (Variable)eResolveProxy(oldFrom);
+			if (from != oldFrom) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
+			}
+		}
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable basicGetFrom() {
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrom(Variable newFrom) {
+		Variable oldFrom = from;
+		from = newFrom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable getIn() {
+		if (in != null && in.eIsProxy()) {
+			InternalEObject oldIn = (InternalEObject)in;
+			in = (Variable)eResolveProxy(oldIn);
+			if (in != oldIn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.SENTENCE__IN, oldIn, in));
+			}
+		}
+		return in;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable basicGetIn() {
+		return in;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIn(Variable newIn) {
+		Variable oldIn = in;
+		in = newIn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__IN, oldIn, in));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -170,6 +269,12 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				return getElement();
 			case JavaRulePackage.SENTENCE__SATISFY:
 				return getSatisfy();
+			case JavaRulePackage.SENTENCE__FROM:
+				if (resolve) return getFrom();
+				return basicGetFrom();
+			case JavaRulePackage.SENTENCE__IN:
+				if (resolve) return getIn();
+				return basicGetIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,6 +292,12 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case JavaRulePackage.SENTENCE__SATISFY:
 				setSatisfy((Or)newValue);
+				return;
+			case JavaRulePackage.SENTENCE__FROM:
+				setFrom((Variable)newValue);
+				return;
+			case JavaRulePackage.SENTENCE__IN:
+				setIn((Variable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,6 +317,12 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 			case JavaRulePackage.SENTENCE__SATISFY:
 				setSatisfy((Or)null);
 				return;
+			case JavaRulePackage.SENTENCE__FROM:
+				setFrom((Variable)null);
+				return;
+			case JavaRulePackage.SENTENCE__IN:
+				setIn((Variable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -222,6 +339,10 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				return element != ELEMENT_EDEFAULT;
 			case JavaRulePackage.SENTENCE__SATISFY:
 				return satisfy != null;
+			case JavaRulePackage.SENTENCE__FROM:
+				return from != null;
+			case JavaRulePackage.SENTENCE__IN:
+				return in != null;
 		}
 		return super.eIsSet(featureID);
 	}

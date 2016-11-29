@@ -14,7 +14,9 @@ import javaRule.Empty;
 import javaRule.Extends;
 import javaRule.Implements;
 import javaRule.Initialize;
+import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
 import javaRule.IsSuperInterface;
@@ -29,6 +31,7 @@ import javaRule.NameOperator;
 import javaRule.NameType;
 import javaRule.Or;
 import javaRule.Parameter;
+import javaRule.Primitive;
 import javaRule.PropertyLiteral;
 import javaRule.Quantifier;
 import javaRule.RangoNames;
@@ -38,6 +41,7 @@ import javaRule.RuleSet;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.isImplemented;
 
@@ -119,10 +123,13 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.STRING_VARIABLE: return createStringVariable();
 			case JavaRulePackage.STRING_VALUE: return createStringValue();
 			case JavaRulePackage.NAME_TYPE: return createNameType();
-			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
 			case JavaRulePackage.CONTAINS: return createContains();
+			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
+			case JavaRulePackage.TYPE_STRING: return createTypeString();
+			case JavaRulePackage.IS_PRIMITIVE_FUNTION: return createIsPrimitiveFuntion();
+			case JavaRulePackage.IS_COLLECTION_TYPE: return createIsCollectionType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -150,6 +157,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return createNameOperatorFromString(eDataType, initialValue);
 			case JavaRulePackage.ACCESS_MODIFIER:
 				return createAccessModifierFromString(eDataType, initialValue);
+			case JavaRulePackage.PRIMITIVE:
+				return createPrimitiveFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -177,6 +186,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 				return convertNameOperatorToString(eDataType, instanceValue);
 			case JavaRulePackage.ACCESS_MODIFIER:
 				return convertAccessModifierToString(eDataType, instanceValue);
+			case JavaRulePackage.PRIMITIVE:
+				return convertPrimitiveToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -437,9 +448,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JavaDoc createJavaDoc() {
-		JavaDocImpl javaDoc = new JavaDocImpl();
-		return javaDoc;
+	public Contains createContains() {
+		ContainsImpl contains = new ContainsImpl();
+		return contains;
 	}
 
 	/**
@@ -447,9 +458,9 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Contains createContains() {
-		ContainsImpl contains = new ContainsImpl();
-		return contains;
+	public JavaDoc createJavaDoc() {
+		JavaDocImpl javaDoc = new JavaDocImpl();
+		return javaDoc;
 	}
 
 	/**
@@ -470,6 +481,36 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public BlendModifiers createBlendModifiers() {
 		BlendModifiersImpl blendModifiers = new BlendModifiersImpl();
 		return blendModifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeString createTypeString() {
+		TypeStringImpl typeString = new TypeStringImpl();
+		return typeString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsPrimitiveFuntion createIsPrimitiveFuntion() {
+		IsPrimitiveFuntionImpl isPrimitiveFuntion = new IsPrimitiveFuntionImpl();
+		return isPrimitiveFuntion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsCollectionType createIsCollectionType() {
+		IsCollectionTypeImpl isCollectionType = new IsCollectionTypeImpl();
+		return isCollectionType;
 	}
 
 	/**
@@ -609,6 +650,26 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * @generated
 	 */
 	public String convertAccessModifierToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Primitive createPrimitiveFromString(EDataType eDataType, String initialValue) {
+		Primitive result = Primitive.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPrimitiveToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

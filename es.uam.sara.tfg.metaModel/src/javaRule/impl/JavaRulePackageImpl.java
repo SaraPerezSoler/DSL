@@ -18,7 +18,9 @@ import javaRule.File;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
+import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
 import javaRule.IsSuperInterface;
@@ -35,6 +37,7 @@ import javaRule.NameType;
 import javaRule.Or;
 import javaRule.Parameter;
 import javaRule.PrimaryOp;
+import javaRule.Primitive;
 import javaRule.Property;
 import javaRule.PropertyLiteral;
 import javaRule.Quantifier;
@@ -47,6 +50,8 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypeProperty;
+import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.isImplemented;
 
@@ -322,14 +327,14 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass javaDocEClass = null;
+	private EClass containsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass containsEClass = null;
+	private EClass javaDocEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,6 +349,34 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EClass blendModifiersEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typePropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass isPrimitiveFuntionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass isCollectionTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -393,6 +426,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EEnum accessModifierEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum primitiveEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -514,6 +554,24 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSentence_From() {
+		return (EReference)sentenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSentence_In() {
+		return (EReference)sentenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariable() {
 		return variableEClass;
 	}
@@ -559,17 +617,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_In() {
-		return (EReference)ruleEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRule_Filter() {
-		return (EReference)ruleEClass.getEStructuralFeatures().get(3);
+		return (EReference)ruleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1027,6 +1076,24 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNameOperation_Operator() {
+		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameOperation_Language() {
+		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getNameOperation_Name() {
 		return (EReference)nameOperationEClass.getEStructuralFeatures().get(2);
 	}
@@ -1099,24 +1166,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNameOperation_Operator() {
-		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNameOperation_Language() {
-		return (EAttribute)nameOperationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNameType() {
 		return nameTypeEClass;
 	}
@@ -1128,6 +1177,24 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 */
 	public EAttribute getNameType_Type() {
 		return (EAttribute)nameTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContains() {
+		return containsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getContains_Rule() {
+		return (EReference)containsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1191,24 +1258,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 */
 	public EAttribute getJavaDoc_See() {
 		return (EAttribute)javaDocEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getContains() {
-		return containsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getContains_Which() {
-		return (EReference)containsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1297,6 +1346,69 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTypeProperty() {
+		return typePropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTypeString() {
+		return typeStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypeString_TypeStrng() {
+		return (EReference)typeStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTypeString_TypePrimitive() {
+		return (EAttribute)typeStringEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIsPrimitiveFuntion() {
+		return isPrimitiveFuntionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIsCollectionType() {
+		return isCollectionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIsCollectionType_Of() {
+		return (EReference)isCollectionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantifier() {
 		return quantifierEEnum;
 	}
@@ -1360,6 +1472,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getPrimitive() {
+		return primitiveEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JavaRuleFactory getJavaRuleFactory() {
 		return (JavaRuleFactory)getEFactoryInstance();
 	}
@@ -1390,6 +1511,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__ELEMENT);
 		createEReference(sentenceEClass, SENTENCE__SATISFY);
+		createEReference(sentenceEClass, SENTENCE__FROM);
+		createEReference(sentenceEClass, SENTENCE__IN);
 
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
@@ -1397,7 +1520,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		ruleEClass = createEClass(RULE);
 		createEAttribute(ruleEClass, RULE__NO);
 		createEAttribute(ruleEClass, RULE__QUANTIFIER);
-		createEReference(ruleEClass, RULE__IN);
 		createEReference(ruleEClass, RULE__FILTER);
 
 		orEClass = createEClass(OR);
@@ -1494,6 +1616,9 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		nameTypeEClass = createEClass(NAME_TYPE);
 		createEAttribute(nameTypeEClass, NAME_TYPE__TYPE);
 
+		containsEClass = createEClass(CONTAINS);
+		createEReference(containsEClass, CONTAINS__RULE);
+
 		javaDocEClass = createEClass(JAVA_DOC);
 		createEAttribute(javaDocEClass, JAVA_DOC__AUTHOR);
 		createEAttribute(javaDocEClass, JAVA_DOC__PARAMETER);
@@ -1501,9 +1626,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(javaDocEClass, JAVA_DOC__VERSION);
 		createEAttribute(javaDocEClass, JAVA_DOC__THROWS);
 		createEAttribute(javaDocEClass, JAVA_DOC__SEE);
-
-		containsEClass = createEClass(CONTAINS);
-		createEReference(containsEClass, CONTAINS__WHICH);
 
 		modifiersEClass = createEClass(MODIFIERS);
 		createEReference(modifiersEClass, MODIFIERS__BLEND);
@@ -1516,6 +1638,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__DEFAULT);
 		createEAttribute(blendModifiersEClass, BLEND_MODIFIERS__SYNCHRONIZED);
 
+		typePropertyEClass = createEClass(TYPE_PROPERTY);
+
+		typeStringEClass = createEClass(TYPE_STRING);
+		createEReference(typeStringEClass, TYPE_STRING__TYPE_STRNG);
+		createEAttribute(typeStringEClass, TYPE_STRING__TYPE_PRIMITIVE);
+
+		isPrimitiveFuntionEClass = createEClass(IS_PRIMITIVE_FUNTION);
+
+		isCollectionTypeEClass = createEClass(IS_COLLECTION_TYPE);
+		createEReference(isCollectionTypeEClass, IS_COLLECTION_TYPE__OF);
+
 		// Create enums
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		elementEEnum = createEEnum(ELEMENT);
@@ -1524,6 +1657,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		nameCheckEEnum = createEEnum(NAME_CHECK);
 		nameOperatorEEnum = createEEnum(NAME_OPERATOR);
 		accessModifierEEnum = createEEnum(ACCESS_MODIFIER);
+		primitiveEEnum = createEEnum(PRIMITIVE);
 	}
 
 	/**
@@ -1604,21 +1738,24 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		nameTypeEClass.getESuperTypes().add(this.getInterface());
 		nameTypeEClass.getESuperTypes().add(this.getEnumeration());
 		nameTypeEClass.getESuperTypes().add(this.getFile());
+		containsEClass.getESuperTypes().add(this.getClass_());
+		containsEClass.getESuperTypes().add(this.getEnumeration());
+		containsEClass.getESuperTypes().add(this.getFile());
+		containsEClass.getESuperTypes().add(this.getInterface());
+		containsEClass.getESuperTypes().add(this.getPackage());
 		javaDocEClass.getESuperTypes().add(this.getAttribute());
 		javaDocEClass.getESuperTypes().add(this.getClass_());
 		javaDocEClass.getESuperTypes().add(this.getMethod());
 		javaDocEClass.getESuperTypes().add(this.getInterface());
 		javaDocEClass.getESuperTypes().add(this.getEnumeration());
-		containsEClass.getESuperTypes().add(this.getPackage());
-		containsEClass.getESuperTypes().add(this.getInterface());
-		containsEClass.getESuperTypes().add(this.getEnumeration());
-		containsEClass.getESuperTypes().add(this.getClass_());
-		containsEClass.getESuperTypes().add(this.getFile());
 		modifiersEClass.getESuperTypes().add(this.getAttribute());
 		modifiersEClass.getESuperTypes().add(this.getClass_());
 		modifiersEClass.getESuperTypes().add(this.getMethod());
 		modifiersEClass.getESuperTypes().add(this.getEnumeration());
 		modifiersEClass.getESuperTypes().add(this.getInterface());
+		typeStringEClass.getESuperTypes().add(this.getTypeProperty());
+		isPrimitiveFuntionEClass.getESuperTypes().add(this.getTypeProperty());
+		isCollectionTypeEClass.getESuperTypes().add(this.getTypeProperty());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(ruleSetEClass, RuleSet.class, "RuleSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1628,6 +1765,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(sentenceEClass, Sentence.class, "Sentence", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Element(), this.getElement(), "element", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentence_Satisfy(), this.getOr(), null, "satisfy", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_From(), this.getVariable(), null, "from", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_In(), this.getVariable(), null, "in", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1635,7 +1774,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRule_No(), ecorePackage.getEBoolean(), "no", "false", 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRule_Quantifier(), this.getQuantifier(), "quantifier", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRule_In(), this.getVariable(), null, "in", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Filter(), this.getOr(), null, "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1698,15 +1836,15 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getParameter_Min(), ecorePackage.getEInt(), "min", "1", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Max(), ecorePackage.getEInt(), "max", "2147483647", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Exact(), ecorePackage.getEInt(), "exact", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_Types(), this.getStringProperty(), null, "types", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_Types(), this.getTypeProperty(), null, "types", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constructorEClass, Constructor.class, "Constructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReturn_Type(), this.getStringProperty(), null, "type", null, 1, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReturn_Type(), this.getTypeProperty(), null, "type", null, 1, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttributeType_Type(), this.getStringProperty(), null, "type", null, 1, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttributeType_Type(), this.getTypeProperty(), null, "type", null, 1, 1, AttributeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initializeEClass, Initialize.class, "Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1732,6 +1870,9 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(nameTypeEClass, NameType.class, "NameType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameType_Type(), this.getNameCheck(), "type", "UPPER_CASE", 1, 1, NameType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContains_Rule(), this.getRule(), null, "rule", null, 1, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(javaDocEClass, JavaDoc.class, "JavaDoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJavaDoc_Author(), ecorePackage.getEBoolean(), "author", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaDoc_Parameter(), ecorePackage.getEBoolean(), "parameter", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1739,9 +1880,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getJavaDoc_Version(), ecorePackage.getEBoolean(), "version", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaDoc_Throws(), ecorePackage.getEBoolean(), "throws", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaDoc_See(), ecorePackage.getEBoolean(), "see", "false", 1, 1, JavaDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContains_Which(), this.getRule(), null, "which", null, 1, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modifiersEClass, Modifiers.class, "Modifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModifiers_Blend(), this.getBlendModifiers(), null, "blend", null, 1, -1, Modifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1753,6 +1891,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getBlendModifiers_Abstract(), ecorePackage.getEBoolean(), "abstract", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Default(), ecorePackage.getEBoolean(), "default", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBlendModifiers_Synchronized(), ecorePackage.getEBoolean(), "synchronized", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typePropertyEClass, TypeProperty.class, "TypeProperty", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(typeStringEClass, TypeString.class, "TypeString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypeString_TypeStrng(), this.getStringProperty(), null, "typeStrng", null, 0, 1, TypeString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeString_TypePrimitive(), this.getPrimitive(), "typePrimitive", null, 0, 1, TypeString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(isPrimitiveFuntionEClass, IsPrimitiveFuntion.class, "IsPrimitiveFuntion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(isCollectionTypeEClass, IsCollectionType.class, "IsCollectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIsCollectionType_Of(), this.getTypeProperty(), null, "of", null, 0, 1, IsCollectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantifierEEnum, Quantifier.class, "Quantifier");
@@ -1797,6 +1946,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PUBLIC);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PROTECTED);
 		addEEnumLiteral(accessModifierEEnum, AccessModifier.PRIVATE);
+
+		initEEnum(primitiveEEnum, Primitive.class, "Primitive");
+		addEEnumLiteral(primitiveEEnum, Primitive.BYTE);
+		addEEnumLiteral(primitiveEEnum, Primitive.SHORT);
+		addEEnumLiteral(primitiveEEnum, Primitive.INT);
+		addEEnumLiteral(primitiveEEnum, Primitive.LONG);
+		addEEnumLiteral(primitiveEEnum, Primitive.FLOAT);
+		addEEnumLiteral(primitiveEEnum, Primitive.DOUBLE);
+		addEEnumLiteral(primitiveEEnum, Primitive.BOOLEAN);
+		addEEnumLiteral(primitiveEEnum, Primitive.CHAR);
+		addEEnumLiteral(primitiveEEnum, Primitive.STRING);
 
 		// Create resource
 		createResource(eNS_URI);

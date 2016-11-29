@@ -15,7 +15,9 @@ import javaRule.File;
 import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.Interface;
+import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
 import javaRule.IsSuperInterface;
@@ -39,6 +41,8 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypeProperty;
+import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.isImplemented;
 
@@ -250,12 +254,12 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createNameTypeAdapter();
 			}
 			@Override
-			public Adapter caseJavaDoc(JavaDoc object) {
-				return createJavaDocAdapter();
-			}
-			@Override
 			public Adapter caseContains(Contains object) {
 				return createContainsAdapter();
+			}
+			@Override
+			public Adapter caseJavaDoc(JavaDoc object) {
+				return createJavaDocAdapter();
 			}
 			@Override
 			public Adapter caseModifiers(Modifiers object) {
@@ -264,6 +268,22 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBlendModifiers(BlendModifiers object) {
 				return createBlendModifiersAdapter();
+			}
+			@Override
+			public Adapter caseTypeProperty(TypeProperty object) {
+				return createTypePropertyAdapter();
+			}
+			@Override
+			public Adapter caseTypeString(TypeString object) {
+				return createTypeStringAdapter();
+			}
+			@Override
+			public Adapter caseIsPrimitiveFuntion(IsPrimitiveFuntion object) {
+				return createIsPrimitiveFuntionAdapter();
+			}
+			@Override
+			public Adapter caseIsCollectionType(IsCollectionType object) {
+				return createIsCollectionTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -790,20 +810,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.JavaDoc <em>Java Doc</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see javaRule.JavaDoc
-	 * @generated
-	 */
-	public Adapter createJavaDocAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link javaRule.Contains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -814,6 +820,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.JavaDoc <em>Java Doc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.JavaDoc
+	 * @generated
+	 */
+	public Adapter createJavaDocAdapter() {
 		return null;
 	}
 
@@ -842,6 +862,62 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBlendModifiersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.TypeProperty <em>Type Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.TypeProperty
+	 * @generated
+	 */
+	public Adapter createTypePropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.TypeString <em>Type String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.TypeString
+	 * @generated
+	 */
+	public Adapter createTypeStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsPrimitiveFuntion <em>Is Primitive Funtion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsPrimitiveFuntion
+	 * @generated
+	 */
+	public Adapter createIsPrimitiveFuntionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.IsCollectionType <em>Is Collection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.IsCollectionType
+	 * @generated
+	 */
+	public Adapter createIsCollectionTypeAdapter() {
 		return null;
 	}
 

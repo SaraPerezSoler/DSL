@@ -6,14 +6,14 @@ import javaRule.JavaRulePackage;
 import javaRule.Language;
 import javaRule.NameOperation;
 import javaRule.NameOperator;
-
 import javaRule.StringProperty;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -106,6 +106,48 @@ public class NameOperationImpl extends AttributeImpl implements NameOperation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NameOperator getOperator() {
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperator(NameOperator newOperator) {
+		NameOperator oldOperator = operator;
+		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.NAME_OPERATION__OPERATOR, oldOperator, operator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Language getLanguage() {
+		return language;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLanguage(Language newLanguage) {
+		Language oldLanguage = language;
+		language = newLanguage == null ? LANGUAGE_EDEFAULT : newLanguage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.NAME_OPERATION__LANGUAGE, oldLanguage, language));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StringProperty getName() {
 		return name;
 	}
@@ -156,48 +198,6 @@ public class NameOperationImpl extends AttributeImpl implements NameOperation {
 				return basicSetName(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NameOperator getOperator() {
-		return operator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOperator(NameOperator newOperator) {
-		NameOperator oldOperator = operator;
-		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.NAME_OPERATION__OPERATOR, oldOperator, operator));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Language getLanguage() {
-		return language;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLanguage(Language newLanguage) {
-		Language oldLanguage = language;
-		language = newLanguage == null ? LANGUAGE_EDEFAULT : newLanguage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.NAME_OPERATION__LANGUAGE, oldLanguage, language));
 	}
 
 	/**

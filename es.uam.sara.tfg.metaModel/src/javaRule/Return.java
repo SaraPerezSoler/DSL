@@ -24,17 +24,17 @@ public interface Return extends Method {
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' containment reference.
-	 * @see #setType(StringProperty)
+	 * @see #setType(TypeProperty)
 	 * @see javaRule.JavaRulePackage#getReturn_Type()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	StringProperty getType();
+	TypeProperty getType();
 
 	/**
 	 * Sets the value of the '{@link javaRule.Return#getType <em>Type</em>}' containment reference.
@@ -44,6 +44,6 @@ public interface Return extends Method {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(StringProperty value);
+	void setType(TypeProperty value);
 
 } // Return

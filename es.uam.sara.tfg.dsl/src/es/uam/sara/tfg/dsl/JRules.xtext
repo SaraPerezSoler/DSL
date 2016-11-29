@@ -6,26 +6,26 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 RuleSet returns RuleSet:
 		'Projects' 'Name:' ((ProjectName+=EString ( "," ProjectName+=EString)* )|'*')
-		 sentences+=Sentence ( "," sentences+=Sentence)* ;
+		 sentences+=Sentence (sentences+=Sentence)* ;
 
 Sentence returns Sentence:
-	Variable | Rule;
+	(Variable | Rule)';';
 
 enum Element returns Element:
 				Package = 'Package' | Class = 'Class' | Interface = 'Interface' | Enum = 'Enum' | Method = 'Method' | Attribute = 'Attribute' | File = 'File';
 
 Variable returns Variable:
 	name=EString':'
-	element=Element 'satisfy' satisfy=Or;
+	element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('satisfy' satisfy=Or)?;
 
 Rule returns Rule:
-	(no?='no')? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
+	(no?='no')? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
 
 Or returns Or:
 	 op+=And ( 'or' op+=And)*;
 
 And returns And:
-	op+=PrimaryOp ( 'and' op+=PrimaryOp)* ;
+	op+=PrimaryOp ( 'and' op+=PrimaryOp)*;
 	
 PrimaryOp returns PrimaryOp:
 	'('Or')'|PropertyLiteral;
@@ -35,22 +35,23 @@ PropertyLiteral returns PropertyLiteral:
 ;
 
 Property returns Property:
-	isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor | Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType | JavaDoc | Contains | Modifiers;
+	isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor | 
+	Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType| Contains | JavaDoc | Modifiers ;
 	
 	
 isImplemented returns isImplemented:
 
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t') 'implemented' valores=RangoNames;
+	('is' | 'are')(no?= 'not')? 'implemented' valores=RangoNames;
 
 IsSuperInterface returns IsSuperInterface:
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t') 'superinterface' valores=RangoNames;
+	('is' | 'are')(no?= 'not')? 'superinterface' valores=RangoNames;
 
 IsSuperClass returns IsSuperClass:
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')'superclass' valores=RangoNames;
+	('is' | 'are')(no?= 'not')?'superclass' valores=RangoNames;
 
 IsSubClass returns IsSubClass:
 	{IsSubClass}
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t') 'subclass' ('of' of=StringProperty)?;
+	('is' | 'are')(no?= 'not')? 'subclass' ('of' of=StringProperty)?;
 
 Implements returns Implements:
 	(no?='do' 'not'|no?='don\'t'|no?='does' 'not'|no?='doesn\'t')? 'implements' valores=RangoNames;
@@ -63,39 +64,41 @@ Tamanio returns Tamanio:
 
 Parameter returns Parameter:
 	{Parameter}
-	'parameters' ('size'(('='|no?='<>') exact=EInt)|('['min=EInt'..'(max=EInt|'*')']'))? ('types''=' '['types+=StringProperty(','types+=StringProperty)*']')?;
+	'parameters' ('size'(('='|no?='<>') exact=EInt)|('['min=EInt'..'(max=EInt|'*')']'))? ('types''=' '['types+=TypeProperty(','types+=TypeProperty)*']')?;
+
+
 
 Constructor returns Constructor:
 	{Constructor}
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')'constructor'
+	('is' | 'are')(no?= 'not')?'constructor'
 	;
 
 Return returns Return:
-	'return' 'type' ('='|no?='<>') type=StringProperty;
+	'return' 'type' ('='|no?='<>') type=TypeProperty;
 
 AttributeType returns AttributeType:
-	'type'('='|no?='<>') type=StringProperty;
+	'type'('='|no?='<>') type=TypeProperty;
 
 Initialize returns Initialize:
 	{Initialize}
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')'initialize'
+('is' | 'are')(no?= 'not')?'initialize'
 	;
 
 Empty returns Empty:
 	{Empty}
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')'empty'
+	('is' | 'are')(no?= 'not')?'empty'
 	;
 
 IsGeneric returns IsGeneric:
 	{IsGeneric}
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')'generic'
+	('is' | 'are')(no?= 'not')?'generic'
 	;
 
 NameOperation returns NameOperation:
-	'name' ((no?='does' 'not'|no?='doesn\'t')? operator=NameOperator)|('='|no?='<>') name=StringProperty(',' Language=Language)?;
+	'name' (((no?='does' 'not')? operator=NameOperator)|('='|no?='<>')) name=StringProperty(',' Language=Language)?;
 
 NameType returns NameType:
-	'NameType'
+	'name'
 		'type' ('='|no?='<>') type=NameCheck;
 
 JavaDoc returns JavaDoc:
@@ -111,12 +114,11 @@ JavaDoc returns JavaDoc:
 
 Contains returns Contains:
 	{Contains}
-	((no?='do' 'not'|no?='don\'t'|no?='does' 'not'|no?='doesn\'t')? 'have')|(no?='haven\'t') which=Rule;
+	(((no?='do' 'not'|no?='don\'t'|no?='does' 'not'|no?='doesn\'t')? 'have')|(no?='haven\'t')) '{'rule=Rule'}';
 
 Modifiers returns Modifiers:
-	('is'|no?='is' 'not'|no?='isn\'t'|'are'|no?='are' 'not'|no?='aren\'t')
-	'modified' 'with' '[' blend+=BlendModifiers ( 'or' blend+=BlendModifiers)* ']' 
-	'}';
+	('is' | 'are')(no?= 'not')?
+	'modified' 'with' '[' blend+=BlendModifiers ( 'or' blend+=BlendModifiers)* ']';
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
@@ -134,21 +136,44 @@ StringValue returns StringValue:
 	value=EString; 
 StringVariable returns StringVariable:
 	variable=[Variable|EString]('.'subtype=Element)?'.'strings=ElementString;
+	
+	
+TypeProperty returns TypeProperty:
+	TypeString | isPrimitiveFunction | IsCollectionType
+;
+
+TypeString returns TypeString:
+	('Primitive.' typePrimitive=Primitive)|(typeStrng=StringProperty)
+;
+isPrimitiveFunction returns IsPrimitiveFuntion:
+	{IsPrimitiveFuntion}
+	'isPrimitive''()'
+;
+enum Primitive returns Primitive: 
+BOOLEAN='boolean' | BYTE='byte' | CHAR='char' | DOUBLE='double' |FLOAT='float'
+|INT= 'int' |LONG='long'|SHORT='short' | STRING='String'
+;
+
+IsCollectionType returns IsCollectionType:
+	{IsCollectionType}
+	'isCollection'('()'| '('of=TypeProperty')')
+;
+
 
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
 enum NameOperator returns NameOperator:
-			START = 'START' | END = 'END' | CONTAIN = 'CONTAIN' | LIKE = 'LIKE';
+			START = 'start ' | END = 'end' | CONTAIN = 'contain' | LIKE = 'like';
 enum ElementString returns ElementString:
 			name = 'name' | type = 'type';
 
 enum Language returns Language:
-				SPANISH = 'SPANISH' | ENGLISH = 'ENGLISH';
+				SPANISH = 'Spanish' | ENGLISH = 'English';
 
 enum NameCheck returns NameCheck:
-			UPPER_CASE = 'UPPER_CASE' | LOWER_CASE = 'LOWER_CASE' | UPPER_CAMEL_CASE = 'UPPER_CAMEL_CASE' | LOWER_CAMEL_CASE = 'LOWER_CAMEL_CASE' | START_UPPER_CASE = 'START_UPPER_CASE';
+			UPPER_CASE = 'upper case' | LOWER_CASE = 'lower case' | UPPER_CAMEL_CASE = 'upper camel case' | LOWER_CAMEL_CASE = 'lower camel case' | START_UPPER_CASE = 'start upper case';
 
 BlendModifiers returns BlendModifiers:
 (access=AccessModifier ('and'static?='static')? ('and'final?='final')? ('and'abstract?='abstract')? ('and'default?='default')? ('and'synchronized?='synchronized')?) | 

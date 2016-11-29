@@ -15,7 +15,9 @@ import javaRule.Empty;
 import javaRule.Extends;
 import javaRule.Implements;
 import javaRule.Initialize;
+import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
 import javaRule.IsSuperInterface;
@@ -33,6 +35,7 @@ import javaRule.RuleSet;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.isImplemented;
 import org.eclipse.emf.ecore.EObject;
@@ -86,8 +89,14 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case JavaRulePackage.INITIALIZE:
 				sequence_Initialize(context, (Initialize) semanticObject); 
 				return; 
+			case JavaRulePackage.IS_COLLECTION_TYPE:
+				sequence_IsCollectionType(context, (IsCollectionType) semanticObject); 
+				return; 
 			case JavaRulePackage.IS_GENERIC:
 				sequence_IsGeneric(context, (IsGeneric) semanticObject); 
+				return; 
+			case JavaRulePackage.IS_PRIMITIVE_FUNTION:
+				sequence_isPrimitiveFunction(context, (IsPrimitiveFuntion) semanticObject); 
 				return; 
 			case JavaRulePackage.IS_SUB_CLASS:
 				sequence_IsSubClass(context, (IsSubClass) semanticObject); 
@@ -140,6 +149,9 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case JavaRulePackage.TAMANIO:
 				sequence_Tamanio(context, (Tamanio) semanticObject); 
 				return; 
+			case JavaRulePackage.TYPE_STRING:
+				sequence_TypeString(context, (TypeString) semanticObject); 
+				return; 
 			case JavaRulePackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
 				return; 
@@ -169,7 +181,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     AttributeType returns AttributeType
 	 *
 	 * Constraint:
-	 *     (no?='<>'? type=StringProperty)
+	 *     (no?='<>'? type=TypeProperty)
 	 */
 	protected void sequence_AttributeType(ISerializationContext context, AttributeType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -208,7 +220,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Constructor returns Constructor
 	 *
 	 * Constraint:
-	 *     (no?='is' | no?='isn't' | no?='are' | no?='aren't')?
+	 *     no?='not'?
 	 */
 	protected void sequence_Constructor(ISerializationContext context, Constructor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -221,7 +233,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Contains returns Contains
 	 *
 	 * Constraint:
-	 *     (no?='do' | no?='don't' | no?='does' | no?='doesn't' | (no?='haven't' which=Rule))?
+	 *     ((no?='do' | no?='don't' | no?='does' | no?='doesn't' | no?='haven't')? rule=Rule)
 	 */
 	protected void sequence_Contains(ISerializationContext context, Contains semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -234,7 +246,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Empty returns Empty
 	 *
 	 * Constraint:
-	 *     (no?='is' | no?='isn't' | no?='are' | no?='aren't')?
+	 *     no?='not'?
 	 */
 	protected void sequence_Empty(ISerializationContext context, Empty semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -273,9 +285,22 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Initialize returns Initialize
 	 *
 	 * Constraint:
-	 *     (no?='is' | no?='isn't' | no?='are' | no?='aren't')?
+	 *     no?='not'?
 	 */
 	protected void sequence_Initialize(ISerializationContext context, Initialize semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TypeProperty returns IsCollectionType
+	 *     IsCollectionType returns IsCollectionType
+	 *
+	 * Constraint:
+	 *     of=TypeProperty?
+	 */
+	protected void sequence_IsCollectionType(ISerializationContext context, IsCollectionType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -286,7 +311,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     IsGeneric returns IsGeneric
 	 *
 	 * Constraint:
-	 *     (no?='is' | no?='isn't' | no?='are' | no?='aren't')?
+	 *     no?='not'?
 	 */
 	protected void sequence_IsGeneric(ISerializationContext context, IsGeneric semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -299,7 +324,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     IsSubClass returns IsSubClass
 	 *
 	 * Constraint:
-	 *     ((no?='is' | no?='isn't' | no?='are' | no?='aren't')? of=StringProperty?)
+	 *     (no?='not'? of=StringProperty?)
 	 */
 	protected void sequence_IsSubClass(ISerializationContext context, IsSubClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -312,7 +337,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     IsSuperClass returns IsSuperClass
 	 *
 	 * Constraint:
-	 *     ((no?='is' | no?='isn't' | no?='are' | no?='aren't')? valores=RangoNames)
+	 *     (no?='not'? valores=RangoNames)
 	 */
 	protected void sequence_IsSuperClass(ISerializationContext context, IsSuperClass semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -325,7 +350,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     IsSuperInterface returns IsSuperInterface
 	 *
 	 * Constraint:
-	 *     ((no?='is' | no?='isn't' | no?='are' | no?='aren't')? valores=RangoNames)
+	 *     (no?='not'? valores=RangoNames)
 	 */
 	protected void sequence_IsSuperInterface(ISerializationContext context, IsSuperInterface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -359,7 +384,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Modifiers returns Modifiers
 	 *
 	 * Constraint:
-	 *     ((no?='is' | no?='isn't' | no?='are' | no?='aren't')? blend+=BlendModifiers blend+=BlendModifiers*)
+	 *     (no?='not'? blend+=BlendModifiers blend+=BlendModifiers*)
 	 */
 	protected void sequence_Modifiers(ISerializationContext context, Modifiers semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -372,7 +397,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     NameOperation returns NameOperation
 	 *
 	 * Constraint:
-	 *     (((no?='does' | no?='doesn't')? operator=NameOperator) | (no?='<>'? name=StringProperty Language=Language?))
+	 *     (((no?='does'? operator=NameOperator) | no?='<>')? name=StringProperty Language=Language?)
 	 */
 	protected void sequence_NameOperation(ISerializationContext context, NameOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -411,7 +436,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (((no?='<>'? exact=EInt) | (min=EInt max=EInt?))? (types+=StringProperty types+=StringProperty*)?)
+	 *     (((no?='<>'? exact=EInt) | (min=EInt max=EInt?))? (types+=TypeProperty types+=TypeProperty*)?)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, javaRule.Parameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -455,7 +480,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Return returns Return
 	 *
 	 * Constraint:
-	 *     (no?='<>'? type=StringProperty)
+	 *     (no?='<>'? type=TypeProperty)
 	 */
 	protected void sequence_Return(ISerializationContext context, Return semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -485,6 +510,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         quantifier=Quantifier 
 	 *         element=Element 
 	 *         in=[Variable|EString]? 
+	 *         from=[Variable|EString]? 
 	 *         filter=Or? 
 	 *         satisfy=Or?
 	 *     )
@@ -541,26 +567,27 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     TypeProperty returns TypeString
+	 *     TypeString returns TypeString
+	 *
+	 * Constraint:
+	 *     (typePrimitive=Primitive | typeStrng=StringProperty)
+	 */
+	protected void sequence_TypeString(ISerializationContext context, TypeString semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Sentence returns Variable
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=EString element=Element satisfy=Or)
+	 *     (name=EString element=Element in=[Variable|EString]? from=[Variable|EString]? satisfy=Or?)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.VARIABLE__NAME));
-			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.SENTENCE__ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.SENTENCE__ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.SENTENCE__SATISFY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.SENTENCE__SATISFY));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariableAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getVariableAccess().getElementElementEnumRuleCall_2_0(), semanticObject.getElement());
-		feeder.accept(grammarAccess.getVariableAccess().getSatisfyOrParserRuleCall_4_0(), semanticObject.getSatisfy());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -570,9 +597,22 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     isImplemented returns isImplemented
 	 *
 	 * Constraint:
-	 *     ((no?='is' | no?='isn't' | no?='are' | no?='aren't')? valores=RangoNames)
+	 *     (no?='not'? valores=RangoNames)
 	 */
 	protected void sequence_isImplemented(ISerializationContext context, isImplemented semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TypeProperty returns IsPrimitiveFuntion
+	 *     isPrimitiveFunction returns IsPrimitiveFuntion
+	 *
+	 * Constraint:
+	 *     {IsPrimitiveFuntion}
+	 */
+	protected void sequence_isPrimitiveFunction(ISerializationContext context, IsPrimitiveFuntion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

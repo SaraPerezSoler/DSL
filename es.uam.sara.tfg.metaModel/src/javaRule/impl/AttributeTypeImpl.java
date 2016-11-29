@@ -4,14 +4,14 @@ package javaRule.impl;
 
 import javaRule.AttributeType;
 import javaRule.JavaRulePackage;
+import javaRule.TypeProperty;
 
-import javaRule.StringProperty;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -36,7 +36,7 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	 * @generated
 	 * @ordered
 	 */
-	protected StringProperty type;
+	protected TypeProperty type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StringProperty getType() {
+	public TypeProperty getType() {
 		return type;
 	}
 
@@ -71,8 +71,8 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(StringProperty newType, NotificationChain msgs) {
-		StringProperty oldType = type;
+	public NotificationChain basicSetType(TypeProperty newType, NotificationChain msgs) {
+		TypeProperty oldType = type;
 		type = newType;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.ATTRIBUTE_TYPE__TYPE, oldType, newType);
@@ -86,7 +86,7 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(StringProperty newType) {
+	public void setType(TypeProperty newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)
@@ -137,7 +137,7 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaRulePackage.ATTRIBUTE_TYPE__TYPE:
-				setType((StringProperty)newValue);
+				setType((TypeProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,7 +152,7 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaRulePackage.ATTRIBUTE_TYPE__TYPE:
-				setType((StringProperty)null);
+				setType((TypeProperty)null);
 				return;
 		}
 		super.eUnset(featureID);

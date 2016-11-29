@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link javaRule.Sentence#getElement <em>Element</em>}</li>
  *   <li>{@link javaRule.Sentence#getSatisfy <em>Satisfy</em>}</li>
+ *   <li>{@link javaRule.Sentence#getFrom <em>From</em>}</li>
+ *   <li>{@link javaRule.Sentence#getIn <em>In</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getSentence()
@@ -76,5 +78,57 @@ public interface Sentence extends EObject {
 	 * @generated
 	 */
 	void setSatisfy(Or value);
+
+	/**
+	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>From</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>From</em>' reference.
+	 * @see #setFrom(Variable)
+	 * @see javaRule.JavaRulePackage#getSentence_From()
+	 * @model
+	 * @generated
+	 */
+	Variable getFrom();
+
+	/**
+	 * Sets the value of the '{@link javaRule.Sentence#getFrom <em>From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>From</em>' reference.
+	 * @see #getFrom()
+	 * @generated
+	 */
+	void setFrom(Variable value);
+
+	/**
+	 * Returns the value of the '<em><b>In</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In</em>' reference.
+	 * @see #setIn(Variable)
+	 * @see javaRule.JavaRulePackage#getSentence_In()
+	 * @model
+	 * @generated
+	 */
+	Variable getIn();
+
+	/**
+	 * Sets the value of the '{@link javaRule.Sentence#getIn <em>In</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In</em>' reference.
+	 * @see #getIn()
+	 * @generated
+	 */
+	void setIn(Variable value);
 
 } // Sentence

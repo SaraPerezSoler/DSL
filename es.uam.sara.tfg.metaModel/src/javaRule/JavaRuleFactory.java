@@ -247,15 +247,6 @@ public interface JavaRuleFactory extends EFactory {
 	NameType createNameType();
 
 	/**
-	 * Returns a new object of class '<em>Java Doc</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Java Doc</em>'.
-	 * @generated
-	 */
-	JavaDoc createJavaDoc();
-
-	/**
 	 * Returns a new object of class '<em>Contains</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +254,15 @@ public interface JavaRuleFactory extends EFactory {
 	 * @generated
 	 */
 	Contains createContains();
+
+	/**
+	 * Returns a new object of class '<em>Java Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Java Doc</em>'.
+	 * @generated
+	 */
+	JavaDoc createJavaDoc();
 
 	/**
 	 * Returns a new object of class '<em>Modifiers</em>'.
@@ -281,6 +281,33 @@ public interface JavaRuleFactory extends EFactory {
 	 * @generated
 	 */
 	BlendModifiers createBlendModifiers();
+
+	/**
+	 * Returns a new object of class '<em>Type String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type String</em>'.
+	 * @generated
+	 */
+	TypeString createTypeString();
+
+	/**
+	 * Returns a new object of class '<em>Is Primitive Funtion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Primitive Funtion</em>'.
+	 * @generated
+	 */
+	IsPrimitiveFuntion createIsPrimitiveFuntion();
+
+	/**
+	 * Returns a new object of class '<em>Is Collection Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Is Collection Type</em>'.
+	 * @generated
+	 */
+	IsCollectionType createIsCollectionType();
 
 	/**
 	 * Returns the package supported by this factory.

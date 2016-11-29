@@ -132,13 +132,31 @@ public interface JavaRulePackage extends EPackage {
 	int SENTENCE__SATISFY = 1;
 
 	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__FROM = 2;
+
+	/**
+	 * The feature id for the '<em><b>In</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__IN = 3;
+
+	/**
 	 * The number of structural features of the '<em>Sentence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE_FEATURE_COUNT = 2;
+	int SENTENCE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Sentence</em>' class.
@@ -176,6 +194,24 @@ public interface JavaRulePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE__SATISFY = SENTENCE__SATISFY;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__FROM = SENTENCE__FROM;
+
+	/**
+	 * The feature id for the '<em><b>In</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__IN = SENTENCE__IN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -233,6 +269,24 @@ public interface JavaRulePackage extends EPackage {
 	int RULE__SATISFY = SENTENCE__SATISFY;
 
 	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__FROM = SENTENCE__FROM;
+
+	/**
+	 * The feature id for the '<em><b>In</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IN = SENTENCE__IN;
+
+	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,22 +305,13 @@ public interface JavaRulePackage extends EPackage {
 	int RULE__QUANTIFIER = SENTENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RULE__IN = SENTENCE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__FILTER = SENTENCE_FEATURE_COUNT + 3;
+	int RULE__FILTER = SENTENCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -275,7 +320,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_FEATURE_COUNT = SENTENCE_FEATURE_COUNT + 4;
+	int RULE_FEATURE_COUNT = SENTENCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -1660,6 +1705,52 @@ public interface JavaRulePackage extends EPackage {
 	int NAME_TYPE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.ContainsImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
+	 * @generated
+	 */
+	int CONTAINS = 36;
+
+	/**
+	 * The feature id for the '<em><b>No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__NO = CLASS__NO;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__RULE = CLASS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Contains</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS_FEATURE_COUNT = CLASS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Contains</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS_OPERATION_COUNT = CLASS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.impl.JavaDocImpl <em>Java Doc</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1667,7 +1758,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getJavaDoc()
 	 * @generated
 	 */
-	int JAVA_DOC = 36;
+	int JAVA_DOC = 37;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1749,52 +1840,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @ordered
 	 */
 	int JAVA_DOC_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see javaRule.impl.ContainsImpl
-	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
-	 * @generated
-	 */
-	int CONTAINS = 37;
-
-	/**
-	 * The feature id for the '<em><b>No</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINS__NO = PACKAGE__NO;
-
-	/**
-	 * The feature id for the '<em><b>Which</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINS__WHICH = PACKAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Contains</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINS_FEATURE_COUNT = PACKAGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Contains</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINS_OPERATION_COUNT = PACKAGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link javaRule.impl.ModifiersImpl <em>Modifiers</em>}' class.
@@ -1925,6 +1970,145 @@ public interface JavaRulePackage extends EPackage {
 	int BLEND_MODIFIERS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.TypePropertyImpl <em>Type Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.TypePropertyImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getTypeProperty()
+	 * @generated
+	 */
+	int TYPE_PROPERTY = 40;
+
+	/**
+	 * The number of structural features of the '<em>Type Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PROPERTY_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Type Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PROPERTY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link javaRule.impl.TypeStringImpl <em>Type String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.TypeStringImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getTypeString()
+	 * @generated
+	 */
+	int TYPE_STRING = 41;
+
+	/**
+	 * The feature id for the '<em><b>Type Strng</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_STRING__TYPE_STRNG = TYPE_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_STRING__TYPE_PRIMITIVE = TYPE_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Type String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_STRING_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Type String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_STRING_OPERATION_COUNT = TYPE_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link javaRule.impl.IsPrimitiveFuntionImpl <em>Is Primitive Funtion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.IsPrimitiveFuntionImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getIsPrimitiveFuntion()
+	 * @generated
+	 */
+	int IS_PRIMITIVE_FUNTION = 42;
+
+	/**
+	 * The number of structural features of the '<em>Is Primitive Funtion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PRIMITIVE_FUNTION_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Is Primitive Funtion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_PRIMITIVE_FUNTION_OPERATION_COUNT = TYPE_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link javaRule.impl.IsCollectionTypeImpl <em>Is Collection Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.IsCollectionTypeImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getIsCollectionType()
+	 * @generated
+	 */
+	int IS_COLLECTION_TYPE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Of</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_COLLECTION_TYPE__OF = TYPE_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Is Collection Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_COLLECTION_TYPE_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Is Collection Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IS_COLLECTION_TYPE_OPERATION_COUNT = TYPE_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.Quantifier <em>Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1932,7 +2116,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 40;
+	int QUANTIFIER = 44;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Element <em>Element</em>}' enum.
@@ -1942,7 +2126,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 41;
+	int ELEMENT = 45;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementString <em>Element String</em>}' enum.
@@ -1952,7 +2136,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementString()
 	 * @generated
 	 */
-	int ELEMENT_STRING = 42;
+	int ELEMENT_STRING = 46;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -1962,7 +2146,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 43;
+	int LANGUAGE = 47;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
@@ -1972,7 +2156,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_CHECK = 44;
+	int NAME_CHECK = 48;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -1982,7 +2166,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 45;
+	int NAME_OPERATOR = 49;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -1992,7 +2176,17 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 46;
+	int ACCESS_MODIFIER = 50;
+
+	/**
+	 * The meta object id for the '{@link javaRule.Primitive <em>Primitive</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.Primitive
+	 * @see javaRule.impl.JavaRulePackageImpl#getPrimitive()
+	 * @generated
+	 */
+	int PRIMITIVE = 51;
 
 
 	/**
@@ -2060,6 +2254,28 @@ public interface JavaRulePackage extends EPackage {
 	EReference getSentence_Satisfy();
 
 	/**
+	 * Returns the meta object for the reference '{@link javaRule.Sentence#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From</em>'.
+	 * @see javaRule.Sentence#getFrom()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EReference getSentence_From();
+
+	/**
+	 * Returns the meta object for the reference '{@link javaRule.Sentence#getIn <em>In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>In</em>'.
+	 * @see javaRule.Sentence#getIn()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EReference getSentence_In();
+
+	/**
 	 * Returns the meta object for class '{@link javaRule.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2111,17 +2327,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRule_Quantifier();
-
-	/**
-	 * Returns the meta object for the reference '{@link javaRule.Rule#getIn <em>In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>In</em>'.
-	 * @see javaRule.Rule#getIn()
-	 * @see #getRule()
-	 * @generated
-	 */
-	EReference getRule_In();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link javaRule.Rule#getFilter <em>Filter</em>}'.
@@ -2657,6 +2862,28 @@ public interface JavaRulePackage extends EPackage {
 	EClass getNameOperation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see javaRule.NameOperation#getOperator()
+	 * @see #getNameOperation()
+	 * @generated
+	 */
+	EAttribute getNameOperation_Operator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getLanguage <em>Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Language</em>'.
+	 * @see javaRule.NameOperation#getLanguage()
+	 * @see #getNameOperation()
+	 * @generated
+	 */
+	EAttribute getNameOperation_Language();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link javaRule.NameOperation#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2742,28 +2969,6 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getStringValue_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getOperator <em>Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operator</em>'.
-	 * @see javaRule.NameOperation#getOperator()
-	 * @see #getNameOperation()
-	 * @generated
-	 */
-	EAttribute getNameOperation_Operator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link javaRule.NameOperation#getLanguage <em>Language</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Language</em>'.
-	 * @see javaRule.NameOperation#getLanguage()
-	 * @see #getNameOperation()
-	 * @generated
-	 */
-	EAttribute getNameOperation_Language();
-
-	/**
 	 * Returns the meta object for class '{@link javaRule.NameType <em>Name Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2783,6 +2988,27 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNameType_Type();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.Contains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contains</em>'.
+	 * @see javaRule.Contains
+	 * @generated
+	 */
+	EClass getContains();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link javaRule.Contains#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rule</em>'.
+	 * @see javaRule.Contains#getRule()
+	 * @see #getContains()
+	 * @generated
+	 */
+	EReference getContains_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.JavaDoc <em>Java Doc</em>}'.
@@ -2859,27 +3085,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJavaDoc_See();
-
-	/**
-	 * Returns the meta object for class '{@link javaRule.Contains <em>Contains</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Contains</em>'.
-	 * @see javaRule.Contains
-	 * @generated
-	 */
-	EClass getContains();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link javaRule.Contains#getWhich <em>Which</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Which</em>'.
-	 * @see javaRule.Contains#getWhich()
-	 * @see #getContains()
-	 * @generated
-	 */
-	EReference getContains_Which();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Modifiers <em>Modifiers</em>}'.
@@ -2979,6 +3184,79 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getBlendModifiers_Synchronized();
 
 	/**
+	 * Returns the meta object for class '{@link javaRule.TypeProperty <em>Type Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Property</em>'.
+	 * @see javaRule.TypeProperty
+	 * @generated
+	 */
+	EClass getTypeProperty();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.TypeString <em>Type String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type String</em>'.
+	 * @see javaRule.TypeString
+	 * @generated
+	 */
+	EClass getTypeString();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link javaRule.TypeString#getTypeStrng <em>Type Strng</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Strng</em>'.
+	 * @see javaRule.TypeString#getTypeStrng()
+	 * @see #getTypeString()
+	 * @generated
+	 */
+	EReference getTypeString_TypeStrng();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.TypeString#getTypePrimitive <em>Type Primitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Primitive</em>'.
+	 * @see javaRule.TypeString#getTypePrimitive()
+	 * @see #getTypeString()
+	 * @generated
+	 */
+	EAttribute getTypeString_TypePrimitive();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.IsPrimitiveFuntion <em>Is Primitive Funtion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Is Primitive Funtion</em>'.
+	 * @see javaRule.IsPrimitiveFuntion
+	 * @generated
+	 */
+	EClass getIsPrimitiveFuntion();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.IsCollectionType <em>Is Collection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Is Collection Type</em>'.
+	 * @see javaRule.IsCollectionType
+	 * @generated
+	 */
+	EClass getIsCollectionType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link javaRule.IsCollectionType#getOf <em>Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Of</em>'.
+	 * @see javaRule.IsCollectionType#getOf()
+	 * @see #getIsCollectionType()
+	 * @generated
+	 */
+	EReference getIsCollectionType_Of();
+
+	/**
 	 * Returns the meta object for enum '{@link javaRule.Quantifier <em>Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3047,6 +3325,16 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getAccessModifier();
+
+	/**
+	 * Returns the meta object for enum '{@link javaRule.Primitive <em>Primitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Primitive</em>'.
+	 * @see javaRule.Primitive
+	 * @generated
+	 */
+	EEnum getPrimitive();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3124,6 +3412,22 @@ public interface JavaRulePackage extends EPackage {
 		EReference SENTENCE__SATISFY = eINSTANCE.getSentence_Satisfy();
 
 		/**
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENTENCE__FROM = eINSTANCE.getSentence_From();
+
+		/**
+		 * The meta object literal for the '<em><b>In</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENTENCE__IN = eINSTANCE.getSentence_In();
+
+		/**
 		 * The meta object literal for the '{@link javaRule.impl.VariableImpl <em>Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3166,14 +3470,6 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RULE__QUANTIFIER = eINSTANCE.getRule_Quantifier();
-
-		/**
-		 * The meta object literal for the '<em><b>In</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RULE__IN = eINSTANCE.getRule_In();
 
 		/**
 		 * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
@@ -3640,6 +3936,22 @@ public interface JavaRulePackage extends EPackage {
 		EClass NAME_OPERATION = eINSTANCE.getNameOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_OPERATION__OPERATOR = eINSTANCE.getNameOperation_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_OPERATION__LANGUAGE = eINSTANCE.getNameOperation_Language();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3710,22 +4022,6 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAME_OPERATION__OPERATOR = eINSTANCE.getNameOperation_Operator();
-
-		/**
-		 * The meta object literal for the '<em><b>Language</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAME_OPERATION__LANGUAGE = eINSTANCE.getNameOperation_Language();
-
-		/**
 		 * The meta object literal for the '{@link javaRule.impl.NameTypeImpl <em>Name Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3742,6 +4038,24 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAME_TYPE__TYPE = eINSTANCE.getNameType_Type();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.ContainsImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getContains()
+		 * @generated
+		 */
+		EClass CONTAINS = eINSTANCE.getContains();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINS__RULE = eINSTANCE.getContains_Rule();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.JavaDocImpl <em>Java Doc</em>}' class.
@@ -3800,24 +4114,6 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JAVA_DOC__SEE = eINSTANCE.getJavaDoc_See();
-
-		/**
-		 * The meta object literal for the '{@link javaRule.impl.ContainsImpl <em>Contains</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see javaRule.impl.ContainsImpl
-		 * @see javaRule.impl.JavaRulePackageImpl#getContains()
-		 * @generated
-		 */
-		EClass CONTAINS = eINSTANCE.getContains();
-
-		/**
-		 * The meta object literal for the '<em><b>Which</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINS__WHICH = eINSTANCE.getContains_Which();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.ModifiersImpl <em>Modifiers</em>}' class.
@@ -3896,6 +4192,70 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute BLEND_MODIFIERS__SYNCHRONIZED = eINSTANCE.getBlendModifiers_Synchronized();
 
 		/**
+		 * The meta object literal for the '{@link javaRule.impl.TypePropertyImpl <em>Type Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.TypePropertyImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getTypeProperty()
+		 * @generated
+		 */
+		EClass TYPE_PROPERTY = eINSTANCE.getTypeProperty();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.TypeStringImpl <em>Type String</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.TypeStringImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getTypeString()
+		 * @generated
+		 */
+		EClass TYPE_STRING = eINSTANCE.getTypeString();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Strng</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_STRING__TYPE_STRNG = eINSTANCE.getTypeString_TypeStrng();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Primitive</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_STRING__TYPE_PRIMITIVE = eINSTANCE.getTypeString_TypePrimitive();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.IsPrimitiveFuntionImpl <em>Is Primitive Funtion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.IsPrimitiveFuntionImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getIsPrimitiveFuntion()
+		 * @generated
+		 */
+		EClass IS_PRIMITIVE_FUNTION = eINSTANCE.getIsPrimitiveFuntion();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.IsCollectionTypeImpl <em>Is Collection Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.IsCollectionTypeImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getIsCollectionType()
+		 * @generated
+		 */
+		EClass IS_COLLECTION_TYPE = eINSTANCE.getIsCollectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Of</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IS_COLLECTION_TYPE__OF = eINSTANCE.getIsCollectionType_Of();
+
+		/**
 		 * The meta object literal for the '{@link javaRule.Quantifier <em>Quantifier</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3964,6 +4324,16 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ACCESS_MODIFIER = eINSTANCE.getAccessModifier();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.Primitive <em>Primitive</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.Primitive
+		 * @see javaRule.impl.JavaRulePackageImpl#getPrimitive()
+		 * @generated
+		 */
+		EEnum PRIMITIVE = eINSTANCE.getPrimitive();
 
 	}
 

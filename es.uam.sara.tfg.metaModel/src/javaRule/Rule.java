@@ -14,7 +14,6 @@ package javaRule;
  * <ul>
  *   <li>{@link javaRule.Rule#isNo <em>No</em>}</li>
  *   <li>{@link javaRule.Rule#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link javaRule.Rule#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.Rule#getFilter <em>Filter</em>}</li>
  * </ul>
  *
@@ -78,32 +77,6 @@ public interface Rule extends Sentence {
 	 * @generated
 	 */
 	void setQuantifier(Quantifier value);
-
-	/**
-	 * Returns the value of the '<em><b>In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>In</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>In</em>' reference.
-	 * @see #setIn(Variable)
-	 * @see javaRule.JavaRulePackage#getRule_In()
-	 * @model
-	 * @generated
-	 */
-	Variable getIn();
-
-	/**
-	 * Sets the value of the '{@link javaRule.Rule#getIn <em>In</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>In</em>' reference.
-	 * @see #getIn()
-	 * @generated
-	 */
-	void setIn(Variable value);
 
 	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' containment reference.
