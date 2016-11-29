@@ -554,7 +554,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSentence_From() {
+	public EReference getSentence_In() {
 		return (EReference)sentenceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -563,7 +563,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSentence_In() {
+	public EReference getSentence_From() {
 		return (EReference)sentenceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1511,8 +1511,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__ELEMENT);
 		createEReference(sentenceEClass, SENTENCE__SATISFY);
-		createEReference(sentenceEClass, SENTENCE__FROM);
 		createEReference(sentenceEClass, SENTENCE__IN);
+		createEReference(sentenceEClass, SENTENCE__FROM);
 
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
@@ -1765,8 +1765,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(sentenceEClass, Sentence.class, "Sentence", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Element(), this.getElement(), "element", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentence_Satisfy(), this.getOr(), null, "satisfy", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_In(), this.getVariable(), null, "in", null, 0, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentence_From(), this.getVariable(), null, "from", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSentence_In(), this.getVariable(), null, "in", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

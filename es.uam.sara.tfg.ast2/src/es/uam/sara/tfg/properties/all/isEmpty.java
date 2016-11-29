@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.all;
 
 import es.uam.sara.tfg.elements.ICanEmpty;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 
-public class isEmpty<T extends ICanEmpty> extends Properties<T> {
+public class isEmpty<T extends ICanEmpty> extends Property<T> {
 
 	public isEmpty(boolean no) {
 		super(no);

@@ -1,19 +1,18 @@
-package es.uam.sara.tfg.rule;
+package es.uam.sara.tfg.sentence;
 
 import java.util.List;
 
 import es.uam.sara.tfg.elements.IElements;
 
-public class Rule<T extends IElements> {
+public class Rule<T extends IElements> extends Sentence<T>{
 
 	protected boolean no;
 	protected Quantifier quantifier;
-	protected List<T> elements;
-	protected Filter<T> filter;
-	protected Or<T> properties;
+	protected Or<T> filter;
+
 	private boolean checkeado = false;
 	private boolean check = false;
-	private String elementJava;
+	
 
 	public interface Apply{
 		public boolean apply(List<?> lista, int total);
@@ -47,42 +46,45 @@ public class Rule<T extends IElements> {
 		},
 	}
 
-	public Rule(boolean no, Quantifier q, List<T> elements, Filter<T> filter, Or<T> properties, String elemntJava) {
+	public Rule(boolean no, Quantifier q,List<T> elements, Or<T> filter,Or<T> satisfy,From<T> from, List<In<T>> in,String elemntJava) {
+		
+		super(elemntJava,elements, satisfy,from, in);
 		this.no = no;
 		this.quantifier = q;
-		this.elements = elements;
 		if (filter==null){
 			this.filter= new NoOr<T>();
 		}else{
 			this.filter = filter;
 		}
-		if (properties==null){
-			this.properties= new NoOr<T>();
-		}else{
-			this.properties = properties;
-		}
-		this.elementJava = elemntJava;
+		
 	}
 
 	public void reset(List<T> elements) {
 		this.elements = elements;
 		filter.reset();
-		properties.reset();
+		satisfy.reset();
 		checkeado = false;
 	}
 
 	public boolean checkTest() {
 		if (!checkeado) {
-			filter.check(this.elements);
-			List<T> analyze = filter.getFiltering();
-			properties.check(analyze);
+			List<T>analyze=this.elements;
+			
+			for(In<T> i:in){
+				analyze=i.getUnion(analyze);
+			}
+			filter.check(analyze);
+			analyze=filter.getRight();
+			satisfy.check(analyze);
+			
+			if (no) {
+				check= !quantifier.apply(satisfy.getRight(), analyze.size());
+			} else {
+				check= quantifier.apply(satisfy.getRight(), analyze.size());
+			}
 			checkeado = true;
 		}
-		if (no) {
-			check= !quantifier.apply(properties.getRight(), filter.getFiltering().size());
-		} else {
-			check= quantifier.apply(properties.getRight(), filter.getFiltering().size());
-		}
+		
 		return check;
 	}
 
@@ -92,12 +94,13 @@ public class Rule<T extends IElements> {
 		if (no) {
 			cad += "no ";
 		}
-		cad += this.quantifier.toString().toLowerCase() + " " + elementJava;
+		
+		cad += this.quantifier.toString().toLowerCase() + " " + ielement;
 		if (!(filter.isNoProperty())) {
 			cad += " which " + filter;
 		}
-		if (!(properties.isNoProperty())) {
-			cad += " satisfy " + properties + " ";
+		if (!(satisfy.isNoProperty())) {
+			cad += " satisfy " + satisfy + " ";
 		}
 		return cad;
 	}
@@ -105,9 +108,9 @@ public class Rule<T extends IElements> {
 	public String printWrong() {
 		if (checkeado) {
 			if (no) {
-				return properties.print(true);
+				return satisfy.print(true);
 			} else {
-				return properties.print(false);
+				return satisfy.print(false);
 			}
 		}
 		return "";
@@ -116,9 +119,9 @@ public class Rule<T extends IElements> {
 	public String printRight() {
 		if (checkeado) {
 			if (no) {
-				return properties.print(false);
+				return satisfy.print(false);
 			} else {
-				return properties.print(true);
+				return satisfy.print(true);
 			}
 		} else {
 			return "";
@@ -133,7 +136,7 @@ public class Rule<T extends IElements> {
 			} else {
 				cad += "ERROR\n";
 			}
-			if (properties.isNoProperty()){
+			if (satisfy.isNoProperty()){
 				cad+=this.printWrong().replace("\n", "\n\t")+this.printRight().replace("\n", "\n\t");
 			}else{
 				cad += "WRONG: \n\t" + this.printWrong().replace("\n", "\n\t")+"\n";

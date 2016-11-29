@@ -4,7 +4,7 @@ import java.util.List;
 
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.rule.Rule;
+import es.uam.sara.tfg.sentence.Rule;
 
 public class ContainAttributes<T extends Container> extends Contain<T,Attribute> {
 

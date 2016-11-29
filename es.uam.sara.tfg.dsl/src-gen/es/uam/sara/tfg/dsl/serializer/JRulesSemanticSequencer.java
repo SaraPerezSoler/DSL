@@ -509,8 +509,8 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         no?='no'? 
 	 *         quantifier=Quantifier 
 	 *         element=Element 
-	 *         in=[Variable|EString]? 
 	 *         from=[Variable|EString]? 
+	 *         (in+=[Variable|EString] in+=[Variable|EString]*)? 
 	 *         filter=Or? 
 	 *         satisfy=Or?
 	 *     )
@@ -584,7 +584,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=EString element=Element in=[Variable|EString]? from=[Variable|EString]? satisfy=Or?)
+	 *     (name=EString element=Element from=[Variable|EString]? (in+=[Variable|EString] in+=[Variable|EString]*)? satisfy=Or?)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

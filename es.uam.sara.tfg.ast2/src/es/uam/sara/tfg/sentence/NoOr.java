@@ -1,12 +1,13 @@
-package es.uam.sara.tfg.rule;
+package es.uam.sara.tfg.sentence;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoOr<T> extends Filter<T> {
+import es.uam.sara.tfg.elements.IElements;
+
+public class NoOr<T extends IElements> extends Or<T> {
 
 	public NoOr() {
-		super(false);
-		// TODO Auto-generated constructor stub
+		super();
 	}
 	
 	public String print(boolean right) {

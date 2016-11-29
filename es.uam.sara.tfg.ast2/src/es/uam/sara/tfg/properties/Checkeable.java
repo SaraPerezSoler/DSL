@@ -1,16 +1,17 @@
 package es.uam.sara.tfg.properties;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class Properties<T> {
+public abstract class Checkeable<T>{
 
 	private ArrayList<T> right;
 	private List<T> wrong;
 	protected boolean no;
 
-	public Properties(boolean no) {
+	public Checkeable(boolean no) {
 		this.no = no;
 		this.right = new ArrayList<T>();
 		this.wrong = new ArrayList<T>();

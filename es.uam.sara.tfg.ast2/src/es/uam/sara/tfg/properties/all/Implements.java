@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jdt.core.dom.Type;
-
 import es.uam.sara.tfg.elements.JavaTypes;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.TypeProperty;
 
-public class Implements<T extends JavaTypes> extends Properties<T> implements TypeProperty {
+public class Implements<T extends JavaTypes> extends Property<T> implements TypeProperty {
 
 	private int min;
 	private int max;

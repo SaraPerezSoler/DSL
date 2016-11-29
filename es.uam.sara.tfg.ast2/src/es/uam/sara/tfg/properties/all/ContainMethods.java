@@ -4,7 +4,7 @@ import java.util.List;
 
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Method;
-import es.uam.sara.tfg.rule.Rule;
+import es.uam.sara.tfg.sentence.Rule;
 
 public class ContainMethods<T extends Container> extends Contain<T,Method> {
 

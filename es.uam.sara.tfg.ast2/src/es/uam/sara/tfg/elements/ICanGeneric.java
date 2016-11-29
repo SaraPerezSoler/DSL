@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 
-public interface ICanGeneric {
+public interface ICanGeneric extends IElements{
 
 	public boolean isGeneric();
 	

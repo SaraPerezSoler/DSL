@@ -134,15 +134,20 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cElementElementEnumRuleCall_2_0 = (RuleCall)cElementAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cInKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cInAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cInVariableCrossReference_3_1_0 = (CrossReference)cInAssignment_3_1.eContents().get(0);
-		private final RuleCall cInVariableEStringParserRuleCall_3_1_0_1 = (RuleCall)cInVariableCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cFromKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFromAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cFromVariableCrossReference_3_1_0 = (CrossReference)cFromAssignment_3_1.eContents().get(0);
+		private final RuleCall cFromVariableEStringParserRuleCall_3_1_0_1 = (RuleCall)cFromVariableCrossReference_3_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cFromKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cFromAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cFromVariableCrossReference_4_1_0 = (CrossReference)cFromAssignment_4_1.eContents().get(0);
-		private final RuleCall cFromVariableEStringParserRuleCall_4_1_0_1 = (RuleCall)cFromVariableCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cInKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cInVariableCrossReference_4_1_0 = (CrossReference)cInAssignment_4_1.eContents().get(0);
+		private final RuleCall cInVariableEStringParserRuleCall_4_1_0_1 = (RuleCall)cInVariableCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cInAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final CrossReference cInVariableCrossReference_4_2_1_0 = (CrossReference)cInAssignment_4_2_1.eContents().get(0);
+		private final RuleCall cInVariableEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cInVariableCrossReference_4_2_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cSatisfyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cSatisfyAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -150,10 +155,12 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Variable:
 		//	name=EString ':'
-		//	element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('satisfy' satisfy=Or)?;
+		//	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
+		//	('satisfy' satisfy=Or)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString ':' element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('satisfy' satisfy=Or)?
+		//name=EString ':' element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (','
+		//in+=[Variable|EString])*)? ('satisfy' satisfy=Or)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -171,35 +178,50 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//Element
 		public RuleCall getElementElementEnumRuleCall_2_0() { return cElementElementEnumRuleCall_2_0; }
 		
-		//('in' in=[Variable|EString])?
+		//('from' from=[Variable|EString])?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'in'
-		public Keyword getInKeyword_3_0() { return cInKeyword_3_0; }
-		
-		//in=[Variable|EString]
-		public Assignment getInAssignment_3_1() { return cInAssignment_3_1; }
-		
-		//[Variable|EString]
-		public CrossReference getInVariableCrossReference_3_1_0() { return cInVariableCrossReference_3_1_0; }
-		
-		//EString
-		public RuleCall getInVariableEStringParserRuleCall_3_1_0_1() { return cInVariableEStringParserRuleCall_3_1_0_1; }
-		
-		//('from' from=[Variable|EString])?
-		public Group getGroup_4() { return cGroup_4; }
-		
 		//'from'
-		public Keyword getFromKeyword_4_0() { return cFromKeyword_4_0; }
+		public Keyword getFromKeyword_3_0() { return cFromKeyword_3_0; }
 		
 		//from=[Variable|EString]
-		public Assignment getFromAssignment_4_1() { return cFromAssignment_4_1; }
+		public Assignment getFromAssignment_3_1() { return cFromAssignment_3_1; }
 		
 		//[Variable|EString]
-		public CrossReference getFromVariableCrossReference_4_1_0() { return cFromVariableCrossReference_4_1_0; }
+		public CrossReference getFromVariableCrossReference_3_1_0() { return cFromVariableCrossReference_3_1_0; }
 		
 		//EString
-		public RuleCall getFromVariableEStringParserRuleCall_4_1_0_1() { return cFromVariableEStringParserRuleCall_4_1_0_1; }
+		public RuleCall getFromVariableEStringParserRuleCall_3_1_0_1() { return cFromVariableEStringParserRuleCall_3_1_0_1; }
+		
+		//('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'in'
+		public Keyword getInKeyword_4_0() { return cInKeyword_4_0; }
+		
+		//in+=[Variable|EString]
+		public Assignment getInAssignment_4_1() { return cInAssignment_4_1; }
+		
+		//[Variable|EString]
+		public CrossReference getInVariableCrossReference_4_1_0() { return cInVariableCrossReference_4_1_0; }
+		
+		//EString
+		public RuleCall getInVariableEStringParserRuleCall_4_1_0_1() { return cInVariableEStringParserRuleCall_4_1_0_1; }
+		
+		//(',' in+=[Variable|EString])*
+		public Group getGroup_4_2() { return cGroup_4_2; }
+		
+		//','
+		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
+		
+		//in+=[Variable|EString]
+		public Assignment getInAssignment_4_2_1() { return cInAssignment_4_2_1; }
+		
+		//[Variable|EString]
+		public CrossReference getInVariableCrossReference_4_2_1_0() { return cInVariableCrossReference_4_2_1_0; }
+		
+		//EString
+		public RuleCall getInVariableEStringParserRuleCall_4_2_1_0_1() { return cInVariableEStringParserRuleCall_4_2_1_0_1; }
 		
 		//('satisfy' satisfy=Or)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -223,15 +245,20 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cElementAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cElementElementEnumRuleCall_2_0 = (RuleCall)cElementAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cInKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cInAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cInVariableCrossReference_3_1_0 = (CrossReference)cInAssignment_3_1.eContents().get(0);
-		private final RuleCall cInVariableEStringParserRuleCall_3_1_0_1 = (RuleCall)cInVariableCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cFromKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFromAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cFromVariableCrossReference_3_1_0 = (CrossReference)cFromAssignment_3_1.eContents().get(0);
+		private final RuleCall cFromVariableEStringParserRuleCall_3_1_0_1 = (RuleCall)cFromVariableCrossReference_3_1_0.eContents().get(1);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cFromKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cFromAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cFromVariableCrossReference_4_1_0 = (CrossReference)cFromAssignment_4_1.eContents().get(0);
-		private final RuleCall cFromVariableEStringParserRuleCall_4_1_0_1 = (RuleCall)cFromVariableCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cInKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cInAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cInVariableCrossReference_4_1_0 = (CrossReference)cInAssignment_4_1.eContents().get(0);
+		private final RuleCall cInVariableEStringParserRuleCall_4_1_0_1 = (RuleCall)cInVariableCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cInAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final CrossReference cInVariableCrossReference_4_2_1_0 = (CrossReference)cInAssignment_4_2_1.eContents().get(0);
+		private final RuleCall cInVariableEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cInVariableCrossReference_4_2_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cWhichKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cFilterAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
@@ -242,12 +269,12 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSatisfyOrParserRuleCall_6_1_0 = (RuleCall)cSatisfyAssignment_6_1.eContents().get(0);
 		
 		//Rule:
-		//	no?='no'? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])?
-		//	('which' filter=Or)? ('satisfy' satisfy=Or)?;
+		//	no?='no'? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (','
+		//	in+=[Variable|EString])*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//no?='no'? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('which'
-		//filter=Or)? ('satisfy' satisfy=Or)?
+		//no?='no'? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (','
+		//in+=[Variable|EString])*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?
 		public Group getGroup() { return cGroup; }
 		
 		//no?='no'?
@@ -268,35 +295,50 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//Element
 		public RuleCall getElementElementEnumRuleCall_2_0() { return cElementElementEnumRuleCall_2_0; }
 		
-		//('in' in=[Variable|EString])?
+		//('from' from=[Variable|EString])?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'in'
-		public Keyword getInKeyword_3_0() { return cInKeyword_3_0; }
-		
-		//in=[Variable|EString]
-		public Assignment getInAssignment_3_1() { return cInAssignment_3_1; }
-		
-		//[Variable|EString]
-		public CrossReference getInVariableCrossReference_3_1_0() { return cInVariableCrossReference_3_1_0; }
-		
-		//EString
-		public RuleCall getInVariableEStringParserRuleCall_3_1_0_1() { return cInVariableEStringParserRuleCall_3_1_0_1; }
-		
-		//('from' from=[Variable|EString])?
-		public Group getGroup_4() { return cGroup_4; }
-		
 		//'from'
-		public Keyword getFromKeyword_4_0() { return cFromKeyword_4_0; }
+		public Keyword getFromKeyword_3_0() { return cFromKeyword_3_0; }
 		
 		//from=[Variable|EString]
-		public Assignment getFromAssignment_4_1() { return cFromAssignment_4_1; }
+		public Assignment getFromAssignment_3_1() { return cFromAssignment_3_1; }
 		
 		//[Variable|EString]
-		public CrossReference getFromVariableCrossReference_4_1_0() { return cFromVariableCrossReference_4_1_0; }
+		public CrossReference getFromVariableCrossReference_3_1_0() { return cFromVariableCrossReference_3_1_0; }
 		
 		//EString
-		public RuleCall getFromVariableEStringParserRuleCall_4_1_0_1() { return cFromVariableEStringParserRuleCall_4_1_0_1; }
+		public RuleCall getFromVariableEStringParserRuleCall_3_1_0_1() { return cFromVariableEStringParserRuleCall_3_1_0_1; }
+		
+		//('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'in'
+		public Keyword getInKeyword_4_0() { return cInKeyword_4_0; }
+		
+		//in+=[Variable|EString]
+		public Assignment getInAssignment_4_1() { return cInAssignment_4_1; }
+		
+		//[Variable|EString]
+		public CrossReference getInVariableCrossReference_4_1_0() { return cInVariableCrossReference_4_1_0; }
+		
+		//EString
+		public RuleCall getInVariableEStringParserRuleCall_4_1_0_1() { return cInVariableEStringParserRuleCall_4_1_0_1; }
+		
+		//(',' in+=[Variable|EString])*
+		public Group getGroup_4_2() { return cGroup_4_2; }
+		
+		//','
+		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
+		
+		//in+=[Variable|EString]
+		public Assignment getInAssignment_4_2_1() { return cInAssignment_4_2_1; }
+		
+		//[Variable|EString]
+		public CrossReference getInVariableCrossReference_4_2_1_0() { return cInVariableCrossReference_4_2_1_0; }
+		
+		//EString
+		public RuleCall getInVariableEStringParserRuleCall_4_2_1_0_1() { return cInVariableEStringParserRuleCall_4_2_1_0_1; }
 		
 		//('which' filter=Or)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -2965,7 +3007,8 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Variable:
 	//	name=EString ':'
-	//	element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('satisfy' satisfy=Or)?;
+	//	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
+	//	('satisfy' satisfy=Or)?;
 	public VariableElements getVariableAccess() {
 		return pVariable;
 	}
@@ -2975,8 +3018,8 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rule:
-	//	no?='no'? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])?
-	//	('which' filter=Or)? ('satisfy' satisfy=Or)?;
+	//	no?='no'? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (','
+	//	in+=[Variable|EString])*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
 	public RuleElements getRuleAccess() {
 		return pRule;
 	}

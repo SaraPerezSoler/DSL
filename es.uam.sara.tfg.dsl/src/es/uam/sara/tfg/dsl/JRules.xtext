@@ -16,10 +16,11 @@ enum Element returns Element:
 
 Variable returns Variable:
 	name=EString':'
-	element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('satisfy' satisfy=Or)?;
+	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)? ('satisfy' satisfy=Or)?;
+
 
 Rule returns Rule:
-	(no?='no')? quantifier=Quantifier element=Element ('in' in=[Variable|EString])? ('from' from=[Variable|EString])? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
+	(no?='no')? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
 
 Or returns Or:
 	 op+=And ( 'or' op+=And)*;

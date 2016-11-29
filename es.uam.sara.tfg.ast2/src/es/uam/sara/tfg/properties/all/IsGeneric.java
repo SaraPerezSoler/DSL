@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.all;
 
 import es.uam.sara.tfg.elements.ICanGeneric;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 
-public class IsGeneric<T extends ICanGeneric> extends Properties<T> {
+public class IsGeneric<T extends ICanGeneric> extends Property<T> {
 
 	public IsGeneric(boolean no) {
 		super(no);

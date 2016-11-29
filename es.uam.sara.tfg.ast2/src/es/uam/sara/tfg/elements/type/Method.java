@@ -11,10 +11,9 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.elements.ICanEmpty;
 import es.uam.sara.tfg.elements.ICanGeneric;
-import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.elements.JavaElement;
 
-public class Method extends JavaElement implements ICanGeneric, ICanEmpty, IElements{
+public class Method extends JavaElement implements ICanGeneric, ICanEmpty{
 
 	private MethodDeclaration md;
 	public Method(MethodDeclaration md, UnitVisitor uv) {

@@ -5,9 +5,9 @@ import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.TagElement;
 
 import es.uam.sara.tfg.elements.JavaElement;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 
-public class JavaDocCheck<T extends JavaElement>  extends Properties<T>{
+public class JavaDocCheck<T extends JavaElement>  extends Property<T>{
 
 	private boolean author;
 	private boolean parameter;

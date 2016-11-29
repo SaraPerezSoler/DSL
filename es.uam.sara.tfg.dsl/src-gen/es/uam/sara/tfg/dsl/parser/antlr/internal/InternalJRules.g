@@ -280,9 +280,9 @@ ruleVariable returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='in'
+			otherlv_3='from'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getVariableAccess().getInKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getVariableAccess().getFromKeyword_3_0());
 			}
 			(
 				(
@@ -292,7 +292,7 @@ ruleVariable returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getVariableAccess().getInVariableCrossReference_3_1_0());
+						newCompositeNode(grammarAccess.getVariableAccess().getFromVariableCrossReference_3_1_0());
 					}
 					ruleEString
 					{
@@ -302,9 +302,9 @@ ruleVariable returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_5='from'
+			otherlv_5='in'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getVariableAccess().getFromKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getVariableAccess().getInKeyword_4_0());
 			}
 			(
 				(
@@ -314,7 +314,7 @@ ruleVariable returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getVariableAccess().getFromVariableCrossReference_4_1_0());
+						newCompositeNode(grammarAccess.getVariableAccess().getInVariableCrossReference_4_1_0());
 					}
 					ruleEString
 					{
@@ -322,18 +322,40 @@ ruleVariable returns [EObject current=null]
 					}
 				)
 			)
+			(
+				otherlv_7=','
+				{
+					newLeafNode(otherlv_7, grammarAccess.getVariableAccess().getCommaKeyword_4_2_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getVariableRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getVariableAccess().getInVariableCrossReference_4_2_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
 		)?
 		(
-			otherlv_7='satisfy'
+			otherlv_9='satisfy'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getVariableAccess().getSatisfyKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getVariableAccess().getSatisfyKeyword_5_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getVariableAccess().getSatisfyOrParserRuleCall_5_1_0());
 					}
-					lv_satisfy_8_0=ruleOr
+					lv_satisfy_10_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getVariableRule());
@@ -341,7 +363,7 @@ ruleVariable returns [EObject current=null]
 						set(
 							$current,
 							"satisfy",
-							lv_satisfy_8_0,
+							lv_satisfy_10_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}
@@ -420,9 +442,9 @@ ruleRule returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='in'
+			otherlv_3='from'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getRuleAccess().getInKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getRuleAccess().getFromKeyword_3_0());
 			}
 			(
 				(
@@ -432,7 +454,7 @@ ruleRule returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getRuleAccess().getInVariableCrossReference_3_1_0());
+						newCompositeNode(grammarAccess.getRuleAccess().getFromVariableCrossReference_3_1_0());
 					}
 					ruleEString
 					{
@@ -442,9 +464,9 @@ ruleRule returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_5='from'
+			otherlv_5='in'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getRuleAccess().getFromKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getRuleAccess().getInKeyword_4_0());
 			}
 			(
 				(
@@ -454,7 +476,7 @@ ruleRule returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getRuleAccess().getFromVariableCrossReference_4_1_0());
+						newCompositeNode(grammarAccess.getRuleAccess().getInVariableCrossReference_4_1_0());
 					}
 					ruleEString
 					{
@@ -462,18 +484,40 @@ ruleRule returns [EObject current=null]
 					}
 				)
 			)
+			(
+				otherlv_7=','
+				{
+					newLeafNode(otherlv_7, grammarAccess.getRuleAccess().getCommaKeyword_4_2_0());
+				}
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getRuleRule());
+							}
+						}
+						{
+							newCompositeNode(grammarAccess.getRuleAccess().getInVariableCrossReference_4_2_1_0());
+						}
+						ruleEString
+						{
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
 		)?
 		(
-			otherlv_7='which'
+			otherlv_9='which'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getRuleAccess().getWhichKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getRuleAccess().getWhichKeyword_5_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getRuleAccess().getFilterOrParserRuleCall_5_1_0());
 					}
-					lv_filter_8_0=ruleOr
+					lv_filter_10_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -481,7 +525,7 @@ ruleRule returns [EObject current=null]
 						set(
 							$current,
 							"filter",
-							lv_filter_8_0,
+							lv_filter_10_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}
@@ -489,16 +533,16 @@ ruleRule returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_9='satisfy'
+			otherlv_11='satisfy'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getRuleAccess().getSatisfyKeyword_6_0());
+				newLeafNode(otherlv_11, grammarAccess.getRuleAccess().getSatisfyKeyword_6_0());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_6_1_0());
 					}
-					lv_satisfy_10_0=ruleOr
+					lv_satisfy_12_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -506,7 +550,7 @@ ruleRule returns [EObject current=null]
 						set(
 							$current,
 							"satisfy",
-							lv_satisfy_10_0,
+							lv_satisfy_12_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}

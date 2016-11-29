@@ -6,10 +6,10 @@ import java.util.Map;
 
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.properties.Properties;
-import es.uam.sara.tfg.rule.Rule;
+import es.uam.sara.tfg.properties.Property;
+import es.uam.sara.tfg.sentence.Rule;
 
-public abstract class Contain<K extends Container, T extends IElements> extends Properties<K> {
+public abstract class Contain<K extends Container, T extends IElements> extends Property<K> {
 
 	private Rule<T> rule;
 	private Map<Container, String> map;

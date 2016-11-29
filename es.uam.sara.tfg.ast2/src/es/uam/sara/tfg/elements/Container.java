@@ -8,7 +8,7 @@ import es.uam.sara.tfg.elements.type.Enumeration;
 import es.uam.sara.tfg.elements.type.Method;
 
 
-public interface Container {
+public interface Container extends IElements{
 
 	public List<Attribute> getAttributes();
 	public List<ClassInterface> getClasses();
@@ -17,4 +17,5 @@ public interface Container {
 	public List<Method> getMethods();
 	
 	public  boolean isEmpty();
+
 }

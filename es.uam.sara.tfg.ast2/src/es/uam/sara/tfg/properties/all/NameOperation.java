@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.StringProperty;
 
-public class NameOperation<T extends IElements> extends Properties<T> implements StringProperty {
+public class NameOperation<T extends IElements> extends Property<T> implements StringProperty {
 
 	public enum Operation {
 		EQUAL, LIKE, START, END, CONTAIN, UNDEFINE

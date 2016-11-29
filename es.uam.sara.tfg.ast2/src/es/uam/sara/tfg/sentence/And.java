@@ -1,22 +1,24 @@
-package es.uam.sara.tfg.rule;
+package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
-import es.uam.sara.tfg.properties.Properties;
+
+import es.uam.sara.tfg.elements.IElements;
+import es.uam.sara.tfg.properties.Checkeable;
 import es.uam.sara.tfg.properties.classes.ClassProperty;
 import es.uam.sara.tfg.properties.interfaces.InterfaceProperty;
 
-public class And<T> extends Properties<T>{
+public class And<T extends IElements> extends Checkeable<T>{
 
 
-	private List<Properties<T>>properties;
+	private List<PrimaryOp<T>>properties;
 	
 	public And() {
 		super(false);
-		properties= new ArrayList<Properties<T>>();
+		properties= new ArrayList<PrimaryOp<T>>();
 	}
 
-	public boolean comprobar (Properties<T> a, Properties<T> b){
+	public boolean comprobar (PrimaryOp<T> a, PrimaryOp<T> b){
 		if ((a instanceof ClassProperty) && !(a instanceof ClassProperty)){
 			return false;
 		}
@@ -25,7 +27,7 @@ public class And<T> extends Properties<T>{
 		}
 		return true;
 	}
-	public void addPropertie (Properties<T> p){
+	public void addPropertie (PrimaryOp<T> p){
 		if (properties.isEmpty()){
 			properties.add(p);
 		}else if (comprobar(properties.get(0), p))
@@ -34,7 +36,7 @@ public class And<T> extends Properties<T>{
 	
 	@Override
 	public void check(List<T> analyze){
-		for (Properties<T> p: properties){
+		for (PrimaryOp<T> p: properties){
 			p.check(analyze);
 			removeAllWrong(p.getWrong());
 			addAllWrong(p.getWrong());
@@ -44,7 +46,7 @@ public class And<T> extends Properties<T>{
 	}
 	
 	public void reset() {
-		for (Properties<T> a: properties){
+		for (Checkeable<T> a: properties){
 			a.reset();
 		}
 		super.reset();
@@ -52,15 +54,16 @@ public class And<T> extends Properties<T>{
 
 	@Override
 	public String toString() {
-		String cad;
-		if (properties.size()==1){
-			cad=properties.get(0).toString();
-		}else{
-			cad="("+properties.get(0).toString();
-			for (int i=1; i<properties.size();i++){
-				cad+=" and "+properties.get(i).toString();
+		String cad="";
+		String and="";
+		for (PrimaryOp<T> p: properties){
+			if (p instanceof Or<?>){
+				cad+=and+"("+p.toString()+")";
+			}else{
+				cad+=and+p.toString();
 			}
-			cad+=")";
+			and=" and ";
+			
 		}
 		return cad;
 	}
@@ -68,7 +71,7 @@ public class And<T> extends Properties<T>{
 	@Override
 	public String print(boolean right) {
 		String cad="";
-		for (Properties<T> p: properties){
+		for (Checkeable<T> p: properties){
 			cad+=p.print(right);
 		}
 		return cad+"\n";

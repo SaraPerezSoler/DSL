@@ -1,9 +1,9 @@
 package es.uam.sara.tfg.properties.all;
 
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 
-public class NameType<T extends IElements> extends Properties<T> {
+public class NameType<T extends IElements> extends Property<T> {
 
 	
 	public enum Type {

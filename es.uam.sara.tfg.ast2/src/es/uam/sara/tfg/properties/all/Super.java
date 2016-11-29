@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.Map;
 import es.uam.sara.tfg.elements.JavaTypes;
 import es.uam.sara.tfg.elements.type.ClassInterface;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.TypeProperty;
 
 /**
  * @author Sara
  *
  */
-public abstract class Super extends Properties<ClassInterface> implements TypeProperty {
+public abstract class Super extends Property<ClassInterface> implements TypeProperty {
 
 	private Map<ClassInterface, List<JavaTypes>> classesExtended;
 	private int intMin;

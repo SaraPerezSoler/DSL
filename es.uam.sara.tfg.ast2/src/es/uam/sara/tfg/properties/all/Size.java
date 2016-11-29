@@ -3,10 +3,10 @@ package es.uam.sara.tfg.properties.all;
 import java.util.HashMap;
 import java.util.Map;
 import es.uam.sara.tfg.elements.IPosicionable;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 
 
-public class Size<T extends IPosicionable> extends Properties<T>{
+public class Size<T extends IPosicionable> extends Property<T>{
 
 	private int max, min;
 	private Map<IPosicionable, Integer> map;

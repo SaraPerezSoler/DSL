@@ -6,9 +6,8 @@ import java.util.List;
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.ICanEmpty;
-import es.uam.sara.tfg.elements.IElements;
 
-public class Package implements IElements, Container, ICanEmpty {
+public class Package implements Container, ICanEmpty {
 
 	private String pck;
 	List<UnitVisitor> visitors;

@@ -6,10 +6,10 @@ import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 import es.uam.sara.tfg.elements.JavaElement;
 import es.uam.sara.tfg.properties.BlendModifiers;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.BlendModifiers.Acceso;
 
-public class Modifiers<T extends JavaElement> extends Properties<T>{
+public class Modifiers<T extends JavaElement> extends Property<T>{
 
 
 	public Modifiers(boolean no) {

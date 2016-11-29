@@ -5,11 +5,10 @@ import java.util.List;
 import es.uam.sara.tfg.ast.UnitVisitor;
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.ICanEmpty;
-import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.elements.IPosicionable;
 
 
-public class File implements IElements, Container, IPosicionable, ICanEmpty{
+public class File implements Container, IPosicionable, ICanEmpty{
 
 	private UnitVisitor uv;
 	

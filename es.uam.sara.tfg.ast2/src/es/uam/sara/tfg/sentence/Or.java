@@ -1,10 +1,11 @@
-package es.uam.sara.tfg.rule;
+package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
-import es.uam.sara.tfg.properties.Properties;
+import es.uam.sara.tfg.elements.IElements;
 
-public class Or<T> extends Properties<T>{
+
+public class Or<T extends IElements> extends PrimaryOp<T>{
 
 	protected List <And<T>> ands;
 		
@@ -36,9 +37,11 @@ public class Or<T> extends Properties<T>{
 
 	@Override
 	public String toString() {
-		String cad= ands.get(0).toString();
-		for (int i=1; i < ands.size(); i++){
-			cad+=" or "+ ands.get(i).toString();
+		String cad= "";
+		String or="";
+		for (And<T> a: this.ands){
+			cad+=or + a.toString();
+			or=" or ";
 		}
 		return cad;
 	}

@@ -132,22 +132,22 @@ public interface JavaRulePackage extends EPackage {
 	int SENTENCE__SATISFY = 1;
 
 	/**
+	 * The feature id for the '<em><b>In</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__IN = 2;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE__FROM = 2;
-
-	/**
-	 * The feature id for the '<em><b>In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SENTENCE__IN = 3;
+	int SENTENCE__FROM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Sentence</em>' class.
@@ -196,6 +196,15 @@ public interface JavaRulePackage extends EPackage {
 	int VARIABLE__SATISFY = SENTENCE__SATISFY;
 
 	/**
+	 * The feature id for the '<em><b>In</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__IN = SENTENCE__IN;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,15 +212,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE__FROM = SENTENCE__FROM;
-
-	/**
-	 * The feature id for the '<em><b>In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE__IN = SENTENCE__IN;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,6 +269,15 @@ public interface JavaRulePackage extends EPackage {
 	int RULE__SATISFY = SENTENCE__SATISFY;
 
 	/**
+	 * The feature id for the '<em><b>In</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__IN = SENTENCE__IN;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,15 +285,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE__FROM = SENTENCE__FROM;
-
-	/**
-	 * The feature id for the '<em><b>In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RULE__IN = SENTENCE__IN;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -2254,6 +2254,17 @@ public interface JavaRulePackage extends EPackage {
 	EReference getSentence_Satisfy();
 
 	/**
+	 * Returns the meta object for the reference list '{@link javaRule.Sentence#getIn <em>In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>In</em>'.
+	 * @see javaRule.Sentence#getIn()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EReference getSentence_In();
+
+	/**
 	 * Returns the meta object for the reference '{@link javaRule.Sentence#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2263,17 +2274,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSentence_From();
-
-	/**
-	 * Returns the meta object for the reference '{@link javaRule.Sentence#getIn <em>In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>In</em>'.
-	 * @see javaRule.Sentence#getIn()
-	 * @see #getSentence()
-	 * @generated
-	 */
-	EReference getSentence_In();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Variable <em>Variable</em>}'.
@@ -3412,20 +3412,20 @@ public interface JavaRulePackage extends EPackage {
 		EReference SENTENCE__SATISFY = eINSTANCE.getSentence_Satisfy();
 
 		/**
+		 * The meta object literal for the '<em><b>In</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENTENCE__IN = eINSTANCE.getSentence_In();
+
+		/**
 		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SENTENCE__FROM = eINSTANCE.getSentence_From();
-
-		/**
-		 * The meta object literal for the '<em><b>In</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SENTENCE__IN = eINSTANCE.getSentence_In();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.VariableImpl <em>Variable</em>}' class.

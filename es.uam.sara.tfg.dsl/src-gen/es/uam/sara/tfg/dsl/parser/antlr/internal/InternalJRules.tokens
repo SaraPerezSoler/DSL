@@ -53,13 +53,13 @@
 'extends'=39
 'final'=75
 'float'=90
-'from'=18
+'from'=17
 'generic'=53
 'have'=62
 'haven\'t'=63
 'implemented'=29
 'implements'=38
-'in'=17
+'in'=18
 'initialize'=51
 'int'=91
 'is'=26
