@@ -6,8 +6,9 @@ import java.util.List;
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.elements.JavaElement;
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Enumeration;
+import es.uam.sara.tfg.elements.type.Interface;
 import es.uam.sara.tfg.elements.type.Method;
 import es.uam.sara.tfg.elements.type.Package;
 
@@ -58,16 +59,16 @@ public class Visitors {
 		return packages;
 	}
 
-	public List<ClassInterface> getClasses() {
-		List<ClassInterface> result = new ArrayList<ClassInterface>();
+	public List<Class> getClasses() {
+		List<Class> result = new ArrayList<Class>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 		}
 		return result;
 	}
 
-	public List<ClassInterface> getInterfaces() {
-		List<ClassInterface> result = new ArrayList<ClassInterface>();
+	public List<Interface> getInterfaces() {
+		List<Interface> result = new ArrayList<Interface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getInterfaces());
 		}

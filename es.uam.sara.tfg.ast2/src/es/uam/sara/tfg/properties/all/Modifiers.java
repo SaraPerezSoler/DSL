@@ -17,8 +17,9 @@ public class Modifiers<T extends JavaElement> extends Property<T>{
 	}
 
 	private ArrayList<BlendModifiers> blends=new ArrayList<BlendModifiers>();
-	public void addBlend(Acceso acceso, boolean static_, boolean final_, boolean abstract_, boolean default_, boolean synchronized_){
+	public Modifiers<T> addBlend(Acceso acceso, boolean static_, boolean final_, boolean abstract_, boolean default_, boolean synchronized_){
 		blends.add(new BlendModifiers(acceso, static_, final_, abstract_,default_, synchronized_));
+		return this;
 	}
 	
 	public boolean modifiers(List<Modifier> list){

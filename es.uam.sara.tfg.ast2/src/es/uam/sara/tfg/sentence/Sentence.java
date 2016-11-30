@@ -11,10 +11,11 @@ public abstract class Sentence<T extends IElements> {
 
 	protected String ielement;
 	protected Or<T> satisfy;
-	protected From<T> from;
+	protected String from;
 	protected List<T> elements;
-	protected List<In<T>> in;
-	protected Map<String, List<IElements>> allVariables;
+	protected String in;
+	public static Map<String, Variable<IElements>> allVariables= new HashMap<String, List<IElements>>();
+	
 
 	public Sentence(String elementJava,List<T> elements, Or<T> satisfy,From<T> from, List<In<T>> in) {
 		super();
@@ -31,10 +32,6 @@ public abstract class Sentence<T extends IElements> {
 
 	public Map<String, List<IElements>> getAllVariables() {
 		return allVariables;
-	}
-
-	public void setAllVariables(Map<String, List<IElements>> allVariables) {
-		this.allVariables = allVariables;
 	}
 	
 	public static Map<String, List<IElements>> copiar(Map<String, List<IElements>> var){

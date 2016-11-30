@@ -1,4 +1,4 @@
-package es.uam.sara.tfg.elements.type;
+package es.uam.sara.tfg.elements;
 
 import org.eclipse.jdt.core.dom.AbstractTypeDeclaration;
 import org.eclipse.jdt.core.dom.Type;
@@ -9,7 +9,7 @@ import es.uam.sara.tfg.elements.ICanGeneric;
 import es.uam.sara.tfg.elements.JavaElement;
 import es.uam.sara.tfg.elements.JavaTypes;
 
-public class ClassInterface extends JavaElement implements JavaTypes, ICanGeneric{
+public abstract class ClassInterface extends JavaElement implements JavaTypes, ICanGeneric{
 	private TypeDeclaration tp;
 	
 	public ClassInterface(TypeDeclaration tp, UnitVisitor uv) {

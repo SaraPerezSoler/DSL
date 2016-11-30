@@ -45,7 +45,7 @@ public class Method extends JavaElement implements ICanGeneric, ICanEmpty{
 			if (t.isInterface()){
 				return false;
 			}
-			ClassInterface c= new ClassInterface(t, getVisitor());
+			Class c= new Class(t, getVisitor());
 			if (c.isGeneric()) {
 				if (comparaParam(getTypes(md.parameters()), getGenericTypes(t.typeParameters()))) {
 					return true;

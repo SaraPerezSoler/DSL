@@ -26,16 +26,16 @@ public class Package implements Container, ICanEmpty {
 		return "The packages " + getName() + "\n";
 	}
 
-	public List<ClassInterface> getClasses() {
-		List<ClassInterface> temp = new ArrayList<ClassInterface>();
+	public List<Class> getClasses() {
+		List<Class> temp = new ArrayList<Class>();
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getClasses());
 		}
 		return temp;
 	}
 
-	public List<ClassInterface> getInterfaces() {
-		List<ClassInterface> temp = new ArrayList<ClassInterface>();
+	public List<Interface> getInterfaces() {
+		List<Interface> temp = new ArrayList<Interface>();
 		for (UnitVisitor u : visitors) {
 			temp.addAll(u.getInterfaces());
 		}

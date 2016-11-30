@@ -13,8 +13,9 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Enumeration;
+import es.uam.sara.tfg.elements.type.Interface;
 import es.uam.sara.tfg.elements.type.Method;
 import es.uam.sara.tfg.elements.type.Package;
 
@@ -23,8 +24,8 @@ public class UnitVisitor extends ASTVisitor {
 	private String nameFile;
 	private CompilationUnit comp;
 	private PackageDeclaration packageDeclaration;
-	private List<ClassInterface> interfaces;
-	private List<ClassInterface> classes;
+	private List<Interface> interfaces;
+	private List<Class> classes;
 	private List<Enumeration> enumerations;
 	// private List<EnumConstantDeclaration> enumConstant;
 	private List<Method> methods;
@@ -32,8 +33,8 @@ public class UnitVisitor extends ASTVisitor {
 
 	public UnitVisitor(String nameFile) {
 		this.nameFile = nameFile;
-		interfaces = new ArrayList<ClassInterface>();
-		classes = new ArrayList<ClassInterface>();
+		interfaces = new ArrayList<Interface>();
+		classes = new ArrayList<Class>();
 		enumerations = new ArrayList<Enumeration>();
 		methods = new ArrayList<Method>();
 		attributes = new ArrayList<Attribute>();
@@ -50,9 +51,9 @@ public class UnitVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(TypeDeclaration node) {
 		if (node.isInterface()) {
-			interfaces.add(new ClassInterface(node, this));
+			interfaces.add(new Interface(node, this));
 		} else {
-			classes.add(new ClassInterface(node, this));
+			classes.add(new Class(node, this));
 		}
 		return super.visit(node);
 	}
@@ -88,11 +89,11 @@ public class UnitVisitor extends ASTVisitor {
 		return packageDeclaration;
 	}
 
-	public List<ClassInterface> getInterfaces() {
+	public List<Interface> getInterfaces() {
 		return interfaces;
 	}
 
-	public List<ClassInterface> getClasses() {
+	public List<Class> getClasses() {
 		return classes;
 	}
 
@@ -134,7 +135,7 @@ public class UnitVisitor extends ASTVisitor {
 				}
 			}
 			
-		} else if (type instanceof ClassInterface) {
+		} else if (type instanceof Class) {
 			if (interfaces.contains(type)) {
 				return true;
 			} else if (classes.contains(type)){

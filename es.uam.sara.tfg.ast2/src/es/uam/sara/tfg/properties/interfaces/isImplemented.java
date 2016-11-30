@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jdt.core.dom.Type;
 import es.uam.sara.tfg.elements.JavaTypes;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Interface;
 import es.uam.sara.tfg.properties.all.Super;
 
-public class isImplemented extends Super {
+public class isImplemented extends Super<Interface> {
 
 	private List<JavaTypes> all;
 
@@ -42,7 +42,7 @@ public class isImplemented extends Super {
 	}
 
 	@Override
-	public List<JavaTypes> getSub(ClassInterface td) {
+	public List<JavaTypes> getSub(Interface td) {
 		List<JavaTypes> save = new ArrayList<JavaTypes>();
 		for (JavaTypes b : all) {
 			if (!b.isInterface()) {

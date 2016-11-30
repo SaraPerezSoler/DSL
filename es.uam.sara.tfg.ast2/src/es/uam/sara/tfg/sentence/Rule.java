@@ -1,6 +1,8 @@
 package es.uam.sara.tfg.sentence;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import es.uam.sara.tfg.elements.IElements;
 
@@ -114,6 +116,17 @@ public class Rule<T extends IElements> extends Sentence<T>{
 			}
 		}
 		return "";
+	}
+	private List<Map<String, IElements>> getElements(int index,Map<String, List<IElements>> var){
+		String[] keys=new String[var.keySet().size()];
+		keys=var.keySet().toArray(keys);
+		if (index>=keys.length){
+			return null;
+		}
+		List<Map<String, IElements>> ret=getElements(index+1, var);
+		for (IElements e: var.get(keys[index])){
+		}		
+		return null;
 	}
 
 	public String printRight() {

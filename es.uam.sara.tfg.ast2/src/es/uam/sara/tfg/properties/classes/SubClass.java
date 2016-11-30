@@ -5,7 +5,7 @@ package es.uam.sara.tfg.properties.classes;
 
 
 import org.eclipse.jdt.core.dom.Type;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.properties.TypeProperty;
 
 
@@ -45,7 +45,7 @@ public class SubClass extends ClassProperty implements TypeProperty{
 	}
 
 	@Override
-	public boolean checkElement(ClassInterface t) {
+	public boolean checkElement(Class t) {
 		Type superClass=t.getSuperclass();
 		if (of==null){
 			if (superClass!=null){

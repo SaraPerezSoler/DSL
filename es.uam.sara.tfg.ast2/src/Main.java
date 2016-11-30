@@ -3,7 +3,7 @@ import java.io.IOException;
 
 import es.uam.sara.tfg.ast.ReadFiles;
 import es.uam.sara.tfg.ast.Visitors;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Method;
 import es.uam.sara.tfg.properties.all.NameOperation;
 import es.uam.sara.tfg.properties.all.NameOperation.Operation;
@@ -22,10 +22,10 @@ public class Main {
 		name.check(visit.getMethods());
 		Method prueba = name.getRight().get(0);
 
-		NameOperation<ClassInterface> classname = new NameOperation<ClassInterface>(true, Operation.EQUAL, "test",
+		NameOperation<Class> classname = new NameOperation<Class>(true, Operation.EQUAL, "test",
 				NameOperation.EMPTY);
 		classname.check(visit.getClasses());
-		ClassInterface test = classname.getRight().get(0);
+		Class test = classname.getRight().get(0);
 		/*for (Method m1 : name.getRight()) {
 			for (Method m : test.getMethods()) {
 				if (m1.equals(m)) {
@@ -34,7 +34,7 @@ public class Main {
 			}
 		}*/
 		
-		for (ClassInterface c: classname.getRight()){
+		for (Class c: classname.getRight()){
 			System.out.print(c);
 		}
 	}

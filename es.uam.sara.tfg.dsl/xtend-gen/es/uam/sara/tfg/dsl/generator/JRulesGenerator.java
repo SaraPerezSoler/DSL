@@ -3,10 +3,38 @@
  */
 package es.uam.sara.tfg.dsl.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import java.util.ArrayList;
+import java.util.List;
+import javaRule.And;
+import javaRule.Element;
+import javaRule.Or;
+import javaRule.PrimaryOp;
+import javaRule.PropertyLiteral;
+import javaRule.Quantifier;
+import javaRule.Rule;
+import javaRule.RuleSet;
+import javaRule.Sentence;
+import javaRule.Variable;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +45,603 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class JRulesGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Sentence> _filter = Iterables.<Sentence>filter(_iterable, Sentence.class);
+    CharSequence _RuleFactory = this.RuleFactory(_filter);
+    fsa.generateFile("RuleFactory.java", _RuleFactory);
+    IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+    IWorkspaceRoot workspace = _workspace.getRoot();
+    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
+    Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
+    Iterable<RuleSet> _filter_1 = Iterables.<RuleSet>filter(_iterable_1, RuleSet.class);
+    RuleSet ruleSet = ((RuleSet[])Conversions.unwrapArray(_filter_1, RuleSet.class))[0];
+    ArrayList<IProject> projects = new ArrayList<IProject>();
+    EList<String> _projectName = ruleSet.getProjectName();
+    boolean _isEmpty = _projectName.isEmpty();
+    if (_isEmpty) {
+      IProject[] _projects = workspace.getProjects();
+      CollectionExtensions.<IProject>addAll(projects, _projects);
+    } else {
+      EList<String> _projectName_1 = ruleSet.getProjectName();
+      for (final String name : _projectName_1) {
+        IProject _project = workspace.getProject(name);
+        projects.add(_project);
+      }
+    }
+    CharSequence _main = this.main(projects);
+    fsa.generateFile("Main.java", _main);
+  }
+  
+  public CharSequence getWorksapce(final RuleSet rs) {
+    return null;
+  }
+  
+  public CharSequence main(final List<IProject> projects) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.io.File;");
+    _builder.newLine();
+    _builder.append("import java.io.FileWriter;");
+    _builder.newLine();
+    _builder.append("import java.io.IOException;");
+    _builder.newLine();
+    _builder.append("import java.io.PrintWriter;");
+    _builder.newLine();
+    _builder.append("import java.util.List;");
+    _builder.newLine();
+    _builder.append("import java.util.ArrayList;");
+    _builder.newLine();
+    _builder.append("import es.uam.sara.tfg.ast.ReadFiles;");
+    _builder.newLine();
+    _builder.append("import es.uam.sara.tfg.rule.Rule;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public class Main {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("public static void main(String[] args)throws IOException{");
+    _builder.newLine();
+    _builder.append("\t \t");
+    _builder.newLine();
+    _builder.append("\t \t");
+    _builder.append("List<File> roots= new ArrayList<File>();");
+    _builder.newLine();
+    _builder.append("\t \t");
+    _builder.append("List<File> outs= new ArrayList<File>();");
+    _builder.newLine();
+    {
+      boolean _isEmpty = projects.isEmpty();
+      if (_isEmpty) {
+        _builder.append("\t \t");
+        _builder.append("\t");
+        _builder.newLine();
+      } else {
+        {
+          for(final IProject p : projects) {
+            _builder.append("\t \t");
+            IFolder src = p.getFolder("src");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t \t");
+            _builder.append("roots.add(new File(\"");
+            IPath _location = src.getLocation();
+            _builder.append(_location, "\t \t");
+            _builder.append("\"));");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t \t");
+            _builder.append("outs.add(new File(\"outs/");
+            String _name = p.getName();
+            _builder.append(_name, "\t \t");
+            _builder.append(".txt\"));");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t \t");
+    _builder.append("for (int i=0; i <roots.size(); i++){");
+    _builder.newLine();
+    _builder.append("\t \t\t");
+    _builder.append("File root=roots.get(i);");
+    _builder.newLine();
+    _builder.append("\t \t\t");
+    _builder.append("File out=outs.get(i);");
+    _builder.newLine();
+    _builder.append("\t \t\t");
+    _builder.append("ReadFiles.parseFiles(root);");
+    _builder.newLine();
+    _builder.append("\t \t\t");
+    _builder.append("FileWriter fichero = null;");
+    _builder.newLine();
+    _builder.append("\t \t\t ");
+    _builder.append("PrintWriter pw = null;");
+    _builder.newLine();
+    _builder.append("\t \t\t");
+    _builder.append("try{");
+    _builder.newLine();
+    _builder.append("\t \t\t         ");
+    _builder.append("fichero = new FileWriter(out);");
+    _builder.newLine();
+    _builder.append("\t \t\t         ");
+    _builder.append("pw = new PrintWriter(fichero);");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t");
+    _builder.append("RuleFactory ruleFactory=new RuleFactory();");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t");
+    _builder.append("List <Rule<?>> rules=ruleFactory.getRules();");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t");
+    _builder.append("for (Rule<?> r: rules){");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t\t");
+    _builder.append("r.checkTest();");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t\t");
+    _builder.append("System.out.println(r.log());");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t\t");
+    _builder.append("pw.println(r.log());");
+    _builder.newLine();
+    _builder.append("\t \t\t\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("} catch (Exception e) {");
+    _builder.newLine();
+    _builder.append("\t            ");
+    _builder.append("e.printStackTrace();");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("} finally {");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("try {");
+    _builder.newLine();
+    _builder.append("\t            ");
+    _builder.append("if (null != fichero)");
+    _builder.newLine();
+    _builder.append("\t               ");
+    _builder.append("fichero.close();");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("} catch (Exception e2) {");
+    _builder.newLine();
+    _builder.append("\t              ");
+    _builder.append("e2.printStackTrace();");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("ReadFiles.reset();");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t        ");
+    _builder.newLine();
+    _builder.append("\t \t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence RuleFactory(final Iterable<Sentence> sentences) {
+    CharSequence _xblockexpression = null;
+    {
+      int i = 1;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.rule.Rule.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.interfaces.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.classes.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.enumerations.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.methods.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.attributes.*;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.packages.*;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.TypeDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.EnumDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.MethodDeclaration;");
+      _builder.newLine();
+      _builder.append("import org.eclipse.jdt.core.dom.FieldDeclaration;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.ast.Visitors;");
+      _builder.newLine();
+      _builder.append("import es.uam.sara.tfg.properties.Properties;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("public class RuleFactory {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private List <Rule<?>> rules=null;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public List<Rule<?>> getRules(){");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("if (rules!=null){");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("return rules;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}else{");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("rules= new ArrayList<Rule<?>>();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<String> packages=Visitors.getPackages();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<TypeDeclaration> classes=Visitors.getClasses();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<TypeDeclaration> interfaces=Visitors.getInterfaces();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<EnumDeclaration> enums=Visitors.getEnumerations();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<MethodDeclaration> methods=Visitors.getMethods();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("List<FieldDeclaration> attributes=Visitors.getAttributes();");
+      _builder.newLine();
+      _builder.append("\t\t");
+      Iterable<Variable> variables = Iterables.<Variable>filter(sentences, Variable.class);
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t");
+      Iterable<Rule> rules = Iterables.<Rule>filter(sentences, Rule.class);
+      _builder.newLineIfNotEmpty();
+      {
+        for(final Variable v : variables) {
+          _builder.append("\t\t");
+          String _genetateVariable = JRulesGenerator.genetateVariable(v);
+          _builder.append(_genetateVariable, "\t\t");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("Sentences.allVariables.put(\"");
+          String _name = v.getName();
+          _builder.append(_name, "\t\t");
+          _builder.append("\", ");
+          String _name_1 = v.getName();
+          _builder.append(_name_1, "\t\t");
+          _builder.append(");");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      {
+        for(final Variable v_1 : variables) {
+          {
+            EList<Variable> _in = v_1.getIn();
+            for(final Variable in : _in) {
+              _builder.append("\t\t");
+              String _name_2 = v_1.getName();
+              _builder.append(_name_2, "\t\t");
+              _builder.append(".setIn(Sentences.allVariables.get(\"");
+              String _name_3 = in.getName();
+              _builder.append(_name_3, "\t\t");
+              _builder.append("\").get());");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+          {
+            Variable _from = v_1.getFrom();
+            boolean _notEquals = (!Objects.equal(_from, null));
+            if (_notEquals) {
+              _builder.append("\t\t");
+              _builder.append("\t");
+              _builder.newLine();
+            }
+          }
+          _builder.append("\t\t");
+          String _name_4 = v_1.getName();
+          _builder.append(_name_4, "\t\t");
+          _builder.append(".check();");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      {
+        for(final Rule r : rules) {
+          {
+            EObject _eContainer = r.eContainer();
+            if ((_eContainer instanceof RuleSet)) {
+              _builder.append("\t\t");
+              String _genetateRule = JRulesGenerator.genetateRule(r, ("" + Integer.valueOf(i)));
+              _builder.append(_genetateRule, "\t\t");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t");
+              _builder.append("/////");
+              _builder.newLine();
+              _builder.append("\t\t");
+              _builder.append("rules.add(r");
+              int _plusPlus = i++;
+              _builder.append(_plusPlus, "\t\t");
+              _builder.append(");");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t");
+              _builder.newLine();
+            }
+          }
+        }
+      }
+      _builder.append("\t\t");
+      _builder.append("return rules;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.newLine();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public static String genetateVariable(final Variable v) {
+    StringConcatenation _builder = new StringConcatenation();
+    String name = v.getName();
+    _builder.newLineIfNotEmpty();
+    _builder.append("//v");
+    _builder.append(name, "");
+    _builder.append(" ");
+    String _string = v.toString();
+    _builder.append(_string, "");
+    _builder.newLineIfNotEmpty();
+    Variable _from = v.getFrom();
+    String from = _from.getName();
+    _builder.newLineIfNotEmpty();
+    _builder.append("List<String> in");
+    _builder.append(name, "");
+    _builder.append("= new ArrayList<String>();");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Variable> _in = v.getIn();
+      for(final Variable s : _in) {
+        _builder.append("in.add(\"");
+        String _name = s.getName();
+        _builder.append(_name, "");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    Element _element = v.getElement();
+    String type = JRulesGenerator.getType(_element);
+    _builder.newLineIfNotEmpty();
+    Element _element_1 = v.getElement();
+    String _type = JRulesGenerator.getType(_element_1);
+    String analize = _type.toLowerCase();
+    _builder.newLineIfNotEmpty();
+    Or _satisfy = v.getSatisfy();
+    Element _element_2 = v.getElement();
+    CharSequence _or = JRulesGenerator.getOr(_satisfy, name, _element_2);
+    _builder.append(_or, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Varieble<");
+    _builder.append(type, "");
+    _builder.append("> ");
+    _builder.append(name, "");
+    _builder.append("=new Varieble<");
+    _builder.append(type, "");
+    _builder.append("> ( \"");
+    Element _element_3 = v.getElement();
+    _builder.append(_element_3, "");
+    _builder.append("\",");
+    _builder.append(analize, "");
+    _builder.append(", or");
+    _builder.append(name, "");
+    _builder.append(",\"");
+    _builder.append(from, "");
+    _builder.append("\", in");
+    _builder.append(name, "");
+    _builder.append(");\t");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public static String genetateRule(final Rule r, final String i) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("//r");
+    _builder.append(i, "");
+    _builder.append(" ");
+    String _string = r.toString();
+    _builder.append(_string, "");
+    _builder.newLineIfNotEmpty();
+    Element _element = r.getElement();
+    String type = JRulesGenerator.getType(_element);
+    _builder.newLineIfNotEmpty();
+    Element _element_1 = r.getElement();
+    String _type = JRulesGenerator.getType(_element_1);
+    String analize = _type.toLowerCase();
+    _builder.newLineIfNotEmpty();
+    Or _filter = r.getFilter();
+    Element _element_2 = r.getElement();
+    CharSequence _or = JRulesGenerator.getOr(_filter, ("Filter" + i), _element_2);
+    _builder.append(_or, "");
+    _builder.newLineIfNotEmpty();
+    Or _satisfy = r.getSatisfy();
+    Element _element_3 = r.getElement();
+    CharSequence _or_1 = JRulesGenerator.getOr(_satisfy, i, _element_3);
+    _builder.append(_or_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Rule<");
+    _builder.append(type, "");
+    _builder.append("> r");
+    _builder.append(i, "");
+    _builder.append("=new Rule<");
+    _builder.append(type, "");
+    _builder.append("> (");
+    boolean _isNo = r.isNo();
+    _builder.append(_isNo, "");
+    _builder.append(", Quantifier.");
+    Quantifier _quantifier = r.getQuantifier();
+    String _literal = _quantifier.getLiteral();
+    String _upperCase = _literal.toUpperCase();
+    _builder.append(_upperCase, "");
+    _builder.append(",");
+    _builder.append(analize, "");
+    _builder.append(",orFilter");
+    _builder.append(i, "");
+    _builder.append(", or");
+    _builder.append(i, "");
+    _builder.append(", \"");
+    Element _element_4 = r.getElement();
+    _builder.append(_element_4, "");
+    _builder.append("\");\t");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public static CharSequence getOr(final Or or, final String i, final Element element) {
+    StringConcatenation _builder = new StringConcatenation();
+    String type = JRulesGenerator.getType(element);
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _notEquals = (!Objects.equal(or, null));
+      if (_notEquals) {
+        _builder.append("Or<");
+        _builder.append(type, "");
+        _builder.append("> or");
+        _builder.append(i, "");
+        _builder.append("= new Or<");
+        _builder.append(type, "");
+        _builder.append(">();");
+        _builder.newLineIfNotEmpty();
+        int j = 1;
+        _builder.newLineIfNotEmpty();
+        {
+          EList<And> _op = or.getOp();
+          for(final And a : _op) {
+            CharSequence _and = JRulesGenerator.getAnd(a, (i + Integer.valueOf(j)), element);
+            _builder.append(_and, "");
+            _builder.newLineIfNotEmpty();
+            _builder.append("or");
+            _builder.append(i, "");
+            _builder.append(".addAnd(and");
+            _builder.append(i, "");
+            int _plusPlus = j++;
+            _builder.append(_plusPlus, "");
+            _builder.append(");");
+            _builder.newLineIfNotEmpty();
+            _builder.newLine();
+          }
+        }
+      } else {
+        _builder.append("Or<");
+        _builder.append(type, "");
+        _builder.append("> or");
+        _builder.append(i, "");
+        _builder.append("=\tnull;");
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("\t\t");
+      }
+    }
+    return _builder;
+  }
+  
+  public static CharSequence getAnd(final And a, final String i, final Element element) {
+    StringConcatenation _builder = new StringConcatenation();
+    int j = 1;
+    _builder.newLineIfNotEmpty();
+    String type = JRulesGenerator.getType(element);
+    _builder.newLineIfNotEmpty();
+    _builder.append("And<");
+    _builder.append(type, "");
+    _builder.append("> and");
+    _builder.append(i, "");
+    _builder.append(" = new And<");
+    _builder.append(type, "");
+    _builder.append(">();");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<PrimaryOp> _op = a.getOp();
+      for(final PrimaryOp s : _op) {
+        {
+          if ((s instanceof Or)) {
+            CharSequence _or = JRulesGenerator.getOr(((Or)s), (i + Integer.valueOf(j)), element);
+            _builder.append(_or, "");
+            _builder.newLineIfNotEmpty();
+            _builder.append("and");
+            _builder.append(i, "");
+            _builder.append(".addPropertie(or");
+            _builder.append(i, "");
+            int _plusPlus = j++;
+            _builder.append(_plusPlus, "");
+            _builder.append(");");
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((s instanceof PropertyLiteral)) {
+              CharSequence _satisfy = JRulesGenerator.getSatisfy(((PropertyLiteral) s), element, (i + Integer.valueOf(j)));
+              _builder.append(_satisfy, "");
+              _builder.newLineIfNotEmpty();
+              _builder.append("and");
+              _builder.append(i, "");
+              _builder.append(".addPropertie(p");
+              _builder.append(i, "");
+              int _plusPlus_1 = j++;
+              _builder.append(_plusPlus_1, "");
+              _builder.append(");");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+        }
+        _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  public static CharSequence getSatisfy(final PropertyLiteral s, final Element e, final String sufix) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method getPropertie(Interface, String) is undefined for the type Class<InterfaceSatisfy>"
+      + "\nThe method getPropertie(Class, String) is undefined for the type Class<ClassesSatisfy>"
+      + "\nThe method getPropertie(Enumeration, String) is undefined for the type Class<EnumSatisfy>"
+      + "\nThe method getPropertie(Method, String) is undefined for the type Class<MethodsSatisfy>"
+      + "\nThe method getPropertie(Attribute, String) is undefined for the type Class<AttributesSatisfy>"
+      + "\nThe method getPropertie(Object, String) from the type PackageSatisfy refers to the missing type Object");
+  }
+  
+  public static String getType(final Element e) {
+    String _literal = e.getLiteral();
+    String _lowerCase = _literal.toLowerCase();
+    return StringExtensions.toFirstUpper(_lowerCase);
   }
 }

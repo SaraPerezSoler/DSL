@@ -10,10 +10,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sentence" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="element" lowerBound="1"
         eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="in" upperBound="-1" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="satisfy" eType="#//Or"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="in" upperBound="-1" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="using" upperBound="-1"
+        eType="#//Variable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Sentence">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

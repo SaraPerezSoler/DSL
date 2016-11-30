@@ -6,8 +6,9 @@ package es.uam.sara.tfg.properties.all;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.elements.JavaTypes;
-import es.uam.sara.tfg.elements.type.ClassInterface;
 import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.TypeProperty;
 
@@ -15,7 +16,7 @@ import es.uam.sara.tfg.properties.TypeProperty;
  * @author Sara
  *
  */
-public abstract class Super extends Property<ClassInterface> implements TypeProperty {
+public abstract class Super<T extends ClassInterface> extends Property<T> implements TypeProperty {
 
 	private Map<ClassInterface, List<JavaTypes>> classesExtended;
 	private int intMin;
@@ -45,7 +46,7 @@ public abstract class Super extends Property<ClassInterface> implements TypeProp
 	 * @see es.uam.sara.tfg.properties.Properties#check()
 	 */
 	@Override
-	public boolean checkElement(ClassInterface td) {
+	public boolean checkElement(T td) {
 		List<JavaTypes> sub = getSub(td);
 		List<String> names=JavaTypes.getNames(sub);
 		classesExtended.put(td, sub);
@@ -62,7 +63,7 @@ public abstract class Super extends Property<ClassInterface> implements TypeProp
 
 	}
 
-	public abstract List<JavaTypes> getSub(ClassInterface td);
+	public abstract List<JavaTypes> getSub(T td);
 
 	@Override
 	public String toString() {

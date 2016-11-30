@@ -7,7 +7,7 @@ import java.util.Map;
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Enumeration;
 import es.uam.sara.tfg.elements.type.Method;
 
@@ -49,8 +49,8 @@ public class Variable<T extends IElements> extends Sentence<T> {
 		return ret;
 	}
 
-	public Map<T, List<ClassInterface>> getClasses() {
-		Map<T, List<ClassInterface>> ret = new HashMap<T, List<ClassInterface>>();
+	public Map<T, List<Class>> getClasses() {
+		Map<T, List<Class>> ret = new HashMap<T, List<Class>>();
 		if (!checkeado) {
 			check();
 		}
@@ -62,8 +62,8 @@ public class Variable<T extends IElements> extends Sentence<T> {
 		return ret;
 	}
 
-	public Map<T, List<ClassInterface>> getInterface() {
-		Map<T, List<ClassInterface>> ret = new HashMap<T, List<ClassInterface>>();
+	public Map<T, List<Class>> getInterface() {
+		Map<T, List<Class>> ret = new HashMap<T, List<Class>>();
 		if (!checkeado) {
 			check();
 		}

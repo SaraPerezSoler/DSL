@@ -21,6 +21,11 @@ import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.resources.IProject
 import java.util.List
 import java.util.ArrayList
+import javaRule.Sentence
+import javaRule.Variable
+import javaRule.Element
+import javaRule.PrimaryOp
+import javaRule.PropertyLiteral
 
 /**
  * Generates code from your model files on save.
@@ -35,236 +40,235 @@ class JRulesGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
-//		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Rule)));
-//		var workspace = ResourcesPlugin.getWorkspace().getRoot();
-//		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
-//		var projects=new ArrayList<IProject>();
-//		for (name: ruleSet.projectName){
-//			projects.add(workspace.getProject(name));
-//		}
-//		fsa.generateFile("Main.java", main(projects));
-//
-//	}
-//
-//	def CharSequence getWorksapce(RuleSet rs) {
-//	}
-//
-//	def CharSequence main(List<IProject> projects) {
-//
-//		'''
-//			import java.io.File;
-//			import java.io.FileWriter;
-//			import java.io.IOException;
-//			import java.io.PrintWriter;
-//			import java.util.List;
-//			import java.util.ArrayList;
-//			import es.uam.sara.tfg.ast.ReadFiles;
-//			import es.uam.sara.tfg.rule.Rule;
-//				
-//				public class Main {
-//				
-//				 
-//				 public static void main(String[] args)throws IOException{
-//				 	
-//				 	List<File> roots= new ArrayList<File>();
-//				 	List<File> outs= new ArrayList<File>();
-//				 	«FOR p: projects»
-//				 	«var src= p.getFolder("src")»
-//				 	roots.add(new File("«src.location»"));
-//				 	outs.add(new File("outs/«p.name».txt"));
-//				 	«ENDFOR»
-//				 	for (int i=0; i <roots.size(); i++){
-//				 		File root=roots.get(i);
-//				 		File out=outs.get(i);
-//					 	ReadFiles.parseFiles(root);
-//					 	FileWriter fichero = null;
-//					 	 PrintWriter pw = null;
-//					 	try{
-//				            fichero = new FileWriter(out);
-//				            pw = new PrintWriter(fichero);
-//										RuleFactory ruleFactory=new RuleFactory();
-//									 	List <Rule<?>> rules=ruleFactory.getRules();
-//									 	for (Rule<?> r: rules){
-//									 		r.checkTest();
-//									 		System.out.println(r.log());
-//									 		pw.println(r.log());
-//									 	}
-//				
-//				        } catch (Exception e) {
-//				            e.printStackTrace();
-//				        } finally {
-//				           try {
-//					           if (null != fichero)
-//					              fichero.close();
-//				           } catch (Exception e2) {
-//				              e2.printStackTrace();
-//				           }
-//				           ReadFiles.reset();
-//				        }
-//				        
-//				 	}
-//				 }
-//				}
-//		'''
-//	}
-//
-//	def CharSequence RuleFactory(Iterable<Rule> rules) {
-//
-//		var i = 1;
-//		'''
-//			import java.util.*;
-//			import es.uam.sara.tfg.rule.*;
-//			import es.uam.sara.tfg.rule.Rule.*;
-//			import es.uam.sara.tfg.properties.*;
-//			import es.uam.sara.tfg.properties.interfaces.*;
-//			import es.uam.sara.tfg.properties.classes.*;
-//			import es.uam.sara.tfg.properties.enumerations.*;
-//			import es.uam.sara.tfg.properties.methods.*;
-//			import es.uam.sara.tfg.properties.attributes.*;
-//			import es.uam.sara.tfg.properties.packages.*;
-//			import org.eclipse.jdt.core.dom.TypeDeclaration;
-//			import org.eclipse.jdt.core.dom.EnumDeclaration;
-//			import org.eclipse.jdt.core.dom.MethodDeclaration;
-//			import org.eclipse.jdt.core.dom.FieldDeclaration;
-//			import es.uam.sara.tfg.ast.Visitors;
-//			import es.uam.sara.tfg.properties.Properties;
-//			
-//			public class RuleFactory {
-//				
-//				private List <Rule<?>> rules=null;
-//				
-//				public List<Rule<?>> getRules(){
-//					if (rules!=null){
-//						return rules;
-//					}else{
-//						rules= new ArrayList<Rule<?>>();
-//						List<String> packages=Visitors.getPackages();
-//						List<TypeDeclaration> classes=Visitors.getClasses();
-//						List<TypeDeclaration> interfaces=Visitors.getInterfaces();
-//						List<EnumDeclaration> enums=Visitors.getEnumerations();
-//						List<MethodDeclaration> methods=Visitors.getMethods();
-//						List<FieldDeclaration> attributes=Visitors.getAttributes();
-//						
-//					«FOR Rule r : rules»
-//						«IF r.eContainer instanceof RuleSet»
-//							
-//								«genetateRule(r, ""+i)»
-//								rules.add(r«i++»);
-//								
-//						«ENDIF»
-//					«ENDFOR»
-//					return rules;
-//					}
-//				}
-//			}
-//			
-//		'''
-//	}
-//
-//	def static String genetateRule(Rule r,
-//		String i) {
-//		'''
-//			//r«i» «r.toString»
-//			«var type=getType(r.element)»
-//			«var analize=getAnalize(r.element)»
-//			«getFilter(r.filter, i, r.element)»
-//			«getOr(r.satisfy, i, r.element)»
-//			Rule<«type»> r«i»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,filter«i», or«i», "«r.element»");	
-//		'''
-//	}
-//
-//	def static CharSequence getFilter(Filter filter, String i, ElementJava element) {
-//		'''
-//		«var type= getType(element)»
-//		«IF filter!=null»
-//			Filter<«type»> filter«i»= new Filter<«type»>(«filter.no»);
-//			«var j=1»
-//			«FOR And a: filter.filter.op»
-//				«getAnd(a, "Filter"+i+j, element)»
-//				filter«i».addAnd(andFilter«i»«j++»);
-//				
-//			«ENDFOR»
-//		«ELSE»
-//			Filter<«type»> filter«i»=	null;
-//			
-//		«ENDIF»'''
-//	}
-//
-//	def static CharSequence getOr(Or or, String i, ElementJava element) {
-//		'''
-//		«var type= getType(element)»
-//		«IF or!=null»
-//			Or<«type»> or«i»= new Or<«type»>();
-//			«var j=1»
-//			«FOR And a: or.op»
-//				«getAnd(a, i+j, element)»
-//				or«i».addAnd(and«i»«j++»);
-//				
-//			«ENDFOR»
-//		«ELSE»
-//			Or<«type»> or«i»=	null;
-//			
-//		«ENDIF»'''
-//	}
-//
-//	def static CharSequence getAnd(And a, String i, ElementJava element) {
-//		'''
-//			«var j=1»
-//			«var type= getType(element)»
-//			And<«type»> and«i» = new And<«type»>();
-//			«FOR Satisfy s : a.op»
-//				«s.getSatisfy(element , i+j)»
-//				and«i».addPropertie(p«i»«j++»);
-//			«ENDFOR»
-//		'''
-//	}
-//
-//	def static CharSequence getSatisfy(Satisfy s, ElementJava e, String sufix) {
-//		if (e == ElementJava.PACKAGE) {
-//			return PackageSatisfy.getPropertie(s as Package, sufix);
-//		} else if (e == ElementJava.INTERFACE) {
-//			return InterfaceSatisfy.getPropertie(s as Interface, sufix);
-//		} else if (e == ElementJava.CLASS) {
-//			return ClassesSatisfy.getPropertie(s as Class, sufix);
-//		} else if (e == ElementJava.ENUM) {
-//			return EnumSatisfy.getPropertie(s as Enumeration, sufix);
-//		} else if (e == ElementJava.METHOD) {
-//			return MethodsSatisfy.getPropertie(s as Method, sufix);
-//		} else {
-//			return AttributesSatisfy.getPropertie(s as Attribute, sufix);
-//		}
-//	}
-//
-//	def static CharSequence getType(ElementJava e) {
-//		if (e == ElementJava.PACKAGE) {
-//			return "String"
-//		} else if (e == ElementJava.INTERFACE) {
-//			return "TypeDeclaration"
-//		} else if (e == ElementJava.CLASS) {
-//			return "TypeDeclaration"
-//		} else if (e == ElementJava.ENUM) {
-//			return "EnumDeclaration"
-//		} else if (e == ElementJava.METHOD) {
-//			return "MethodDeclaration"
-//		} else {
-//			return "FieldDeclaration"
-//		}
-//	}
-//
-//	def static String getAnalize(ElementJava e) {
-//		if (e == ElementJava.PACKAGE) {
-//			return "packages"
-//		} else if (e == ElementJava.INTERFACE) {
-//			return "interfaces"
-//		} else if (e == ElementJava.CLASS) {
-//			return "classes"
-//		} else if (e == ElementJava.ENUM) {
-//			return "enums"
-//		} else if (e == ElementJava.METHOD) {
-//			return "methods"
-//		} else {
-//			return "attributes"
-//		}
+		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Sentence)));
+		var workspace = ResourcesPlugin.getWorkspace().getRoot();
+		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
+		var projects = new ArrayList<IProject>();
+
+		if (ruleSet.projectName.empty) {
+			projects.addAll(workspace.projects);
+		} else {
+			for (name : ruleSet.projectName) {
+				projects.add(workspace.getProject(name));
+			}
+		}
+		fsa.generateFile("Main.java", main(projects));
+
 	}
 
+	def CharSequence getWorksapce(RuleSet rs) {
+	}
+
+	def CharSequence main(List<IProject> projects) {
+
+		'''
+			import java.io.File;
+			import java.io.FileWriter;
+			import java.io.IOException;
+			import java.io.PrintWriter;
+			import java.util.List;
+			import java.util.ArrayList;
+			import es.uam.sara.tfg.ast.ReadFiles;
+			import es.uam.sara.tfg.rule.Rule;
+				
+				public class Main {
+				
+				 
+				 public static void main(String[] args)throws IOException{
+				 	
+				 	List<File> roots= new ArrayList<File>();
+				 	List<File> outs= new ArrayList<File>();
+				 	«IF projects.isEmpty()»
+				 		
+				 	«ELSE»
+				 		«FOR p: projects»
+				 			«var src= p.getFolder("src")»
+				 			roots.add(new File("«src.location»"));
+				 			outs.add(new File("outs/«p.name».txt"));
+				 		«ENDFOR»
+				 	«ENDIF»
+				 	for (int i=0; i <roots.size(); i++){
+				 		File root=roots.get(i);
+				 		File out=outs.get(i);
+				 		ReadFiles.parseFiles(root);
+				 		FileWriter fichero = null;
+				 		 PrintWriter pw = null;
+				 		try{
+				 		         fichero = new FileWriter(out);
+				 		         pw = new PrintWriter(fichero);
+				 					RuleFactory ruleFactory=new RuleFactory();
+				 						List <Rule<?>> rules=ruleFactory.getRules();
+				 						for (Rule<?> r: rules){
+				 							r.checkTest();
+				 							System.out.println(r.log());
+				 							pw.println(r.log());
+				 						}
+				
+				        } catch (Exception e) {
+				            e.printStackTrace();
+				        } finally {
+				           try {
+				            if (null != fichero)
+				               fichero.close();
+				           } catch (Exception e2) {
+				              e2.printStackTrace();
+				           }
+				           ReadFiles.reset();
+				        }
+				        
+				 	}
+				 }
+				}
+		'''
+	}
+
+	def CharSequence RuleFactory(Iterable<Sentence> sentences) {
+
+		var i = 1;
+		'''
+			import java.util.*;
+			import es.uam.sara.tfg.rule.*;
+			import es.uam.sara.tfg.rule.Rule.*;
+			import es.uam.sara.tfg.properties.*;
+			import es.uam.sara.tfg.properties.interfaces.*;
+			import es.uam.sara.tfg.properties.classes.*;
+			import es.uam.sara.tfg.properties.enumerations.*;
+			import es.uam.sara.tfg.properties.methods.*;
+			import es.uam.sara.tfg.properties.attributes.*;
+			import es.uam.sara.tfg.properties.packages.*;
+			import org.eclipse.jdt.core.dom.TypeDeclaration;
+			import org.eclipse.jdt.core.dom.EnumDeclaration;
+			import org.eclipse.jdt.core.dom.MethodDeclaration;
+			import org.eclipse.jdt.core.dom.FieldDeclaration;
+			import es.uam.sara.tfg.ast.Visitors;
+			import es.uam.sara.tfg.properties.Properties;
+			
+			public class RuleFactory {
+				
+				private List <Rule<?>> rules=null;
+				
+				public List<Rule<?>> getRules(){
+					if (rules!=null){
+						return rules;
+					}else{
+						rules= new ArrayList<Rule<?>>();
+						List<String> packages=Visitors.getPackages();
+						List<TypeDeclaration> classes=Visitors.getClasses();
+						List<TypeDeclaration> interfaces=Visitors.getInterfaces();
+						List<EnumDeclaration> enums=Visitors.getEnumerations();
+						List<MethodDeclaration> methods=Visitors.getMethods();
+						List<FieldDeclaration> attributes=Visitors.getAttributes();
+					«var variables=sentences.filter(Variable)»
+					«var rules=sentences.filter(Rule)»
+					«FOR Variable v : variables»
+						«genetateVariable(v)»
+						Sentences.allVariables.put("«v.name»", «v.name»);
+					«ENDFOR»
+					«FOR Variable v : variables»
+						«FOR Variable in: v.in»
+							«v.name».setIn(Sentences.allVariables.get("«in.name»").get());
+						«ENDFOR»
+						«IF v.from!=null»
+							
+						«ENDIF»
+						«v.name».check();
+					«ENDFOR»
+					«FOR Rule r : rules»
+						«IF r.eContainer instanceof RuleSet»
+							«genetateRule(r, ""+i)»
+							/////
+							rules.add(r«i++»);
+							
+						«ENDIF»
+					«ENDFOR»
+					return rules;
+					}
+				}
+			}
+			
+		'''
+	}
+
+	def static String genetateVariable(Variable v) {
+		'''
+			«var name=v.name»
+			//v«name» «v.toString»
+			«var from=v.from.name»
+			List<String> in«name»= new ArrayList<String>();
+			«FOR Variable s : v.in»
+				in.add("«s.name»");
+			«ENDFOR»
+			«var type=getType(v.element)»
+			«var analize=getType(v.element).toLowerCase»
+			«getOr(v.satisfy, name, v.element)»
+			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize», or«name»,"«from»", in«name»);	
+		'''
+	}
+
+	def static String genetateRule(Rule r,
+		String i) {
+		'''
+			//r«i» «r.toString»
+			«var type=getType(r.element)»
+			«var analize=getType(r.element).toLowerCase»
+			«getOr(r.filter, "Filter"+i, r.element)»
+			«getOr(r.satisfy, i, r.element)»
+			Rule<«type»> r«i»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,orFilter«i», or«i», "«r.element»");	
+		'''
+	}
+
+	def static CharSequence getOr(Or or, String i, Element element) {
+		'''
+		«var type= getType(element)»
+		«IF or!=null»
+			Or<«type»> or«i»= new Or<«type»>();
+			«var j=1»
+			«FOR And a: or.op»
+				«getAnd(a, i+j, element)»
+				or«i».addAnd(and«i»«j++»);
+				
+			«ENDFOR»
+		«ELSE»
+			Or<«type»> or«i»=	null;
+			
+		«ENDIF»'''
+	}
+
+	def static CharSequence getAnd(And a, String i, Element element) {
+		'''
+			«var j=1»
+			«var type= getType(element)»
+			And<«type»> and«i» = new And<«type»>();
+			«FOR PrimaryOp s : a.op»
+				«IF s instanceof Or»
+					«getOr(s , i+j,element)»
+					and«i».addPropertie(or«i»«j++»);
+				«ELSEIF s instanceof PropertyLiteral»
+					«getSatisfy((s as PropertyLiteral),element, i+j)»
+					and«i».addPropertie(p«i»«j++»);
+				«ENDIF»
+				
+			«ENDFOR»
+		'''
+	}
+
+	def static CharSequence getSatisfy(PropertyLiteral s, Element e, String sufix) {
+		if (e == Element.PACKAGE) {
+			return PackageSatisfy.getPropertie(s.property as Package, sufix);
+		} else if (e == Element.INTERFACE) {
+			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
+		} else if (e == Element.CLASS) {
+			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
+		} else if (e == Element.ENUM) {
+			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
+		} else if (e == Element.METHOD) {
+			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
+		} else {
+			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
+		}
+	}
+
+	def static String getType(Element e) {
+		return e.literal.toLowerCase.toFirstUpper;
+	}
 }

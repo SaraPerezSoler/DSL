@@ -11,32 +11,33 @@ import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.ClassInterface;
+import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Enumeration;
+import es.uam.sara.tfg.elements.type.Interface;
 import es.uam.sara.tfg.elements.type.Method;
 
 
 public interface JavaTypes extends Container, ICanEmpty, IElements{
 
-	public default List<ClassInterface> getClasses() {
+	public default List<Class> getClasses() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<ClassInterface> temp = new ArrayList<ClassInterface>();
+		List<Class> temp = new ArrayList<Class>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (!((TypeDeclaration) ed).isInterface())
-					temp.add(new ClassInterface((TypeDeclaration) ed, getVisitor()));
+					temp.add(new Class((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
 	}
 
-	public default List<ClassInterface> getInterfaces() {
+	public default List<Interface> getInterfaces() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<ClassInterface> temp = new ArrayList<ClassInterface>();
+		List<Interface> temp = new ArrayList<Interface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (((TypeDeclaration) ed).isInterface())
-					temp.add(new ClassInterface((TypeDeclaration) ed, getVisitor()));
+					temp.add(new Interface((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;

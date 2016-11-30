@@ -24,11 +24,11 @@ public class File implements Container, IPosicionable, ICanEmpty{
 	public  List<Attribute> getAttributes(){
 		return uv.getAttributes();
 	}
-	public  List<ClassInterface> getClasses(){
+	public  List<Class> getClasses(){
 		return uv.getClasses();
 	}
 	
-	public  List<ClassInterface> getInterfaces(){
+	public  List<Interface> getInterfaces(){
 		return uv.getInterfaces();
 	}
 	public  List<Enumeration> getEnumerations(){
