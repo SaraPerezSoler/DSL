@@ -26,6 +26,7 @@ import javaRule.Variable
 import javaRule.Element
 import javaRule.PrimaryOp
 import javaRule.PropertyLiteral
+import javaRule.VariableSubtype
 
 /**
  * Generates code from your model files on save.
@@ -40,6 +41,8 @@ class JRulesGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+
+
 		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Sentence)));
 		var workspace = ResourcesPlugin.getWorkspace().getRoot();
 		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
@@ -76,46 +79,21 @@ class JRulesGenerator extends AbstractGenerator {
 				 
 				 public static void main(String[] args)throws IOException{
 				 	
-				 	List<File> roots= new ArrayList<File>();
-				 	List<File> outs= new ArrayList<File>();
-				 	«IF projects.isEmpty()»
-				 		
-				 	«ELSE»
-				 		«FOR p: projects»
-				 			«var src= p.getFolder("src")»
-				 			roots.add(new File("«src.location»"));
-				 			outs.add(new File("outs/«p.name».txt"));
-				 		«ENDFOR»
-				 	«ENDIF»
+				 	List<Visitors> projects= new ArrayList<Visitors>();
+
+			 		«FOR p: projects»
+			 			«var src= p.getFolder("src")»
+			 			roots.add(new File("«src.location»"));
+			 			projects.add(new Visitors("«src.name»"));
+			 		«ENDFOR»
+
 				 	for (int i=0; i <roots.size(); i++){
 				 		File root=roots.get(i);
-				 		File out=outs.get(i);
-				 		ReadFiles.parseFiles(root);
-				 		FileWriter fichero = null;
-				 		 PrintWriter pw = null;
-				 		try{
-				 		         fichero = new FileWriter(out);
-				 		         pw = new PrintWriter(fichero);
-				 					RuleFactory ruleFactory=new RuleFactory();
-				 						List <Rule<?>> rules=ruleFactory.getRules();
-				 						for (Rule<?> r: rules){
-				 							r.checkTest();
-				 							System.out.println(r.log());
-				 							pw.println(r.log());
-				 						}
-				
-				        } catch (Exception e) {
-				            e.printStackTrace();
-				        } finally {
-				           try {
-				            if (null != fichero)
-				               fichero.close();
-				           } catch (Exception e2) {
-				              e2.printStackTrace();
-				           }
-				           ReadFiles.reset();
-				        }
-				        
+				 		Visitors visit=projects.get(i);
+				 		ReadFiles.parseFiles(root, visit);
+				 		RuleFactory rf= new RuleFactory(visit);
+				 		rf.getRules();
+				 		rf.writeLog();
 				 	}
 				 }
 				}
@@ -146,32 +124,63 @@ class JRulesGenerator extends AbstractGenerator {
 			public class RuleFactory {
 				
 				private List <Rule<?>> rules=null;
+				private Visistors visitors;
 				
+				public RuleFactory (Visitors vis){
+					this.visitors=vis;
+				}
 				public List<Rule<?>> getRules(){
 					if (rules!=null){
 						return rules;
 					}else{
 						rules= new ArrayList<Rule<?>>();
-						List<String> packages=Visitors.getPackages();
-						List<TypeDeclaration> classes=Visitors.getClasses();
-						List<TypeDeclaration> interfaces=Visitors.getInterfaces();
-						List<EnumDeclaration> enums=Visitors.getEnumerations();
-						List<MethodDeclaration> methods=Visitors.getMethods();
-						List<FieldDeclaration> attributes=Visitors.getAttributes();
+						List<String> packages=visitors.getPackages();
+						List<TypeDeclaration> classes=visitors.getClasses();
+						List<TypeDeclaration> interfaces=visitors.getInterfaces();
+						List<EnumDeclaration> enums=visitors.getEnumerations();
+						List<MethodDeclaration> methods=visitors.getMethods();
+						List<FieldDeclaration> attributes=visitors.getAttributes();
 					«var variables=sentences.filter(Variable)»
+					«var variables2=variables.clone»
 					«var rules=sentences.filter(Rule)»
-					«FOR Variable v : variables»
+					//Crear
+					//«variables2»
+					«FOR Variable v : variables2»
 						«genetateVariable(v)»
 						Sentences.allVariables.put("«v.name»", «v.name»);
 					«ENDFOR»
-					«FOR Variable v : variables»
+					
+					//Bucles
+					//«variables2»
+					«FOR Variable v : variables2»
 						«FOR Variable in: v.in»
 							«v.name».setIn(Sentences.allVariables.get("«in.name»").get());
 						«ENDFOR»
+						«var k=0»
 						«IF v.from!=null»
-							
+							for («getType(v.from.element)» us«k»: «v.from.getName».get()){
+								«v.name».setFrom(us«k».get«getType(v.element)»s());
+								«v.name».setUsing("«v.from.getName»",us«k++»);
 						«ENDIF»
-						«v.name».check();
+							
+							«FOR VariableSubtype us: v.using»
+								«IF us.subtype==Element.NULL»
+								for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
+									«v.name».setUsing("«us.variable.name»",us«k++»);
+								«ELSE»
+								for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».get«getType(us.subtype)»s()){
+									«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
+								«ENDIF»
+							«ENDFOR»
+								«v.name».check();
+							«FOR VariableSubtype us: v.using»
+							}
+							«ENDFOR»
+						«IF v.from!=null»
+							}
+						«ENDIF»
+						
+						
 					«ENDFOR»
 					«FOR Rule r : rules»
 						«IF r.eContainer instanceof RuleSet»
@@ -184,24 +193,62 @@ class JRulesGenerator extends AbstractGenerator {
 					return rules;
 					}
 				}
+				
+				public void writeLog(){
+					
+						FileWriter fichero = null;
+				 		PrintWriter pw = null;
+				 		try{
+							fichero = new FileWriter("outs/"+visitors.getProjectName+".txt");
+							pw = new PrintWriter(fichero);
+							
+							for (Rule<?> r: rules){
+								System.out.println(r.log());
+								pw.println(r.log());
+							}
+			     } catch (Exception e) {
+			          e.printStackTrace();
+			      } finally {
+			         try {
+			          if (null != fichero)
+			             fichero.close();
+			         } catch (Exception e2) {
+			            e2.printStackTrace();
+			         }
+			      }
+									        
+				}
 			}
 			
 		'''
+	}
+	
+	def int getK(Sentence s, String name) {
+		var i=0;
+		if (s.from!=null){
+			if (s.from.name.equals(name)){
+				return i;
+			}
+			i++;
+		}
+		var us= s.using;
+		for(VariableSubtype vs: us){
+			if (vs.variable.name.equals(name)){
+				return i;
+			}
+			i++;
+		}
+		return -1;
 	}
 
 	def static String genetateVariable(Variable v) {
 		'''
 			«var name=v.name»
 			//v«name» «v.toString»
-			«var from=v.from.name»
-			List<String> in«name»= new ArrayList<String>();
-			«FOR Variable s : v.in»
-				in.add("«s.name»");
-			«ENDFOR»
 			«var type=getType(v.element)»
 			«var analize=getType(v.element).toLowerCase»
 			«getOr(v.satisfy, name, v.element)»
-			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize», or«name»,"«from»", in«name»);	
+			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize», or«name»);	
 		'''
 	}
 
@@ -253,19 +300,19 @@ class JRulesGenerator extends AbstractGenerator {
 	}
 
 	def static CharSequence getSatisfy(PropertyLiteral s, Element e, String sufix) {
-		if (e == Element.PACKAGE) {
-			return PackageSatisfy.getPropertie(s.property as Package, sufix);
-		} else if (e == Element.INTERFACE) {
-			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
-		} else if (e == Element.CLASS) {
-			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
-		} else if (e == Element.ENUM) {
-			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
-		} else if (e == Element.METHOD) {
-			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
-		} else {
-			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
-		}
+//		if (e == Element.PACKAGE) {
+//			return PackageSatisfy.getPropertie(s.property as Package, sufix);
+//		} else if (e == Element.INTERFACE) {
+//			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
+//		} else if (e == Element.CLASS) {
+//			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
+//		} else if (e == Element.ENUM) {
+//			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
+//		} else if (e == Element.METHOD) {
+//			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
+//		} else {
+//			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
+//		}
 	}
 
 	def static String getType(Element e) {

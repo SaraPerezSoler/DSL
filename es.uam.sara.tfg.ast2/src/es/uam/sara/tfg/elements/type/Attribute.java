@@ -79,6 +79,11 @@ public class Attribute extends JavaElement implements ICanGeneric{
 
 		return sameSame;
 	}
+
+	@Override
+	public String getStringType() {
+		return fd.getType().toString();
+	}
 	
 
 

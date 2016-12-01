@@ -10,7 +10,7 @@ import java.util.Map;
 import es.uam.sara.tfg.elements.ClassInterface;
 import es.uam.sara.tfg.elements.JavaTypes;
 import es.uam.sara.tfg.properties.Property;
-import es.uam.sara.tfg.properties.TypeProperty;
+import es.uam.sara.tfg.properties.type.TypeProperty;
 
 /**
  * @author Sara

@@ -10,4 +10,6 @@ public interface IElements {
 
 	public  UnitVisitor getVisitor();
 	public boolean equals(Object object);
+
+	public abstract String getStringType();
 }

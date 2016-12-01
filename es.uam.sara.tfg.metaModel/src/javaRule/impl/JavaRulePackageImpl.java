@@ -53,6 +53,7 @@ import javaRule.Tamanio;
 import javaRule.TypeProperty;
 import javaRule.TypeString;
 import javaRule.Variable;
+import javaRule.VariableSubtype;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -313,6 +314,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass variableSubtypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass stringValueEClass = null;
 
 	/**
@@ -545,7 +553,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSentence_Satisfy() {
+	public EReference getSentence_From() {
 		return (EReference)sentenceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -563,8 +571,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSentence_From() {
+	public EReference getSentence_Satisfy() {
 		return (EReference)sentenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSentence_Using() {
+		return (EReference)sentenceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1130,7 +1147,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringVariable_Subtype() {
+	public EAttribute getStringVariable_Strings() {
 		return (EAttribute)stringVariableEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1139,8 +1156,26 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStringVariable_Strings() {
-		return (EAttribute)stringVariableEClass.getEStructuralFeatures().get(2);
+	public EClass getVariableSubtype() {
+		return variableSubtypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableSubtype_Variable() {
+		return (EReference)variableSubtypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableSubtype_Subtype() {
+		return (EAttribute)variableSubtypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1510,9 +1545,10 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		sentenceEClass = createEClass(SENTENCE);
 		createEAttribute(sentenceEClass, SENTENCE__ELEMENT);
-		createEReference(sentenceEClass, SENTENCE__SATISFY);
-		createEReference(sentenceEClass, SENTENCE__IN);
 		createEReference(sentenceEClass, SENTENCE__FROM);
+		createEReference(sentenceEClass, SENTENCE__IN);
+		createEReference(sentenceEClass, SENTENCE__SATISFY);
+		createEReference(sentenceEClass, SENTENCE__USING);
 
 		variableEClass = createEClass(VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__NAME);
@@ -1607,8 +1643,11 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		stringVariableEClass = createEClass(STRING_VARIABLE);
 		createEReference(stringVariableEClass, STRING_VARIABLE__VARIABLE);
-		createEAttribute(stringVariableEClass, STRING_VARIABLE__SUBTYPE);
 		createEAttribute(stringVariableEClass, STRING_VARIABLE__STRINGS);
+
+		variableSubtypeEClass = createEClass(VARIABLE_SUBTYPE);
+		createEReference(variableSubtypeEClass, VARIABLE_SUBTYPE__VARIABLE);
+		createEAttribute(variableSubtypeEClass, VARIABLE_SUBTYPE__SUBTYPE);
 
 		stringValueEClass = createEClass(STRING_VALUE);
 		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
@@ -1764,9 +1803,10 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(sentenceEClass, Sentence.class, "Sentence", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSentence_Element(), this.getElement(), "element", null, 1, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSentence_Satisfy(), this.getOr(), null, "satisfy", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSentence_In(), this.getVariable(), null, "in", null, 0, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSentence_From(), this.getVariable(), null, "from", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_In(), this.getVariable(), null, "in", null, 0, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_Satisfy(), this.getOr(), null, "satisfy", null, 0, 1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSentence_Using(), this.getVariableSubtype(), null, "using", null, 0, -1, Sentence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1860,9 +1900,12 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEClass(stringPropertyEClass, StringProperty.class, "StringProperty", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(stringVariableEClass, StringVariable.class, "StringVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStringVariable_Variable(), this.getVariable(), null, "variable", null, 0, 1, StringVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStringVariable_Subtype(), this.getElement(), "subtype", null, 0, 1, StringVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStringVariable_Variable(), this.getVariableSubtype(), null, "variable", null, 0, 1, StringVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringVariable_Strings(), this.getElementString(), "strings", null, 1, 1, StringVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(variableSubtypeEClass, VariableSubtype.class, "VariableSubtype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableSubtype_Variable(), this.getVariable(), null, "variable", null, 0, 1, VariableSubtype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariableSubtype_Subtype(), this.getElement(), "subtype", null, 0, 1, VariableSubtype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1910,6 +1953,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(quantifierEEnum, Quantifier.ALL);
 
 		initEEnum(elementEEnum, Element.class, "Element");
+		addEEnumLiteral(elementEEnum, Element.NULL);
 		addEEnumLiteral(elementEEnum, Element.PACKAGE);
 		addEEnumLiteral(elementEEnum, Element.CLASS);
 		addEEnumLiteral(elementEEnum, Element.INTERFACE);

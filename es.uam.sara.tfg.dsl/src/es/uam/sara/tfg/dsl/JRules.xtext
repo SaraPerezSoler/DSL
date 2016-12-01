@@ -16,7 +16,7 @@ enum Element returns Element:
 
 Variable returns Variable:
 	name=EString':'
-	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)? ('satisfy' satisfy=Or)?;
+	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)? ('using' using+=VariableSubtype(',' using+=VariableSubtype)*)?('satisfy' satisfy=Or)?;
 
 
 Rule returns Rule:
@@ -135,10 +135,14 @@ StringProperty returns StringProperty:
 
 StringValue returns StringValue:
 	value=EString; 
+	
 StringVariable returns StringVariable:
-	variable=[Variable|EString]('.'subtype=Element)?'.'strings=ElementString;
-	
-	
+	variable=VariableSubtype'.'strings=ElementString;
+
+VariableSubtype returns VariableSubtype: 
+	variable=[Variable|EString]('.'subtype=Element)
+;
+
 TypeProperty returns TypeProperty:
 	TypeString | isPrimitiveFunction | IsCollectionType
 ;

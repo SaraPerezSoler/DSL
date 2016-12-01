@@ -9,6 +9,7 @@ import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Sentence;
 import javaRule.Variable;
+import javaRule.VariableSubtype;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,7 +22,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,9 +35,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link javaRule.impl.SentenceImpl#getElement <em>Element</em>}</li>
- *   <li>{@link javaRule.impl.SentenceImpl#getSatisfy <em>Satisfy</em>}</li>
- *   <li>{@link javaRule.impl.SentenceImpl#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.impl.SentenceImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getIn <em>In</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getSatisfy <em>Satisfy</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getUsing <em>Using</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,7 +52,7 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Element ELEMENT_EDEFAULT = Element.PACKAGE;
+	protected static final Element ELEMENT_EDEFAULT = Element.NULL;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' attribute.
@@ -61,14 +65,14 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	protected Element element = ELEMENT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSatisfy() <em>Satisfy</em>}' containment reference.
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSatisfy()
+	 * @see #getFrom()
 	 * @generated
 	 * @ordered
 	 */
-	protected Or satisfy;
+	protected Variable from;
 
 	/**
 	 * The cached value of the '{@link #getIn() <em>In</em>}' reference list.
@@ -81,14 +85,24 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<Variable> in;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
+	 * The cached value of the '{@link #getSatisfy() <em>Satisfy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrom()
+	 * @see #getSatisfy()
 	 * @generated
 	 * @ordered
 	 */
-	protected Variable from;
+	protected Or satisfy;
+
+	/**
+	 * The cached value of the '{@link #getUsing() <em>Using</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsing()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableSubtype> using;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +142,56 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 		element = newElement == null ? ELEMENT_EDEFAULT : newElement;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__ELEMENT, oldElement, element));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable getFrom() {
+		if (from != null && from.eIsProxy()) {
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (Variable)eResolveProxy(oldFrom);
+			if (from != oldFrom) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
+			}
+		}
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable basicGetFrom() {
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrom(Variable newFrom) {
+		Variable oldFrom = from;
+		from = newFrom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Variable> getIn() {
+		if (in == null) {
+			in = new EObjectResolvingEList<Variable>(Variable.class, this, JavaRulePackage.SENTENCE__IN);
+		}
+		return in;
 	}
 
 	/**
@@ -178,49 +242,11 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Variable> getIn() {
-		if (in == null) {
-			in = new EObjectResolvingEList<Variable>(Variable.class, this, JavaRulePackage.SENTENCE__IN);
+	public EList<VariableSubtype> getUsing() {
+		if (using == null) {
+			using = new EObjectContainmentEList<VariableSubtype>(VariableSubtype.class, this, JavaRulePackage.SENTENCE__USING);
 		}
-		return in;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Variable getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Variable)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
-			}
-		}
-		return from;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Variable basicGetFrom() {
-		return from;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFrom(Variable newFrom) {
-		Variable oldFrom = from;
-		from = newFrom;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__FROM, oldFrom, from));
+		return using;
 	}
 
 	/**
@@ -233,6 +259,8 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case JavaRulePackage.SENTENCE__SATISFY:
 				return basicSetSatisfy(null, msgs);
+			case JavaRulePackage.SENTENCE__USING:
+				return ((InternalEList<?>)getUsing()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,13 +275,15 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case JavaRulePackage.SENTENCE__ELEMENT:
 				return getElement();
-			case JavaRulePackage.SENTENCE__SATISFY:
-				return getSatisfy();
-			case JavaRulePackage.SENTENCE__IN:
-				return getIn();
 			case JavaRulePackage.SENTENCE__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
+			case JavaRulePackage.SENTENCE__IN:
+				return getIn();
+			case JavaRulePackage.SENTENCE__SATISFY:
+				return getSatisfy();
+			case JavaRulePackage.SENTENCE__USING:
+				return getUsing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,15 +300,19 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 			case JavaRulePackage.SENTENCE__ELEMENT:
 				setElement((Element)newValue);
 				return;
-			case JavaRulePackage.SENTENCE__SATISFY:
-				setSatisfy((Or)newValue);
+			case JavaRulePackage.SENTENCE__FROM:
+				setFrom((Variable)newValue);
 				return;
 			case JavaRulePackage.SENTENCE__IN:
 				getIn().clear();
 				getIn().addAll((Collection<? extends Variable>)newValue);
 				return;
-			case JavaRulePackage.SENTENCE__FROM:
-				setFrom((Variable)newValue);
+			case JavaRulePackage.SENTENCE__SATISFY:
+				setSatisfy((Or)newValue);
+				return;
+			case JavaRulePackage.SENTENCE__USING:
+				getUsing().clear();
+				getUsing().addAll((Collection<? extends VariableSubtype>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,14 +329,17 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 			case JavaRulePackage.SENTENCE__ELEMENT:
 				setElement(ELEMENT_EDEFAULT);
 				return;
-			case JavaRulePackage.SENTENCE__SATISFY:
-				setSatisfy((Or)null);
+			case JavaRulePackage.SENTENCE__FROM:
+				setFrom((Variable)null);
 				return;
 			case JavaRulePackage.SENTENCE__IN:
 				getIn().clear();
 				return;
-			case JavaRulePackage.SENTENCE__FROM:
-				setFrom((Variable)null);
+			case JavaRulePackage.SENTENCE__SATISFY:
+				setSatisfy((Or)null);
+				return;
+			case JavaRulePackage.SENTENCE__USING:
+				getUsing().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -318,12 +355,14 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case JavaRulePackage.SENTENCE__ELEMENT:
 				return element != ELEMENT_EDEFAULT;
-			case JavaRulePackage.SENTENCE__SATISFY:
-				return satisfy != null;
-			case JavaRulePackage.SENTENCE__IN:
-				return in != null && !in.isEmpty();
 			case JavaRulePackage.SENTENCE__FROM:
 				return from != null;
+			case JavaRulePackage.SENTENCE__IN:
+				return in != null && !in.isEmpty();
+			case JavaRulePackage.SENTENCE__SATISFY:
+				return satisfy != null;
+			case JavaRulePackage.SENTENCE__USING:
+				return using != null && !using.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -91,5 +91,9 @@ public class Method extends JavaElement implements ICanGeneric, ICanEmpty{
 
 		return sameSame;
 	}
+	@Override
+	public String getStringType() {
+		return this.md.getReturnType2().toString();
+	}
 	
 }

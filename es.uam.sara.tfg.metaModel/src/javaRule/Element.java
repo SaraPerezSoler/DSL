@@ -19,6 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Element implements Enumerator {
 	/**
+	 * The '<em><b>Null</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NULL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NULL(-1, "null", "null"), /**
 	 * The '<em><b>Package</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,6 +95,21 @@ public enum Element implements Enumerator {
 	 * @ordered
 	 */
 	FILE(6, "File", "File");
+
+	/**
+	 * The '<em><b>Null</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Null</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NULL
+	 * @model name="null"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NULL_VALUE = -1;
 
 	/**
 	 * The '<em><b>Package</b></em>' literal value.
@@ -201,6 +224,7 @@ public enum Element implements Enumerator {
 	 */
 	private static final Element[] VALUES_ARRAY =
 		new Element[] {
+			NULL,
 			PACKAGE,
 			CLASS,
 			INTERFACE,
@@ -264,6 +288,7 @@ public enum Element implements Enumerator {
 	 */
 	public static Element get(int value) {
 		switch (value) {
+			case NULL_VALUE: return NULL;
 			case PACKAGE_VALUE: return PACKAGE;
 			case CLASS_VALUE: return CLASS;
 			case INTERFACE_VALUE: return INTERFACE;

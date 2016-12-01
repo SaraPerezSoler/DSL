@@ -72,4 +72,9 @@ public class File implements Container, IPosicionable, ICanEmpty{
 
 		return sameSame;
 	}
+
+	@Override
+	public String getStringType() {
+		return "";
+	}
 }

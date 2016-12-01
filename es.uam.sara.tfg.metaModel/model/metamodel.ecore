@@ -15,7 +15,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="satisfy" eType="#//Or"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="using" upperBound="-1"
-        eType="#//Variable" containment="true"/>
+        eType="#//VariableSubtype" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Sentence">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -33,6 +33,7 @@
     <eLiterals name="all" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Element">
+    <eLiterals name="null" value="-1"/>
     <eLiterals name="Package" literal="package"/>
     <eLiterals name="Class" value="1" literal="class"/>
     <eLiterals name="Interface" value="2" literal="interface"/>
@@ -135,10 +136,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringProperty" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringVariable" eSuperTypes="#//StringProperty">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtype" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//VariableSubtype"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="strings" lowerBound="1"
         eType="#//ElementString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableSubtype">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subtype" eType="#//Element"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ElementString">
     <eLiterals name="name"/>

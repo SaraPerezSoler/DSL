@@ -110,4 +110,8 @@ public interface JavaTypes extends Container, ICanEmpty, IElements{
 		}
 		return names;
 	}
+	@Override
+	public default String getStringType() {
+		return this.getName();
+	}
 }

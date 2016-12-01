@@ -21,4 +21,8 @@ public class In<T extends IElements> {
 		}
 		return ret;
 	}
+	
+	public List<T> getElements(){
+		return elements;
+	}
 }

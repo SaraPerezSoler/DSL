@@ -2,6 +2,8 @@ package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import es.uam.sara.tfg.elements.IElements;
 
 
@@ -18,7 +20,7 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 		ands.add(a);
 	}
 	
-	public void check(List<T> analyze) {
+	public void check(List<T> analyze, Map<String, IElements> using) {
 		
 		for (And<T> a: ands){
 			a.check(analyze);
@@ -57,6 +59,14 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 
 	@Override
 	public boolean checkElement(T analyze) {
+		return false;
+	}
+	public boolean needVariables() {
+		for (And<T> a: ands){
+			if (a.needVariables()){
+				return true;
+			}
+		}
 		return false;
 	}
 }

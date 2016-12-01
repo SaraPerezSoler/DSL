@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.Type;
 import es.uam.sara.tfg.elements.JavaTypes;
 import es.uam.sara.tfg.properties.Property;
-import es.uam.sara.tfg.properties.TypeProperty;
+import es.uam.sara.tfg.properties.type.TypeProperty;
 
 public class Implements<T extends JavaTypes> extends Property<T> implements TypeProperty {
 

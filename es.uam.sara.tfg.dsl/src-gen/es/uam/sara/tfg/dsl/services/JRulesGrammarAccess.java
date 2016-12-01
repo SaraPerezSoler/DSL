@@ -149,18 +149,26 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cInVariableCrossReference_4_2_1_0 = (CrossReference)cInAssignment_4_2_1.eContents().get(0);
 		private final RuleCall cInVariableEStringParserRuleCall_4_2_1_0_1 = (RuleCall)cInVariableCrossReference_4_2_1_0.eContents().get(1);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cSatisfyKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cSatisfyAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cSatisfyOrParserRuleCall_5_1_0 = (RuleCall)cSatisfyAssignment_5_1.eContents().get(0);
+		private final Keyword cUsingKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cUsingAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cUsingVariableSubtypeParserRuleCall_5_1_0 = (RuleCall)cUsingAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cUsingAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cUsingVariableSubtypeParserRuleCall_5_2_1_0 = (RuleCall)cUsingAssignment_5_2_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cSatisfyKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cSatisfyAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cSatisfyOrParserRuleCall_6_1_0 = (RuleCall)cSatisfyAssignment_6_1.eContents().get(0);
 		
 		//Variable:
 		//	name=EString ':'
 		//	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
-		//	('satisfy' satisfy=Or)?;
+		//	('using' using+=VariableSubtype (',' using+=VariableSubtype)*)? ('satisfy' satisfy=Or)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=EString ':' element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (','
-		//in+=[Variable|EString])*)? ('satisfy' satisfy=Or)?
+		//in+=[Variable|EString])*)? ('using' using+=VariableSubtype (',' using+=VariableSubtype)*)? ('satisfy' satisfy=Or)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -223,17 +231,41 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getInVariableEStringParserRuleCall_4_2_1_0_1() { return cInVariableEStringParserRuleCall_4_2_1_0_1; }
 		
-		//('satisfy' satisfy=Or)?
+		//('using' using+=VariableSubtype (',' using+=VariableSubtype)*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
+		//'using'
+		public Keyword getUsingKeyword_5_0() { return cUsingKeyword_5_0; }
+		
+		//using+=VariableSubtype
+		public Assignment getUsingAssignment_5_1() { return cUsingAssignment_5_1; }
+		
+		//VariableSubtype
+		public RuleCall getUsingVariableSubtypeParserRuleCall_5_1_0() { return cUsingVariableSubtypeParserRuleCall_5_1_0; }
+		
+		//(',' using+=VariableSubtype)*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+		
+		//','
+		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
+		
+		//using+=VariableSubtype
+		public Assignment getUsingAssignment_5_2_1() { return cUsingAssignment_5_2_1; }
+		
+		//VariableSubtype
+		public RuleCall getUsingVariableSubtypeParserRuleCall_5_2_1_0() { return cUsingVariableSubtypeParserRuleCall_5_2_1_0; }
+		
+		//('satisfy' satisfy=Or)?
+		public Group getGroup_6() { return cGroup_6; }
+		
 		//'satisfy'
-		public Keyword getSatisfyKeyword_5_0() { return cSatisfyKeyword_5_0; }
+		public Keyword getSatisfyKeyword_6_0() { return cSatisfyKeyword_6_0; }
 		
 		//satisfy=Or
-		public Assignment getSatisfyAssignment_5_1() { return cSatisfyAssignment_5_1; }
+		public Assignment getSatisfyAssignment_6_1() { return cSatisfyAssignment_6_1; }
 		
 		//Or
-		public RuleCall getSatisfyOrParserRuleCall_5_1_0() { return cSatisfyOrParserRuleCall_5_1_0; }
+		public RuleCall getSatisfyOrParserRuleCall_6_1_0() { return cSatisfyOrParserRuleCall_6_1_0; }
 	}
 	public class RuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.Rule");
@@ -1920,21 +1952,49 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.StringVariable");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVariableVariableSubtypeParserRuleCall_0_0 = (RuleCall)cVariableAssignment_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cStringsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStringsElementStringEnumRuleCall_2_0 = (RuleCall)cStringsAssignment_2.eContents().get(0);
+		
+		//StringVariable:
+		//	variable=VariableSubtype '.' strings=ElementString;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//variable=VariableSubtype '.' strings=ElementString
+		public Group getGroup() { return cGroup; }
+		
+		//variable=VariableSubtype
+		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
+		
+		//VariableSubtype
+		public RuleCall getVariableVariableSubtypeParserRuleCall_0_0() { return cVariableVariableSubtypeParserRuleCall_0_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		
+		//strings=ElementString
+		public Assignment getStringsAssignment_2() { return cStringsAssignment_2; }
+		
+		//ElementString
+		public RuleCall getStringsElementStringEnumRuleCall_2_0() { return cStringsElementStringEnumRuleCall_2_0; }
+	}
+	public class VariableSubtypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
 		private final RuleCall cVariableVariableEStringParserRuleCall_0_0_1 = (RuleCall)cVariableVariableCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cSubtypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cSubtypeElementEnumRuleCall_1_1_0 = (RuleCall)cSubtypeAssignment_1_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cStringsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStringsElementStringEnumRuleCall_3_0 = (RuleCall)cStringsAssignment_3.eContents().get(0);
 		
-		//StringVariable:
-		//	variable=[Variable|EString] ('.' subtype=Element)? '.' strings=ElementString;
+		//VariableSubtype:
+		//	variable=[Variable|EString] ('.' subtype=Element)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//variable=[Variable|EString] ('.' subtype=Element)? '.' strings=ElementString
+		//variable=[Variable|EString] ('.' subtype=Element)?
 		public Group getGroup() { return cGroup; }
 		
 		//variable=[Variable|EString]
@@ -1957,15 +2017,6 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Element
 		public RuleCall getSubtypeElementEnumRuleCall_1_1_0() { return cSubtypeElementEnumRuleCall_1_1_0; }
-		
-		//'.'
-		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
-		
-		//strings=ElementString
-		public Assignment getStringsAssignment_3() { return cStringsAssignment_3; }
-		
-		//ElementString
-		public RuleCall getStringsElementStringEnumRuleCall_3_0() { return cStringsElementStringEnumRuleCall_3_0; }
 	}
 	public class TypePropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.TypeProperty");
@@ -2874,6 +2925,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	private final StringPropertyElements pStringProperty;
 	private final StringValueElements pStringValue;
 	private final StringVariableElements pStringVariable;
+	private final VariableSubtypeElements pVariableSubtype;
 	private final TypePropertyElements pTypeProperty;
 	private final TypeStringElements pTypeString;
 	private final IsPrimitiveFunctionElements pIsPrimitiveFunction;
@@ -2932,6 +2984,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStringProperty = new StringPropertyElements();
 		this.pStringValue = new StringValueElements();
 		this.pStringVariable = new StringVariableElements();
+		this.pVariableSubtype = new VariableSubtypeElements();
 		this.pTypeProperty = new TypePropertyElements();
 		this.pTypeString = new TypeStringElements();
 		this.pIsPrimitiveFunction = new IsPrimitiveFunctionElements();
@@ -3008,7 +3061,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	//Variable:
 	//	name=EString ':'
 	//	element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString] (',' in+=[Variable|EString])*)?
-	//	('satisfy' satisfy=Or)?;
+	//	('using' using+=VariableSubtype (',' using+=VariableSubtype)*)? ('satisfy' satisfy=Or)?;
 	public VariableElements getVariableAccess() {
 		return pVariable;
 	}
@@ -3324,13 +3377,23 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StringVariable:
-	//	variable=[Variable|EString] ('.' subtype=Element)? '.' strings=ElementString;
+	//	variable=VariableSubtype '.' strings=ElementString;
 	public StringVariableElements getStringVariableAccess() {
 		return pStringVariable;
 	}
 	
 	public ParserRule getStringVariableRule() {
 		return getStringVariableAccess().getRule();
+	}
+	
+	//VariableSubtype:
+	//	variable=[Variable|EString] ('.' subtype=Element)?;
+	public VariableSubtypeElements getVariableSubtypeAccess() {
+		return pVariableSubtype;
+	}
+	
+	public ParserRule getVariableSubtypeRule() {
+		return getVariableSubtypeAccess().getRule();
 	}
 	
 	//TypeProperty:

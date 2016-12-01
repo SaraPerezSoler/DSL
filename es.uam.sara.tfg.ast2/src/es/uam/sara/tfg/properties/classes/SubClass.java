@@ -6,7 +6,7 @@ package es.uam.sara.tfg.properties.classes;
 
 import org.eclipse.jdt.core.dom.Type;
 import es.uam.sara.tfg.elements.type.Class;
-import es.uam.sara.tfg.properties.TypeProperty;
+import es.uam.sara.tfg.properties.type.TypeProperty;
 
 
 

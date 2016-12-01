@@ -229,6 +229,15 @@ public interface JavaRuleFactory extends EFactory {
 	StringVariable createStringVariable();
 
 	/**
+	 * Returns a new object of class '<em>Variable Subtype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Subtype</em>'.
+	 * @generated
+	 */
+	VariableSubtype createVariableSubtype();
+
+	/**
 	 * Returns a new object of class '<em>String Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

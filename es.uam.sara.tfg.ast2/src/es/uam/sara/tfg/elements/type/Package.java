@@ -89,4 +89,9 @@ public class Package implements Container, ICanEmpty {
 		return null;
 	}
 
+	@Override
+	public String getStringType() {
+		return "";
+	}
+
 }

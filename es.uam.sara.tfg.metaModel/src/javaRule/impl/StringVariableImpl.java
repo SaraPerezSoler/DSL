@@ -2,13 +2,13 @@
  */
 package javaRule.impl;
 
-import javaRule.Element;
 import javaRule.ElementString;
 import javaRule.JavaRulePackage;
 import javaRule.StringVariable;
-import javaRule.Variable;
+import javaRule.VariableSubtype;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link javaRule.impl.StringVariableImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link javaRule.impl.StringVariableImpl#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link javaRule.impl.StringVariableImpl#getStrings <em>Strings</em>}</li>
  * </ul>
  *
@@ -32,34 +31,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class StringVariableImpl extends StringPropertyImpl implements StringVariable {
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariable()
 	 * @generated
 	 * @ordered
 	 */
-	protected Variable variable;
-
-	/**
-	 * The default value of the '{@link #getSubtype() <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubtype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Element SUBTYPE_EDEFAULT = Element.PACKAGE;
-
-	/**
-	 * The cached value of the '{@link #getSubtype() <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubtype()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element subtype = SUBTYPE_EDEFAULT;
+	protected VariableSubtype variable;
 
 	/**
 	 * The default value of the '{@link #getStrings() <em>Strings</em>}' attribute.
@@ -105,15 +84,7 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable getVariable() {
-		if (variable != null && variable.eIsProxy()) {
-			InternalEObject oldVariable = (InternalEObject)variable;
-			variable = (Variable)eResolveProxy(oldVariable);
-			if (variable != oldVariable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JavaRulePackage.STRING_VARIABLE__VARIABLE, oldVariable, variable));
-			}
-		}
+	public VariableSubtype getVariable() {
 		return variable;
 	}
 
@@ -122,20 +93,14 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Variable basicGetVariable() {
-		return variable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVariable(Variable newVariable) {
-		Variable oldVariable = variable;
+	public NotificationChain basicSetVariable(VariableSubtype newVariable, NotificationChain msgs) {
+		VariableSubtype oldVariable = variable;
 		variable = newVariable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.STRING_VARIABLE__VARIABLE, oldVariable, variable));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaRulePackage.STRING_VARIABLE__VARIABLE, oldVariable, newVariable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -143,20 +108,18 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getSubtype() {
-		return subtype;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubtype(Element newSubtype) {
-		Element oldSubtype = subtype;
-		subtype = newSubtype == null ? SUBTYPE_EDEFAULT : newSubtype;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.STRING_VARIABLE__SUBTYPE, oldSubtype, subtype));
+	public void setVariable(VariableSubtype newVariable) {
+		if (newVariable != variable) {
+			NotificationChain msgs = null;
+			if (variable != null)
+				msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.STRING_VARIABLE__VARIABLE, null, msgs);
+			if (newVariable != null)
+				msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JavaRulePackage.STRING_VARIABLE__VARIABLE, null, msgs);
+			msgs = basicSetVariable(newVariable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.STRING_VARIABLE__VARIABLE, newVariable, newVariable));
 	}
 
 	/**
@@ -186,13 +149,24 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JavaRulePackage.STRING_VARIABLE__VARIABLE:
+				return basicSetVariable(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JavaRulePackage.STRING_VARIABLE__VARIABLE:
-				if (resolve) return getVariable();
-				return basicGetVariable();
-			case JavaRulePackage.STRING_VARIABLE__SUBTYPE:
-				return getSubtype();
+				return getVariable();
 			case JavaRulePackage.STRING_VARIABLE__STRINGS:
 				return getStrings();
 		}
@@ -208,10 +182,7 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaRulePackage.STRING_VARIABLE__VARIABLE:
-				setVariable((Variable)newValue);
-				return;
-			case JavaRulePackage.STRING_VARIABLE__SUBTYPE:
-				setSubtype((Element)newValue);
+				setVariable((VariableSubtype)newValue);
 				return;
 			case JavaRulePackage.STRING_VARIABLE__STRINGS:
 				setStrings((ElementString)newValue);
@@ -229,10 +200,7 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JavaRulePackage.STRING_VARIABLE__VARIABLE:
-				setVariable((Variable)null);
-				return;
-			case JavaRulePackage.STRING_VARIABLE__SUBTYPE:
-				setSubtype(SUBTYPE_EDEFAULT);
+				setVariable((VariableSubtype)null);
 				return;
 			case JavaRulePackage.STRING_VARIABLE__STRINGS:
 				setStrings(STRINGS_EDEFAULT);
@@ -251,8 +219,6 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 		switch (featureID) {
 			case JavaRulePackage.STRING_VARIABLE__VARIABLE:
 				return variable != null;
-			case JavaRulePackage.STRING_VARIABLE__SUBTYPE:
-				return subtype != SUBTYPE_EDEFAULT;
 			case JavaRulePackage.STRING_VARIABLE__STRINGS:
 				return strings != STRINGS_EDEFAULT;
 		}
@@ -269,9 +235,7 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (subtype: ");
-		result.append(subtype);
-		result.append(", strings: ");
+		result.append(" (strings: ");
 		result.append(strings);
 		result.append(')');
 		return result.toString();

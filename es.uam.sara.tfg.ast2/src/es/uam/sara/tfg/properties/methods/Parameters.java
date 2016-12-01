@@ -8,47 +8,48 @@ import java.util.List;
 import org.eclipse.jdt.core.dom.Type;
 
 import es.uam.sara.tfg.elements.type.Method;
-import es.uam.sara.tfg.properties.TypeProperty;
+import es.uam.sara.tfg.properties.StringProperty;
+import es.uam.sara.tfg.properties.type.TypeString;
 
 /**
  * @author Sara
  *
  */
-public class Parameters extends MethodProperty implements TypeProperty {
+public class Parameters extends StringProperty<Method>{
 
 	private int min;
 	private int max;
-	private List<String> paramList = null;
+	private List<es.uam.sara.tfg.properties.type.Type> paramList = null;
 
 	public Parameters(boolean no,int min) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
-		paramList = new ArrayList<String>();
+		paramList = new ArrayList<es.uam.sara.tfg.properties.type.Type>();
 	}
 
 	public Parameters(boolean no,int min, int max) {
 		super(no);
 		this.min = min;
 		this.max = max;
-		paramList = new ArrayList<String>();
+		paramList = new ArrayList<es.uam.sara.tfg.properties.type.Type>();
 	}
 
-	public Parameters(boolean no,List<String> paramList) {
+	public Parameters(boolean no,List<es.uam.sara.tfg.properties.type.Type> paramList) {
 		super(no);
 		this.min = paramList.size();
 		this.max = Integer.MAX_VALUE;
 		this.paramList = paramList;
 	}
 
-	public Parameters(boolean no,int min, List<String> paramList) {
+	public Parameters(boolean no,int min, List<es.uam.sara.tfg.properties.type.Type> paramList) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
 		this.paramList = paramList;
 	}
 
-	public Parameters(boolean no,int min, int max, List<String> paramList) {
+	public Parameters(boolean no,int min, int max, List<es.uam.sara.tfg.properties.type.Type> paramList) {
 		super(no);
 		this.min = min;
 		this.max = max;
@@ -77,11 +78,11 @@ public class Parameters extends MethodProperty implements TypeProperty {
 	@Override
 	public boolean checkElement(Method analyze) {
 		List<Type> params = analyze.getParametersType();
-		List<String> ok=new ArrayList<String>();
+		List<es.uam.sara.tfg.properties.type.Type> ok=new ArrayList<es.uam.sara.tfg.properties.type.Type>();
 		if (params.size() >= min && params.size() <= max) {
-			for (String s : paramList) {
+			for (es.uam.sara.tfg.properties.type.Type s : paramList) {
 				for (int i=0; i<params.size(); i++) {
-					if (this.equalType(params.get(i), s)) {
+					if (s.compare(params.get(i))) {
 						params.remove(i);
 						ok.add(s);
 						break;
@@ -93,6 +94,22 @@ public class Parameters extends MethodProperty implements TypeProperty {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void setString(String string) {
+		es.uam.sara.tfg.properties.type.Type nuevo= new TypeString(string);
+		this.paramList.add(nuevo);
+	}
+
+	@Override
+	public void deleteString(String string) {
+		es.uam.sara.tfg.properties.type.Type nuevo= new TypeString(string);
+		for (es.uam.sara.tfg.properties.type.Type t: this.paramList){
+			if (nuevo.equals(t)){
+				this.paramList.remove(t);
+			}
+		}
 	}
 
 }

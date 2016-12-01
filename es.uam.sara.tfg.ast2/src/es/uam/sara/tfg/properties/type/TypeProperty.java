@@ -1,4 +1,4 @@
-package es.uam.sara.tfg.properties;
+package es.uam.sara.tfg.properties.type;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.ArrayType;
 import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.Type;
 
-public interface TypeProperty extends StringProperty {
+public class TypeProperty{
 
 	public enum Primitive {
 		BYTE, SHORT, INT, LONG, FLOAT, DOUBLE, BOOLEAN, CHAR, STRING

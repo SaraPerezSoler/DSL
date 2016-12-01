@@ -88,6 +88,8 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariableAccess().getGroup_4(), "rule__Variable__Group_4__0");
 					put(grammarAccess.getVariableAccess().getGroup_4_2(), "rule__Variable__Group_4_2__0");
 					put(grammarAccess.getVariableAccess().getGroup_5(), "rule__Variable__Group_5__0");
+					put(grammarAccess.getVariableAccess().getGroup_5_2(), "rule__Variable__Group_5_2__0");
+					put(grammarAccess.getVariableAccess().getGroup_6(), "rule__Variable__Group_6__0");
 					put(grammarAccess.getRuleAccess().getGroup(), "rule__Rule__Group__0");
 					put(grammarAccess.getRuleAccess().getGroup_3(), "rule__Rule__Group_3__0");
 					put(grammarAccess.getRuleAccess().getGroup_4(), "rule__Rule__Group_4__0");
@@ -142,7 +144,8 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRangoNamesAccess().getGroup_2(), "rule__RangoNames__Group_2__0");
 					put(grammarAccess.getRangoNamesAccess().getGroup_2_3(), "rule__RangoNames__Group_2_3__0");
 					put(grammarAccess.getStringVariableAccess().getGroup(), "rule__StringVariable__Group__0");
-					put(grammarAccess.getStringVariableAccess().getGroup_1(), "rule__StringVariable__Group_1__0");
+					put(grammarAccess.getVariableSubtypeAccess().getGroup(), "rule__VariableSubtype__Group__0");
+					put(grammarAccess.getVariableSubtypeAccess().getGroup_1(), "rule__VariableSubtype__Group_1__0");
 					put(grammarAccess.getTypeStringAccess().getGroup_0(), "rule__TypeString__Group_0__0");
 					put(grammarAccess.getIsPrimitiveFunctionAccess().getGroup(), "rule__IsPrimitiveFunction__Group__0");
 					put(grammarAccess.getIsCollectionTypeAccess().getGroup(), "rule__IsCollectionType__Group__0");
@@ -177,7 +180,9 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariableAccess().getFromAssignment_3_1(), "rule__Variable__FromAssignment_3_1");
 					put(grammarAccess.getVariableAccess().getInAssignment_4_1(), "rule__Variable__InAssignment_4_1");
 					put(grammarAccess.getVariableAccess().getInAssignment_4_2_1(), "rule__Variable__InAssignment_4_2_1");
-					put(grammarAccess.getVariableAccess().getSatisfyAssignment_5_1(), "rule__Variable__SatisfyAssignment_5_1");
+					put(grammarAccess.getVariableAccess().getUsingAssignment_5_1(), "rule__Variable__UsingAssignment_5_1");
+					put(grammarAccess.getVariableAccess().getUsingAssignment_5_2_1(), "rule__Variable__UsingAssignment_5_2_1");
+					put(grammarAccess.getVariableAccess().getSatisfyAssignment_6_1(), "rule__Variable__SatisfyAssignment_6_1");
 					put(grammarAccess.getRuleAccess().getNoAssignment_0(), "rule__Rule__NoAssignment_0");
 					put(grammarAccess.getRuleAccess().getQuantifierAssignment_1(), "rule__Rule__QuantifierAssignment_1");
 					put(grammarAccess.getRuleAccess().getElementAssignment_2(), "rule__Rule__ElementAssignment_2");
@@ -256,8 +261,9 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRangoNamesAccess().getTypesAssignment_2_3_1(), "rule__RangoNames__TypesAssignment_2_3_1");
 					put(grammarAccess.getStringValueAccess().getValueAssignment(), "rule__StringValue__ValueAssignment");
 					put(grammarAccess.getStringVariableAccess().getVariableAssignment_0(), "rule__StringVariable__VariableAssignment_0");
-					put(grammarAccess.getStringVariableAccess().getSubtypeAssignment_1_1(), "rule__StringVariable__SubtypeAssignment_1_1");
-					put(grammarAccess.getStringVariableAccess().getStringsAssignment_3(), "rule__StringVariable__StringsAssignment_3");
+					put(grammarAccess.getStringVariableAccess().getStringsAssignment_2(), "rule__StringVariable__StringsAssignment_2");
+					put(grammarAccess.getVariableSubtypeAccess().getVariableAssignment_0(), "rule__VariableSubtype__VariableAssignment_0");
+					put(grammarAccess.getVariableSubtypeAccess().getSubtypeAssignment_1_1(), "rule__VariableSubtype__SubtypeAssignment_1_1");
 					put(grammarAccess.getTypeStringAccess().getTypePrimitiveAssignment_0_1(), "rule__TypeString__TypePrimitiveAssignment_0_1");
 					put(grammarAccess.getTypeStringAccess().getTypeStrngAssignment_1(), "rule__TypeString__TypeStrngAssignment_1");
 					put(grammarAccess.getIsCollectionTypeAccess().getOfAssignment_2_1_1(), "rule__IsCollectionType__OfAssignment_2_1_1");

@@ -37,6 +37,7 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypeString;
 import javaRule.Variable;
+import javaRule.VariableSubtype;
 import javaRule.isImplemented;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -154,6 +155,9 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case JavaRulePackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
+				return; 
+			case JavaRulePackage.VARIABLE_SUBTYPE:
+				sequence_VariableSubtype(context, (VariableSubtype) semanticObject); 
 				return; 
 			case JavaRulePackage.IS_IMPLEMENTED:
 				sequence_isImplemented(context, (isImplemented) semanticObject); 
@@ -545,10 +549,19 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     StringVariable returns StringVariable
 	 *
 	 * Constraint:
-	 *     (variable=[Variable|EString] subtype=Element? strings=ElementString)
+	 *     (variable=VariableSubtype strings=ElementString)
 	 */
 	protected void sequence_StringVariable(ISerializationContext context, StringVariable semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.STRING_VARIABLE__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.STRING_VARIABLE__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.STRING_VARIABLE__STRINGS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.STRING_VARIABLE__STRINGS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStringVariableAccess().getVariableVariableSubtypeParserRuleCall_0_0(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getStringVariableAccess().getStringsElementStringEnumRuleCall_2_0(), semanticObject.getStrings());
+		feeder.finish();
 	}
 	
 	
@@ -580,11 +593,30 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     VariableSubtype returns VariableSubtype
+	 *
+	 * Constraint:
+	 *     (variable=[Variable|EString] subtype=Element?)
+	 */
+	protected void sequence_VariableSubtype(ISerializationContext context, VariableSubtype semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Sentence returns Variable
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=EString element=Element from=[Variable|EString]? (in+=[Variable|EString] in+=[Variable|EString]*)? satisfy=Or?)
+	 *     (
+	 *         name=EString 
+	 *         element=Element 
+	 *         from=[Variable|EString]? 
+	 *         (in+=[Variable|EString] in+=[Variable|EString]*)? 
+	 *         (using+=VariableSubtype using+=VariableSubtype*)? 
+	 *         satisfy=Or?
+	 *     )
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

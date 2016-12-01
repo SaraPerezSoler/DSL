@@ -123,13 +123,13 @@ public interface JavaRulePackage extends EPackage {
 	int SENTENCE__ELEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE__SATISFY = 1;
+	int SENTENCE__FROM = 1;
 
 	/**
 	 * The feature id for the '<em><b>In</b></em>' reference list.
@@ -141,13 +141,22 @@ public interface JavaRulePackage extends EPackage {
 	int SENTENCE__IN = 2;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE__FROM = 3;
+	int SENTENCE__SATISFY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Using</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__USING = 4;
 
 	/**
 	 * The number of structural features of the '<em>Sentence</em>' class.
@@ -156,7 +165,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE_FEATURE_COUNT = 4;
+	int SENTENCE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Sentence</em>' class.
@@ -187,13 +196,13 @@ public interface JavaRulePackage extends EPackage {
 	int VARIABLE__ELEMENT = SENTENCE__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__SATISFY = SENTENCE__SATISFY;
+	int VARIABLE__FROM = SENTENCE__FROM;
 
 	/**
 	 * The feature id for the '<em><b>In</b></em>' reference list.
@@ -205,13 +214,22 @@ public interface JavaRulePackage extends EPackage {
 	int VARIABLE__IN = SENTENCE__IN;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__FROM = SENTENCE__FROM;
+	int VARIABLE__SATISFY = SENTENCE__SATISFY;
+
+	/**
+	 * The feature id for the '<em><b>Using</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__USING = SENTENCE__USING;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -260,13 +278,13 @@ public interface JavaRulePackage extends EPackage {
 	int RULE__ELEMENT = SENTENCE__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
+	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__SATISFY = SENTENCE__SATISFY;
+	int RULE__FROM = SENTENCE__FROM;
 
 	/**
 	 * The feature id for the '<em><b>In</b></em>' reference list.
@@ -278,13 +296,22 @@ public interface JavaRulePackage extends EPackage {
 	int RULE__IN = SENTENCE__IN;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Satisfy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__FROM = SENTENCE__FROM;
+	int RULE__SATISFY = SENTENCE__SATISFY;
+
+	/**
+	 * The feature id for the '<em><b>Using</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__USING = SENTENCE__USING;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1577,7 +1604,7 @@ public interface JavaRulePackage extends EPackage {
 	int STRING_VARIABLE = 33;
 
 	/**
-	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1586,22 +1613,13 @@ public interface JavaRulePackage extends EPackage {
 	int STRING_VARIABLE__VARIABLE = STRING_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Subtype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_VARIABLE__SUBTYPE = STRING_PROPERTY_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Strings</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VARIABLE__STRINGS = STRING_PROPERTY_FEATURE_COUNT + 2;
+	int STRING_VARIABLE__STRINGS = STRING_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>String Variable</em>' class.
@@ -1610,7 +1628,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VARIABLE_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 3;
+	int STRING_VARIABLE_FEATURE_COUNT = STRING_PROPERTY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>String Variable</em>' class.
@@ -1622,6 +1640,52 @@ public interface JavaRulePackage extends EPackage {
 	int STRING_VARIABLE_OPERATION_COUNT = STRING_PROPERTY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.VariableSubtypeImpl <em>Variable Subtype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.VariableSubtypeImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getVariableSubtype()
+	 * @generated
+	 */
+	int VARIABLE_SUBTYPE = 34;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_SUBTYPE__VARIABLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Subtype</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_SUBTYPE__SUBTYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable Subtype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_SUBTYPE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Variable Subtype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_SUBTYPE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.impl.StringValueImpl <em>String Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1629,7 +1693,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getStringValue()
 	 * @generated
 	 */
-	int STRING_VALUE = 34;
+	int STRING_VALUE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1666,7 +1730,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameType()
 	 * @generated
 	 */
-	int NAME_TYPE = 35;
+	int NAME_TYPE = 36;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1712,7 +1776,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getContains()
 	 * @generated
 	 */
-	int CONTAINS = 36;
+	int CONTAINS = 37;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1758,7 +1822,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getJavaDoc()
 	 * @generated
 	 */
-	int JAVA_DOC = 37;
+	int JAVA_DOC = 38;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1849,7 +1913,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getModifiers()
 	 * @generated
 	 */
-	int MODIFIERS = 38;
+	int MODIFIERS = 39;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -1895,7 +1959,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getBlendModifiers()
 	 * @generated
 	 */
-	int BLEND_MODIFIERS = 39;
+	int BLEND_MODIFIERS = 40;
 
 	/**
 	 * The feature id for the '<em><b>Access</b></em>' attribute.
@@ -1977,7 +2041,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getTypeProperty()
 	 * @generated
 	 */
-	int TYPE_PROPERTY = 40;
+	int TYPE_PROPERTY = 41;
 
 	/**
 	 * The number of structural features of the '<em>Type Property</em>' class.
@@ -2005,7 +2069,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getTypeString()
 	 * @generated
 	 */
-	int TYPE_STRING = 41;
+	int TYPE_STRING = 42;
 
 	/**
 	 * The feature id for the '<em><b>Type Strng</b></em>' containment reference.
@@ -2051,7 +2115,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsPrimitiveFuntion()
 	 * @generated
 	 */
-	int IS_PRIMITIVE_FUNTION = 42;
+	int IS_PRIMITIVE_FUNTION = 43;
 
 	/**
 	 * The number of structural features of the '<em>Is Primitive Funtion</em>' class.
@@ -2079,7 +2143,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsCollectionType()
 	 * @generated
 	 */
-	int IS_COLLECTION_TYPE = 43;
+	int IS_COLLECTION_TYPE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Of</b></em>' containment reference.
@@ -2116,7 +2180,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 44;
+	int QUANTIFIER = 45;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Element <em>Element</em>}' enum.
@@ -2126,7 +2190,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 45;
+	int ELEMENT = 46;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementString <em>Element String</em>}' enum.
@@ -2136,7 +2200,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementString()
 	 * @generated
 	 */
-	int ELEMENT_STRING = 46;
+	int ELEMENT_STRING = 47;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -2146,7 +2210,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 47;
+	int LANGUAGE = 48;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
@@ -2156,7 +2220,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_CHECK = 48;
+	int NAME_CHECK = 49;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -2166,7 +2230,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 49;
+	int NAME_OPERATOR = 50;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -2176,7 +2240,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 50;
+	int ACCESS_MODIFIER = 51;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Primitive <em>Primitive</em>}' enum.
@@ -2186,7 +2250,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 51;
+	int PRIMITIVE = 52;
 
 
 	/**
@@ -2243,15 +2307,15 @@ public interface JavaRulePackage extends EPackage {
 	EAttribute getSentence_Element();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link javaRule.Sentence#getSatisfy <em>Satisfy</em>}'.
+	 * Returns the meta object for the reference '{@link javaRule.Sentence#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Satisfy</em>'.
-	 * @see javaRule.Sentence#getSatisfy()
+	 * @return the meta object for the reference '<em>From</em>'.
+	 * @see javaRule.Sentence#getFrom()
 	 * @see #getSentence()
 	 * @generated
 	 */
-	EReference getSentence_Satisfy();
+	EReference getSentence_From();
 
 	/**
 	 * Returns the meta object for the reference list '{@link javaRule.Sentence#getIn <em>In</em>}'.
@@ -2265,15 +2329,26 @@ public interface JavaRulePackage extends EPackage {
 	EReference getSentence_In();
 
 	/**
-	 * Returns the meta object for the reference '{@link javaRule.Sentence#getFrom <em>From</em>}'.
+	 * Returns the meta object for the containment reference '{@link javaRule.Sentence#getSatisfy <em>Satisfy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
-	 * @see javaRule.Sentence#getFrom()
+	 * @return the meta object for the containment reference '<em>Satisfy</em>'.
+	 * @see javaRule.Sentence#getSatisfy()
 	 * @see #getSentence()
 	 * @generated
 	 */
-	EReference getSentence_From();
+	EReference getSentence_Satisfy();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link javaRule.Sentence#getUsing <em>Using</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Using</em>'.
+	 * @see javaRule.Sentence#getUsing()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EReference getSentence_Using();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Variable <em>Variable</em>}'.
@@ -2915,26 +2990,15 @@ public interface JavaRulePackage extends EPackage {
 	EClass getStringVariable();
 
 	/**
-	 * Returns the meta object for the reference '{@link javaRule.StringVariable#getVariable <em>Variable</em>}'.
+	 * Returns the meta object for the containment reference '{@link javaRule.StringVariable#getVariable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @return the meta object for the containment reference '<em>Variable</em>'.
 	 * @see javaRule.StringVariable#getVariable()
 	 * @see #getStringVariable()
 	 * @generated
 	 */
 	EReference getStringVariable_Variable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link javaRule.StringVariable#getSubtype <em>Subtype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Subtype</em>'.
-	 * @see javaRule.StringVariable#getSubtype()
-	 * @see #getStringVariable()
-	 * @generated
-	 */
-	EAttribute getStringVariable_Subtype();
 
 	/**
 	 * Returns the meta object for the attribute '{@link javaRule.StringVariable#getStrings <em>Strings</em>}'.
@@ -2946,6 +3010,38 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringVariable_Strings();
+
+	/**
+	 * Returns the meta object for class '{@link javaRule.VariableSubtype <em>Variable Subtype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Subtype</em>'.
+	 * @see javaRule.VariableSubtype
+	 * @generated
+	 */
+	EClass getVariableSubtype();
+
+	/**
+	 * Returns the meta object for the reference '{@link javaRule.VariableSubtype#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Variable</em>'.
+	 * @see javaRule.VariableSubtype#getVariable()
+	 * @see #getVariableSubtype()
+	 * @generated
+	 */
+	EReference getVariableSubtype_Variable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.VariableSubtype#getSubtype <em>Subtype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subtype</em>'.
+	 * @see javaRule.VariableSubtype#getSubtype()
+	 * @see #getVariableSubtype()
+	 * @generated
+	 */
+	EAttribute getVariableSubtype_Subtype();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.StringValue <em>String Value</em>}'.
@@ -3404,12 +3500,12 @@ public interface JavaRulePackage extends EPackage {
 		EAttribute SENTENCE__ELEMENT = eINSTANCE.getSentence_Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Satisfy</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SENTENCE__SATISFY = eINSTANCE.getSentence_Satisfy();
+		EReference SENTENCE__FROM = eINSTANCE.getSentence_From();
 
 		/**
 		 * The meta object literal for the '<em><b>In</b></em>' reference list feature.
@@ -3420,12 +3516,20 @@ public interface JavaRulePackage extends EPackage {
 		EReference SENTENCE__IN = eINSTANCE.getSentence_In();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Satisfy</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SENTENCE__FROM = eINSTANCE.getSentence_From();
+		EReference SENTENCE__SATISFY = eINSTANCE.getSentence_Satisfy();
+
+		/**
+		 * The meta object literal for the '<em><b>Using</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENTENCE__USING = eINSTANCE.getSentence_Using();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.VariableImpl <em>Variable</em>}' class.
@@ -3980,20 +4084,12 @@ public interface JavaRulePackage extends EPackage {
 		EClass STRING_VARIABLE = eINSTANCE.getStringVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference STRING_VARIABLE__VARIABLE = eINSTANCE.getStringVariable_Variable();
-
-		/**
-		 * The meta object literal for the '<em><b>Subtype</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STRING_VARIABLE__SUBTYPE = eINSTANCE.getStringVariable_Subtype();
 
 		/**
 		 * The meta object literal for the '<em><b>Strings</b></em>' attribute feature.
@@ -4002,6 +4098,32 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_VARIABLE__STRINGS = eINSTANCE.getStringVariable_Strings();
+
+		/**
+		 * The meta object literal for the '{@link javaRule.impl.VariableSubtypeImpl <em>Variable Subtype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.VariableSubtypeImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getVariableSubtype()
+		 * @generated
+		 */
+		EClass VARIABLE_SUBTYPE = eINSTANCE.getVariableSubtype();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_SUBTYPE__VARIABLE = eINSTANCE.getVariableSubtype_Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Subtype</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_SUBTYPE__SUBTYPE = eINSTANCE.getVariableSubtype_Subtype();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.StringValueImpl <em>String Value</em>}' class.

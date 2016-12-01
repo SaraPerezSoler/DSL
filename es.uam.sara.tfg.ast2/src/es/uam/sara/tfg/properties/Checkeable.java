@@ -4,13 +4,17 @@ package es.uam.sara.tfg.properties;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+
+import es.uam.sara.tfg.elements.IElements;
 
 public abstract class Checkeable<T>{
 
 	private ArrayList<T> right;
 	private List<T> wrong;
 	protected boolean no;
-
+	protected Map<String, IElements> using;
+	
 	public Checkeable(boolean no) {
 		this.no = no;
 		this.right = new ArrayList<T>();
@@ -98,6 +102,13 @@ public abstract class Checkeable<T>{
 	public String print(T t) {
 		return t.toString();
 	}
-
+	
+	public boolean needVariables() {
+		return false;
+	}
+	
+	public void setUsing(Map<String, IElements> using) {
+		this.using = using;
+	}
 	public abstract String toString();
 }

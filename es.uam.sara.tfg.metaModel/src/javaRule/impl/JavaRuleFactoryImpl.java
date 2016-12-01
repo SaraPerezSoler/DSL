@@ -43,6 +43,7 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypeString;
 import javaRule.Variable;
+import javaRule.VariableSubtype;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EClass;
@@ -121,6 +122,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.IS_GENERIC: return createIsGeneric();
 			case JavaRulePackage.NAME_OPERATION: return createNameOperation();
 			case JavaRulePackage.STRING_VARIABLE: return createStringVariable();
+			case JavaRulePackage.VARIABLE_SUBTYPE: return createVariableSubtype();
 			case JavaRulePackage.STRING_VALUE: return createStringValue();
 			case JavaRulePackage.NAME_TYPE: return createNameType();
 			case JavaRulePackage.CONTAINS: return createContains();
@@ -421,6 +423,16 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public StringVariable createStringVariable() {
 		StringVariableImpl stringVariable = new StringVariableImpl();
 		return stringVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableSubtype createVariableSubtype() {
+		VariableSubtypeImpl variableSubtype = new VariableSubtypeImpl();
+		return variableSubtype;
 	}
 
 	/**

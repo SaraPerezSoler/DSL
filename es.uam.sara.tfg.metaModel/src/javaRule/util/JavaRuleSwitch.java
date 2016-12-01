@@ -44,6 +44,7 @@ import javaRule.Tamanio;
 import javaRule.TypeProperty;
 import javaRule.TypeString;
 import javaRule.Variable;
+import javaRule.VariableSubtype;
 import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EObject;
@@ -366,6 +367,12 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				StringVariable stringVariable = (StringVariable)theEObject;
 				T result = caseStringVariable(stringVariable);
 				if (result == null) result = caseStringProperty(stringVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.VARIABLE_SUBTYPE: {
+				VariableSubtype variableSubtype = (VariableSubtype)theEObject;
+				T result = caseVariableSubtype(variableSubtype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -970,6 +977,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringVariable(StringVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Subtype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Subtype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableSubtype(VariableSubtype object) {
 		return null;
 	}
 

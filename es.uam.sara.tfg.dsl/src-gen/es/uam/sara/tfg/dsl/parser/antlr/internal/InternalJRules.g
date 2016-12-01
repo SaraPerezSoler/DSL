@@ -346,16 +346,66 @@ ruleVariable returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_9='satisfy'
+			otherlv_9='using'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getVariableAccess().getSatisfyKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getVariableAccess().getUsingKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getVariableAccess().getSatisfyOrParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getVariableAccess().getUsingVariableSubtypeParserRuleCall_5_1_0());
 					}
-					lv_satisfy_10_0=ruleOr
+					lv_using_10_0=ruleVariableSubtype
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVariableRule());
+						}
+						add(
+							$current,
+							"using",
+							lv_using_10_0,
+							"es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_11=','
+				{
+					newLeafNode(otherlv_11, grammarAccess.getVariableAccess().getCommaKeyword_5_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getVariableAccess().getUsingVariableSubtypeParserRuleCall_5_2_1_0());
+						}
+						lv_using_12_0=ruleVariableSubtype
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getVariableRule());
+							}
+							add(
+								$current,
+								"using",
+								lv_using_12_0,
+								"es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_13='satisfy'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getVariableAccess().getSatisfyKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVariableAccess().getSatisfyOrParserRuleCall_6_1_0());
+					}
+					lv_satisfy_14_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getVariableRule());
@@ -363,7 +413,7 @@ ruleVariable returns [EObject current=null]
 						set(
 							$current,
 							"satisfy",
-							lv_satisfy_10_0,
+							lv_satisfy_14_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}
@@ -2961,12 +3011,73 @@ ruleStringVariable returns [EObject current=null]
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getStringVariableAccess().getVariableVariableSubtypeParserRuleCall_0_0());
+				}
+				lv_variable_0_0=ruleVariableSubtype
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getStringVariableRule());
+						$current = createModelElementForParent(grammarAccess.getStringVariableRule());
+					}
+					set(
+						$current,
+						"variable",
+						lv_variable_0_0,
+						"es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='.'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getStringVariableAccess().getFullStopKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStringVariableAccess().getStringsElementStringEnumRuleCall_2_0());
+				}
+				lv_strings_2_0=ruleElementString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStringVariableRule());
+					}
+					set(
+						$current,
+						"strings",
+						lv_strings_2_0,
+						"es.uam.sara.tfg.dsl.JRules.ElementString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleVariableSubtype
+entryRuleVariableSubtype returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVariableSubtypeRule()); }
+	iv_ruleVariableSubtype=ruleVariableSubtype
+	{ $current=$iv_ruleVariableSubtype.current; }
+	EOF;
+
+// Rule VariableSubtype
+ruleVariableSubtype returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVariableSubtypeRule());
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getStringVariableAccess().getVariableVariableCrossReference_0_0());
+					newCompositeNode(grammarAccess.getVariableSubtypeAccess().getVariableVariableCrossReference_0_0());
 				}
 				ruleEString
 				{
@@ -2977,17 +3088,17 @@ ruleStringVariable returns [EObject current=null]
 		(
 			otherlv_1='.'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getStringVariableAccess().getFullStopKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getVariableSubtypeAccess().getFullStopKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStringVariableAccess().getSubtypeElementEnumRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getVariableSubtypeAccess().getSubtypeElementEnumRuleCall_1_1_0());
 					}
 					lv_subtype_2_0=ruleElement
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStringVariableRule());
+							$current = createModelElementForParent(grammarAccess.getVariableSubtypeRule());
 						}
 						set(
 							$current,
@@ -2999,29 +3110,6 @@ ruleStringVariable returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_3='.'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getStringVariableAccess().getFullStopKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getStringVariableAccess().getStringsElementStringEnumRuleCall_3_0());
-				}
-				lv_strings_4_0=ruleElementString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStringVariableRule());
-					}
-					set(
-						$current,
-						"strings",
-						lv_strings_4_0,
-						"es.uam.sara.tfg.dsl.JRules.ElementString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 

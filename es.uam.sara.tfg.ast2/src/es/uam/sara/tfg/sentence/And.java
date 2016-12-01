@@ -2,7 +2,6 @@ package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.properties.Checkeable;
 import es.uam.sara.tfg.properties.classes.ClassProperty;
@@ -12,6 +11,7 @@ public class And<T extends IElements> extends Checkeable<T>{
 
 
 	private List<PrimaryOp<T>>properties;
+	
 	
 	public And() {
 		super(false);
@@ -80,6 +80,16 @@ public class And<T extends IElements> extends Checkeable<T>{
 
 	@Override
 	public boolean checkElement(T analyze) {
+		return false;
+	}
+	
+	
+	public boolean needVariables() {
+		for (PrimaryOp<T> a: this.properties){
+			if (a.needVariables()){
+				return true;
+			}
+		}
 		return false;
 	}
 

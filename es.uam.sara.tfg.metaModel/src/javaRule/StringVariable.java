@@ -13,7 +13,6 @@ package javaRule;
  * </p>
  * <ul>
  *   <li>{@link javaRule.StringVariable#getVariable <em>Variable</em>}</li>
- *   <li>{@link javaRule.StringVariable#getSubtype <em>Subtype</em>}</li>
  *   <li>{@link javaRule.StringVariable#getStrings <em>Strings</em>}</li>
  * </ul>
  *
@@ -23,59 +22,30 @@ package javaRule;
  */
 public interface StringVariable extends StringProperty {
 	/**
-	 * Returns the value of the '<em><b>Variable</b></em>' reference.
+	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variable</em>' reference isn't clear,
+	 * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable</em>' reference.
-	 * @see #setVariable(Variable)
+	 * @return the value of the '<em>Variable</em>' containment reference.
+	 * @see #setVariable(VariableSubtype)
 	 * @see javaRule.JavaRulePackage#getStringVariable_Variable()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Variable getVariable();
+	VariableSubtype getVariable();
 
 	/**
-	 * Sets the value of the '{@link javaRule.StringVariable#getVariable <em>Variable</em>}' reference.
+	 * Sets the value of the '{@link javaRule.StringVariable#getVariable <em>Variable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable</em>' reference.
+	 * @param value the new value of the '<em>Variable</em>' containment reference.
 	 * @see #getVariable()
 	 * @generated
 	 */
-	void setVariable(Variable value);
-
-	/**
-	 * Returns the value of the '<em><b>Subtype</b></em>' attribute.
-	 * The literals are from the enumeration {@link javaRule.Element}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Subtype</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subtype</em>' attribute.
-	 * @see javaRule.Element
-	 * @see #setSubtype(Element)
-	 * @see javaRule.JavaRulePackage#getStringVariable_Subtype()
-	 * @model
-	 * @generated
-	 */
-	Element getSubtype();
-
-	/**
-	 * Sets the value of the '{@link javaRule.StringVariable#getSubtype <em>Subtype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subtype</em>' attribute.
-	 * @see javaRule.Element
-	 * @see #getSubtype()
-	 * @generated
-	 */
-	void setSubtype(Element value);
+	void setVariable(VariableSubtype value);
 
 	/**
 	 * Returns the value of the '<em><b>Strings</b></em>' attribute.

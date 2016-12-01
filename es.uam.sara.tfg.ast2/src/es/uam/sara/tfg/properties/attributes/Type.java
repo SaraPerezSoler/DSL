@@ -1,7 +1,7 @@
 package es.uam.sara.tfg.properties.attributes;
 
 import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.properties.TypeProperty;
+import es.uam.sara.tfg.properties.type.TypeProperty;
 
 
 public class Type extends AttributeProperty implements TypeProperty{

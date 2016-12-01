@@ -8,12 +8,10 @@ import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.properties.StringProperty;
 
-public class NameOperation<T extends IElements> extends Property<T> implements StringProperty {
+public class NameOperation<T extends IElements> extends StringProperty<T> {
 
 	public enum Operation {
 		EQUAL, LIKE, START, END, CONTAIN, UNDEFINE
@@ -33,7 +31,11 @@ public class NameOperation<T extends IElements> extends Property<T> implements S
 		this.other = cad;
 		this.idioma = idioma;
 	}
-
+	public NameOperation(boolean no, Operation op, int idioma) {
+		super(no);
+		this.op = op;
+		this.idioma = idioma;
+	}
 
 	public boolean checkNameOperation(String name) {
 		switch (op) {
@@ -218,8 +220,19 @@ public class NameOperation<T extends IElements> extends Property<T> implements S
 	}
 
 	@Override
-	public boolean checkElement(IElements analyze) {
+	public boolean checkElement(T analyze) {
 		return checkNameOperation(analyze.getName());
 	}
+	@Override
+	public void setString(String string) {
+		this.other = string;
+		
+	}
+	@Override
+	public void deleteString(String string) {
+		this.other="";
+		
+	}
+
 
 }
