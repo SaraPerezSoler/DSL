@@ -147,4 +147,13 @@ public class OrImpl extends PrimaryOpImpl implements Or {
 		return super.eIsSet(featureID);
 	}
 
+	public String toString(){
+		String cad="";
+		String or="";
+		for (And a: this.op){
+			cad+= or+a;
+			or=" or ";
+		}
+		return cad;
+	}
 } //OrImpl

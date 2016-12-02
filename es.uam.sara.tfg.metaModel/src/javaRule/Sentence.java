@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link javaRule.Sentence#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.Sentence#getSatisfy <em>Satisfy</em>}</li>
  *   <li>{@link javaRule.Sentence#getUsing <em>Using</em>}</li>
+ *   <li>{@link javaRule.Sentence#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see javaRule.JavaRulePackage#getSentence()
@@ -139,5 +140,31 @@ public interface Sentence extends EObject {
 	 * @generated
 	 */
 	EList<VariableSubtype> getUsing();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see javaRule.JavaRulePackage#getSentence_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link javaRule.Sentence#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Sentence

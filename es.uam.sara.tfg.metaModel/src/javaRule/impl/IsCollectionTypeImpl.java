@@ -171,5 +171,12 @@ public class IsCollectionTypeImpl extends TypePropertyImpl implements IsCollecti
 		}
 		return super.eIsSet(featureID);
 	}
+	public String toString() {
+		if (of==null){
+			return "isCollection()";
+		}else{
+			return "isCollection("+of+")";
+		}
+	}
 
 } //IsCollectionTypeImpl

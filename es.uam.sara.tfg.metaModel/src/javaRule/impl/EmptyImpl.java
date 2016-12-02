@@ -34,4 +34,11 @@ public class EmptyImpl extends PackageImpl implements Empty {
 		return JavaRulePackage.Literals.EMPTY;
 	}
 
+	public String toString() {
+		if (no){
+			return "is not empty";
+		}else{
+			return "is empty";
+		}
+	}
 } //EmptyImpl

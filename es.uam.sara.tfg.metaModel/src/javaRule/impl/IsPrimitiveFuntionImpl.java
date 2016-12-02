@@ -33,5 +33,9 @@ public class IsPrimitiveFuntionImpl extends TypePropertyImpl implements IsPrimit
 	protected EClass eStaticClass() {
 		return JavaRulePackage.Literals.IS_PRIMITIVE_FUNTION;
 	}
+	
+	public String toString() {
+		return "isPrimitive()";
+	} 
 
 } //IsPrimitiveFuntionImpl

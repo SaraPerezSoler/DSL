@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import javaRule.And;
 import javaRule.JavaRulePackage;
+import javaRule.Or;
 import javaRule.PrimaryOp;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -147,6 +148,21 @@ public class AndImpl extends MinimalEObjectImpl.Container implements And {
 				return op != null && !op.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	public String toString(){
+		String cad="";
+		String and="";
+		for (PrimaryOp p: op){
+			if (p instanceof Or){
+				cad+=and+"("+p.toString()+")";
+			}else{
+				cad+=and+p.toString();
+			}
+			and=" and ";
+			
+		}
+		return cad;
 	}
 
 } //AndImpl

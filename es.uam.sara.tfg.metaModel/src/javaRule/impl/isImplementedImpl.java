@@ -171,5 +171,13 @@ public class isImplementedImpl extends InterfaceImpl implements isImplemented {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	public String toString() {
+		if (no){
+			return "is not implemented"+valores.toString();
+		}else{
+			return "is implemented"+valores.toString();
+		}
+	}
 
 } //isImplementedImpl

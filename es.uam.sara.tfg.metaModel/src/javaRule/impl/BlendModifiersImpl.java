@@ -405,30 +405,35 @@ public class BlendModifiersImpl extends MinimalEObjectImpl.Container implements 
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (access: ");
-		result.append(access);
-		result.append(", static: ");
-		result.append(static_);
-		result.append(", final: ");
-		result.append(final_);
-		result.append(", abstract: ");
-		result.append(abstract_);
-		result.append(", default: ");
-		result.append(default_);
-		result.append(", synchronized: ");
-		result.append(synchronized_);
-		result.append(')');
-		return result.toString();
+		String and="";
+		String cad="";
+		if(this.getAccess()!=ACCESS_EDEFAULT){
+			cad+=this.getAccess();
+			and=" and ";
+		}
+		if (static_){
+			cad+=and+"static";
+			and=" and ";
+		}
+		if (final_){
+			cad+=and+"final";
+			and=" and ";
+		}
+		if (abstract_){
+			cad+=and+"abstract";
+			and=" and ";
+		}
+		if (default_){
+			cad+=and+"default";
+			and=" and ";
+		}
+		if (synchronized_){
+			cad+=and+"synchronized";
+		}
+		return cad;
 	}
-
 } //BlendModifiersImpl

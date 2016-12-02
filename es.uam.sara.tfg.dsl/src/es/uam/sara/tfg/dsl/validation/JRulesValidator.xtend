@@ -66,6 +66,8 @@ class JRulesValidator extends AbstractJRulesValidator {
 //
 //		}
 //	}
+
+
 //
 //	@Check
 //	def checkSatisfyExists(Rule r) {

@@ -34,6 +34,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
@@ -48,15 +49,16 @@ public class JRulesGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Sentence> _filter = Iterables.<Sentence>filter(_iterable, Sentence.class);
-    CharSequence _RuleFactory = this.RuleFactory(_filter);
+    Iterable<Sentence> sentences = Iterables.<Sentence>filter(_iterable, Sentence.class);
+    List<Sentence> _list = IterableExtensions.<Sentence>toList(sentences);
+    CharSequence _RuleFactory = this.RuleFactory(_list);
     fsa.generateFile("RuleFactory.java", _RuleFactory);
     IWorkspace _workspace = ResourcesPlugin.getWorkspace();
     IWorkspaceRoot workspace = _workspace.getRoot();
     TreeIterator<EObject> _allContents_1 = resource.getAllContents();
     Iterable<EObject> _iterable_1 = IteratorExtensions.<EObject>toIterable(_allContents_1);
-    Iterable<RuleSet> _filter_1 = Iterables.<RuleSet>filter(_iterable_1, RuleSet.class);
-    RuleSet ruleSet = ((RuleSet[])Conversions.unwrapArray(_filter_1, RuleSet.class))[0];
+    Iterable<RuleSet> _filter = Iterables.<RuleSet>filter(_iterable_1, RuleSet.class);
+    RuleSet ruleSet = ((RuleSet[])Conversions.unwrapArray(_filter, RuleSet.class))[0];
     ArrayList<IProject> projects = new ArrayList<IProject>();
     EList<String> _projectName = ruleSet.getProjectName();
     boolean _isEmpty = _projectName.isEmpty();
@@ -72,10 +74,6 @@ public class JRulesGenerator extends AbstractGenerator {
     }
     CharSequence _main = this.main(projects);
     fsa.generateFile("Main.java", _main);
-  }
-  
-  public CharSequence getWorksapce(final RuleSet rs) {
-    return null;
   }
   
   public CharSequence main(final List<IProject> projects) {
@@ -96,6 +94,8 @@ public class JRulesGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import es.uam.sara.tfg.rule.Rule;");
     _builder.newLine();
+    _builder.append("import es.uam.sara.tfg.ast.Visitors;");
+    _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -113,6 +113,10 @@ public class JRulesGenerator extends AbstractGenerator {
     _builder.append("\t \t");
     _builder.append("List<Visitors> projects= new ArrayList<Visitors>();");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("List<File> roots= new ArrayList<File>();");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     {
       for(final IProject p : projects) {
@@ -127,7 +131,7 @@ public class JRulesGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
         _builder.append(" \t\t");
         _builder.append("projects.add(new Visitors(\"");
-        String _name = src.getName();
+        String _name = p.getName();
         _builder.append(_name, " \t\t");
         _builder.append("\"));");
         _builder.newLineIfNotEmpty();
@@ -167,11 +171,15 @@ public class JRulesGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence RuleFactory(final Iterable<Sentence> sentences) {
+  public CharSequence RuleFactory(final List<Sentence> sentences) {
     CharSequence _xblockexpression = null;
     {
       int i = 1;
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.FileWriter;");
+      _builder.newLine();
+      _builder.append("import java.io.PrintWriter;");
+      _builder.newLine();
       _builder.append("import java.util.*;");
       _builder.newLine();
       _builder.append("import es.uam.sara.tfg.rule.*;");
@@ -213,7 +221,7 @@ public class JRulesGenerator extends AbstractGenerator {
       _builder.append("private List <Rule<?>> rules=null;");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("private Visistors visitors;");
+      _builder.append("private Visitors visitors;");
       _builder.newLine();
       _builder.append("\t");
       _builder.newLine();
@@ -259,246 +267,63 @@ public class JRulesGenerator extends AbstractGenerator {
       _builder.append("\t\t\t");
       _builder.append("List<FieldDeclaration> attributes=visitors.getAttributes();");
       _builder.newLine();
-      _builder.append("\t\t");
-      Iterable<Variable> variables = Iterables.<Variable>filter(sentences, Variable.class);
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t\t");
-      final Iterable<Variable> _converted_variables = (Iterable<Variable>)variables;
-      Variable[] variables2 = ((Variable[])Conversions.unwrapArray(_converted_variables, Variable.class)).clone();
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t\t");
-      Iterable<Rule> rules = Iterables.<Rule>filter(sentences, Rule.class);
-      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t\t");
+      _builder.newLine();
       _builder.append("\t\t");
       _builder.append("//Crear");
       _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("//");
-      _builder.append(variables2, "\t\t");
-      _builder.newLineIfNotEmpty();
       {
-        for(final Variable v : variables2) {
-          _builder.append("\t\t");
-          String _genetateVariable = JRulesGenerator.genetateVariable(v);
-          _builder.append(_genetateVariable, "\t\t");
-          _builder.newLineIfNotEmpty();
-          _builder.append("\t\t");
-          _builder.append("Sentences.allVariables.put(\"");
-          String _name = v.getName();
-          _builder.append(_name, "\t\t");
-          _builder.append("\", ");
-          String _name_1 = v.getName();
-          _builder.append(_name_1, "\t\t");
-          _builder.append(");");
-          _builder.newLineIfNotEmpty();
-        }
-      }
-      _builder.append("\t\t");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("//Bucles");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("//");
-      _builder.append(variables2, "\t\t");
-      _builder.newLineIfNotEmpty();
-      {
-        for(final Variable v_1 : variables2) {
+        for(final Sentence s : sentences) {
           {
-            EList<Variable> _in = v_1.getIn();
-            for(final Variable in : _in) {
+            if ((s instanceof Variable)) {
               _builder.append("\t\t");
-              String _name_2 = v_1.getName();
-              _builder.append(_name_2, "\t\t");
-              _builder.append(".setIn(Sentences.allVariables.get(\"");
-              String _name_3 = in.getName();
-              _builder.append(_name_3, "\t\t");
-              _builder.append("\").get());");
-              _builder.newLineIfNotEmpty();
-            }
-          }
-          _builder.append("\t\t");
-          int k = 0;
-          _builder.newLineIfNotEmpty();
-          {
-            Variable _from = v_1.getFrom();
-            boolean _notEquals = (!Objects.equal(_from, null));
-            if (_notEquals) {
-              _builder.append("\t\t");
-              _builder.append("for (");
-              Variable _from_1 = v_1.getFrom();
-              Element _element = _from_1.getElement();
-              String _type = JRulesGenerator.getType(_element);
-              _builder.append(_type, "\t\t");
-              _builder.append(" us");
-              _builder.append(k, "\t\t");
-              _builder.append(": ");
-              Variable _from_2 = v_1.getFrom();
-              String _name_4 = _from_2.getName();
-              _builder.append(_name_4, "\t\t");
-              _builder.append(".get()){");
+              Variable v = ((Variable) s);
               _builder.newLineIfNotEmpty();
               _builder.append("\t\t");
-              _builder.append("\t");
-              String _name_5 = v_1.getName();
-              _builder.append(_name_5, "\t\t\t");
-              _builder.append(".setFrom(us");
-              _builder.append(k, "\t\t\t");
-              _builder.append(".get");
-              Element _element_1 = v_1.getElement();
-              String _type_1 = JRulesGenerator.getType(_element_1);
-              _builder.append(_type_1, "\t\t\t");
-              _builder.append("s());");
+              String _genetateVariable = JRulesGenerator.genetateVariable(v);
+              _builder.append(_genetateVariable, "\t\t");
               _builder.newLineIfNotEmpty();
               _builder.append("\t\t");
-              _builder.append("\t");
-              String _name_6 = v_1.getName();
-              _builder.append(_name_6, "\t\t\t");
-              _builder.append(".setUsing(\"");
-              Variable _from_3 = v_1.getFrom();
-              String _name_7 = _from_3.getName();
-              _builder.append(_name_7, "\t\t\t");
-              _builder.append("\",us");
-              int _plusPlus = k++;
-              _builder.append(_plusPlus, "\t\t\t");
+              _builder.append("Sentences.allVariables.put(\"");
+              String _name = v.getName();
+              _builder.append(_name, "\t\t");
+              _builder.append("\", ");
+              String _name_1 = v.getName();
+              _builder.append(_name_1, "\t\t");
               _builder.append(");");
               _builder.newLineIfNotEmpty();
-            }
-          }
-          _builder.append("\t\t");
-          _builder.append("\t");
-          _builder.newLine();
-          {
-            EList<VariableSubtype> _using = v_1.getUsing();
-            for(final VariableSubtype us : _using) {
+            } else {
+              _builder.append("\t\t");
+              Rule r = ((Rule) s);
+              _builder.newLineIfNotEmpty();
               {
-                Element _subtype = us.getSubtype();
-                boolean _equals = Objects.equal(_subtype, Element.NULL);
-                if (_equals) {
+                EObject _eContainer = r.eContainer();
+                if ((_eContainer instanceof RuleSet)) {
                   _builder.append("\t\t");
-                  _builder.append("\t");
-                  _builder.append("for (");
-                  Variable _variable = us.getVariable();
-                  Element _element_2 = _variable.getElement();
-                  String _type_2 = JRulesGenerator.getType(_element_2);
-                  _builder.append(_type_2, "\t\t\t");
-                  _builder.append(" us");
-                  _builder.append(k, "\t\t\t");
-                  _builder.append(": ");
-                  Variable _variable_1 = us.getVariable();
-                  String _name_8 = _variable_1.getName();
-                  _builder.append(_name_8, "\t\t\t");
-                  _builder.append(".get()){");
+                  r.setName(("rule" + Integer.valueOf(i)));
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t\t");
-                  _builder.append("\t");
-                  _builder.append("\t");
-                  String _name_9 = v_1.getName();
-                  _builder.append(_name_9, "\t\t\t\t");
-                  _builder.append(".setUsing(\"");
-                  Variable _variable_2 = us.getVariable();
-                  String _name_10 = _variable_2.getName();
-                  _builder.append(_name_10, "\t\t\t\t");
-                  _builder.append("\",us");
-                  int _plusPlus_1 = k++;
-                  _builder.append(_plusPlus_1, "\t\t\t\t");
-                  _builder.append(");");
-                  _builder.newLineIfNotEmpty();
-                } else {
-                  _builder.append("\t\t");
-                  _builder.append("\t");
-                  _builder.append("for (");
-                  Element _subtype_1 = us.getSubtype();
-                  String _type_3 = JRulesGenerator.getType(_subtype_1);
-                  _builder.append(_type_3, "\t\t\t");
-                  _builder.append(" us");
-                  _builder.append(k, "\t\t\t");
-                  _builder.append(": us");
-                  Variable _variable_3 = us.getVariable();
-                  String _name_11 = _variable_3.getName();
-                  int _k = this.getK(v_1, _name_11);
-                  _builder.append(_k, "\t\t\t");
-                  _builder.append(".get");
-                  Element _subtype_2 = us.getSubtype();
-                  String _type_4 = JRulesGenerator.getType(_subtype_2);
-                  _builder.append(_type_4, "\t\t\t");
-                  _builder.append("s()){");
+                  int _plusPlus = i++;
+                  String _plus = ("" + Integer.valueOf(_plusPlus));
+                  String _genetateRule = JRulesGenerator.genetateRule(r, _plus);
+                  _builder.append(_genetateRule, "\t\t");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t\t");
-                  _builder.append("\t");
-                  _builder.append("\t");
-                  String _name_12 = v_1.getName();
-                  _builder.append(_name_12, "\t\t\t\t");
-                  _builder.append(".setUsing(\"");
-                  Variable _variable_4 = us.getVariable();
-                  String _name_13 = _variable_4.getName();
-                  _builder.append(_name_13, "\t\t\t\t");
-                  Element _subtype_3 = us.getSubtype();
-                  String _type_5 = JRulesGenerator.getType(_subtype_3);
-                  _builder.append(_type_5, "\t\t\t\t");
-                  _builder.append("\",us");
-                  int _plusPlus_2 = k++;
-                  _builder.append(_plusPlus_2, "\t\t\t\t");
+                  _builder.append("rules.add(");
+                  String _name_2 = r.getName();
+                  _builder.append(_name_2, "\t\t");
                   _builder.append(");");
                   _builder.newLineIfNotEmpty();
                 }
               }
             }
           }
-          _builder.append("\t\t");
-          _builder.append("\t\t");
-          String _name_14 = v_1.getName();
-          _builder.append(_name_14, "\t\t\t\t");
-          _builder.append(".check();");
-          _builder.newLineIfNotEmpty();
-          {
-            EList<VariableSubtype> _using_1 = v_1.getUsing();
-            for(final VariableSubtype us_1 : _using_1) {
-              _builder.append("\t\t");
-              _builder.append("\t");
-              _builder.append("}");
-              _builder.newLine();
-            }
-          }
-          {
-            Variable _from_4 = v_1.getFrom();
-            boolean _notEquals_1 = (!Objects.equal(_from_4, null));
-            if (_notEquals_1) {
-              _builder.append("\t\t");
-              _builder.append("}");
-              _builder.newLine();
-            }
-          }
-          _builder.append("\t\t");
-          _builder.newLine();
-          _builder.append("\t\t");
-          _builder.newLine();
         }
       }
-      {
-        for(final Rule r : rules) {
-          {
-            EObject _eContainer = r.eContainer();
-            if ((_eContainer instanceof RuleSet)) {
-              _builder.append("\t\t");
-              String _genetateRule = JRulesGenerator.genetateRule(r, ("" + Integer.valueOf(i)));
-              _builder.append(_genetateRule, "\t\t");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t\t");
-              _builder.append("/////");
-              _builder.newLine();
-              _builder.append("\t\t");
-              _builder.append("rules.add(r");
-              int _plusPlus_3 = i++;
-              _builder.append(_plusPlus_3, "\t\t");
-              _builder.append(");");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t\t");
-              _builder.newLine();
-            }
-          }
-        }
-      }
+      _builder.append("\t\t");
+      CharSequence _generateDependences = this.generateDependences(sentences);
+      _builder.append(_generateDependences, "\t\t");
+      _builder.newLineIfNotEmpty();
       _builder.append("\t\t");
       _builder.append("return rules;");
       _builder.newLine();
@@ -587,6 +412,174 @@ public class JRulesGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
+  public CharSequence generateDependences(final List<Sentence> s) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final Sentence v : s) {
+        {
+          EObject _eContainer = v.eContainer();
+          if ((_eContainer instanceof RuleSet)) {
+            {
+              EList<Variable> _in = v.getIn();
+              for(final Variable in : _in) {
+                String _name = v.getName();
+                _builder.append(_name, "");
+                _builder.append(".setIn(Sentences.allVariables.get(\"");
+                String _name_1 = in.getName();
+                _builder.append(_name_1, "");
+                _builder.append("\").get());");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            int k = 0;
+            _builder.newLineIfNotEmpty();
+            {
+              Variable _from = v.getFrom();
+              boolean _notEquals = (!Objects.equal(_from, null));
+              if (_notEquals) {
+                _builder.append("for (");
+                Variable _from_1 = v.getFrom();
+                Element _element = _from_1.getElement();
+                String _type = JRulesGenerator.getType(_element);
+                _builder.append(_type, "");
+                _builder.append(" us");
+                _builder.append(k, "");
+                _builder.append(": ");
+                Variable _from_2 = v.getFrom();
+                String _name_2 = _from_2.getName();
+                _builder.append(_name_2, "");
+                _builder.append(".get()){");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                String _name_3 = v.getName();
+                _builder.append(_name_3, "\t");
+                _builder.append(".setFrom(us");
+                _builder.append(k, "\t");
+                _builder.append(".get");
+                Element _element_1 = v.getElement();
+                String _type_1 = JRulesGenerator.getType(_element_1);
+                _builder.append(_type_1, "\t");
+                _builder.append("s());");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                String _name_4 = v.getName();
+                _builder.append(_name_4, "\t");
+                _builder.append(".setUsing(\"");
+                Variable _from_3 = v.getFrom();
+                String _name_5 = _from_3.getName();
+                _builder.append(_name_5, "\t");
+                _builder.append("\",us");
+                int _plusPlus = k++;
+                _builder.append(_plusPlus, "\t");
+                _builder.append(");");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            _builder.append("\t");
+            _builder.newLine();
+            {
+              EList<VariableSubtype> _using = v.getUsing();
+              for(final VariableSubtype us : _using) {
+                {
+                  Element _subtype = us.getSubtype();
+                  boolean _equals = Objects.equal(_subtype, Element.NULL);
+                  if (_equals) {
+                    _builder.append("\t");
+                    _builder.append("for (");
+                    Variable _variable = us.getVariable();
+                    Element _element_2 = _variable.getElement();
+                    String _type_2 = JRulesGenerator.getType(_element_2);
+                    _builder.append(_type_2, "\t");
+                    _builder.append(" us");
+                    _builder.append(k, "\t");
+                    _builder.append(": ");
+                    Variable _variable_1 = us.getVariable();
+                    String _name_6 = _variable_1.getName();
+                    _builder.append(_name_6, "\t");
+                    _builder.append(".get()){");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    String _name_7 = v.getName();
+                    _builder.append(_name_7, "\t\t");
+                    _builder.append(".setUsing(\"");
+                    Variable _variable_2 = us.getVariable();
+                    String _name_8 = _variable_2.getName();
+                    _builder.append(_name_8, "\t\t");
+                    _builder.append("\",us");
+                    int _plusPlus_1 = k++;
+                    _builder.append(_plusPlus_1, "\t\t");
+                    _builder.append(");");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("\t");
+                    _builder.append("for (");
+                    Element _subtype_1 = us.getSubtype();
+                    String _type_3 = JRulesGenerator.getType(_subtype_1);
+                    _builder.append(_type_3, "\t");
+                    _builder.append(" us");
+                    _builder.append(k, "\t");
+                    _builder.append(": us");
+                    Variable _variable_3 = us.getVariable();
+                    String _name_9 = _variable_3.getName();
+                    int _k = this.getK(v, _name_9);
+                    _builder.append(_k, "\t");
+                    _builder.append(".get");
+                    Element _subtype_2 = us.getSubtype();
+                    String _type_4 = JRulesGenerator.getType(_subtype_2);
+                    _builder.append(_type_4, "\t");
+                    _builder.append("s()){");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    String _name_10 = v.getName();
+                    _builder.append(_name_10, "\t\t");
+                    _builder.append(".setUsing(\"");
+                    Variable _variable_4 = us.getVariable();
+                    String _name_11 = _variable_4.getName();
+                    _builder.append(_name_11, "\t\t");
+                    Element _subtype_3 = us.getSubtype();
+                    String _type_5 = JRulesGenerator.getType(_subtype_3);
+                    _builder.append(_type_5, "\t\t");
+                    _builder.append("\",us");
+                    int _plusPlus_2 = k++;
+                    _builder.append(_plusPlus_2, "\t\t");
+                    _builder.append(");");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+            _builder.append("\t\t");
+            String _name_12 = v.getName();
+            _builder.append(_name_12, "\t\t");
+            _builder.append(".check();");
+            _builder.newLineIfNotEmpty();
+            {
+              EList<VariableSubtype> _using_1 = v.getUsing();
+              for(final VariableSubtype us_1 : _using_1) {
+                _builder.append("\t");
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
+            {
+              Variable _from_4 = v.getFrom();
+              boolean _notEquals_1 = (!Objects.equal(_from_4, null));
+              if (_notEquals_1) {
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+        _builder.newLine();
+        _builder.append("\t\t\t");
+      }
+    }
+    return _builder;
+  }
+  
   public int getK(final Sentence s, final String name) {
     int i = 0;
     Variable _from = s.getFrom();
@@ -619,9 +612,7 @@ public class JRulesGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String name = v.getName();
     _builder.newLineIfNotEmpty();
-    _builder.append("//v");
-    _builder.append(name, "");
-    _builder.append(" ");
+    _builder.append("//v: ");
     String _string = v.toString();
     _builder.append(_string, "");
     _builder.newLineIfNotEmpty();
@@ -659,7 +650,7 @@ public class JRulesGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("//r");
     _builder.append(i, "");
-    _builder.append(" ");
+    _builder.append(": ");
     String _string = r.toString();
     _builder.append(_string, "");
     _builder.newLineIfNotEmpty();
@@ -682,8 +673,9 @@ public class JRulesGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Rule<");
     _builder.append(type, "");
-    _builder.append("> r");
-    _builder.append(i, "");
+    _builder.append("> ");
+    String _name = r.getName();
+    _builder.append(_name, "");
     _builder.append("=new Rule<");
     _builder.append(type, "");
     _builder.append("> (");
@@ -809,7 +801,11 @@ public class JRulesGenerator extends AbstractGenerator {
   }
   
   public static CharSequence getSatisfy(final PropertyLiteral s, final Element e, final String sufix) {
-    return null;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method getPropertie(Class, String) is undefined for the type Class<ClassesSatisfy>"
+      + "\nThe method getPropertie(Enumeration, String) is undefined for the type Class<EnumSatisfy>"
+      + "\nThe method getPropertie(Method, String) is undefined for the type Class<MethodsSatisfy>"
+      + "\nThe method getPropertie(Attribute, String) is undefined for the type Class<AttributesSatisfy>");
   }
   
   public static String getType(final Element e) {

@@ -262,15 +262,11 @@ public class RangoNamesImpl extends MinimalEObjectImpl.Container implements Rang
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (min: ");
-		result.append(min);
-		result.append(", max: ");
-		result.append(max);
-		result.append(')');
-		return result.toString();
+		if (max==MAX_EDEFAULT){
+			return "["+min+"..*] types={"+types+"}";
+		}else{
+			return "["+min+".."+max+"] types={"+types+"}";
+		}
 	}
 
 } //RangoNamesImpl

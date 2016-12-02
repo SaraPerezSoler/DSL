@@ -172,4 +172,15 @@ public class IsSubClassImpl extends ClassImpl implements IsSubClass {
 		return super.eIsSet(featureID);
 	}
 
+	public String toString() {
+		String ofString="";
+		if (of!=null){
+			ofString=of.toString();
+		}
+		if (no){
+			return "is not subClass "+ ofString;
+		}else{
+			return "is subClass "+ ofString;
+		}
+	}
 } //IsSubClassImpl

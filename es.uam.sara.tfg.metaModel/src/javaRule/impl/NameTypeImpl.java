@@ -151,13 +151,11 @@ public class NameTypeImpl extends AttributeImpl implements NameType {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
+		if (no){
+			return "name type<>"+this.type;
+		}else{
+			return "name type="+this.type;
+		}
 	}
 
 } //NameTypeImpl

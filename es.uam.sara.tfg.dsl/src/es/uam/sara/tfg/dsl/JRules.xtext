@@ -20,7 +20,7 @@ Variable returns Variable:
 
 
 Rule returns Rule:
-	(no?='no')? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
+	(no?='no')? quantifier=Quantifier element=Element ('from' from=[Variable|EString])? ('in' in+=[Variable|EString](',' in+=[Variable|EString])*)?('using' using+=VariableSubtype(',' using+=VariableSubtype)*)? ('which' filter=Or)? ('satisfy' satisfy=Or)?;
 
 Or returns Or:
 	 op+=And ( 'or' op+=And)*;
@@ -140,7 +140,7 @@ StringVariable returns StringVariable:
 	variable=VariableSubtype'.'strings=ElementString;
 
 VariableSubtype returns VariableSubtype: 
-	variable=[Variable|EString]('.'subtype=Element)
+	variable=[Variable|EString]('.'subtype=Element)?
 ;
 
 TypeProperty returns TypeProperty:

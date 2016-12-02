@@ -232,13 +232,10 @@ public class TypeStringImpl extends TypePropertyImpl implements TypeString {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (typePrimitive: ");
-		result.append(typePrimitive);
-		result.append(')');
-		return result.toString();
+		if (typeStrng==null){
+			return "Primitive."+typePrimitive;
+		}
+		return typeStrng.toString();
 	}
 
 } //TypeStringImpl

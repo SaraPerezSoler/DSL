@@ -515,6 +515,7 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         element=Element 
 	 *         from=[Variable|EString]? 
 	 *         (in+=[Variable|EString] in+=[Variable|EString]*)? 
+	 *         (using+=VariableSubtype using+=VariableSubtype*)? 
 	 *         filter=Or? 
 	 *         satisfy=Or?
 	 *     )

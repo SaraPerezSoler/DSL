@@ -98,16 +98,16 @@ public class Parameters extends StringProperty<Method>{
 
 	@Override
 	public void setString(String string) {
-		es.uam.sara.tfg.properties.type.Type nuevo= new TypeString(string);
+		es.uam.sara.tfg.properties.type.Type nuevo= new TypeString(string, true);
 		this.paramList.add(nuevo);
 	}
 
 	@Override
 	public void deleteString(String string) {
-		es.uam.sara.tfg.properties.type.Type nuevo= new TypeString(string);
 		for (es.uam.sara.tfg.properties.type.Type t: this.paramList){
-			if (nuevo.equals(t)){
+			if (t.getString().equals(string)){
 				this.paramList.remove(t);
+				return;
 			}
 		}
 	}

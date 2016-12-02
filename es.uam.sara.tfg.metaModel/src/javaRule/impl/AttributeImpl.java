@@ -33,5 +33,4 @@ public abstract class AttributeImpl extends PropertyImpl implements Attribute {
 	protected EClass eStaticClass() {
 		return JavaRulePackage.Literals.ATTRIBUTE;
 	}
-
 } //AttributeImpl

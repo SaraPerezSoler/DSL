@@ -150,12 +150,9 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
+	
+		StringBuffer result = new StringBuffer();
 		result.append(value);
-		result.append(')');
 		return result.toString();
 	}
 

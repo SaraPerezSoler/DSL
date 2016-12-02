@@ -558,16 +558,66 @@ ruleRule returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_9='which'
+			otherlv_9='using'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getRuleAccess().getWhichKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getRuleAccess().getUsingKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRuleAccess().getFilterOrParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getRuleAccess().getUsingVariableSubtypeParserRuleCall_5_1_0());
 					}
-					lv_filter_10_0=ruleOr
+					lv_using_10_0=ruleVariableSubtype
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRuleRule());
+						}
+						add(
+							$current,
+							"using",
+							lv_using_10_0,
+							"es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_11=','
+				{
+					newLeafNode(otherlv_11, grammarAccess.getRuleAccess().getCommaKeyword_5_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getRuleAccess().getUsingVariableSubtypeParserRuleCall_5_2_1_0());
+						}
+						lv_using_12_0=ruleVariableSubtype
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getRuleRule());
+							}
+							add(
+								$current,
+								"using",
+								lv_using_12_0,
+								"es.uam.sara.tfg.dsl.JRules.VariableSubtype");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_13='which'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getRuleAccess().getWhichKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRuleAccess().getFilterOrParserRuleCall_6_1_0());
+					}
+					lv_filter_14_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -575,7 +625,7 @@ ruleRule returns [EObject current=null]
 						set(
 							$current,
 							"filter",
-							lv_filter_10_0,
+							lv_filter_14_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}
@@ -583,16 +633,16 @@ ruleRule returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_11='satisfy'
+			otherlv_15='satisfy'
 			{
-				newLeafNode(otherlv_11, grammarAccess.getRuleAccess().getSatisfyKeyword_6_0());
+				newLeafNode(otherlv_15, grammarAccess.getRuleAccess().getSatisfyKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getRuleAccess().getSatisfyOrParserRuleCall_7_1_0());
 					}
-					lv_satisfy_12_0=ruleOr
+					lv_satisfy_16_0=ruleOr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRuleRule());
@@ -600,7 +650,7 @@ ruleRule returns [EObject current=null]
 						set(
 							$current,
 							"satisfy",
-							lv_satisfy_12_0,
+							lv_satisfy_16_0,
 							"es.uam.sara.tfg.dsl.JRules.Or");
 						afterParserOrEnumRuleCall();
 					}

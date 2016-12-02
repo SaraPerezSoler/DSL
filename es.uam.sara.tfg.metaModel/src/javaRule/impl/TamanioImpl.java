@@ -75,7 +75,7 @@ public class TamanioImpl extends MethodImpl implements Tamanio {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int EXACT_EDEFAULT = 0;
+	protected static final int EXACT_EDEFAULT = -2147483647;
 
 	/**
 	 * The cached value of the '{@link #getExact() <em>Exact</em>}' attribute.
@@ -254,17 +254,11 @@ public class TamanioImpl extends MethodImpl implements Tamanio {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (min: ");
-		result.append(min);
-		result.append(", max: ");
-		result.append(max);
-		result.append(", exact: ");
-		result.append(exact);
-		result.append(')');
-		return result.toString();
+		if (exact==EXACT_EDEFAULT){
+			return "size ["+ min+".."+max+"]";
+		}else{
+			return "size = "+ exact;
+		}
 	}
 
 } //TamanioImpl

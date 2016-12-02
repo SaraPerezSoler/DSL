@@ -95,7 +95,9 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRuleAccess().getGroup_4(), "rule__Rule__Group_4__0");
 					put(grammarAccess.getRuleAccess().getGroup_4_2(), "rule__Rule__Group_4_2__0");
 					put(grammarAccess.getRuleAccess().getGroup_5(), "rule__Rule__Group_5__0");
+					put(grammarAccess.getRuleAccess().getGroup_5_2(), "rule__Rule__Group_5_2__0");
 					put(grammarAccess.getRuleAccess().getGroup_6(), "rule__Rule__Group_6__0");
+					put(grammarAccess.getRuleAccess().getGroup_7(), "rule__Rule__Group_7__0");
 					put(grammarAccess.getOrAccess().getGroup(), "rule__Or__Group__0");
 					put(grammarAccess.getOrAccess().getGroup_1(), "rule__Or__Group_1__0");
 					put(grammarAccess.getAndAccess().getGroup(), "rule__And__Group__0");
@@ -189,8 +191,10 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRuleAccess().getFromAssignment_3_1(), "rule__Rule__FromAssignment_3_1");
 					put(grammarAccess.getRuleAccess().getInAssignment_4_1(), "rule__Rule__InAssignment_4_1");
 					put(grammarAccess.getRuleAccess().getInAssignment_4_2_1(), "rule__Rule__InAssignment_4_2_1");
-					put(grammarAccess.getRuleAccess().getFilterAssignment_5_1(), "rule__Rule__FilterAssignment_5_1");
-					put(grammarAccess.getRuleAccess().getSatisfyAssignment_6_1(), "rule__Rule__SatisfyAssignment_6_1");
+					put(grammarAccess.getRuleAccess().getUsingAssignment_5_1(), "rule__Rule__UsingAssignment_5_1");
+					put(grammarAccess.getRuleAccess().getUsingAssignment_5_2_1(), "rule__Rule__UsingAssignment_5_2_1");
+					put(grammarAccess.getRuleAccess().getFilterAssignment_6_1(), "rule__Rule__FilterAssignment_6_1");
+					put(grammarAccess.getRuleAccess().getSatisfyAssignment_7_1(), "rule__Rule__SatisfyAssignment_7_1");
 					put(grammarAccess.getOrAccess().getOpAssignment_0(), "rule__Or__OpAssignment_0");
 					put(grammarAccess.getOrAccess().getOpAssignment_1_1(), "rule__Or__OpAssignment_1_1");
 					put(grammarAccess.getAndAccess().getOpAssignment_0(), "rule__And__OpAssignment_0");

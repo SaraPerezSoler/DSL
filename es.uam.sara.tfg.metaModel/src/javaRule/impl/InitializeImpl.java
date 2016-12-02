@@ -34,4 +34,11 @@ public class InitializeImpl extends AttributeImpl implements Initialize {
 		return JavaRulePackage.Literals.INITIALIZE;
 	}
 
+	public String toString() {
+		if (no){
+			return "is not initialize";
+		}else{
+			return "is initialize";
+		}
+	}
 } //InitializeImpl

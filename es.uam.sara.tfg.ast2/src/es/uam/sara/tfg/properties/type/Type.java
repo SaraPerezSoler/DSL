@@ -24,4 +24,9 @@ public interface Type {
 		return ret;
 	}
 	public boolean compare(org.eclipse.jdt.core.dom.Type other);
+	public String getString();
+	
+	public default boolean isVariable(){
+		return false;
+	}
 }

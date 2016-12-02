@@ -146,5 +146,20 @@ public class ModifiersImpl extends AttributeImpl implements Modifiers {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	public String toString(){
+		String cad="";
+		if (no){
+			cad= "is not modified with ";
+		}else{
+			cad= "is modified with [";
+		}
+		String or="";
+		for (BlendModifiers b: this.blend){
+			cad+=or+b;
+			or=" or ";
+		}
+		return cad+']';
+	}
 
 } //ModifiersImpl

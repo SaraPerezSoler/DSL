@@ -33,5 +33,13 @@ public class ConstructorImpl extends MethodImpl implements Constructor {
 	protected EClass eStaticClass() {
 		return JavaRulePackage.Literals.CONSTRUCTOR;
 	}
+	
+	public String toString(){
+		if (no){
+			return "is not constructor";
+		}else{
+			return "is constructor";
+		}
+	}
 
 } //ConstructorImpl

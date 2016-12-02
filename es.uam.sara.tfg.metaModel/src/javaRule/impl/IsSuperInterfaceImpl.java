@@ -171,5 +171,11 @@ public class IsSuperInterfaceImpl extends InterfaceImpl implements IsSuperInterf
 		}
 		return super.eIsSet(featureID);
 	}
+	public String toString() {
+		if (no){
+			return "is not superInterface"+valores.toString();
+		}
+		return "is superInterface"+valores.toString();
+	}
 
 } //IsSuperInterfaceImpl

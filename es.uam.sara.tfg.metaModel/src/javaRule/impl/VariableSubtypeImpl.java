@@ -214,13 +214,10 @@ public class VariableSubtypeImpl extends MinimalEObjectImpl.Container implements
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (subtype: ");
-		result.append(subtype);
-		result.append(')');
-		return result.toString();
+		if (subtype!=SUBTYPE_EDEFAULT){
+			return variable.getName()+"."+subtype;
+		}
+		return variable.getName();
 	}
 
 } //VariableSubtypeImpl

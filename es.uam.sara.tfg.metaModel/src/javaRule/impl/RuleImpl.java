@@ -6,6 +6,8 @@ import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Quantifier;
 import javaRule.Rule;
+import javaRule.Variable;
+import javaRule.VariableSubtype;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -284,15 +286,29 @@ public class RuleImpl extends SentenceImpl implements Rule {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (no: ");
-		result.append(no);
-		result.append(", quantifier: ");
-		result.append(quantifier);
-		result.append(')');
-		return result.toString();
+		String noString="";
+		if (no){
+			noString="no ";
+		}
+		String ins="";
+		
+		if (this.in != null) {
+			for (Variable i : this.in) {
+				ins += i.getName();
+			}
+		}
+		String usings = "";
+		if (this.using != null) {
+			for (VariableSubtype i : this.using) {
+				usings += i.toString();
+			}
+		}
+		String from="";
+		if (this.from!=null){
+			from=this.from.getName();
+		}
+		return noString+" "+quantifier+" "+this.element+" from "+from+" in "+ins+ " usings "+usings+
+				" whitch " +this.filter+" satisfy "+this.satisfy;
 	}
 
 } //RuleImpl

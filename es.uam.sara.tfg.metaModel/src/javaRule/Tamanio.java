@@ -78,6 +78,7 @@ public interface Tamanio extends Method {
 
 	/**
 	 * Returns the value of the '<em><b>Exact</b></em>' attribute.
+	 * The default value is <code>"-2147483647"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Exact</em>' attribute isn't clear,
@@ -87,7 +88,7 @@ public interface Tamanio extends Method {
 	 * @return the value of the '<em>Exact</em>' attribute.
 	 * @see #setExact(int)
 	 * @see javaRule.JavaRulePackage#getTamanio_Exact()
-	 * @model
+	 * @model default="-2147483647"
 	 * @generated
 	 */
 	int getExact();

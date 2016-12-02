@@ -159,13 +159,22 @@ public interface JavaRulePackage extends EPackage {
 	int SENTENCE__USING = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENTENCE__NAME = 5;
+
+	/**
 	 * The number of structural features of the '<em>Sentence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENTENCE_FEATURE_COUNT = 5;
+	int SENTENCE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Sentence</em>' class.
@@ -238,7 +247,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__NAME = SENTENCE_FEATURE_COUNT + 0;
+	int VARIABLE__NAME = SENTENCE__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -247,7 +256,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = SENTENCE_FEATURE_COUNT + 1;
+	int VARIABLE_FEATURE_COUNT = SENTENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Variable</em>' class.
@@ -312,6 +321,15 @@ public interface JavaRulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE__USING = SENTENCE__USING;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__NAME = SENTENCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>No</b></em>' attribute.
@@ -2351,6 +2369,17 @@ public interface JavaRulePackage extends EPackage {
 	EReference getSentence_Using();
 
 	/**
+	 * Returns the meta object for the attribute '{@link javaRule.Sentence#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see javaRule.Sentence#getName()
+	 * @see #getSentence()
+	 * @generated
+	 */
+	EAttribute getSentence_Name();
+
+	/**
 	 * Returns the meta object for class '{@link javaRule.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2359,17 +2388,6 @@ public interface JavaRulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link javaRule.Variable#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see javaRule.Variable#getName()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EAttribute getVariable_Name();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.Rule <em>Rule</em>}'.
@@ -3532,6 +3550,14 @@ public interface JavaRulePackage extends EPackage {
 		EReference SENTENCE__USING = eINSTANCE.getSentence_Using();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SENTENCE__NAME = eINSTANCE.getSentence_Name();
+
+		/**
 		 * The meta object literal for the '{@link javaRule.impl.VariableImpl <em>Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3540,14 +3566,6 @@ public interface JavaRulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass VARIABLE = eINSTANCE.getVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.RuleImpl <em>Rule</em>}' class.

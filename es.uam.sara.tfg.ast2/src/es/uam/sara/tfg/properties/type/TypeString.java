@@ -4,9 +4,12 @@ import java.util.List;
 
 public class TypeString implements Type{
 	private String type;
+	private boolean variable;
 	
-	public TypeString(String type) {
+	public TypeString(String type, boolean isVariable) {
 		this.type=type;
+		variable=isVariable;
+		
 	}
 	
 	public boolean equals(Object other){
@@ -19,5 +22,13 @@ public class TypeString implements Type{
 	public boolean compare(org.eclipse.jdt.core.dom.Type other){
 		List<String> strings= this.getString(other);
 		return strings.contains(type.toLowerCase());
+	}
+	
+	public boolean isVariable(){
+		return variable;
+	}
+	@Override
+	public String getString() {
+		return type;
 	}
 }

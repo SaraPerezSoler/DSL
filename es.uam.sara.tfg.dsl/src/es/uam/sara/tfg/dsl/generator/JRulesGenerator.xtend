@@ -42,8 +42,10 @@ class JRulesGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 
-
-		fsa.generateFile("RuleFactory.java", RuleFactory(resource.allContents.toIterable.filter(Sentence)));
+		var sentences=resource.allContents.toIterable.filter(Sentence)
+		
+		fsa.generateFile("RuleFactory.java", RuleFactory(sentences.toList));
+		
 		var workspace = ResourcesPlugin.getWorkspace().getRoot();
 		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
 		var projects = new ArrayList<IProject>();
@@ -59,8 +61,6 @@ class JRulesGenerator extends AbstractGenerator {
 
 	}
 
-	def CharSequence getWorksapce(RuleSet rs) {
-	}
 
 	def CharSequence main(List<IProject> projects) {
 
@@ -73,6 +73,7 @@ class JRulesGenerator extends AbstractGenerator {
 			import java.util.ArrayList;
 			import es.uam.sara.tfg.ast.ReadFiles;
 			import es.uam.sara.tfg.rule.Rule;
+			import es.uam.sara.tfg.ast.Visitors;
 				
 				public class Main {
 				
@@ -80,11 +81,12 @@ class JRulesGenerator extends AbstractGenerator {
 				 public static void main(String[] args)throws IOException{
 				 	
 				 	List<Visitors> projects= new ArrayList<Visitors>();
-
+					List<File> roots= new ArrayList<File>();
+					
 			 		«FOR p: projects»
 			 			«var src= p.getFolder("src")»
 			 			roots.add(new File("«src.location»"));
-			 			projects.add(new Visitors("«src.name»"));
+			 			projects.add(new Visitors("«p.name»"));
 			 		«ENDFOR»
 
 				 	for (int i=0; i <roots.size(); i++){
@@ -100,10 +102,12 @@ class JRulesGenerator extends AbstractGenerator {
 		'''
 	}
 
-	def CharSequence RuleFactory(Iterable<Sentence> sentences) {
+	def CharSequence RuleFactory(List<Sentence> sentences) {
 
 		var i = 1;
 		'''
+			import java.io.FileWriter;
+			import java.io.PrintWriter;
 			import java.util.*;
 			import es.uam.sara.tfg.rule.*;
 			import es.uam.sara.tfg.rule.Rule.*;
@@ -124,7 +128,7 @@ class JRulesGenerator extends AbstractGenerator {
 			public class RuleFactory {
 				
 				private List <Rule<?>> rules=null;
-				private Visistors visitors;
+				private Visitors visitors;
 				
 				public RuleFactory (Visitors vis){
 					this.visitors=vis;
@@ -140,56 +144,23 @@ class JRulesGenerator extends AbstractGenerator {
 						List<EnumDeclaration> enums=visitors.getEnumerations();
 						List<MethodDeclaration> methods=visitors.getMethods();
 						List<FieldDeclaration> attributes=visitors.getAttributes();
-					«var variables=sentences.filter(Variable)»
-					«var variables2=variables.clone»
-					«var rules=sentences.filter(Rule)»
+						
 					//Crear
-					//«variables2»
-					«FOR Variable v : variables2»
+					«FOR Sentence s : sentences»
+						«IF s instanceof Variable»
+						«var v= s as Variable»
 						«genetateVariable(v)»
 						Sentences.allVariables.put("«v.name»", «v.name»);
-					«ENDFOR»
-					
-					//Bucles
-					//«variables2»
-					«FOR Variable v : variables2»
-						«FOR Variable in: v.in»
-							«v.name».setIn(Sentences.allVariables.get("«in.name»").get());
-						«ENDFOR»
-						«var k=0»
-						«IF v.from!=null»
-							for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-								«v.name».setFrom(us«k».get«getType(v.element)»s());
-								«v.name».setUsing("«v.from.getName»",us«k++»);
-						«ENDIF»
-							
-							«FOR VariableSubtype us: v.using»
-								«IF us.subtype==Element.NULL»
-								for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
-									«v.name».setUsing("«us.variable.name»",us«k++»);
-								«ELSE»
-								for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».get«getType(us.subtype)»s()){
-									«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
-								«ENDIF»
-							«ENDFOR»
-								«v.name».check();
-							«FOR VariableSubtype us: v.using»
-							}
-							«ENDFOR»
-						«IF v.from!=null»
-							}
-						«ENDIF»
-						
-						
-					«ENDFOR»
-					«FOR Rule r : rules»
+						«ELSE»
+						«var r= s as Rule»
 						«IF r.eContainer instanceof RuleSet»
-							«genetateRule(r, ""+i)»
-							/////
-							rules.add(r«i++»);
-							
+							«r.name="rule"+i»
+							«genetateRule(r, ""+(i++))»
+							rules.add(«r.name»);
+						«ENDIF»
 						«ENDIF»
 					«ENDFOR»
+					«generateDependences(sentences)»
 					return rules;
 					}
 				}
@@ -222,6 +193,39 @@ class JRulesGenerator extends AbstractGenerator {
 			
 		'''
 	}
+	def CharSequence generateDependences(List<Sentence> s){'''
+			«FOR Sentence v : s»
+				«IF v.eContainer instanceof RuleSet»
+					«FOR Variable in: v.in»
+						«v.name».setIn(Sentences.allVariables.get("«in.name»").get());
+					«ENDFOR»
+					«var k=0»
+					«IF v.from!=null»
+						for («getType(v.from.element)» us«k»: «v.from.getName».get()){
+							«v.name».setFrom(us«k».get«getType(v.element)»s());
+							«v.name».setUsing("«v.from.getName»",us«k++»);
+					«ENDIF»
+						
+						«FOR VariableSubtype us: v.using»
+							«IF us.subtype==Element.NULL»
+							for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
+								«v.name».setUsing("«us.variable.name»",us«k++»);
+							«ELSE»
+							for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».get«getType(us.subtype)»s()){
+								«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
+							«ENDIF»
+						«ENDFOR»
+							«v.name».check();
+						«FOR VariableSubtype us: v.using»
+						}
+						«ENDFOR»
+					«IF v.from!=null»
+						}
+					«ENDIF»
+				«ENDIF»
+				
+			«ENDFOR»'''
+	}
 	
 	def int getK(Sentence s, String name) {
 		var i=0;
@@ -244,7 +248,7 @@ class JRulesGenerator extends AbstractGenerator {
 	def static String genetateVariable(Variable v) {
 		'''
 			«var name=v.name»
-			//v«name» «v.toString»
+			//v: «v.toString»
 			«var type=getType(v.element)»
 			«var analize=getType(v.element).toLowerCase»
 			«getOr(v.satisfy, name, v.element)»
@@ -255,12 +259,12 @@ class JRulesGenerator extends AbstractGenerator {
 	def static String genetateRule(Rule r,
 		String i) {
 		'''
-			//r«i» «r.toString»
+			//r«i»: «r.toString»
 			«var type=getType(r.element)»
 			«var analize=getType(r.element).toLowerCase»
 			«getOr(r.filter, "Filter"+i, r.element)»
 			«getOr(r.satisfy, i, r.element)»
-			Rule<«type»> r«i»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,orFilter«i», or«i», "«r.element»");	
+			Rule<«type»> «r.name»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,orFilter«i», or«i», "«r.element»");	
 		'''
 	}
 
@@ -300,19 +304,19 @@ class JRulesGenerator extends AbstractGenerator {
 	}
 
 	def static CharSequence getSatisfy(PropertyLiteral s, Element e, String sufix) {
-//		if (e == Element.PACKAGE) {
-//			return PackageSatisfy.getPropertie(s.property as Package, sufix);
-//		} else if (e == Element.INTERFACE) {
-//			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
-//		} else if (e == Element.CLASS) {
-//			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
-//		} else if (e == Element.ENUM) {
-//			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
-//		} else if (e == Element.METHOD) {
-//			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
-//		} else {
-//			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
-//		}
+		if (e == Element.PACKAGE) {
+			return PackageSatisfy.getPropertie(s.property as Package, sufix);
+		} else if (e == Element.INTERFACE) {
+			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
+		} else if (e == Element.CLASS) {
+			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
+		} else if (e == Element.ENUM) {
+			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
+		} else if (e == Element.METHOD) {
+			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
+		} else {
+			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
+		}
 	}
 
 	def static String getType(Element e) {

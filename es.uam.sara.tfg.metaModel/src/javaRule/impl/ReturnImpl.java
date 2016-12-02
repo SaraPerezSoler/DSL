@@ -171,5 +171,12 @@ public class ReturnImpl extends MethodImpl implements Return {
 		}
 		return super.eIsSet(featureID);
 	}
+	public String toString() {
+		if (no){
+			return "return type<>"+type;
+		}else{
+			return "return type="+type;
+		}
+	}
 
 } //ReturnImpl

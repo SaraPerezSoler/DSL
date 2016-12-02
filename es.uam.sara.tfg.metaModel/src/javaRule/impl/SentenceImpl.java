@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link javaRule.impl.SentenceImpl#getIn <em>In</em>}</li>
  *   <li>{@link javaRule.impl.SentenceImpl#getSatisfy <em>Satisfy</em>}</li>
  *   <li>{@link javaRule.impl.SentenceImpl#getUsing <em>Using</em>}</li>
+ *   <li>{@link javaRule.impl.SentenceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +104,26 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<VariableSubtype> using;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,6 +275,27 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.SENTENCE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -284,6 +326,8 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				return getSatisfy();
 			case JavaRulePackage.SENTENCE__USING:
 				return getUsing();
+			case JavaRulePackage.SENTENCE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,6 +358,9 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				getUsing().clear();
 				getUsing().addAll((Collection<? extends VariableSubtype>)newValue);
 				return;
+			case JavaRulePackage.SENTENCE__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -341,6 +388,9 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 			case JavaRulePackage.SENTENCE__USING:
 				getUsing().clear();
 				return;
+			case JavaRulePackage.SENTENCE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -363,6 +413,8 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 				return satisfy != null;
 			case JavaRulePackage.SENTENCE__USING:
 				return using != null && !using.isEmpty();
+			case JavaRulePackage.SENTENCE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -379,6 +431,8 @@ public abstract class SentenceImpl extends MinimalEObjectImpl.Container implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (element: ");
 		result.append(element);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

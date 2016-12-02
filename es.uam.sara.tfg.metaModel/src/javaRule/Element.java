@@ -26,7 +26,9 @@ public enum Element implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NULL(-1, "null", "null"), /**
+	NULL(-1, "null", "null"),
+
+	/**
 	 * The '<em><b>Package</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

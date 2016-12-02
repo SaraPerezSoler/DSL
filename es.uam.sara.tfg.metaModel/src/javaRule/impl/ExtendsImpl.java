@@ -172,4 +172,11 @@ public class ExtendsImpl extends InterfaceImpl implements Extends {
 		return super.eIsSet(featureID);
 	}
 
+	public String toString(){
+		if (no){
+			return "do not extends" +this.valores.toString();
+		}else{
+			return "extends" +this.valores.toString();
+		}
+	}
 } //ExtendsImpl

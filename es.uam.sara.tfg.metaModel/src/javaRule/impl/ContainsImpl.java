@@ -171,5 +171,13 @@ public class ContainsImpl extends ClassImpl implements Contains {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	public String toString(){
+		if (no){
+			return "have not {"+rule.toString()+"}";
+		}else{
+			return "have {"+rule.toString()+"}";
+		}
+	}
 
 } //ContainsImpl
