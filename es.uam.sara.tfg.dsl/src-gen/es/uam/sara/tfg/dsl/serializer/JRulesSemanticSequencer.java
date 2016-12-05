@@ -35,6 +35,7 @@ import javaRule.RuleSet;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypePrimitive;
 import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
@@ -149,6 +150,9 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case JavaRulePackage.TAMANIO:
 				sequence_Tamanio(context, (Tamanio) semanticObject); 
+				return; 
+			case JavaRulePackage.TYPE_PRIMITIVE:
+				sequence_TypePrimitive(context, (TypePrimitive) semanticObject); 
 				return; 
 			case JavaRulePackage.TYPE_STRING:
 				sequence_TypeString(context, (TypeString) semanticObject); 
@@ -581,14 +585,39 @@ public class JRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     TypeProperty returns TypePrimitive
+	 *     TypePrimitive returns TypePrimitive
+	 *
+	 * Constraint:
+	 *     typePrimitive=Primitive
+	 */
+	protected void sequence_TypePrimitive(ISerializationContext context, TypePrimitive semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.TYPE_PRIMITIVE__TYPE_PRIMITIVE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.TYPE_PRIMITIVE__TYPE_PRIMITIVE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypePrimitiveAccess().getTypePrimitivePrimitiveEnumRuleCall_1_0(), semanticObject.getTypePrimitive());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     TypeProperty returns TypeString
 	 *     TypeString returns TypeString
 	 *
 	 * Constraint:
-	 *     (typePrimitive=Primitive | typeStrng=StringProperty)
+	 *     typeStrng=StringProperty
 	 */
 	protected void sequence_TypeString(ISerializationContext context, TypeString semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JavaRulePackage.Literals.TYPE_STRING__TYPE_STRNG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JavaRulePackage.Literals.TYPE_STRING__TYPE_STRNG));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0(), semanticObject.getTypeStrng());
+		feeder.finish();
 	}
 	
 	

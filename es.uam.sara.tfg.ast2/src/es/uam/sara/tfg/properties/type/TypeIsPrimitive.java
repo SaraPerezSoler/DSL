@@ -16,4 +16,19 @@ public class TypeIsPrimitive implements TypeFunction{
 		return other.isPrimitiveType();
 	}
 
+	@Override
+	public String getString() {
+		return "isPrimitive()";
+	}
+
+	@Override
+	public void setString(String s) {
+		
+	}
+
+	@Override
+	public void deleteString(String s) {
+		
+	}
+
 }

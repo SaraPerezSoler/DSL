@@ -6,9 +6,9 @@ import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Interface;
 import es.uam.sara.tfg.sentence.Rule;
 
-public class ContainInterfaces<T extends Container> extends Contain<T,Interface> {
+public class ContainInterface<T extends Container> extends Contain<T,Interface> {
 
-	public ContainInterfaces(boolean no, Rule<Interface> r) {
+	public ContainInterface(boolean no, Rule<Interface> r) {
 		super(no, r);
 	}
 

@@ -7,6 +7,6 @@ public abstract class StringProperty<T extends IElements> extends Property<T>{
 		super(no);
 	}
 
-	public abstract void setString(String string);
-	public abstract void deleteString(String string);
+	public abstract void setString(String string, int i);
+	public abstract void deleteString(String string, int i);
 }

@@ -29,4 +29,7 @@ public interface Type {
 	public default boolean isVariable(){
 		return false;
 	}
+	
+	public void setString(String s);
+	public void deleteString(String s);
 }

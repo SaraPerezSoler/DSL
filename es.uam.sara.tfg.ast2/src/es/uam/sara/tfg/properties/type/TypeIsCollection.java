@@ -5,16 +5,16 @@ public class TypeIsCollection implements TypeFunction {
 	private Type of;
 	private boolean variable;
 
-	public TypeIsCollection(boolean variable) {
+	public TypeIsCollection() {
 		of = null;
-		this.variable = variable;
+		this.variable = false;
 
 	}
 
-	public TypeIsCollection(boolean variable, Type of) {
+	public TypeIsCollection(Type of) {
 		super();
 		this.of = of;
-		this.variable = variable;
+		this.variable = of.isVariable();
 	}
 
 	@Override
@@ -24,23 +24,16 @@ public class TypeIsCollection implements TypeFunction {
 	}
 
 	public void setString(String string) {
-		if (of.isVariable()){
-			of = new TypeString(string, true);
-		}	
-	}
-
-	public void removeString(String string) {
-		if (of.isVariable()) {
-			if (of.getString().equals(string)) {
-				of = null;
+		if (of != null) {
+			if (of.isVariable()) {
+				of.setString(string);
 			}
 		}
-
 	}
 
 	@Override
 	public String getString() {
-		if (of!=null){
+		if (of != null) {
 			return "isCollection(" + of + ")";
 		}
 		return "isCollection()";
@@ -51,6 +44,13 @@ public class TypeIsCollection implements TypeFunction {
 			return of.isVariable();
 		} else {
 			return variable;
+		}
+	}
+
+	@Override
+	public void deleteString(String s) {
+		if (of!=null){
+			of.deleteString(s);
 		}
 	}
 }

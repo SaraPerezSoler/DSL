@@ -144,11 +144,15 @@ VariableSubtype returns VariableSubtype:
 ;
 
 TypeProperty returns TypeProperty:
-	TypeString | isPrimitiveFunction | IsCollectionType
+	TypeString | isPrimitiveFunction | IsCollectionType |TypePrimitive
 ;
 
 TypeString returns TypeString:
-	('Primitive.' typePrimitive=Primitive)|(typeStrng=StringProperty)
+	(typeStrng=StringProperty)
+;
+
+TypePrimitive returns TypePrimitive:
+	('Primitive.' typePrimitive=Primitive)
 ;
 isPrimitiveFunction returns IsPrimitiveFuntion:
 	{IsPrimitiveFuntion}

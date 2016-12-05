@@ -50,6 +50,7 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
 import javaRule.TypeString;
 import javaRule.Variable;
@@ -371,6 +372,13 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EClass typeStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typePrimitiveEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1408,8 +1416,17 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTypeString_TypePrimitive() {
-		return (EAttribute)typeStringEClass.getEStructuralFeatures().get(1);
+	public EClass getTypePrimitive() {
+		return typePrimitiveEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTypePrimitive_TypePrimitive() {
+		return (EAttribute)typePrimitiveEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1681,7 +1698,9 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		typeStringEClass = createEClass(TYPE_STRING);
 		createEReference(typeStringEClass, TYPE_STRING__TYPE_STRNG);
-		createEAttribute(typeStringEClass, TYPE_STRING__TYPE_PRIMITIVE);
+
+		typePrimitiveEClass = createEClass(TYPE_PRIMITIVE);
+		createEAttribute(typePrimitiveEClass, TYPE_PRIMITIVE__TYPE_PRIMITIVE);
 
 		isPrimitiveFuntionEClass = createEClass(IS_PRIMITIVE_FUNTION);
 
@@ -1746,6 +1765,10 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		implementsEClass.getESuperTypes().add(this.getEnumeration());
 		extendsEClass.getESuperTypes().add(this.getInterface());
 		tamanioEClass.getESuperTypes().add(this.getMethod());
+		tamanioEClass.getESuperTypes().add(this.getClass_());
+		tamanioEClass.getESuperTypes().add(this.getFile());
+		tamanioEClass.getESuperTypes().add(this.getInterface());
+		tamanioEClass.getESuperTypes().add(this.getEnumeration());
 		parameterEClass.getESuperTypes().add(this.getMethod());
 		constructorEClass.getESuperTypes().add(this.getMethod());
 		returnEClass.getESuperTypes().add(this.getMethod());
@@ -1793,6 +1816,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		modifiersEClass.getESuperTypes().add(this.getEnumeration());
 		modifiersEClass.getESuperTypes().add(this.getInterface());
 		typeStringEClass.getESuperTypes().add(this.getTypeProperty());
+		typePrimitiveEClass.getESuperTypes().add(this.getTypeProperty());
 		isPrimitiveFuntionEClass.getESuperTypes().add(this.getTypeProperty());
 		isCollectionTypeEClass.getESuperTypes().add(this.getTypeProperty());
 
@@ -1939,7 +1963,9 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(typeStringEClass, TypeString.class, "TypeString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeString_TypeStrng(), this.getStringProperty(), null, "typeStrng", null, 0, 1, TypeString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTypeString_TypePrimitive(), this.getPrimitive(), "typePrimitive", null, 0, 1, TypeString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typePrimitiveEClass, TypePrimitive.class, "TypePrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypePrimitive_TypePrimitive(), this.getPrimitive(), "typePrimitive", null, 0, 1, TypePrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(isPrimitiveFuntionEClass, IsPrimitiveFuntion.class, "IsPrimitiveFuntion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

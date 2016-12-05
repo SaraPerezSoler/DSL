@@ -232,13 +232,12 @@ public class StringVariableImpl extends StringPropertyImpl implements StringVari
 	 */
 	@Override
 	public String toString() {
+		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer();
-		result.append(variable);
-		if (strings!=STRINGS_EDEFAULT){
-			result.append('.');
-			result.append(strings);
-		}
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (strings: ");
+		result.append(strings);
+		result.append(')');
 		return result.toString();
 	}
 

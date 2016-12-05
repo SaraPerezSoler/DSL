@@ -36,7 +36,7 @@ public class PropertyStringVariable<T extends IElements,K extends StringProperty
 			}else{
 				newString=var.getStringType();
 			}
-			property.setString(newString);
+			property.setString(newString, i);
 		}
 		
 		boolean ret= property.checkElement(analyze);
@@ -48,7 +48,7 @@ public class PropertyStringVariable<T extends IElements,K extends StringProperty
 			}else{
 				newString=var.getStringType();
 			}
-			property.deleteString(newString);
+			property.deleteString(newString, i);
 		}
 		return ret;
 	}
@@ -58,14 +58,14 @@ public class PropertyStringVariable<T extends IElements,K extends StringProperty
 		for (int i=0; i<variableName.size(); i++){
 			String var=variableName.get(i);
 			String type=string.get(i).toString().toLowerCase();
-			property.setString(var+"."+type);
+			property.setString(var+"."+type, i);
 		}
 		String cad= property.toString();
 		
 		for (int i=0; i<variableName.size(); i++){
 			String var=variableName.get(i);
 			String type=string.get(i).toString().toLowerCase();
-			property.deleteString(var+"."+type);
+			property.deleteString(var+"."+type, i);
 		}
 		return cad;
 	}

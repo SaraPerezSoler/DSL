@@ -10,20 +10,18 @@ import javaRule.NameType;
 public class PackageSatisfy {
   private final static String TYPE = "Package";
   
-  private final static String PROPERTY = "Properties<Package> p";
-  
   public static CharSequence getPropertie(final javaRule.Package s, final String sufix) {
     if ((s instanceof NameOperation)) {
-      return ComunSatisfy.nameOperation(((NameOperation) s), PackageSatisfy.TYPE, sufix, PackageSatisfy.PROPERTY);
+      return ComunSatisfy.nameOperation(((NameOperation) s), PackageSatisfy.TYPE, sufix);
     } else {
       if ((s instanceof NameType)) {
-        return ComunSatisfy.nameType(((NameType) s), PackageSatisfy.TYPE, sufix, PackageSatisfy.PROPERTY);
+        return ComunSatisfy.nameType(((NameType) s), PackageSatisfy.TYPE, sufix);
       } else {
         if ((s instanceof Empty)) {
-          return ComunSatisfy.empty(((Empty) s), PackageSatisfy.TYPE, sufix, PackageSatisfy.PROPERTY);
+          return ComunSatisfy.empty(((Empty) s), PackageSatisfy.TYPE, sufix);
         } else {
           if ((s instanceof Contains)) {
-            return ComunSatisfy.contains(((Contains) s), PackageSatisfy.TYPE, sufix, PackageSatisfy.PROPERTY);
+            return ComunSatisfy.contains(((Contains) s), PackageSatisfy.TYPE, sufix);
           }
         }
       }

@@ -915,9 +915,34 @@ ruleTypeString
 	}
 	:
 	(
-		{ before(grammarAccess.getTypeStringAccess().getAlternatives()); }
-		(rule__TypeString__Alternatives)
-		{ after(grammarAccess.getTypeStringAccess().getAlternatives()); }
+		{ before(grammarAccess.getTypeStringAccess().getTypeStrngAssignment()); }
+		(rule__TypeString__TypeStrngAssignment)
+		{ after(grammarAccess.getTypeStringAccess().getTypeStrngAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleTypePrimitive
+entryRuleTypePrimitive
+:
+{ before(grammarAccess.getTypePrimitiveRule()); }
+	 ruleTypePrimitive
+{ after(grammarAccess.getTypePrimitiveRule()); } 
+	 EOF 
+;
+
+// Rule TypePrimitive
+ruleTypePrimitive 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getTypePrimitiveAccess().getGroup()); }
+		(rule__TypePrimitive__Group__0)
+		{ after(grammarAccess.getTypePrimitiveAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1967,26 +1992,11 @@ rule__TypeProperty__Alternatives
 		ruleIsCollectionType
 		{ after(grammarAccess.getTypePropertyAccess().getIsCollectionTypeParserRuleCall_2()); }
 	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__TypeString__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getTypeStringAccess().getGroup_0()); }
-		(rule__TypeString__Group_0__0)
-		{ after(grammarAccess.getTypeStringAccess().getGroup_0()); }
-	)
 	|
 	(
-		{ before(grammarAccess.getTypeStringAccess().getTypeStrngAssignment_1()); }
-		(rule__TypeString__TypeStrngAssignment_1)
-		{ after(grammarAccess.getTypeStringAccess().getTypeStrngAssignment_1()); }
+		{ before(grammarAccess.getTypePropertyAccess().getTypePrimitiveParserRuleCall_3()); }
+		ruleTypePrimitive
+		{ after(grammarAccess.getTypePropertyAccess().getTypePrimitiveParserRuleCall_3()); }
 	)
 ;
 finally {
@@ -8275,53 +8285,53 @@ finally {
 }
 
 
-rule__TypeString__Group_0__0
+rule__TypePrimitive__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__TypeString__Group_0__0__Impl
-	rule__TypeString__Group_0__1
+	rule__TypePrimitive__Group__0__Impl
+	rule__TypePrimitive__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeString__Group_0__0__Impl
+rule__TypePrimitive__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getTypeStringAccess().getPrimitiveKeyword_0_0()); }
+	{ before(grammarAccess.getTypePrimitiveAccess().getPrimitiveKeyword_0()); }
 	'Primitive.'
-	{ after(grammarAccess.getTypeStringAccess().getPrimitiveKeyword_0_0()); }
+	{ after(grammarAccess.getTypePrimitiveAccess().getPrimitiveKeyword_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeString__Group_0__1
+rule__TypePrimitive__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__TypeString__Group_0__1__Impl
+	rule__TypePrimitive__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeString__Group_0__1__Impl
+rule__TypePrimitive__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getTypeStringAccess().getTypePrimitiveAssignment_0_1()); }
-	(rule__TypeString__TypePrimitiveAssignment_0_1)
-	{ after(grammarAccess.getTypeStringAccess().getTypePrimitiveAssignment_0_1()); }
+	{ before(grammarAccess.getTypePrimitiveAccess().getTypePrimitiveAssignment_1()); }
+	(rule__TypePrimitive__TypePrimitiveAssignment_1)
+	{ after(grammarAccess.getTypePrimitiveAccess().getTypePrimitiveAssignment_1()); }
 )
 ;
 finally {
@@ -11577,30 +11587,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeString__TypePrimitiveAssignment_0_1
+rule__TypeString__TypeStrngAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getTypeStringAccess().getTypePrimitivePrimitiveEnumRuleCall_0_1_0()); }
-		rulePrimitive
-		{ after(grammarAccess.getTypeStringAccess().getTypePrimitivePrimitiveEnumRuleCall_0_1_0()); }
+		{ before(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0()); }
+		ruleStringProperty
+		{ after(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeString__TypeStrngAssignment_1
+rule__TypePrimitive__TypePrimitiveAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_1_0()); }
-		ruleStringProperty
-		{ after(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_1_0()); }
+		{ before(grammarAccess.getTypePrimitiveAccess().getTypePrimitivePrimitiveEnumRuleCall_1_0()); }
+		rulePrimitive
+		{ after(grammarAccess.getTypePrimitiveAccess().getTypePrimitivePrimitiveEnumRuleCall_1_0()); }
 	)
 ;
 finally {

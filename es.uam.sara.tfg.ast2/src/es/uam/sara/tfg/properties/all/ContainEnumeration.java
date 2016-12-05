@@ -6,9 +6,9 @@ import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Enumeration;
 import es.uam.sara.tfg.sentence.Rule;
 
-public class ContainEnums<T extends Container> extends Contain<T,Enumeration> {
+public class ContainEnumeration<T extends Container> extends Contain<T,Enumeration> {
 
-	public ContainEnums(boolean no,Rule<Enumeration> r) {
+	public ContainEnumeration(boolean no,Rule<Enumeration> r) {
 		super(no,r);
 	}
 

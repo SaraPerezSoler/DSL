@@ -41,6 +41,7 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
 import javaRule.TypeString;
 import javaRule.Variable;
@@ -275,6 +276,10 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				Tamanio tamanio = (Tamanio)theEObject;
 				T result = caseTamanio(tamanio);
 				if (result == null) result = caseMethod(tamanio);
+				if (result == null) result = caseClass(tamanio);
+				if (result == null) result = caseFile(tamanio);
+				if (result == null) result = caseInterface(tamanio);
+				if (result == null) result = caseEnumeration(tamanio);
 				if (result == null) result = caseProperty(tamanio);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -449,6 +454,13 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				TypeString typeString = (TypeString)theEObject;
 				T result = caseTypeString(typeString);
 				if (result == null) result = caseTypeProperty(typeString);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaRulePackage.TYPE_PRIMITIVE: {
+				TypePrimitive typePrimitive = (TypePrimitive)theEObject;
+				T result = caseTypePrimitive(typePrimitive);
+				if (result == null) result = caseTypeProperty(typePrimitive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1112,6 +1124,21 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeString(TypeString object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Primitive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Primitive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypePrimitive(TypePrimitive object) {
 		return null;
 	}
 

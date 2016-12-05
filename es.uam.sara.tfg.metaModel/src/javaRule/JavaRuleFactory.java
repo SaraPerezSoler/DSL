@@ -301,6 +301,15 @@ public interface JavaRuleFactory extends EFactory {
 	TypeString createTypeString();
 
 	/**
+	 * Returns a new object of class '<em>Type Primitive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Primitive</em>'.
+	 * @generated
+	 */
+	TypePrimitive createTypePrimitive();
+
+	/**
 	 * Returns a new object of class '<em>Is Primitive Funtion</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -285,11 +285,15 @@ public class NameOperationImpl extends AttributeImpl implements NameOperation {
 	 */
 	@Override
 	public String toString() {
-		String noS="";
-		if (no){
-			noS=" do not ";
-		}
-		return "name "+noS+operator+" "+this.name;
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (operator: ");
+		result.append(operator);
+		result.append(", Language: ");
+		result.append(language);
+		result.append(')');
+		return result.toString();
 	}
 
 }

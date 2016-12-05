@@ -6,9 +6,9 @@ import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Attribute;
 import es.uam.sara.tfg.sentence.Rule;
 
-public class ContainAttributes<T extends Container> extends Contain<T,Attribute> {
+public class ContainAttribute<T extends Container> extends Contain<T,Attribute> {
 
-	public ContainAttributes(boolean no,Rule<Attribute> r) {
+	public ContainAttribute(boolean no,Rule<Attribute> r) {
 		super(no, r);
 	}
 

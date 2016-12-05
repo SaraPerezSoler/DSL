@@ -5,67 +5,102 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.Type;
 import es.uam.sara.tfg.elements.JavaTypes;
-import es.uam.sara.tfg.properties.Property;
-import es.uam.sara.tfg.properties.type.TypeProperty;
+import es.uam.sara.tfg.properties.StringProperty;
+import es.uam.sara.tfg.properties.type.TypeString;
 
-public class Implements<T extends JavaTypes> extends Property<T> implements TypeProperty {
+public class Implements<T extends JavaTypes> extends StringProperty<T> {
 
 	private int min;
 	private int max;
-	private List<String> interf;
+	private List<TypeString> interfConstantes;
+	private List<TypeString> interfVariables;
 	private boolean isInterface;
 
 	public Implements(boolean no) {
 		super(no);
 		min = 1;
 		max = Integer.MAX_VALUE;
-		interf = new ArrayList<String>();
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
 	}
 
 	public Implements(boolean no,int min) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
-		this.interf = new ArrayList<String>();
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
 	}
 
 	public Implements(boolean no,int min, int max) {
 		super(no);
 		this.min = min;
 		this.max = max;
-		this.interf = new ArrayList<String>();
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
 	}
 
-	public Implements(boolean no,List<String> interf) {
+	public Implements(boolean no,List<TypeString> interf) {
 		super(no);
 		this.min = interf.size();
 		this.max = Integer.MAX_VALUE;
-		this.interf = interf;
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
+		
+		for (TypeString t: interf){
+			if (t.isVariable()){
+				interfVariables.add(t);
+			}else{
+				interfConstantes.add(t);
+			}
+		}
 	}
 
-	public Implements(boolean no,int min, List<String> interf) {
+	public Implements(boolean no,int min, List<TypeString> interf) {
 		super(no);
 		this.min = min;
 		this.max = Integer.MAX_VALUE;
-		this.interf = interf;
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
+		
+		for (TypeString t: interf){
+			if (t.isVariable()){
+				interfVariables.add(t);
+			}else{
+				interfConstantes.add(t);
+			}
+		}
 	}
 
-	public Implements(boolean no,int min, int max, List<String> interf) {
+	public Implements(boolean no,int min, int max, List<TypeString> interf) {
 		super(no);
 		this.min = min;
 		this.max = max;
-		this.interf = interf;
+		interfConstantes = new ArrayList<TypeString>();
+		interfVariables = new ArrayList<TypeString>();
+		
+		for (TypeString t: interf){
+			if (t.isVariable()){
+				interfVariables.add(t);
+			}else{
+				interfConstantes.add(t);
+			}
+		}
 	}
 
 	@Override
 	public boolean checkElement(T analyze) {
+		
+		List<TypeString> interf=new ArrayList<TypeString>();
+		interf.addAll(this.interfConstantes);
+		interf.addAll(interfVariables);
 		if (analyze.isInterface()) {
 			isInterface = true;
 		}
 		List<Type> superInterface = analyze.getSuperInterfaces();
 		if (superInterface.size() >= min && superInterface.size() <= max) {
-			for (String type : this.interf) {
-				if (!(this.listContainElement(superInterface, type))) {
+			for (TypeString type : interf) {
+				if (!type.isTypeIn(superInterface)){
 					return false;
 				}
 			}
@@ -95,15 +130,30 @@ public class Implements<T extends JavaTypes> extends Property<T> implements Type
 				cad += "[" + min + ".." + max + "] ";
 			}
 		}
-		if (!this.interf.isEmpty()) {
+		List<TypeString> interf=new ArrayList<TypeString>();
+		interf.addAll(this.interfConstantes);
+		interf.addAll(interfVariables);
+		if (!interf.isEmpty()) {
 			cad += "{";
-			for (String s : interf) {
+			for (TypeString s : interf) {
 				cad += s + " ";
 			}
 			cad += "}";
 		}
 
 		return cad;
+	}
+
+	@Override
+	public void setString(String string, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteString(String string, int i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

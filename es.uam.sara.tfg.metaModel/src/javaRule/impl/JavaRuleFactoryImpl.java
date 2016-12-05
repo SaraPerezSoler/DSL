@@ -41,6 +41,7 @@ import javaRule.RuleSet;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypePrimitive;
 import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
@@ -130,6 +131,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
 			case JavaRulePackage.TYPE_STRING: return createTypeString();
+			case JavaRulePackage.TYPE_PRIMITIVE: return createTypePrimitive();
 			case JavaRulePackage.IS_PRIMITIVE_FUNTION: return createIsPrimitiveFuntion();
 			case JavaRulePackage.IS_COLLECTION_TYPE: return createIsCollectionType();
 			default:
@@ -503,6 +505,16 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public TypeString createTypeString() {
 		TypeStringImpl typeString = new TypeStringImpl();
 		return typeString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypePrimitive createTypePrimitive() {
+		TypePrimitiveImpl typePrimitive = new TypePrimitiveImpl();
+		return typePrimitive;
 	}
 
 	/**

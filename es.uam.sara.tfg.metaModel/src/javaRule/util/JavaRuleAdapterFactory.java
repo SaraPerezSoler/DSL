@@ -41,6 +41,7 @@ import javaRule.StringProperty;
 import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
+import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
 import javaRule.TypeString;
 import javaRule.Variable;
@@ -281,6 +282,10 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypeString(TypeString object) {
 				return createTypeStringAdapter();
+			}
+			@Override
+			public Adapter caseTypePrimitive(TypePrimitive object) {
+				return createTypePrimitiveAdapter();
 			}
 			@Override
 			public Adapter caseIsPrimitiveFuntion(IsPrimitiveFuntion object) {
@@ -909,6 +914,20 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link javaRule.TypePrimitive <em>Type Primitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see javaRule.TypePrimitive
+	 * @generated
+	 */
+	public Adapter createTypePrimitiveAdapter() {
 		return null;
 	}
 

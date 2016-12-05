@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 public class VariableImpl extends SentenceImpl implements Variable {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected VariableImpl() {
@@ -26,7 +25,6 @@ public class VariableImpl extends SentenceImpl implements Variable {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -6,9 +6,9 @@ import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.type.Method;
 import es.uam.sara.tfg.sentence.Rule;
 
-public class ContainMethods<T extends Container> extends Contain<T,Method> {
+public class ContainMethod<T extends Container> extends Contain<T,Method> {
 
-	public ContainMethods(boolean no,Rule<Method> r) {
+	public ContainMethod(boolean no,Rule<Method> r) {
 		super(no, r);
 	}
 

@@ -21,7 +21,7 @@ package javaRule;
  * @model
  * @generated
  */
-public interface Tamanio extends Method {
+public interface Tamanio extends Method, javaRule.Class, File, Interface, Enumeration {
 	/**
 	 * Returns the value of the '<em><b>Min</b></em>' attribute.
 	 * The default value is <code>"1"</code>.

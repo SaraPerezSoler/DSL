@@ -224,12 +224,12 @@ public class NameOperation<T extends IElements> extends StringProperty<T> {
 		return checkNameOperation(analyze.getName());
 	}
 	@Override
-	public void setString(String string) {
+	public void setString(String string, int i) {
 		this.other = string;
 		
 	}
 	@Override
-	public void deleteString(String string) {
+	public void deleteString(String string, int i) {
 		this.other="";
 		
 	}

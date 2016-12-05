@@ -5,6 +5,7 @@ import es.uam.sara.tfg.ast.ReadFiles;
 import es.uam.sara.tfg.ast.Visitors;
 import es.uam.sara.tfg.elements.type.Class;
 import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.properties.PropertyStringVariable.StringType;
 import es.uam.sara.tfg.properties.all.NameOperation;
 import es.uam.sara.tfg.properties.all.NameOperation.Operation;
 

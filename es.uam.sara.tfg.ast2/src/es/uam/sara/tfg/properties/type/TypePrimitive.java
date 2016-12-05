@@ -20,4 +20,19 @@ public class TypePrimitive implements Type{
 		List<String> strings= this.getString(other);
 		return strings.contains(type.toString().toLowerCase());
 	}
+
+	@Override
+	public String getString() {
+		return type.toString().toLowerCase();
+	}
+
+	@Override
+	public void setString(String s) {
+		
+	}
+
+	@Override
+	public void deleteString(String s) {
+		
+	}
 }

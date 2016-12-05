@@ -2099,22 +2099,13 @@ public interface JavaRulePackage extends EPackage {
 	int TYPE_STRING__TYPE_STRNG = TYPE_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type Primitive</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_STRING__TYPE_PRIMITIVE = TYPE_PROPERTY_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Type String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_STRING_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 2;
+	int TYPE_STRING_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Type String</em>' class.
@@ -2126,6 +2117,43 @@ public interface JavaRulePackage extends EPackage {
 	int TYPE_STRING_OPERATION_COUNT = TYPE_PROPERTY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link javaRule.impl.TypePrimitiveImpl <em>Type Primitive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see javaRule.impl.TypePrimitiveImpl
+	 * @see javaRule.impl.JavaRulePackageImpl#getTypePrimitive()
+	 * @generated
+	 */
+	int TYPE_PRIMITIVE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Type Primitive</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PRIMITIVE__TYPE_PRIMITIVE = TYPE_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Type Primitive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PRIMITIVE_FEATURE_COUNT = TYPE_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Type Primitive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PRIMITIVE_OPERATION_COUNT = TYPE_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link javaRule.impl.IsPrimitiveFuntionImpl <em>Is Primitive Funtion</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2133,7 +2161,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsPrimitiveFuntion()
 	 * @generated
 	 */
-	int IS_PRIMITIVE_FUNTION = 43;
+	int IS_PRIMITIVE_FUNTION = 44;
 
 	/**
 	 * The number of structural features of the '<em>Is Primitive Funtion</em>' class.
@@ -2161,7 +2189,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getIsCollectionType()
 	 * @generated
 	 */
-	int IS_COLLECTION_TYPE = 44;
+	int IS_COLLECTION_TYPE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Of</b></em>' containment reference.
@@ -2198,7 +2226,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 45;
+	int QUANTIFIER = 46;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Element <em>Element</em>}' enum.
@@ -2208,7 +2236,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElement()
 	 * @generated
 	 */
-	int ELEMENT = 46;
+	int ELEMENT = 47;
 
 	/**
 	 * The meta object id for the '{@link javaRule.ElementString <em>Element String</em>}' enum.
@@ -2218,7 +2246,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getElementString()
 	 * @generated
 	 */
-	int ELEMENT_STRING = 47;
+	int ELEMENT_STRING = 48;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Language <em>Language</em>}' enum.
@@ -2228,7 +2256,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 48;
+	int LANGUAGE = 49;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameCheck <em>Name Check</em>}' enum.
@@ -2238,7 +2266,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameCheck()
 	 * @generated
 	 */
-	int NAME_CHECK = 49;
+	int NAME_CHECK = 50;
 
 	/**
 	 * The meta object id for the '{@link javaRule.NameOperator <em>Name Operator</em>}' enum.
@@ -2248,7 +2276,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getNameOperator()
 	 * @generated
 	 */
-	int NAME_OPERATOR = 50;
+	int NAME_OPERATOR = 51;
 
 	/**
 	 * The meta object id for the '{@link javaRule.AccessModifier <em>Access Modifier</em>}' enum.
@@ -2258,7 +2286,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getAccessModifier()
 	 * @generated
 	 */
-	int ACCESS_MODIFIER = 51;
+	int ACCESS_MODIFIER = 52;
 
 	/**
 	 * The meta object id for the '{@link javaRule.Primitive <em>Primitive</em>}' enum.
@@ -2268,7 +2296,7 @@ public interface JavaRulePackage extends EPackage {
 	 * @see javaRule.impl.JavaRulePackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int PRIMITIVE = 52;
+	int PRIMITIVE = 53;
 
 
 	/**
@@ -3329,15 +3357,25 @@ public interface JavaRulePackage extends EPackage {
 	EReference getTypeString_TypeStrng();
 
 	/**
-	 * Returns the meta object for the attribute '{@link javaRule.TypeString#getTypePrimitive <em>Type Primitive</em>}'.
+	 * Returns the meta object for class '{@link javaRule.TypePrimitive <em>Type Primitive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Primitive</em>'.
+	 * @see javaRule.TypePrimitive
+	 * @generated
+	 */
+	EClass getTypePrimitive();
+
+	/**
+	 * Returns the meta object for the attribute '{@link javaRule.TypePrimitive#getTypePrimitive <em>Type Primitive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type Primitive</em>'.
-	 * @see javaRule.TypeString#getTypePrimitive()
-	 * @see #getTypeString()
+	 * @see javaRule.TypePrimitive#getTypePrimitive()
+	 * @see #getTypePrimitive()
 	 * @generated
 	 */
-	EAttribute getTypeString_TypePrimitive();
+	EAttribute getTypePrimitive_TypePrimitive();
 
 	/**
 	 * Returns the meta object for class '{@link javaRule.IsPrimitiveFuntion <em>Is Primitive Funtion</em>}'.
@@ -4360,12 +4398,22 @@ public interface JavaRulePackage extends EPackage {
 		EReference TYPE_STRING__TYPE_STRNG = eINSTANCE.getTypeString_TypeStrng();
 
 		/**
+		 * The meta object literal for the '{@link javaRule.impl.TypePrimitiveImpl <em>Type Primitive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see javaRule.impl.TypePrimitiveImpl
+		 * @see javaRule.impl.JavaRulePackageImpl#getTypePrimitive()
+		 * @generated
+		 */
+		EClass TYPE_PRIMITIVE = eINSTANCE.getTypePrimitive();
+
+		/**
 		 * The meta object literal for the '<em><b>Type Primitive</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPE_STRING__TYPE_PRIMITIVE = eINSTANCE.getTypeString_TypePrimitive();
+		EAttribute TYPE_PRIMITIVE__TYPE_PRIMITIVE = eINSTANCE.getTypePrimitive_TypePrimitive();
 
 		/**
 		 * The meta object literal for the '{@link javaRule.impl.IsPrimitiveFuntionImpl <em>Is Primitive Funtion</em>}' class.

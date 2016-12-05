@@ -10,60 +10,84 @@ import javaRule.Method
 import javaRule.NameOperation
 import javaRule.NameType
 import javaRule.IsGeneric
+import javaRule.Tamanio
+import javaRule.TypeProperty
+import javaRule.TypeString
 
 class MethodsSatisfy {
-//
-//	private static final String PREFIX = "Meth"
-//	private static final String PROPERTY = "Properties<MethodDeclaration> p"
-//
-//	def static CharSequence getPropertie(Method s, String sufix) {
-//
-//		if (s instanceof NameOperation) {
-//
-//			return ComunSatisfy.nameOperation(s as NameOperation, PREFIX,  sufix,PROPERTY)
-//
-//		} else if (s instanceof NameType) {
-//
-//			return ComunSatisfy.nameType(s as NameType, PREFIX,  sufix,PROPERTY)
-//
-//		} else if (s instanceof JavaDoc) {
-//
-//			return ComunSatisfy.javaDoc(s as JavaDoc, PREFIX,  sufix,PROPERTY);
-//
-//		} else if (s instanceof Modifiers) {
-//
-//			return ComunSatisfy.modifiers(s as Modifiers, PREFIX,  sufix,PROPERTY);
-//
-//		} else if (s instanceof Empty) {
-//
-//			return ComunSatisfy.empty(s as Empty, PREFIX,  sufix,PROPERTY);
-//
-//		} else if (s instanceof Constructor) {
-//
-//			return PROPERTY + sufix + "= new Constructor ();";
-//
-//		} else if (s instanceof Parameter) {
-//
-//			var p = s as Parameter
-//			if (p.typesParam.isEmpty) {
-//
-//				return PROPERTY + sufix + "= new Parameters (" + p.numParam + ");"
-//
-//			} else {
-//
-//				var cadena = "List<String> param" + sufix + "= new ArrayList<String>();\n"
-//				for (tp : p.typesParam) {
-//					cadena += "param" + sufix + ".add(\"" + tp + "\");\n"
-//				}
-//				cadena += PROPERTY + sufix + "= new Parameters (param" + sufix + ");"
-//				return cadena;
-//			}
-//
-//		} else if (s instanceof Return) {
-//			var r = s as Return
-//			return PROPERTY + sufix + "= new Return (\"" + r.returnType + "\");"
-//		}else if (s instanceof IsGeneric){
-//			return ComunSatisfy.isGeneric(s as IsGeneric, PREFIX, sufix, PROPERTY);
-//		}
-//	}
+
+	private static final String TYPE = "Method"
+
+	def static CharSequence getPropertie(Method s, String sufix) {
+
+		if (s instanceof NameOperation) {
+
+			return ComunSatisfy.nameOperation(s as NameOperation, TYPE, sufix)
+
+		} else if (s instanceof NameType) {
+
+			return ComunSatisfy.nameType(s as NameType, TYPE, sufix)
+
+		} else if (s instanceof JavaDoc) {
+
+			return ComunSatisfy.javaDoc(s as JavaDoc, TYPE, sufix);
+
+		} else if (s instanceof Modifiers) {
+
+			return ComunSatisfy.modifiers(s as Modifiers, TYPE, sufix);
+
+		} else if (s instanceof Empty) {
+
+			return ComunSatisfy.empty(s as Empty, TYPE, sufix);
+
+		} else if (s instanceof Constructor) {
+			return "Properties<" + TYPE + "> p" + sufix + "= new Constructor (" + s.no + ");\n"
+			
+		} else if (s instanceof Parameter) {
+			
+			var p = s as Parameter
+			var min = p.min
+			var max = p.max
+			if (p.exact != -2147483647) {
+				min = p.exact
+				max = p.exact
+			}
+			var i = 0;
+			var cad = "List <Type> types=new ArrayList<Type>();\n"
+			for (TypeProperty tp:p.types){
+				cad+=ComunSatisfy.getType(tp, sufix+i)
+				cad+="types.add(type"+sufix+i+");\n"
+				i++;
+			}
+			cad+=ComunSatisfy.declaraVariable(sufix);
+			for (TypeProperty tp: p.types){
+				if (tp instanceof TypeString){
+					ComunSatisfy.añadeVariable((tp as TypeString).typeStrng, sufix)
+				}
+			}
+			
+			cad+= "Properties<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Parameters>(" +p.no+",listV"+sufix+
+				", listT"+sufix+", new Parameters(" + s.no + ","+min+","+max+", types));\n"
+				
+			return cad;
+
+		} else if (s instanceof Return) {
+			var r = s as Return;
+			var cad = ComunSatisfy.getType(r.type, sufix)
+			if (r.type instanceof TypeString){
+				var spa=r.type as TypeString
+				cad+=ComunSatisfy.propertyStringVariable(spa.typeStrng, sufix);
+				cad+= "Properties<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Return>(" +r.no+",listV"+sufix+
+				", listT"+sufix+", new Return(" + r.no + ",type" + sufix + "));\n"
+				return cad;
+			}
+			cad+="Properties<"+TYPE+"> p" + sufix+"=new Return(" + r.no + ",type" + sufix + ");\n"
+			return cad
+
+		} else if (s instanceof Tamanio) {
+			return ComunSatisfy.size(s as Tamanio, TYPE, sufix)
+		} else if (s instanceof IsGeneric) {
+			return ComunSatisfy.isGeneric(s as IsGeneric, TYPE, sufix);
+		}
+	}
 }

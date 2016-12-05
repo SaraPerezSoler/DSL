@@ -3,7 +3,8 @@
 package javaRule.impl;
 
 import javaRule.JavaRulePackage;
-import javaRule.StringValue;
+import javaRule.Primitive;
+import javaRule.TypePrimitive;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,44 +14,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Value</b></em>'.
+ * An implementation of the model object '<em><b>Type Primitive</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link javaRule.impl.StringValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link javaRule.impl.TypePrimitiveImpl#getTypePrimitive <em>Type Primitive</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StringValueImpl extends StringPropertyImpl implements StringValue {
+public class TypePrimitiveImpl extends TypePropertyImpl implements TypePrimitive {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getTypePrimitive() <em>Type Primitive</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getTypePrimitive()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final Primitive TYPE_PRIMITIVE_EDEFAULT = Primitive.BYTE;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getTypePrimitive() <em>Type Primitive</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getTypePrimitive()
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected Primitive typePrimitive = TYPE_PRIMITIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StringValueImpl() {
+	protected TypePrimitiveImpl() {
 		super();
 	}
 
@@ -61,7 +62,7 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JavaRulePackage.Literals.STRING_VALUE;
+		return JavaRulePackage.Literals.TYPE_PRIMITIVE;
 	}
 
 	/**
@@ -69,8 +70,8 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
-		return value;
+	public Primitive getTypePrimitive() {
+		return typePrimitive;
 	}
 
 	/**
@@ -78,11 +79,11 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
+	public void setTypePrimitive(Primitive newTypePrimitive) {
+		Primitive oldTypePrimitive = typePrimitive;
+		typePrimitive = newTypePrimitive == null ? TYPE_PRIMITIVE_EDEFAULT : newTypePrimitive;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.STRING_VALUE__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, JavaRulePackage.TYPE_PRIMITIVE__TYPE_PRIMITIVE, oldTypePrimitive, typePrimitive));
 	}
 
 	/**
@@ -93,8 +94,8 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JavaRulePackage.STRING_VALUE__VALUE:
-				return getValue();
+			case JavaRulePackage.TYPE_PRIMITIVE__TYPE_PRIMITIVE:
+				return getTypePrimitive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +108,8 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JavaRulePackage.STRING_VALUE__VALUE:
-				setValue((String)newValue);
+			case JavaRulePackage.TYPE_PRIMITIVE__TYPE_PRIMITIVE:
+				setTypePrimitive((Primitive)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +123,8 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.STRING_VALUE__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case JavaRulePackage.TYPE_PRIMITIVE__TYPE_PRIMITIVE:
+				setTypePrimitive(TYPE_PRIMITIVE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +138,8 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JavaRulePackage.STRING_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case JavaRulePackage.TYPE_PRIMITIVE__TYPE_PRIMITIVE:
+				return typePrimitive != TYPE_PRIMITIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,10 +154,10 @@ public class StringValueImpl extends StringPropertyImpl implements StringValue {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
-		result.append(value);
+		result.append(" (typePrimitive: ");
+		result.append(typePrimitive);
 		result.append(')');
 		return result.toString();
 	}
 
-} //StringValueImpl
+} //TypePrimitiveImpl

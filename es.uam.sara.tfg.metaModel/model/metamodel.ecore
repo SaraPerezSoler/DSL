@@ -97,7 +97,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//StringProperty" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tamanio" eSuperTypes="#//Method">
+  <eClassifiers xsi:type="ecore:EClass" name="Tamanio" eSuperTypes="#//Method #//Class #//File #//Interface #//Enumeration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -222,6 +222,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypeString" eSuperTypes="#//TypeProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeStrng" eType="#//StringProperty"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypePrimitive" eSuperTypes="#//TypeProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typePrimitive" eType="#//Primitive"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsPrimitiveFuntion" eSuperTypes="#//TypeProperty"/>

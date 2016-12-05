@@ -5,12 +5,25 @@ package es.uam.sara.tfg.dsl.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import es.uam.sara.tfg.dsl.generator.AttributesSatisfy;
+import es.uam.sara.tfg.dsl.generator.ClassesSatisfy;
+import es.uam.sara.tfg.dsl.generator.EnumSatisfy;
+import es.uam.sara.tfg.dsl.generator.FileSatisfy;
+import es.uam.sara.tfg.dsl.generator.InterfaceSatisfy;
+import es.uam.sara.tfg.dsl.generator.MethodsSatisfy;
+import es.uam.sara.tfg.dsl.generator.PackageSatisfy;
 import java.util.ArrayList;
 import java.util.List;
 import javaRule.And;
+import javaRule.Attribute;
 import javaRule.Element;
+import javaRule.Enumeration;
+import javaRule.File;
+import javaRule.Interface;
+import javaRule.Method;
 import javaRule.Or;
 import javaRule.PrimaryOp;
+import javaRule.Property;
 import javaRule.PropertyLiteral;
 import javaRule.Quantifier;
 import javaRule.Rule;
@@ -253,13 +266,13 @@ public class JRulesGenerator extends AbstractGenerator {
       _builder.append("List<String> packages=visitors.getPackages();");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("List<TypeDeclaration> classes=visitors.getClasses();");
+      _builder.append("List<TypeDeclaration> classs=visitors.getClasses();");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.append("List<TypeDeclaration> interfaces=visitors.getInterfaces();");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("List<EnumDeclaration> enums=visitors.getEnumerations();");
+      _builder.append("List<EnumDeclaration> enumerations=visitors.getEnumerations();");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.append("List<MethodDeclaration> methods=visitors.getMethods();");
@@ -639,7 +652,7 @@ public class JRulesGenerator extends AbstractGenerator {
     _builder.append(_element_3, "");
     _builder.append("\",");
     _builder.append(analize, "");
-    _builder.append(", or");
+    _builder.append("s, or");
     _builder.append(name, "");
     _builder.append(");\t");
     _builder.newLineIfNotEmpty();
@@ -688,7 +701,7 @@ public class JRulesGenerator extends AbstractGenerator {
     _builder.append(_upperCase, "");
     _builder.append(",");
     _builder.append(analize, "");
-    _builder.append(",orFilter");
+    _builder.append("s,orFilter");
     _builder.append(i, "");
     _builder.append(", or");
     _builder.append(i, "");
@@ -801,11 +814,44 @@ public class JRulesGenerator extends AbstractGenerator {
   }
   
   public static CharSequence getSatisfy(final PropertyLiteral s, final Element e, final String sufix) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method getPropertie(Class, String) is undefined for the type Class<ClassesSatisfy>"
-      + "\nThe method getPropertie(Enumeration, String) is undefined for the type Class<EnumSatisfy>"
-      + "\nThe method getPropertie(Method, String) is undefined for the type Class<MethodsSatisfy>"
-      + "\nThe method getPropertie(Attribute, String) is undefined for the type Class<AttributesSatisfy>");
+    boolean _equals = Objects.equal(e, Element.PACKAGE);
+    if (_equals) {
+      Property _property = s.getProperty();
+      return PackageSatisfy.getPropertie(((javaRule.Package) _property), sufix);
+    } else {
+      boolean _equals_1 = Objects.equal(e, Element.INTERFACE);
+      if (_equals_1) {
+        Property _property_1 = s.getProperty();
+        return InterfaceSatisfy.getPropertie(((Interface) _property_1), sufix);
+      } else {
+        boolean _equals_2 = Objects.equal(e, Element.CLASS);
+        if (_equals_2) {
+          Property _property_2 = s.getProperty();
+          return ClassesSatisfy.getPropertie(((javaRule.Class) _property_2), sufix);
+        } else {
+          boolean _equals_3 = Objects.equal(e, Element.ENUM);
+          if (_equals_3) {
+            Property _property_3 = s.getProperty();
+            return EnumSatisfy.getPropertie(((Enumeration) _property_3), sufix);
+          } else {
+            boolean _equals_4 = Objects.equal(e, Element.METHOD);
+            if (_equals_4) {
+              Property _property_4 = s.getProperty();
+              return MethodsSatisfy.getPropertie(((Method) _property_4), sufix);
+            } else {
+              boolean _equals_5 = Objects.equal(e, Element.FILE);
+              if (_equals_5) {
+                Property _property_5 = s.getProperty();
+                return FileSatisfy.getPropertie(((File) _property_5), sufix);
+              } else {
+                Property _property_6 = s.getProperty();
+                return AttributesSatisfy.getPropertie(((Attribute) _property_6), sufix);
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   public static String getType(final Element e) {

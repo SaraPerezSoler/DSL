@@ -3205,6 +3205,15 @@ ruleTypeProperty returns [EObject current=null]
 			$current = $this_IsCollectionType_2.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getTypePropertyAccess().getTypePrimitiveParserRuleCall_3());
+		}
+		this_TypePrimitive_3=ruleTypePrimitive
+		{
+			$current = $this_TypePrimitive_3.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -3225,46 +3234,60 @@ ruleTypeString returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='Primitive.'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getTypeStringAccess().getPrimitiveKeyword_0_0());
+				newCompositeNode(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0());
 			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTypeStringAccess().getTypePrimitivePrimitiveEnumRuleCall_0_1_0());
-					}
-					lv_typePrimitive_1_0=rulePrimitive
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTypeStringRule());
-						}
-						set(
-							$current,
-							"typePrimitive",
-							lv_typePrimitive_1_0,
-							"es.uam.sara.tfg.dsl.JRules.Primitive");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
+			lv_typeStrng_0_0=ruleStringProperty
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getTypeStringRule());
+				}
+				set(
+					$current,
+					"typeStrng",
+					lv_typeStrng_0_0,
+					"es.uam.sara.tfg.dsl.JRules.StringProperty");
+				afterParserOrEnumRuleCall();
+			}
 		)
-		    |
+	)
+;
+
+// Entry rule entryRuleTypePrimitive
+entryRuleTypePrimitive returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTypePrimitiveRule()); }
+	iv_ruleTypePrimitive=ruleTypePrimitive
+	{ $current=$iv_ruleTypePrimitive.current; }
+	EOF;
+
+// Rule TypePrimitive
+ruleTypePrimitive returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Primitive.'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTypePrimitiveAccess().getPrimitiveKeyword_0());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getTypePrimitiveAccess().getTypePrimitivePrimitiveEnumRuleCall_1_0());
 				}
-				lv_typeStrng_2_0=ruleStringProperty
+				lv_typePrimitive_1_0=rulePrimitive
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTypeStringRule());
+						$current = createModelElementForParent(grammarAccess.getTypePrimitiveRule());
 					}
 					set(
 						$current,
-						"typeStrng",
-						lv_typeStrng_2_0,
-						"es.uam.sara.tfg.dsl.JRules.StringProperty");
+						"typePrimitive",
+						lv_typePrimitive_1_0,
+						"es.uam.sara.tfg.dsl.JRules.Primitive");
 					afterParserOrEnumRuleCall();
 				}
 			)

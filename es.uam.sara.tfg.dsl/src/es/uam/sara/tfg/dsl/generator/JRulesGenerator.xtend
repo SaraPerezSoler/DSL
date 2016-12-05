@@ -27,6 +27,7 @@ import javaRule.Element
 import javaRule.PrimaryOp
 import javaRule.PropertyLiteral
 import javaRule.VariableSubtype
+import javaRule.File
 
 /**
  * Generates code from your model files on save.
@@ -139,9 +140,9 @@ class JRulesGenerator extends AbstractGenerator {
 					}else{
 						rules= new ArrayList<Rule<?>>();
 						List<String> packages=visitors.getPackages();
-						List<TypeDeclaration> classes=visitors.getClasses();
+						List<TypeDeclaration> classs=visitors.getClasses();
 						List<TypeDeclaration> interfaces=visitors.getInterfaces();
-						List<EnumDeclaration> enums=visitors.getEnumerations();
+						List<EnumDeclaration> enumerations=visitors.getEnumerations();
 						List<MethodDeclaration> methods=visitors.getMethods();
 						List<FieldDeclaration> attributes=visitors.getAttributes();
 						
@@ -252,7 +253,7 @@ class JRulesGenerator extends AbstractGenerator {
 			«var type=getType(v.element)»
 			«var analize=getType(v.element).toLowerCase»
 			«getOr(v.satisfy, name, v.element)»
-			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize», or«name»);	
+			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize»s, or«name»);	
 		'''
 	}
 
@@ -264,7 +265,7 @@ class JRulesGenerator extends AbstractGenerator {
 			«var analize=getType(r.element).toLowerCase»
 			«getOr(r.filter, "Filter"+i, r.element)»
 			«getOr(r.satisfy, i, r.element)»
-			Rule<«type»> «r.name»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»,orFilter«i», or«i», "«r.element»");	
+			Rule<«type»> «r.name»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»s,orFilter«i», or«i», "«r.element»");	
 		'''
 	}
 
@@ -314,7 +315,9 @@ class JRulesGenerator extends AbstractGenerator {
 			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
 		} else if (e == Element.METHOD) {
 			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
-		} else {
+		} else if (e == Element.FILE){
+			return FileSatisfy.getPropertie(s.property as File, sufix)
+		}else{
 			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
 		}
 	}

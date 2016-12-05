@@ -313,11 +313,17 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 	 */
 	@Override
 	public String toString() {
-		if (exact==EXACT_EDEFAULT){
-			return "params ["+ min+".."+max+"] types={"+types+"}";
-		}else{
-			return "params = "+ exact+"types={"+types+"}";
-		}
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (min: ");
+		result.append(min);
+		result.append(", max: ");
+		result.append(max);
+		result.append(", exact: ");
+		result.append(exact);
+		result.append(')');
+		return result.toString();
 	}
 	
 
