@@ -8,14 +8,14 @@ import java.util.List;
 
 import org.eclipse.jdt.core.dom.Type;
 
-import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.elements.type.MMethod;
 import es.uam.sara.tfg.properties.StringProperty;
 
 /**
  * @author Sara
  *
  */
-public class Parameters extends StringProperty<Method>{
+public class Parameters extends StringProperty<MMethod>{
 
 	private int min;
 	private int max;
@@ -108,7 +108,7 @@ public class Parameters extends StringProperty<Method>{
 	}
 
 	@Override
-	public boolean checkElement(Method analyze) {
+	public boolean checkElement(MMethod analyze) {
 		List<Type> params = analyze.getParametersType();
 		List<es.uam.sara.tfg.properties.type.Type> paramList = new ArrayList<es.uam.sara.tfg.properties.type.Type>();
 		paramList.addAll(paramListContantes);

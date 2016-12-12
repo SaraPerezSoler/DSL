@@ -9,9 +9,10 @@ import javaRule.NameOperation
 import javaRule.NameType
 import javaRule.Tamanio
 import javaRule.Implements
+import javaRule.StringProperty
 
 class EnumSatisfy {
-	private static final String TYPE = "Enumeration"
+	private static final String TYPE = "MEnumeration"
 
 	def static CharSequence getPropertie(Enumeration s, String sufix) {
 		if (s instanceof JavaDoc) {
@@ -27,7 +28,28 @@ class EnumSatisfy {
 		} else if (s instanceof Contains) {
 			return ComunSatisfy.contains(s as Contains, TYPE, sufix);
 		} else if (s instanceof Tamanio) {
+			return ComunSatisfy.size(s as Tamanio, TYPE, sufix)
 		} else if (s instanceof Implements) {
+			
+			var p = s as Implements
+			var min = p.valores.min
+			var max = p.valores.max
+			var i = 1;
+			var cad = "List <TypeString> types"+sufix+"=new ArrayList<TypeString>();\n"
+			for (StringProperty tp:p.valores.types){
+				cad+=ComunSatisfy.getType(tp, sufix+i)
+				cad+="types"+sufix+".add(type"+sufix+i+");\n"
+				i++;
+			}
+			cad+=ComunSatisfy.declaraVariable(sufix);
+			for (StringProperty tp: p.valores.types){
+				cad+=ComunSatisfy.añadeVariable(tp , sufix)
+				
+			}
+			
+			cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Implements>(" +p.no+",listV"+sufix+
+				", listT"+sufix+", new Implements(" + s.no + ","+min+","+max+", types"+sufix+"));\n"
+				return cad;
 		}
 	}
 }

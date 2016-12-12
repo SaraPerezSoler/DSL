@@ -17,6 +17,7 @@ import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsImplemented;
 import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
@@ -43,10 +44,8 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
-import javaRule.isImplemented;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -176,8 +175,8 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 				return createAttributeAdapter();
 			}
 			@Override
-			public Adapter caseisImplemented(isImplemented object) {
-				return createisImplementedAdapter();
+			public Adapter caseIsImplemented(IsImplemented object) {
+				return createIsImplementedAdapter();
 			}
 			@Override
 			public Adapter caseIsSuperInterface(IsSuperInterface object) {
@@ -278,10 +277,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypeProperty(TypeProperty object) {
 				return createTypePropertyAdapter();
-			}
-			@Override
-			public Adapter caseTypeString(TypeString object) {
-				return createTypeStringAdapter();
 			}
 			@Override
 			public Adapter caseTypePrimitive(TypePrimitive object) {
@@ -540,16 +535,16 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.isImplemented <em>is Implemented</em>}'.
+	 * Creates a new adapter for an object of class '{@link javaRule.IsImplemented <em>Is Implemented</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see javaRule.isImplemented
+	 * @see javaRule.IsImplemented
 	 * @generated
 	 */
-	public Adapter createisImplementedAdapter() {
+	public Adapter createIsImplementedAdapter() {
 		return null;
 	}
 
@@ -900,20 +895,6 @@ public class JavaRuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypePropertyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link javaRule.TypeString <em>Type String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see javaRule.TypeString
-	 * @generated
-	 */
-	public Adapter createTypeStringAdapter() {
 		return null;
 	}
 

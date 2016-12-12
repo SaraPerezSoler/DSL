@@ -2,10 +2,10 @@ package es.uam.sara.tfg.properties.methods;
 
 import org.eclipse.jdt.core.dom.Type;
 
-import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.elements.type.MMethod;
 import es.uam.sara.tfg.properties.StringProperty;
 
-public class Return extends StringProperty<Method> {
+public class Return extends StringProperty<MMethod> {
 
 	private es.uam.sara.tfg.properties.type.Type type = null;
 
@@ -25,7 +25,7 @@ public class Return extends StringProperty<Method> {
 	}
 
 	@Override
-	public boolean checkElement(Method analyze) {
+	public boolean checkElement(MMethod analyze) {
 		Type returnType = analyze.getReturnType();
 		if (type.compare(returnType)) {
 			return true;

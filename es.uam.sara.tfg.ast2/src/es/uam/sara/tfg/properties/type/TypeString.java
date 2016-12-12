@@ -23,11 +23,11 @@ public class TypeString implements Type{
 		return ret;
 	}
 	public boolean compare(org.eclipse.jdt.core.dom.Type other){
-		List<String> strings= this.getString(other);
+		List<String> strings= Type.getString(other);
 		return strings.contains(type.toLowerCase());
 	}
-	public boolean isTypeIn(List<org.eclipse.jdt.core.dom.Type> list){
-		
+	public boolean isTypeIn(List<String> list){
+		return list.contains(type.toLowerCase());
 	}
 	public boolean isVariable(){
 		return variable;
@@ -51,4 +51,5 @@ public class TypeString implements Type{
 		}
 		
 	}
+	
 }

@@ -570,16 +570,16 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cModifiersParserRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
 		
 		//Property:
-		//	isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter |
+		//	IsImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter |
 		//	Constructor | Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType | Contains | JavaDoc
 		//	| Modifiers;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor
+		//IsImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor
 		//| Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType | Contains | JavaDoc | Modifiers
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//isImplemented
+		//IsImplemented
 		public RuleCall getIsImplementedParserRuleCall_0() { return cIsImplementedParserRuleCall_0; }
 		
 		//IsSuperInterface
@@ -637,7 +637,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getModifiersParserRuleCall_18() { return cModifiersParserRuleCall_18; }
 	}
 	public class IsImplementedElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.isImplemented");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.IsImplemented");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Keyword cIsKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
@@ -648,7 +648,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValoresAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValoresRangoNamesParserRuleCall_3_0 = (RuleCall)cValoresAssignment_3.eContents().get(0);
 		
-		//isImplemented:
+		//IsImplemented:
 		//	('is' | 'are') no?='not'? 'implemented' valores=RangoNames;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2055,20 +2055,20 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	public class TypePropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.TypeProperty");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTypeStringParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cStringPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cIsPrimitiveFunctionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIsCollectionTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cTypePrimitiveParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//TypeProperty:
-		//	TypeString | isPrimitiveFunction | IsCollectionType | TypePrimitive;
+		//	StringProperty | isPrimitiveFunction | IsCollectionType | TypePrimitive;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//TypeString | isPrimitiveFunction | IsCollectionType | TypePrimitive
+		//StringProperty | isPrimitiveFunction | IsCollectionType | TypePrimitive
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//TypeString
-		public RuleCall getTypeStringParserRuleCall_0() { return cTypeStringParserRuleCall_0; }
+		//StringProperty
+		public RuleCall getStringPropertyParserRuleCall_0() { return cStringPropertyParserRuleCall_0; }
 		
 		//isPrimitiveFunction
 		public RuleCall getIsPrimitiveFunctionParserRuleCall_1() { return cIsPrimitiveFunctionParserRuleCall_1; }
@@ -2078,21 +2078,6 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TypePrimitive
 		public RuleCall getTypePrimitiveParserRuleCall_3() { return cTypePrimitiveParserRuleCall_3; }
-	}
-	public class TypeStringElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.TypeString");
-		private final Assignment cTypeStrngAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cTypeStrngStringPropertyParserRuleCall_0 = (RuleCall)cTypeStrngAssignment.eContents().get(0);
-		
-		//TypeString:
-		//	typeStrng=StringProperty;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//typeStrng=StringProperty
-		public Assignment getTypeStrngAssignment() { return cTypeStrngAssignment; }
-		
-		//StringProperty
-		public RuleCall getTypeStrngStringPropertyParserRuleCall_0() { return cTypeStrngStringPropertyParserRuleCall_0; }
 	}
 	public class TypePrimitiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "es.uam.sara.tfg.dsl.JRules.TypePrimitive");
@@ -2968,7 +2953,6 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	private final StringVariableElements pStringVariable;
 	private final VariableSubtypeElements pVariableSubtype;
 	private final TypePropertyElements pTypeProperty;
-	private final TypeStringElements pTypeString;
 	private final TypePrimitiveElements pTypePrimitive;
 	private final IsPrimitiveFunctionElements pIsPrimitiveFunction;
 	private final PrimitiveElements ePrimitive;
@@ -3028,7 +3012,6 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStringVariable = new StringVariableElements();
 		this.pVariableSubtype = new VariableSubtypeElements();
 		this.pTypeProperty = new TypePropertyElements();
-		this.pTypeString = new TypeStringElements();
 		this.pTypePrimitive = new TypePrimitiveElements();
 		this.pIsPrimitiveFunction = new IsPrimitiveFunctionElements();
 		this.ePrimitive = new PrimitiveElements();
@@ -3166,7 +3149,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Property:
-	//	isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter |
+	//	IsImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter |
 	//	Constructor | Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType | Contains | JavaDoc
 	//	| Modifiers;
 	public PropertyElements getPropertyAccess() {
@@ -3177,7 +3160,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyAccess().getRule();
 	}
 	
-	//isImplemented:
+	//IsImplemented:
 	//	('is' | 'are') no?='not'? 'implemented' valores=RangoNames;
 	public IsImplementedElements getIsImplementedAccess() {
 		return pIsImplemented;
@@ -3441,23 +3424,13 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TypeProperty:
-	//	TypeString | isPrimitiveFunction | IsCollectionType | TypePrimitive;
+	//	StringProperty | isPrimitiveFunction | IsCollectionType | TypePrimitive;
 	public TypePropertyElements getTypePropertyAccess() {
 		return pTypeProperty;
 	}
 	
 	public ParserRule getTypePropertyRule() {
 		return getTypePropertyAccess().getRule();
-	}
-	
-	//TypeString:
-	//	typeStrng=StringProperty;
-	public TypeStringElements getTypeStringAccess() {
-		return pTypeString;
-	}
-	
-	public ParserRule getTypeStringRule() {
-		return getTypeStringAccess().getRule();
 	}
 	
 	//TypePrimitive:

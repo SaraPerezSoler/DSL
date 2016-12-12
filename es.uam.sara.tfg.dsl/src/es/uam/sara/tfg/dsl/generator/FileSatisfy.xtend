@@ -9,7 +9,7 @@ import javaRule.Tamanio
 
 class FileSatisfy{
 	
-	private static final String TYPE = "File"
+	private static final String TYPE = "MFile"
 
 	def static CharSequence getPropertie(File s, String sufix){
 		

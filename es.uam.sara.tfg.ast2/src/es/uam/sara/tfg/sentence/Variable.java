@@ -10,12 +10,13 @@ public class Variable<T extends IElements> extends Sentence<T> {
 		super(elementJava, elements, satisfy);
 	}
 
-	public void check() {
+	public boolean check() {
 		List<T> analyze=super.getElements();
 		if (satisfy.needVariables()){
 			satisfy.setUsing(using);
 		}
 		satisfy.check(analyze);
+		return true;
 	}
 
 	public List<T> get() {

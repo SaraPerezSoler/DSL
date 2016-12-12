@@ -274,17 +274,17 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleisImplemented
-entryRuleisImplemented
+// Entry rule entryRuleIsImplemented
+entryRuleIsImplemented
 :
 { before(grammarAccess.getIsImplementedRule()); }
-	 ruleisImplemented
+	 ruleIsImplemented
 { after(grammarAccess.getIsImplementedRule()); } 
 	 EOF 
 ;
 
-// Rule isImplemented
-ruleisImplemented 
+// Rule IsImplemented
+ruleIsImplemented 
 	@init {
 		int stackSize = keepStackSize();
 	}
@@ -899,31 +899,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleTypeString
-entryRuleTypeString
-:
-{ before(grammarAccess.getTypeStringRule()); }
-	 ruleTypeString
-{ after(grammarAccess.getTypeStringRule()); } 
-	 EOF 
-;
-
-// Rule TypeString
-ruleTypeString 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getTypeStringAccess().getTypeStrngAssignment()); }
-		(rule__TypeString__TypeStrngAssignment)
-		{ after(grammarAccess.getTypeStringAccess().getTypeStrngAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRuleTypePrimitive
 entryRuleTypePrimitive
 :
@@ -1272,7 +1247,7 @@ rule__Property__Alternatives
 :
 	(
 		{ before(grammarAccess.getPropertyAccess().getIsImplementedParserRuleCall_0()); }
-		ruleisImplemented
+		ruleIsImplemented
 		{ after(grammarAccess.getPropertyAccess().getIsImplementedParserRuleCall_0()); }
 	)
 	|
@@ -1976,9 +1951,9 @@ rule__TypeProperty__Alternatives
 	}
 :
 	(
-		{ before(grammarAccess.getTypePropertyAccess().getTypeStringParserRuleCall_0()); }
-		ruleTypeString
-		{ after(grammarAccess.getTypePropertyAccess().getTypeStringParserRuleCall_0()); }
+		{ before(grammarAccess.getTypePropertyAccess().getStringPropertyParserRuleCall_0()); }
+		ruleStringProperty
+		{ after(grammarAccess.getTypePropertyAccess().getStringPropertyParserRuleCall_0()); }
 	)
 	|
 	(
@@ -11581,21 +11556,6 @@ rule__VariableSubtype__SubtypeAssignment_1_1
 		{ before(grammarAccess.getVariableSubtypeAccess().getSubtypeElementEnumRuleCall_1_1_0()); }
 		ruleElement
 		{ after(grammarAccess.getVariableSubtypeAccess().getSubtypeElementEnumRuleCall_1_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__TypeString__TypeStrngAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0()); }
-		ruleStringProperty
-		{ after(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0()); }
 	)
 ;
 finally {

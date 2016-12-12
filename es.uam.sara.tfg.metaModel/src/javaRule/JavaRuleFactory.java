@@ -76,13 +76,13 @@ public interface JavaRuleFactory extends EFactory {
 	PropertyLiteral createPropertyLiteral();
 
 	/**
-	 * Returns a new object of class '<em>is Implemented</em>'.
+	 * Returns a new object of class '<em>Is Implemented</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>is Implemented</em>'.
+	 * @return a new object of class '<em>Is Implemented</em>'.
 	 * @generated
 	 */
-	isImplemented createisImplemented();
+	IsImplemented createIsImplemented();
 
 	/**
 	 * Returns a new object of class '<em>Is Super Interface</em>'.
@@ -290,15 +290,6 @@ public interface JavaRuleFactory extends EFactory {
 	 * @generated
 	 */
 	BlendModifiers createBlendModifiers();
-
-	/**
-	 * Returns a new object of class '<em>Type String</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type String</em>'.
-	 * @generated
-	 */
-	TypeString createTypeString();
 
 	/**
 	 * Returns a new object of class '<em>Type Primitive</em>'.

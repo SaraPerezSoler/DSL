@@ -12,11 +12,11 @@ import javaRule.NameType
 import javaRule.IsGeneric
 import javaRule.Tamanio
 import javaRule.TypeProperty
-import javaRule.TypeString
+import javaRule.StringProperty
 
 class MethodsSatisfy {
 
-	private static final String TYPE = "Method"
+	private static final String TYPE = "MMethod"
 
 	def static CharSequence getPropertie(Method s, String sufix) {
 
@@ -41,7 +41,7 @@ class MethodsSatisfy {
 			return ComunSatisfy.empty(s as Empty, TYPE, sufix);
 
 		} else if (s instanceof Constructor) {
-			return "Properties<" + TYPE + "> p" + sufix + "= new Constructor (" + s.no + ");\n"
+			return "Property<" + TYPE + "> p" + sufix + "= new Constructor (" + s.no + ");\n"
 			
 		} else if (s instanceof Parameter) {
 			
@@ -52,36 +52,36 @@ class MethodsSatisfy {
 				min = p.exact
 				max = p.exact
 			}
-			var i = 0;
-			var cad = "List <Type> types=new ArrayList<Type>();\n"
+			var i = 1;
+			var cad = "List <Type> types"+sufix+"=new ArrayList<Type>();\n"
 			for (TypeProperty tp:p.types){
 				cad+=ComunSatisfy.getType(tp, sufix+i)
-				cad+="types.add(type"+sufix+i+");\n"
+				cad+="types"+sufix+".add(type"+sufix+i+");\n"
 				i++;
 			}
 			cad+=ComunSatisfy.declaraVariable(sufix);
 			for (TypeProperty tp: p.types){
-				if (tp instanceof TypeString){
-					ComunSatisfy.añadeVariable((tp as TypeString).typeStrng, sufix)
+				if (tp instanceof StringProperty){
+					cad+=ComunSatisfy.añadeVariable((tp as StringProperty), sufix)
 				}
 			}
 			
-			cad+= "Properties<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Parameters>(" +p.no+",listV"+sufix+
-				", listT"+sufix+", new Parameters(" + s.no + ","+min+","+max+", types));\n"
+			cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Parameters>(" +p.no+",listV"+sufix+
+				", listT"+sufix+", new Parameters(" + s.no + ","+min+","+max+", types"+sufix+"));\n"
 				
 			return cad;
 
 		} else if (s instanceof Return) {
 			var r = s as Return;
 			var cad = ComunSatisfy.getType(r.type, sufix)
-			if (r.type instanceof TypeString){
-				var spa=r.type as TypeString
-				cad+=ComunSatisfy.propertyStringVariable(spa.typeStrng, sufix);
-				cad+= "Properties<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Return>(" +r.no+",listV"+sufix+
+			if (r.type instanceof StringProperty){
+				var spa=r.type as StringProperty
+				cad+=ComunSatisfy.propertyStringVariable(spa, sufix);
+				cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Return>(" +r.no+",listV"+sufix+
 				", listT"+sufix+", new Return(" + r.no + ",type" + sufix + "));\n"
 				return cad;
 			}
-			cad+="Properties<"+TYPE+"> p" + sufix+"=new Return(" + r.no + ",type" + sufix + ");\n"
+			cad+="Property<"+TYPE+"> p" + sufix+"=new Return(" + r.no + ",type" + sufix + ");\n"
 			return cad
 
 		} else if (s instanceof Tamanio) {

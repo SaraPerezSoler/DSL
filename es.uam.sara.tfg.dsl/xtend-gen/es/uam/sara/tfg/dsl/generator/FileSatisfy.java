@@ -10,7 +10,7 @@ import javaRule.Tamanio;
 
 @SuppressWarnings("all")
 public class FileSatisfy {
-  private final static String TYPE = "File";
+  private final static String TYPE = "MFile";
   
   public static CharSequence getPropertie(final File s, final String sufix) {
     if ((s instanceof NameOperation)) {

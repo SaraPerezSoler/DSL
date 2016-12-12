@@ -887,9 +887,9 @@ ruleProperty returns [EObject current=null]
 		{
 			newCompositeNode(grammarAccess.getPropertyAccess().getIsImplementedParserRuleCall_0());
 		}
-		this_isImplemented_0=ruleisImplemented
+		this_IsImplemented_0=ruleIsImplemented
 		{
-			$current = $this_isImplemented_0.current;
+			$current = $this_IsImplemented_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1057,15 +1057,15 @@ ruleProperty returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleisImplemented
-entryRuleisImplemented returns [EObject current=null]:
+// Entry rule entryRuleIsImplemented
+entryRuleIsImplemented returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getIsImplementedRule()); }
-	iv_ruleisImplemented=ruleisImplemented
-	{ $current=$iv_ruleisImplemented.current; }
+	iv_ruleIsImplemented=ruleIsImplemented
+	{ $current=$iv_ruleIsImplemented.current; }
 	EOF;
 
-// Rule isImplemented
-ruleisImplemented returns [EObject current=null]
+// Rule IsImplemented
+ruleIsImplemented returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -3180,11 +3180,11 @@ ruleTypeProperty returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getTypePropertyAccess().getTypeStringParserRuleCall_0());
+			newCompositeNode(grammarAccess.getTypePropertyAccess().getStringPropertyParserRuleCall_0());
 		}
-		this_TypeString_0=ruleTypeString
+		this_StringProperty_0=ruleStringProperty
 		{
-			$current = $this_TypeString_0.current;
+			$current = $this_StringProperty_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -3214,42 +3214,6 @@ ruleTypeProperty returns [EObject current=null]
 			$current = $this_TypePrimitive_3.current;
 			afterParserOrEnumRuleCall();
 		}
-	)
-;
-
-// Entry rule entryRuleTypeString
-entryRuleTypeString returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTypeStringRule()); }
-	iv_ruleTypeString=ruleTypeString
-	{ $current=$iv_ruleTypeString.current; }
-	EOF;
-
-// Rule TypeString
-ruleTypeString returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getTypeStringAccess().getTypeStrngStringPropertyParserRuleCall_0());
-			}
-			lv_typeStrng_0_0=ruleStringProperty
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getTypeStringRule());
-				}
-				set(
-					$current,
-					"typeStrng",
-					lv_typeStrng_0_0,
-					"es.uam.sara.tfg.dsl.JRules.StringProperty");
-				afterParserOrEnumRuleCall();
-			}
-		)
 	)
 ;
 

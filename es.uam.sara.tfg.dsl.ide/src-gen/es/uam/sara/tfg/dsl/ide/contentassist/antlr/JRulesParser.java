@@ -267,7 +267,6 @@ public class JRulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStringVariableAccess().getStringsAssignment_2(), "rule__StringVariable__StringsAssignment_2");
 					put(grammarAccess.getVariableSubtypeAccess().getVariableAssignment_0(), "rule__VariableSubtype__VariableAssignment_0");
 					put(grammarAccess.getVariableSubtypeAccess().getSubtypeAssignment_1_1(), "rule__VariableSubtype__SubtypeAssignment_1_1");
-					put(grammarAccess.getTypeStringAccess().getTypeStrngAssignment(), "rule__TypeString__TypeStrngAssignment");
 					put(grammarAccess.getTypePrimitiveAccess().getTypePrimitiveAssignment_1(), "rule__TypePrimitive__TypePrimitiveAssignment_1");
 					put(grammarAccess.getIsCollectionTypeAccess().getOfAssignment_2_1_1(), "rule__IsCollectionType__OfAssignment_2_1_1");
 					put(grammarAccess.getBlendModifiersAccess().getAccessAssignment_0_0(), "rule__BlendModifiers__AccessAssignment_0_0");

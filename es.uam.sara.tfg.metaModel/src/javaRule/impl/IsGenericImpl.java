@@ -33,12 +33,5 @@ public class IsGenericImpl extends ClassImpl implements IsGeneric {
 	protected EClass eStaticClass() {
 		return JavaRulePackage.Literals.IS_GENERIC;
 	}
-	public String toString() {
-		if (no){
-			return "is not generic";
-		}else{
-			return "is generic";
-		}
-	}
 
 } //IsGenericImpl

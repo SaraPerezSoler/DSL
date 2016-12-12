@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.elements.JavaElement;
-import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.Class;
-import es.uam.sara.tfg.elements.type.Enumeration;
-import es.uam.sara.tfg.elements.type.Interface;
-import es.uam.sara.tfg.elements.type.Method;
-import es.uam.sara.tfg.elements.type.Package;
+import es.uam.sara.tfg.elements.JavaTypes;
+import es.uam.sara.tfg.elements.type.MAttribute;
+import es.uam.sara.tfg.elements.type.MClass;
+import es.uam.sara.tfg.elements.type.MEnumeration;
+import es.uam.sara.tfg.elements.type.MInterface;
+import es.uam.sara.tfg.elements.type.MMethod;
+import es.uam.sara.tfg.elements.type.MPackage;
 
 public class Visitors {
 	private  List<UnitVisitor> visitors = new ArrayList<UnitVisitor>();
-	private  List<Package> packages = new ArrayList<Package>();
+	private  List<MPackage> packages = new ArrayList<MPackage>();
 	private String projectName;
 	
 	public Visitors(String projectName) {
@@ -26,18 +26,18 @@ public class Visitors {
 	}
 
 	public void addPackage(String pack) {
-		packages.add(new Package(pack,getVisitors(pack)) );
+		packages.add(new MPackage(pack,getVisitors(pack)) );
 	}
 
 	public void addPackages(List<String> packs) {
 		for (String s: packs){
-			packages.add(new Package(s, getVisitors(s)));
+			packages.add(new MPackage(s, getVisitors(s)));
 		}
 	}
 
 	/* Metodos para coger todos los elementos de un tipo */
-	public List<JavaElement> getTypes() {
-		List<JavaElement> result = new ArrayList<JavaElement>();
+	public List<JavaTypes> getTypes() {
+		List<JavaTypes> result = new ArrayList<JavaTypes>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 			result.addAll(u.getInterfaces());
@@ -46,8 +46,8 @@ public class Visitors {
 		return result;
 	}
 
-	public List<JavaElement> getEnumClass() {
-		List<JavaElement> result = new ArrayList<JavaElement>();
+	public List<JavaTypes> getEnumClass() {
+		List<JavaTypes> result = new ArrayList<JavaTypes>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 			result.addAll(u.getEnumerations());
@@ -55,44 +55,44 @@ public class Visitors {
 		return result;
 	}
 
-	public List<Package> getPackages() {
+	public List<MPackage> getPackages() {
 		return packages;
 	}
 
-	public List<Class> getClasses() {
-		List<Class> result = new ArrayList<Class>();
+	public List<MClass> getClasses() {
+		List<MClass> result = new ArrayList<MClass>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getClasses());
 		}
 		return result;
 	}
 
-	public List<Interface> getInterfaces() {
-		List<Interface> result = new ArrayList<Interface>();
+	public List<MInterface> getInterfaces() {
+		List<MInterface> result = new ArrayList<MInterface>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getInterfaces());
 		}
 		return result;
 	}
 
-	public List<Enumeration> getEnumerations() {
-		List<Enumeration> result = new ArrayList<Enumeration>();
+	public List<MEnumeration> getEnumerations() {
+		List<MEnumeration> result = new ArrayList<MEnumeration>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getEnumerations());
 		}
 		return result;
 	}
 
-	public List<Method> getMethods() {
-		List<Method> result = new ArrayList<Method>();
+	public List<MMethod> getMethods() {
+		List<MMethod> result = new ArrayList<MMethod>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getMethods());
 		}
 		return result;
 	}
 
-	public List<Attribute> getAttributes() {
-		List<Attribute> result = new ArrayList<Attribute>();
+	public List<MAttribute> getAttributes() {
+		List<MAttribute> result = new ArrayList<MAttribute>();
 		for (UnitVisitor u : visitors) {
 			result.addAll(u.getAttributes());
 		}

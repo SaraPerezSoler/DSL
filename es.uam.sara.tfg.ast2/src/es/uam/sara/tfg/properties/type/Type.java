@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.ParameterizedType;
 public interface Type {
 	public boolean equals(Object other);
 	
-	public default List<String> getString(org.eclipse.jdt.core.dom.Type type) {
+	public static List<String> getString(org.eclipse.jdt.core.dom.Type type) {
 		List<String> ret = new ArrayList<String>();
 		if (type == null) {
 			return ret;
@@ -20,6 +20,17 @@ public interface Type {
 			ret.add(nameType);
 		} else {
 			ret.add(type.toString().toLowerCase());
+		}
+		return ret;
+	}
+	
+	public static List<String> getString(List<org.eclipse.jdt.core.dom.Type> types) {
+		List<String> ret = new ArrayList<String>();
+		if (types == null) {
+			return ret;
+		}
+		for (org.eclipse.jdt.core.dom.Type o : types) {
+			ret.addAll(getString(o));
 		}
 		return ret;
 	}

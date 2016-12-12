@@ -65,7 +65,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" abstract="true" eSuperTypes="#//Property"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true" eSuperTypes="#//Property"/>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true" eSuperTypes="#//Property"/>
-  <eClassifiers xsi:type="ecore:EClass" name="isImplemented" eSuperTypes="#//Interface">
+  <eClassifiers xsi:type="ecore:EClass" name="IsImplemented" eSuperTypes="#//Interface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valores" lowerBound="1"
         eType="#//RangoNames" containment="true"/>
   </eClassifiers>
@@ -135,7 +135,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1" eType="#//StringProperty"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringProperty" abstract="true" eSuperTypes="#//TypeProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringVariable" eSuperTypes="#//StringProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//VariableSubtype"
         containment="true"/>
@@ -219,10 +219,6 @@
     <eLiterals name="private" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeProperty" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeString" eSuperTypes="#//TypeProperty">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeStrng" eType="#//StringProperty"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypePrimitive" eSuperTypes="#//TypeProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typePrimitive" eType="#//Primitive"/>
   </eClassifiers>

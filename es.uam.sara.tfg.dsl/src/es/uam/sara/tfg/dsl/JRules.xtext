@@ -36,11 +36,11 @@ PropertyLiteral returns PropertyLiteral:
 ;
 
 Property returns Property:
-	isImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor | 
+	IsImplemented | IsSuperInterface | IsSuperClass | IsSubClass | Implements | Extends | Tamanio | Parameter | Constructor | 
 	Return | AttributeType | Initialize | Empty | IsGeneric | NameOperation | NameType| Contains | JavaDoc | Modifiers ;
 	
 	
-isImplemented returns isImplemented:
+IsImplemented returns IsImplemented:
 
 	('is' | 'are')(no?= 'not')? 'implemented' valores=RangoNames;
 
@@ -144,11 +144,7 @@ VariableSubtype returns VariableSubtype:
 ;
 
 TypeProperty returns TypeProperty:
-	TypeString | isPrimitiveFunction | IsCollectionType |TypePrimitive
-;
-
-TypeString returns TypeString:
-	(typeStrng=StringProperty)
+	StringProperty | isPrimitiveFunction | IsCollectionType |TypePrimitive
 ;
 
 TypePrimitive returns TypePrimitive:

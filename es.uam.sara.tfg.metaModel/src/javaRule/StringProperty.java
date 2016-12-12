@@ -2,7 +2,6 @@
  */
 package javaRule;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,5 +13,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface StringProperty extends EObject {
+public interface StringProperty extends TypeProperty {
 } // StringProperty

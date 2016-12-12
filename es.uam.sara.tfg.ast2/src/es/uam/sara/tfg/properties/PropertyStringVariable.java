@@ -7,10 +7,6 @@ import es.uam.sara.tfg.elements.IElements;
 public class PropertyStringVariable<T extends IElements,K extends StringProperty<T>> extends Property<T>{
 	
 	
-	public enum StringType {
-		NAME, TYPE
-		
-	};
 	private K property;
 	private List<String> variableName;
 	private List<StringType> string;

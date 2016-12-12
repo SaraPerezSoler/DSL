@@ -14,12 +14,11 @@ import javaRule.Return;
 import javaRule.StringProperty;
 import javaRule.Tamanio;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 import org.eclipse.emf.common.util.EList;
 
 @SuppressWarnings("all")
 public class MethodsSatisfy {
-  private final static String TYPE = "Method";
+  private final static String TYPE = "MMethod";
   
   public static CharSequence getPropertie(final Method s, final String sufix) {
     if ((s instanceof NameOperation)) {
@@ -39,7 +38,7 @@ public class MethodsSatisfy {
             } else {
               if ((s instanceof Constructor)) {
                 boolean _isNo = ((Constructor)s).isNo();
-                String _plus = ((((("Properties<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new Constructor (") + Boolean.valueOf(_isNo));
+                String _plus = ((((("Property<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new Constructor (") + Boolean.valueOf(_isNo));
                 return (_plus + ");\n");
               } else {
                 if ((s instanceof Parameter)) {
@@ -54,8 +53,8 @@ public class MethodsSatisfy {
                     int _exact_2 = p.getExact();
                     max = _exact_2;
                   }
-                  int i = 0;
-                  String cad = "List <Type> types=new ArrayList<Type>();\n";
+                  int i = 1;
+                  String cad = (("List <Type> types" + sufix) + "=new ArrayList<Type>();\n");
                   EList<TypeProperty> _types = p.getTypes();
                   for (final TypeProperty tp : _types) {
                     {
@@ -63,7 +62,7 @@ public class MethodsSatisfy {
                       String _type = ComunSatisfy.getType(tp, (sufix + Integer.valueOf(i)));
                       cad = (_cad + _type);
                       String _cad_1 = cad;
-                      cad = (_cad_1 + ((("types.add(type" + sufix) + Integer.valueOf(i)) + ");\n"));
+                      cad = (_cad_1 + ((((("types" + sufix) + ".add(type") + sufix) + Integer.valueOf(i)) + ");\n"));
                       i++;
                     }
                   }
@@ -72,14 +71,15 @@ public class MethodsSatisfy {
                   cad = (_cad + _declaraVariable);
                   EList<TypeProperty> _types_1 = p.getTypes();
                   for (final TypeProperty tp_1 : _types_1) {
-                    if ((tp_1 instanceof TypeString)) {
-                      StringProperty _typeStrng = ((TypeString) tp_1).getTypeStrng();
-                      ComunSatisfy.añadeVariable(_typeStrng, sufix);
+                    if ((tp_1 instanceof StringProperty)) {
+                      String _cad_1 = cad;
+                      String _añadeVariable = ComunSatisfy.añadeVariable(((StringProperty) tp_1), sufix);
+                      cad = (_cad_1 + _añadeVariable);
                     }
                   }
-                  String _cad_1 = cad;
+                  String _cad_2 = cad;
                   boolean _isNo_1 = p.isNo();
-                  String _plus_1 = ((((((("Properties<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + MethodsSatisfy.TYPE) + ",Parameters>(") + Boolean.valueOf(_isNo_1));
+                  String _plus_1 = ((((((("Property<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + MethodsSatisfy.TYPE) + ",Parameters>(") + Boolean.valueOf(_isNo_1));
                   String _plus_2 = (_plus_1 + ",listV");
                   String _plus_3 = (_plus_2 + sufix);
                   String _plus_4 = (_plus_3 + 
@@ -92,8 +92,10 @@ public class MethodsSatisfy {
                   String _plus_9 = (_plus_8 + Integer.valueOf(min));
                   String _plus_10 = (_plus_9 + ",");
                   String _plus_11 = (_plus_10 + Integer.valueOf(max));
-                  String _plus_12 = (_plus_11 + ", types));\n");
-                  cad = (_cad_1 + _plus_12);
+                  String _plus_12 = (_plus_11 + ", types");
+                  String _plus_13 = (_plus_12 + sufix);
+                  String _plus_14 = (_plus_13 + "));\n");
+                  cad = (_cad_2 + _plus_14);
                   return cad;
                 } else {
                   if ((s instanceof Return)) {
@@ -101,37 +103,36 @@ public class MethodsSatisfy {
                     TypeProperty _type = r.getType();
                     String cad_1 = ComunSatisfy.getType(_type, sufix);
                     TypeProperty _type_1 = r.getType();
-                    if ((_type_1 instanceof TypeString)) {
+                    if ((_type_1 instanceof StringProperty)) {
                       TypeProperty _type_2 = r.getType();
-                      TypeString spa = ((TypeString) _type_2);
-                      String _cad_2 = cad_1;
-                      StringProperty _typeStrng_1 = spa.getTypeStrng();
-                      String _propertyStringVariable = ComunSatisfy.propertyStringVariable(_typeStrng_1, sufix);
-                      cad_1 = (_cad_2 + _propertyStringVariable);
+                      StringProperty spa = ((StringProperty) _type_2);
                       String _cad_3 = cad_1;
+                      String _propertyStringVariable = ComunSatisfy.propertyStringVariable(spa, sufix);
+                      cad_1 = (_cad_3 + _propertyStringVariable);
+                      String _cad_4 = cad_1;
                       boolean _isNo_3 = r.isNo();
-                      String _plus_13 = ((((((("Properties<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + MethodsSatisfy.TYPE) + ",Return>(") + Boolean.valueOf(_isNo_3));
-                      String _plus_14 = (_plus_13 + ",listV");
-                      String _plus_15 = (_plus_14 + sufix);
-                      String _plus_16 = (_plus_15 + 
-                        ", listT");
+                      String _plus_15 = ((((((("Property<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + MethodsSatisfy.TYPE) + ",Return>(") + Boolean.valueOf(_isNo_3));
+                      String _plus_16 = (_plus_15 + ",listV");
                       String _plus_17 = (_plus_16 + sufix);
-                      String _plus_18 = (_plus_17 + ", new Return(");
+                      String _plus_18 = (_plus_17 + 
+                        ", listT");
+                      String _plus_19 = (_plus_18 + sufix);
+                      String _plus_20 = (_plus_19 + ", new Return(");
                       boolean _isNo_4 = r.isNo();
-                      String _plus_19 = (_plus_18 + Boolean.valueOf(_isNo_4));
-                      String _plus_20 = (_plus_19 + ",type");
-                      String _plus_21 = (_plus_20 + sufix);
-                      String _plus_22 = (_plus_21 + "));\n");
-                      cad_1 = (_cad_3 + _plus_22);
+                      String _plus_21 = (_plus_20 + Boolean.valueOf(_isNo_4));
+                      String _plus_22 = (_plus_21 + ",type");
+                      String _plus_23 = (_plus_22 + sufix);
+                      String _plus_24 = (_plus_23 + "));\n");
+                      cad_1 = (_cad_4 + _plus_24);
                       return cad_1;
                     }
-                    String _cad_4 = cad_1;
+                    String _cad_5 = cad_1;
                     boolean _isNo_5 = r.isNo();
-                    String _plus_23 = ((((("Properties<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "=new Return(") + Boolean.valueOf(_isNo_5));
-                    String _plus_24 = (_plus_23 + ",type");
-                    String _plus_25 = (_plus_24 + sufix);
-                    String _plus_26 = (_plus_25 + ");\n");
-                    cad_1 = (_cad_4 + _plus_26);
+                    String _plus_25 = ((((("Property<" + MethodsSatisfy.TYPE) + "> p") + sufix) + "=new Return(") + Boolean.valueOf(_isNo_5));
+                    String _plus_26 = (_plus_25 + ",type");
+                    String _plus_27 = (_plus_26 + sufix);
+                    String _plus_28 = (_plus_27 + ");\n");
+                    cad_1 = (_cad_5 + _plus_28);
                     return cad_1;
                   } else {
                     if ((s instanceof Tamanio)) {

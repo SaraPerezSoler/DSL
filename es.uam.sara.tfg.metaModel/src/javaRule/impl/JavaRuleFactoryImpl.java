@@ -16,6 +16,7 @@ import javaRule.Implements;
 import javaRule.Initialize;
 import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsImplemented;
 import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
@@ -42,10 +43,8 @@ import javaRule.StringValue;
 import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypePrimitive;
-import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
-import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -106,7 +105,7 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.OR: return createOr();
 			case JavaRulePackage.AND: return createAnd();
 			case JavaRulePackage.PROPERTY_LITERAL: return createPropertyLiteral();
-			case JavaRulePackage.IS_IMPLEMENTED: return createisImplemented();
+			case JavaRulePackage.IS_IMPLEMENTED: return createIsImplemented();
 			case JavaRulePackage.IS_SUPER_INTERFACE: return createIsSuperInterface();
 			case JavaRulePackage.IS_SUPER_CLASS: return createIsSuperClass();
 			case JavaRulePackage.IS_SUB_CLASS: return createIsSubClass();
@@ -130,7 +129,6 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 			case JavaRulePackage.JAVA_DOC: return createJavaDoc();
 			case JavaRulePackage.MODIFIERS: return createModifiers();
 			case JavaRulePackage.BLEND_MODIFIERS: return createBlendModifiers();
-			case JavaRulePackage.TYPE_STRING: return createTypeString();
 			case JavaRulePackage.TYPE_PRIMITIVE: return createTypePrimitive();
 			case JavaRulePackage.IS_PRIMITIVE_FUNTION: return createIsPrimitiveFuntion();
 			case JavaRulePackage.IS_COLLECTION_TYPE: return createIsCollectionType();
@@ -262,8 +260,8 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public isImplemented createisImplemented() {
-		isImplementedImpl isImplemented = new isImplementedImpl();
+	public IsImplemented createIsImplemented() {
+		IsImplementedImpl isImplemented = new IsImplementedImpl();
 		return isImplemented;
 	}
 
@@ -495,16 +493,6 @@ public class JavaRuleFactoryImpl extends EFactoryImpl implements JavaRuleFactory
 	public BlendModifiers createBlendModifiers() {
 		BlendModifiersImpl blendModifiers = new BlendModifiersImpl();
 		return blendModifiers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TypeString createTypeString() {
-		TypeStringImpl typeString = new TypeStringImpl();
-		return typeString;
 	}
 
 	/**

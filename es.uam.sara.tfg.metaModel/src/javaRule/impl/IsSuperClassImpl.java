@@ -171,11 +171,5 @@ public class IsSuperClassImpl extends ClassImpl implements IsSuperClass {
 		}
 		return super.eIsSet(featureID);
 	}
-	public String toString() {
-		if (no){
-			return "is not superClass"+valores.toString();
-		}
-		return "is superClass"+valores.toString();
-	}
 
 } //IsSuperClassImpl

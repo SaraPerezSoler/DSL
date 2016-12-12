@@ -9,8 +9,6 @@ public class Rule<T extends IElements> extends Sentence<T> {
 	protected boolean no;
 	protected Quantifier quantifier;
 	protected Or<T> filter;
-
-	private boolean checkeado = false;
 	private boolean check = false;
 
 	public interface Apply {
@@ -60,15 +58,16 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	}
 
-	public void reset(List<T> elements){
-		
+	public void reset(List<T> elements) {
+
 		filter.reset();
 	}
-	public boolean checkTest() {
+
+	public boolean check() {
 		List<T> analyze = super.getElements();
 		filter.check(analyze);
 		analyze = filter.getRight();
-		if (satisfy.needVariables()){
+		if (satisfy.needVariables()) {
 			satisfy.setUsing(using);
 		}
 		satisfy.check(analyze);
@@ -78,7 +77,6 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		} else {
 			check = quantifier.apply(satisfy.getRight(), analyze.size());
 		}
-
 		return check;
 	}
 
@@ -100,46 +98,40 @@ public class Rule<T extends IElements> extends Sentence<T> {
 	}
 
 	public String printWrong() {
-		if (checkeado) {
-			if (no) {
-				return satisfy.print(true);
-			} else {
-				return satisfy.print(false);
-			}
+
+		if (no) {
+			return satisfy.print(true);
+		} else {
+			return satisfy.print(false);
 		}
-		return "";
+
 	}
 
 	public String printRight() {
-		if (checkeado) {
-			if (no) {
-				return satisfy.print(false);
-			} else {
-				return satisfy.print(true);
-			}
+
+		if (no) {
+			return satisfy.print(false);
 		} else {
-			return "";
+			return satisfy.print(true);
 		}
+
 	}
 
 	public String log() {
-		if (checkeado) {
-			String cad = toString() + "\n" + "Checked.....";
-			if (check) {
-				cad += "OK\n";
-			} else {
-				cad += "ERROR\n";
-			}
-			if (satisfy.isNoProperty()) {
-				cad += this.printWrong().replace("\n", "\n\t") + this.printRight().replace("\n", "\n\t");
-			} else {
-				cad += "WRONG: \n\t" + this.printWrong().replace("\n", "\n\t") + "\n";
-				cad += "RIGHT: \n\t" + this.printRight().replace("\n", "\n\t") + "\n";
-			}
-			return cad;
+
+		String cad = toString() + "\n" + "Checked.....";
+		if (check) {
+			cad += "OK\n";
 		} else {
-			return toString() + "Rule is not checked\n";
+			cad += "ERROR\n";
 		}
+		if (satisfy.isNoProperty()) {
+			cad += this.printWrong().replace("\n", "\n\t") + this.printRight().replace("\n", "\n\t");
+		} else {
+			cad += "WRONG: \n\t" + this.printWrong().replace("\n", "\n\t") + "\n";
+			cad += "RIGHT: \n\t" + this.printRight().replace("\n", "\n\t") + "\n";
+		}
+		return cad;
 
 	}
 

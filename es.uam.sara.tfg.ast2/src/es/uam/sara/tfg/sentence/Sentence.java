@@ -16,7 +16,7 @@ public abstract class Sentence<T extends IElements> {
 	private List<T> elements;
 	private List<In<T>> in;
 	private In<T> from=null;
-	public static Map<String, Variable<IElements>> allVariables= new HashMap<String, Variable<IElements>>();
+	public static Map<String, Variable<? extends IElements>> allVariables= new HashMap<String, Variable<? extends IElements>>();
 	
 
 	public Sentence(String elementJava,List<T> elements, Or<T> satisfy) {
@@ -68,5 +68,7 @@ public abstract class Sentence<T extends IElements> {
 		return copiar;
 		
 	}
+	
+	public abstract boolean check();
 	
 }

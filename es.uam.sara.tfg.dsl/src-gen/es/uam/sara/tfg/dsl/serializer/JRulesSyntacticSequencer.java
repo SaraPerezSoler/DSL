@@ -25,11 +25,11 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Empty_AreKeyword_1_1_or_IsKeyword_1_0;
 	protected AbstractElementAlias match_Initialize_AreKeyword_1_1_or_IsKeyword_1_0;
 	protected AbstractElementAlias match_IsGeneric_AreKeyword_1_1_or_IsKeyword_1_0;
+	protected AbstractElementAlias match_IsImplemented_AreKeyword_0_1_or_IsKeyword_0_0;
 	protected AbstractElementAlias match_IsSubClass_AreKeyword_1_1_or_IsKeyword_1_0;
 	protected AbstractElementAlias match_IsSuperClass_AreKeyword_0_1_or_IsKeyword_0_0;
 	protected AbstractElementAlias match_IsSuperInterface_AreKeyword_0_1_or_IsKeyword_0_0;
 	protected AbstractElementAlias match_Modifiers_AreKeyword_0_1_or_IsKeyword_0_0;
-	protected AbstractElementAlias match_isImplemented_AreKeyword_0_1_or_IsKeyword_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -38,11 +38,11 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Empty_AreKeyword_1_1_or_IsKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getEmptyAccess().getAreKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getEmptyAccess().getIsKeyword_1_0()));
 		match_Initialize_AreKeyword_1_1_or_IsKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInitializeAccess().getAreKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getInitializeAccess().getIsKeyword_1_0()));
 		match_IsGeneric_AreKeyword_1_1_or_IsKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsGenericAccess().getAreKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIsGenericAccess().getIsKeyword_1_0()));
+		match_IsImplemented_AreKeyword_0_1_or_IsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsImplementedAccess().getAreKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getIsImplementedAccess().getIsKeyword_0_0()));
 		match_IsSubClass_AreKeyword_1_1_or_IsKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsSubClassAccess().getAreKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getIsSubClassAccess().getIsKeyword_1_0()));
 		match_IsSuperClass_AreKeyword_0_1_or_IsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsSuperClassAccess().getAreKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getIsSuperClassAccess().getIsKeyword_0_0()));
 		match_IsSuperInterface_AreKeyword_0_1_or_IsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsSuperInterfaceAccess().getAreKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getIsSuperInterfaceAccess().getIsKeyword_0_0()));
 		match_Modifiers_AreKeyword_0_1_or_IsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModifiersAccess().getAreKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getModifiersAccess().getIsKeyword_0_0()));
-		match_isImplemented_AreKeyword_0_1_or_IsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIsImplementedAccess().getAreKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getIsImplementedAccess().getIsKeyword_0_0()));
 	}
 	
 	@Override
@@ -65,6 +65,8 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Initialize_AreKeyword_1_1_or_IsKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IsGeneric_AreKeyword_1_1_or_IsKeyword_1_0.equals(syntax))
 				emit_IsGeneric_AreKeyword_1_1_or_IsKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_IsImplemented_AreKeyword_0_1_or_IsKeyword_0_0.equals(syntax))
+				emit_IsImplemented_AreKeyword_0_1_or_IsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IsSubClass_AreKeyword_1_1_or_IsKeyword_1_0.equals(syntax))
 				emit_IsSubClass_AreKeyword_1_1_or_IsKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IsSuperClass_AreKeyword_0_1_or_IsKeyword_0_0.equals(syntax))
@@ -73,8 +75,6 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_IsSuperInterface_AreKeyword_0_1_or_IsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Modifiers_AreKeyword_0_1_or_IsKeyword_0_0.equals(syntax))
 				emit_Modifiers_AreKeyword_0_1_or_IsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_isImplemented_AreKeyword_0_1_or_IsKeyword_0_0.equals(syntax))
-				emit_isImplemented_AreKeyword_0_1_or_IsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -132,6 +132,18 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'is' | 'are'
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'implemented' valores=RangoNames
+	 *     (rule start) (ambiguity) no?='not'
+	 */
+	protected void emit_IsImplemented_AreKeyword_0_1_or_IsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'is' | 'are'
+	 *
+	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'subclass' 'of' of=StringProperty
 	 *     (rule start) (ambiguity) 'subclass' (rule start)
 	 *     (rule start) (ambiguity) no?='not'
@@ -173,18 +185,6 @@ public class JRulesSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) no?='not'
 	 */
 	protected void emit_Modifiers_AreKeyword_0_1_or_IsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'is' | 'are'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'implemented' valores=RangoNames
-	 *     (rule start) (ambiguity) no?='not'
-	 */
-	protected void emit_isImplemented_AreKeyword_0_1_or_IsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

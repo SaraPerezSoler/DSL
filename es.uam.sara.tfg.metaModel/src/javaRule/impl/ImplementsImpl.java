@@ -172,11 +172,4 @@ public class ImplementsImpl extends ClassImpl implements Implements {
 		return super.eIsSet(featureID);
 	}
 
-	public String toString() {
-		if (no){
-			return "do not implements" +valores.toString();
-		}else{
-			return "implements" +valores.toString();
-		}
-	}
 } //ImplementsImpl

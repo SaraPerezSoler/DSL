@@ -22,7 +22,7 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 
 	public boolean checkElement(Container analyze, List<T> subTypes) {
 		rule.reset(subTypes);
-		boolean ret = rule.checkTest();
+		boolean ret = rule.check();
 		map.put(analyze, rule.log());
 		return ret;
 	}

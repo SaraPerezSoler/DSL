@@ -3,13 +3,14 @@
  */
 package es.uam.sara.tfg.properties.methods;
 
-import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.elements.type.MMethod;
+import es.uam.sara.tfg.properties.Property;
 
 /**
  * @author Sara
  *
  */
-public class Constructor extends MethodProperty{
+public class Constructor extends Property<MMethod>{
 
 	/**
 	 * @param analyze
@@ -27,7 +28,7 @@ public class Constructor extends MethodProperty{
 	}
 
 	@Override
-	public boolean checkElement(Method analyze) {
+	public boolean checkElement(MMethod analyze) {
 		return analyze.isConstructor();
 	}
 

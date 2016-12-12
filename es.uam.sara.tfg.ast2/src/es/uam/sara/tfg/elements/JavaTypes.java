@@ -10,67 +10,67 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
-import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.Class;
-import es.uam.sara.tfg.elements.type.Enumeration;
-import es.uam.sara.tfg.elements.type.Interface;
-import es.uam.sara.tfg.elements.type.Method;
+import es.uam.sara.tfg.elements.type.MAttribute;
+import es.uam.sara.tfg.elements.type.MClass;
+import es.uam.sara.tfg.elements.type.MEnumeration;
+import es.uam.sara.tfg.elements.type.MInterface;
+import es.uam.sara.tfg.elements.type.MMethod;
 
 
 public interface JavaTypes extends Container, ICanEmpty, IElements{
 
-	public default List<Class> getClasses() {
+	public default List<MClass> getClasses() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<Class> temp = new ArrayList<Class>();
+		List<MClass> temp = new ArrayList<MClass>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (!((TypeDeclaration) ed).isInterface())
-					temp.add(new Class((TypeDeclaration) ed, getVisitor()));
+					temp.add(new MClass((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
 	}
 
-	public default List<Interface> getInterfaces() {
+	public default List<MInterface> getInterfaces() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<Interface> temp = new ArrayList<Interface>();
+		List<MInterface> temp = new ArrayList<MInterface>();
 		for (Object ed : bd) {
 			if (ed instanceof TypeDeclaration) {
 				if (((TypeDeclaration) ed).isInterface())
-					temp.add(new Interface((TypeDeclaration) ed, getVisitor()));
+					temp.add(new MInterface((TypeDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
 	}
 
-	public default List<Enumeration> getEnumerations() {
+	public default List<MEnumeration> getEnumerations() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<Enumeration> temp = new ArrayList<Enumeration>();
+		List<MEnumeration> temp = new ArrayList<MEnumeration>();
 		for (Object ed : bd) {
 			if (ed instanceof EnumDeclaration) {
-				temp.add(new Enumeration((EnumDeclaration) ed, getVisitor()));
+				temp.add(new MEnumeration((EnumDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
 	}
 
-	public default List<Method> getMethods() {
+	public default List<MMethod> getMethods() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<Method> temp = new ArrayList<Method>();
+		List<MMethod> temp = new ArrayList<MMethod>();
 		for (Object ed : bd) {
 			if (ed instanceof MethodDeclaration) {
-				temp.add(new Method((MethodDeclaration) ed, getVisitor()));
+				temp.add(new MMethod((MethodDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;
 	}
 
-	public default List<Attribute> getAttributes() {
+	public default List<MAttribute> getAttributes() {
 		List<?> bd = getAbstractTypeDeclaration().bodyDeclarations();
-		List<Attribute> temp = new ArrayList<Attribute>();
+		List<MAttribute> temp = new ArrayList<MAttribute>();
 		for (Object ed : bd) {
 			if (ed instanceof FieldDeclaration) {
-				temp.add(new Attribute((FieldDeclaration) ed, getVisitor()));
+				temp.add(new MAttribute((FieldDeclaration) ed, getVisitor()));
 			}
 		}
 		return temp;

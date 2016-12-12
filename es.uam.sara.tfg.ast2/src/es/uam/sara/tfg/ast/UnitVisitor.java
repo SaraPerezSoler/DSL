@@ -12,32 +12,32 @@ import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import es.uam.sara.tfg.elements.IElements;
-import es.uam.sara.tfg.elements.type.Attribute;
-import es.uam.sara.tfg.elements.type.Class;
-import es.uam.sara.tfg.elements.type.Enumeration;
-import es.uam.sara.tfg.elements.type.Interface;
-import es.uam.sara.tfg.elements.type.Method;
-import es.uam.sara.tfg.elements.type.Package;
+import es.uam.sara.tfg.elements.type.MAttribute;
+import es.uam.sara.tfg.elements.type.MClass;
+import es.uam.sara.tfg.elements.type.MEnumeration;
+import es.uam.sara.tfg.elements.type.MInterface;
+import es.uam.sara.tfg.elements.type.MMethod;
+import es.uam.sara.tfg.elements.type.MPackage;
 
 public class UnitVisitor extends ASTVisitor {
 
 	private String nameFile;
 	private CompilationUnit comp;
 	private PackageDeclaration packageDeclaration;
-	private List<Interface> interfaces;
-	private List<Class> classes;
-	private List<Enumeration> enumerations;
+	private List<MInterface> interfaces;
+	private List<MClass> classes;
+	private List<MEnumeration> enumerations;
 	// private List<EnumConstantDeclaration> enumConstant;
-	private List<Method> methods;
-	private List<Attribute> attributes;
+	private List<MMethod> methods;
+	private List<MAttribute> attributes;
 
 	public UnitVisitor(String nameFile) {
 		this.nameFile = nameFile;
-		interfaces = new ArrayList<Interface>();
-		classes = new ArrayList<Class>();
-		enumerations = new ArrayList<Enumeration>();
-		methods = new ArrayList<Method>();
-		attributes = new ArrayList<Attribute>();
+		interfaces = new ArrayList<MInterface>();
+		classes = new ArrayList<MClass>();
+		enumerations = new ArrayList<MEnumeration>();
+		methods = new ArrayList<MMethod>();
+		attributes = new ArrayList<MAttribute>();
 		// enumConstant= new ArrayList<EnumConstantDeclaration>();
 	}
 
@@ -51,16 +51,16 @@ public class UnitVisitor extends ASTVisitor {
 	@Override
 	public boolean visit(TypeDeclaration node) {
 		if (node.isInterface()) {
-			interfaces.add(new Interface(node, this));
+			interfaces.add(new MInterface(node, this));
 		} else {
-			classes.add(new Class(node, this));
+			classes.add(new MClass(node, this));
 		}
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(EnumDeclaration node) {
-		enumerations.add(new Enumeration(node, this));
+		enumerations.add(new MEnumeration(node, this));
 		return super.visit(node);
 	}
 
@@ -71,13 +71,13 @@ public class UnitVisitor extends ASTVisitor {
 
 	@Override
 	public boolean visit(MethodDeclaration node) {
-		methods.add(new Method(node, this) );
+		methods.add(new MMethod(node, this) );
 		return super.visit(node);
 	}
 
 	@Override
 	public boolean visit(FieldDeclaration node) {
-		attributes.add(new Attribute(node, this));
+		attributes.add(new MAttribute(node, this));
 		return super.visit(node);
 	}
 
@@ -89,23 +89,23 @@ public class UnitVisitor extends ASTVisitor {
 		return packageDeclaration;
 	}
 
-	public List<Interface> getInterfaces() {
+	public List<MInterface> getInterfaces() {
 		return interfaces;
 	}
 
-	public List<Class> getClasses() {
+	public List<MClass> getClasses() {
 		return classes;
 	}
 
-	public List<Enumeration> getEnumerations() {
+	public List<MEnumeration> getEnumerations() {
 		return enumerations;
 	}
 
-	public List<Method> getMethods() {
+	public List<MMethod> getMethods() {
 		return methods;
 	}
 
-	public List<Attribute> getAttributes() {
+	public List<MAttribute> getAttributes() {
 		return attributes;
 	}
 
@@ -123,7 +123,7 @@ public class UnitVisitor extends ASTVisitor {
 	}
 	public boolean isVisitorFrom(IElements type) {
 
-		if (type instanceof Package) {
+		if (type instanceof MPackage) {
 			if (type.getName().equals("(default package)")){
 				if (packageDeclaration == null) {
 					return true;
@@ -135,21 +135,21 @@ public class UnitVisitor extends ASTVisitor {
 				}
 			}
 			
-		} else if (type instanceof Class) {
+		} else if (type instanceof MClass) {
 			if (interfaces.contains(type)) {
 				return true;
 			} else if (classes.contains(type)){
 				return true;
 			}
-		} else if (type instanceof Enumeration) {
+		} else if (type instanceof MEnumeration) {
 			if (enumerations.contains(type)) {
 				return true;
 			}
-		} else if (type instanceof Method) {
+		} else if (type instanceof MMethod) {
 			if (methods.contains(type)) {
 				return true;
 			}
-		} else if (type instanceof Attribute) {
+		} else if (type instanceof MAttribute) {
 			if (attributes.contains(type)) {
 				return true;
 			}

@@ -172,11 +172,4 @@ public class AttributeTypeImpl extends AttributeImpl implements AttributeType {
 		return super.eIsSet(featureID);
 	}
 
-	public String toString(){
-		if (no){
-			return "type<>"+type;
-		}else{
-			return "type="+type;
-		}
-	}
 } //AttributeTypeImpl

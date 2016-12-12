@@ -12,7 +12,6 @@ import javaRule.StringValue
 import javaRule.StringVariable
 import javaRule.Element
 import javaRule.TypeProperty
-import javaRule.TypeString
 import javaRule.TypePrimitive
 import javaRule.IsCollectionType
 import javaRule.IsPrimitiveFuntion
@@ -24,30 +23,30 @@ class ComunSatisfy {
 	def static CharSequence nameOperation(NameOperation n, String type, String sufix) {
 		
 			var cad=propertyStringVariable(n.name, sufix)
-			cad+= "Properties<"+type+"> p" + sufix + "= new PropertyStringVariable<"+type+",NameOperation<"+type+">>(" +n.no+",listV"+sufix+
-				", listT"+sufix+", new NameOperation<"+type+">("+n.no+",NameCheck.Operation." + n.operator + ", NameCheck." + n.language + "));"
+			cad+= "Property<"+type+"> p" + sufix + "= new PropertyStringVariable<"+type+",NameOperation<"+type+">>(" +n.no+",listV"+sufix+
+				", listT"+sufix+", new NameOperation<"+type+">("+n.no+",NameOperation.Operation." + n.operator + ", NameOperation." + n.language + "));"
 			return cad;
 	}
 	
 	
 
 	def static CharSequence nameType(NameType n, String type, String sufix) {
-		return "Properties<"+type+"> p" + sufix + "= new NameType<"+type+">("+n.no+",NameCheck.Type." + n.type + ");\n"
+		return "Property<"+type+"> p" + sufix + "= new NameType<"+type+">(NameType.Type." + n.type + ");\n"
 	}
 
 	def static CharSequence javaDoc(JavaDoc jd, String type, String sufix) {
 
-		return "Properties<"+type+"> p" + sufix + "= new JavaDoc <"+type+"> ("+jd.no + jd.author + "," + jd.parameter + "," + jd.^return +
+		return "Property<"+type+"> p" + sufix + "= new JavaDoc <"+type+"> ("+jd.no + jd.author + "," + jd.parameter + "," + jd.^return +
 			"," + jd.version + "," + jd.throws + "," + jd.see + ");\n";
 
 	}
 
 	def static CharSequence modifiers(Modifiers m, String type, String sufix) {
 		
-		var cadena = "Properties<"+type+"> p" + sufix + "= new Modifiers<"+type+"> (" + m.no + ")\n"
+		var cadena = "Property<"+type+"> p" + sufix + "= new Modifiers<"+type+"> (" + m.no + ")\n"
 			for (BlendModifiers b : m.blend) {
 			cadena +=
-			".addBlend(\"" + b.access + "\"," + b.static + "," + b.final + "," + b.abstract + "," +
+			".addBlend(BlendModifiers.Acceso." + b.access.toString.toUpperCase + "," + b.static + "," + b.final + "," + b.abstract + "," +b.^default+ "," +
 					b.synchronized + ")\n"
 		}
 		cadena+=";\n"
@@ -55,18 +54,18 @@ class ComunSatisfy {
 	}
 
 	def static CharSequence empty(Empty ne, String type, String sufix) {
-		return "Properties<"+type+"> p" + sufix + "= new Empty<"+type+"> (" + ne.no + ");\n"
+		return "Property<"+type+"> p" + sufix + "= new Empty<"+type+"> (" + ne.no + ");\n"
 	}
 
 	def static CharSequence contains(Contains c, String type, String sufix) {
 		var cadena = JRulesGenerator.genetateRule(c.rule, sufix);
 		cadena +=
-			"Properties<"+type+"> p" + sufix + "= new Contain" +JRulesGenerator.getType(c.rule.element)+"<"+type+">" + "(r" + sufix + ");\n";
+			"Property<"+type+"> p" + sufix + "= new Contain" +JRulesGenerator.getType(c.rule.element)+"<"+type+">" + "(r" + sufix + ");\n";
 		return cadena;
 	}
 
 	def static CharSequence isGeneric(IsGeneric g, String type, String sufix) {
-		return "Properties<"+type+"> p" + sufix + "= new IsGeneric<"+type+">();\n"
+		return "Property<"+type+"> p" + sufix + "= new IsGeneric<"+type+">("+g.no+");\n"
 	}
 	
 	def static CharSequence size(Tamanio t, String type, String sufix) {
@@ -76,7 +75,7 @@ class ComunSatisfy {
 			min=t.exact
 			max=t.exact
 		}
-		return "Properties<"+type+"> p" + sufix + "= new Size<"+type+">("+min+","+max+");\n"
+		return "Property<"+type+"> p" + sufix + "= new Size<"+type+">("+min+","+max+");\n"
 	}
 	
 	def static propertyStringVariable(StringProperty property, String string) {
@@ -97,7 +96,7 @@ class ComunSatisfy {
 				} else {
 					varName = stv.variable.variable.name + JRulesGenerator.getType(stv.variable.subtype)
 				}
-				cad = "listV" + sufix + ".add(" + varName +");\n"
+				cad = "listV" + sufix + ".add(\"" + varName +"\");\n"
 				cad += " listT" + sufix + ".add(StringType." + stv.strings.toString.toUpperCase + ");\n"
 		}
 			return cad;
@@ -106,16 +105,18 @@ class ComunSatisfy {
 	
 	def static String getType(TypeProperty tp, String sufix){
 		var cad="";
-		if (tp instanceof TypeString){
-				var ts= tp as TypeString;
-				if (ts.typeStrng instanceof StringVariable){
+		if (tp==null){
+			cad="TypeString type"+sufix+"=null;\n"
+		}
+		if (tp instanceof StringProperty){
+				if (tp instanceof StringVariable){
 					cad="TypeString type"+sufix+"= new TypeString();\n"				
 				}else{
-					cad="TypeString type"+sufix+"= new TypeString(\""+(ts.typeStrng as StringValue).value+"\");\n"
+					cad="TypeString type"+sufix+"= new TypeString(\""+(tp as StringValue).value+"\");\n"
 				}
 			}else if (tp instanceof TypePrimitive){
 				var tpr=tp as TypePrimitive
-				cad="TypePrimitive type"+sufix+"= new TypePrimitive(Primitive."+tpr.typePrimitive+");\n"
+				cad="TypePrimitive type"+sufix+"= new TypePrimitive(TypePrimitive.Primitive."+tpr.typePrimitive+");\n"
 			}else if (tp instanceof IsCollectionType){
 				var ict=tp as IsCollectionType
 				if (ict.of!=null){

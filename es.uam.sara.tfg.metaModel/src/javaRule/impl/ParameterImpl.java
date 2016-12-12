@@ -325,7 +325,5 @@ public class ParameterImpl extends MethodImpl implements Parameter {
 		result.append(')');
 		return result.toString();
 	}
-	
-
 
 } //ParameterImpl

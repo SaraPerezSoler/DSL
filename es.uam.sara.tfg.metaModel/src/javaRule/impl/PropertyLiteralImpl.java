@@ -172,7 +172,4 @@ public class PropertyLiteralImpl extends PrimaryOpImpl implements PropertyLitera
 		return super.eIsSet(featureID);
 	}
 
-	public String toString() {
-		return property.toString();
-	}
 } //PropertyLiteralImpl

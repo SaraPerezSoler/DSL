@@ -10,13 +10,11 @@ import javaRule.Modifiers;
 import javaRule.NameOperation;
 import javaRule.NameType;
 import javaRule.StringProperty;
-import javaRule.StringVariable;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 
 @SuppressWarnings("all")
 public class AttributesSatisfy {
-  private final static String TYPE = "Attribute";
+  private final static String TYPE = "MAttribute";
   
   public static CharSequence getPropertie(final Attribute s, final String sufix) {
     if ((s instanceof NameOperation)) {
@@ -33,7 +31,7 @@ public class AttributesSatisfy {
           } else {
             if ((s instanceof Initialize)) {
               boolean _isNo = ((Initialize)s).isNo();
-              String _plus = ((((("Properties<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "= new Initialize(") + Boolean.valueOf(_isNo));
+              String _plus = ((((("Property<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "= new Initialize(") + Boolean.valueOf(_isNo));
               return (_plus + ");\n");
             } else {
               if ((s instanceof AttributeType)) {
@@ -41,16 +39,15 @@ public class AttributesSatisfy {
                 TypeProperty _type = a.getType();
                 String cad = ComunSatisfy.getType(_type, sufix);
                 TypeProperty _type_1 = a.getType();
-                if ((_type_1 instanceof TypeString)) {
+                if ((_type_1 instanceof StringProperty)) {
                   TypeProperty _type_2 = a.getType();
-                  TypeString spa = ((TypeString) _type_2);
+                  StringProperty spa = ((StringProperty) _type_2);
                   String _cad = cad;
-                  StringProperty _typeStrng = spa.getTypeStrng();
-                  String _propertyStringVariable = ComunSatisfy.propertyStringVariable(((StringVariable) _typeStrng), sufix);
+                  String _propertyStringVariable = ComunSatisfy.propertyStringVariable(spa, sufix);
                   cad = (_cad + _propertyStringVariable);
                   String _cad_1 = cad;
                   boolean _isNo_1 = a.isNo();
-                  String _plus_1 = ((((((("Properties<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + AttributesSatisfy.TYPE) + ",AttributeType>(") + Boolean.valueOf(_isNo_1));
+                  String _plus_1 = ((((((("Property<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + AttributesSatisfy.TYPE) + ",AttributeType>(") + Boolean.valueOf(_isNo_1));
                   String _plus_2 = (_plus_1 + ",listV");
                   String _plus_3 = (_plus_2 + sufix);
                   String _plus_4 = (_plus_3 + 
@@ -67,7 +64,7 @@ public class AttributesSatisfy {
                 }
                 String _cad_2 = cad;
                 boolean _isNo_3 = a.isNo();
-                String _plus_11 = ((((("Properties<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "=new AttributeType(") + Boolean.valueOf(_isNo_3));
+                String _plus_11 = ((((("Property<" + AttributesSatisfy.TYPE) + "> p") + sufix) + "=new AttributeType(") + Boolean.valueOf(_isNo_3));
                 String _plus_12 = (_plus_11 + ",type");
                 String _plus_13 = (_plus_12 + sufix);
                 String _plus_14 = (_plus_13 + ");\n");

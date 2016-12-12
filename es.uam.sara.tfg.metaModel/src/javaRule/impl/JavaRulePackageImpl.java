@@ -20,6 +20,7 @@ import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsImplemented;
 import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
@@ -52,10 +53,8 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
-import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -365,13 +364,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * @generated
 	 */
 	private EClass typePropertyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass typeStringEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -795,7 +787,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getisImplemented() {
+	public EClass getIsImplemented() {
 		return isImplementedEClass;
 	}
 
@@ -804,7 +796,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getisImplemented_Valores() {
+	public EReference getIsImplemented_Valores() {
 		return (EReference)isImplementedEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1398,24 +1390,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTypeString() {
-		return typeStringEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTypeString_TypeStrng() {
-		return (EReference)typeStringEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTypePrimitive() {
 		return typePrimitiveEClass;
 	}
@@ -1696,9 +1670,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		typePropertyEClass = createEClass(TYPE_PROPERTY);
 
-		typeStringEClass = createEClass(TYPE_STRING);
-		createEReference(typeStringEClass, TYPE_STRING__TYPE_STRNG);
-
 		typePrimitiveEClass = createEClass(TYPE_PRIMITIVE);
 		createEAttribute(typePrimitiveEClass, TYPE_PRIMITIVE__TYPE_PRIMITIVE);
 
@@ -1791,6 +1762,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		nameOperationEClass.getESuperTypes().add(this.getInterface());
 		nameOperationEClass.getESuperTypes().add(this.getEnumeration());
 		nameOperationEClass.getESuperTypes().add(this.getFile());
+		stringPropertyEClass.getESuperTypes().add(this.getTypeProperty());
 		stringVariableEClass.getESuperTypes().add(this.getStringProperty());
 		stringValueEClass.getESuperTypes().add(this.getStringProperty());
 		nameTypeEClass.getESuperTypes().add(this.getAttribute());
@@ -1815,7 +1787,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		modifiersEClass.getESuperTypes().add(this.getMethod());
 		modifiersEClass.getESuperTypes().add(this.getEnumeration());
 		modifiersEClass.getESuperTypes().add(this.getInterface());
-		typeStringEClass.getESuperTypes().add(this.getTypeProperty());
 		typePrimitiveEClass.getESuperTypes().add(this.getTypeProperty());
 		isPrimitiveFuntionEClass.getESuperTypes().add(this.getTypeProperty());
 		isCollectionTypeEClass.getESuperTypes().add(this.getTypeProperty());
@@ -1868,8 +1839,8 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(isImplementedEClass, isImplemented.class, "isImplemented", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getisImplemented_Valores(), this.getRangoNames(), null, "valores", null, 1, 1, isImplemented.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(isImplementedEClass, IsImplemented.class, "IsImplemented", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIsImplemented_Valores(), this.getRangoNames(), null, "valores", null, 1, 1, IsImplemented.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(isSuperInterfaceEClass, IsSuperInterface.class, "IsSuperInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIsSuperInterface_Valores(), this.getRangoNames(), null, "valores", null, 1, 1, IsSuperInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1960,9 +1931,6 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		initEAttribute(getBlendModifiers_Synchronized(), ecorePackage.getEBoolean(), "synchronized", "false", 1, 1, BlendModifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typePropertyEClass, TypeProperty.class, "TypeProperty", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(typeStringEClass, TypeString.class, "TypeString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypeString_TypeStrng(), this.getStringProperty(), null, "typeStrng", null, 0, 1, TypeString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typePrimitiveEClass, TypePrimitive.class, "TypePrimitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypePrimitive_TypePrimitive(), this.getPrimitive(), "typePrimitive", null, 0, 1, TypePrimitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

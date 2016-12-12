@@ -296,4 +296,4 @@ public class NameOperationImpl extends AttributeImpl implements NameOperation {
 		return result.toString();
 	}
 
-}
+} //NameOperationImpl

@@ -98,9 +98,10 @@ public class Implements<T extends JavaTypes> extends StringProperty<T> {
 			isInterface = true;
 		}
 		List<Type> superInterface = analyze.getSuperInterfaces();
+		List<String>superInterfaceList=es.uam.sara.tfg.properties.type.Type.getString(superInterface);
 		if (superInterface.size() >= min && superInterface.size() <= max) {
 			for (TypeString type : interf) {
-				if (!type.isTypeIn(superInterface)){
+				if (!type.isTypeIn(superInterfaceList)){
 					return false;
 				}
 			}

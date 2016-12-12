@@ -17,6 +17,7 @@ import javaRule.Initialize;
 import javaRule.Interface;
 import javaRule.IsCollectionType;
 import javaRule.IsGeneric;
+import javaRule.IsImplemented;
 import javaRule.IsPrimitiveFuntion;
 import javaRule.IsSubClass;
 import javaRule.IsSuperClass;
@@ -43,10 +44,8 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
-import javaRule.isImplemented;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -218,8 +217,8 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case JavaRulePackage.IS_IMPLEMENTED: {
-				isImplemented isImplemented = (isImplemented)theEObject;
-				T result = caseisImplemented(isImplemented);
+				IsImplemented isImplemented = (IsImplemented)theEObject;
+				T result = caseIsImplemented(isImplemented);
 				if (result == null) result = caseInterface(isImplemented);
 				if (result == null) result = caseProperty(isImplemented);
 				if (result == null) result = defaultCase(theEObject);
@@ -365,6 +364,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 			case JavaRulePackage.STRING_PROPERTY: {
 				StringProperty stringProperty = (StringProperty)theEObject;
 				T result = caseStringProperty(stringProperty);
+				if (result == null) result = caseTypeProperty(stringProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -372,6 +372,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				StringVariable stringVariable = (StringVariable)theEObject;
 				T result = caseStringVariable(stringVariable);
 				if (result == null) result = caseStringProperty(stringVariable);
+				if (result == null) result = caseTypeProperty(stringVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -385,6 +386,7 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 				StringValue stringValue = (StringValue)theEObject;
 				T result = caseStringValue(stringValue);
 				if (result == null) result = caseStringProperty(stringValue);
+				if (result == null) result = caseTypeProperty(stringValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -447,13 +449,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 			case JavaRulePackage.TYPE_PROPERTY: {
 				TypeProperty typeProperty = (TypeProperty)theEObject;
 				T result = caseTypeProperty(typeProperty);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case JavaRulePackage.TYPE_STRING: {
-				TypeString typeString = (TypeString)theEObject;
-				T result = caseTypeString(typeString);
-				if (result == null) result = caseTypeProperty(typeString);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -723,17 +718,17 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Is Implemented</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>is Implemented</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Is Implemented</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseisImplemented(isImplemented object) {
+	public T caseIsImplemented(IsImplemented object) {
 		return null;
 	}
 
@@ -1109,21 +1104,6 @@ public class JavaRuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeProperty(TypeProperty object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type String</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type String</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTypeString(TypeString object) {
 		return null;
 	}
 

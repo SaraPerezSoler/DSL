@@ -67,13 +67,10 @@ class JRulesGenerator extends AbstractGenerator {
 
 		'''
 			import java.io.File;
-			import java.io.FileWriter;
 			import java.io.IOException;
-			import java.io.PrintWriter;
 			import java.util.List;
 			import java.util.ArrayList;
 			import es.uam.sara.tfg.ast.ReadFiles;
-			import es.uam.sara.tfg.rule.Rule;
 			import es.uam.sara.tfg.ast.Visitors;
 				
 				public class Main {
@@ -110,21 +107,17 @@ class JRulesGenerator extends AbstractGenerator {
 			import java.io.FileWriter;
 			import java.io.PrintWriter;
 			import java.util.*;
-			import es.uam.sara.tfg.rule.*;
-			import es.uam.sara.tfg.rule.Rule.*;
+			
+			import es.uam.sara.tfg.ast.*;
+			import es.uam.sara.tfg.elements.type.*;
+			import es.uam.sara.tfg.sentence.*;
 			import es.uam.sara.tfg.properties.*;
-			import es.uam.sara.tfg.properties.interfaces.*;
-			import es.uam.sara.tfg.properties.classes.*;
-			import es.uam.sara.tfg.properties.enumerations.*;
-			import es.uam.sara.tfg.properties.methods.*;
+			import es.uam.sara.tfg.properties.all.*;
 			import es.uam.sara.tfg.properties.attributes.*;
-			import es.uam.sara.tfg.properties.packages.*;
-			import org.eclipse.jdt.core.dom.TypeDeclaration;
-			import org.eclipse.jdt.core.dom.EnumDeclaration;
-			import org.eclipse.jdt.core.dom.MethodDeclaration;
-			import org.eclipse.jdt.core.dom.FieldDeclaration;
-			import es.uam.sara.tfg.ast.Visitors;
-			import es.uam.sara.tfg.properties.Properties;
+			import es.uam.sara.tfg.properties.classes.*;
+			import es.uam.sara.tfg.properties.interfaces.*;
+			import es.uam.sara.tfg.properties.methods.*;
+			import es.uam.sara.tfg.properties.type.*;
 			
 			public class RuleFactory {
 				
@@ -139,19 +132,13 @@ class JRulesGenerator extends AbstractGenerator {
 						return rules;
 					}else{
 						rules= new ArrayList<Rule<?>>();
-						List<String> packages=visitors.getPackages();
-						List<TypeDeclaration> classs=visitors.getClasses();
-						List<TypeDeclaration> interfaces=visitors.getInterfaces();
-						List<EnumDeclaration> enumerations=visitors.getEnumerations();
-						List<MethodDeclaration> methods=visitors.getMethods();
-						List<FieldDeclaration> attributes=visitors.getAttributes();
-						
+
 					//Crear
 					«FOR Sentence s : sentences»
 						«IF s instanceof Variable»
 						«var v= s as Variable»
 						«genetateVariable(v)»
-						Sentences.allVariables.put("«v.name»", «v.name»);
+						Sentence.allVariables.put("«v.name»", «v.name»);
 						«ELSE»
 						«var r= s as Rule»
 						«IF r.eContainer instanceof RuleSet»
@@ -171,7 +158,7 @@ class JRulesGenerator extends AbstractGenerator {
 						FileWriter fichero = null;
 				 		PrintWriter pw = null;
 				 		try{
-							fichero = new FileWriter("outs/"+visitors.getProjectName+".txt");
+							fichero = new FileWriter("outs/"+visitors.getProjectName()+".txt");
 							pw = new PrintWriter(fichero);
 							
 							for (Rule<?> r: rules){
@@ -197,13 +184,13 @@ class JRulesGenerator extends AbstractGenerator {
 	def CharSequence generateDependences(List<Sentence> s){'''
 			«FOR Sentence v : s»
 				«IF v.eContainer instanceof RuleSet»
-					«FOR Variable in: v.in»
-						«v.name».setIn(Sentences.allVariables.get("«in.name»").get());
+					«FOR Variable in: v.in» @SuppressWarnings("unchecked")List<«getType(v.element)»> list«v.name»«in.name»=(List<«getType(v.element)»>) Sentence.allVariables.get("«in.name»").get();
+					«v.name».setIn(list«v.name»«in.name»);
 					«ENDFOR»
 					«var k=0»
 					«IF v.from!=null»
 						for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-							«v.name».setFrom(us«k».get«getType(v.element)»s());
+							«v.name».setFrom(us«k».«getAnalice(v.element)»);
 							«v.name».setUsing("«v.from.getName»",us«k++»);
 					«ENDIF»
 						
@@ -212,7 +199,7 @@ class JRulesGenerator extends AbstractGenerator {
 							for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
 								«v.name».setUsing("«us.variable.name»",us«k++»);
 							«ELSE»
-							for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».get«getType(us.subtype)»s()){
+							for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».«getAnalice(us.subtype)»){
 								«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
 							«ENDIF»
 						«ENDFOR»
@@ -251,10 +238,17 @@ class JRulesGenerator extends AbstractGenerator {
 			«var name=v.name»
 			//v: «v.toString»
 			«var type=getType(v.element)»
-			«var analize=getType(v.element).toLowerCase»
+			«var analize=getAnalice(v.element)»
 			«getOr(v.satisfy, name, v.element)»
-			Varieble<«type»> «name»=new Varieble<«type»> ( "«v.element»",«analize»s, or«name»);	
+			Variable<«type»> «name»=new Variable<«type»> ( "«v.element»",visitors.«analize», or«name»);	
 		'''
+	}
+	def static String getAnalice(Element e){
+		if (e ==Element.CLASS){
+			return "get"+e.toString.toFirstUpper+"es()"
+		}else{
+			return "get"+e.toString.toFirstUpper+"s()"
+		}
 	}
 
 	def static String genetateRule(Rule r,
@@ -262,10 +256,10 @@ class JRulesGenerator extends AbstractGenerator {
 		'''
 			//r«i»: «r.toString»
 			«var type=getType(r.element)»
-			«var analize=getType(r.element).toLowerCase»
+			«var analize=getAnalice(r.element)»
 			«getOr(r.filter, "Filter"+i, r.element)»
 			«getOr(r.satisfy, i, r.element)»
-			Rule<«type»> «r.name»=new Rule<«type»> («r.no», Quantifier.«r.quantifier.literal.toUpperCase»,«analize»s,orFilter«i», or«i», "«r.element»");	
+			Rule<«type»> «r.name»=new Rule<«type»> («r.no», Rule.Quantifier.«r.quantifier.literal.toUpperCase»,visitors.«analize»,orFilter«i», or«i», "«r.element»");	
 		'''
 	}
 
@@ -323,6 +317,6 @@ class JRulesGenerator extends AbstractGenerator {
 	}
 
 	def static String getType(Element e) {
-		return e.literal.toLowerCase.toFirstUpper;
+		return "M"+e.literal.toLowerCase.toFirstUpper;
 	}
 }

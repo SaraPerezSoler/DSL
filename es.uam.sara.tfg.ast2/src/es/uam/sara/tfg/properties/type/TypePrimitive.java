@@ -17,7 +17,7 @@ public class TypePrimitive implements Type{
 
 	@Override
 	public boolean compare(org.eclipse.jdt.core.dom.Type other) {
-		List<String> strings= this.getString(other);
+		List<String> strings= Type.getString(other);
 		return strings.contains(type.toString().toLowerCase());
 	}
 

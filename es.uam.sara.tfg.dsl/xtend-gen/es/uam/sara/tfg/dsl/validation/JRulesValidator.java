@@ -3,7 +3,39 @@
  */
 package es.uam.sara.tfg.dsl.validation;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import es.uam.sara.tfg.dsl.validation.AbstractJRulesValidator;
+import java.util.List;
+import javaRule.And;
+import javaRule.Attribute;
+import javaRule.Element;
+import javaRule.Enumeration;
+import javaRule.Interface;
+import javaRule.JavaRulePackage;
+import javaRule.Method;
+import javaRule.Or;
+import javaRule.PrimaryOp;
+import javaRule.Property;
+import javaRule.PropertyLiteral;
+import javaRule.Quantifier;
+import javaRule.Rule;
+import javaRule.RuleSet;
+import javaRule.Sentence;
+import javaRule.StringVariable;
+import javaRule.Variable;
+import javaRule.VariableSubtype;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * This class contains custom validation rules.
@@ -13,4 +45,211 @@ import es.uam.sara.tfg.dsl.validation.AbstractJRulesValidator;
 @SuppressWarnings("all")
 public class JRulesValidator extends AbstractJRulesValidator {
   public final static String INVALID_SATISFY = "invalidSatisfy";
+  
+  public final static String INVALID_IN = "invalidIn";
+  
+  @Check
+  public void checkProject(final RuleSet rs) {
+    EList<String> _projectName = rs.getProjectName();
+    boolean _isEmpty = _projectName.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+      IWorkspaceRoot workspace = _workspace.getRoot();
+      EList<String> _projectName_1 = rs.getProjectName();
+      for (final String name : _projectName_1) {
+        boolean _equals = Objects.equal(name, "");
+        if (_equals) {
+          this.error((("The project " + name) + " is not into worksapce"), 
+            JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+        } else {
+          IProject project = workspace.getProject(name);
+          boolean _exists = project.exists();
+          boolean _not_1 = (!_exists);
+          if (_not_1) {
+            this.error((("The project " + name) + " is not into worksapce"), 
+              JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject");
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkSatisfyExists(final Rule r) {
+    if (((r.eContainer() instanceof RuleSet) && Objects.equal(r.getSatisfy(), null))) {
+      this.error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule");
+    } else {
+      if ((Objects.equal(r.getQuantifier(), Quantifier.ALL) && Objects.equal(r.getSatisfy(), null))) {
+        this.error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER, 
+          "invalidRule");
+      }
+    }
+    if ((Objects.equal(r.getSatisfy(), null) && (!Objects.equal(r.getFilter(), null)))) {
+      this.error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER, 
+        "invalidRule");
+    }
+  }
+  
+  @Check
+  public void checkTypes(final Sentence r) {
+    if ((r instanceof Rule)) {
+      Or _filter = ((Rule)r).getFilter();
+      Element _element = ((Rule)r).getElement();
+      boolean _comprobarPropiedades = this.comprobarPropiedades(_filter, _element);
+      boolean _equals = (_comprobarPropiedades == false);
+      if (_equals) {
+        Element _element_1 = ((Rule)r).getElement();
+        String _literal = _element_1.getLiteral();
+        String _lowerCase = _literal.toLowerCase();
+        String _plus = ("This filter is not valid for " + _lowerCase);
+        this.error(_plus, 
+          JavaRulePackage.Literals.RULE__FILTER, JRulesValidator.INVALID_SATISFY);
+      }
+    }
+    EList<Variable> _in = r.getIn();
+    for (final Variable in : _in) {
+      Element _element_2 = in.getElement();
+      Element _element_3 = r.getElement();
+      boolean _notEquals = (!Objects.equal(_element_2, _element_3));
+      if (_notEquals) {
+        this.error(
+          "The clause \'in\' must be the same type than the sentences", 
+          JavaRulePackage.Literals.SENTENCE__IN, 
+          JRulesValidator.INVALID_SATISFY);
+      }
+    }
+    Variable _from = r.getFrom();
+    boolean _notEquals_1 = (!Objects.equal(_from, null));
+    if (_notEquals_1) {
+      if ((Objects.equal(r.getFrom().getElement(), Element.ATTRIBUTE) || Objects.equal(r.getFrom().getElement(), Element.METHOD))) {
+        this.error(
+          "The clause \'from\' can\'t be attributes or methods", 
+          JavaRulePackage.Literals.SENTENCE__FROM, 
+          JRulesValidator.INVALID_SATISFY);
+      }
+    }
+    Or _satisfy = r.getSatisfy();
+    Element _element_4 = r.getElement();
+    boolean _comprobarPropiedades_1 = this.comprobarPropiedades(_satisfy, _element_4);
+    boolean _equals_1 = (_comprobarPropiedades_1 == false);
+    if (_equals_1) {
+      Element _element_5 = r.getElement();
+      String _literal_1 = _element_5.getLiteral();
+      String _lowerCase_1 = _literal_1.toLowerCase();
+      String _plus_1 = ("This property is not valid for " + _lowerCase_1);
+      this.error(_plus_1, 
+        JavaRulePackage.Literals.SENTENCE__SATISFY, 
+        JRulesValidator.INVALID_SATISFY);
+    }
+  }
+  
+  public boolean comprobarPropiedades(final Or or, final Element e) {
+    boolean ret = true;
+    boolean _equals = Objects.equal(or, null);
+    if (_equals) {
+      return true;
+    }
+    EList<And> _op = or.getOp();
+    for (final And a : _op) {
+      EList<PrimaryOp> _op_1 = a.getOp();
+      for (final PrimaryOp s : _op_1) {
+        if ((s instanceof PropertyLiteral)) {
+          ret = (ret && this.comprobarSatisfy(e, ((PropertyLiteral)s).getProperty()));
+        } else {
+          ret = (ret && this.comprobarPropiedades(((Or) s), e));
+        }
+      }
+    }
+    return ret;
+  }
+  
+  public boolean comprobarSatisfy(final Element e, final Property s) {
+    if ((Objects.equal(e, Element.PACKAGE) && (s instanceof javaRule.Package))) {
+      return true;
+    } else {
+      if ((Objects.equal(e, Element.INTERFACE) && (s instanceof Interface))) {
+        return true;
+      } else {
+        if ((Objects.equal(e, Element.CLASS) && (s instanceof javaRule.Class))) {
+          return true;
+        } else {
+          if ((Objects.equal(e, Element.ENUM) && (s instanceof Enumeration))) {
+            return true;
+          } else {
+            if ((Objects.equal(e, Element.METHOD) && (s instanceof Method))) {
+              return true;
+            } else {
+              if ((Objects.equal(e, Element.ATTRIBUTE) && (s instanceof Attribute))) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
+  public List<StringVariable> checkStringVariableUsing(final Sentence s) {
+    List<StringVariable> _xifexpression = null;
+    EObject _eContainer = s.eContainer();
+    if ((_eContainer instanceof RuleSet)) {
+      List<StringVariable> _xblockexpression = null;
+      {
+        TreeIterator<EObject> _eAllContents = s.eAllContents();
+        Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_eAllContents);
+        Iterable<StringVariable> _filter = Iterables.<StringVariable>filter(_iterable, StringVariable.class);
+        List<StringVariable> sv = IterableExtensions.<StringVariable>toList(_filter);
+        InputOutput.println();
+        for (final StringVariable svs : sv) {
+          {
+            VariableSubtype _variable = svs.getVariable();
+            Variable _variable_1 = _variable.getVariable();
+            String name = _variable_1.getName();
+            VariableSubtype _variable_2 = svs.getVariable();
+            Element _subtype = _variable_2.getSubtype();
+            boolean _notEquals = (!Objects.equal(_subtype, Element.NULL));
+            if (_notEquals) {
+              String _name = name;
+              VariableSubtype _variable_3 = svs.getVariable();
+              Element _subtype_1 = _variable_3.getSubtype();
+              String _plus = ("." + _subtype_1);
+              name = (_name + _plus);
+            }
+            if (((!this.contain(s.getUsing(), svs.getVariable())) && (!s.getFrom().equals(svs.getVariable().getVariable())))) {
+              this.error(
+                (("The variable " + name) + "must be declared in \'using\' or \'from\' clause  "), 
+                JavaRulePackage.Literals.SENTENCE__SATISFY);
+            }
+            InputOutput.<String>println(name);
+          }
+        }
+        _xblockexpression = InputOutput.<List<StringVariable>>println(sv);
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
+  public boolean contain(final List<VariableSubtype> using, final VariableSubtype vs) {
+    for (final VariableSubtype uvs : using) {
+      if ((Objects.equal(uvs.getSubtype(), vs.getSubtype()) && uvs.getVariable().equals(vs.getVariable()))) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  @Check
+  public void checkUsingOnlyRuleSetSentence(final Sentence s) {
+    if (((!(s.eContainer() instanceof RuleSet)) && (!s.getUsing().isEmpty()))) {
+      this.error(
+        "The \'using\' clause must be in the first sentence", 
+        JavaRulePackage.Literals.SENTENCE__USING, 
+        JRulesValidator.INVALID_IN);
+    }
+  }
 }

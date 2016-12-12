@@ -7,7 +7,7 @@ import javaRule.NameType
 
 class PackageSatisfy{
 	
-	private static final String TYPE = "Package"
+	private static final String TYPE = "MPackage"
 
 	def static CharSequence getPropertie(javaRule.Package s, String sufix){
 		

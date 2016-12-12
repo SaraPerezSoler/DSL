@@ -7,8 +7,6 @@ import javaRule.StringProperty;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>String Property</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class StringPropertyImpl extends MinimalEObjectImpl.Container implements StringProperty {
+public abstract class StringPropertyImpl extends TypePropertyImpl implements StringProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

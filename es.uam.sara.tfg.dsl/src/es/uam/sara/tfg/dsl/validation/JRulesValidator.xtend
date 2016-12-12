@@ -25,6 +25,14 @@ import javaRule.NameOperation
 import org.eclipse.core.resources.ResourcesPlugin
 import javaRule.Quantifier
 import java.lang.annotation.ElementType
+import javaRule.Element
+import javaRule.Sentence
+import javaRule.Variable
+import javaRule.PrimaryOp
+import javaRule.PropertyLiteral
+import javaRule.StringVariable
+import java.util.List
+import javaRule.VariableSubtype
 
 /**
  * This class contains custom validation rules. 
@@ -34,6 +42,8 @@ import java.lang.annotation.ElementType
 class JRulesValidator extends AbstractJRulesValidator {
 
 	public static val INVALID_SATISFY = 'invalidSatisfy'
+	
+	public static val INVALID_IN='invalidIn'
 
 //	public static val INVALID_NAME = 'invalidName'
 //
@@ -45,92 +55,153 @@ class JRulesValidator extends AbstractJRulesValidator {
 //					INVALID_NAME)
 //		}
 //	}
-//	@Check
-//	def checkProject(RuleSet rs) {
-//		if (rs.projectName.isEmpty) {
-//			error("You must put a name Project", JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
-//		} else {
-//			var workspace = ResourcesPlugin.getWorkspace().getRoot();
-//			for (name : rs.projectName) {
-//				if (name == "") {
-//					error("The project " + name + " is not into worksapce",
-//						JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
-//				} else {
-//					var project = workspace.getProject(name)
-//					if (!project.exists) {
-//						error("The project " + name + " is not into worksapce",
-//							JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
-//					}
-//				}
-//			}
-//
-//		}
-//	}
+	@Check
+	def checkProject(RuleSet rs) {
+		if (!rs.projectName.isEmpty) {
+			var workspace = ResourcesPlugin.getWorkspace().getRoot();
+			for (name : rs.projectName) {
+				if (name == "") {
+					error("The project " + name + " is not into worksapce",
+						JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+				} else {
+					var project = workspace.getProject(name)
+					if (!project.exists) {
+						error("The project " + name + " is not into worksapce",
+							JavaRulePackage.Literals.RULE_SET__PROJECT_NAME, "invalidProject")
+					}
+				}
+			}
+		}
+	}
 
+	@Check
+	def checkSatisfyExists(Rule r) {
 
-//
-//	@Check
-//	def checkSatisfyExists(Rule r) {
-//
-//		if (((r.eContainer instanceof RuleSet)) && (r.satisfy == null)) {
-//			error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
-//		}else if ((r.quantifier==Quantifier.ALL) && (r.satisfy == null)){
-//				error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
-//		}
-//		if ((r.satisfy == null) && (r.filter != null)) {
-//			error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER,
-//				"invalidRule")
-//		}
-//	}
-//
-//	@Check
-//	def checkFilterValido(Rule r) {
-//		if (comprobarPropiedades(r.filter.filter, r.element) == false) {
-//			error("The filter is not valid for " + r.element.literal.toLowerCase,
-//				JavaRulePackage.Literals.RULE__ELEMENT, INVALID_SATISFY);
-//		}
-//	}
-//
-//	@Check
-//	def checkSatisfyType(Rule r) {
-//		if (comprobarPropiedades(r.satisfy, r.element) == false) {
-//			error(
-//				"The property is not valid for " + r.element.literal.toLowerCase,
-//				JavaRulePackage.Literals.RULE__ELEMENT,
-//				INVALID_SATISFY
-//			)
-//		}
-//	}
-//	
-//	def comprobarPropiedades(Or or, ElementJava e) {
-//		for (And a : or.op) {
-//			for (Satisfy s : a.op) {
-//				if (comprobarSatisfy(e, s) == false) {
-//					return false;
-//				}
-//			}
-//		}
-//		return true;
-//	}
-//
-//	def comprobarSatisfy(ElementJava e, Satisfy s) {
-//		if ((e == ElementJava.PACKAGE) && (s instanceof javaRule.Package)) {
-//			return true;
-//		} else if ((e == ElementJava.INTERFACE) && (s instanceof Interface)) {
-//			return true;
-//		} else if ((e == ElementJava.CLASS) && (s instanceof javaRule.Class)) {
-//			return true;
-//		} else if ((e == ElementJava.ENUM) && (s instanceof Enumeration)) {
-//			return true;
-//		} else if ((e == ElementJava.METHOD) && (s instanceof Method)) {
-//			return true;
-//		} else if ((e == ElementJava.ATTRIBUTE) && (s instanceof Attribute)) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-//
-//	}
+		if (((r.eContainer instanceof RuleSet)) && (r.satisfy == null)) {
+			error("\"Satisfy\" is required", JavaRulePackage.Literals.RULE__QUANTIFIER, "invalidRule")
+		} else if ((r.quantifier == Quantifier.ALL) && (r.satisfy == null)) {
+			error("\"Satisfy\" is required with quantifier all", JavaRulePackage.Literals.RULE__QUANTIFIER,
+				"invalidRule")
+		}
+		if ((r.satisfy == null) && (r.filter != null)) {
+			error("\"Satisfy\" is required after clause \"which\"", JavaRulePackage.Literals.RULE__FILTER,
+				"invalidRule")
+		}
+	}
+
+	@Check
+	def checkTypes(Sentence r) {
+		if (r instanceof Rule) {
+			if (comprobarPropiedades(r.filter, r.element) == false) {
+				error("This filter is not valid for " + r.element.literal.toLowerCase,
+					JavaRulePackage.Literals.RULE__FILTER, INVALID_SATISFY);
+			}
+		}
+		for (Variable in : r.in) {
+			if (in.element != r.element) {
+				error(
+					"The clause 'in' must be the same type than the sentences",
+					JavaRulePackage.Literals.SENTENCE__IN,
+					INVALID_SATISFY
+				)
+			}
+		}
+		if (r.from != null) {
+			if (r.from.element == Element.ATTRIBUTE || r.from.element == Element.METHOD) {
+				error(
+					"The clause 'from' can't be attributes or methods",
+					JavaRulePackage.Literals.SENTENCE__FROM,
+					INVALID_SATISFY
+				)
+			}
+		}
+
+		if (comprobarPropiedades(r.satisfy, r.element) == false) {
+			error(
+				"This property is not valid for " + r.element.literal.toLowerCase,
+				JavaRulePackage.Literals.SENTENCE__SATISFY,
+				INVALID_SATISFY
+			)
+		}
+	}
+
+	def boolean comprobarPropiedades(Or or, Element e) {
+		var ret = true;
+		if (or==null){
+			return true;
+		}
+		for (And a : or.op) {
+			for (PrimaryOp s : a.op) {
+				if (s instanceof PropertyLiteral) {
+					ret = ret && comprobarSatisfy(e, s.property)
+				} else {
+					ret = ret && comprobarPropiedades(s as Or, e);
+				}
+			}
+		}
+		return ret;
+	}
+
+	def comprobarSatisfy(Element e, javaRule.Property s) {
+		if ((e == Element.PACKAGE) && (s instanceof javaRule.Package)) {
+			return true;
+		} else if ((e == Element.INTERFACE) && (s instanceof Interface)) {
+			return true;
+		} else if ((e == Element.CLASS) && (s instanceof javaRule.Class)) {
+			return true;
+		} else if ((e == Element.ENUM) && (s instanceof Enumeration)) {
+			return true;
+		} else if ((e == Element.METHOD) && (s instanceof Method)) {
+			return true;
+		} else if ((e == Element.ATTRIBUTE) && (s instanceof Attribute)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	@Check
+	def checkStringVariableUsing(Sentence s){
+		if (s.eContainer instanceof RuleSet){
+			var sv=s.eAllContents.toIterable.filter(StringVariable).toList
+			println
+			for (StringVariable svs: sv){
+				var name=svs.variable.variable.name
+				if (svs.variable.subtype!=Element.NULL){
+					name+="."+svs.variable.subtype;
+				}
+				if (!s.using.contain(svs.variable) && !s.from.equals(svs.variable.variable)){
+					error(
+					"The variable "+name+"must be declared in 'using' or 'from' clause  ",
+					JavaRulePackage.Literals.SENTENCE__SATISFY
+					)
+				}
+				println(name)
+			}
+			println(sv)
+		}
+	}
+	
+	def contain (List<VariableSubtype> using, VariableSubtype vs){
+		for (VariableSubtype uvs: using){
+			if (uvs.subtype== vs.subtype && uvs.variable.equals(vs.variable)){
+				return true;
+			}
+		}
+		return false;
+	}
+		@Check
+	def checkUsingOnlyRuleSetSentence(Sentence s){
+		if (!(s.eContainer instanceof RuleSet) && !s.using.isEmpty){
+			error(
+				"The 'using' clause must be in the first sentence",
+				JavaRulePackage.Literals.SENTENCE__USING,
+				INVALID_IN
+			)
+		}
+	}
+	
 //
 //	@Check
 //	def checkNameLanguage(NameOperation n) {
@@ -304,5 +375,4 @@ class JRulesValidator extends AbstractJRulesValidator {
 //			}
 //		}
 //	}
-
 }

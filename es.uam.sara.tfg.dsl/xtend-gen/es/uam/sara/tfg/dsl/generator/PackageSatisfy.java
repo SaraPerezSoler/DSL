@@ -8,7 +8,7 @@ import javaRule.NameType;
 
 @SuppressWarnings("all")
 public class PackageSatisfy {
-  private final static String TYPE = "Package";
+  private final static String TYPE = "MPackage";
   
   public static CharSequence getPropertie(final javaRule.Package s, final String sufix) {
     if ((s instanceof NameOperation)) {

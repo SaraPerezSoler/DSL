@@ -4,14 +4,15 @@
  */
 package es.uam.sara.tfg.properties.attributes;
 
-import es.uam.sara.tfg.elements.type.Attribute;
+import es.uam.sara.tfg.elements.type.MAttribute;
+import es.uam.sara.tfg.properties.Property;
 
 
 /**
  * @author Sara
  *
  */
-public class Initialize extends AttributeProperty{
+public class Initialize extends Property<MAttribute>{
 
 	/**
 	 * @param analyze
@@ -29,7 +30,7 @@ public class Initialize extends AttributeProperty{
 	}
 
 	@Override
-	public boolean checkElement(Attribute analize) {
+	public boolean checkElement(MAttribute analize) {
 		return analize.isInitialize();
 	}
 

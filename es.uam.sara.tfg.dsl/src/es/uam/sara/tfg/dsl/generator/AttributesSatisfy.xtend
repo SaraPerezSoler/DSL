@@ -8,12 +8,11 @@ import javaRule.Attribute
 import javaRule.NameOperation
 import javaRule.NameType
 import javaRule.IsGeneric
-import javaRule.TypeString
-import javaRule.StringVariable
+import javaRule.StringProperty
 
 class AttributesSatisfy {
 
-	private static final String TYPE = "Attribute"
+	private static final String TYPE = "MAttribute"
 
 	def static CharSequence getPropertie(Attribute s, String sufix) {
 
@@ -35,21 +34,21 @@ class AttributesSatisfy {
 
 		} else if (s instanceof Initialize) {
 		
-			return "Properties<"+TYPE+"> p" + sufix + "= new Initialize("+s.no+");\n"	
+			return "Property<"+TYPE+"> p" + sufix + "= new Initialize("+s.no+");\n"	
 		
 		} else if (s instanceof AttributeType) {
 			var a= s as AttributeType
 			var cad=ComunSatisfy.getType(a.type, sufix);
 			
-			if (a.type instanceof TypeString){
-				var spa=a.type as TypeString
+			if (a.type instanceof StringProperty){
+				var spa=a.type as StringProperty
 				
-				cad+=ComunSatisfy.propertyStringVariable(spa.typeStrng as StringVariable, sufix);
-				cad+= "Properties<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",AttributeType>(" +a.no+",listV"+sufix+
+				cad+=ComunSatisfy.propertyStringVariable(spa, sufix);
+				cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",AttributeType>(" +a.no+",listV"+sufix+
 				", listT"+sufix+", new AttributeType("+a.no+",type"+sufix+"));"
 				return cad;
 			}
-			cad+="Properties<"+TYPE+"> p" + sufix+"=new AttributeType("+a.no+",type"+sufix+");\n"
+			cad+="Property<"+TYPE+"> p" + sufix+"=new AttributeType("+a.no+",type"+sufix+");\n"
 			return cad;
 			
 		} else if (s instanceof IsGeneric) {

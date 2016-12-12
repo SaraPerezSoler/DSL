@@ -26,7 +26,6 @@ import javaRule.StringVariable;
 import javaRule.Tamanio;
 import javaRule.TypePrimitive;
 import javaRule.TypeProperty;
-import javaRule.TypeString;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
 import org.eclipse.emf.common.util.EList;
@@ -38,7 +37,7 @@ public class ComunSatisfy {
     String cad = ComunSatisfy.propertyStringVariable(_name, sufix);
     String _cad = cad;
     boolean _isNo = n.isNo();
-    String _plus = ((((((((("Properties<" + type) + "> p") + sufix) + "= new PropertyStringVariable<") + type) + ",NameOperation<") + type) + ">>(") + Boolean.valueOf(_isNo));
+    String _plus = ((((((((("Property<" + type) + "> p") + sufix) + "= new PropertyStringVariable<") + type) + ",NameOperation<") + type) + ">>(") + Boolean.valueOf(_isNo));
     String _plus_1 = (_plus + ",listV");
     String _plus_2 = (_plus_1 + sufix);
     String _plus_3 = (_plus_2 + 
@@ -49,10 +48,10 @@ public class ComunSatisfy {
     String _plus_7 = (_plus_6 + ">(");
     boolean _isNo_1 = n.isNo();
     String _plus_8 = (_plus_7 + Boolean.valueOf(_isNo_1));
-    String _plus_9 = (_plus_8 + ",NameCheck.Operation.");
+    String _plus_9 = (_plus_8 + ",NameOperation.Operation.");
     NameOperator _operator = n.getOperator();
     String _plus_10 = (_plus_9 + _operator);
-    String _plus_11 = (_plus_10 + ", NameCheck.");
+    String _plus_11 = (_plus_10 + ", NameOperation.");
     Language _language = n.getLanguage();
     String _plus_12 = (_plus_11 + _language);
     String _plus_13 = (_plus_12 + "));");
@@ -61,17 +60,14 @@ public class ComunSatisfy {
   }
   
   public static CharSequence nameType(final NameType n, final String type, final String sufix) {
-    boolean _isNo = n.isNo();
-    String _plus = ((((((("Properties<" + type) + "> p") + sufix) + "= new NameType<") + type) + ">(") + Boolean.valueOf(_isNo));
-    String _plus_1 = (_plus + ",NameCheck.Type.");
     NameCheck _type = n.getType();
-    String _plus_2 = (_plus_1 + _type);
-    return (_plus_2 + ");\n");
+    String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new NameType<") + type) + ">(NameType.Type.") + _type);
+    return (_plus + ");\n");
   }
   
   public static CharSequence javaDoc(final JavaDoc jd, final String type, final String sufix) {
     boolean _isNo = jd.isNo();
-    String _plus = ((((((("Properties<" + type) + "> p") + sufix) + "= new JavaDoc <") + type) + "> (") + Boolean.valueOf(_isNo));
+    String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new JavaDoc <") + type) + "> (") + Boolean.valueOf(_isNo));
     boolean _isAuthor = jd.isAuthor();
     String _plus_1 = (_plus + Boolean.valueOf(_isAuthor));
     String _plus_2 = (_plus_1 + ",");
@@ -95,14 +91,16 @@ public class ComunSatisfy {
   
   public static CharSequence modifiers(final Modifiers m, final String type, final String sufix) {
     boolean _isNo = m.isNo();
-    String _plus = ((((((("Properties<" + type) + "> p") + sufix) + "= new Modifiers<") + type) + "> (") + Boolean.valueOf(_isNo));
+    String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new Modifiers<") + type) + "> (") + Boolean.valueOf(_isNo));
     String cadena = (_plus + ")\n");
     EList<BlendModifiers> _blend = m.getBlend();
     for (final BlendModifiers b : _blend) {
       String _cadena = cadena;
       AccessModifier _access = b.getAccess();
-      String _plus_1 = (".addBlend(\"" + _access);
-      String _plus_2 = (_plus_1 + "\",");
+      String _string = _access.toString();
+      String _upperCase = _string.toUpperCase();
+      String _plus_1 = (".addBlend(BlendModifiers.Acceso." + _upperCase);
+      String _plus_2 = (_plus_1 + ",");
       boolean _isStatic = b.isStatic();
       String _plus_3 = (_plus_2 + Boolean.valueOf(_isStatic));
       String _plus_4 = (_plus_3 + ",");
@@ -112,10 +110,13 @@ public class ComunSatisfy {
       boolean _isAbstract = b.isAbstract();
       String _plus_7 = (_plus_6 + Boolean.valueOf(_isAbstract));
       String _plus_8 = (_plus_7 + ",");
+      boolean _isDefault = b.isDefault();
+      String _plus_9 = (_plus_8 + Boolean.valueOf(_isDefault));
+      String _plus_10 = (_plus_9 + ",");
       boolean _isSynchronized = b.isSynchronized();
-      String _plus_9 = (_plus_8 + Boolean.valueOf(_isSynchronized));
-      String _plus_10 = (_plus_9 + ")\n");
-      cadena = (_cadena + _plus_10);
+      String _plus_11 = (_plus_10 + Boolean.valueOf(_isSynchronized));
+      String _plus_12 = (_plus_11 + ")\n");
+      cadena = (_cadena + _plus_12);
     }
     String _cadena_1 = cadena;
     cadena = (_cadena_1 + ";\n");
@@ -124,7 +125,7 @@ public class ComunSatisfy {
   
   public static CharSequence empty(final Empty ne, final String type, final String sufix) {
     boolean _isNo = ne.isNo();
-    String _plus = ((((((("Properties<" + type) + "> p") + sufix) + "= new Empty<") + type) + "> (") + Boolean.valueOf(_isNo));
+    String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new Empty<") + type) + "> (") + Boolean.valueOf(_isNo));
     return (_plus + ");\n");
   }
   
@@ -135,7 +136,7 @@ public class ComunSatisfy {
     Rule _rule_1 = c.getRule();
     Element _element = _rule_1.getElement();
     String _type = JRulesGenerator.getType(_element);
-    String _plus = ((((("Properties<" + type) + "> p") + sufix) + "= new Contain") + _type);
+    String _plus = ((((("Property<" + type) + "> p") + sufix) + "= new Contain") + _type);
     String _plus_1 = (_plus + "<");
     String _plus_2 = (_plus_1 + type);
     String _plus_3 = (_plus_2 + ">");
@@ -147,7 +148,9 @@ public class ComunSatisfy {
   }
   
   public static CharSequence isGeneric(final IsGeneric g, final String type, final String sufix) {
-    return (((((("Properties<" + type) + "> p") + sufix) + "= new IsGeneric<") + type) + ">();\n");
+    boolean _isNo = g.isNo();
+    String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new IsGeneric<") + type) + ">(") + Boolean.valueOf(_isNo));
+    return (_plus + ");\n");
   }
   
   public static CharSequence size(final Tamanio t, final String type, final String sufix) {
@@ -161,7 +164,7 @@ public class ComunSatisfy {
       int _exact_2 = t.getExact();
       max = _exact_2;
     }
-    return (((((((((("Properties<" + type) + "> p") + sufix) + "= new Size<") + type) + ">(") + Integer.valueOf(min)) + ",") + Integer.valueOf(max)) + ");\n");
+    return (((((((((("Property<" + type) + "> p") + sufix) + "= new Size<") + type) + ">(") + Integer.valueOf(min)) + ",") + Integer.valueOf(max)) + ");\n");
   }
   
   public static String propertyStringVariable(final StringProperty property, final String string) {
@@ -198,7 +201,7 @@ public class ComunSatisfy {
         String _plus = (_name_1 + _type);
         varName = _plus;
       }
-      cad = (((("listV" + sufix) + ".add(") + varName) + ");\n");
+      cad = (((("listV" + sufix) + ".add(\"") + varName) + "\");\n");
       String _cad = cad;
       ElementString _strings = stv.getStrings();
       String _string = _strings.toString();
@@ -212,14 +215,15 @@ public class ComunSatisfy {
   
   public static String getType(final TypeProperty tp, final String sufix) {
     String cad = "";
-    if ((tp instanceof TypeString)) {
-      TypeString ts = ((TypeString) tp);
-      StringProperty _typeStrng = ts.getTypeStrng();
-      if ((_typeStrng instanceof StringVariable)) {
+    boolean _equals = Objects.equal(tp, null);
+    if (_equals) {
+      cad = (("TypeString type" + sufix) + "=null;\n");
+    }
+    if ((tp instanceof StringProperty)) {
+      if ((tp instanceof StringVariable)) {
         cad = (("TypeString type" + sufix) + "= new TypeString();\n");
       } else {
-        StringProperty _typeStrng_1 = ts.getTypeStrng();
-        String _value = ((StringValue) _typeStrng_1).getValue();
+        String _value = ((StringValue) tp).getValue();
         String _plus = ((("TypeString type" + sufix) + "= new TypeString(\"") + _value);
         String _plus_1 = (_plus + "\");\n");
         cad = _plus_1;
@@ -228,7 +232,7 @@ public class ComunSatisfy {
       if ((tp instanceof TypePrimitive)) {
         TypePrimitive tpr = ((TypePrimitive) tp);
         Primitive _typePrimitive = tpr.getTypePrimitive();
-        String _plus_2 = ((("TypePrimitive type" + sufix) + "= new TypePrimitive(Primitive.") + _typePrimitive);
+        String _plus_2 = ((("TypePrimitive type" + sufix) + "= new TypePrimitive(TypePrimitive.Primitive.") + _typePrimitive);
         String _plus_3 = (_plus_2 + ");\n");
         cad = _plus_3;
       } else {

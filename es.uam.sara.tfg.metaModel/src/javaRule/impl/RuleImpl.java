@@ -6,6 +6,7 @@ import javaRule.JavaRulePackage;
 import javaRule.Or;
 import javaRule.Quantifier;
 import javaRule.Rule;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

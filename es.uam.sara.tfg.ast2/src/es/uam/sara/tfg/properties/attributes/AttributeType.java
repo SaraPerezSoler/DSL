@@ -1,10 +1,10 @@
 package es.uam.sara.tfg.properties.attributes;
 
-import es.uam.sara.tfg.elements.type.Attribute;
+import es.uam.sara.tfg.elements.type.MAttribute;
 import es.uam.sara.tfg.properties.StringProperty;
 
 
-public class AttributeType extends StringProperty<Attribute>{
+public class AttributeType extends StringProperty<MAttribute>{
 
 	private es.uam.sara.tfg.properties.type.Type type;
 
@@ -22,7 +22,7 @@ public class AttributeType extends StringProperty<Attribute>{
 	}
 
 	@Override
-	public boolean checkElement(Attribute a) {
+	public boolean checkElement(MAttribute a) {
 		org.eclipse.jdt.core.dom.Type returnType = a.getType();
 		if (type.compare(returnType)) {
 			return true;
