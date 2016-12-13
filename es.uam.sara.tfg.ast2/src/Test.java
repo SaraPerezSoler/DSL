@@ -2,25 +2,7 @@ import java.util.List;
 
 public abstract class Test<T, K> {
 
-	public static class nada{
-		
-		private nada(int i){
-			
-		}
-	}
-	interface hola{
-		
-	}
-
-	public  interface Casa extends hola{
-		int num=0;
-		public int get();
-	}
-
-	/**
-	 * 
-	 * 
-	 * */
+	public List<Integer> num;
 	public  int getNumCasa(List<List<T>> i) {
 		return 1;
 	}

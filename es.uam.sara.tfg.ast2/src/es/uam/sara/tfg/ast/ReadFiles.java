@@ -35,6 +35,8 @@ public class ReadFiles {
 		
 		visit.addPackages(packs);
 	}
+	
+	
 	public static String readFileToString(String filePath) throws IOException {
 
 		String fileData = new String();

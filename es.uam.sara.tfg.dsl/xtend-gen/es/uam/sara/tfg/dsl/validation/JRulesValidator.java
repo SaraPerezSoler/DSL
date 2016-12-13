@@ -7,22 +7,36 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import es.uam.sara.tfg.dsl.validation.AbstractJRulesValidator;
 import java.util.List;
+import javaRule.AccessModifier;
 import javaRule.And;
 import javaRule.Attribute;
+import javaRule.BlendModifiers;
+import javaRule.Contains;
 import javaRule.Element;
 import javaRule.Enumeration;
+import javaRule.File;
 import javaRule.Interface;
+import javaRule.JavaDoc;
 import javaRule.JavaRulePackage;
+import javaRule.Language;
 import javaRule.Method;
+import javaRule.Modifiers;
+import javaRule.NameOperation;
+import javaRule.NameOperator;
 import javaRule.Or;
+import javaRule.Parameter;
 import javaRule.PrimaryOp;
 import javaRule.Property;
 import javaRule.PropertyLiteral;
 import javaRule.Quantifier;
+import javaRule.RangoNames;
 import javaRule.Rule;
 import javaRule.RuleSet;
 import javaRule.Sentence;
+import javaRule.StringProperty;
 import javaRule.StringVariable;
+import javaRule.Tamanio;
+import javaRule.TypeProperty;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
 import org.eclipse.core.resources.IProject;
@@ -33,9 +47,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * This class contains custom validation rules.
@@ -183,7 +197,11 @@ public class JRulesValidator extends AbstractJRulesValidator {
               if ((Objects.equal(e, Element.ATTRIBUTE) && (s instanceof Attribute))) {
                 return true;
               } else {
-                return false;
+                if ((Objects.equal(e, Element.FILE) && (s instanceof File))) {
+                  return true;
+                } else {
+                  return false;
+                }
               }
             }
           }
@@ -193,45 +211,54 @@ public class JRulesValidator extends AbstractJRulesValidator {
   }
   
   @Check
-  public List<StringVariable> checkStringVariableUsing(final Sentence s) {
-    List<StringVariable> _xifexpression = null;
+  public void checkStringVariableUsing(final Sentence s) {
     EObject _eContainer = s.eContainer();
     if ((_eContainer instanceof RuleSet)) {
-      List<StringVariable> _xblockexpression = null;
-      {
-        TreeIterator<EObject> _eAllContents = s.eAllContents();
-        Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_eAllContents);
-        Iterable<StringVariable> _filter = Iterables.<StringVariable>filter(_iterable, StringVariable.class);
-        List<StringVariable> sv = IterableExtensions.<StringVariable>toList(_filter);
-        InputOutput.println();
-        for (final StringVariable svs : sv) {
-          {
-            VariableSubtype _variable = svs.getVariable();
-            Variable _variable_1 = _variable.getVariable();
-            String name = _variable_1.getName();
-            VariableSubtype _variable_2 = svs.getVariable();
-            Element _subtype = _variable_2.getSubtype();
-            boolean _notEquals = (!Objects.equal(_subtype, Element.NULL));
-            if (_notEquals) {
-              String _name = name;
-              VariableSubtype _variable_3 = svs.getVariable();
-              Element _subtype_1 = _variable_3.getSubtype();
-              String _plus = ("." + _subtype_1);
-              name = (_name + _plus);
-            }
-            if (((!this.contain(s.getUsing(), svs.getVariable())) && (!s.getFrom().equals(svs.getVariable().getVariable())))) {
+      TreeIterator<EObject> _eAllContents = s.eAllContents();
+      Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_eAllContents);
+      Iterable<StringVariable> _filter = Iterables.<StringVariable>filter(_iterable, StringVariable.class);
+      List<StringVariable> sv = IterableExtensions.<StringVariable>toList(_filter);
+      for (final StringVariable svs : sv) {
+        {
+          VariableSubtype _variable = svs.getVariable();
+          Variable _variable_1 = _variable.getVariable();
+          String name = _variable_1.getName();
+          VariableSubtype _variable_2 = svs.getVariable();
+          Element _subtype = _variable_2.getSubtype();
+          boolean _notEquals = (!Objects.equal(_subtype, Element.NULL));
+          if (_notEquals) {
+            String _name = name;
+            VariableSubtype _variable_3 = svs.getVariable();
+            Element _subtype_1 = _variable_3.getSubtype();
+            String _plus = ("." + _subtype_1);
+            name = (_name + _plus);
+          }
+          EList<VariableSubtype> _using = s.getUsing();
+          VariableSubtype _variable_4 = svs.getVariable();
+          boolean _contain = this.contain(_using, _variable_4);
+          boolean _not = (!_contain);
+          if (_not) {
+            Variable _from = s.getFrom();
+            boolean _equals = Objects.equal(_from, null);
+            if (_equals) {
               this.error(
                 (("The variable " + name) + "must be declared in \'using\' or \'from\' clause  "), 
                 JavaRulePackage.Literals.SENTENCE__SATISFY);
             }
-            InputOutput.<String>println(name);
+            Variable _from_1 = s.getFrom();
+            VariableSubtype _variable_5 = svs.getVariable();
+            Variable _variable_6 = _variable_5.getVariable();
+            boolean _equals_1 = _from_1.equals(_variable_6);
+            boolean _not_1 = (!_equals_1);
+            if (_not_1) {
+              this.error(
+                (("The variable " + name) + " must be declared in \'using\' or \'from\' clause  "), 
+                JavaRulePackage.Literals.SENTENCE__SATISFY);
+            }
           }
         }
-        _xblockexpression = InputOutput.<List<StringVariable>>println(sv);
       }
-      _xifexpression = _xblockexpression;
     }
-    return _xifexpression;
   }
   
   public boolean contain(final List<VariableSubtype> using, final VariableSubtype vs) {
@@ -250,6 +277,288 @@ public class JRulesValidator extends AbstractJRulesValidator {
         "The \'using\' clause must be in the first sentence", 
         JavaRulePackage.Literals.SENTENCE__USING, 
         JRulesValidator.INVALID_IN);
+    }
+  }
+  
+  @Check
+  public void checkNameLanguage(final NameOperation n) {
+    if ((Objects.equal(n.getOperator(), NameOperator.LIKE) && Objects.equal(n.getLanguage(), Language.EMPTY))) {
+      this.error(
+        "Language must be define for Like operator", 
+        JavaRulePackage.Literals.NAME_OPERATION__OPERATOR, 
+        "invalidLanguage");
+    }
+    if (((!Objects.equal(n.getOperator(), NameOperator.LIKE)) && (!Objects.equal(n.getLanguage(), Language.EMPTY)))) {
+      this.error(
+        "Language is only for Like operator", 
+        JavaRulePackage.Literals.NAME_OPERATION__LANGUAGE, 
+        "invalidLanguage");
+    }
+  }
+  
+  @Check
+  public void checkJavaDoc(final JavaDoc jd) {
+    Sentence s = this.getSentece(jd);
+    if (((!Objects.equal(s.getElement(), Element.METHOD)) && jd.isParameter())) {
+      this.warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER, 
+        "inadvisableJavaDoc");
+    }
+    if (((!Objects.equal(s.getElement(), Element.METHOD)) && jd.isReturn())) {
+      this.warning("The tag @return is used for methods", JavaRulePackage.Literals.JAVA_DOC__RETURN, 
+        "inadvisableJavaDoc");
+    }
+    if (((!Objects.equal(s.getElement(), Element.METHOD)) && jd.isThrows())) {
+      this.warning("The tag @throws is used for methods", JavaRulePackage.Literals.JAVA_DOC__THROWS, 
+        "inadvisableJavaDoc");
+    }
+  }
+  
+  public Sentence getSentece(final Property jd) {
+    EObject conteiner = jd.eContainer();
+    while ((!(conteiner instanceof Sentence))) {
+      EObject _eContainer = conteiner.eContainer();
+      conteiner = _eContainer;
+    }
+    return ((Sentence) conteiner);
+  }
+  
+  @Check
+  public void checkSubClassOfClass(final VariableSubtype vs) {
+    if ((Objects.equal(vs.getVariable().getElement(), Element.ATTRIBUTE) && (!Objects.equal(vs.getSubtype(), Element.NULL)))) {
+      Element _subtype = vs.getSubtype();
+      String _string = _subtype.toString();
+      String _firstUpper = StringExtensions.toFirstUpper(_string);
+      String _plus = ("Attributes don\'t have " + _firstUpper);
+      this.error(_plus, 
+        JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE);
+    }
+    if ((Objects.equal(vs.getVariable().getElement(), Element.METHOD) && (!Objects.equal(vs.getSubtype(), Element.NULL)))) {
+      Element _subtype_1 = vs.getSubtype();
+      String _string_1 = _subtype_1.toString();
+      String _firstUpper_1 = StringExtensions.toFirstUpper(_string_1);
+      String _plus_1 = ("Methods don\'t have " + _firstUpper_1);
+      this.error(_plus_1, 
+        JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE);
+    }
+    if ((Objects.equal(vs.getSubtype(), Element.FILE) || Objects.equal(vs.getSubtype(), Element.PACKAGE))) {
+      Variable _variable = vs.getVariable();
+      Element _element = _variable.getElement();
+      String _string_2 = _element.toString();
+      String _firstUpper_2 = StringExtensions.toFirstUpper(_string_2);
+      String _plus_2 = (_firstUpper_2 + " don\'t have ");
+      Element _subtype_2 = vs.getSubtype();
+      String _string_3 = _subtype_2.toString();
+      String _firstUpper_3 = StringExtensions.toFirstUpper(_string_3);
+      String _plus_3 = (_plus_2 + _firstUpper_3);
+      this.error(_plus_3, 
+        JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE);
+    }
+  }
+  
+  @Check
+  public void checkModifiers(final BlendModifiers b) {
+    EObject _eContainer = b.eContainer();
+    Sentence r = this.getSentece(((Modifiers) _eContainer));
+    boolean _accessPrivateProtecte = this.accessPrivateProtecte(b);
+    if (_accessPrivateProtecte) {
+      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUM))) {
+        this.warning("The private and protected modifiers are for classes, interfaces and enumeration internal", 
+          JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
+      }
+    }
+    boolean _isAbstract = b.isAbstract();
+    if (_isAbstract) {
+      Element _element = r.getElement();
+      boolean _equals = Objects.equal(_element, Element.INTERFACE);
+      if (_equals) {
+        this.warning("The interfaces are implicitly abstract, its not necessary add the modifier", 
+          JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, "inadvisableModifier");
+      } else {
+        if (((!Objects.equal(r.getElement(), Element.CLASS)) && (!Objects.equal(r.getElement(), Element.METHOD)))) {
+          this.error("Abstract is for methods and class", JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 
+            "invalidModifier");
+        } else {
+          boolean _isFinal = b.isFinal();
+          if (_isFinal) {
+            this.error("Methods and Class can\'t be abstract and final simultaneously", 
+              JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, "invalidModifier");
+          }
+        }
+      }
+    }
+    boolean _isDefault = b.isDefault();
+    if (_isDefault) {
+      Element _element_1 = r.getElement();
+      boolean _notEquals = (!Objects.equal(_element_1, Element.METHOD));
+      if (_notEquals) {
+        this.error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, "invalidModifier");
+      }
+      EObject sente = this.getSentenceOrRuleSet(r);
+      if ((sente instanceof Sentence)) {
+        Element _element_2 = ((Sentence)sente).getElement();
+        boolean _notEquals_1 = (!Objects.equal(_element_2, Element.INTERFACE));
+        if (_notEquals_1) {
+          this.error("Only the interface have default methods", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, "invalidModifier");
+        }
+      }
+    }
+    boolean _isFinal_1 = b.isFinal();
+    if (_isFinal_1) {
+      if ((Objects.equal(r.getElement(), Element.INTERFACE) || Objects.equal(r.getElement(), Element.ENUM))) {
+        this.error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, 
+          "invalidModifier");
+      }
+    }
+    boolean _isStatic = b.isStatic();
+    if (_isStatic) {
+      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUM))) {
+        this.warning("Static is for classes, interfaces and enumeration internal", 
+          JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
+      }
+    }
+    if ((b.isSynchronized() && (!Objects.equal(r.getElement(), Element.METHOD)))) {
+      this.error("Synchronized is for methods", JavaRulePackage.Literals.BLEND_MODIFIERS__SYNCHRONIZED, 
+        "invalidModifier");
+    }
+  }
+  
+  public EObject getSentenceOrRuleSet(final Sentence s) {
+    EObject container = s.eContainer();
+    boolean flag = true;
+    while (flag) {
+      if ((container instanceof Sentence)) {
+        flag = false;
+      } else {
+        if ((container instanceof RuleSet)) {
+          flag = false;
+        } else {
+          EObject _eContainer = container.eContainer();
+          container = _eContainer;
+        }
+      }
+    }
+    return container;
+  }
+  
+  public boolean accessPrivateProtecte(final BlendModifiers b) {
+    if ((Objects.equal(b.getAccess(), AccessModifier.PRIVATE) || Objects.equal(b.getAccess(), AccessModifier.PROTECTED))) {
+      return true;
+    }
+    return false;
+  }
+  
+  @Check
+  public void checkContains(final Contains c) {
+    Rule r = c.getRule();
+    if ((Objects.equal(r.getElement(), Element.PACKAGE) || Objects.equal(r.getElement(), Element.FILE))) {
+      Element _element = r.getElement();
+      String _string = _element.toString();
+      String _firstUpper = StringExtensions.toFirstUpper(_string);
+      String _plus = ("This element don\'t have " + _firstUpper);
+      this.error(_plus, JavaRulePackage.Literals.CONTAINS__RULE, 
+        "invalidContains");
+    }
+  }
+  
+  @Check
+  public void checkImplements(final RangoNames i) {
+    int _min = i.getMin();
+    boolean _lessThan = (_min < 0);
+    if (_lessThan) {
+      this.error("The minimum must be greater than 0", 
+        JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+    }
+    int _max = i.getMax();
+    boolean _lessThan_1 = (_max < 0);
+    if (_lessThan_1) {
+      this.error("The maximum must be greater than 0", 
+        JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+    }
+    int _min_1 = i.getMin();
+    int _max_1 = i.getMax();
+    boolean _greaterThan = (_min_1 > _max_1);
+    if (_greaterThan) {
+      this.error("The minimum can\'t be greater than the maximum", 
+        JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+    }
+    EList<StringProperty> _types = i.getTypes();
+    int _size = _types.size();
+    int _max_2 = i.getMax();
+    boolean _greaterThan_1 = (_size > _max_2);
+    if (_greaterThan_1) {
+      this.error("The number of types can\'t be greater than the maximum", 
+        JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+    }
+  }
+  
+  @Check
+  public void checkParameters(final Parameter p) {
+    int _exact = p.getExact();
+    boolean _equals = (_exact == (-2147483647));
+    if (_equals) {
+      int _min = p.getMin();
+      boolean _lessThan = (_min < 0);
+      if (_lessThan) {
+        this.error("The minimum must be greater than 0", 
+          JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+      }
+      int _max = p.getMax();
+      boolean _lessThan_1 = (_max < 0);
+      if (_lessThan_1) {
+        this.error("The maximum must be greater than 0", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
+      int _min_1 = p.getMin();
+      int _max_1 = p.getMax();
+      boolean _greaterThan = (_min_1 > _max_1);
+      if (_greaterThan) {
+        this.error("The minimum can\'t be greater than the maximum", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
+      EList<TypeProperty> _types = p.getTypes();
+      int _size = _types.size();
+      int _max_2 = p.getMax();
+      boolean _greaterThan_1 = (_size > _max_2);
+      if (_greaterThan_1) {
+        this.error("The number of types can\'t be greater than the maximum", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
+    } else {
+      EList<TypeProperty> _types_1 = p.getTypes();
+      int _size_1 = _types_1.size();
+      int _exact_1 = p.getExact();
+      boolean _greaterThan_2 = (_size_1 > _exact_1);
+      if (_greaterThan_2) {
+        this.error("The number of types can\'t be greater than the maximum", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
+    }
+  }
+  
+  @Check
+  public void checkTamanio(final Tamanio t) {
+    int _exact = t.getExact();
+    boolean _equals = (_exact == (-2147483647));
+    if (_equals) {
+      int _min = t.getMin();
+      boolean _lessThan = (_min < 0);
+      if (_lessThan) {
+        this.error("The minimum must be greater than 0", 
+          JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+      }
+      int _max = t.getMax();
+      boolean _lessThan_1 = (_max < 0);
+      if (_lessThan_1) {
+        this.error("The maximum must be greater than 0", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
+      int _min_1 = t.getMin();
+      int _max_1 = t.getMax();
+      boolean _greaterThan = (_min_1 > _max_1);
+      if (_greaterThan) {
+        this.error("The minimum can\'t be greater than the maximum", 
+          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      }
     }
   }
 }

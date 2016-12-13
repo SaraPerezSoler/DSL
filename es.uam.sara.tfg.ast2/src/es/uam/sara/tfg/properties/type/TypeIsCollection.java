@@ -1,10 +1,16 @@
 package es.uam.sara.tfg.properties.type;
 
+import org.eclipse.jdt.core.dom.ArrayType;
+
 public class TypeIsCollection implements TypeFunction {
 
 	private Type of;
 	private boolean variable;
-
+	private final String [] collections={"BeanContext", "BeanContextServices", "BlockingDeque", "BlockingQueue", "Deque", 
+						"List", "NavigableSet", "Queue", "Set", "SortedSet", "TransferQueue", "BeanContextServicesSupport", "BeanContextSupport"
+						};
+	
+	
 	public TypeIsCollection() {
 		of = null;
 		this.variable = false;
@@ -19,7 +25,15 @@ public class TypeIsCollection implements TypeFunction {
 
 	@Override
 	public boolean compare(org.eclipse.jdt.core.dom.Type other) {
-
+		if (other.isArrayType()){
+			if (of==null){
+				return true;
+			}else {
+				return of.compare(((ArrayType)other).getElementType());
+			}
+		}
+		//ITypeBinding tb=other.accept(new UnitVisitor(nameFile));
+		System.out.println();
 		return false;
 	}
 
