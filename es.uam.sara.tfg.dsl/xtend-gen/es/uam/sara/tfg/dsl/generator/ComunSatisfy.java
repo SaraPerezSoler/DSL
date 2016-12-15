@@ -245,10 +245,10 @@ public class ComunSatisfy {
             String _type = ComunSatisfy.getType(_of_1, (sufix + "1"));
             cad = _type;
             String _cad = cad;
-            cad = (_cad + (((("TypeIsCollection type" + sufix) + "= new TypeIsCollection(type") + sufix) + "1);\n"));
+            cad = (_cad + (((("TypeIsCollection type" + sufix) + "= new TypeIsCollection(type") + sufix) + "1, Main.actual);\n"));
           } else {
             String _cad_1 = cad;
-            cad = (_cad_1 + (("TypeIsCollection type" + sufix) + "= new TypeIsCollection();\n"));
+            cad = (_cad_1 + (("TypeIsCollection type" + sufix) + "= new TypeIsCollection(Main.actual);\n"));
           }
         } else {
           if ((tp instanceof IsPrimitiveFuntion)) {

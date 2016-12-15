@@ -1,8 +1,13 @@
+import java.beans.beancontext.BeanContext;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public abstract class Test<T, K> {
+public abstract class Test<T, K> implements Collection<T>, List<T>{
 
-	public List<Integer> num;
+	public BeanContext num;
+	public ArrayList<Integer> in;
+	public ColeccionInt i;
 	public  int getNumCasa(List<List<T>> i) {
 		return 1;
 	}

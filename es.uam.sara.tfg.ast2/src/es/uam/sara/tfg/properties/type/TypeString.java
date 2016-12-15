@@ -51,5 +51,9 @@ public class TypeString implements Type{
 		}
 		
 	}
+	@Override
+	public boolean compare(String other) {
+		return this.type.equalsIgnoreCase(other);
+	}
 	
 }

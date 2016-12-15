@@ -31,4 +31,37 @@ public class TypeIsPrimitive implements TypeFunction{
 		
 	}
 
+	@Override
+	public boolean compare(String other) {
+		
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.BOOLEAN.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.BYTE.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.CHAR.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.DOUBLE.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.FLOAT.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.INT.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.LONG.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.SHORT.toString())){
+			return true;
+		}
+		if (other.equalsIgnoreCase(TypePrimitive.Primitive.STRING.toString())){
+			return true;
+		}
+		return false;
+	}
+
 }

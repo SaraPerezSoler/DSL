@@ -35,4 +35,9 @@ public class TypePrimitive implements Type{
 	public void deleteString(String s) {
 		
 	}
+
+	@Override
+	public boolean compare(String other) {
+		return other.equalsIgnoreCase(this.type.toString());
+	}
 }

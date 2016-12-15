@@ -7,12 +7,13 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 public class ParserAst {
 
 	//use ASTParse to parse string
-	public static CompilationUnit parse(String str, UnitVisitor visitor) {
+	public static CompilationUnit parse(String str, ASTVisitor visitor) {
 		
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
 		parser.setResolveBindings(true);
@@ -25,12 +26,14 @@ public class ParserAst {
 		
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
 		cu.accept(visitor);
-		visitor.setComp(cu);
+		if (visitor instanceof UnitVisitor){
+			((UnitVisitor)visitor).setComp(cu);
+		}
 		return cu;
 	}
 	
 	//use ASTParse to parse string
-		public static CompilationUnit parse(ICompilationUnit str, UnitVisitor visitor) {
+		public static CompilationUnit parse(ICompilationUnit str, ASTVisitor visitor) {
 			
 			ASTParser parser = ASTParser.newParser(AST.JLS8);
 			parser.setResolveBindings(true);

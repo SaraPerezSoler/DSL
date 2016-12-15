@@ -1,5 +1,4 @@
 package es.uam.sara.tfg.ast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import es.uam.sara.tfg.elements.type.MInterface;
 import es.uam.sara.tfg.elements.type.MMethod;
 import es.uam.sara.tfg.elements.type.MPackage;
 
-public class UnitVisitor extends ASTVisitor {
+public class UnitVisitor extends ASTVisitor{
 
 	private String nameFile;
 	private CompilationUnit comp;

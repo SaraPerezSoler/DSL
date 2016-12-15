@@ -3,31 +3,32 @@
  */
 package es.uam.sara.tfg.dsl.generator
 
+import java.util.ArrayList
+import java.util.List
 import javaRule.And
 import javaRule.Attribute
 import javaRule.Class
+import javaRule.Element
 import javaRule.Enumeration
+import javaRule.File
 import javaRule.Interface
 import javaRule.Method
 import javaRule.Or
 import javaRule.Package
+import javaRule.PrimaryOp
+import javaRule.PropertyLiteral
 import javaRule.Rule
 import javaRule.RuleSet
+import javaRule.Sentence
+import javaRule.Variable
+import javaRule.VariableSubtype
+import org.eclipse.core.resources.IProject
+import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.resources.IProject
-import java.util.List
-import java.util.ArrayList
-import javaRule.Sentence
-import javaRule.Variable
-import javaRule.Element
-import javaRule.PrimaryOp
-import javaRule.PropertyLiteral
-import javaRule.VariableSubtype
-import javaRule.File
+import es.uam.sara.tfg.ast.ReadFiles
 
 /**
  * Generates code from your model files on save.
@@ -58,24 +59,31 @@ class JRulesGenerator extends AbstractGenerator {
 				projects.add(workspace.getProject(name));
 			}
 		}
-		fsa.generateFile("Main.java", main(projects));
+		println(resource.URI.toPlatformString(false))
+		println(resource.URI)
+		println(resource.URI.toPlatformString(true))
+		println(workspace.fullPath)
+		println(resource.URI.segmentsList)
+		var thisProject=resource.URI.segment(resource.URI.segmentsList.indexOf("resource")+1)
+		var thisProject1=workspace.getProject(thisProject)
+		ReadFiles.cargaProyectos(projects, thisProject1.location.toString);
+		fsa.generateFile("Main.java", main(projects, thisProject1));
+		
+}	
 
-	}
 
+	def CharSequence main(List<IProject> projects, IProject thisProject) {
 
-	def CharSequence main(List<IProject> projects) {
-
-		'''
+'''
 			import java.io.File;
 			import java.io.IOException;
 			import java.util.List;
 			import java.util.ArrayList;
-			import es.uam.sara.tfg.ast.ReadFiles;
-			import es.uam.sara.tfg.ast.Visitors;
+			import es.uam.sara.tfg.ast.*;
 				
 				public class Main {
-				
-				 
+				 public static List<TypeVisitor> types= new ArrayList<TypeVisitor>(); 
+				 public static TypeVisitor actual= null; 
 				 public static void main(String[] args)throws IOException{
 				 	
 				 	List<Visitors> projects= new ArrayList<Visitors>();
@@ -85,20 +93,25 @@ class JRulesGenerator extends AbstractGenerator {
 			 			«var src= p.getFolder("src")»
 			 			roots.add(new File("«src.location»"));
 			 			projects.add(new Visitors("«p.name»"));
+			 			types.add(new TypeVisitor("«p.name»", "."));
 			 		«ENDFOR»
 
 				 	for (int i=0; i <roots.size(); i++){
+				 		types.get(i).readObject();
+				 		actual=types.get(i);
 				 		File root=roots.get(i);
 				 		Visitors visit=projects.get(i);
 				 		ReadFiles.parseFiles(root, visit);
 				 		RuleFactory rf= new RuleFactory(visit);
 				 		rf.getRules();
 				 		rf.writeLog();
+				 		actual=null;
 				 	}
 				 }
-				}
-		'''
-	}
+			
+	}'''
+	
+}
 
 	def CharSequence RuleFactory(List<Sentence> sentences) {
 

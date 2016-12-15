@@ -121,9 +121,9 @@ class ComunSatisfy {
 				var ict=tp as IsCollectionType
 				if (ict.of!=null){
 					cad=getType(ict.of, sufix+"1")
-					cad+="TypeIsCollection type"+sufix+"= new TypeIsCollection(type"+sufix+"1);\n"
+					cad+="TypeIsCollection type"+sufix+"= new TypeIsCollection(type"+sufix+"1, Main.actual);\n"
 				}else{
-					cad+="TypeIsCollection type"+sufix+"= new TypeIsCollection();\n"
+					cad+="TypeIsCollection type"+sufix+"= new TypeIsCollection(Main.actual);\n"
 				}
 				
 			}else if (tp instanceof IsPrimitiveFuntion){

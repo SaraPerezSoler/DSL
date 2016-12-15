@@ -29,9 +29,9 @@ public class Main {
 		name.check(visit.getMethods());
 		MMethod prueba = name.getRight().get(0);
 
-		Type t= new TypeIsCollection();
+		//Type t= new TypeIsCollection();
 		
-		t.compare(prueba.getReturnType());
+		//t.compare(prueba.getReturnType());
 		NameOperation<MClass> classname = new NameOperation<MClass>(true, Operation.EQUAL, "test",
 				NameOperation.EMPTY);
 		classname.check(visit.getClasses());

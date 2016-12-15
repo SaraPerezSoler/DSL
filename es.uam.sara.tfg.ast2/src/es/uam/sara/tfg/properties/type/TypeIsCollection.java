@@ -1,26 +1,30 @@
 package es.uam.sara.tfg.properties.type;
 
+import java.util.Map;
+
 import org.eclipse.jdt.core.dom.ArrayType;
+
+import es.uam.sara.tfg.ast.IsCollectionOf;
+import es.uam.sara.tfg.ast.TypeVisitor;
 
 public class TypeIsCollection implements TypeFunction {
 
 	private Type of;
 	private boolean variable;
-	private final String [] collections={"BeanContext", "BeanContextServices", "BlockingDeque", "BlockingQueue", "Deque", 
-						"List", "NavigableSet", "Queue", "Set", "SortedSet", "TransferQueue", "BeanContextServicesSupport", "BeanContextSupport"
-						};
+	private TypeVisitor tv;
 	
-	
-	public TypeIsCollection() {
+	public TypeIsCollection(TypeVisitor tv) {
 		of = null;
 		this.variable = false;
+		this.tv=tv;
 
 	}
 
-	public TypeIsCollection(Type of) {
+	public TypeIsCollection(Type of, TypeVisitor tv) {
 		super();
 		this.of = of;
 		this.variable = of.isVariable();
+		this.tv=tv;
 	}
 
 	@Override
@@ -32,9 +36,20 @@ public class TypeIsCollection implements TypeFunction {
 				return of.compare(((ArrayType)other).getElementType());
 			}
 		}
-		//ITypeBinding tb=other.accept(new UnitVisitor(nameFile));
-		System.out.println();
-		return false;
+		
+		Map<String, IsCollectionOf> map=tv.getIsCollection();
+		IsCollectionOf isCO=map.get(other.toString());
+		if (isCO==null){
+			return false;
+		}
+		if (isCO.isCollection()==false){
+			return false;
+		}else{
+			if (of==null){
+				return true;
+			}
+			else return of.compare(isCO.getOf());
+		}
 	}
 
 	public void setString(String string) {
@@ -65,6 +80,23 @@ public class TypeIsCollection implements TypeFunction {
 	public void deleteString(String s) {
 		if (of!=null){
 			of.deleteString(s);
+		}
+	}
+
+	@Override
+	public boolean compare(String other) {
+		Map<String, IsCollectionOf> map=tv.getIsCollection();
+		IsCollectionOf isCO=map.get(other);
+		if (isCO==null){
+			return false;
+		}
+		if (isCO.isCollection()==false){
+			return false;
+		}else{
+			if (of==null){
+				return true;
+			}
+			else return of.compare(isCO.getOf());
 		}
 	}
 }

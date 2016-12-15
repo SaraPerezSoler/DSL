@@ -43,4 +43,6 @@ public interface Type {
 	
 	public void setString(String s);
 	public void deleteString(String s);
+
+	public boolean compare(String other);
 }
