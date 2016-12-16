@@ -188,7 +188,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
         if ((Objects.equal(e, Element.CLASS) && (s instanceof javaRule.Class))) {
           return true;
         } else {
-          if ((Objects.equal(e, Element.ENUM) && (s instanceof Enumeration))) {
+          if ((Objects.equal(e, Element.ENUMERATION) && (s instanceof Enumeration))) {
             return true;
           } else {
             if ((Objects.equal(e, Element.METHOD) && (s instanceof Method))) {
@@ -232,28 +232,38 @@ public class JRulesValidator extends AbstractJRulesValidator {
             Element _subtype_1 = _variable_3.getSubtype();
             String _plus = ("." + _subtype_1);
             name = (_name + _plus);
-          }
-          EList<VariableSubtype> _using = s.getUsing();
-          VariableSubtype _variable_4 = svs.getVariable();
-          boolean _contain = this.contain(_using, _variable_4);
-          boolean _not = (!_contain);
-          if (_not) {
-            Variable _from = s.getFrom();
-            boolean _equals = Objects.equal(_from, null);
-            if (_equals) {
+            EList<VariableSubtype> _using = s.getUsing();
+            VariableSubtype _variable_4 = svs.getVariable();
+            boolean _contain = this.contain(_using, _variable_4);
+            boolean _not = (!_contain);
+            if (_not) {
               this.error(
-                (("The variable " + name) + "must be declared in \'using\' or \'from\' clause  "), 
+                (("The variable " + name) + "must be declared in \'using\' clause  "), 
                 JavaRulePackage.Literals.SENTENCE__SATISFY);
             }
-            Variable _from_1 = s.getFrom();
+          } else {
+            EList<VariableSubtype> _using_1 = s.getUsing();
             VariableSubtype _variable_5 = svs.getVariable();
-            Variable _variable_6 = _variable_5.getVariable();
-            boolean _equals_1 = _from_1.equals(_variable_6);
-            boolean _not_1 = (!_equals_1);
+            boolean _contain_1 = this.contain(_using_1, _variable_5);
+            boolean _not_1 = (!_contain_1);
             if (_not_1) {
-              this.error(
-                (("The variable " + name) + " must be declared in \'using\' or \'from\' clause  "), 
-                JavaRulePackage.Literals.SENTENCE__SATISFY);
+              Variable _from = s.getFrom();
+              boolean _equals = Objects.equal(_from, null);
+              if (_equals) {
+                this.error(
+                  (("The variable " + name) + "must be declared in \'using\' or \'from\' clause  "), 
+                  JavaRulePackage.Literals.SENTENCE__SATISFY);
+              }
+              Variable _from_1 = s.getFrom();
+              VariableSubtype _variable_6 = svs.getVariable();
+              Variable _variable_7 = _variable_6.getVariable();
+              boolean _equals_1 = _from_1.equals(_variable_7);
+              boolean _not_2 = (!_equals_1);
+              if (_not_2) {
+                this.error(
+                  (("The variable " + name) + " must be declared in \'using\' or \'from\' clause  "), 
+                  JavaRulePackage.Literals.SENTENCE__SATISFY);
+              }
             }
           }
         }
@@ -361,7 +371,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
     Sentence r = this.getSentece(((Modifiers) _eContainer));
     boolean _accessPrivateProtecte = this.accessPrivateProtecte(b);
     if (_accessPrivateProtecte) {
-      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUM))) {
+      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUMERATION))) {
         this.warning("The private and protected modifiers are for classes, interfaces and enumeration internal", 
           JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
       }
@@ -391,27 +401,29 @@ public class JRulesValidator extends AbstractJRulesValidator {
       Element _element_1 = r.getElement();
       boolean _notEquals = (!Objects.equal(_element_1, Element.METHOD));
       if (_notEquals) {
-        this.error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, "invalidModifier");
+        this.error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, 
+          "invalidModifier");
       }
       EObject sente = this.getSentenceOrRuleSet(r);
       if ((sente instanceof Sentence)) {
         Element _element_2 = ((Sentence)sente).getElement();
         boolean _notEquals_1 = (!Objects.equal(_element_2, Element.INTERFACE));
         if (_notEquals_1) {
-          this.error("Only the interface have default methods", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, "invalidModifier");
+          this.error("Only the interface have default methods", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, 
+            "invalidModifier");
         }
       }
     }
     boolean _isFinal_1 = b.isFinal();
     if (_isFinal_1) {
-      if ((Objects.equal(r.getElement(), Element.INTERFACE) || Objects.equal(r.getElement(), Element.ENUM))) {
+      if ((Objects.equal(r.getElement(), Element.INTERFACE) || Objects.equal(r.getElement(), Element.ENUMERATION))) {
         this.error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL, 
           "invalidModifier");
       }
     }
     boolean _isStatic = b.isStatic();
     if (_isStatic) {
-      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUM))) {
+      if (((Objects.equal(r.getElement(), Element.CLASS) || Objects.equal(r.getElement(), Element.INTERFACE)) || Objects.equal(r.getElement(), Element.ENUMERATION))) {
         this.warning("Static is for classes, interfaces and enumeration internal", 
           JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, "inadvisableModifier");
       }
@@ -448,6 +460,75 @@ public class JRulesValidator extends AbstractJRulesValidator {
   }
   
   @Check
+  public void checkUsing(final Sentence s) {
+    EList<VariableSubtype> using = s.getUsing();
+    for (final VariableSubtype us : using) {
+      Element _subtype = us.getSubtype();
+      boolean _notEquals = (!Objects.equal(_subtype, Element.NULL));
+      if (_notEquals) {
+        if (((this.checkExist(us, using) == false) && (this.checkExist(us, s.getFrom()) == false))) {
+          Variable _variable = us.getVariable();
+          String _name = _variable.getName();
+          String _plus = ("The variable " + _name);
+          String _plus_1 = (_plus + " must be declared in using clause before ");
+          Variable _variable_1 = us.getVariable();
+          String _name_1 = _variable_1.getName();
+          String _plus_2 = (_plus_1 + _name_1);
+          String _plus_3 = (_plus_2 + 
+            ".");
+          Element _subtype_1 = us.getSubtype();
+          String _string = _subtype_1.toString();
+          String _firstUpper = StringExtensions.toFirstUpper(_string);
+          String _plus_4 = (_plus_3 + _firstUpper);
+          this.error(_plus_4, JavaRulePackage.Literals.SENTENCE__USING, 
+            "invalidModifier");
+        }
+      }
+    }
+  }
+  
+  public boolean checkExist(final VariableSubtype us, final Variable from) {
+    Variable _variable = us.getVariable();
+    boolean _equals = from.equals(_variable);
+    if (_equals) {
+      return true;
+    }
+    return false;
+  }
+  
+  public boolean checkExist(final VariableSubtype us, final List<VariableSubtype> using) {
+    int index = using.indexOf(us);
+    for (int i = 0; (i < index); i++) {
+      VariableSubtype _get = using.get(i);
+      Variable _variable = _get.getVariable();
+      Variable _variable_1 = us.getVariable();
+      boolean _equals = _variable.equals(_variable_1);
+      if (_equals) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  @Check
+  public void variableNameUnique(final Variable v) {
+    EObject ruleSet = this.getSentenceOrRuleSet(v);
+    TreeIterator<EObject> _eAllContents = ruleSet.eAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_eAllContents);
+    Iterable<Variable> _filter = Iterables.<Variable>filter(_iterable, Variable.class);
+    List<Variable> variables = IterableExtensions.<Variable>toList(_filter);
+    for (final Variable v2 : variables) {
+      if (((!v.equals(v2)) && v.getName().equals(v2.getName()))) {
+        String _name = v.getName();
+        String _plus = ("The name " + _name);
+        String _plus_1 = (_plus + " must be unique");
+        this.error(_plus_1, JavaRulePackage.Literals.SENTENCE__NAME, 
+          "invalidModifier");
+      }
+    }
+  }
+  
+  @Check
   public void checkContains(final Contains c) {
     Rule r = c.getRule();
     if ((Objects.equal(r.getElement(), Element.PACKAGE) || Objects.equal(r.getElement(), Element.FILE))) {
@@ -455,8 +536,8 @@ public class JRulesValidator extends AbstractJRulesValidator {
       String _string = _element.toString();
       String _firstUpper = StringExtensions.toFirstUpper(_string);
       String _plus = ("This element don\'t have " + _firstUpper);
-      this.error(_plus, JavaRulePackage.Literals.CONTAINS__RULE, 
-        "invalidContains");
+      this.error(_plus, 
+        JavaRulePackage.Literals.CONTAINS__RULE, "invalidContains");
     }
   }
   
@@ -465,21 +546,19 @@ public class JRulesValidator extends AbstractJRulesValidator {
     int _min = i.getMin();
     boolean _lessThan = (_min < 0);
     if (_lessThan) {
-      this.error("The minimum must be greater than 0", 
-        JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+      this.error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
     }
     int _max = i.getMax();
     boolean _lessThan_1 = (_max < 0);
     if (_lessThan_1) {
-      this.error("The maximum must be greater than 0", 
-        JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      this.error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
     }
     int _min_1 = i.getMin();
     int _max_1 = i.getMax();
     boolean _greaterThan = (_min_1 > _max_1);
     if (_greaterThan) {
-      this.error("The minimum can\'t be greater than the maximum", 
-        JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+      this.error("The minimum can\'t be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX, 
+        "invalidMin");
     }
     EList<StringProperty> _types = i.getTypes();
     int _size = _types.size();
@@ -499,21 +578,19 @@ public class JRulesValidator extends AbstractJRulesValidator {
       int _min = p.getMin();
       boolean _lessThan = (_min < 0);
       if (_lessThan) {
-        this.error("The minimum must be greater than 0", 
-          JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+        this.error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
       }
       int _max = p.getMax();
       boolean _lessThan_1 = (_max < 0);
       if (_lessThan_1) {
-        this.error("The maximum must be greater than 0", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+        this.error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
       }
       int _min_1 = p.getMin();
       int _max_1 = p.getMax();
       boolean _greaterThan = (_min_1 > _max_1);
       if (_greaterThan) {
-        this.error("The minimum can\'t be greater than the maximum", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+        this.error("The minimum can\'t be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX, 
+          "invalidMin");
       }
       EList<TypeProperty> _types = p.getTypes();
       int _size = _types.size();
@@ -543,21 +620,19 @@ public class JRulesValidator extends AbstractJRulesValidator {
       int _min = t.getMin();
       boolean _lessThan = (_min < 0);
       if (_lessThan) {
-        this.error("The minimum must be greater than 0", 
-          JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+        this.error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
       }
       int _max = t.getMax();
       boolean _lessThan_1 = (_max < 0);
       if (_lessThan_1) {
-        this.error("The maximum must be greater than 0", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+        this.error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
       }
       int _min_1 = t.getMin();
       int _max_1 = t.getMax();
       boolean _greaterThan = (_min_1 > _max_1);
       if (_greaterThan) {
-        this.error("The minimum can\'t be greater than the maximum", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+        this.error("The minimum can\'t be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX, 
+          "invalidMin");
       }
     }
   }

@@ -59,16 +59,14 @@ public enum Element implements Enumerator {
 	INTERFACE(2, "Interface", "interface"),
 
 	/**
-	 * The '<em><b>Enum</b></em>' literal object.
+	 * The '<em><b>Enumeration</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ENUM_VALUE
+	 * @see #ENUMERATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ENUM(3, "Enum", "enum"),
-
-	/**
+	ENUMERATION(3, "Enumeration", "enumeration"), /**
 	 * The '<em><b>Method</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,19 +157,19 @@ public enum Element implements Enumerator {
 	public static final int INTERFACE_VALUE = 2;
 
 	/**
-	 * The '<em><b>Enum</b></em>' literal value.
+	 * The '<em><b>Enumeration</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Enum</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Enumeration</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENUM
-	 * @model name="Enum" literal="enum"
+	 * @see #ENUMERATION
+	 * @model name="Enumeration" literal="enumeration"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_VALUE = 3;
+	public static final int ENUMERATION_VALUE = 3;
 
 	/**
 	 * The '<em><b>Method</b></em>' literal value.
@@ -230,7 +228,7 @@ public enum Element implements Enumerator {
 			PACKAGE,
 			CLASS,
 			INTERFACE,
-			ENUM,
+			ENUMERATION,
 			METHOD,
 			ATTRIBUTE,
 			FILE,
@@ -294,7 +292,7 @@ public enum Element implements Enumerator {
 			case PACKAGE_VALUE: return PACKAGE;
 			case CLASS_VALUE: return CLASS;
 			case INTERFACE_VALUE: return INTERFACE;
-			case ENUM_VALUE: return ENUM;
+			case ENUMERATION_VALUE: return ENUMERATION;
 			case METHOD_VALUE: return METHOD;
 			case ATTRIBUTE_VALUE: return ATTRIBUTE;
 			case FILE_VALUE: return FILE;

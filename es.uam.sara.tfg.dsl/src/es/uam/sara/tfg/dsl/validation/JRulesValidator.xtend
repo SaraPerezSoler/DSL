@@ -44,8 +44,8 @@ import javaRule.Tamanio
 class JRulesValidator extends AbstractJRulesValidator {
 
 	public static val INVALID_SATISFY = 'invalidSatisfy'
-	
-	public static val INVALID_IN='invalidIn'
+
+	public static val INVALID_IN = 'invalidIn'
 
 //	public static val INVALID_NAME = 'invalidName'
 //
@@ -129,7 +129,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 
 	def boolean comprobarPropiedades(Or or, Element e) {
 		var ret = true;
-		if (or==null){
+		if (or == null) {
 			return true;
 		}
 		for (And a : or.op) {
@@ -151,58 +151,70 @@ class JRulesValidator extends AbstractJRulesValidator {
 			return true;
 		} else if ((e == Element.CLASS) && (s instanceof javaRule.Class)) {
 			return true;
-		} else if ((e == Element.ENUM) && (s instanceof Enumeration)) {
+		} else if ((e == Element.ENUMERATION) && (s instanceof Enumeration)) {
 			return true;
 		} else if ((e == Element.METHOD) && (s instanceof Method)) {
 			return true;
 		} else if ((e == Element.ATTRIBUTE) && (s instanceof Attribute)) {
 			return true;
-		} else if ((e== Element.FILE) && (s instanceof File)){
+		} else if ((e == Element.FILE) && (s instanceof File)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 
 	}
-	
+
 	@Check
-	def checkStringVariableUsing(Sentence s){
-		if (s.eContainer instanceof RuleSet){
-			var sv=s.eAllContents.toIterable.filter(StringVariable).toList
-			for (StringVariable svs: sv){
-				var name=svs.variable.variable.name
-				if (svs.variable.subtype!=Element.NULL){
-					name+="."+svs.variable.subtype;
-				}
-				if (!s.using.contain(svs.variable)){
-					if (s.from==null){
+	def checkStringVariableUsing(Sentence s) {
+		if (s.eContainer instanceof RuleSet) {
+			var sv = s.eAllContents.toIterable.filter(StringVariable).toList
+			for (StringVariable svs : sv) {
+				var name = svs.variable.variable.name
+				if (svs.variable.subtype != Element.NULL) {
+					name += "." + svs.variable.subtype;
+
+					if (!s.using.contain(svs.variable)) {
 						error(
-						"The variable "+name+"must be declared in 'using' or 'from' clause  ",
-						JavaRulePackage.Literals.SENTENCE__SATISFY
+							"The variable " + name + "must be declared in 'using' clause  ",
+							JavaRulePackage.Literals.SENTENCE__SATISFY
 						)
 					}
-					if (!s.from.equals(svs.variable.variable)){
-						error(
-						"The variable "+name+" must be declared in 'using' or 'from' clause  ",
-						JavaRulePackage.Literals.SENTENCE__SATISFY
-						)
+				} else {
+					if (!s.using.contain(svs.variable)) {
+						if (s.from == null) {
+							error(
+								"The variable " + name + "must be declared in 'using' or 'from' clause  ",
+								JavaRulePackage.Literals.SENTENCE__SATISFY
+							)
+						}
+
+						if (!s.from.equals(svs.variable.variable)) {
+							error(
+								"The variable " + name + " must be declared in 'using' or 'from' clause  ",
+								JavaRulePackage.Literals.SENTENCE__SATISFY
+							)
+						}
+
 					}
+
 				}
 			}
 		}
 	}
-	
-	def contain (List<VariableSubtype> using, VariableSubtype vs){
-		for (VariableSubtype uvs: using){
-			if (uvs.subtype== vs.subtype && uvs.variable.equals(vs.variable)){
+
+	def contain(List<VariableSubtype> using, VariableSubtype vs) {
+		for (VariableSubtype uvs : using) {
+			if (uvs.subtype == vs.subtype && uvs.variable.equals(vs.variable)) {
 				return true;
 			}
 		}
 		return false;
 	}
-		@Check
-	def checkUsingOnlyRuleSetSentence(Sentence s){
-		if (!(s.eContainer instanceof RuleSet) && !s.using.isEmpty){
+
+	@Check
+	def checkUsingOnlyRuleSetSentence(Sentence s) {
+		if (!(s.eContainer instanceof RuleSet) && !s.using.isEmpty) {
 			error(
 				"The 'using' clause must be in the first sentence",
 				JavaRulePackage.Literals.SENTENCE__USING,
@@ -210,7 +222,6 @@ class JRulesValidator extends AbstractJRulesValidator {
 			)
 		}
 	}
-	
 
 	@Check
 	def checkNameLanguage(NameOperation n) {
@@ -232,48 +243,49 @@ class JRulesValidator extends AbstractJRulesValidator {
 
 	@Check
 	def checkJavaDoc(JavaDoc jd) {
-	
-			var s= getSentece(jd);
-			if (s.element != Element.METHOD && jd.parameter) {
-				warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER,
-					'inadvisableJavaDoc')
-			}
-			if (s.element != Element.METHOD && jd.^return) {
-				warning("The tag @return is used for methods", JavaRulePackage.Literals.JAVA_DOC__RETURN,
-					'inadvisableJavaDoc')
-			}
-			if (s.element != Element.METHOD && jd.throws) {
-				warning("The tag @throws is used for methods", JavaRulePackage.Literals.JAVA_DOC__THROWS,
-					'inadvisableJavaDoc')
-			}
+
+		var s = getSentece(jd);
+		if (s.element != Element.METHOD && jd.parameter) {
+			warning("The tag @parameter is used for methods", JavaRulePackage.Literals.JAVA_DOC__PARAMETER,
+				'inadvisableJavaDoc')
+		}
+		if (s.element != Element.METHOD && jd.^return) {
+			warning("The tag @return is used for methods", JavaRulePackage.Literals.JAVA_DOC__RETURN,
+				'inadvisableJavaDoc')
+		}
+		if (s.element != Element.METHOD && jd.throws) {
+			warning("The tag @throws is used for methods", JavaRulePackage.Literals.JAVA_DOC__THROWS,
+				'inadvisableJavaDoc')
+		}
 	}
 
 	def Sentence getSentece(javaRule.Property jd) {
 		var conteiner = jd.eContainer
-		while (!(conteiner instanceof Sentence)){
-			conteiner=conteiner.eContainer
+		while (!(conteiner instanceof Sentence)) {
+			conteiner = conteiner.eContainer
 		}
 		return conteiner as Sentence
 	}
-	@Check 
-	def checkSubClassOfClass(VariableSubtype vs){
-		if (vs.variable.element== Element.ATTRIBUTE && vs.subtype!=Element.NULL){
+
+	@Check
+	def checkSubClassOfClass(VariableSubtype vs) {
+		if (vs.variable.element == Element.ATTRIBUTE && vs.subtype != Element.NULL) {
 			error(
-				"Attributes don't have "+vs.subtype.toString.toFirstUpper,
+				"Attributes don't have " + vs.subtype.toString.toFirstUpper,
 				JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE
 			)
 		}
-		
-		if (vs.variable.element== Element.METHOD && vs.subtype!=Element.NULL){
+
+		if (vs.variable.element == Element.METHOD && vs.subtype != Element.NULL) {
 			error(
-				"Methods don't have "+vs.subtype.toString.toFirstUpper,
+				"Methods don't have " + vs.subtype.toString.toFirstUpper,
 				JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE
 			)
 		}
-		
-		if (vs.subtype==Element.FILE || vs.subtype==Element.PACKAGE){
+
+		if (vs.subtype == Element.FILE || vs.subtype == Element.PACKAGE) {
 			error(
-				vs.variable.element.toString.toFirstUpper+" don't have "+vs.subtype.toString.toFirstUpper,
+				vs.variable.element.toString.toFirstUpper + " don't have " + vs.subtype.toString.toFirstUpper,
 				JavaRulePackage.Literals.VARIABLE_SUBTYPE__SUBTYPE
 			)
 		}
@@ -283,9 +295,9 @@ class JRulesValidator extends AbstractJRulesValidator {
 	def checkModifiers(BlendModifiers b) {
 
 		var r = getSentece(b.eContainer as Modifiers);
-		
+
 		if (accessPrivateProtecte(b)) {
-			if (r.element == Element.CLASS || r.element == Element.INTERFACE || r.element == Element.ENUM) {
+			if (r.element == Element.CLASS || r.element == Element.INTERFACE || r.element == Element.ENUMERATION) {
 				warning("The private and protected modifiers are for classes, interfaces and enumeration internal",
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, 'inadvisableModifier')
 			}
@@ -302,27 +314,29 @@ class JRulesValidator extends AbstractJRulesValidator {
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ABSTRACT, 'invalidModifier')
 			}
 		}
-		if (b.^default){
-			if (r.element!=Element.METHOD){
-				error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, 'invalidModifier')
+		if (b.^default) {
+			if (r.element != Element.METHOD) {
+				error("Only the methods can be default", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT,
+					'invalidModifier')
 			}
-			var sente=getSentenceOrRuleSet(r)
-			if (sente instanceof Sentence){
-				if (sente.element!=Element.INTERFACE){
-					error("Only the interface have default methods", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT, 'invalidModifier')
+			var sente = getSentenceOrRuleSet(r)
+			if (sente instanceof Sentence) {
+				if (sente.element != Element.INTERFACE) {
+					error("Only the interface have default methods", JavaRulePackage.Literals.BLEND_MODIFIERS__DEFAULT,
+						'invalidModifier')
 				}
 			}
 		}
 
 		if (b.final) {
-			if (r.element == Element.INTERFACE || r.element == Element.ENUM) {
+			if (r.element == Element.INTERFACE || r.element == Element.ENUMERATION) {
 				error("Final is for methods, class and attributes", JavaRulePackage.Literals.BLEND_MODIFIERS__FINAL,
 					'invalidModifier')
 			}
 		}
 
 		if (b.static) {
-			if (r.element == Element.CLASS || r.element == Element.INTERFACE || r.element == Element.ENUM) {
+			if (r.element == Element.CLASS || r.element == Element.INTERFACE || r.element == Element.ENUMERATION) {
 				warning("Static is for classes, interfaces and enumeration internal",
 					JavaRulePackage.Literals.BLEND_MODIFIERS__ACCESS, 'inadvisableModifier')
 			}
@@ -333,21 +347,21 @@ class JRulesValidator extends AbstractJRulesValidator {
 		}
 
 	}
-	
-	def getSentenceOrRuleSet(Sentence s){
-		var container=s.eContainer
-		var flag=true;
-		while (flag){
-			if (container instanceof Sentence){
-				flag=false;
-			}else if (container instanceof RuleSet){
-				flag=false;
-			}else{
-				container= container.eContainer
+
+	def getSentenceOrRuleSet(Sentence s) {
+		var container = s.eContainer
+		var flag = true;
+		while (flag) {
+			if (container instanceof Sentence) {
+				flag = false;
+			} else if (container instanceof RuleSet) {
+				flag = false;
+			} else {
+				container = container.eContainer
 			}
 		}
 		return container
-		
+
 	}
 
 	def accessPrivateProtecte(BlendModifiers b) {
@@ -358,80 +372,118 @@ class JRulesValidator extends AbstractJRulesValidator {
 	}
 
 	@Check
-	def checkContains(Contains c) {
-		var r=c.rule
-		if (r.element == Element.PACKAGE || r.element==Element.FILE ) {
-				error("This element don't have " + r.element.toString.toFirstUpper, JavaRulePackage.Literals.CONTAINS__RULE,
-					"invalidContains")
+	def checkUsing(Sentence s) {
+		var using = s.using
+		for (VariableSubtype us : using) {
+			if (us.subtype != Element.NULL) {
+				if (checkExist(us, using) == false && checkExist(us, s.from)==false) {
+					error(
+						"The variable " + us.variable.name + " must be declared in using clause before " + us.variable.name +
+							"." + us.subtype.toString.toFirstUpper, JavaRulePackage.Literals.SENTENCE__USING,
+						'invalidModifier')
+					}
+				}
 			}
 		}
 
-	@Check
-	def checkImplements(RangoNames i) {
-		if (i.min < 0) {
-			error("The minimum must be greater than 0",
-				JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+	def checkExist(VariableSubtype us, Variable from) {
+			if (from.equals(us.variable)){
+				return true;
+			}
+			return false;
 		}
-		if (i.max < 0) {
-			error("The maximum must be greater than 0",
-				JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+		def checkExist(VariableSubtype us, List<VariableSubtype> using) {
+			var index = using.indexOf(us);
+			for (var i = 0; i < index; i++) {
+				if (using.get(i).variable.equals(us.variable)) {
+					return true;
+				}
+			}
+			return false;
 		}
 
-		if (i.min > i.max) {
-			error("The minimum can't be greater than the maximum",
-				JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
-		}
-		if (i.types.size> i.max){
-					error("The number of types can't be greater than the maximum",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
-		}
-	}
 		@Check
-	def checkParameters(Parameter p) {
-		if (p.exact==-2147483647){
-			if (p.min < 0) {
-				error("The minimum must be greater than 0",
-					JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+		def variableNameUnique(Variable v) {
+			var ruleSet= getSentenceOrRuleSet(v)
+			var variables = ruleSet.eAllContents.toIterable.filter(Variable).toList
+				for (Variable v2 : variables) {
+					if (!v.equals(v2) && v.name.equals(v2.name)) {
+						error("The name " + v.name + " must be unique", JavaRulePackage.Literals.SENTENCE__NAME,
+							'invalidModifier')
+					}
+				}
+		}
+
+		@Check
+		def checkContains(Contains c) {
+			var r = c.rule
+			if (r.element == Element.PACKAGE || r.element == Element.FILE) {
+				error("This element don't have " + r.element.toString.toFirstUpper,
+					JavaRulePackage.Literals.CONTAINS__RULE, "invalidContains")
 			}
-			if (p.max < 0) {
-				error("The maximum must be greater than 0",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+		}
+
+		@Check
+		def checkImplements(RangoNames i) {
+			if (i.min < 0) {
+				error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
 			}
-	
-			if (p.min > p.max) {
-				error("The minimum can't be greater than the maximum",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+			if (i.max < 0) {
+				error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
 			}
-			if (p.types.size> p.max){
-					error("The number of types can't be greater than the maximum",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+
+			if (i.min > i.max) {
+				error("The minimum can't be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX,
+					'invalidMin')
 			}
-		}else{
-			if (p.types.size> p.exact){
-					error("The number of types can't be greater than the maximum",
+			if (i.types.size > i.max) {
+				error("The number of types can't be greater than the maximum",
 					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
 			}
 		}
-		
-		
-	}
-	
-	@Check
-	def checkTamanio(Tamanio t) {
-		if (t.exact==-2147483647){
-			if (t.min < 0) {
-				error("The minimum must be greater than 0",
-					JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+
+		@Check
+		def checkParameters(Parameter p) {
+			if (p.exact == -2147483647) {
+				if (p.min < 0) {
+					error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+				}
+				if (p.max < 0) {
+					error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+				}
+
+				if (p.min > p.max) {
+					error("The minimum can't be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX,
+						'invalidMin')
+				}
+				if (p.types.size > p.max) {
+					error("The number of types can't be greater than the maximum",
+						JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+				}
+			} else {
+				if (p.types.size > p.exact) {
+					error("The number of types can't be greater than the maximum",
+						JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+				}
 			}
-			if (t.max < 0) {
-				error("The maximum must be greater than 0",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
-			}
-	
-			if (t.min > t.max) {
-				error("The minimum can't be greater than the maximum",
-					JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+
+		}
+
+		@Check
+		def checkTamanio(Tamanio t) {
+			if (t.exact == -2147483647) {
+				if (t.min < 0) {
+					error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+				}
+				if (t.max < 0) {
+					error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+				}
+
+				if (t.min > t.max) {
+					error("The minimum can't be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX,
+						'invalidMin')
+				}
 			}
 		}
 	}
-}
+	

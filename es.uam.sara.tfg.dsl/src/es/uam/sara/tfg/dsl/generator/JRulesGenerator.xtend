@@ -43,11 +43,10 @@ class JRulesGenerator extends AbstractGenerator {
 //				.filter(typeof(Greeting))
 //				.map[name]
 //				.join(', '))
+		var sentences = resource.allContents.toIterable.filter(Sentence)
 
-		var sentences=resource.allContents.toIterable.filter(Sentence)
-		
 		fsa.generateFile("RuleFactory.java", RuleFactory(sentences.toList));
-		
+
 		var workspace = ResourcesPlugin.getWorkspace().getRoot();
 		var ruleSet = resource.allContents.toIterable.filter(RuleSet).get(0)
 		var projects = new ArrayList<IProject>();
@@ -59,59 +58,53 @@ class JRulesGenerator extends AbstractGenerator {
 				projects.add(workspace.getProject(name));
 			}
 		}
-		println(resource.URI.toPlatformString(false))
-		println(resource.URI)
-		println(resource.URI.toPlatformString(true))
-		println(workspace.fullPath)
-		println(resource.URI.segmentsList)
-		var thisProject=resource.URI.segment(resource.URI.segmentsList.indexOf("resource")+1)
-		var thisProject1=workspace.getProject(thisProject)
+		var thisProject = resource.URI.segment(resource.URI.segmentsList.indexOf("resource") + 1)
+		var thisProject1 = workspace.getProject(thisProject)
 		ReadFiles.cargaProyectos(projects, thisProject1.location.toString);
 		fsa.generateFile("Main.java", main(projects, thisProject1));
-		
-}	
 
+	}
 
 	def CharSequence main(List<IProject> projects, IProject thisProject) {
 
-'''
-			import java.io.File;
-			import java.io.IOException;
-			import java.util.List;
-			import java.util.ArrayList;
-			import es.uam.sara.tfg.ast.*;
-				
-				public class Main {
-				 public static List<TypeVisitor> types= new ArrayList<TypeVisitor>(); 
-				 public static TypeVisitor actual= null; 
-				 public static void main(String[] args)throws IOException{
-				 	
-				 	List<Visitors> projects= new ArrayList<Visitors>();
-					List<File> roots= new ArrayList<File>();
-					
-			 		«FOR p: projects»
-			 			«var src= p.getFolder("src")»
-			 			roots.add(new File("«src.location»"));
-			 			projects.add(new Visitors("«p.name»"));
-			 			types.add(new TypeVisitor("«p.name»", "."));
-			 		«ENDFOR»
-
-				 	for (int i=0; i <roots.size(); i++){
-				 		types.get(i).readObject();
-				 		actual=types.get(i);
-				 		File root=roots.get(i);
-				 		Visitors visit=projects.get(i);
-				 		ReadFiles.parseFiles(root, visit);
-				 		RuleFactory rf= new RuleFactory(visit);
-				 		rf.getRules();
-				 		rf.writeLog();
-				 		actual=null;
-				 	}
-				 }
+		'''
+				import java.io.File;
+				import java.io.IOException;
+				import java.util.List;
+				import java.util.ArrayList;
+				import es.uam.sara.tfg.ast.*;
 			
-	}'''
-	
-}
+			public class Main {
+			 public static List<TypeVisitor> types= new ArrayList<TypeVisitor>(); 
+			 public static TypeVisitor actual= null; 
+			 public static void main(String[] args)throws IOException{
+			 	
+			 	List<Visitors> projects= new ArrayList<Visitors>();
+			 List<File> roots= new ArrayList<File>();
+			 
+			 	«FOR p : projects»
+			 		«var src= p.getFolder("src")»
+			 		roots.add(new File("«src.location»"));
+			 		projects.add(new Visitors("«p.name»"));
+			 		types.add(new TypeVisitor("«p.name»", "."));
+			 	«ENDFOR»
+		
+					 	for (int i=0; i <roots.size(); i++){
+			types.get(i).readObject();
+			actual=types.get(i);
+			File root=roots.get(i);
+			Visitors visit=projects.get(i);
+			ReadFiles.parseFiles(root, visit);
+			RuleFactory rf= new RuleFactory(visit);
+			rf.getRules();
+			rf.writeLog();
+			actual=null;
+					 	}
+					 }
+				
+		}'''
+
+	}
 
 	def CharSequence RuleFactory(List<Sentence> sentences) {
 
@@ -145,23 +138,23 @@ class JRulesGenerator extends AbstractGenerator {
 						return rules;
 					}else{
 						rules= new ArrayList<Rule<?>>();
-
+			
 					//Crear
 					«FOR Sentence s : sentences»
 						«IF s instanceof Variable»
-						«var v= s as Variable»
-						«genetateVariable(v)»
-						Sentence.allVariables.put("«v.name»", «v.name»);
+							«var v= s as Variable»
+							«genetateVariable(v)»
+							Sentence.allVariables.put("«v.name»", «v.name»);
 						«ELSE»
-						«var r= s as Rule»
-						«IF r.eContainer instanceof RuleSet»
-							«r.name="rule"+i»
-							«genetateRule(r, ""+(i++))»
-							rules.add(«r.name»);
-						«ENDIF»
+							«var r= s as Rule»
+							«IF r.eContainer instanceof RuleSet»
+								«r.name="rule"+i»
+								«genetateRule(r, ""+(i++))»
+								rules.add(«r.name»);
+							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-					«generateDependences(sentences)»
+					«generateDependences(getPrimarySencence(sentences))»
 					return rules;
 					}
 				}
@@ -169,8 +162,8 @@ class JRulesGenerator extends AbstractGenerator {
 				public void writeLog(){
 					
 						FileWriter fichero = null;
-				 		PrintWriter pw = null;
-				 		try{
+							PrintWriter pw = null;
+							try{
 							fichero = new FileWriter("outs/"+visitors.getProjectName()+".txt");
 							pw = new PrintWriter(fichero);
 							
@@ -178,67 +171,78 @@ class JRulesGenerator extends AbstractGenerator {
 								System.out.println(r.log());
 								pw.println(r.log());
 							}
-			     } catch (Exception e) {
-			          e.printStackTrace();
-			      } finally {
-			         try {
-			          if (null != fichero)
-			             fichero.close();
-			         } catch (Exception e2) {
-			            e2.printStackTrace();
-			         }
-			      }
-									        
+							 } catch (Exception e) {
+							      e.printStackTrace();
+							  } finally {
+							     try {
+							      if (null != fichero)
+							         fichero.close();
+							     } catch (Exception e2) {
+							        e2.printStackTrace();
+							     }
+							  }
+							          
 				}
 			}
 			
 		'''
 	}
-	def CharSequence generateDependences(List<Sentence> s){'''
-			«FOR Sentence v : s»
-				«IF v.eContainer instanceof RuleSet»
-					«FOR Variable in: v.in» @SuppressWarnings("unchecked")List<«getType(v.element)»> list«v.name»«in.name»=(List<«getType(v.element)»>) Sentence.allVariables.get("«in.name»").get();
-					«v.name».setIn(list«v.name»«in.name»);
-					«ENDFOR»
-					«var k=0»
-					«IF v.from!=null»
-						for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-							«v.name».setFrom(us«k».«getAnalice(v.element)»);
-							«v.name».setUsing("«v.from.getName»",us«k++»);
-					«ENDIF»
-						
-						«FOR VariableSubtype us: v.using»
-							«IF us.subtype==Element.NULL»
-							for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
-								«v.name».setUsing("«us.variable.name»",us«k++»);
-							«ELSE»
-							for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».«getAnalice(us.subtype)»){
-								«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
-							«ENDIF»
-						«ENDFOR»
-							«v.name».check();
-						«FOR VariableSubtype us: v.using»
-						}
-						«ENDFOR»
-					«IF v.from!=null»
-						}
-					«ENDIF»
-				«ENDIF»
-				
-			«ENDFOR»'''
-	}
 	
+	def List<Sentence> getPrimarySencence(List<Sentence> sentences){
+		var ret= new ArrayList<Sentence> ();
+		for (Sentence s:sentences){
+			if (s.eContainer instanceof RuleSet){
+				ret.add(s)
+			}
+		}
+		return ret;
+	}
+
+	def CharSequence generateDependences(List<Sentence> s) {
+		'''
+		//*FALTA poner las dependencias de las subSentences*//
+		«FOR Sentence v : s»
+			«FOR Variable in: v.in» @SuppressWarnings("unchecked")List<«getType(v.element)»> list«v.name»«in.name»=(List<«getType(v.element)»>) Sentence.allVariables.get("«in.name»").get();
+				«v.name».setIn(list«v.name»«in.name»);
+			«ENDFOR»
+			«var k=0»
+			«IF v.from!=null»
+				for («getType(v.from.element)» us«k»: «v.from.getName».get()){
+					«v.name».setFrom(us«k».«getAnalice(v.element)»);
+					«v.name».setUsing("«v.from.getName»",us«k++»);
+			«ENDIF»
+			
+			«FOR VariableSubtype us: v.using»
+				«IF us.subtype==Element.NULL»
+					for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
+						«v.name».setUsing("«us.variable.name»",us«k++»);
+				«ELSE»
+					for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».«getAnalice(us.subtype)»){
+					«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
+				«ENDIF»
+			«ENDFOR»
+			«v.name».check();
+			«FOR VariableSubtype us: v.using»
+				}
+			«ENDFOR»
+			«IF v.from!=null»
+				}
+			«ENDIF»
+			
+		«ENDFOR»'''
+	}
+
 	def int getK(Sentence s, String name) {
-		var i=0;
-		if (s.from!=null){
-			if (s.from.name.equals(name)){
+		var i = 0;
+		if (s.from != null) {
+			if (s.from.name.equals(name)) {
 				return i;
 			}
 			i++;
 		}
-		var us= s.using;
-		for(VariableSubtype vs: us){
-			if (vs.variable.name.equals(name)){
+		var us = s.using;
+		for (VariableSubtype vs : us) {
+			if (vs.variable.name.equals(name)) {
 				return i;
 			}
 			i++;
@@ -256,11 +260,12 @@ class JRulesGenerator extends AbstractGenerator {
 			Variable<«type»> «name»=new Variable<«type»> ( "«v.element»",visitors.«analize», or«name»);	
 		'''
 	}
-	def static String getAnalice(Element e){
-		if (e ==Element.CLASS){
-			return "get"+e.toString.toFirstUpper+"es()"
-		}else{
-			return "get"+e.toString.toFirstUpper+"s()"
+
+	def static String getAnalice(Element e) {
+		if (e == Element.CLASS) {
+			return "get" + e.toString.toFirstUpper + "es()"
+		} else {
+			return "get" + e.toString.toFirstUpper + "s()"
 		}
 	}
 
@@ -318,18 +323,18 @@ class JRulesGenerator extends AbstractGenerator {
 			return InterfaceSatisfy.getPropertie(s.property as Interface, sufix);
 		} else if (e == Element.CLASS) {
 			return ClassesSatisfy.getPropertie(s.property as Class, sufix);
-		} else if (e == Element.ENUM) {
+		} else if (e == Element.ENUMERATION) {
 			return EnumSatisfy.getPropertie(s.property as Enumeration, sufix);
 		} else if (e == Element.METHOD) {
 			return MethodsSatisfy.getPropertie(s.property as Method, sufix);
-		} else if (e == Element.FILE){
+		} else if (e == Element.FILE) {
 			return FileSatisfy.getPropertie(s.property as File, sufix)
-		}else{
+		} else {
 			return AttributesSatisfy.getPropertie(s.property as Attribute, sufix);
 		}
 	}
 
 	def static String getType(Element e) {
-		return "M"+e.literal.toLowerCase.toFirstUpper;
+		return "M" + e.literal.toLowerCase.toFirstUpper;
 	}
 }

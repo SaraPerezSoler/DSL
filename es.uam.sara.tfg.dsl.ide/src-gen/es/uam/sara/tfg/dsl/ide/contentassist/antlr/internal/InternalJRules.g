@@ -2089,9 +2089,9 @@ rule__Element__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3()); }
-		('Enum')
-		{ after(grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3()); }
+		('Enumeration')
+		{ after(grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3()); }
 	)
 	|
 	(

@@ -36,7 +36,7 @@
     <eLiterals name="Package" literal="package"/>
     <eLiterals name="Class" value="1" literal="class"/>
     <eLiterals name="Interface" value="2" literal="interface"/>
-    <eLiterals name="Enum" value="3" literal="enum"/>
+    <eLiterals name="Enumeration" value="3" literal="enumeration"/>
     <eLiterals name="Method" value="4" literal="method"/>
     <eLiterals name="Attribute" value="5" literal="attribute"/>
     <eLiterals name="File" value="6"/>

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJRulesParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'*'", "'is'", "'are'", "'='", "'()'", "'Package'", "'Class'", "'Interface'", "'Enum'", "'Method'", "'Attribute'", "'File'", "'boolean'", "'byte'", "'char'", "'double'", "'float'", "'int'", "'long'", "'short'", "'String'", "'start '", "'end'", "'contain'", "'like'", "'name'", "'type'", "'Spanish'", "'English'", "'upper case'", "'lower case'", "'upper camel case'", "'lower camel case'", "'start upper case'", "'public'", "'protected'", "'private'", "'one'", "'exists'", "'all'", "'Projects'", "'Name:'", "','", "';'", "':'", "'from'", "'in'", "'using'", "'satisfy'", "'which'", "'or'", "'and'", "'('", "')'", "'implemented'", "'superinterface'", "'superclass'", "'subclass'", "'of'", "'implements'", "'not'", "'extends'", "'size'", "'['", "'..'", "']'", "'parameters'", "'types'", "'constructor'", "'return'", "'initialize'", "'empty'", "'generic'", "'JavaDoc'", "'{'", "'}'", "'have'", "'modified'", "'with'", "'.'", "'Primitive.'", "'isPrimitive'", "'isCollection'", "'-'", "'no'", "'do'", "'don\\'t'", "'does'", "'doesn\\'t'", "'<>'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'haven\\'t'", "'static'", "'final'", "'abstract'", "'default'", "'synchronized'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'*'", "'is'", "'are'", "'='", "'()'", "'Package'", "'Class'", "'Interface'", "'Enumeration'", "'Method'", "'Attribute'", "'File'", "'boolean'", "'byte'", "'char'", "'double'", "'float'", "'int'", "'long'", "'short'", "'String'", "'start '", "'end'", "'contain'", "'like'", "'name'", "'type'", "'Spanish'", "'English'", "'upper case'", "'lower case'", "'upper camel case'", "'lower camel case'", "'start upper case'", "'public'", "'protected'", "'private'", "'one'", "'exists'", "'all'", "'Projects'", "'Name:'", "','", "';'", "':'", "'from'", "'in'", "'using'", "'satisfy'", "'which'", "'or'", "'and'", "'('", "')'", "'implemented'", "'superinterface'", "'superclass'", "'subclass'", "'of'", "'implements'", "'not'", "'extends'", "'size'", "'['", "'..'", "']'", "'parameters'", "'types'", "'constructor'", "'return'", "'initialize'", "'empty'", "'generic'", "'JavaDoc'", "'{'", "'}'", "'have'", "'modified'", "'with'", "'.'", "'Primitive.'", "'isPrimitive'", "'isCollection'", "'-'", "'no'", "'do'", "'don\\'t'", "'does'", "'doesn\\'t'", "'<>'", "'@author'", "'@parameter'", "'@return'", "'@version'", "'@throws'", "'@see'", "'haven\\'t'", "'static'", "'final'", "'abstract'", "'default'", "'synchronized'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -7064,13 +7064,13 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Element__Alternatives"
-    // InternalJRules.g:2068:1: rule__Element__Alternatives : ( ( ( 'Package' ) ) | ( ( 'Class' ) ) | ( ( 'Interface' ) ) | ( ( 'Enum' ) ) | ( ( 'Method' ) ) | ( ( 'Attribute' ) ) | ( ( 'File' ) ) );
+    // InternalJRules.g:2068:1: rule__Element__Alternatives : ( ( ( 'Package' ) ) | ( ( 'Class' ) ) | ( ( 'Interface' ) ) | ( ( 'Enumeration' ) ) | ( ( 'Method' ) ) | ( ( 'Attribute' ) ) | ( ( 'File' ) ) );
     public final void rule__Element__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJRules.g:2072:1: ( ( ( 'Package' ) ) | ( ( 'Class' ) ) | ( ( 'Interface' ) ) | ( ( 'Enum' ) ) | ( ( 'Method' ) ) | ( ( 'Attribute' ) ) | ( ( 'File' ) ) )
+            // InternalJRules.g:2072:1: ( ( ( 'Package' ) ) | ( ( 'Class' ) ) | ( ( 'Interface' ) ) | ( ( 'Enumeration' ) ) | ( ( 'Method' ) ) | ( ( 'Attribute' ) ) | ( ( 'File' ) ) )
             int alt35=7;
             switch ( input.LA(1) ) {
             case 16:
@@ -7180,20 +7180,20 @@ public class InternalJRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalJRules.g:2091:2: ( ( 'Enum' ) )
+                    // InternalJRules.g:2091:2: ( ( 'Enumeration' ) )
                     {
-                    // InternalJRules.g:2091:2: ( ( 'Enum' ) )
-                    // InternalJRules.g:2092:3: ( 'Enum' )
+                    // InternalJRules.g:2091:2: ( ( 'Enumeration' ) )
+                    // InternalJRules.g:2092:3: ( 'Enumeration' )
                     {
-                     before(grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3()); 
-                    // InternalJRules.g:2093:3: ( 'Enum' )
-                    // InternalJRules.g:2093:4: 'Enum'
+                     before(grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3()); 
+                    // InternalJRules.g:2093:3: ( 'Enumeration' )
+                    // InternalJRules.g:2093:4: 'Enumeration'
                     {
                     match(input,19,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3()); 
 
                     }
 

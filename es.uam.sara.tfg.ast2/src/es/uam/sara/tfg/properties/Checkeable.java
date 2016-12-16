@@ -86,10 +86,10 @@ public abstract class Checkeable<T>{
 		List<T> print;
 		String cad;
 		if (right) {
-			cad = "This elements satisfy " + this.toString() + ":\n";
+			cad = "\nThis elements satisfy " + this.toString() + ":\n\n";
 			print = this.getRight();
 		} else {
-			cad = "This elements not satisfy " + this.toString() + ":\n";
+			cad = "\nThis elements not satisfy " + this.toString() + ":\n\n";
 			print = this.getWrong();
 		}
 

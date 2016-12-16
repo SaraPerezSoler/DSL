@@ -2553,8 +2553,8 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cClassClassKeyword_1_0 = (Keyword)cClassEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cInterfaceEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cInterfaceInterfaceKeyword_2_0 = (Keyword)cInterfaceEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cEnumEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cEnumEnumKeyword_3_0 = (Keyword)cEnumEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cEnumerationEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cEnumerationEnumerationKeyword_3_0 = (Keyword)cEnumerationEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cMethodEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cMethodMethodKeyword_4_0 = (Keyword)cMethodEnumLiteralDeclaration_4.eContents().get(0);
 		private final EnumLiteralDeclaration cAttributeEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
@@ -2563,10 +2563,10 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFileFileKeyword_6_0 = (Keyword)cFileEnumLiteralDeclaration_6.eContents().get(0);
 		
 		//enum Element:
-		//	Package | Class | Interface | Enum | Method | Attribute | File;
+		//	Package | Class | Interface | Enumeration | Method | Attribute | File;
 		public EnumRule getRule() { return rule; }
 		
-		//Package | Class | Interface | Enum | Method | Attribute | File
+		//Package | Class | Interface | Enumeration | Method | Attribute | File
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Package
@@ -2587,11 +2587,11 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 		//'Interface'
 		public Keyword getInterfaceInterfaceKeyword_2_0() { return cInterfaceInterfaceKeyword_2_0; }
 		
-		//Enum
-		public EnumLiteralDeclaration getEnumEnumLiteralDeclaration_3() { return cEnumEnumLiteralDeclaration_3; }
+		//Enumeration
+		public EnumLiteralDeclaration getEnumerationEnumLiteralDeclaration_3() { return cEnumerationEnumLiteralDeclaration_3; }
 		
-		//'Enum'
-		public Keyword getEnumEnumKeyword_3_0() { return cEnumEnumKeyword_3_0; }
+		//'Enumeration'
+		public Keyword getEnumerationEnumerationKeyword_3_0() { return cEnumerationEnumerationKeyword_3_0; }
 		
 		//Method
 		public EnumLiteralDeclaration getMethodEnumLiteralDeclaration_4() { return cMethodEnumLiteralDeclaration_4; }
@@ -3075,7 +3075,7 @@ public class JRulesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum Element:
-	//	Package | Class | Interface | Enum | Method | Attribute | File;
+	//	Package | Class | Interface | Enumeration | Method | Attribute | File;
 	public ElementElements getElementAccess() {
 		return eElement;
 	}

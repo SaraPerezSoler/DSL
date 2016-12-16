@@ -23,8 +23,9 @@ class ComunSatisfy {
 	def static CharSequence nameOperation(NameOperation n, String type, String sufix) {
 		
 			var cad=propertyStringVariable(n.name, sufix)
+			cad+=getType(n.name, sufix);
 			cad+= "Property<"+type+"> p" + sufix + "= new PropertyStringVariable<"+type+",NameOperation<"+type+">>(" +n.no+",listV"+sufix+
-				", listT"+sufix+", new NameOperation<"+type+">("+n.no+",NameOperation.Operation." + n.operator + ", NameOperation." + n.language + "));"
+				", listT"+sufix+", new NameOperation<"+type+">("+n.no+",NameOperation.Operation." + n.operator +",type"+sufix+ ", NameOperation." + n.language + "));"
 			return cad;
 	}
 	
@@ -58,9 +59,10 @@ class ComunSatisfy {
 	}
 
 	def static CharSequence contains(Contains c, String type, String sufix) {
-		var cadena = JRulesGenerator.genetateRule(c.rule, sufix);
+		c.rule.name = "rContains"+sufix
+		var cadena = JRulesGenerator.genetateRule(c.rule, "Contains"+sufix);
 		cadena +=
-			"Property<"+type+"> p" + sufix + "= new Contain" +JRulesGenerator.getType(c.rule.element)+"<"+type+">" + "(r" + sufix + ");\n";
+			"Property<"+type+"> p" + sufix + "= new Contain" +c.rule.element.toString.toFirstUpper+"<"+type+">" + "("+c.no+",rContains" + sufix + ");\n";
 		return cadena;
 	}
 

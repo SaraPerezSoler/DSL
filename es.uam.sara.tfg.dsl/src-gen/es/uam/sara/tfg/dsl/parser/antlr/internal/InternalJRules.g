@@ -3883,10 +3883,10 @@ ruleElement returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_3='Enum'
+			enumLiteral_3='Enumeration'
 			{
-				$current = grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getElementAccess().getEnumEnumLiteralDeclaration_3());
+				$current = grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getElementAccess().getEnumerationEnumLiteralDeclaration_3());
 			}
 		)
 		    |

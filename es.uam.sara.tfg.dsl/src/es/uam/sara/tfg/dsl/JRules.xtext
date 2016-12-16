@@ -12,7 +12,7 @@ Sentence returns Sentence:
 	(Variable | Rule)';';
 
 enum Element returns Element:
-				Package = 'Package' | Class = 'Class' | Interface = 'Interface' | Enum = 'Enum' | Method = 'Method' | Attribute = 'Attribute' | File = 'File';
+				Package = 'Package' | Class = 'Class' | Interface = 'Interface' | Enumeration = 'Enumeration' | Method = 'Method' | Attribute = 'Attribute' | File = 'File';
 
 Variable returns Variable:
 	name=EString':'

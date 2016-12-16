@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.properties.StringProperty;
+import es.uam.sara.tfg.properties.type.TypeString;
 
 public class NameOperation<T extends IElements> extends StringProperty<T> {
 
@@ -22,10 +23,10 @@ public class NameOperation<T extends IElements> extends StringProperty<T> {
 	public static final int EMPTY = 0;
 
 	private Operation op = Operation.UNDEFINE;
-	private String other;
+	private TypeString other;
 	private int idioma;
 
-	public NameOperation(boolean no, Operation op, String cad, int idioma) {
+	public NameOperation(boolean no, Operation op, TypeString cad, int idioma) {
 		super(no);
 		this.op = op;
 		this.other = cad;
@@ -40,15 +41,15 @@ public class NameOperation<T extends IElements> extends StringProperty<T> {
 	public boolean checkNameOperation(String name) {
 		switch (op) {
 		case EQUAL:
-			return nameEqual(name, other);
+			return nameEqual(name, other.getString());
 		case LIKE:
-			return nameLike(name, other, idioma);
+			return nameLike(name, other.getString(), idioma);
 		case START:
-			return nameStart(name, other);
+			return nameStart(name, other.getString());
 		case END:
-			return nameEnd(name, other);
+			return nameEnd(name, other.getString());
 		case CONTAIN:
-			return nameContein(name, other);
+			return nameContein(name, other.getString());
 		default:
 			return true;
 		}
@@ -202,7 +203,7 @@ public class NameOperation<T extends IElements> extends StringProperty<T> {
 	}
 
 	public String getOther() {
-		return other;
+		return other.getString();
 	}
 
 	public int getIdioma() {
@@ -225,12 +226,12 @@ public class NameOperation<T extends IElements> extends StringProperty<T> {
 	}
 	@Override
 	public void setString(String string, int i) {
-		this.other = string;
+		this.other.setString(string);
 		
 	}
 	@Override
 	public void deleteString(String string, int i) {
-		this.other="";
+		this.other.deleteString(string);
 		
 	}
 

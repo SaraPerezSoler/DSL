@@ -29,6 +29,7 @@ import javaRule.TypeProperty;
 import javaRule.Variable;
 import javaRule.VariableSubtype;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
 public class ComunSatisfy {
@@ -36,6 +37,10 @@ public class ComunSatisfy {
     StringProperty _name = n.getName();
     String cad = ComunSatisfy.propertyStringVariable(_name, sufix);
     String _cad = cad;
+    StringProperty _name_1 = n.getName();
+    String _type = ComunSatisfy.getType(_name_1, sufix);
+    cad = (_cad + _type);
+    String _cad_1 = cad;
     boolean _isNo = n.isNo();
     String _plus = ((((((((("Property<" + type) + "> p") + sufix) + "= new PropertyStringVariable<") + type) + ",NameOperation<") + type) + ">>(") + Boolean.valueOf(_isNo));
     String _plus_1 = (_plus + ",listV");
@@ -51,11 +56,13 @@ public class ComunSatisfy {
     String _plus_9 = (_plus_8 + ",NameOperation.Operation.");
     NameOperator _operator = n.getOperator();
     String _plus_10 = (_plus_9 + _operator);
-    String _plus_11 = (_plus_10 + ", NameOperation.");
+    String _plus_11 = (_plus_10 + ",type");
+    String _plus_12 = (_plus_11 + sufix);
+    String _plus_13 = (_plus_12 + ", NameOperation.");
     Language _language = n.getLanguage();
-    String _plus_12 = (_plus_11 + _language);
-    String _plus_13 = (_plus_12 + "));");
-    cad = (_cad + _plus_13);
+    String _plus_14 = (_plus_13 + _language);
+    String _plus_15 = (_plus_14 + "));");
+    cad = (_cad_1 + _plus_15);
     return cad;
   }
   
@@ -131,19 +138,25 @@ public class ComunSatisfy {
   
   public static CharSequence contains(final Contains c, final String type, final String sufix) {
     Rule _rule = c.getRule();
-    String cadena = JRulesGenerator.genetateRule(_rule, sufix);
-    String _cadena = cadena;
+    _rule.setName(("rContains" + sufix));
     Rule _rule_1 = c.getRule();
-    Element _element = _rule_1.getElement();
-    String _type = JRulesGenerator.getType(_element);
-    String _plus = ((((("Property<" + type) + "> p") + sufix) + "= new Contain") + _type);
+    String cadena = JRulesGenerator.genetateRule(_rule_1, ("Contains" + sufix));
+    String _cadena = cadena;
+    Rule _rule_2 = c.getRule();
+    Element _element = _rule_2.getElement();
+    String _string = _element.toString();
+    String _firstUpper = StringExtensions.toFirstUpper(_string);
+    String _plus = ((((("Property<" + type) + "> p") + sufix) + "= new Contain") + _firstUpper);
     String _plus_1 = (_plus + "<");
     String _plus_2 = (_plus_1 + type);
     String _plus_3 = (_plus_2 + ">");
-    String _plus_4 = (_plus_3 + "(r");
-    String _plus_5 = (_plus_4 + sufix);
-    String _plus_6 = (_plus_5 + ");\n");
-    cadena = (_cadena + _plus_6);
+    String _plus_4 = (_plus_3 + "(");
+    boolean _isNo = c.isNo();
+    String _plus_5 = (_plus_4 + Boolean.valueOf(_isNo));
+    String _plus_6 = (_plus_5 + ",rContains");
+    String _plus_7 = (_plus_6 + sufix);
+    String _plus_8 = (_plus_7 + ");\n");
+    cadena = (_cadena + _plus_8);
     return cadena;
   }
   

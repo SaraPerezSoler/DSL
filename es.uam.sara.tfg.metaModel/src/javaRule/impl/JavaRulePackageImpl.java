@@ -1951,7 +1951,7 @@ public class JavaRulePackageImpl extends EPackageImpl implements JavaRulePackage
 		addEEnumLiteral(elementEEnum, Element.PACKAGE);
 		addEEnumLiteral(elementEEnum, Element.CLASS);
 		addEEnumLiteral(elementEEnum, Element.INTERFACE);
-		addEEnumLiteral(elementEEnum, Element.ENUM);
+		addEEnumLiteral(elementEEnum, Element.ENUMERATION);
 		addEEnumLiteral(elementEEnum, Element.METHOD);
 		addEEnumLiteral(elementEEnum, Element.ATTRIBUTE);
 		addEEnumLiteral(elementEEnum, Element.FILE);
