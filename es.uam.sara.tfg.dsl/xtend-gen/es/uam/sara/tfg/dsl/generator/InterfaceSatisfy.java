@@ -171,23 +171,25 @@ public class InterfaceSatisfy {
                     }
                     String _cad_8 = cad_2;
                     boolean _isNo_4 = p_2.isNo();
-                    String _plus_28 = ((((((("Property<" + InterfaceSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + InterfaceSatisfy.TYPE) + ",Implements>(") + Boolean.valueOf(_isNo_4));
+                    String _plus_28 = ((((((((("Property<" + InterfaceSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + InterfaceSatisfy.TYPE) + ",Implements<") + InterfaceSatisfy.TYPE) + ">>(") + Boolean.valueOf(_isNo_4));
                     String _plus_29 = (_plus_28 + ",listV");
                     String _plus_30 = (_plus_29 + sufix);
                     String _plus_31 = (_plus_30 + 
                       ", listT");
                     String _plus_32 = (_plus_31 + sufix);
-                    String _plus_33 = (_plus_32 + ", new Implements(");
+                    String _plus_33 = (_plus_32 + ", new Implements<");
+                    String _plus_34 = (_plus_33 + InterfaceSatisfy.TYPE);
+                    String _plus_35 = (_plus_34 + ">(");
                     boolean _isNo_5 = ((Extends)s).isNo();
-                    String _plus_34 = (_plus_33 + Boolean.valueOf(_isNo_5));
-                    String _plus_35 = (_plus_34 + ",");
-                    String _plus_36 = (_plus_35 + Integer.valueOf(min_2));
+                    String _plus_36 = (_plus_35 + Boolean.valueOf(_isNo_5));
                     String _plus_37 = (_plus_36 + ",");
-                    String _plus_38 = (_plus_37 + Integer.valueOf(max_2));
-                    String _plus_39 = (_plus_38 + ", types");
-                    String _plus_40 = (_plus_39 + sufix);
-                    String _plus_41 = (_plus_40 + "));\n");
-                    cad_2 = (_cad_8 + _plus_41);
+                    String _plus_38 = (_plus_37 + Integer.valueOf(min_2));
+                    String _plus_39 = (_plus_38 + ",");
+                    String _plus_40 = (_plus_39 + Integer.valueOf(max_2));
+                    String _plus_41 = (_plus_40 + ", types");
+                    String _plus_42 = (_plus_41 + sufix);
+                    String _plus_43 = (_plus_42 + "));\n");
+                    cad_2 = (_cad_8 + _plus_43);
                     return cad_2;
                   } else {
                     if ((s instanceof IsGeneric)) {

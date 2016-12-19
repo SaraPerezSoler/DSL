@@ -8,6 +8,7 @@ import es.uam.sara.tfg.elements.JavaTypes;
 import es.uam.sara.tfg.elements.type.MAttribute;
 import es.uam.sara.tfg.elements.type.MClass;
 import es.uam.sara.tfg.elements.type.MEnumeration;
+import es.uam.sara.tfg.elements.type.MFile;
 import es.uam.sara.tfg.elements.type.MInterface;
 import es.uam.sara.tfg.elements.type.MMethod;
 import es.uam.sara.tfg.elements.type.MPackage;
@@ -135,5 +136,13 @@ public class Visitors {
 	}
 	public String getProjectName() {
 		return projectName;
+	}
+	
+	public List<MFile> getFiles() {
+		List<MFile> ret= new ArrayList<MFile>();
+		for (UnitVisitor uv: this.visitors){
+			ret.add(new MFile(uv)); 
+		}
+		return ret;
 	}
 }

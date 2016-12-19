@@ -76,6 +76,19 @@ public abstract class IsSuper<T extends ClassInterface> extends StringProperty<T
 
 	}
 	
+	public String print(T t) {
+		List<JavaTypes> subClass=classesExtended.get(t);
+		String cad= "is super of:\n";
+		if (subClass.isEmpty()){
+			cad="";
+		}
+		for (JavaTypes jt: subClass){
+			cad+="\t"+jt.toString()+"\n";
+		}
+		return t.toString()+ cad;
+	}
+	
+	
 	public void setString(String string, int i){
 		nameSubVariable.get(i).setString(string);
 	}

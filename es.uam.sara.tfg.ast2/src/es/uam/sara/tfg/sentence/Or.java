@@ -2,6 +2,7 @@ package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import es.uam.sara.tfg.elements.IElements;
 
@@ -49,7 +50,15 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 
 	@Override
 	public String print(boolean right) {
-		String cad="";
+		String cad;
+		if (right){
+			cad="This elements satisfy "+this.toString()+":\n";
+		}else{
+			cad="This elements don't satisfy "+this.toString()+":\n";
+		}
+		if (ands.size()<=1){
+			cad="";
+		}
 		for (And<T> a: ands){
 			cad+=a.print(right);
 		}
@@ -67,5 +76,12 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 			}
 		}
 		return false;
+	}
+	
+	public void setUsing(Map<String, IElements> using) {
+		for (And<T> a: ands){
+			a.setUsing(using);
+		}
+		super.setUsing(using);
 	}
 }

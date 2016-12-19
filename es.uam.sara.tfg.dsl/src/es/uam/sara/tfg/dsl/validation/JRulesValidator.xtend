@@ -404,7 +404,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 
 		@Check
 		def variableNameUnique(Variable v) {
-			var ruleSet= getSentenceOrRuleSet(v)
+			var ruleSet= getRuleSet(v)
 			var variables = ruleSet.eAllContents.toIterable.filter(Variable).toList
 				for (Variable v2 : variables) {
 					if (!v.equals(v2) && v.name.equals(v2.name)) {
@@ -485,5 +485,66 @@ class JRulesValidator extends AbstractJRulesValidator {
 				}
 			}
 		}
+		
+	@Check
+	def checkVariableExistsBefore(Sentence s) {
+		var in= s.in
+		var from= s.from
+		var using= s.using;
+		
+		for (Variable v:in){
+			if (!isDeclaredBefore(v, s)){
+					error("The variable "+v.name+" must be declared before this sentence", JavaRulePackage.Literals.SENTENCE__IN,
+						'invalidMin')
+			}
+		}
+		if (from!=null){
+			if (!isDeclaredBefore(from, s)){
+				error("The variable "+from.name+" must be declared before this sentence", JavaRulePackage.Literals.SENTENCE__FROM,
+							'invalidMin')
+			}
+		}
+		for (VariableSubtype v:using){
+			if (!isDeclaredBefore(v.variable, s)){
+					error("The variable "+v.variable.name+" must be declared before this sentence", JavaRulePackage.Literals.SENTENCE__IN,
+						'invalidMin')
+			}
+		}
+		
+		
+	}
+	
+	def boolean isDeclaredBefore(Variable variable, Sentence sentence) {
+		var container= getSentenceOrRuleSet(sentence);
+		if (container instanceof Sentence){
+			isDeclaredBefore(variable, container);
+		}else{
+			var ruleSet= container as RuleSet	
+			for (Sentence s: ruleSet.sentences){
+			if (s.equals(sentence)){
+				return false;
+			}
+			if (s.equals(variable)){
+				return true;
+			}
+		}
+		return false;
+			
+		}
+		
+	}
+	
+	def RuleSet getRuleSet(Sentence s) {
+		var container = s.eContainer
+		var flag = true;
+		while (flag) {
+			if (container instanceof RuleSet) {
+				return container
+			}
+				container = container.eContainer
+		}
+
+
+	}
 	}
 	

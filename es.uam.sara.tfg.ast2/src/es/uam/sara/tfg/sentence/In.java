@@ -8,7 +8,9 @@ import es.uam.sara.tfg.elements.IElements;
 public class In<T extends IElements> {
 
 	private List<T> elements;
-	public In(List<T> element) {
+	private String name;
+	public In(List<T> element, String name) {
+		this.name=name;
 		this.elements=element;
 	}
 	
@@ -24,5 +26,9 @@ public class In<T extends IElements> {
 	
 	public List<T> getElements(){
 		return elements;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

@@ -1,7 +1,9 @@
 package es.uam.sara.tfg.properties.all;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.jdt.core.dom.Type;
 import es.uam.sara.tfg.elements.JavaTypes;
@@ -9,7 +11,8 @@ import es.uam.sara.tfg.properties.StringProperty;
 import es.uam.sara.tfg.properties.type.TypeString;
 
 public class Implements<T extends JavaTypes> extends StringProperty<T> {
-
+	
+	private Map<T, List<Type>> implement= new HashMap<T, List<Type>>();
 	private int min;
 	private int max;
 	private List<TypeString> interfConstantes;
@@ -98,6 +101,7 @@ public class Implements<T extends JavaTypes> extends StringProperty<T> {
 			isInterface = true;
 		}
 		List<Type> superInterface = analyze.getSuperInterfaces();
+		implement.put(analyze, superInterface);
 		List<String>superInterfaceList=es.uam.sara.tfg.properties.type.Type.getString(superInterface);
 		if (superInterface.size() >= min && superInterface.size() <= max) {
 			for (TypeString type : interf) {
@@ -147,14 +151,33 @@ public class Implements<T extends JavaTypes> extends StringProperty<T> {
 
 	@Override
 	public void setString(String string, int i) {
-		// TODO Auto-generated method stub
+		this.interfVariables.get(i).setString(string);
 		
 	}
 
 	@Override
 	public void deleteString(String string, int i) {
-		// TODO Auto-generated method stub
+		this.interfVariables.get(i).deleteString(string);
 		
+	}
+	
+	public String print(T t) {
+		String cad="";
+		
+		if (!isInterface) {
+			cad += "implement ";
+		} else {
+			cad += "extend ";
+		}
+		List<Type> interfaces=this.implement.get(t);
+		if (interfaces.isEmpty()){
+			cad="";
+		}
+		for (Type ty: interfaces){
+			cad+=ty+" ";
+		}
+		
+		return t.toString()+cad+"\n";
 	}
 
 }

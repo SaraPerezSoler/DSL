@@ -48,8 +48,8 @@ class ClassesSatisfy {
 			}
 
 			cad +=
-				"Property<" + TYPE + "> p" + sufix + "= new PropertyStringVariable<" + TYPE + ",Implements>(" + p.no +
-					",listV" + sufix + ", listT" + sufix + ", new Implements(" + s.no + "," + min + "," + max +
+				"Property<" + TYPE + "> p" + sufix + "= new PropertyStringVariable<" + TYPE + ",Implements<"+TYPE+">>(" + p.no +
+					",listV" + sufix + ", listT" + sufix + ", new Implements<"+TYPE+">(" + s.no + "," + min + "," + max +
 					", types" + sufix + "));\n"
 			return cad;
 		} else if (s instanceof IsSubClass) {

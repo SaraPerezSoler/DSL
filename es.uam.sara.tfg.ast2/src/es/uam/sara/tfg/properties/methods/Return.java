@@ -45,5 +45,9 @@ public class Return extends StringProperty<MMethod> {
 	public void deleteString(String string, int i) {
 		type.deleteString(string);
 	}
+	
+	public String print(MMethod t) {
+		return t.toString()+"return type: "+t.getReturnType()+"\n";
+	}
 
 }

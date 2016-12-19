@@ -68,24 +68,26 @@ public class ClassesSatisfy {
                 }
                 String _cad_2 = cad;
                 boolean _isNo = p.isNo();
-                String _plus = ((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",Implements>(") + Boolean.valueOf(_isNo));
+                String _plus = ((((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",Implements<") + ClassesSatisfy.TYPE) + ">>(") + Boolean.valueOf(_isNo));
                 String _plus_1 = (_plus + 
                   ",listV");
                 String _plus_2 = (_plus_1 + sufix);
                 String _plus_3 = (_plus_2 + ", listT");
                 String _plus_4 = (_plus_3 + sufix);
-                String _plus_5 = (_plus_4 + ", new Implements(");
+                String _plus_5 = (_plus_4 + ", new Implements<");
+                String _plus_6 = (_plus_5 + ClassesSatisfy.TYPE);
+                String _plus_7 = (_plus_6 + ">(");
                 boolean _isNo_1 = ((Implements)s).isNo();
-                String _plus_6 = (_plus_5 + Boolean.valueOf(_isNo_1));
-                String _plus_7 = (_plus_6 + ",");
-                String _plus_8 = (_plus_7 + Integer.valueOf(min));
+                String _plus_8 = (_plus_7 + Boolean.valueOf(_isNo_1));
                 String _plus_9 = (_plus_8 + ",");
-                String _plus_10 = (_plus_9 + Integer.valueOf(max));
-                String _plus_11 = (_plus_10 + 
+                String _plus_10 = (_plus_9 + Integer.valueOf(min));
+                String _plus_11 = (_plus_10 + ",");
+                String _plus_12 = (_plus_11 + Integer.valueOf(max));
+                String _plus_13 = (_plus_12 + 
                   ", types");
-                String _plus_12 = (_plus_11 + sufix);
-                String _plus_13 = (_plus_12 + "));\n");
-                cad = (_cad_2 + _plus_13);
+                String _plus_14 = (_plus_13 + sufix);
+                String _plus_15 = (_plus_14 + "));\n");
+                cad = (_cad_2 + _plus_15);
                 return cad;
               } else {
                 if ((s instanceof IsSubClass)) {
@@ -98,19 +100,19 @@ public class ClassesSatisfy {
                   cad_1 = (_cad_3 + _propertyStringVariable);
                   String _cad_4 = cad_1;
                   boolean _isNo_2 = p_1.isNo();
-                  String _plus_14 = ((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",IsSubClass>(") + Boolean.valueOf(_isNo_2));
-                  String _plus_15 = (_plus_14 + 
+                  String _plus_16 = ((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",IsSubClass>(") + Boolean.valueOf(_isNo_2));
+                  String _plus_17 = (_plus_16 + 
                     ",listV");
-                  String _plus_16 = (_plus_15 + sufix);
-                  String _plus_17 = (_plus_16 + ", listT");
                   String _plus_18 = (_plus_17 + sufix);
-                  String _plus_19 = (_plus_18 + ", new IsSubClass(");
+                  String _plus_19 = (_plus_18 + ", listT");
+                  String _plus_20 = (_plus_19 + sufix);
+                  String _plus_21 = (_plus_20 + ", new IsSubClass(");
                   boolean _isNo_3 = ((IsSubClass)s).isNo();
-                  String _plus_20 = (_plus_19 + Boolean.valueOf(_isNo_3));
-                  String _plus_21 = (_plus_20 + ",type");
-                  String _plus_22 = (_plus_21 + sufix);
-                  String _plus_23 = (_plus_22 + "));\n");
-                  cad_1 = (_cad_4 + _plus_23);
+                  String _plus_22 = (_plus_21 + Boolean.valueOf(_isNo_3));
+                  String _plus_23 = (_plus_22 + ",type");
+                  String _plus_24 = (_plus_23 + sufix);
+                  String _plus_25 = (_plus_24 + "));\n");
+                  cad_1 = (_cad_4 + _plus_25);
                   return cad_1;
                 } else {
                   if ((s instanceof IsSuperClass)) {
@@ -145,23 +147,23 @@ public class ClassesSatisfy {
                     }
                     String _cad_7 = cad_2;
                     boolean _isNo_4 = p_2.isNo();
-                    String _plus_24 = ((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",IsSuperClass>(") + Boolean.valueOf(_isNo_4));
-                    String _plus_25 = (_plus_24 + ",listV");
-                    String _plus_26 = (_plus_25 + sufix);
-                    String _plus_27 = (_plus_26 + ", listT");
+                    String _plus_26 = ((((((("Property<" + ClassesSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + ClassesSatisfy.TYPE) + ",IsSuperClass>(") + Boolean.valueOf(_isNo_4));
+                    String _plus_27 = (_plus_26 + ",listV");
                     String _plus_28 = (_plus_27 + sufix);
-                    String _plus_29 = (_plus_28 + ", new IsSuperClass(");
+                    String _plus_29 = (_plus_28 + ", listT");
+                    String _plus_30 = (_plus_29 + sufix);
+                    String _plus_31 = (_plus_30 + ", new IsSuperClass(");
                     boolean _isNo_5 = ((IsSuperClass)s).isNo();
-                    String _plus_30 = (_plus_29 + Boolean.valueOf(_isNo_5));
-                    String _plus_31 = (_plus_30 + 
+                    String _plus_32 = (_plus_31 + Boolean.valueOf(_isNo_5));
+                    String _plus_33 = (_plus_32 + 
                       ",visitors.getClasses(),");
-                    String _plus_32 = (_plus_31 + Integer.valueOf(min_1));
-                    String _plus_33 = (_plus_32 + ",");
-                    String _plus_34 = (_plus_33 + Integer.valueOf(max_1));
-                    String _plus_35 = (_plus_34 + ", types");
-                    String _plus_36 = (_plus_35 + sufix);
-                    String _plus_37 = (_plus_36 + "));\n");
-                    cad_2 = (_cad_7 + _plus_37);
+                    String _plus_34 = (_plus_33 + Integer.valueOf(min_1));
+                    String _plus_35 = (_plus_34 + ",");
+                    String _plus_36 = (_plus_35 + Integer.valueOf(max_1));
+                    String _plus_37 = (_plus_36 + ", types");
+                    String _plus_38 = (_plus_37 + sufix);
+                    String _plus_39 = (_plus_38 + "));\n");
+                    cad_2 = (_cad_7 + _plus_39);
                     return cad_2;
                   } else {
                     if ((s instanceof Tamanio)) {

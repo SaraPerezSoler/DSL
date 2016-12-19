@@ -512,7 +512,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
   
   @Check
   public void variableNameUnique(final Variable v) {
-    EObject ruleSet = this.getSentenceOrRuleSet(v);
+    RuleSet ruleSet = this.getRuleSet(v);
     TreeIterator<EObject> _eAllContents = ruleSet.eAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_eAllContents);
     Iterable<Variable> _filter = Iterables.<Variable>filter(_iterable, Variable.class);
@@ -635,5 +635,92 @@ public class JRulesValidator extends AbstractJRulesValidator {
           "invalidMin");
       }
     }
+  }
+  
+  @Check
+  public void checkVariableExistsBefore(final Sentence s) {
+    EList<Variable> in = s.getIn();
+    Variable from = s.getFrom();
+    EList<VariableSubtype> using = s.getUsing();
+    for (final Variable v : in) {
+      boolean _isDeclaredBefore = this.isDeclaredBefore(v, s);
+      boolean _not = (!_isDeclaredBefore);
+      if (_not) {
+        String _name = v.getName();
+        String _plus = ("The variable " + _name);
+        String _plus_1 = (_plus + " must be declared before this sentence");
+        this.error(_plus_1, JavaRulePackage.Literals.SENTENCE__IN, 
+          "invalidMin");
+      }
+    }
+    boolean _notEquals = (!Objects.equal(from, null));
+    if (_notEquals) {
+      boolean _isDeclaredBefore_1 = this.isDeclaredBefore(from, s);
+      boolean _not_1 = (!_isDeclaredBefore_1);
+      if (_not_1) {
+        String _name_1 = from.getName();
+        String _plus_2 = ("The variable " + _name_1);
+        String _plus_3 = (_plus_2 + " must be declared before this sentence");
+        this.error(_plus_3, JavaRulePackage.Literals.SENTENCE__FROM, 
+          "invalidMin");
+      }
+    }
+    for (final VariableSubtype v_1 : using) {
+      Variable _variable = v_1.getVariable();
+      boolean _isDeclaredBefore_2 = this.isDeclaredBefore(_variable, s);
+      boolean _not_2 = (!_isDeclaredBefore_2);
+      if (_not_2) {
+        Variable _variable_1 = v_1.getVariable();
+        String _name_2 = _variable_1.getName();
+        String _plus_4 = ("The variable " + _name_2);
+        String _plus_5 = (_plus_4 + " must be declared before this sentence");
+        this.error(_plus_5, JavaRulePackage.Literals.SENTENCE__IN, 
+          "invalidMin");
+      }
+    }
+  }
+  
+  public boolean isDeclaredBefore(final Variable variable, final Sentence sentence) {
+    boolean _xblockexpression = false;
+    {
+      EObject container = this.getSentenceOrRuleSet(sentence);
+      boolean _xifexpression = false;
+      if ((container instanceof Sentence)) {
+        _xifexpression = this.isDeclaredBefore(variable, ((Sentence)container));
+      } else {
+        RuleSet ruleSet = ((RuleSet) container);
+        EList<Sentence> _sentences = ruleSet.getSentences();
+        for (final Sentence s : _sentences) {
+          {
+            boolean _equals = s.equals(sentence);
+            if (_equals) {
+              return false;
+            }
+            boolean _equals_1 = s.equals(variable);
+            if (_equals_1) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public RuleSet getRuleSet(final Sentence s) {
+    EObject container = s.eContainer();
+    boolean flag = true;
+    while (flag) {
+      {
+        if ((container instanceof RuleSet)) {
+          return ((RuleSet)container);
+        }
+        EObject _eContainer = container.eContainer();
+        container = _eContainer;
+      }
+    }
+    return null;
   }
 }

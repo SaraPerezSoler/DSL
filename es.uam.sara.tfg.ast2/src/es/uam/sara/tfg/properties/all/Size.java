@@ -42,4 +42,9 @@ public class Size<T extends IPosicionable> extends Property<T>{
 		}
 		return "size [" + min + ".." + max + "]";
 	}
+	
+	public String print(T t) {
+		
+		return t.toString()+ "size="+getSize(t)+"\n";
+	}
 }

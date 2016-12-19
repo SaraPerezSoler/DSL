@@ -49,4 +49,7 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 		return checkElement(analyze, getSubType(analyze));
 
 	}
+	public boolean needVariables() {
+		return rule.needVariabes();
+	}
 }

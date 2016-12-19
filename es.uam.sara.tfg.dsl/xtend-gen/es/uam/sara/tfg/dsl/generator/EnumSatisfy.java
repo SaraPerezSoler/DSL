@@ -72,23 +72,25 @@ public class EnumSatisfy {
                     }
                     String _cad_2 = cad;
                     boolean _isNo = p.isNo();
-                    String _plus = ((((((("Property<" + EnumSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + EnumSatisfy.TYPE) + ",Implements>(") + Boolean.valueOf(_isNo));
+                    String _plus = ((((((((("Property<" + EnumSatisfy.TYPE) + "> p") + sufix) + "= new PropertyStringVariable<") + EnumSatisfy.TYPE) + ",Implements<") + EnumSatisfy.TYPE) + ">>(") + Boolean.valueOf(_isNo));
                     String _plus_1 = (_plus + ",listV");
                     String _plus_2 = (_plus_1 + sufix);
                     String _plus_3 = (_plus_2 + 
                       ", listT");
                     String _plus_4 = (_plus_3 + sufix);
-                    String _plus_5 = (_plus_4 + ", new Implements(");
+                    String _plus_5 = (_plus_4 + ", new Implements<");
+                    String _plus_6 = (_plus_5 + EnumSatisfy.TYPE);
+                    String _plus_7 = (_plus_6 + ">(");
                     boolean _isNo_1 = ((Implements)s).isNo();
-                    String _plus_6 = (_plus_5 + Boolean.valueOf(_isNo_1));
-                    String _plus_7 = (_plus_6 + ",");
-                    String _plus_8 = (_plus_7 + Integer.valueOf(min));
+                    String _plus_8 = (_plus_7 + Boolean.valueOf(_isNo_1));
                     String _plus_9 = (_plus_8 + ",");
-                    String _plus_10 = (_plus_9 + Integer.valueOf(max));
-                    String _plus_11 = (_plus_10 + ", types");
-                    String _plus_12 = (_plus_11 + sufix);
-                    String _plus_13 = (_plus_12 + "));\n");
-                    cad = (_cad_2 + _plus_13);
+                    String _plus_10 = (_plus_9 + Integer.valueOf(min));
+                    String _plus_11 = (_plus_10 + ",");
+                    String _plus_12 = (_plus_11 + Integer.valueOf(max));
+                    String _plus_13 = (_plus_12 + ", types");
+                    String _plus_14 = (_plus_13 + sufix);
+                    String _plus_15 = (_plus_14 + "));\n");
+                    cad = (_cad_2 + _plus_15);
                     return cad;
                   }
                 }

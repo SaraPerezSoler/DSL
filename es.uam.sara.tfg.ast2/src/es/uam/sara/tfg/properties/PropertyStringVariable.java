@@ -1,8 +1,8 @@
 package es.uam.sara.tfg.properties;
 
 import java.util.List;
-
 import es.uam.sara.tfg.elements.IElements;
+
 
 public class PropertyStringVariable<T extends IElements,K extends StringProperty<T>> extends Property<T>{
 	
@@ -18,6 +18,9 @@ public class PropertyStringVariable<T extends IElements,K extends StringProperty
 	}
 	
 	public boolean needVariables() {
+		if (variableName.isEmpty()){
+			return false;
+		}
 		return true;
 	}
 	
@@ -64,6 +67,10 @@ public class PropertyStringVariable<T extends IElements,K extends StringProperty
 			property.deleteString(var+"."+type, i);
 		}
 		return cad;
+	}
+	
+	public String print(T t) {
+		return this.property.print(t);
 	}
 	
 

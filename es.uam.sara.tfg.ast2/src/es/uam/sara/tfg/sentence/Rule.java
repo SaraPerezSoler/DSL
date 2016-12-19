@@ -1,6 +1,7 @@
 package es.uam.sara.tfg.sentence;
 
 import java.util.List;
+import java.util.Set;
 
 import es.uam.sara.tfg.elements.IElements;
 
@@ -59,12 +60,15 @@ public class Rule<T extends IElements> extends Sentence<T> {
 	}
 
 	public void reset(List<T> elements) {
-
+		super.reset(elements);
 		filter.reset();
 	}
 
 	public boolean check() {
 		List<T> analyze = super.getElements();
+		if (filter.needVariables()) {
+			filter.setUsing(using);
+		}
 		filter.check(analyze);
 		analyze = filter.getRight();
 		if (satisfy.needVariables()) {
@@ -88,6 +92,23 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		}
 
 		cad += this.quantifier.toString().toLowerCase() + " " + ielement;
+		
+		if (this.from!=null){
+			cad+=" from "+this.from.getName();
+		}
+		String in=" in ";
+		for (In<T> i: this.in){
+			cad+=in+i.getName();
+			in=", ";
+		}
+		String using=" using ";
+		Set<String> us= this.using.keySet();
+		for (String u: us){
+			cad+=using+u;
+			using=", ";
+		}
+		
+		
 		if (!(filter.isNoProperty())) {
 			cad += " which " + filter;
 		}
@@ -133,6 +154,10 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		}
 		return cad;
 
+	}
+
+	public boolean needVariabes() {
+		return this.satisfy.needVariables() || this.filter.needVariables();
 	}
 
 }

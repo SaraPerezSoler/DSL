@@ -91,8 +91,8 @@ class InterfaceSatisfy {
 				cad+=ComunSatisfy.añadeVariable(tp, sufix)
 			}
 			
-			cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Implements>(" +p.no+",listV"+sufix+
-				", listT"+sufix+", new Implements(" + s.no + ","+min+","+max+", types"+sufix+"));\n"
+			cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",Implements<"+TYPE+">>(" +p.no+",listV"+sufix+
+				", listT"+sufix+", new Implements<"+TYPE+">(" + s.no + ","+min+","+max+", types"+sufix+"));\n"
 				return cad;
 		}else if(s instanceof IsGeneric){
 			return ComunSatisfy.isGeneric(s as IsGeneric, TYPE, sufix)

@@ -2,6 +2,8 @@ package es.uam.sara.tfg.sentence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.properties.Checkeable;
 
@@ -56,7 +58,15 @@ public class And<T extends IElements> extends Checkeable<T> {
 
 	@Override
 	public String print(boolean right) {
-		String cad = "";
+		String cad;
+		if (right){
+			cad="This elements satisfy "+this.toString()+":\n";
+		}else{
+			cad="This elements don't satisfy "+this.toString()+":\n";
+		}
+		if (properties.size()<=1){
+			cad="";
+		}
 		for (Checkeable<T> p : properties) {
 			cad += p.print(right);
 		}
@@ -75,6 +85,13 @@ public class And<T extends IElements> extends Checkeable<T> {
 			}
 		}
 		return false;
+	}
+	
+	public void setUsing(Map<String, IElements> using) {
+		for (PrimaryOp<T> a: this.properties){
+			a.setUsing(using);
+		}
+		super.setUsing(using);
 	}
 
 }

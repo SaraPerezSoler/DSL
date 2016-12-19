@@ -18,6 +18,8 @@ import es.uam.sara.tfg.properties.type.TypeString;
 public class IsSubClass extends StringProperty<MClass>{
 
 	private TypeString of;
+	
+	private Type superClass=null;
 	/**
 	 * @param analyze
 	 */
@@ -47,7 +49,7 @@ public class IsSubClass extends StringProperty<MClass>{
 
 	@Override
 	public boolean checkElement(MClass t) {
-		Type superClass=t.getSuperclass();
+		superClass=t.getSuperclass();
 		if (of==null){
 			if (superClass!=null){
 				return false;
@@ -73,5 +75,12 @@ public class IsSubClass extends StringProperty<MClass>{
 	public void deleteString(String string, int i) {
 		this.of.deleteString(string);
 		
+	}
+	
+	public String print(MClass t) {
+		if (superClass==null){
+			return t.toString();
+		}
+		return t.toString()+" is subClass of: "+superClass.toString();
 	}
 }

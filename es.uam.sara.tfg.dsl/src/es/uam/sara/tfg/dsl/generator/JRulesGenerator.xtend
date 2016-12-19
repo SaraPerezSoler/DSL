@@ -29,6 +29,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import es.uam.sara.tfg.ast.ReadFiles
+import javaRule.Contains
 
 /**
  * Generates code from your model files on save.
@@ -199,37 +200,48 @@ class JRulesGenerator extends AbstractGenerator {
 	}
 
 	def CharSequence generateDependences(List<Sentence> s) {
-		'''
-		//*FALTA poner las dependencias de las subSentences*//
-		«FOR Sentence v : s»
+		var c=""
+		for (Sentence v: s){
+				
+			var contains=v.eAllContents.toIterable.filter(Contains).toList
+			var subsentences= new ArrayList<Sentence>()	
+			for (Contains cs: contains){
+				subsentences.add(cs.rule);
+			}	
+			c+=
+			'''
+			«generateDependences(subsentences)»
 			«FOR Variable in: v.in» @SuppressWarnings("unchecked")List<«getType(v.element)»> list«v.name»«in.name»=(List<«getType(v.element)»>) Sentence.allVariables.get("«in.name»").get();
-				«v.name».setIn(list«v.name»«in.name»);
+					«v.name».setIn(list«v.name»«in.name», "«in.name»");
 			«ENDFOR»
-			«var k=0»
-			«IF v.from!=null»
-				for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-					«v.name».setFrom(us«k».«getAnalice(v.element)»);
-					«v.name».setUsing("«v.from.getName»",us«k++»);
-			«ENDIF»
-			
-			«FOR VariableSubtype us: v.using»
-				«IF us.subtype==Element.NULL»
-					for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
-						«v.name».setUsing("«us.variable.name»",us«k++»);
-				«ELSE»
-					for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».«getAnalice(us.subtype)»){
-					«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
+				«var k=0»
+				«IF v.from!=null»
+					for («getType(v.from.element)» us«k»: «v.from.getName».get()){
+						«v.name».setFrom(us«k».«getAnalice(v.element)»);
+						«v.name».setUsing("«v.from.getName»",us«k++»);
 				«ENDIF»
-			«ENDFOR»
-			«v.name».check();
-			«FOR VariableSubtype us: v.using»
-				}
-			«ENDFOR»
-			«IF v.from!=null»
-				}
-			«ENDIF»
-			
-		«ENDFOR»'''
+				
+				«FOR VariableSubtype us: v.using»
+					«IF us.subtype==Element.NULL»
+						for («getType(us.variable.element)» us«k»: «us.variable.name».get()){
+							«v.name».setUsing("«us.variable.name»",us«k++»);
+					«ELSE»
+						for («getType(us.subtype)» us«k»: us«getK(v, us.variable.name)».«getAnalice(us.subtype)»){
+						«v.name».setUsing("«us.variable.name»«getType(us.subtype)»",us«k++»);
+					«ENDIF»
+				«ENDFOR»
+				«IF v.eContainer instanceof RuleSet»
+				«v.name».check();
+				«ENDIF»
+				«FOR VariableSubtype us: v.using»
+					}
+				«ENDFOR»
+				«IF v.from!=null»
+					}
+				«ENDIF»
+				
+			'''}
+		return c;
 	}
 
 	def int getK(Sentence s, String name) {
