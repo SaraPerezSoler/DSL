@@ -31,6 +31,9 @@ public abstract class Checkeable<T>{
 
 	public void addRight(T t) {
 		this.right.add(t);
+		if (this.wrong.contains(t)){
+			this.wrong.remove(t);
+		}
 	}
 
 	public void addWrong(T t) {
@@ -92,7 +95,7 @@ public abstract class Checkeable<T>{
 			cad = "\nThis elements not satisfy " + this.toString() + ":\n\n";
 			print = this.getWrong();
 		}
-
+		
 		for (T t : print) {
 			cad += print(t);
 		}

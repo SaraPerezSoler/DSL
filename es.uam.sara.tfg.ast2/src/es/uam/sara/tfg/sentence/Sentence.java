@@ -54,6 +54,11 @@ public abstract class Sentence<T extends IElements> {
 	public void setUsing(String s, IElements e){
 		using.put(s, e);
 	}
+	
+	/*public void setUsing(Map<String, IElements> using){
+		this.using=using;
+	}*/
+	
 	public void setFrom(List<T> elements,  String name){
 		from=new In<T>(elements, name);
 	}
@@ -74,5 +79,6 @@ public abstract class Sentence<T extends IElements> {
 	public boolean needVariabes() {
 		return this.satisfy.needVariables();
 	}
+	public abstract String log();
 	
 }

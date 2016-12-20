@@ -21,6 +21,7 @@ import es.uam.sara.tfg.elements.type.MPackage;
 public class UnitVisitor extends ASTVisitor{
 
 	private String nameFile;
+	private String path;
 	private CompilationUnit comp;
 	private PackageDeclaration packageDeclaration;
 	private List<MInterface> interfaces;
@@ -30,8 +31,9 @@ public class UnitVisitor extends ASTVisitor{
 	private List<MMethod> methods;
 	private List<MAttribute> attributes;
 
-	public UnitVisitor(String nameFile) {
+	public UnitVisitor(String nameFile, String path) {
 		this.nameFile = nameFile;
+		this.path=path;
 		interfaces = new ArrayList<MInterface>();
 		classes = new ArrayList<MClass>();
 		enumerations = new ArrayList<MEnumeration>();
@@ -189,5 +191,9 @@ public class UnitVisitor extends ASTVisitor{
 			return false;
 		}
 		return true;
+	}
+
+	public String getPath() {
+		return path;
 	}
 }

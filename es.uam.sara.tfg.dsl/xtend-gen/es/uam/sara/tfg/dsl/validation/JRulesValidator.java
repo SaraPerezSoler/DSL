@@ -488,9 +488,13 @@ public class JRulesValidator extends AbstractJRulesValidator {
   }
   
   public boolean checkExist(final VariableSubtype us, final Variable from) {
-    Variable _variable = us.getVariable();
-    boolean _equals = from.equals(_variable);
+    boolean _equals = Objects.equal(from, null);
     if (_equals) {
+      return false;
+    }
+    Variable _variable = us.getVariable();
+    boolean _equals_1 = from.equals(_variable);
+    if (_equals_1) {
       return true;
     }
     return false;
@@ -499,11 +503,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
   public boolean checkExist(final VariableSubtype us, final List<VariableSubtype> using) {
     int index = using.indexOf(us);
     for (int i = 0; (i < index); i++) {
-      VariableSubtype _get = using.get(i);
-      Variable _variable = _get.getVariable();
-      Variable _variable_1 = us.getVariable();
-      boolean _equals = _variable.equals(_variable_1);
-      if (_equals) {
+      if ((using.get(i).getVariable().equals(us.getVariable()) && (!using.get(i).equals(us)))) {
         return true;
       }
     }
@@ -578,18 +578,18 @@ public class JRulesValidator extends AbstractJRulesValidator {
       int _min = p.getMin();
       boolean _lessThan = (_min < 0);
       if (_lessThan) {
-        this.error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, "invalidMin");
+        this.error("The minimum must be greater than 0", JavaRulePackage.Literals.PARAMETER__MIN, "invalidMin");
       }
       int _max = p.getMax();
       boolean _lessThan_1 = (_max < 0);
       if (_lessThan_1) {
-        this.error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+        this.error("The maximum must be greater than 0", JavaRulePackage.Literals.PARAMETER__MIN, "invalidMin");
       }
       int _min_1 = p.getMin();
       int _max_1 = p.getMax();
       boolean _greaterThan = (_min_1 > _max_1);
       if (_greaterThan) {
-        this.error("The minimum can\'t be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX, 
+        this.error("The minimum can\'t be greater than the maximum", JavaRulePackage.Literals.PARAMETER__MIN, 
           "invalidMin");
       }
       EList<TypeProperty> _types = p.getTypes();
@@ -598,7 +598,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
       boolean _greaterThan_1 = (_size > _max_2);
       if (_greaterThan_1) {
         this.error("The number of types can\'t be greater than the maximum", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+          JavaRulePackage.Literals.PARAMETER__MAX, "invalidMin");
       }
     } else {
       EList<TypeProperty> _types_1 = p.getTypes();
@@ -607,7 +607,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
       boolean _greaterThan_2 = (_size_1 > _exact_1);
       if (_greaterThan_2) {
         this.error("The number of types can\'t be greater than the maximum", 
-          JavaRulePackage.Literals.RANGO_NAMES__MAX, "invalidMin");
+          JavaRulePackage.Literals.PARAMETER__EXACT, "invalidMin");
       }
     }
   }

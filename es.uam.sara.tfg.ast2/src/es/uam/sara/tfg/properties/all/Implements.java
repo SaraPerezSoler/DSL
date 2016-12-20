@@ -129,7 +129,7 @@ public class Implements<T extends JavaTypes> extends StringProperty<T> {
 			cad += "extend";
 		}
 		if (min != -1) {
-			if (max != Integer.MAX_VALUE) {
+			if (max == Integer.MAX_VALUE) {
 				cad += "[" + min + "..*] ";
 			} else {
 				cad += "[" + min + ".." + max + "] ";

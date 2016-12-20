@@ -128,35 +128,36 @@ class JRulesGenerator extends AbstractGenerator {
 			
 			public class RuleFactory {
 				
-				private List <Rule<?>> rules=null;
+				private List <Sentence<?>> sentence=null;
 				private Visitors visitors;
 				
 				public RuleFactory (Visitors vis){
 					this.visitors=vis;
 				}
-				public List<Rule<?>> getRules(){
-					if (rules!=null){
-						return rules;
+				public List<Sentence<?>> getRules(){
+					if (sentence!=null){
+						return sentence;
 					}else{
-						rules= new ArrayList<Rule<?>>();
+						sentence= new ArrayList<Sentence<?>>();
 			
 					//Crear
 					«FOR Sentence s : sentences»
 						«IF s instanceof Variable»
 							«var v= s as Variable»
 							«genetateVariable(v)»
+							sentence.add(«s.name»);
 							Sentence.allVariables.put("«v.name»", «v.name»);
 						«ELSE»
 							«var r= s as Rule»
 							«IF r.eContainer instanceof RuleSet»
 								«r.name="rule"+i»
 								«genetateRule(r, ""+(i++))»
-								rules.add(«r.name»);
+								sentence.add(«r.name»);
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
 					«generateDependences(getPrimarySencence(sentences))»
-					return rules;
+					return sentence;
 					}
 				}
 				
@@ -168,7 +169,7 @@ class JRulesGenerator extends AbstractGenerator {
 							fichero = new FileWriter("outs/"+visitors.getProjectName()+".txt");
 							pw = new PrintWriter(fichero);
 							
-							for (Rule<?> r: rules){
+							for (Sentence<?> r: sentence){
 								System.out.println(r.log());
 								pw.println(r.log());
 							}
@@ -217,7 +218,7 @@ class JRulesGenerator extends AbstractGenerator {
 				«var k=0»
 				«IF v.from!=null»
 					for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-						«v.name».setFrom(us«k».«getAnalice(v.element)»);
+						«v.name».setFrom(us«k».«getAnalice(v.element)», "«v.from.getName»");
 						«v.name».setUsing("«v.from.getName»",us«k++»);
 				«ENDIF»
 				
@@ -269,7 +270,7 @@ class JRulesGenerator extends AbstractGenerator {
 			«var type=getType(v.element)»
 			«var analize=getAnalice(v.element)»
 			«getOr(v.satisfy, name, v.element)»
-			Variable<«type»> «name»=new Variable<«type»> ( "«v.element»",visitors.«analize», or«name»);	
+			Variable<«type»> «name»=new Variable<«type»> ( "«v.element»",visitors.«analize», or«name», "«name»");	
 		'''
 	}
 

@@ -39,7 +39,7 @@ public class ReadFiles {
 			filePath = f.getAbsolutePath();
 			//
 			if (f.isFile() && f.getName().endsWith(".java")) {
-				UnitVisitor u = new UnitVisitor(f.getName());
+				UnitVisitor u = new UnitVisitor(f.getName(), f.getPath());
 				visit.addVisitor(u);
 				ParserAst.parse(readFileToString(filePath), u);
 			}

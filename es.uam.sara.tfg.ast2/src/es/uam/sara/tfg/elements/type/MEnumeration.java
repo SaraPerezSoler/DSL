@@ -33,7 +33,7 @@ public class MEnumeration extends JavaElement implements JavaTypes{
 	@Override
 	public String toString() {
 		UnitVisitor uv=getVisitor();
-		return "In file "+uv.getNameFile()+" the enumeration "+getName() +" (line: " +uv.getLineNumber(em.getStartPosition())+")\n";
+		return "In file "+uv.getPath()+" the enumeration "+getName() +" (line: " +uv.getLineNumber(em.getStartPosition())+")\n";
 
 	}
 

@@ -387,6 +387,9 @@ class JRulesValidator extends AbstractJRulesValidator {
 		}
 
 	def checkExist(VariableSubtype us, Variable from) {
+		if (from==null){
+			return false;
+		}
 			if (from.equals(us.variable)){
 				return true;
 			}
@@ -395,7 +398,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 		def checkExist(VariableSubtype us, List<VariableSubtype> using) {
 			var index = using.indexOf(us);
 			for (var i = 0; i < index; i++) {
-				if (using.get(i).variable.equals(us.variable)) {
+				if (using.get(i).variable.equals(us.variable) && !using.get(i).equals(us)) {
 					return true;
 				}
 			}
@@ -446,24 +449,24 @@ class JRulesValidator extends AbstractJRulesValidator {
 		def checkParameters(Parameter p) {
 			if (p.exact == -2147483647) {
 				if (p.min < 0) {
-					error("The minimum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MIN, 'invalidMin')
+					error("The minimum must be greater than 0", JavaRulePackage.Literals.PARAMETER__MIN, 'invalidMin')
 				}
 				if (p.max < 0) {
-					error("The maximum must be greater than 0", JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+					error("The maximum must be greater than 0", JavaRulePackage.Literals.PARAMETER__MIN, 'invalidMin')
 				}
 
 				if (p.min > p.max) {
-					error("The minimum can't be greater than the maximum", JavaRulePackage.Literals.RANGO_NAMES__MAX,
+					error("The minimum can't be greater than the maximum", JavaRulePackage.Literals.PARAMETER__MIN,
 						'invalidMin')
 				}
 				if (p.types.size > p.max) {
 					error("The number of types can't be greater than the maximum",
-						JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+						JavaRulePackage.Literals.PARAMETER__MAX, 'invalidMin')
 				}
 			} else {
 				if (p.types.size > p.exact) {
 					error("The number of types can't be greater than the maximum",
-						JavaRulePackage.Literals.RANGO_NAMES__MAX, 'invalidMin')
+						JavaRulePackage.Literals.PARAMETER__EXACT, 'invalidMin')
 				}
 			}
 

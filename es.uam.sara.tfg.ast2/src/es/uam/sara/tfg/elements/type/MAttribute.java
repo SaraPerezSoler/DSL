@@ -39,7 +39,7 @@ public class MAttribute extends JavaElement implements ICanGeneric{
 	@Override
 	public String toString() {
 		UnitVisitor uv=getVisitor();
-		return "In file "+uv.getNameFile()+" the attribute "+getName() +" (line: " +uv.getLineNumber(fd.getStartPosition())+")\n";
+		return "In file "+uv.getPath()+" the attribute "+getName() +" (line: " +uv.getLineNumber(fd.getStartPosition())+")\n";
 	}
 	
 	public boolean isInitialize(){

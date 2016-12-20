@@ -36,7 +36,7 @@ public class MMethod extends JavaElement implements ICanGeneric, ICanEmpty{
 	@Override
 	public String toString() {
 		UnitVisitor uv=getVisitor();
-		return "In file "+uv.getNameFile()+" the method "+getName() +" (line: " +uv.getLineNumber(md.getStartPosition())+")\n";
+		return "In file "+uv.getPath()+" the method "+getName() +" (line: " +uv.getLineNumber(md.getStartPosition())+")\n";
 	}
 	@Override
 	public boolean isGeneric() {

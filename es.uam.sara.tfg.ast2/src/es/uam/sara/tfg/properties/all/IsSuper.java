@@ -115,7 +115,7 @@ public abstract class IsSuper<T extends ClassInterface> extends StringProperty<T
 			cad += "superinterface ";
 		}
 		if (this.intMin != -1) {
-			if (this.intMax != Integer.MAX_VALUE) {
+			if (this.intMax == Integer.MAX_VALUE) {
 				cad += "[" + intMin + "..*]";
 			} else {
 				cad += "[" + intMin + ".." + intMax + "]";

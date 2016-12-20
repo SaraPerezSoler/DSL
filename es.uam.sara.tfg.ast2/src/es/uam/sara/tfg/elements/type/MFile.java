@@ -49,7 +49,7 @@ public class MFile implements Container, IPosicionable, ICanEmpty{
 	@Override
 	public String toString() {
 		
-		return "The file "+getName()+"\n";
+		return "The file "+getName()+" with path: "+uv.getPath()+"\n";
 	}
 
 	@Override

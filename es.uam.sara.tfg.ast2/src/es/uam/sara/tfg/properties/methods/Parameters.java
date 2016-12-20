@@ -86,7 +86,7 @@ public class Parameters extends StringProperty<MMethod>{
 	@Override
 	public String toString() {
 		String cad;
-		if (max != Integer.MAX_VALUE) {
+		if (max == Integer.MAX_VALUE) {
 			cad = "num parametres: [" + min + "..*]";
 		} else {
 			cad = "num parametres: [" + min + ".." + max + "]";

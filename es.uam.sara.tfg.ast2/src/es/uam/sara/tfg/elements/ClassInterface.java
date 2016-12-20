@@ -36,9 +36,9 @@ public abstract class ClassInterface extends JavaElement implements JavaTypes, I
 	public String toString() {
 		UnitVisitor uv=getVisitor();
 		if (tp.isInterface()){
-			return "In file "+uv.getNameFile()+" the interface "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
+			return "In file "+uv.getPath()+" the interface "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
 		}else{
-			return "In file "+uv.getNameFile()+" the class "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
+			return "In file "+uv.getPath()+" the class "+getName() +" (line: " +uv.getLineNumber(tp.getStartPosition())+")\n";
 		}
 		
 	

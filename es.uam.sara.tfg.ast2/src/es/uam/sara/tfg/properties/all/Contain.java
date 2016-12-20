@@ -3,6 +3,7 @@ package es.uam.sara.tfg.properties.all;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.IElements;
@@ -51,5 +52,14 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 	}
 	public boolean needVariables() {
 		return rule.needVariabes();
+	}
+	
+	public void setUsing(Map<String, IElements> using) {
+		Set<String> keys= using.keySet();
+		
+		for (String k: keys){
+			rule.setUsing(k, using.get(k));
+		}
+		super.setUsing(using);
 	}
 }
