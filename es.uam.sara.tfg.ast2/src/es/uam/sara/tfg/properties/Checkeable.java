@@ -30,14 +30,18 @@ public abstract class Checkeable<T>{
 	}
 
 	public void addRight(T t) {
-		this.right.add(t);
+		if (!this.right.contains(t)){
+			this.right.add(t);
+		}
 		if (this.wrong.contains(t)){
 			this.wrong.remove(t);
 		}
 	}
 
 	public void addWrong(T t) {
-		this.wrong.add(t);
+		if (!this.wrong.contains(t) && !this.right.contains(t)){
+			this.wrong.add(t);
+		}
 	}
 
 	public void reset() {
@@ -46,19 +50,31 @@ public abstract class Checkeable<T>{
 	}
 
 	public void removeAllRight(Collection<T> c) {
-		right.removeAll(c);
+		for (T c1: c){
+			this.right.remove(c1);
+		}
 	}
 
 	public void addAllRight(Collection<T> c) {
-		right.addAll(c);
+		for (T c1: c){
+			if (!this.right.contains(c1)){
+				this.right.add(c1);
+			}
+		}
 	}
 
 	public void removeAllWrong(Collection<T> c) {
-		wrong.removeAll(c);
+		for (T c1: c){
+			this.wrong.remove(c1);
+		}
 	}
 
 	public void addAllWrong(Collection<T> c) {
-		wrong.addAll(c);
+		for (T c1: c){
+			if (!right.contains(c1) && !wrong.contains(c1)){
+				wrong.add(c1);
+			}
+		}
 	}
 
 	public boolean isNoProperty() {

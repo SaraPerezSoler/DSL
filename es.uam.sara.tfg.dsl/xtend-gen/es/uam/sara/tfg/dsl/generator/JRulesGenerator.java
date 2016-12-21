@@ -521,17 +521,17 @@ public class JRulesGenerator extends AbstractGenerator {
             _builder.append("\t");
             String _name_8 = v.getName();
             _builder.append(_name_8, "\t\t");
-            _builder.append(".setFrom(us");
+            _builder.append(".setFrom(\"");
+            Variable _from_3 = v.getFrom();
+            String _name_9 = _from_3.getName();
+            _builder.append(_name_9, "\t\t");
+            _builder.append("\" ,us");
             _builder.append(k, "\t\t");
             _builder.append(".");
             Element _element_3 = v.getElement();
             String _analice = JRulesGenerator.getAnalice(_element_3);
             _builder.append(_analice, "\t\t");
-            _builder.append(", \"");
-            Variable _from_3 = v.getFrom();
-            String _name_9 = _from_3.getName();
-            _builder.append(_name_9, "\t\t");
-            _builder.append("\");");
+            _builder.append(");");
             _builder.newLineIfNotEmpty();
             _builder.append("\t");
             _builder.append("\t");
@@ -628,7 +628,7 @@ public class JRulesGenerator extends AbstractGenerator {
             _builder.append("\t");
             String _name_18 = v.getName();
             _builder.append(_name_18, "\t");
-            _builder.append(".check();");
+            _builder.append(".analize();");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -649,8 +649,16 @@ public class JRulesGenerator extends AbstractGenerator {
             _builder.newLine();
           }
         }
-        _builder.append("\t");
-        _builder.newLine();
+        {
+          EObject _eContainer_1 = v.eContainer();
+          if ((_eContainer_1 instanceof RuleSet)) {
+            _builder.append("\t");
+            String _name_19 = v.getName();
+            _builder.append(_name_19, "\t");
+            _builder.append(".check();");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         c = (_c + _builder);
       }
     }

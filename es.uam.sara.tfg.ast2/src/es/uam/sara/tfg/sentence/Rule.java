@@ -9,18 +9,18 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	protected boolean no;
 	protected Quantifier quantifier;
-	protected Or<T> filter;
+	
 	private boolean check = false;
 
 	public interface Apply {
-		public boolean apply(List<?> lista, int total);
+		public boolean apply(List<?> right, List<?> wrong);
 	}
 
 	public enum Quantifier implements Apply {
 		ALL {
 			@Override
-			public boolean apply(List<?> lista, int total) {
-				if (lista.size() == total) {
+			public boolean apply(List<?> lista, List<?> wrong) {
+				if (wrong.size() == 0) {
 					return true;
 				}
 				return false;
@@ -28,7 +28,7 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		},
 		ONE {
 			@Override
-			public boolean apply(List<?> lista, int total) {
+			public boolean apply(List<?> lista, List<?> wrong) {
 				if (lista.size() == 1) {
 					return true;
 				}
@@ -37,7 +37,7 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		},
 		EXISTS {
 			@Override
-			public boolean apply(List<?> lista, int total) {
+			public boolean apply(List<?> lista, List<?> wrong) {
 				if (lista.size() >= 1) {
 					return true;
 				}
@@ -48,14 +48,10 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	public Rule(boolean no, Quantifier q, List<T> elements, Or<T> filter, Or<T> satisfy, String elemntJava) {
 
-		super(elemntJava, elements, satisfy);
+		super(elemntJava, elements, satisfy, filter);
 		this.no = no;
 		this.quantifier = q;
-		if (filter == null) {
-			this.filter = new NoOr<T>();
-		} else {
-			this.filter = filter;
-		}
+		
 
 	}
 
@@ -64,22 +60,11 @@ public class Rule<T extends IElements> extends Sentence<T> {
 		filter.reset();
 	}
 
-	public boolean check() {
-		List<T> analyze = super.getElements();
-		if (filter.needVariables()) {
-			filter.setUsing(using);
-		}
-		filter.check(analyze);
-		analyze = filter.getRight();
-		if (satisfy.needVariables()) {
-			satisfy.setUsing(using);
-		}
-		satisfy.check(analyze);
-
+	public boolean check() {		
 		if (no) {
-			check = !quantifier.apply(satisfy.getRight(), analyze.size());
+			check = !quantifier.apply(satisfy.getRight(), satisfy.getWrong());
 		} else {
-			check = quantifier.apply(satisfy.getRight(), analyze.size());
+			check = quantifier.apply(satisfy.getRight(), satisfy.getWrong());
 		}
 		return check;
 	}

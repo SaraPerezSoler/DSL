@@ -26,11 +26,19 @@ public class And<T extends IElements> extends Checkeable<T> {
 	public void check(List<T> analyze) {
 		for (PrimaryOp<T> p : properties) {
 			p.check(analyze);
-			removeAllWrong(p.getWrong());
-			addAllWrong(p.getWrong());
 		}
-		addAllRight(analyze);
-		removeAllRight(getWrong());
+		for (T a: analyze){
+			boolean wrong=false;
+			for (PrimaryOp<T> p: properties){
+				if (p.getWrong().contains(a)){
+					this.addWrong(a);
+					wrong=true;
+				}
+			}
+			if (wrong==false){
+				this.addRight(a);
+			}
+		}
 	}
 
 	public void reset() {

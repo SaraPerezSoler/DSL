@@ -24,11 +24,19 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 		
 		for (And<T> a: ands){
 			a.check(analyze);
-			removeAllRight(a.getRight());
-			addAllRight(a.getRight());
 		}
-		addAllWrong(analyze);
-		removeAllWrong(getRight());
+		for (T a: analyze){
+			boolean right=false;
+			for (And<T> p: ands){
+				if (p.getRight().contains(a)){
+					this.addRight(a);
+					right=true;
+				}
+			}
+			if (right==false){
+				this.addWrong(a);
+			}
+		}
 	}
 	public void reset() {
 		for (And<T> a: ands){

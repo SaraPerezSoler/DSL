@@ -218,7 +218,7 @@ class JRulesGenerator extends AbstractGenerator {
 				«var k=0»
 				«IF v.from!=null»
 					for («getType(v.from.element)» us«k»: «v.from.getName».get()){
-						«v.name».setFrom(us«k».«getAnalice(v.element)», "«v.from.getName»");
+						«v.name».setFrom("«v.from.getName»" ,us«k».«getAnalice(v.element)»);
 						«v.name».setUsing("«v.from.getName»",us«k++»);
 				«ENDIF»
 				
@@ -232,7 +232,7 @@ class JRulesGenerator extends AbstractGenerator {
 					«ENDIF»
 				«ENDFOR»
 				«IF v.eContainer instanceof RuleSet»
-				«v.name».check();
+				«v.name».analize();
 				«ENDIF»
 				«FOR VariableSubtype us: v.using»
 					}
@@ -240,7 +240,9 @@ class JRulesGenerator extends AbstractGenerator {
 				«IF v.from!=null»
 					}
 				«ENDIF»
-				
+				«IF v.eContainer instanceof RuleSet»
+				«v.name».check();
+				«ENDIF»
 			'''}
 		return c;
 	}

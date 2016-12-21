@@ -12,19 +12,25 @@ public abstract class Sentence<T extends IElements> {
 
 	protected String ielement;
 	protected Or<T> satisfy;
-	protected Map<String, IElements> using;
+	protected Or<T> filter;
+	protected Map<String, IElements> using= new HashMap<String, IElements>();;
+	//protected List<String> using= new ArrayList<String>();
 	private List<T> elements;
 	protected List<In<T>> in;
 	protected In<T> from=null;
 	public static Map<String, Variable<? extends IElements>> allVariables= new HashMap<String, Variable<? extends IElements>>();
-	
 
-	public Sentence(String elementJava,List<T> elements, Or<T> satisfy) {
+
+	public Sentence(String elementJava,List<T> elements, Or<T> satisfy, Or<T> filter) {
 		super();
 		this.ielement = elementJava;
 		this.elements=elements;
 		in=new ArrayList<In<T>>();
-		using= new HashMap<String, IElements>();
+		if (filter == null) {
+			this.filter = new NoOr<T>();
+		} else {
+			this.filter = filter;
+		}
 		if (satisfy==null){
 			this.satisfy= new NoOr<T>();
 		}else{
@@ -45,21 +51,35 @@ public abstract class Sentence<T extends IElements> {
 	
 	public void reset(List<T> elements){
 		this.elements=elements;
-		satisfy.reset();
+		//satisfy.reset();
 	}
 
 	public void setIn(List<T> elements, String name){
 		in.add(new In<T>(elements, name));
 	}
-	public void setUsing(String s, IElements e){
-		using.put(s, e);
+	public void setUsing(String s, IElements element){
+		using.put(s, element);
 	}
 	
-	/*public void setUsing(Map<String, IElements> using){
-		this.using=using;
+	/*public List<Map<String, IElements>> getUsing(){
+		List<Map<String, IElements>> ret= new ArrayList<Map<String,IElements>>();
+		for (int i=0;i<using.size(); i++){
+			ret.add(new HashMap<String, IElements>());
+		}
+		return getUsing(0, 0, ret);
+	}
+	
+	public List<Map<String, IElements>> getUsing(int i, int k, List<Map<String, IElements>> ret){
+		List<? extends IElements> list=allVariables.get(using.get(i)).get();
+		for (IElements e: list){
+			ret.get(k).put(using.get(i), e);
+			getUsing(++i, k, ret);
+			k++;
+		}
+		return ret;
 	}*/
 	
-	public void setFrom(List<T> elements,  String name){
+	public void setFrom(String name, List<T> elements){
 		from=new In<T>(elements, name);
 	}
 	
@@ -75,6 +95,21 @@ public abstract class Sentence<T extends IElements> {
 	}
 	
 	public abstract boolean check();
+	public void analize(){
+
+		List<T> analyze = this.getElements();
+		filter.reset();
+		if (filter.needVariables()) {
+			filter.setUsing(using);
+		}
+		
+		filter.check(analyze);
+		analyze = filter.getRight();
+		if (satisfy.needVariables()) {
+			satisfy.setUsing(using);
+		}
+		satisfy.check(analyze);
+	}
 	
 	public boolean needVariabes() {
 		return this.satisfy.needVariables();

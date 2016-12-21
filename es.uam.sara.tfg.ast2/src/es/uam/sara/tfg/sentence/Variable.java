@@ -9,16 +9,11 @@ public class Variable<T extends IElements> extends Sentence<T> {
 	private String name;
 
 	public Variable(String elementJava, List<T> elements, Or<T> satisfy, String name) {
-		super(elementJava, elements, satisfy);
+		super(elementJava, elements, satisfy, null);
 		this.name=name;
 	}
 
 	public boolean check() {
-		List<T> analyze=super.getElements();
-		if (satisfy.needVariables()){
-			satisfy.setUsing(using);
-		}
-		satisfy.check(analyze);
 		return true;
 	}
 
