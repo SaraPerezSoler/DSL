@@ -49,9 +49,9 @@ public abstract class Sentence<T extends IElements> {
 		return analyze;
 	}
 	
-	public void reset(List<T> elements){
+	public void reset(List<T> elements, List<T> right, List<T> wrong){
 		this.elements=elements;
-		//satisfy.reset();
+		satisfy.reset(right, wrong);
 	}
 
 	public void setIn(List<T> elements, String name){
@@ -61,6 +61,15 @@ public abstract class Sentence<T extends IElements> {
 		using.put(s, element);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<T> getRight(){
+		return (List<T>) ((ArrayList<T>)satisfy.getRight()).clone();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<T> getWrong() {
+		return (List<T>) ((ArrayList<T>)satisfy.getWrong()).clone();
+	}
 	/*public List<Map<String, IElements>> getUsing(){
 		List<Map<String, IElements>> ret= new ArrayList<Map<String,IElements>>();
 		for (int i=0;i<using.size(); i++){

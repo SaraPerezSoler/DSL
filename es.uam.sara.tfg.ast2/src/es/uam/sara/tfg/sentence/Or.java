@@ -92,4 +92,10 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 		}
 		super.setUsing(using);
 	}
+
+	public void reset(List<T> right, List<T> wrong) {
+		this.reset();
+		this.addAllRight(right);
+		this.addAllWrong(wrong);
+	}
 }

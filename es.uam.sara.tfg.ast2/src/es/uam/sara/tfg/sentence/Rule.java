@@ -55,8 +55,8 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	}
 
-	public void reset(List<T> elements) {
-		super.reset(elements);
+	public void reset(List<T> elements, List<T> right, List<T> wrong) {
+		super.reset(elements, right, wrong);
 		filter.reset();
 	}
 
