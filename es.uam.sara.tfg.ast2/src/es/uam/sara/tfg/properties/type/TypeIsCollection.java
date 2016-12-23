@@ -99,4 +99,12 @@ public class TypeIsCollection implements TypeFunction {
 			else return of.compare(isCO.getOf());
 		}
 	}
+	
+	@Override
+	public String toString() {
+		if (of != null) {
+			return "isCollection(" + of + ")";
+		}
+		return "isCollection()";
+	}
 }

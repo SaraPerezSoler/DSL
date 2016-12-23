@@ -40,4 +40,9 @@ public class TypePrimitive implements Type{
 	public boolean compare(String other) {
 		return other.equalsIgnoreCase(this.type.toString());
 	}
+	
+	@Override
+	public String toString() {
+		return "Primitive."+type.toString().toLowerCase();
+	}
 }

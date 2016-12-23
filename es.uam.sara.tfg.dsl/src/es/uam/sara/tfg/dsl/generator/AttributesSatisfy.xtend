@@ -9,6 +9,8 @@ import javaRule.NameOperation
 import javaRule.NameType
 import javaRule.IsGeneric
 import javaRule.StringProperty
+import javaRule.TypeProperty
+import javaRule.IsCollectionType
 
 class AttributesSatisfy {
 
@@ -33,27 +35,36 @@ class AttributesSatisfy {
 			return ComunSatisfy.modifiers(s as Modifiers, TYPE, sufix)
 
 		} else if (s instanceof Initialize) {
-		
-			return "Property<"+TYPE+"> p" + sufix + "= new Initialize("+s.no+");\n"	
-		
-		} else if (s instanceof AttributeType) {
-			var a= s as AttributeType
-			var cad=ComunSatisfy.getType(a.type, sufix);
-			
-			if (a.type instanceof StringProperty){
-				var spa=a.type as StringProperty
-				
-				cad+=ComunSatisfy.propertyStringVariable(spa, sufix);
-				cad+= "Property<"+TYPE+"> p" + sufix + "= new PropertyStringVariable<"+TYPE+",AttributeType>(" +a.no+",listV"+sufix+
-				", listT"+sufix+", new AttributeType("+a.no+",type"+sufix+"));"
-				return cad;
-			}
-			cad+="Property<"+TYPE+"> p" + sufix+"=new AttributeType("+a.no+",type"+sufix+");\n"
-			return cad;
-			
-		} else if (s instanceof IsGeneric) {
-			return ComunSatisfy.isGeneric(s as IsGeneric, TYPE, sufix)
-		}
-	}
 
-}
+			return "Property<" + TYPE + "> p" + sufix + "= new Initialize(" + s.no + ");\n"
+
+		} else if (s instanceof AttributeType) {
+			var a = s as AttributeType
+			var cad = ComunSatisfy.getType(a.type, sufix);
+
+			cad += ComunSatisfy.declaraVariable(sufix);
+			cad += getTypesVariables(s.type, sufix)
+			cad +=
+				"Property<" + TYPE + "> p" + sufix + "= new PropertyStringVariable<" + TYPE + ",AttributeType>(" +
+					a.no + ",listV" + sufix + ", listT" + sufix + ", new AttributeType(" + a.no + ",type" + sufix +
+					"));"
+				return cad;
+
+				} else if (s instanceof IsGeneric) {
+					return ComunSatisfy.isGeneric(s as IsGeneric, TYPE, sufix)
+				}
+			}
+			
+			def static String getTypesVariables(TypeProperty type, String sufix){
+				if (type instanceof StringProperty){
+					return ComunSatisfy.añadeVariable(type as StringProperty, sufix);
+				}else if (type instanceof IsCollectionType){
+					if (type.of!=null){
+						return getTypesVariables(type.of, sufix);
+					}
+				}
+				return "";
+			}
+
+		}
+		

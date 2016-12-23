@@ -45,4 +45,5 @@ public interface Type {
 	public void deleteString(String s);
 
 	public boolean compare(String other);
+	public String toString();
 }

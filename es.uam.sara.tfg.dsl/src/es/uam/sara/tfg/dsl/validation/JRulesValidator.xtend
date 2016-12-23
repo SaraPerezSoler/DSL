@@ -176,7 +176,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 
 					if (!s.using.contain(svs.variable)) {
 						error(
-							"The variable " + name + "must be declared in 'using' clause  ",
+							"The variable " + name + " must be declared in 'using' clause  ",
 							JavaRulePackage.Literals.SENTENCE__SATISFY
 						)
 					}
@@ -184,7 +184,7 @@ class JRulesValidator extends AbstractJRulesValidator {
 					if (!s.using.contain(svs.variable)) {
 						if (s.from == null) {
 							error(
-								"The variable " + name + "must be declared in 'using' or 'from' clause  ",
+								"The variable " + name + " must be declared in 'using' or 'from' clause  ",
 								JavaRulePackage.Literals.SENTENCE__SATISFY
 							)
 						}

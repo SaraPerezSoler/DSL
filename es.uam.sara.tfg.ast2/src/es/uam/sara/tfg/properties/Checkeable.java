@@ -1,20 +1,21 @@
 package es.uam.sara.tfg.properties;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import es.uam.sara.tfg.elements.IElements;
+import es.uam.sara.tfg.sentence.RuleSave;
 
-public abstract class Checkeable<T>{
+public abstract class Checkeable<T extends IElements> {
 
-	private ArrayList<T> right;
+	private List<T> right;
 	private List<T> wrong;
 	protected boolean no;
 	protected Map<String, IElements> using;
 	
+
 	public Checkeable(boolean no) {
 		this.no = no;
 		this.right = new ArrayList<T>();
@@ -30,16 +31,16 @@ public abstract class Checkeable<T>{
 	}
 
 	public void addRight(T t) {
-		if (!this.right.contains(t)){
+		if (!this.right.contains(t)) {
 			this.right.add(t);
 		}
-		if (this.wrong.contains(t)){
+		if (this.wrong.contains(t)) {
 			this.wrong.remove(t);
 		}
 	}
 
 	public void addWrong(T t) {
-		if (!this.wrong.contains(t) && !this.right.contains(t)){
+		if (!this.wrong.contains(t) && !this.right.contains(t)) {
 			this.wrong.add(t);
 		}
 	}
@@ -50,28 +51,37 @@ public abstract class Checkeable<T>{
 	}
 
 	public void removeAllRight(Collection<T> c) {
-		for (T c1: c){
+		for (T c1 : c) {
 			this.right.remove(c1);
 		}
 	}
 
 	public void addAllRight(Collection<T> c) {
-		for (T c1: c){
-			if (!this.right.contains(c1)){
+		for (T c1 : c) {
+			if (!this.right.contains(c1)) {
 				this.right.add(c1);
 			}
 		}
 	}
 
+	public void addLastWrong(T a) {
+		if( right.contains(a)){
+			right.remove(a);
+		}
+		if (!wrong.contains(a)){
+			wrong.add(a);
+		}
+	}
+
 	public void removeAllWrong(Collection<T> c) {
-		for (T c1: c){
+		for (T c1 : c) {
 			this.wrong.remove(c1);
 		}
 	}
 
 	public void addAllWrong(Collection<T> c) {
-		for (T c1: c){
-			if (!right.contains(c1) && !wrong.contains(c1)){
+		for (T c1 : c) {
+			if (!right.contains(c1) && !wrong.contains(c1)) {
 				wrong.add(c1);
 			}
 		}
@@ -89,7 +99,7 @@ public abstract class Checkeable<T>{
 				} else {
 					addWrong(t);
 				}
-			}else{
+			} else {
 				if (checkElement(t)) {
 					addRight(t);
 				} else {
@@ -111,7 +121,7 @@ public abstract class Checkeable<T>{
 			cad = "\nThis elements not satisfy " + this.toString() + ":\n\n";
 			print = this.getWrong();
 		}
-		
+
 		for (T t : print) {
 			cad += print(t);
 		}
@@ -121,13 +131,32 @@ public abstract class Checkeable<T>{
 	public String print(T t) {
 		return t.toString();
 	}
-	
+
 	public boolean needVariables() {
 		return false;
 	}
-	
+
 	public void setUsing(Map<String, IElements> using) {
 		this.using = using;
 	}
+
 	public abstract String toString();
+	
+	public boolean isChangeForContains() {
+		return false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void reset(RuleSave<T> rs, int i){
+		this.right=(List<T>) ((ArrayList<T>)rs.getRight(i)).clone();
+		this.wrong=(List<T>) ((ArrayList<T>)rs.getWrong(i)).clone();
+	}
+	
+	public int getChildren(){
+		return 1;
+	}
+	
+	public void save(RuleSave<T> rs, int i){
+		rs.save(i, getRight(), getWrong());
+	}
 }

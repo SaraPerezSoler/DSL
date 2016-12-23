@@ -37,7 +37,7 @@ class ComunSatisfy {
 
 	def static CharSequence javaDoc(JavaDoc jd, String type, String sufix) {
 
-		return "Property<"+type+"> p" + sufix + "= new JavaDoc <"+type+"> ("+jd.no + jd.author + "," + jd.parameter + "," + jd.^return +
+		return "Property<"+type+"> p" + sufix + "= new JavaDoc <"+type+"> ("+jd.no+"," + jd.author + "," + jd.parameter + "," + jd.^return +
 			"," + jd.version + "," + jd.throws + "," + jd.see + ");\n";
 
 	}

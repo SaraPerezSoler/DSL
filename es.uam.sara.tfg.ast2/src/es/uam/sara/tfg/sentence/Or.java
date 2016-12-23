@@ -6,40 +6,43 @@ import java.util.Map;
 
 import es.uam.sara.tfg.elements.IElements;
 
+public class Or<T extends IElements> extends PrimaryOp<T> {
 
-public class Or<T extends IElements> extends PrimaryOp<T>{
+	protected List<And<T>> ands;
+	private boolean changeForContains = false;
 
-	protected List <And<T>> ands;
-		
 	public Or() {
 		super(false);
-		ands= new ArrayList<And<T>>();
+		ands = new ArrayList<And<T>>();
 	}
 
-	public void addAnd(And<T> a){
+	public void addAnd(And<T> a) {
 		ands.add(a);
 	}
-	
+
 	public void check(List<T> analyze) {
-		
-		for (And<T> a: ands){
+
+		for (And<T> a : ands) {
 			a.check(analyze);
 		}
-		for (T a: analyze){
-			boolean right=false;
-			for (And<T> p: ands){
-				if (p.getRight().contains(a)){
+		for (T a : analyze) {
+			boolean right = false;
+			for (And<T> p : ands) {
+				if (p.getRight().contains(a)) {
 					this.addRight(a);
-					right=true;
+					right = true;
+				}else if (p.isChangeForContains()){
+					this.addLastWrong(a);
 				}
 			}
-			if (right==false){
+			if (right == false) {
 				this.addWrong(a);
 			}
 		}
 	}
+
 	public void reset() {
-		for (And<T> a: ands){
+		for (And<T> a : ands) {
 			a.reset();
 		}
 		super.reset();
@@ -47,11 +50,11 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 
 	@Override
 	public String toString() {
-		String cad= "";
-		String or="";
-		for (And<T> a: this.ands){
-			cad+=or + a.toString();
-			or=" or ";
+		String cad = "";
+		String or = "";
+		for (And<T> a : this.ands) {
+			cad += or + a.toString();
+			or = " or ";
 		}
 		return cad;
 	}
@@ -59,16 +62,16 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 	@Override
 	public String print(boolean right) {
 		String cad;
-		if (right){
-			cad="This elements satisfy "+this.toString()+":\n";
-		}else{
-			cad="This elements don't satisfy "+this.toString()+":\n";
+		if (right) {
+			cad = "This elements satisfy " + this.toString() + ":\n";
+		} else {
+			cad = "This elements don't satisfy " + this.toString() + ":\n";
 		}
-		if (ands.size()<=1){
-			cad="";
+		if (ands.size() <= 1) {
+			cad = "";
 		}
-		for (And<T> a: ands){
-			cad+=a.print(right);
+		for (And<T> a : ands) {
+			cad += a.print(right);
 		}
 		return cad;
 	}
@@ -77,25 +80,56 @@ public class Or<T extends IElements> extends PrimaryOp<T>{
 	public boolean checkElement(T analyze) {
 		return false;
 	}
+
 	public boolean needVariables() {
-		for (And<T> a: ands){
-			if (a.needVariables()){
+		for (And<T> a : ands) {
+			if (a.needVariables()) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public void setUsing(Map<String, IElements> using) {
-		for (And<T> a: ands){
+		for (And<T> a : ands) {
 			a.setUsing(using);
 		}
 		super.setUsing(using);
 	}
 
-	public void reset(List<T> right, List<T> wrong) {
+	public void reset(RuleSave<T> rs, int i) {
 		this.reset();
-		this.addAllRight(right);
-		this.addAllWrong(wrong);
+		this.addAllRight(rs.getRight(i));
+		this.addAllWrong(rs.getWrong(i));
+		int k=i++;
+		for (And<T> a : ands){
+			a.reset(rs, k);
+			k=1+a.getChildren();
+		}
 	}
+
+	public boolean isChangeForContains() {
+		return changeForContains;
+	}
+	
+	@Override
+	public int getChildren() {
+		int i=0;
+		for (And<T> p: this.ands){
+			i+=p.getChildren();
+		}
+		return 1+i;
+	}
+	
+	@Override
+	public void save(RuleSave<T> rs, int i) {
+		rs.save(i, getRight(), getWrong());
+		int k=i++;
+		for (And<T> a : ands){
+			a.save(rs, k);
+			k=1+a.getChildren();
+		}
+		
+	}
+
 }

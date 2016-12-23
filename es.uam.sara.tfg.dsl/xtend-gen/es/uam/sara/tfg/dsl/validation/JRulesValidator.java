@@ -238,7 +238,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
             boolean _not = (!_contain);
             if (_not) {
               this.error(
-                (("The variable " + name) + "must be declared in \'using\' clause  "), 
+                (("The variable " + name) + " must be declared in \'using\' clause  "), 
                 JavaRulePackage.Literals.SENTENCE__SATISFY);
             }
           } else {
@@ -251,7 +251,7 @@ public class JRulesValidator extends AbstractJRulesValidator {
               boolean _equals = Objects.equal(_from, null);
               if (_equals) {
                 this.error(
-                  (("The variable " + name) + "must be declared in \'using\' or \'from\' clause  "), 
+                  (("The variable " + name) + " must be declared in \'using\' or \'from\' clause  "), 
                   JavaRulePackage.Literals.SENTENCE__SATISFY);
               }
               Variable _from_1 = s.getFrom();

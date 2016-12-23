@@ -63,5 +63,10 @@ public class TypeIsPrimitive implements TypeFunction{
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return "isPrimitive()";
+	}
 
 }

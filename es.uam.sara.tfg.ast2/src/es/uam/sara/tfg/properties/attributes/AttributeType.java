@@ -16,9 +16,9 @@ public class AttributeType extends StringProperty<MAttribute>{
 	@Override
 	public String toString() {
 		if (no){
-			return "type <>" + type ;
+			return "type <>" + type.toString() ;
 		}
-		return "type =" + type ;
+		return "type =" + type.toString() ;
 	}
 
 	@Override

@@ -1,6 +1,4 @@
 package es.uam.sara.tfg.properties.all;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,39 +8,32 @@ import es.uam.sara.tfg.elements.Container;
 import es.uam.sara.tfg.elements.IElements;
 import es.uam.sara.tfg.properties.Property;
 import es.uam.sara.tfg.sentence.Rule;
+import es.uam.sara.tfg.sentence.RuleSave;
 
 public abstract class Contain<K extends Container, T extends IElements> extends Property<K> {
 
 	private Rule<T> rule;
 	private Map<Container, String> map;
-	private Map<Container, List<T>> rightMap;
-	private Map<Container, List<T>> wrongMap;
+	private Map<Container, RuleSave<T>> save;
+
 
 	public Contain(boolean no, Rule<T> r) {
 		super(no);
 		rule = r;
 		map = new HashMap<Container, String>();
-		rightMap=new HashMap<Container, List<T>>();
-		wrongMap= new HashMap<Container, List<T>>();
+		save=new HashMap<Container, RuleSave<T>>();
 	}
 
 	public boolean checkElement(Container analyze, List<T> subTypes) {
-		List<T> rList=rightMap.get(analyze);
-		if (rList==null){
-			rList= new ArrayList<T>();
+		RuleSave<T> rsave=save.get(analyze);
+		if (rsave==null){
+			rsave= new RuleSave<T>();
 		}
-		List<T> wList=wrongMap.get(analyze);
-		if (wList==null){
-			wList=new ArrayList<T>();
-		}
-		
-		rule.reset(subTypes,rList ,wList );
+		rule.reset(subTypes, rsave);
 		rule.analize();
 		boolean ret = rule.check();
-		rightMap.put(analyze, rule.getRight());
-		wrongMap.put(analyze, rule.getWrong());
+		save.put(analyze, rule.save());
 		map.put(analyze, rule.log());
-		
 		return ret;
 	}
 
@@ -79,5 +70,27 @@ public abstract class Contain<K extends Container, T extends IElements> extends 
 			rule.setUsing(k, using.get(k));
 		}
 		super.setUsing(using);
+	}
+	
+	public void addRight(K t) {
+		if (!this.getRight().contains(t)) {
+			this.getRight().add(t);
+		}
+		if (this.getWrong().contains(t)) {
+			this.getWrong().remove(t);
+		}
+	}
+
+	public void addWrong(K t) {
+		if (!this.getWrong().contains(t)) {
+			this.getWrong().add(t);
+		}
+		if (this.getRight().contains(t)){
+			this.getRight().remove(t);
+		}
+	}
+	
+	public boolean isChangeForContains() {
+		return true;
 	}
 }

@@ -75,25 +75,26 @@ public class ComunSatisfy {
   public static CharSequence javaDoc(final JavaDoc jd, final String type, final String sufix) {
     boolean _isNo = jd.isNo();
     String _plus = ((((((("Property<" + type) + "> p") + sufix) + "= new JavaDoc <") + type) + "> (") + Boolean.valueOf(_isNo));
+    String _plus_1 = (_plus + ",");
     boolean _isAuthor = jd.isAuthor();
-    String _plus_1 = (_plus + Boolean.valueOf(_isAuthor));
-    String _plus_2 = (_plus_1 + ",");
+    String _plus_2 = (_plus_1 + Boolean.valueOf(_isAuthor));
+    String _plus_3 = (_plus_2 + ",");
     boolean _isParameter = jd.isParameter();
-    String _plus_3 = (_plus_2 + Boolean.valueOf(_isParameter));
-    String _plus_4 = (_plus_3 + ",");
+    String _plus_4 = (_plus_3 + Boolean.valueOf(_isParameter));
+    String _plus_5 = (_plus_4 + ",");
     boolean _isReturn = jd.isReturn();
-    String _plus_5 = (_plus_4 + Boolean.valueOf(_isReturn));
-    String _plus_6 = (_plus_5 + 
+    String _plus_6 = (_plus_5 + Boolean.valueOf(_isReturn));
+    String _plus_7 = (_plus_6 + 
       ",");
     boolean _isVersion = jd.isVersion();
-    String _plus_7 = (_plus_6 + Boolean.valueOf(_isVersion));
-    String _plus_8 = (_plus_7 + ",");
+    String _plus_8 = (_plus_7 + Boolean.valueOf(_isVersion));
+    String _plus_9 = (_plus_8 + ",");
     boolean _isThrows = jd.isThrows();
-    String _plus_9 = (_plus_8 + Boolean.valueOf(_isThrows));
-    String _plus_10 = (_plus_9 + ",");
+    String _plus_10 = (_plus_9 + Boolean.valueOf(_isThrows));
+    String _plus_11 = (_plus_10 + ",");
     boolean _isSee = jd.isSee();
-    String _plus_11 = (_plus_10 + Boolean.valueOf(_isSee));
-    return (_plus_11 + ");\n");
+    String _plus_12 = (_plus_11 + Boolean.valueOf(_isSee));
+    return (_plus_12 + ");\n");
   }
   
   public static CharSequence modifiers(final Modifiers m, final String type, final String sufix) {

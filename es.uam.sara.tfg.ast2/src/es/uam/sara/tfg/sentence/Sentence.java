@@ -49,9 +49,9 @@ public abstract class Sentence<T extends IElements> {
 		return analyze;
 	}
 	
-	public void reset(List<T> elements, List<T> right, List<T> wrong){
+	public void reset(List<T> elements, RuleSave<T> rs){
 		this.elements=elements;
-		satisfy.reset(right, wrong);
+		satisfy.reset(rs, 0);
 	}
 
 	public void setIn(List<T> elements, String name){

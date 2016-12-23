@@ -55,8 +55,8 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	}
 
-	public void reset(List<T> elements, List<T> right, List<T> wrong) {
-		super.reset(elements, right, wrong);
+	public void reset(List<T> elements, RuleSave<T> rsave) {
+		super.reset(elements, rsave);
 		filter.reset();
 	}
 
@@ -143,6 +143,12 @@ public class Rule<T extends IElements> extends Sentence<T> {
 
 	public boolean needVariabes() {
 		return this.satisfy.needVariables() || this.filter.needVariables();
+	}
+
+	public RuleSave<T> save() {
+		RuleSave<T> save= new RuleSave<T>();
+		satisfy.save(save, 0);
+		return save;
 	}
 
 }
