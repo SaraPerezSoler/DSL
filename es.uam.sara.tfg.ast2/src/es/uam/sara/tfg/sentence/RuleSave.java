@@ -22,17 +22,17 @@ public class RuleSave<T extends IElements> {
 	}
 	
 	public List<T> getRight(int i) {
-		List<T> ret= rights.get(i);
-		if (ret==null){
-			ret=new ArrayList<T>();
+		if (rights.size()<=i){
+			return new ArrayList<T>();
 		}
+		List<T> ret= rights.get(i);
 		return ret;
 	}
 	public List<T> getWrong(int i) {
-		List<T> ret=wrongs.get(i);
-		if (ret==null){
-			ret=new ArrayList<T>();
+		if (wrongs.size()<=i){
+			return new ArrayList<T>();
 		}
+		List<T> ret=wrongs.get(i);
 		return ret;
 	}
 	
