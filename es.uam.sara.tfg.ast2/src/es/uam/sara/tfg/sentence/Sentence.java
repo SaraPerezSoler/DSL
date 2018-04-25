@@ -10,14 +10,16 @@ import es.uam.sara.tfg.elements.IElements;
 
 public abstract class Sentence<T extends IElements> {
 
-	protected String ielement;
-	protected Or<T> satisfy;
-	protected Or<T> filter;
-	protected Map<String, IElements> using= new HashMap<String, IElements>();;
-	//protected List<String> using= new ArrayList<String>();
 	private List<T> elements;
-	protected List<In<T>> in;
 	protected In<T> from=null;
+	protected List<In<T>> in;
+	protected Map<String, IElements> using= new HashMap<String, IElements>();
+	protected Or<T> filter;
+	protected Or<T> satisfy;
+		
+	protected String ielement;
+	
+	
 	public static Map<String, Variable<? extends IElements>> allVariables= new HashMap<String, Variable<? extends IElements>>();
 
 
@@ -38,16 +40,7 @@ public abstract class Sentence<T extends IElements> {
 		}
 	}
 	
-	public List<T> getElements(){
-		List<T> analyze=this.elements;
-		if (from!=null){
-			analyze=from.getElements();
-		}
-		for (In<T> i: in){
-			analyze= i.getUnion(analyze);
-		}
-		return analyze;
-	}
+	
 	
 	public void reset(List<T> elements, RuleSave<T> rs){
 		this.elements=elements;
@@ -104,6 +97,18 @@ public abstract class Sentence<T extends IElements> {
 	}
 	
 	public abstract boolean check();
+	
+	public List<T> getElements(){
+		List<T> analyze=this.elements;
+		if (from!=null){
+			analyze=from.getElements();
+		}
+		for (In<T> i: in){
+			analyze= i.getUnion(analyze);
+		}
+		return analyze;
+	}
+	
 	public void analize(){
 
 		List<T> analyze = this.getElements();

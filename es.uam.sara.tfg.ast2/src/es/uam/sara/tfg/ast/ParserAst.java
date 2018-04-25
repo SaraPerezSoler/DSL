@@ -11,20 +11,27 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
 public class ParserAst {
-
-	//use ASTParse to parse string
+	/**
+	 * Funcion para crear el AST de un código JAva
+	 * 
+	 * @param str String con el código Java
+	 * @param visitor visitor del AST, recorre todo el árbol
+	 * @return CompilationUnit
+	 */
 	public static CompilationUnit parse(String str, ASTVisitor visitor) {
 		
-		ASTParser parser = ASTParser.newParser(AST.JLS8);
-		parser.setResolveBindings(true);
+		ASTParser parser = ASTParser.newParser(AST.JLS8); //creamos objeto ASTParser asignando una versión de Java, en este caso Java 8
+		parser.setResolveBindings(true); //Configuracion de algunas opciones.
 		parser.setBindingsRecovery(true);
-		parser.setSource(str.toCharArray());
+		parser.setSource(str.toCharArray());//Se pasa la cadena de caracteres con el codigo para parsear.
 		parser.setKind(ASTParser.K_COMPILATION_UNIT);
-		Map<String, String> options = JavaCore.getOptions();
-		options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_1_5); //or newer version
+		Map<String, String> options = JavaCore.getOptions(); //Configurancion de opciones para poder acceder a los tipos Enumerados.
+		options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_1_5); 
 		parser.setCompilerOptions(options);
 		
+		//Se crea el AST
 		final CompilationUnit cu = (CompilationUnit) parser.createAST(null);
+		//Se le añade el visitor.
 		cu.accept(visitor);
 		if (visitor instanceof UnitVisitor){
 			((UnitVisitor)visitor).setComp(cu);

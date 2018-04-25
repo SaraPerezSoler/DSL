@@ -90,18 +90,18 @@ class JRulesGenerator extends AbstractGenerator {
 			 		types.add(new TypeVisitor("«p.name»", "."));
 			 	«ENDFOR»
 		
-					 	for (int i=0; i <roots.size(); i++){
-			types.get(i).readObject();
-			actual=types.get(i);
-			File root=roots.get(i);
-			Visitors visit=projects.get(i);
-			ReadFiles.parseFiles(root, visit);
-			RuleFactory rf= new RuleFactory(visit);
-			rf.getRules();
-			rf.writeLog();
-			actual=null;
-					 	}
-					 }
+		 	for (int i=0; i <roots.size(); i++){
+				types.get(i).readObject();
+				actual=types.get(i);
+				File root=roots.get(i);
+				Visitors visit=projects.get(i);
+				ReadFiles.parseFiles(root, visit);
+				RuleFactory rf= new RuleFactory(visit);
+				rf.getRules();
+				rf.writeLog();
+				actual=null;
+						 	}
+		 }
 				
 		}'''
 
